@@ -60,7 +60,7 @@ SHEBANG_FILES=	src/gallium/*/*/*.py src/gallium/tools/trace/*.py \
 		src/mapi/glapi/gen/*.py src/mapi/mapi_abi.py \
 		src/mesa/drivers/dri/common/xmlpool/gen_xmlpool.py \
 		src/mesa/main/get_*.py src/util/format_srgb.py \
-		src/amd/*/*.py src/intel/genxml/gen_pack_header.py
+		src/intel/genxml/gen_pack_header.py
 
 MASTERDIR=	${.CURDIR:H:H}/graphics/mesa-dri
 PATCHDIR=	${MASTERDIR}/files

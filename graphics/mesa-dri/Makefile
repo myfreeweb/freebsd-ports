@@ -31,6 +31,7 @@ VDPAU_LIB_DEPENDS=	libvdpau.so:multimedia/libvdpau
 
 ALL_DRI_DRIVERS=	I915 I965 RADEON R200 SWRAST
 ALL_GALLIUM_DRIVERS=	FREEDRENO R300 R600 RADEONSI SVGA SWRAST VC4
+ALL_VULKAN_DRIVERS=	INTEL RADEON
 
 DRI_DRIVERS=		SWRAST	# classic swrast
 .if "${MESA_LLVM_VER}" != ""
@@ -38,12 +39,15 @@ GALLIUM_DRIVERS=	SWRAST	# llvmpipe
 .else
 GALLIUM_DRIVERS=	""
 .endif
+VULKAN_DRIVERS=		#
+
 .if ${ARCH} == amd64 || ${ARCH} == i386 \
  || ${ARCH} == powerpc || ${ARCH} == powerpc64
 DRI_DRIVERS+=		RADEON R200
 GALLIUM_DRIVERS+=	R300 R600
 . if "${MESA_LLVM_VER}" != ""	# until PPC gets LLVM in base
 GALLIUM_DRIVERS+=	RADEONSI
+VULKAN_DRIVERS+=	RADEON
 . endif
 .endif
 .if ${ARCH} == amd64 || ${ARCH} == i386
@@ -52,12 +56,14 @@ GALLIUM_DRIVERS+=	SVGA
 . if ${OPSYS} == FreeBSD && ${OSVERSION} < 1100000
 EXTRA_PATCHES+=	${PATCHDIR}/extra-src_mesa_drivers_dri_i965_intel__screen.c
 . endif
+VULKAN_DRIVERS+=	INTEL
 .elif ${ARCH} == armv6 || ${ARCH} == aarch64
 GALLIUM_DRIVERS+=	FREEDRENO VC4
 .endif
 
 CONFIGURE_ARGS+=	--with-dri-drivers="${DRI_DRIVERS:tl}" \
-			--with-gallium-drivers="${GALLIUM_DRIVERS:tl}"
+			--with-gallium-drivers="${GALLIUM_DRIVERS:tl}" \
+			--with-vulkan-drivers="${VULKAN_DRIVERS:tl}"
 
 .for _d in ${ALL_DRI_DRIVERS}
 . if ${DRI_DRIVERS:M${_d}}
@@ -72,6 +78,14 @@ PLIST_SUB+=	${_d}_DRIVER="@comment "
 PLIST_SUB+=	${_gd}_GDRIVER=""
 . else
 PLIST_SUB+=	${_gd}_GDRIVER="@comment "
+. endif
+.endfor
+
+.for _vd in ${ALL_VULKAN_DRIVERS}
+. if ${VULKAN_DRIVERS:M${_vd}}
+PLIST_SUB+=	${_vd}_VDRIVER="" ARCH="${ARCH}"
+. else
+PLIST_SUB+=	${_vd}_VDRIVER="@comment "
 . endif
 .endfor
 
