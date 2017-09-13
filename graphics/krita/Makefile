@@ -32,7 +32,8 @@ LIB_DEPENDS=	libIlmImf.so:graphics/OpenEXR \
 		libxcb-util.so:x11/xcb-util
 
 USES=		cmake:outsource compiler:c++11-lib desktop-file-utils \
-		gettext jpeg kde:5
+		gettext jpeg kde:5 shared-mime-info
+
 USE_KDE=	archive completion config coreaddons crash guiaddons i18n \
 		itemmodels itemviews kio service widgetsaddons windowsystem
 USE_QT5=	buildtools_build concurrent core dbus gui network printsupport \
@@ -40,6 +41,7 @@ USE_QT5=	buildtools_build concurrent core dbus gui network printsupport \
 USE_XORG=	ice sm xcb xext xi
 
 OPTIONS_DEFINE=		GMIC
+OPTIONS_DEFAULT=	#
 OPTIONS_SUB=		yes
 
 GMIC_DESC=		Build the G'Mic plugin

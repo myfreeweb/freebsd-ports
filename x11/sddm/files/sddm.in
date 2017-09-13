@@ -1,5 +1,5 @@
 #!/bin/sh
-# $FreeBSD$
+# $FreeBSD: branches/plasma5/PORTS/x11/sddm/files/sddm.in 13764 2017-03-12 08:06:46Z tcberner $
 #
 # PROVIDE: sddm
 # REQUIRE: LOGIN cleanvar moused syscons dbus hald

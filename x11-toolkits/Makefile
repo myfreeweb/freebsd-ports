@@ -90,6 +90,7 @@
     SUBDIR += kf5-kguiaddons
     SUBDIR += kf5-kirigami2
     SUBDIR += kf5-kitemviews
+    SUBDIR += kf5-kirigami2
     SUBDIR += kf5-kjobwidgets
     SUBDIR += kf5-ktextwidgets
     SUBDIR += kf5-kwidgetsaddons
@@ -193,6 +194,7 @@
     SUBDIR += pangox-compat
     SUBDIR += pangoxsl
     SUBDIR += phat
+    SUBDIR += plasma5-kdeplasma-addons
     SUBDIR += plib
     SUBDIR += pure-gtk
     SUBDIR += pure-tk

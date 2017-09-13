@@ -1,4 +1,4 @@
-# $FreeBSD$
+# $FreeBSD: branches/plasma5/PORTS/multimedia/QtAV/Makefile 13820 2017-04-08 07:30:07Z tcberner $
 
 PORTNAME=		QtAV
 PORTVERSION=		1.12.0

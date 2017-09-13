@@ -954,7 +954,6 @@ x11-wm/ion-2||2010-01-18|Has expired: has been broken for 4 months
 databases/pear-Doctrine2||2010-01-20|Removed
 audio/dino||2010-01-20|Has expired: has been broken for 7 months
 devel/asis-gpl||2010-01-20|Has expired: has been broken for 3 months
-devel/kdesvn||2010-01-20|Has expired: has been broken for 4 months
 devel/radrails||2010-01-20|Has expired: has been broken for 3 months
 devel/rubygem-rtags||2010-01-20|Has expired: has been broken for 5 months
 games/hattrickorganizer||2010-01-20|Has expired: Has been broken for a while
@@ -2867,7 +2866,6 @@ lang/p5-JavaScript||2011-11-01|Does not fetch
 lang/TenDRA||2011-11-01|Website disappeared; last release in 2006, does not compile on recent FreeBSD-9
 mail/freepops||2011-11-01|Does not build
 mail/itraxp||2011-11-01|Does not build
-misc/tellico||2011-11-01|Leaves files behind on deinstallation
 net/gsambad||2011-11-01|Does not fetch
 net/nocatauth-gateway||2011-11-01|Uses a UID registered to another port
 net/nocatauth-server||2011-11-01|Uses a UID registered to another port
@@ -3754,7 +3752,6 @@ japanese/gxditview||2012-10-25|Has expired: No more public distfiles
 graphics/view3ds||2012-10-25|Has expired: No more public distfiles
 graphics/photoclip||2012-10-25|Has expired: No more public distfiles
 graphics/multivideo||2012-10-25|Has expired: Abandonware, no more upstream, depends on the deprecated wxGTK 2.4
-graphics/kphotoalbum||2012-10-25|Has expired: No more public distfiles
 graphics/jpegpixi||2012-10-25|Has expired: No more public distfiles
 graphics/gimp-manual-pdf||2012-10-25|Has expired: No more public distfiles
 games/yace||2012-10-25|Has expired: No more public distfiles
@@ -4418,7 +4415,6 @@ sysutils/rsyslog6-devel-dbi|sysutils/rsyslog7|2013-07-25|Has expired: Use sysuti
 sysutils/rsyslog6-devel-gssapi|sysutils/rsyslog7|2013-07-25|Has expired: Use sysutils/rsyslog7
 sysutils/rsyslog6-devel|sysutils/rsyslog7|2013-07-25|Has expired: Use sysutils/rsyslog7
 graphics/allegrogl||2013-07-26|Now part of devel/allegro
-accessibility/kdeaccessibility||2013-07-26|Has expired: Depends on Qt 3.x
 arabic/kde3-i18n||2013-07-26|Has expired: Depends on Qt 3.x
 archivers/kbackup||2013-07-26|Has expired: Depends on Qt 3.x
 archivers/kio_p7zip||2013-07-26|Has expired: Depends on Qt 3.x
@@ -4485,7 +4481,6 @@ devel/crossvc||2013-07-26|Has expired: Depends on Qt 3.x
 devel/dbus-qt3||2013-07-26|Has expired: Depends on Qt 3.x
 devel/esvn||2013-07-26|Has expired: Depends on Qt 3.x
 devel/kdesdk3||2013-07-26|Has expired: Depends on Qt 3.x
-devel/kdevelop||2013-07-26|Has expired: Depends on Qt 3.x
 devel/kodos||2013-07-26|Has expired: Depends on Qt 3.x
 devel/kprof||2013-07-26|Has expired: Depends on Qt 3.x
 devel/kscope||2013-07-26|Has expired: Depends on Qt 3.x
@@ -4495,7 +4490,6 @@ devel/qssl||2013-07-26|Has expired: Depends on Qt 3.x
 devel/subcommander||2013-07-26|Has expired: Depends on Qt 3.x
 editors/f4l||2013-07-26|Has expired: Depends on Qt 3.x
 editors/kate-plugins||2013-07-26|Has expired: Depends on Qt 3.x
-editors/kile||2013-07-26|Has expired: Depends on Qt 3.x
 editors/klat||2013-07-26|Has expired: Depends on Qt 3.x
 editors/kxmleditor||2013-07-26|Has expired: Depends on Qt 3.x
 editors/rospell||2013-07-26|Has expired: Depends on Qt 3.x
@@ -4535,16 +4529,13 @@ german/kheisereg||2013-07-26|Has expired: Depends on Qt 3.x
 german/ksteak||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/albumshaper||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/amanith||2013-07-26|Has expired: Depends on Qt 3.x
-graphics/digikam||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/digikam-doc||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/divxcalc||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/ecg2png||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/flip||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/fractorama||2013-07-26|Has expired: Depends on Qt 3.x
-graphics/gwenview||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/imgseek||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/kalbum||2013-07-26|Has expired: Depends on Qt 3.x
-graphics/kamera||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/kbarcode||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/kdegraphics3||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/kipi-plugins||2013-07-26|Has expired: Depends on Qt 3.x
@@ -4553,10 +4544,7 @@ graphics/kooka||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/kradview||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/kuickshow||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/landscape||2013-07-26|Has expired: Depends on Qt 3.x
-graphics/libkdcraw||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/libkexif||2013-07-26|Has expired: Depends on Qt 3.x
-graphics/libkexiv2||2013-07-26|Has expired: Depends on Qt 3.x
-graphics/libkipi||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/libqglviewer||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/libx3dtk||2013-07-26|Has expired: Depends on Qt 3.x
 graphics/potracegui||2013-07-26|Has expired: Depends on Qt 3.x
@@ -4681,13 +4669,11 @@ net/kphone||2013-07-26|Has expired: Depends on Qt 3.x
 net/krdesktop||2013-07-26|Has expired: Depends on Qt 3.x
 net/lanbrowsing||2013-07-26|Has expired: Depends on Qt 3.x
 net/pppload||2013-07-26|Has expired: Depends on Qt 3.x
-net/smb4k||2013-07-26|Has expired: Depends on Qt 3.x
 net/twinkle||2013-07-26|Has expired: Depends on Qt 3.x
 net-im/eva||2013-07-26|Has expired: Depends on Qt 3.x
 net-im/kmerlin||2013-07-26|Has expired: Depends on Qt 3.x
 net-im/kmess||2013-07-26|Has expired: Depends on Qt 3.x
 net-im/konverse||2013-07-26|Has expired: Depends on Qt 3.x
-net-im/kopete||2013-07-26|Has expired: Depends on Qt 3.x
 net-im/kpopup||2013-07-26|Has expired: Depends on Qt 3.x
 net-im/sim-im||2013-07-26|Has expired: Depends on Qt 3.x
 net-im/sim-im-devel||2013-07-26|Has expired: Depends on Qt 3.x
@@ -4711,15 +4697,12 @@ russian/ksocrat||2013-07-26|Has expired: Depends on Qt 3.x
 science/gsystem||2013-07-26|Has expired: Depends on Qt 3.x
 science/kmovisto||2013-07-26|Has expired: Depends on Qt 3.x
 science/kst||2013-07-26|Has expired: Depends on Qt 3.x
-security/kgpg||2013-07-26|Has expired: Depends on Qt 3.x
 security/klamav||2013-07-26|Has expired: Depends on Qt 3.x
 security/kopete-otr||2013-07-26|Has expired: Depends on Qt 3.x
 security/kovpn||2013-07-26|Has expired: Depends on Qt 3.x
 security/kssh||2013-07-26|Has expired: Depends on Qt 3.x
 security/qca-tls||2013-07-26|Has expired: Depends on Qt 3.x
 security/qtfw||2013-07-26|Has expired: Depends on Qt 3.x
-sysutils/filelight||2013-07-26|Has expired: Depends on Qt 3.x
-sysutils/k3b||2013-07-26|Has expired: Depends on Qt 3.x
 sysutils/kcpuload||2013-07-26|Has expired: Depends on Qt 3.x
 sysutils/kdeadmin3||2013-07-26|Has expired: Depends on Qt 3.x
 sysutils/keep||2013-07-26|Has expired: Depends on Qt 3.x
@@ -4733,7 +4716,6 @@ sysutils/kmilo||2013-07-26|Has expired: Depends on Qt 3.x
 sysutils/knutclient||2013-07-26|Has expired: Depends on Qt 3.x
 sysutils/komparator||2013-07-26|Has expired: Depends on Qt 3.x
 sysutils/krename||2013-07-26|Has expired: Depends on Qt 3.x
-sysutils/kshutdown||2013-07-26|Has expired: Depends on Qt 3.x
 sysutils/ksynaptics||2013-07-26|Has expired: Depends on Qt 3.x
 sysutils/lineak-kdeplugins||2013-07-26|Has expired: Depends on Qt 3.x
 sysutils/luma||2013-07-26|Has expired: Depends on Qt 3.x
@@ -4754,9 +4736,7 @@ x11/kdelibs3||2013-07-26|Has expired: Depends on Qt 3.x
 x11/kdelibs3-nocups||2013-07-26|Has expired: Depends on Qt 3.x
 x11/oooqs2||2013-07-26|Has expired: Depends on Qt 3.x
 x11/xscreensaver-kde||2013-07-26|Has expired: Depends on Qt 3.x
-x11/yakuake||2013-07-26|Has expired: Depends on Qt 3.x
 x11-clocks/kdetoys3||2013-07-26|Has expired: Depends on Qt 3.x
-x11-fm/dolphin||2013-07-26|Has expired: Depends on Qt 3.x
 x11-fm/krusader||2013-07-26|Has expired: Depends on Qt 3.x
 x11-themes/baghira||2013-07-26|Has expired: Depends on Qt 3.x
 x11-themes/kde-style-comix||2013-07-26|Has expired: Depends on Qt 3.x
@@ -9377,6 +9357,173 @@ games/ioquake3-devel|games/ioquake3|2017-05-18|GitHub master is the new release 
 games/ioquake3-devel-server|games/ioquake3-server|2017-05-18|GitHub master is the new release model
 devel/rubygem-generator_spec|devel/rubygem-generator_spec-rails5|2017-05-19|Use devel/rubygem-generator_spec-rails4 or devel/rubygem-generator_spec-rails5
 deskutils/openproj|deskutils/projectlibre|2017-05-19|Has expired: Development ceased, superseded by deskutils/projectlibre
+arabic/kde4-l10n|arabic/kde-l10n|2017-05-23|Renamed to be less confusing
+chinese/kde4-l10n-zh_TW|chinese/kde-l10n-zh_TW|2017-05-23|Renamed to be less confusing
+chinese/kde4-l10n-zh_CN|chinese/kde-l10n-zh_CN|2017-05-23|Renamed to be less confusing
+french/kde4-l10n|french/kde-l10n|2017-05-23|Renamed to be less confusing
+german/kde4-l10n|german/kde-l10n|2017-05-23|Renamed to be less confusing
+graphics/digikam-kde4-l10n|graphics/digikam-kde-l10n|2017-05-23|Renamed to be less confusing
+hebrew/kde4-l10n|hebrew/kde-l10n|2017-05-23|Renamed to be less confusing
+hungarian/kde4-l10n|hungarian/kde-l10n|2017-05-23|Renamed to be less confusing
+japanese/kde4-l10n|japanese/kde-l10n|2017-05-23|Renamed to be less confusing
+korean/kde4-l10n|korean/kde-l10n|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-gl|misc/kde-l10n-gl|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-es|misc/kde-l10n-es|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-wa|misc/kde-l10n-wa|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-bg|misc/kde-l10n-bg|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-bs|misc/kde-l10n-bs|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-et|misc/kde-l10n-et|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-pa|misc/kde-l10n-pa|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-hr|misc/kde-l10n-hr|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-ga|misc/kde-l10n-ga|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-nb|misc/kde-l10n-nb|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-ug|misc/kde-l10n-ug|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-ia|misc/kde-l10n-ia|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-nl|misc/kde-l10n-nl|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-lt|misc/kde-l10n-lt|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n|misc/kde-l10n|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-km|misc/kde-l10n-km|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-fa|misc/kde-l10n-fa|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-cs|misc/kde-l10n-cs|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-id|misc/kde-l10n-id|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-lv|misc/kde-l10n-lv|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-eu|misc/kde-l10n-eu|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-sv|misc/kde-l10n-sv|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-fi|misc/kde-l10n-fi|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-el|misc/kde-l10n-el|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-nn|misc/kde-l10n-nn|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-nds|misc/kde-l10n-nds|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-mr|misc/kde-l10n-mr|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-da|misc/kde-l10n-da|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-is|misc/kde-l10n-is|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-en_GB|misc/kde-l10n-en_GB|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-sk|misc/kde-l10n-sk|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-tr|misc/kde-l10n-tr|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-hi|misc/kde-l10n-hi|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-sr|misc/kde-l10n-sr|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-sl|misc/kde-l10n-sl|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-kk|misc/kde-l10n-kk|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-it|misc/kde-l10n-it|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-ro|misc/kde-l10n-ro|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-ca_valencia|misc/kde-l10n-ca_valencia|2017-05-23|Renamed to be less confusing
+misc/kde4-l10n-ca|misc/kde-l10n-ca|2017-05-23|Renamed to be less confusing
+polish/kde4-l10n|polish/kde-l10n|2017-05-23|Renamed to be less confusing
+portuguese/kde4-l10n-pt_BR|portuguese/kde-l10n-pt_BR|2017-05-23|Renamed to be less confusing
+portuguese/kde4-l10n|portuguese/kde-l10n|2017-05-23|Renamed to be less confusing
+russian/kde4-l10n|russian/kde-l10n|2017-05-23|Renamed to be less confusing
+ukrainian/kde4-l10n|ukrainian/kde-l10n|2017-05-23|Renamed to be less confusing
+vietnamese/kde4-l10n|vietnamese/kde-l10n|2017-05-23|Renamed to be less confusing
+chinese/calligra-l10n-zh_TW|editors/calligra|2017-05-23|Reintegrated into one port
+chinese/calligra-l10n-zh_CN|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-kk|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-it|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-ca|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-da|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-sk|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-tr|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-el|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-sv|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-fi|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-ca_valencia|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-cs|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-nl|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-en_GB|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-bs|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-et|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-nb|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-gl|editors/calligra|2017-05-23|Reintegrated into one port
+editors/calligra-l10n-es|editors/calligra|2017-05-23|Reintegrated into one port
+french/calligra-l10n|editors/calligra|2017-05-23|Reintegrated into one port
+german/calligra-l10n|editors/calligra|2017-05-23|Reintegrated into one port
+hungarian/calligra-l10n|editors/calligra|2017-05-23|Reintegrated into one port
+japanese/calligra-l10n|editors/calligra|2017-05-23|Reintegrated into one port
+polish/calligra-l10n|editors/calligra|2017-05-23|Reintegrated into one port
+portuguese/calligra-l10n-pt_BR|editors/calligra|2017-05-23|Reintegrated into one port
+portuguese/calligra-l10n|editors/calligra|2017-05-23|Reintegrated into one port
+russian/calligra-l10n|editors/calligra|2017-05-23|Reintegrated into one port
+ukrainian/calligra-l10n|editors/calligra|2017-05-23|Reintegrated into one port
+graphics/digikam-kde4|graphics/digikam|2017-05-23|Renamed to drop -kde4 suffix
+graphics/digikam-kde4-l10n|graphics/digikam|2017-05-23|Reintegrated into one port
+graphics/digikam-kde4-doc|graphics/digikam|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-acquireimages|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-advancedslideshow|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-batchprocess|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-calendar|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-debianscreenshots|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-dngconverter|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-dropbox|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-expoblending|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-facebook|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-flashexport|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-flickrexport|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-galleryexport|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-googleservices|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-gpssync|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-htmlexport|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-imageshackexport|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-imageviewer|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-imgurexport|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-ipodexport|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-jalbumexport|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-jpeglossless|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-kioexport|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-kmlexport|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-kopete|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-mediawiki|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-metadataedit|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-panorama|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-photolayoutseditor|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-piwigoexport|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-printimages|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-rajceexport|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-rawconverter|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-removeredeyes|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-sendimages|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-shwup|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-smug|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-timeadjust|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-videoslideshow|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-vkontakte|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugin-yandexfotki|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+graphics/kipi-plugins-kde4|graphics/kipiplugins|2017-05-23|Reintegrated into one port
+accessibility/kdeaccessibility4|accessibility/kdeaccessibility|2017-05-23|Renamed to drop -kde4 suffix
+audio/kio-audiocd|audio/audiocd-kio|2017-05-23|Use proper name of package
+devel/kdebindings4||2017-05-23|EOL
+devel/kdesdk4-thumbnailers|devel/kdesdk-thumbnailers|2017-05-23|Renamed to drop -kde4 suffix
+devel/kdesdk4|devel/kdesdk|2017-05-23|Renamed to drop -kde4 suffix
+devel/kdesdk4-kioslaves||2017-05-23|EOL
+devel/kdesdk4-strigi-analyzers||2017-05-23|EOL
+devel/kdesvn-kde4|devel/kdesvn|2017-05-23|Renamed to drop -kde4 suffix
+devel/kdevelop-kde4|devel/kdevelop|2017-05-23|Renamed to drop -kde4 suffix
+editors/kate-plugin-pate||2017-05-23|Not compatible with modern kate
+editors/kile-kde4|editors/kile|2017-05-23|Renamed to drop -kde4 suffix
+graphics/gwenview-kde4|graphics/gwenview|2017-05-23|Renamed to drop -kde4 suffix
+graphics/kamera-kde4|graphics/kamera|2017-05-23|Renamed to drop -kde4 suffix
+graphics/kphotoalbum-kde4|graphics/kphotoalbum|2017-05-23|Renamed to drop -kde4 suffix
+irc/konversation-kde4|irc/konversation|2017-05-23|Renamed to drop -kde4 suffix
+misc/kdeedu4|misc/kdeedu|2017-05-23|Renamed to drop -kde4 suffix
+misc/kdeutils4|misc/kdeutils|2017-05-23|Renamed to drop -kde4 suffix
+multimedia/kdemultimedia4-ffmpegthumbs|multimedia/kdemultimedia-ffmpegthumbs|2017-05-23|Renamed to drop -kde4 suffix
+multimedia/kdemultimedia4|multimedia/kdemultimedia|2017-05-23|Renamed to drop -kde4 suffix
+multimedia/kdemultimedia4-mplayerthumbs||2017-05-23|EOL
+net-im/kopete-kde4|net-im/kopete|2017-05-23|Renamed to drop -kde4 suffix
+net-im/ktp-kded-integration-module|net-im/ktp-kded-module|2017-05-23|Renamed upstream
+net/kdenetwork4-filesharing|net/kdenetwork-filesharing|2017-05-23|Renamed to drop -kde4 suffix
+net/kdenetwork4|net/kdenetwork|2017-05-23|Renamed to drop -kde4 suffix
+net/kdenetwork4-strigi-analyzers||2017-05-23|EOL
+sysutils/filelight-kde4|sysutils/filelight|2017-05-23|Renamed to drop -kde4 suffix
+sysutils/k3b-kde4|sysutils/k3b|2017-05-23|Renamed to drop -kde4 suffix
+sysutils/kdeadmin4|sysutils/kdeadmin|2017-05-23|Renamed to drop -kde4 suffix
+x11-clocks/kdetoys4|x11-clocks/kdetoys|2017-05-23|Renamed to drop -kde4 suffix
+x11/yakuake-kde4|x11/yakuake|2017-05-23|Renamed to drop -kde4 suffix
+x11/kde4|x11/kde|2017-05-23|Replace kde4 metaport with kde metaport
+x11/kde5|x11/kde|2017-05-23|Ship only one version of kde metaport
+x11/kde4-runtime|x11/kde-runtime|2017-05-23|Give port it's proper name
+multimedia/kmplayer-kde4|multimedia/kmplayer|2017-05-23|Don't use -kde4 suffix
+deskutils/kdeplasma-addons||2017-05-23|EOL
+games/knights-kde|games/knights|2017-05-23|Don't use -kde4 suffix
+sysutils/kshutdown-kde4|sysutils/kshutdown|2017-05-23|Don't use -kde4 suffix
 net/go-madonctl|net/madonctl|2017-05-21|Remove go- prefix
 net-mgmt/zabbix24-agent||2017-05-29|Has expired: Upstream has declared this version EoL in 2016 (Q1)
 net-mgmt/zabbix24-frontend||2017-05-29|Has expired: Upstream has declared this version EoL in 2016 (Q1)
@@ -9432,6 +9579,9 @@ editors/calligra-l10n-sv||2017-06-12|Merged with editors/calligra
 editors/calligra-l10n-tr||2017-06-12|Merged with editors/calligra
 editors/calligra-l10n||2017-06-12|Merged with editors/calligra
 www/py-flask-restplus08||2017-06-21|Obsolete and not depended on anymore
+www/qt5-webkit-annulen|www/qt5-webkit|2017-07-08|The active fork of Qt WebKit has replaced the stale official one
+net/smb4k-kde4|net/smb4k-kde4|2017-07-22|Drop the kde4 suffix
+misc/tellico-kde4|misc/tellico|2017-07-22|Drop the kde4 suffix
 databases/pgpool-II|databases/pgpool|2017-06-25|Has expired: Deprecated by upstream; use database/pgpool instead
 databases/pgpool-II-30|databases/pgpool|2017-06-25|Has expired: Deprecated by upstream; use database/pgpool instead
 games/libgames-support||2017-06-25|Has expired: Superseded by libgnome-games-support, no longer used by anything
@@ -9462,8 +9612,18 @@ databases/py-odbc|databases/py-pyodbc|2017-07-18|Rename to comply with PyPI sche
 security/sshguard-ipfw|security/sshguard|2017-07-20|Merged with security/sshguard
 security/sshguard-pf|security/sshguard|2017-07-20|Merged with security/sshguard
 security/sshguard-null|security/sshguard|2017-07-20|Merged with security/sshguard
+vietnamese/kde-l10n||2017-07-21|Has not been shipped by KDE for a while.
 audio/gstreamer1-plugins-mad|audio/gstreamer1-plugins-mpg123|2017-07-21|The GStreamer 1 mad plugin was removed, the mpg123 plugin supplies the same functionality
 x11-toolkits/gstreamer1-plugins-gtksink|x11-toolkits/gstreamer1-plugins-gtk|2017-07-21|The GStreamer 1 gtksink plugin was renamed
+x11/kde4-workspace||2017-07-22|Has reached EOL
+sysutils/ksysguardd||2017-07-22|Has reached EOL
+x11-themes/kdeartwork4||2017-07-22|Has reached EOL
+x11-clocks/ktux||2017-07-22|Has reached EOL
+x11/plasma-scriptengine-python||2017-07-22|Has reached EOL
+x11/plasma-scriptengine-ruby||2017-07-22|Has reached EOL
+deskutils/kdepim4||2017-07-22|Has reached EOL
+deskutils/kdepim4-runtime||2017-07-22|Has reached EOL
+devel/cmake-modules||2017-07-27|Merged with devel/cmake
 devel/ffcall|devel/libffcall|2017-07-28|Project was renamed
 databases/grass|databases/grass6|2017-07-30|Project was renamed to allow for grass7
 net/rubygem-oauth212|net/rubygem-oauth2|2017-07-31|Has expired: Only created for www/gitlab; please use net/rubygem-oauth2 instead
@@ -9492,6 +9652,8 @@ security/openvas-manager|security/openvas8-manager|2017-08-03|Renamed to include
 security/openvas-scanner|security/openvas8-scanner|2017-08-03|Renamed to include openvas 9 ports. It reflects a better name
 security/greenbone-security-assistant|security/greenbone-security-assistant8|2017-08-03|Renamed to include openvas 9 ports. It reflects a better name
 sysutils/consolekit|sysutils/consolekit2|2017-08-05|Continuation of the consolekit project
+x11-toolkits/kirigami||2017-08-07|Not needed by anything
+x11-toolkits/kirigami2|x11-toolkits/kf5-kirigami2|2017-08-07|Became an official framework
 mail/dovecot2|mail/dovecot|2017-08-07|Renamed to mail/dovecot
 mail/dovecot2-pigeonhole|mail/dovecot-pigeonhole|2017-08-07|Renamed to mail/dovecot-pigeonhole
 devel/hs-MonadCatchIO-mtl||2017-08-08|Deprecated in favor of the exceptions package

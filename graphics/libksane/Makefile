@@ -1,22 +1,18 @@
+# Created by: tcberner
 # $FreeBSD$
 
 PORTNAME=	libksane
-PORTVERSION=	${KDE4_VERSION}
-PORTREVISION=	2
-CATEGORIES=	graphics kde kde-kde4
+PORTVERSION=	${KDE_APPLICATIONS_VERSION}
+CATEGORIES=	graphics kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	SANE library interface for KDE
 
 LIB_DEPENDS=	libsane.so:graphics/sane-backends
 
-USES=		cmake:outsource kde:4 tar:xz
-USE_KDE=	kdelibs automoc4
-USE_QT4=	moc_build qmake_build rcc_build uic_build
+USES=		cmake:outsource gettext kde:5 tar:xz
+USE_KDE=	config ecm i18n textwidgets wallet widgetsaddons
+USE_QT5=	buildtools_build core gui qmake_build testlib widgets
 USE_LDCONFIG=	yes
-
-pre-configure:
-	${REINPLACE_CMD} -e '/pkgconfig/ s/$${LIB_INSTALL_DIR}/libdata/' \
-		${WRKSRC}/CMakeLists.txt
 
 .include <bsd.port.mk>

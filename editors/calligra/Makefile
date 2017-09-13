@@ -1,9 +1,5 @@
 # $FreeBSD$
 
-# TODO (when these parts are available in KF5):
-#  - add calendarcore to USE_KDE when KDE PIM is available
-#  - add libOkular5Core.so:graphics/okular to LIB_DEPENDS
-#
 PORTNAME=	calligra
 PORTVERSION=	3.0.1
 PORTREVISION=	3
@@ -18,6 +14,7 @@ LIB_DEPENDS=	libIlmImf.so:graphics/OpenEXR \
 		libImath-2_2.so:graphics/ilmbase \
 		libKPropertyCore3.so:x11-toolkits/kproperty \
 		libKReport3.so:textproc/kreport \
+		libOkular5Core.so:graphics/okular \
 		libboost_thread.so:devel/boost-libs \
 		libetonyek-0.1.so:graphics/libetonyek01 \
 		libfontconfig.so:x11-fonts/fontconfig \
@@ -45,7 +42,7 @@ RUN_DEPENDS=	pstoedit:graphics/pstoedit
 USES=		cmake:outsource cpe compiler:c++11-lib desktop-file-utils \
 		gettext iconv:translit jpeg kde:5 localbase:ldflags perl5 pkgconfig \
 		shared-mime-info sqlite tar:xz
-USE_KDE=	activities archive auth bookmarks codecs completion config \
+USE_KDE=	activities archive auth bookmarks calendarcore codecs completion config \
 		configwidgets coreaddons crash dbusaddons doctools ecm \
 		emoticons guiaddons i18n iconthemes init itemmodels itemviews \
 		jobwidgets js kcmutils kdelibs4support khtml kio \

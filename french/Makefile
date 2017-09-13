@@ -14,7 +14,7 @@
     SUBDIR += hunspell
     SUBDIR += hyphen
     SUBDIR += jdictionary-fre-hun
-    SUBDIR += kde4-l10n
+    SUBDIR += kde-l10n
     SUBDIR += libreoffice
     SUBDIR += med
     SUBDIR += mythes

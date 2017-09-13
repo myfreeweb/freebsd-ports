@@ -2,15 +2,18 @@
 # $FreeBSD$
 
 PORTNAME=	kwalletmanager
-PORTVERSION=	${KDE4_VERSION}
-PORTREVISION=	1
-CATEGORIES=	security kde kde-kde4
+PORTVERSION=	${KDE_APPLICATIONS_VERSION}
+CATEGORIES=	security kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Password manager for KDE
 
-USES=		cmake:outsource kde:4 tar:xz
-USE_KDE=	automoc4 kdelibs
-USE_QT4=	qmake_build moc_build rcc_build uic_build
+USES=		cmake:outsource desktop-file-utils gettext kde:5 tar:xz
+USE_KDE=	archive auth codecs config configwidgets coreaddons \
+		dbusaddons doctools ecm emoticons i18n iconthemes init \
+		itemmodels itemviews kcmutils kdelibs4support kio \
+		jobwidgets notifications service wallet widgetsaddons \
+		windowsystem xmlgui
+USE_QT5=	buildtools_build core dbus gui qmake_build widgets xml
 
 .include <bsd.port.mk>

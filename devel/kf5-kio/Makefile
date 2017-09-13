@@ -1,5 +1,5 @@
 # Created by: tcberner
-# $FreeBSD$
+# $FreeBSD: branches/plasma5/KDE/devel/kf5-kio/Makefile 13821 2017-04-08 08:16:21Z tcberner $
 
 PORTNAME=	kio
 PORTVERSION=	${KDE_FRAMEWORKS_VERSION}

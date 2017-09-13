@@ -68,7 +68,7 @@
     SUBDIR += jupp
     SUBDIR += kate
     SUBDIR += kate-plugin-pate
-    SUBDIR += kile-kde4
+    SUBDIR += kile
     SUBDIR += klat4
     SUBDIR += komodo-edit
     SUBDIR += latexila

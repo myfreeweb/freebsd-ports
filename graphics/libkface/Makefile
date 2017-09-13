@@ -1,23 +1,23 @@
-# $FreeBSD$
+# Created by: tcberner
+# $FreeBSD: branches/plasma5/KDE/graphics/libkface/Makefile 13957 2017-04-26 14:25:40Z tcberner $
 
 PORTNAME=	libkface
-PORTVERSION=	${KDE4_APPLICATIONS_VERSION}
-PORTREVISION=	3
-CATEGORIES=	graphics kde
-MASTER_SITES=	KDE/${KDE4_APPLICATIONS_BRANCH}/applications/${PORTVERSION}/src
-DIST_SUBDIR=	KDE/${PORTVERSION}
+PORTVERSION=	${KDE_APPLICATIONS_VERSION}
+CATEGORIES=	graphics kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
-COMMENT=	KDE4 library for face recognition
+COMMENT=	KDE library for face recognition
 
 LICENSE=	GPLv2+ LGPL20+
 LICENSE_COMB=	multi
 
 LIB_DEPENDS=	libopencv_legacy.so:graphics/opencv
 
-USES=		cmake:outsource kde:4 pathfix pkgconfig tar:xz
-USE_KDE=	kdelibs automoc4 marble
+# Use localbase:ldflags for OpenCV with TBB
+USES=		cmake:outsource localbase:ldflags pkgconfig kde:5 tar:xz
+USE_KDE=	ecm
+USE_QT5=	buildtools_build core gui qmake_build sql widgets xml
+
 USE_LDCONFIG=	yes
-USE_QT4=	network phonon xml moc_build qmake_build rcc_build uic_build
 
 .include <bsd.port.mk>

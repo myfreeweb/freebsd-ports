@@ -45,13 +45,16 @@ FIREFOX_ICON_SRC=	${PREFIX}/lib/${MOZILLA}/browser/chrome/icons/default/default4
 MOZ_OPTIONS=	--enable-application=browser \
 		--enable-official-branding
 
-OPTIONS_DEFINE=		RUST
+OPTIONS_DEFINE=		RUST KDE
 OPTIONS_DEFAULT=	BUNDLED_CAIRO
 OPTIONS_EXCLUDE=	GNOMEUI
 # XXX lang/rust and devel/cargo currently build only on these platforms
 OPTIONS_DEFAULT_aarch64=RUST
 OPTIONS_DEFAULT_amd64=	RUST
 OPTIONS_DEFAULT_i386=	RUST
+
+KDE_DESC=		Apply OpenSUSE's KDE patch
+KDE_EXTRA_PATCHES=	${FILESDIR}/extrapatch-hg-kde_f82a374a310d
 
 .include "${.CURDIR}/../../www/firefox/Makefile.options"
 

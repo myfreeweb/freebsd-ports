@@ -2,21 +2,16 @@
 # $FreeBSD$
 
 PORTNAME=	kdewebdev
-PORTVERSION=	${KDE4_VERSION}
-PORTREVISION=	5
-CATEGORIES=	www kde kde-kde4
+PORTVERSION=	${KDE_APPLICATIONS_VERSION}
+CATEGORIES=	www kde
 
 MAINTAINER=	kde@FreeBSD.org
-COMMENT=	Comprehensive html/website development environment
+COMMENT=	Tools for html/website development environment
 
-LIB_DEPENDS=	libtidy.so:www/tidy-lib \
-		libboost_thread.so:devel/boost-libs
+USES=		kde:4 metaport
 
-USES=		cmake:outsource kde:4 tar:xz
-USE_GNOME=	libxml2 libxslt
-USE_KDE=	kdelibs pimlibs automoc4
-USE_QT4=	dbus porting_build \
-		qmake_build moc_build rcc_build uic_build uic3_build
-USE_LDCONFIG=	yes
+RUN_DEPENDS=	kfilereplace:sysutils/kfilereplace \
+		kimagemapeditor:graphics/kimagemapeditor \
+		klinkstatus:www/klinkstatus
 
 .include <bsd.port.mk>

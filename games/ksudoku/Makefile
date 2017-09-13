@@ -1,18 +1,20 @@
-# $FreeBSD$
+# $FreeBSD: branches/plasma5/KDE/games/ksudoku/Makefile 13778 2017-03-18 08:55:35Z tcberner $
 
 PORTNAME=	ksudoku
-PORTVERSION=	${KDE4_VERSION}
-PORTREVISION=	2
-CATEGORIES=	games kde kde-kde4
+PORTVERSION=	${KDE_APPLICATIONS_VERSION}
+CATEGORIES=	games kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	${${PORTNAME}_DESC}
 
-USES=		cmake:outsource kde:4 tar:xz
-USE_GL=		glu
-USE_KDE=	kdelibs libkdegames automoc4
-USE_QT4=	corelib gui corelib gui opengl \
-		moc_build qmake_build rcc_build uic_build
+USES=		cmake:outsource kde:5 tar:xz
+USE_GL=		gl glu
+USE_KDE=	archive auth codecs completion config configwidgets \
+		coreaddons crash ecm guiaddons i18n jobwidgets kio \
+		libkdegames service widgetsaddons xmlgui
+USE_QT5=	core dbus gui network opengl printsupport qml quick \
+		svg widgets xml \
+		buildtools_build qmake_build
 
-.include <${.CURDIR}/../kdegames4/Makefile.common>
+.include <${.CURDIR}/../kdegames/Makefile.common>
 .include <bsd.port.mk>

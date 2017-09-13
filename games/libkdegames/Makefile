@@ -1,27 +1,27 @@
-# $FreeBSD$
+# Created by: tcberner
+# $FreeBSD: branches/plasma5/KDE/games/libkdegames-kf5/Makefile 13697 2017-03-08 17:43:58Z tcberner $
 
 PORTNAME=	libkdegames
-PORTVERSION=	${KDE4_VERSION}
-PORTREVISION=	2
-CATEGORIES=	games kde kde-kde4
+PORTVERSION=	${KDE_APPLICATIONS_VERSION}
+CATEGORIES=	games kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
-COMMENT=	Libraries used by KDE 4 games
+COMMENT=	Libraries used by KDE games
 
-USES=		cmake:outsource kde:4 tar:xz
-USE_KDE=	kdelibs automoc4
-USE_QT4=	network phonon xml moc_build qmake_build rcc_build uic_build
+LIB_DEPENDS=	libsndfile.so:audio/libsndfile
+
+USES=		cmake:outsource gettext kde:5 openal tar:xz
+USE_KDE=	archive bookmarks codecs completion config configwidgets \
+		coreaddons crash dbusaddons dnssd ecm emoticons globalaccel \
+		guiaddons i18n iconthemes init itemmodels itemviews \
+		jobwidgets kdeclarative kdelibs4support kio newstuff \
+		service textwidgets widgetsaddons xmlgui
+USE_QT5=	buildtools_build core gui network qmake_build qml quick \
+		svg testlib widgets
 USE_LDCONFIG=	yes
 
-OPTIONS_DEFINE=		LOWLATENCY
-OPTIONS_DEFAULT=	LOWLATENCY
-
-LOWLATENCY_DESC=	Use OpenAL and libsndfile for lower latency
-LOWLATENCY_LIB_DEPENDS=	libsndfile.so:audio/libsndfile
-LOWLATENCY_USES=	openal
-LOWLATENCY_CMAKE_ON=	-DWITH_OpenAL=on \
-			-DWITH_SndFile=on
-LOWLATENCY_CMAKE_OFF=	-DWITH_OpenAL=off \
-			-DWITH_SndFile=off
+SHLIB_VER=	7.0.0
+PLIST_SUB+=	SHLIB_VER="${SHLIB_VER}" \
+		SHLIB_SHVER="${SHLIB_VER:R:R}"
 
 .include <bsd.port.mk>

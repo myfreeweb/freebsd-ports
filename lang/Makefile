@@ -153,6 +153,7 @@
     SUBDIR += jython
     SUBDIR += kawa
     SUBDIR += kf5-kross
+    SUBDIR += kross-interpreters
     SUBDIR += kturtle
     SUBDIR += lafontaine
     SUBDIR += lci

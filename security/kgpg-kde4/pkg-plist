@@ -39,7 +39,6 @@ share/apps/kgpg/kgpgeditor.rc
 share/apps/kgpg/tips
 share/autostart/kgpg.desktop
 share/config.kcfg/kgpg.kcfg
-share/dbus-1/interfaces/org.kde.kgpg.Key.xml
 share/doc/HTML/en/kgpg/common
 share/doc/HTML/en/kgpg/editor.png
 share/doc/HTML/en/kgpg/index.cache.bz2
@@ -53,6 +52,7 @@ share/doc/HTML/en/kgpg/keyserver.png
 share/doc/HTML/en/kgpg/options.png
 share/doc/HTML/en/kgpg/select-secret-key.png
 share/doc/HTML/en/kgpg/systray.png
+share/dbus-1/interfaces/org.kde.kgpg.Key.xml
 share/icons/hicolor/16x16/apps/kgpg.png
 share/icons/hicolor/22x22/apps/kgpg.png
 share/icons/hicolor/32x32/apps/kgpg.png

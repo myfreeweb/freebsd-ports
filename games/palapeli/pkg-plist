@@ -20,7 +20,8 @@ lib/libpala.so.0.2.0
 lib/libpala/libpala-config.cmake
 lib/libpala/pala-targets-%%CMAKE_BUILD_TYPE%%.cmake
 lib/libpala/pala-targets.cmake
-share/applications/kde4/palapeli.desktop
+share/applications/kde4/org.kde.palapeli.desktop
+share/apps/metainfo/org.kde.palapeli.appdata.xml
 share/apps/palapeli/backgrounds/Eliminator-Funk-2.jpg
 share/apps/palapeli/backgrounds/Rear-Admiral-Diplomat-1.jpg
 share/apps/palapeli/backgrounds/Time-For-Lunch-2.jpg
@@ -41,10 +42,6 @@ share/apps/palapeli/palapeli.kcfg
 share/apps/palapeli/palapeli.notifyrc
 share/apps/palapeli/palapeliui.rc
 share/config/palapeli-collectionrc
-share/doc/HTML/en/palapeli/common
-share/doc/HTML/en/palapeli/index.cache.bz2
-share/doc/HTML/en/palapeli/index.docbook
-share/doc/HTML/en/palapeli/puzzletable1.png
 share/icons/hicolor/128x128/apps/palapeli.png
 share/icons/hicolor/128x128/mimetypes/application-x-palapeli.png
 share/icons/hicolor/16x16/apps/palapeli.png
