@@ -7,7 +7,7 @@
  
  #ifndef ElfW
 -#define ElfW(type) Elf_##type
-+#ifdef __LP64__
++#if __ELF_WORD_SIZE == 64
 +#define ElfW(type) Elf64_##type
 +#else
 +#define ElfW(type) Elf32_##type

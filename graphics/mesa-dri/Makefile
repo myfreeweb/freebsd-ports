@@ -54,9 +54,6 @@ EXTRA_PATCHES+=	${PATCHDIR}/extra-src_mesa_drivers_dri_i965_intel__screen.c
 . endif
 .elif ${ARCH} == armv6 || ${ARCH} == aarch64
 GALLIUM_DRIVERS+=	FREEDRENO VC4
-. if ${ARCH} == armv6
-EXTRA_PATCHES+=	${PATCHDIR}/extra-src_gallium_drivers_vc4_Makefile.in
-. endif
 .endif
 
 CONFIGURE_ARGS+=	--with-dri-drivers="${DRI_DRIVERS:tl}" \

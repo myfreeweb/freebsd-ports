@@ -18,6 +18,10 @@ post-patch:
 .  endif
 . endif
 .endif
+.if ${ARCH:Marm*} && ! ${CFLAGS:M-march=*} # ignore if CPUTYPE is defined
+	@${ECHO_CMD} "vc4_tiling_lt_neon.lo: CFLAGS+=-march=armv7-a -mfpu=neon" \
+		>>${WRKSRC}/src/gallium/drivers/vc4/Makefile.in
+.endif
 	@${REINPLACE_CMD} -e 's|/etc/|${PREFIX}/etc/|g' \
 		${WRKSRC}/src/mesa/drivers/dri/common/xmlconfig.c
 
