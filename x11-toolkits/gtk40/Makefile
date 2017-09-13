@@ -1,14 +1,18 @@
 # Created by: Vanilla I. Shu <vanilla@MinJe.com.TW>
 # $FreeBSD$
-# Please keep gtk30 in sync with the following x11-themes ports:
+# Please keep gtk40 in sync with the following x11-themes ports:
 # adwaita-icon-theme, gnome-themes-standard and mate-themes
+# when gnome is ported to gtk4
+
+#FIXME
+# wtf is gsk.gir
 
 PORTNAME=	gtk
-PORTVERSION=	3.22.15
-PORTREVISION?=	1
+PORTVERSION=	3.91.0
+PORTREVISION?=	0
 CATEGORIES=	x11-toolkits
 MASTER_SITES=	GNOME/sources/gtk+/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
-PKGNAMESUFFIX=	3
+PKGNAMESUFFIX=	4
 DISTNAME=	gtk+-${PORTVERSION}
 DIST_SUBDIR=	gnome3
 
@@ -26,6 +30,7 @@ PORTSCOUT=	limit:1,even
 
 BUILD_DEPENDS+=	at-spi2-atk>=0:accessibility/at-spi2-atk
 LIB_DEPENDS=	libepoxy.so:graphics/libepoxy \
+		libgraphene-1.0.so:graphics/graphene \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
 		libharfbuzz.so:print/harfbuzz
@@ -37,18 +42,15 @@ USE_PERL5=	build
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 USE_GNOME=	atk cairo gdkpixbuf2 introspection:build pango
-#gtk-update-icon-cache
 USES+=		compiler:c11 gettext gmake gnome libtool localbase \
 		pathfix perl5 pkgconfig
-USE_XORG=	xext xrender x11 xinerama xi xrandr xcursor xfixes xdamage \
-		xcomposite
-CONFIGURE_ARGS=	--enable-x11-backend \
+CONFIGURE_ARGS=	--disable-vulkan \
 		--enable-introspection
-CPPFLAGS+=	-fno-omit-frame-pointer
-INSTALLS_ICONS=	yes
+#CPPFLAGS+=	-fno-omit-frame-pointer
+#INSTALLS_ICONS=	yes
 INSTALL_TARGET=	install-strip
 
-LIBVERSION=	0.2200.15
+LIBVERSION=	0.9100.0
 PLIST_SUB+=	LIBVERSION=${LIBVERSION}
 
 GLIB_SCHEMAS=	org.gtk.Demo.gschema.xml \
@@ -56,11 +58,15 @@ GLIB_SCHEMAS=	org.gtk.Demo.gschema.xml \
 		org.gtk.Settings.Debug.gschema.xml \
 		org.gtk.Settings.FileChooser.gschema.xml
 
-OPTIONS_DEFINE=	CUPS CLOUDPRINT COLORD DEBUG BROADWAY WAYLAND
-OPTIONS_DEFAULT=CUPS COLORD BROADWAY
+OPTIONS_DEFINE=	CUPS CLOUDPRINT COLORD
+OPTIONS_DEFAULT=CUPS COLORD BROADWAY X11
 OPTIONS_SUB=	yes
 
-BROADWAY_DESC=	Enable GDK Broadway backend for showing GTK+ in the webbrowser using HTML5 and web sockets.
+BACKEND_DESC=	GDK backends
+OPTIONS_MULTI=	BACKEND
+OPTIONS_MULTI_BACKEND=	BROADWAY WAYLAND X11
+
+BROADWAY_DESC=	Broadway (HTML5) GDK backend
 BROADWAY_CONFIGURE_ENABLE=	broadway-backend
 
 COLORD_DESC=	Color profile support
@@ -75,17 +81,22 @@ CLOUDPRINT_CONFIGURE_ENABLE=	cloudprint
 CLOUDPRINT_LIB_DEPENDS=	librest-0.7.so:devel/librest \
 			libjson-glib-1.0.so:devel/json-glib
 
-WAYLAND_DESC=		GDK Wayland backend
+WAYLAND_DESC=		Wayland GDK backend (support Wayland applications)
 WAYLAND_CONFIGURE_ENABLE=	wayland-backend
-WAYLAND_BUILD_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols
+WAYLAND_BUILD_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols \
+			v4l_compat>=0:multimedia/v4l_compat
 WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
 			libxkbcommon.so:x11/libxkbcommon
 WAYLAND_USE=		GL=egl
 
-.include <bsd.port.options.mk>
+X11_DESC=		X11 GDK backend (support X.org applications)
+X11_CONFIGURE_ENABLE=	x11-backend
+X11_USE=		XORG=x11,xcomposite,xcursor,xdamage,xext,xfixes,xi,xinerama,xrandr
 
 # don't explicitly disable debug, this causes segfaults. ports r437293
 DEBUG_CONFIGURE_ON=	--enable-debug=yes
+
+.include <bsd.port.options.mk>
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|[{]libdir[}]/locale|{datadir}/locale|g' \
@@ -99,7 +110,7 @@ pre-configure:
 	fi
 .if ${PORT_OPTIONS:MWAYLAND}
 	@if ! pkg-config --exists wayland-egl; then \
-		${ECHO_MSG} "${PKGNAME}: Needs mesa-libs with wayland support enabled."; \
+		${ECHO_MSG} "${PKGNAME}: Needs mesa-libs build with wayland support enabled."; \
 		${FALSE}; \
 	fi
 .endif
@@ -108,11 +119,11 @@ pre-build:
 	@${RM} -r ${WRKSRC}/docs/gtk.info*
 
 post-install:
-	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-3.0/modules
-	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-3.0/${GTK3_VERSION}/engines
-	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-3.0/${GTK3_VERSION}/loaders
-	${INSTALL_MAN} ${WRKSRC}/docs/reference/gtk/gtk-query-immodules-3.0.1 \
-		${STAGEDIR}${PREFIX}/man/man1
+	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-4.0/modules
+	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-4.0/${GTK3_VERSION}/engines
+	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-4.0/${GTK3_VERSION}/loaders
+#	${INSTALL_MAN} ${WRKSRC}/docs/reference/gtk/gtk-query-immodules-4.0.1 \
+#		${STAGEDIR}${PREFIX}/man/man1
 
 .include <bsd.port.mk>
 

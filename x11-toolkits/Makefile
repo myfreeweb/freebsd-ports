@@ -42,6 +42,8 @@
     SUBDIR += gtk20-reference
     SUBDIR += gtk30
     SUBDIR += gtk30-reference
+    SUBDIR += gtk40
+    SUBDIR += gtk40-reference
     SUBDIR += gtkada
     SUBDIR += gtkada3
     SUBDIR += gtkdatabox

@@ -93,6 +93,8 @@ _USE_GNOME_ALL+=dconf evolutiondataserver3 gnomecontrolcenter3 gnomedesktop3 \
 		libgda5-ui libwnck3 metacity nautilus3 py3gobject3 \
 		pygobject3 vte3
 
+_USE_GNOME_ALL+=gtk40
+
 # C++ bindings
 _USE_GNOME_ALL+=atkmm cairomm gconfmm26 glibmm gtkmm20 gtkmm24 \
 		gtkmm30 gtksourceviewmm3 libgdamm5 \
@@ -249,6 +251,11 @@ gtk30_LIB_DEPENDS=	libgtk-3.so:x11-toolkits/gtk30
 gtk30_DETECT=		${LOCALBASE}/libdata/pkgconfig/gtk+-3.0.pc
 gtk30_USE_GNOME_IMPL=	atk pango
 GTK3_VERSION=		3.0.0
+
+gtk40_LIB_DEPENDS=	libgtk-4.so:x11-toolkits/gtk40
+gtk40_DEPECT=		${LOCALBASE}/libdata/pkgconfig/gtk+-4.0.pc
+gtk40_USE_GNOME_IMPL=	atk cairo glib20 pango
+GTK4_VERSION=		4.0.0
 
 libidl_LIB_DEPENDS=	libIDL-2.so:devel/libIDL
 libidl_DETECT=		${LOCALBASE}/libdata/pkgconfig/libIDL-2.0.pc
@@ -563,7 +570,8 @@ _USE_GNOME+=	${${component}_USE_GNOME_IMPL} ${component}
 # Setup the GTK+ API version for pixbuf loaders, input method modules,
 # and theme engines.
 PLIST_SUB+=			GTK2_VERSION="${GTK2_VERSION}" \
-				GTK3_VERSION="${GTK3_VERSION}"
+				GTK3_VERSION="${GTK3_VERSION}" \
+				GTK4_VERSION="${GTK4_VERSION}"
 
 # Set USE_CSTD for all ports that depend on glib12
 .if defined(_USE_GNOME) && !empty(_USE_GNOME:Mglib12)

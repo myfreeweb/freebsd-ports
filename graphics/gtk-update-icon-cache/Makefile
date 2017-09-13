@@ -29,7 +29,11 @@ USE_XORG=	xext xrender x11 xinerama xi xrandr xcursor xfixes xdamage \
 		xcomposite
 PATCHDIR=	${.CURDIR}/../../x11-toolkits/gtk20/files
 CONFIGURE_ARGS=	--enable-static --with-xinput=yes
+CPPFLAGS+=	-I${LOCALBASE}/include
+LDFLAGS+=	-L${LOCALBASE}/lib
+
 BUILD_WRKSRC=	${WRKSRC}/gtk
+
 ALL_TARGET=	${PORTNAME}
 PLIST_FILES=	bin/gtk-update-icon-cache
 #		man/man1/gtk-update-icon-cache.1.gz
