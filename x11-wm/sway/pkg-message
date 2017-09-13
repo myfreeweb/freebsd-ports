@@ -1,0 +1,5 @@
+For configuration copy the default config file and use as template.
+
+$ mkdir -p $HOME/.config/sway && cp /usr/local/etc/sway/config $HOME/.config/sway/config
+
+See https://github.com/SirCmpwn/sway/ for more information.
