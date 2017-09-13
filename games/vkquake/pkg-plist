@@ -1,0 +1,5 @@
+bin/vkquake
+%%Q1DIR%%/vkquake.pak
+share/applications/vkquake.desktop
+share/icons/vkquake.png
+share/pixmaps/vkquake.png
