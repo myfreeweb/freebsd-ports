@@ -1,0 +1,7 @@
+GH_TAGNAME=	0529fe2
+PKGNAMESUFFIX=	-devel
+CONFLICTS=	mygui
+MASTERDIR=	${.CURDIR}/../mygui
+
+.include	"${MASTERDIR}/Makefile"
+PORTVERSION=	3.2.3
