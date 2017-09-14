@@ -39,7 +39,7 @@ USES=		bison cmake compiler:c++14-lang gettext gnome gperf \
 USE_RUBY=	yes
 RUBY_NO_RUN_DEPENDS=yes
 USE_GNOME=	cairo gdkpixbuf2 gtk30 introspection:build libxml2 libxslt
-USE_GL=		gl egl
+USE_GL=		gl egl glesv2
 USE_PERL5=	build
 USE_LDCONFIG=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
@@ -47,10 +47,9 @@ LDFLAGS+=	-L${LOCALBASE}/lib
 INSTALL_TARGET=	install
 
 CMAKE_ARGS+=	-DPORT=GTK \
-		-DENABLE_WAYLAND_TARGET:BOOL=OFF \
 		-DENABLE_MINIBROWSER:BOOL=ON \
-		-DENABLE_GLES2:BOOL=OFF \
-		-DENABLE_ACCELERATED_2D_CANVAS=ON \
+		-DENABLE_GLES2:BOOL=ON \
+		-DENABLE_ACCELERATED_2D_CANVAS:BOOL=OFF \
 		-DUSE_LD_GOLD:BOOL=OFF \
 		-DENABLE_WEBKIT:BOOL=OFF
 CONFIGURE_ENV+=	XDG_CACHE_HOME=${WRKDIR}
@@ -59,7 +58,7 @@ BROWSER_PLUGINS_DIR?=	${LOCALBASE}/lib/browser_plugins/symlinks/webkit-gtk3
 #_BROWSER_PLUGINS_DIR=	${BROWSER_PLUGINS_DIR:S|^/|"|:S|/|", "|g}",
 
 OPTIONS_SUB=	yes
-OPTIONS_DEFINE=	DEBUG GEOIP NPAPI
+OPTIONS_DEFINE=	DEBUG GEOIP NPAPI WAYLAND
 OPTIONS_DEFAULT=GEOIP
 OPTIONS_DEFAULT_i386=	NPAPI
 OPTIONS_DEFAULT_amd64=	NPAPI
@@ -85,6 +84,11 @@ GEOIP_RUN_DEPENDS+=	geoclue>=2.4.3:net/geoclue
 NPAPI_DESC=	Support gtk2 (NPAPI) based plugins (like flash)
 NPAPI_CMAKE_BOOL=	ENABLE_PLUGIN_PROCESS_GTK2
 NPAPI_USE=	GNOME=gtk20
+
+WAYLAND_DESC=	Support Wayland render backend
+WAYLAND_CMAKE_BOOL=	ENABLE_WAYLAND_TARGET
+WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
+	libwayland-egl.so:graphics/mesa-libs
 
 .include <bsd.port.options.mk>
 
