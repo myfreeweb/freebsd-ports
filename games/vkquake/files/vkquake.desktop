@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=vkQuake
+Comment=Quake 1 port using Vulkan
+Exec=vkquake
+Icon=vkquake.png
+Terminal=false
+Type=Application
+Categories=Game;
+MimeType=x-scheme-handler/steam;
+Keywords=quake,game,First-Person-Shooter
