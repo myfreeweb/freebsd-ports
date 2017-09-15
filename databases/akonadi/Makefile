@@ -1,9 +1,7 @@
-# Created by: miwi
-# $FreeBSD$
+# $FreeBSD: branches/plasma5/KDE/databases/akonadi/Makefile 13958 2017-04-26 14:27:02Z tcberner $
 
 PORTNAME=	akonadi
-PORTVERSION=	1.13.0
-PORTREVISION=	3
+DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	databases kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
@@ -15,50 +13,46 @@ LIB_DEPENDS=	libboost_thread.so:devel/boost-libs
 # Let process generate meaningful backtrace on core dump.
 BUILD_DEPENDS=	xsltproc:textproc/libxslt
 
-USES=		cmake:outsource kde:4 shared-mime-info \
-		compiler:c++11-lang pathfix tar:bzip2
-USE_KDE=	automoc4 soprano
-USE_QT4=	corelib dbus gui network qtestlib_build sql xml \
-		moc_build qmake_build rcc_build uic_build
-CMAKE_ARGS+=	-DAKONADI_BUILD_TESTS:BOOL=FALSE \
-		-DINSTALL_QSQLITE_IN_QT_PREFIX:BOOL=TRUE \
-		-DCMAKE_REQUIRED_INCLUDES:STRING="${LOCALBASE}/include"
+CONFLICTS=	akonadi-[0-9]* akonadi-kf5-git-[0-9]*
+
+USES=		cmake:outsource compiler:c++11-lib gettext kde:5 \
+		shared-mime-info tar:xz
+USE_KDE=	completion config dbusaddons ecm guiaddons i18n \
+		iconthemes itemmodels itemviews kio windowsystem \
+		designerplugin_build designerplugin_run
+USE_QT5=	buildtools_build core dbus designer gui network qmake_build \
+		sql testlib widgets xml
+CMAKE_ARGS+=	-DCMAKE_REQUIRED_INCLUDES:STRING="${LOCALBASE}/include"
+
 USE_LDCONFIG=	yes
 
-OPTIONS_MULTI=	DB
+OPTIONS_MULTI=		DB
 OPTIONS_MULTI_DB=	MYSQL PGSQL SQLITE
-OPTIONS_SUB=	yes # SQLITE
+OPTIONS_SUB=		yes
 
-MYSQL_DESC=	Install MySQL Qt plugin and server
-MYSQL_USE=	QT4=sql-mysql_run
-MYSQL_USES=	mysql:server
+MYSQL_DESC=		Install MySQL Qt plugin and server
+MYSQL_USE=		MYSQL=server QT5=sql-mysql_run
 
-PGSQL_DESC=	Install PostgreSQL Qt plugin
+PGSQL_DESC=		Install PostgreSQL Qt plugin
 # Do not add a dependency on PostgreSQL server as someone preferring
 # it over MySQL might like to use some advanced configuration, like a
 # remote server.
 #PGSQL_USE=	PGSQL=server
-PGSQL_USE=	QT4=sql-pgsql_run
+PGSQL_USE=		QT5=sql-pgsql_run
 
-SQLITE_DESC=	Enable SQLite backend
-SQLITE_USES=	sqlite:3
-SQLITE_CMAKE_OFF=	-DAKONADI_BUILD_QSQLITE=off
+SQLITE_DESC=		Enable SQLite backend
+SQLITE_USES=		sqlite:3
+SQLITE_USE=		QT5=sql-sqlite3_run
+SQLITE_CMAKE_ON=	-DAKONADI_BUILD_QSQLITE:BOOL=ON
+SQLITE_CMAKE_OFF=	-DAKONADI_BUILD_QSQLITE:BOOL=OFF
 
 OPTIONS_DEFAULT=	MYSQL
 
 post-patch:
-	${REINPLACE_CMD} -e '/find_program/ s|mysqld|mysqld_safe ${LOCALBASE}/bin|g' \
-		${PATCH_WRKSRC}/server/CMakeLists.txt
-	${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|' \
-		${PATCH_WRKSRC}/server/src/storage/dbconfigmysql.cpp
 # To avoid overflow, MySQL settings need to be lower than
 # INT_MAX / kern.hz. This setting assumes kern.hz=2000, and
 # it's nothing but a temporary hack.
 	${REINPLACE_CMD} -e '/wait_timeout/ s|31536000|1073741|' \
-		${PATCH_WRKSRC}/server/src/storage/*.conf
-# Prevent updating MIME during build.
-	${REINPLACE_CMD} -e '/^update_xdg_mimetypes/ d' \
-		-e '/find_package(SharedMimeInfo/ d' \
-		${PATCH_WRKSRC}/CMakeLists.txt
+		${PATCH_WRKSRC}/src/server/storage/*.conf
 
 .include <bsd.port.mk>
