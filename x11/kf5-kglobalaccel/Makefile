@@ -1,9 +1,7 @@
-# Created by: tcberner
 # $FreeBSD: branches/plasma5/KDE/x11/kf5-kglobalaccel/Makefile 13452 2016-12-12 16:23:57Z tcberner $
 
 PORTNAME=	kglobalaccel
 PORTVERSION=	${KDE_FRAMEWORKS_VERSION}
-PORTREVISION=	1
 CATEGORIES=	x11 kde kde-frameworks
 
 MAINTAINER=	kde@FreeBSD.org
@@ -17,5 +15,8 @@ USE_KDE=	ecm config coreaddons crash dbusaddons i18n service \
 USE_QT5=	buildtools_build core dbus gui linguisttools qmake_build \
 		testlib widgets x11extras
 USE_XORG=	xcb
+
+# Needed for Plasma 5.11-beta
+KDE_FRAMEWORKS_VERSION=	5.38.1
 
 .include <bsd.port.mk>

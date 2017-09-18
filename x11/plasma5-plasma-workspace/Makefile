@@ -1,4 +1,3 @@
-# Created by: tcberner
 # $FreeBSD: branches/plasma5/KDE/x11/plasma5-plasma-workspace/Makefile 13980 2017-04-29 09:14:58Z tcberner $
 
 PORTNAME=	plasma-workspace
@@ -8,6 +7,11 @@ CATEGORIES=	x11 kde kde-plasma
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Plasma5 Plasma workspace
 
+LIB_DEPENDS=	libcln.so:math/cln \
+		libdbusmenu-qt5.so:devel/libdbusmenu-qt5 \
+		libqalculate.so:math/libqalculate \
+		libxcb-image.so:x11/xcb-util-image \
+		libxcb-util.so:x11/xcb-util
 RUN_DEPENDS=	ck-launch-session:sysutils/consolekit2\
 		iceauth:x11/iceauth \
 		xsetroot:x11/xsetroot \
@@ -15,11 +19,6 @@ RUN_DEPENDS=	ck-launch-session:sysutils/consolekit2\
 		xmessage:x11/xmessage \
 		${LOCALBASE}/libdata/pkgconfig/xkeyboard-config.pc:x11/xkeyboard-config \
 		iso-codes>=0:misc/iso-codes
-LIB_DEPENDS=	libcln.so:math/cln \
-		libdbusmenu-qt5.so:devel/libdbusmenu-qt5 \
-		libqalculate.so:math/libqalculate \
-		libxcb-image.so:x11/xcb-util-image \
-		libxcb-util.so:x11/xcb-util
 
 USES=		cmake:outsource compiler:c++11-lib cpe gettext kde:5 pkgconfig \
 		tar:xz
@@ -44,19 +43,12 @@ USE_XORG=	ice sm x11 xau xcb xcomposite xext xfixes xft xkbfile xrender xtst
 
 CMAKE_ARGS+=	-DBUILD_TESTING:BOOL=OFF
 
-OPTIONS_DEFINE= 	PORTSGDB CALENDAR
+OPTIONS_DEFINE= 	CALENDAR
 OPTIONS_DEFAULT=	${OPTIONS_DEFINE}
 OPTIONS_SUB=		yes
 
-# make drkonqi use a newer gdb -- assume GDB_LINK is set
-GDB=			${LOCALBASE}/bin/gdb
-PORTSGDB_DESC=		Use gdb from ports in drkonqi
-PORTSGDB_RUN_DEPENDS=	${GDB}:devel/gdb
-
 CALENDAR_DESC=	Support display of holidays in calendar applet
 CALENDAR_USE=	KDE=holidays
-
-.include <bsd.port.options.mk>
 
 post-patch:
 # set the paths in startkde
@@ -67,11 +59,5 @@ post-patch:
 			 -e 's|%%QT_PLUGINDIR%%|${QT_PLUGINDIR}|g' \
 			 -e 's|%%QT_QMLDIR%%|${QT_QMLDIR}|g' \
 		${PATCH_WRKSRC}/startkde/startkde.cmake
-# patch ${GDB} into drkonqi
-.if ${PORT_OPTIONS:MPORTSGDB}
-	${REINPLACE_CMD} -i "" -e '/Exec=/ s#gdb#${GDB}#g' \
-		${PATCH_WRKSRC}/drkonqi/data/debuggers/external/gdbrc \
-		${PATCH_WRKSRC}/drkonqi/data/debuggers/internal/gdbrc
-.endif
 
 .include <bsd.port.mk>

@@ -1,4 +1,3 @@
-# Created by: tcberner
 # $FreeBSD: branches/plasma5/KDE/x11/plasma5-plasma-desktop/Makefile 13779 2017-03-18 09:57:45Z tcberner $
 
 PORTNAME=	plasma-desktop
@@ -33,7 +32,7 @@ USE_KDE=	activities activities-stats archive attica auth baloo \
 		plasma-workspace runner service solid \
 		sonnet textwidgets unitconversion wallet \
 		widgetsaddons windowsystem xmlgui
-USE_KDE+=	infocenter_run kmenuedit_run ksysguard_run \
+USE_KDE+=	drkonqi_run infocenter_run kmenuedit_run ksysguard_run \
 		polkit-kde-agent-1_run systemsettings_run
 USE_QT5=	buildtools_build concurrent core dbus gui network phonon4 \
 		printsupport qmake_build qml quick sql svg widgets x11extras \
@@ -47,6 +46,8 @@ OPTIONS_GROUP=		IM
 OPTIONS_GROUP_IM=	IBUS SCIM
 IM_DESC=		Input Method Support
 
+OPTIONS_DEFAULT=	SYNAPTICS
+
 PULSEAUDIO_CMAKE_BOOL=		WANT_PULSEAUDIO
 PULSEAUDIO_LIB_DEPENDS=		libpulse.so:audio/pulseaudio
 
@@ -55,8 +56,10 @@ SYNAPTICS_BUILD_DEPENDS=	xf86-input-synaptics>0:x11-drivers/xf86-input-synaptics
 SYNAPTICS_RUN_DEPENDS=		xf86-input-synaptics>0:x11-drivers/xf86-input-synaptics
 SYNAPTICS_CMAKE_BOOL=		WANT_SYNAPTICS
 
+IBUS_CMAKE_BOOL_OFF=	CMAKE_DISABLE_FIND_PACKAGE_IBus
 IBUS_LIB_DEPENDS=	libibus-1.0.so:textproc/ibus
 IBUS_DESC=		Enable IBUS backend for input dialog
+SCIM_CMAKE_BOOL_OFF=	CMAKE_DISABLE_FIND_PACKAGE_SCIM
 SCIM_LIB_DEPENDS=	libscim-1.0.so:textproc/scim
 SCIM_DESC=		Enable SCIM backend for input dialog
 

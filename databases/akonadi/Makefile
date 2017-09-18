@@ -1,4 +1,3 @@
-# Created by: tcberner
 # $FreeBSD: branches/plasma5/KDE/databases/akonadi/Makefile 13958 2017-04-26 14:27:02Z tcberner $
 
 PORTNAME=	akonadi
@@ -48,7 +47,6 @@ SQLITE_CMAKE_ON=	-DAKONADI_BUILD_QSQLITE:BOOL=ON
 SQLITE_CMAKE_OFF=	-DAKONADI_BUILD_QSQLITE:BOOL=OFF
 
 OPTIONS_DEFAULT=	MYSQL
-
 
 post-patch:
 # To avoid overflow, MySQL settings need to be lower than
