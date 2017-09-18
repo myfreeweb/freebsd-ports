@@ -1,14 +1,14 @@
 --- demos/smoke/CMakeLists.txt.orig	2017-08-10 15:50:41 UTC
 +++ demos/smoke/CMakeLists.txt
 @@ -61,7 +61,10 @@ if(WIN32)
-
+ 
      list(APPEND sources ShellWin32.cpp ShellWin32.h)
  else()
 -    list(APPEND libraries PRIVATE -ldl -lrt)
-+    list(APPEND libraries PRIVATE -lrt)
-+    if(NOT CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
-+        list(APPEND libraries PRIVATE -ldl)
++    if(CMAKE_SYSTEM_NAME MATCHES "^(Linux|kFreeBSD|GNU|SunOS)$")
++        list(APPEND libraries PRIVATE -lrt)
 +    endif()
-
++    list(APPEND libraries PRIVATE ${CMAKE_DL_LIBS})
+ 
      if(BUILD_WSI_XCB_SUPPORT AND DEMOS_WSI_SELECTION STREQUAL "XCB")
          find_package(XCB REQUIRED)

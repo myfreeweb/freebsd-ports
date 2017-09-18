@@ -3,22 +3,24 @@
 @@ -15,8 +15,8 @@ string(TOLOWER ${API_NAME} API_LOWERCASE)
  set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
  find_package(PythonInterp 3 REQUIRED)
-
+ 
 -if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 -    set(FALLBACK_CONFIG_DIRS "/etc/xdg" CACHE STRING
-+if((CMAKE_SYSTEM_NAME STREQUAL "Linux") OR (CMAKE_SYSTEM_NAME STREQUAL "FreeBSD"))
-+    set(FALLBACK_CONFIG_DIRS "/usr/local/etc/xdg:/etc/xdg" CACHE STRING
++if(UNIX AND NOT APPLE)
++    set(FALLBACK_CONFIG_DIRS "${CMAKE_INSTALL_PREFIX}/etc/xdg:/etc/xdg" CACHE STRING
          "Search path to use when XDG_CONFIG_DIRS is unset or empty or the current process is SUID/SGID. Default is freedesktop compliant.")
      set(FALLBACK_DATA_DIRS "/usr/local/share:/usr/share" CACHE STRING
          "Search path to use when XDG_DATA_DIRS is unset or empty or the current process is SUID/SGID. Default is freedesktop compliant.")
-@@ -49,6 +49,10 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-     # VulkanTools and VulkanSamples repos.  This can be used to prevent the
-     # overwriting of LVL artifacts when installing these downstream repos.
-     option(INSTALL_LVL_FILES "Install content from LoaderAndValidationLayers repo" ON)
-+endif()
-+
-+if(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
-+    include_directories("/usr/local/include")
- endif()
-
- set(SCRIPTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/scripts")
+@@ -30,10 +30,12 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+ 
+     if (BUILD_WSI_XCB_SUPPORT)
+         find_package(XCB REQUIRED)
++        include_directories(SYSTEM ${XCB_INCLUDE_DIR})
+     endif()
+ 
+     if (BUILD_WSI_XLIB_SUPPORT)
+         find_package(X11 REQUIRED)
++        include_directories(SYSTEM ${X11_Xlib_INCLUDE_PATH})
+     endif()
+ 
+     if (BUILD_WSI_WAYLAND_SUPPORT)

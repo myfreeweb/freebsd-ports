@@ -9,13 +9,12 @@ MAINTAINER=	greg@unrelenting.technology
 COMMENT=	Vulkan SDK (Headers, ICD Loader, Validation Layers)
 
 LICENSE=	APACHE20
-LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
 BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}lxml>0:devel/py-lxml \
-	${LOCALBASE}/include/spirv-tools/libspirv.h:devel/spirv-tools-devel \
-	glslangValidator:devel/glslang-devel
+	${LOCALBASE}/include/spirv-tools/libspirv.h:devel/spirv-tools \
+	glslangValidator:devel/glslang
 
-USES=	cmake:outsource compiler:c++11-lang python:3 pkgconfig
+USES=	cmake:outsource compiler:c++11-lib python:build pkgconfig
 
 USE_LDCONFIG=	yes
 
@@ -36,20 +35,17 @@ XCB_DESC=	Build XCB WSI (Window System Integration) support
 WAYLAND_DESC=	Build Wayland WSI (Window System Integration) support
 DEMOS_DESC=	Build demos (including vulkaninfo)
 
-XLIB_CMAKE_ON=	-DBUILD_WSI_XLIB_SUPPORT:BOOL=ON
-XLIB_CMAKE_OFF=	-DBUILD_WSI_XLIB_SUPPORT:BOOL=OFF
-XLIB_LIB_DEPENDS=	libX11.so:x11/libX11
-XCB_CMAKE_ON=	-DBUILD_WSI_XCB_SUPPORT:BOOL=ON
-XCB_CMAKE_OFF=	-DBUILD_WSI_XCB_SUPPORT:BOOL=OFF
+XLIB_CMAKE_BOOL=	BUILD_WSI_XLIB_SUPPORT
+XLIB_LIB_DEPENDS=	libX11.so:x11/libX11 \
+		libXrandr.so:x11/libXrandr
+XCB_CMAKE_BOOL=	BUILD_WSI_XCB_SUPPORT
 XCB_LIB_DEPENDS=	libX11-xcb.so:x11/libX11 \
 		libxcb.so:x11/libxcb
-WAYLAND_CMAKE_ON=	-DBUILD_WSI_WAYLAND_SUPPORT:BOOL=ON
-WAYLAND_CMAKE_OFF=	-DBUILD_WSI_WAYLAND_SUPPORT:BOOL=OFF
+WAYLAND_CMAKE_BOOL=	BUILD_WSI_WAYLAND_SUPPORT
 WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
 		libwayland-server.so:graphics/wayland \
 		libwayland-cursor.so:graphics/wayland \
 		libwayland-egl.so:graphics/mesa-libs
-DEMOS_CMAKE_ON=	-DBUILD_DEMOS:BOOL=ON
-DEMOS_CMAKE_OFF=	-DBUILD_DEMOS:BOOL=OFF
+DEMOS_CMAKE_BOOL=	BUILD_DEMOS
 
 .include <bsd.port.mk>

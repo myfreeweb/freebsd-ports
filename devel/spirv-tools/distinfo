@@ -1,0 +1,5 @@
+TIMESTAMP = 1505748790
+SHA256 (KhronosGroup-SPIRV-Tools-v2016.6-155-gf0fe601_GH0.tar.gz) = b3348b3e6aa7ec3ffd82ed01d295a91ab3e6e800f10b8303ef722f103f6b35e0
+SIZE (KhronosGroup-SPIRV-Tools-v2016.6-155-gf0fe601_GH0.tar.gz) = 538566
+SHA256 (KhronosGroup-SPIRV-Headers-2bb92e6f_GH0.tar.gz) = 08dd4f8b4adbda3c863579dcec29c0eeccc30ed7eb05dc931152df60f7d0861c
+SIZE (KhronosGroup-SPIRV-Headers-2bb92e6f_GH0.tar.gz) = 154892

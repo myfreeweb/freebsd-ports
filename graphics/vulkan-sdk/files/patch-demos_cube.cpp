@@ -3,9 +3,9 @@
 @@ -2948,7 +2948,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPre
      return (int)msg.wParam;
  }
-
+ 
 -#elif __linux__
-+#elif defined(__linux__) || defined(__FreeBSD__)
-
++#elif defined(__unix__)
+ 
  int main(int argc, char **argv) {
      Demo demo;
