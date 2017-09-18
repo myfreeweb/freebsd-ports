@@ -1,0 +1,10 @@
+--- gnome-initial-setup/pages/Makefile.in.orig	2017-06-21 16:55:08.355683000 +0200
++++ gnome-initial-setup/pages/Makefile.in	2017-06-21 16:55:55.542184000 +0200
+@@ -352,7 +352,6 @@
+ 	region \
+ 	keyboard \
+ 	eulas \
+-	network \
+ 	timezone \
+ 	privacy \
+ 	goa \

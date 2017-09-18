@@ -1,0 +1,11 @@
+--- doc/Makefile.in.orig	2017-06-05 19:35:29.133099000 +0200
++++ doc/Makefile.in	2017-06-05 19:35:43.444356000 +0200
+@@ -881,7 +881,7 @@
+ install-data-hook:
+ 	if test -d "$(srcdir)/html"; then                            \
+ 		$(MKDIR_P) "$(DESTDIR)$(docdir)/html" ;              \
+-		cp -R --no-preserve=all $(srcdir)/html/* "$(DESTDIR)$(docdir)/html/" ; \
++		cp -R $(srcdir)/html/* "$(DESTDIR)$(docdir)/html/" ; \
+ 	fi
+ 
+ uninstall-local:

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	glib-networking
-PORTVERSION=	2.50.0
+PORTVERSION=	2.54.0
 CATEGORIES=	net
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome2
@@ -27,6 +27,11 @@ USE_GNOME=	glib20 intltool
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-ca-certificates=${LOCALBASE}/share/certs/ca-root-nss.crt
 INSTALL_TARGET=	install-strip
+
+OPTIONS_SUB=	yes
+OPTIONS_DEFINE=	NLS
+
+NLS_CONFIGURE_ENABLE=	nls
 
 post-patch:
 	@${REINPLACE_CMD} -e' s|-Wmissing-include-dirs||g' ${WRKSRC}/configure

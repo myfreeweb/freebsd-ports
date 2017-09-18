@@ -347,6 +347,9 @@ libdata/pkgconfig/sigc++-%%API_VERSION%%.pc
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1slot__base.html
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1slot__base__inherit__graph.png
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1slot__inherit__graph.png
+%%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1slot_3_01T__return_07T__arg_8_8_8_08_4-members.html
+%%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1slot_3_01T__return_07T__arg_8_8_8_08_4.html
+%%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1slot_3_01T__return_07T__arg_8_8_8_08_4__inherit__graph.png
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1track__obj__functor1-members.html
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1track__obj__functor1.html
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1track__obj__functor1__inherit__graph.png

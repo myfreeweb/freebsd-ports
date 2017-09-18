@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-shell-extensions
-PORTVERSION=	3.18.4
+PORTVERSION=	3.22.2
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -10,11 +10,15 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	GNOME desktop shell extensions
 
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/COPYING
+
 LIB_DEPENDS=	libgtop-2.0.so:devel/libgtop
 RUN_DEPENDS=	gnome-shell>=3.12.0:x11/gnome-shell
 
 PORTSCOUT=	limitw:1,even
 
+NO_ARCH=	yes
 USES=		gettext gmake gnome pathfix pkgconfig tar:xz
 USE_GNOME=	glib20 gnomedesktop3 intlhack
 USE_LDCONFIG=	yes

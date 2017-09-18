@@ -2,25 +2,33 @@
 # $FreeBSD$
 
 PORTNAME=	folks
-PORTVERSION=	0.11.1
-PORTREVISION=	2
+PORTVERSION=	0.11.3
+PORTREVISION=	1
 CATEGORIES=	net-im
 MASTER_SITES=	GNOME
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	library to aggregates people from multiple sources
 
+LICENSE=	LGPL21
+LICENSE_FILE=	${WRKSRC}/COPYING
+
 BUILD_DEPENDS=	vapigen:lang/vala \
 		${LOCALBASE}/bin/egrep:textproc/gnugrep
 LIB_DEPENDS=	libgee-0.8.so:devel/libgee \
 		libgcr-3.so:security/gcr \
 		libzeitgeist-2.0.so:sysutils/zeitgeist \
-		libtelepathy-glib.so:net-im/telepathy-glib
-
-CONFLICTS=	folks-0.4.[0-9]*
+		libtelepathy-glib.so:net-im/telepathy-glib \
+		libnspr4.so:devel/nspr \
+		libssl3.so:security/nss \
+		libsecret-1.so:security/libsecret \
+		libsoup-2.4.so:devel/libsoup \
+		libdbus-glib-1.so:devel/dbus-glib \
+		libdbus-1.so:devel/dbus
 
 USE_LDCONFIG=	yes
-USES=		gettext gmake libtool localbase pathfix pkgconfig tar:xz
+USES=		gettext gmake libtool localbase pathfix pkgconfig \
+		readline sqlite tar:xz
 USE_GNOME=	evolutiondataserver3 intlhack introspection:build
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-bluez-backend
@@ -29,7 +37,7 @@ INSTALL_TARGET=	install-strip
 
 GLIB_SCHEMAS=	org.freedesktop.folks.gschema.xml
 
-PLIST_SUB=	LIBVER=25 VERSION=43 LIBVERLONG=25.18.1
+PLIST_SUB=	LIBVER=25 VERSION=43 LIBVERLONG=25.18.3
 
 OPTIONS_SUB=	yes
 OPTIONS_DEFINE=	SOCIALWEB TRACKER

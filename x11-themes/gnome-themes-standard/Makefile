@@ -11,6 +11,7 @@ MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Standard themes for GNOME
 
 LICENSE=	LGPL21
+LICENSE_FILE=	${WRKSRC}/COPYING
 
 CONFLICTS=	gnome-themes-2.[0-9]*
 PORTSCOUT=	limitw:1,even

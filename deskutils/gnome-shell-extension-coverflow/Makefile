@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-shell-extension-coverflow
-PORTVERSION=	0.0.0.20151013
+PORTVERSION=	0.0.0.20160412
 CATEGORIES=	deskutils gnome
 DIST_SUBDIR=	gnome3
 
@@ -22,12 +22,16 @@ LDFLAGS+=	-L${LOCALBASE}/lib
 GLIB_SCHEMAS=	org.gnome.shell.extensions.coverflowalttab.gschema.xml
 
 GH_ACCOUNT=	dmo60
-GH_TAGNAME=	86483f1
+GH_TAGNAME=	db5bd2c
 GH_PROJECT=	CoverflowAltTab
 
 PKGMESSAGE=	../gnome-shell-extra-extensions/pkg-message.slaves
 
 NO_BUILD=	yes
+
+post-patch:
+		@${REINPLACE_CMD} -e 's|3.18"|3.18","3.20"|g' \
+			${WRKSRC}/CoverflowAltTab\@dmo60.de/metadata.json
 
 do-install:
 		@${MKDIR} ${STAGEDIR}${PREFIX}/share/glib-2.0/schemas/

@@ -2,14 +2,16 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-desktop
-PORTVERSION=	3.18.2
-PORTREVISION=	1
+PORTVERSION=	3.24.2
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Additional UI API for GNOME 3
+
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/COPYING
 
 USES=		tar:xz
 
@@ -19,21 +21,19 @@ PORTSCOUT=	limitw:1,even
 BUILD_DEPENDS=	iso-codes>=0:misc/iso-codes \
 		gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas \
 		xkeyboard-config>=0:x11/xkeyboard-config \
-		libxkbfile>=0:x11/libxkbfile \
 		itstool:textproc/itstool
 RUN_DEPENDS=	iso-codes>=0:misc/iso-codes \
 		gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas \
-		xkeyboard-config>=0:x11/xkeyboard-config \
-		libxkbfile>=0:x11/libxkbfile
+		xkeyboard-config>=0:x11/xkeyboard-config
 
-USES+=		bison gettext gmake gnome libtool pathfix pkgconfig python:3
-USE_GNOME=	gtk30 intlhack introspection:build referencehack
-USE_XORG=	x11 xrandr xext
+USES+=		gettext gmake gnome libtool localbase pathfix \
+		pkgconfig python:3.3+
+USE_GNOME=	cairo gdkpixbuf2 gtk30 intltool introspection:build \
+		referencehack
+USE_XORG=	x11
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-gnome-distributor="FreeBSD GNOME Project"
-CPPFLAGS+=	-I${LOCALBASE}/include
-LIBS+=		-L${LOCALBASE}/lib
 INSTALL_TARGET=	install-strip
 
 post-patch:

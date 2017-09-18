@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	file-roller
-PORTVERSION=	3.20.3
+PORTVERSION=	3.22.2
 PORTEPOCH=	1
 CATEGORIES=	archivers gnome
 MASTER_SITES=	GNOME
@@ -22,14 +22,12 @@ RUN_DEPENDS=	gtar:archivers/gtar
 PORTSCOUT=	limitw:1,even
 
 USES=		desktop-file-utils gettext gmake libarchive libtool \
-		pathfix pkgconfig tar:xz
+		localbase pathfix pkgconfig tar:xz
 USE_GNOME=	cairo gtk30 intlhack introspection:build
 USE_XORG=	sm
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-CPPFLAGS+=	-I${LOCALBASE}/include
-LDFLAGS+=	-L${LOCALBASE}/lib
 CONFIGURE_ARGS=	--disable-packagekit
 INSTALL_TARGET=	install-strip
 
@@ -37,11 +35,7 @@ PORTDOCS=	AUTHORS NEWS README TODO ChangeLog
 GLIB_SCHEMAS=	org.gnome.FileRoller.gschema.xml
 
 OPTIONS_SUB=	yes
-OPTIONS_DEFINE=	DOCS NAUTILUS
-OPTIONS_DEFAULT=NAUTILUS
-NAUTILUS_DESC=	Enable Nautilus extension
-NAUTILUS_USE=	GNOME=nautilus3
-NAUTILUS_CONFIGURE_ENABLE=	nautilus-actions
+OPTIONS_DEFINE=	DOCS
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|g' \

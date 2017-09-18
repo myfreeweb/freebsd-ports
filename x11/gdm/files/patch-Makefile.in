@@ -1,0 +1,21 @@
+--- Makefile.in.orig	2017-06-07 16:10:26.714097000 +0200
++++ Makefile.in	2017-06-07 16:10:58.601916000 +0200
+@@ -162,8 +162,7 @@
+ ETAGS = etags
+ CTAGS = ctags
+ CSCOPE = cscope
+-DIST_SUBDIRS = data common daemon libgdm utils pam_gdm po tests \
+-	chooser docs
++DIST_SUBDIRS = data common daemon libgdm utils po tests chooser docs
+ am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in \
+ 	$(top_srcdir)/data/dconf/gdm.in AUTHORS COPYING ChangeLog \
+ 	INSTALL NEWS README TODO acconfig.h compile config.guess \
+@@ -474,7 +473,7 @@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+ NULL = 
+-SUBDIRS = data common daemon libgdm utils pam_gdm po tests $(NULL) \
++SUBDIRS = data common daemon libgdm utils po tests $(NULL) \
+ 	$(am__append_1) $(am__append_2)
+ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
+ EXTRA_DIST = \

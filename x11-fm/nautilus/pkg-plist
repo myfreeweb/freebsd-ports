@@ -1,5 +1,6 @@
 bin/nautilus
 bin/nautilus-autorun-software
+bin/nautilus-desktop
 etc/xdg/autostart/nautilus-autostart.desktop
 include/nautilus/libnautilus-extension/nautilus-column-provider.h
 include/nautilus/libnautilus-extension/nautilus-column.h
@@ -18,9 +19,7 @@ lib/libnautilus-extension.so.1
 lib/libnautilus-extension.so.1.4.0
 lib/nautilus/extensions-3.0/libnautilus-sendto.so
 libdata/pkgconfig/libnautilus-extension.pc
-libexec/nautilus-convert-metadata
 man/man1/nautilus.1.gz
-share/GConf/gsettings/nautilus.convert
 share/appdata/org.gnome.Nautilus.appdata.xml
 share/applications/nautilus-autorun-software.desktop
 share/applications/nautilus-classic.desktop
@@ -28,6 +27,13 @@ share/applications/org.gnome.Nautilus.desktop
 share/dbus-1/services/org.freedesktop.FileManager1.service
 share/dbus-1/services/org.gnome.Nautilus.service
 share/gir-1.0/Nautilus-3.0.gir
+share/icons/hicolor/16x16/apps/org.gnome.Nautilus.png
+share/icons/hicolor/22x22/apps/org.gnome.Nautilus.png
+share/icons/hicolor/24x24/apps/org.gnome.Nautilus.png
+share/icons/hicolor/256x256/apps/org.gnome.Nautilus.png
+share/icons/hicolor/32x32/apps/org.gnome.Nautilus.png
+share/icons/hicolor/48x48/apps/org.gnome.Nautilus.png
+share/icons/hicolor/symbolic/apps/org.gnome.Nautilus-symbolic.svg
 share/gnome-shell/search-providers/nautilus-search-provider.ini
 share/gtk-doc/html/libnautilus-extension/NautilusColumn.html
 share/gtk-doc/html/libnautilus-extension/NautilusColumnProvider.html
@@ -42,7 +48,6 @@ share/gtk-doc/html/libnautilus-extension/NautilusPropertyPageProvider.html
 share/gtk-doc/html/libnautilus-extension/ch01.html
 share/gtk-doc/html/libnautilus-extension/home.png
 share/gtk-doc/html/libnautilus-extension/index.html
-share/gtk-doc/html/libnautilus-extension/index.sgml
 share/gtk-doc/html/libnautilus-extension/ix01.html
 share/gtk-doc/html/libnautilus-extension/left-insensitive.png
 share/gtk-doc/html/libnautilus-extension/left.png
@@ -115,6 +120,7 @@ share/locale/ko/LC_MESSAGES/nautilus.mo
 share/locale/ku/LC_MESSAGES/nautilus.mo
 share/locale/ky/LC_MESSAGES/nautilus.mo
 share/locale/li/LC_MESSAGES/nautilus.mo
+share/locale/ln/LC_MESSAGES/nautilus.mo
 share/locale/lt/LC_MESSAGES/nautilus.mo
 share/locale/lv/LC_MESSAGES/nautilus.mo
 share/locale/mai/LC_MESSAGES/nautilus.mo

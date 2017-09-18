@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	accountsservice
-PORTVERSION=	0.6.40
+PORTVERSION=	0.6.42
 CATEGORIES=	sysutils devel
 MASTER_SITES=	http://www.freedesktop.org/software/${PORTNAME}/
 
@@ -28,5 +28,10 @@ post-patch:
 		${WRKSRC}/src/daemon.c
 	@${REINPLACE_CMD} -e 's|/lib/AccountsService|/db/AccountsService|g' \
 		${WRKSRC}/src/user.c ${WRKSRC}/src/Makefile.in
+# XXX HACK! this file isn't present on the pristine jails of the builders
+# and configure breaks without it. Beter solutions welcome.
+.if defined(PACKAGE_BUILDING)
+	${TOUCH} /var/log/utx.log
+.endif
 
 .include <bsd.port.mk>

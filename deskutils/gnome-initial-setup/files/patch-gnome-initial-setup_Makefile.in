@@ -1,0 +1,19 @@
+--- gnome-initial-setup/Makefile.in.orig	2017-06-21 16:54:47.738362000 +0200
++++ gnome-initial-setup/Makefile.in	2017-06-21 16:55:42.554304000 +0200
+@@ -113,7 +113,7 @@
+ am__DEPENDENCIES_1 =
+ gnome_initial_setup_DEPENDENCIES = pages/language/libgislanguage.la \
+ 	pages/region/libgisregion.la pages/keyboard/libgiskeyboard.la \
+-	pages/eulas/libgiseulas.la pages/network/libgisnetwork.la \
++	pages/eulas/libgiseulas.la \
+ 	pages/timezone/libgistimezone.la \
+ 	pages/privacy/libgisprivacy.la pages/goa/libgisgoa.la \
+ 	pages/account/libgisaccount.la \
+@@ -429,7 +429,6 @@
+ 	pages/region/libgisregion.la \
+ 	pages/keyboard/libgiskeyboard.la \
+ 	pages/eulas/libgiseulas.la \
+-	pages/network/libgisnetwork.la \
+ 	pages/timezone/libgistimezone.la \
+ 	pages/privacy/libgisprivacy.la \
+ 	pages/goa/libgisgoa.la \

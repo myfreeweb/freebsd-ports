@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-settings-daemon
-PORTVERSION=	3.18.2
-PORTREVISION=	3
+PORTVERSION=	3.24.2
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -11,62 +10,66 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	GNOME 3 settings daemon
 
-BUILD_DEPENDS=	gnome-session>=0:x11/gnome-session \
-		geoclue>=0:net/geoclue \
-		docbook-xsl>=0:textproc/docbook-xsl \
-		gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
-LIB_DEPENDS=	libcanberra-gtk3.so:audio/libcanberra-gtk3 \
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+#BUILD_DEPENDS=	gnome-session>=0:x11/gnome-session \
+#		geoclue>=0:net/geoclue \
+#		docbook-xsl>=0:textproc/docbook-xsl \
+#		gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
+LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
+		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
 		libpolkit-gobject-1.so:sysutils/polkit \
-		libibus-1.0.so:textproc/ibus \
-		libdbus-1.so:devel/dbus \
+		libfontconfig.so:x11-fonts/fontconfig \
+		libfreetype.so:print/freetype2 \
 		libcolord.so:graphics/colord \
 		liblcms2.so:graphics/lcms2 \
 		libpulse.so:audio/pulseaudio \
-		libgdbm.so:databases/gdbm \
 		libnotify.so:devel/libnotify \
+		libgeoclue-2.so:net/geoclue \
+		libupower-glib.so:sysutils/upower \
 		libgeocode-glib.so:net/geocode-glib \
 		libgweather-3.so:net/libgweather
-RUN_DEPENDS=	gnome-session>=0:x11/gnome-session \
-		geoclue>=0:net/geoclue \
-		gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
+#RUN_DEPENDS=	gnome-session>=0:x11/gnome-session \
+#		gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
 
 PORTSCOUT=	limitw:1,even
 
-USE_XORG=	xxf86misc
-USE_GNOME=	gnomedesktop3 intltool libxslt
-USES=		gettext gmake gnome libtool pathfix pkgconfig tar:xz
+USE_XORG=	x11 xext xi xtst
+USE_GNOME=	cairo gnomedesktop3 intltool
+USES=		gettext gmake gnome libtool localbase pathfix pkgconfig \
+		tar:xz
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
 CONFIGURE_ARGS=	--disable-gudev \
 		--with-nssdb=${LOCALBASE}/share/certs/ca-root-nss.crt \
 		--disable-wayland \
+		--disable-alsa \
 		--disable-rfkill \
 		--disable-network-manager
-
-CPPFLAGS+=	-I${LOCALBASE}/include
-LDFLAGS+=	-L${LOCALBASE}/lib
 INSTALL_TARGET=	install-strip
 
 OPTIONS_SUB=	yes
 OPTIONS_DEFINE=	CUPS SMARTCARD
 OPTIONS_DEFAULT=CUPS SMARTCARD
-SMARTCARD_DESC=	Smartcard support
+
 CUPS_CONFIGURE_ENABLE=	cups
 CUPS_LIB_DEPENDS=	libcups.so:print/cups
+
+SMARTCARD_DESC=	Smartcard support
 SMARTCARD_CONFIGURE_ENABLE=	smartcard-support
-SMARTCARD_LIB_DEPENDS=	libnss3.so:security/nss
+SMARTCARD_LIB_DEPENDS=	libnss3.so:security/nss \
+			libnspr4.so:devel/nspr
 
 GLIB_SCHEMAS=	org.gnome.settings-daemon.enums.xml \
 		org.gnome.settings-daemon.peripherals.gschema.xml \
+		org.gnome.settings-daemon.peripherals.wacom.gschema.xml \
 		org.gnome.settings-daemon.plugins.color.gschema.xml \
-		org.gnome.settings-daemon.plugins.datetime.gschema.xml \
 		org.gnome.settings-daemon.plugins.gschema.xml \
 		org.gnome.settings-daemon.plugins.housekeeping.gschema.xml \
-		org.gnome.settings-daemon.plugins.keyboard.gschema.xml \
 		org.gnome.settings-daemon.plugins.media-keys.gschema.xml \
 		org.gnome.settings-daemon.plugins.power.gschema.xml \
 		org.gnome.settings-daemon.plugins.power.gschema.xml.override \
-		org.gnome.settings-daemon.plugins.print-notifications.gschema.xml \
 		org.gnome.settings-daemon.plugins.sharing.gschema.xml \
 		org.gnome.settings-daemon.plugins.xrandr.gschema.xml \
 		org.gnome.settings-daemon.plugins.xsettings.gschema.xml

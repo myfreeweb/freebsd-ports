@@ -17,7 +17,8 @@ LIB_DEPENDS=	liblcms2.so:graphics/lcms2 \
 		libcupsimage.so:print/cups \
 		libfreetype.so:print/freetype2 \
 		libfontconfig.so:x11-fonts/fontconfig \
-		libpoppler.so:graphics/poppler
+		libpoppler.so:graphics/poppler \
+		libmupdf.so:graphics/mupdf
 
 CONFLICTS=	cups-pstoraster-[0-9]* foomatic-filters-[0-9]*
 

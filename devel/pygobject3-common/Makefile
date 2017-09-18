@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gobject
-PORTVERSION=	3.18.2
+PORTVERSION=	3.24.0
 PORTREVISION=	0
 CATEGORIES=	devel python
 MASTER_SITES=	GNOME/sources/pygobject/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
@@ -50,19 +50,19 @@ do-install:
 .else
 PORTSCOUT=	ignore:1
 
-USES+=		gnome
-USE_GNOME+=	glib20 introspection
+USES+=		gettext-runtime gnome
+USE_GNOME+=	cairo glib20 introspection
 LIB_DEPENDS+=	libffi.so:devel/libffi
 RUN_DEPENDS+=	pygobject3-common>=0:devel/pygobject3-common
 
 .if ${SLAVE_PORT} == python2
-USES+=		python:2
+USES+=		python:-2.7
 BUILD_DEPENDS+=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:graphics/py-cairo
 RUN_DEPENDS+=	${LOCALBASE}/libdata/pkgconfig/pycairo.pc:graphics/py-cairo
 .endif
 
 .if ${SLAVE_PORT} == python3
-USES+=		python:3
+USES+=		python:3.3+
 BUILD_DEPENDS+=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:graphics/py3-cairo
 RUN_DEPENDS+=	${LOCALBASE}/libdata/pkgconfig/py3cairo.pc:graphics/py3-cairo
 .endif

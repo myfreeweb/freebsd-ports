@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	glade
-PORTVERSION=	3.18.3
-PORTREVISION=	3
+PORTVERSION=	3.20.0
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -17,7 +16,7 @@ CONFLICTS=	glade3-3.*
 PORTSCOUT=	limitw:1,even
 
 USES=		desktop-file-utils gettext gmake libtool \
-		pathfix pkgconfig tar:xz
+		localbase pathfix pkgconfig tar:xz
 USE_GNOME=	gtk30 gnomedocutils intlhack
 #		introspection:build
 # temp disable, introspection generation crashes with GNOME 3.15

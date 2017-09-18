@@ -16,6 +16,8 @@ BUILD_DEPENDS=	valac:lang/vala \
 		iso-codes>=3.57:misc/iso-codes
 LIB_DEPENDS=	libenchant.so:textproc/enchant
 
+PORTSCOUT=	limit:^0\.1\.
+
 USES=		gmake iconv libtool pathfix pkgconfig tar:xz
 USE_GNOME=	atk cairo gdkpixbuf2 glib20 gtk30 introspection:build \
 		libxml2 pango

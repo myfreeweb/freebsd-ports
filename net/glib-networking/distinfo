@@ -1,3 +1,3 @@
-TIMESTAMP = 1491088154
-SHA256 (gnome2/glib-networking-2.50.0.tar.xz) = 3f1a442f3c2a734946983532ce59ed49120319fdb10c938447c373d5e5286bee
-SIZE (gnome2/glib-networking-2.50.0.tar.xz) = 435380
+TIMESTAMP = 1505469176
+SHA256 (gnome2/glib-networking-2.54.0.tar.xz) = 5961b3779080b72314b373ff5d4790eb7e41b75ca91816ad7a81ef32922f7096
+SIZE (gnome2/glib-networking-2.54.0.tar.xz) = 439996

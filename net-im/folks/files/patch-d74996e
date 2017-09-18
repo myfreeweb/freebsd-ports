@@ -1,0 +1,168 @@
+From d74996eb74cb31c93af66304a326e57364c876a5 Mon Sep 17 00:00:00 2001
+From: Philip Withnall <philip@tecnocode.co.uk>
+Date: Mon, 14 Nov 2016 00:07:54 +0000
+Subject: eds: Ignore contacts with no UID set in their vCard
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This can happen with contacts from some CardDAV servers (like Radicale).
+Since we use the UID as part of the persona’s IID, this can result in
+non-unique IIDs within a single persona store, which the rest of the
+code in libfolks does not expect. This can result in those personas
+being linked together (due to sharing IIDs) incorrectly by the
+aggregator.
+
+Instead, ignore any contacts which have no UID set. This is not a
+perfect solution (since UIDs are optional in the vCard specification,
+which we would ideally handle), but the alternative is to invent an ID
+which we then potentially couldn’t propagate back to the server, so
+could not guarantee its stability over time.
+
+https://bugzilla.gnome.org/show_bug.cgi?id=773011
+---
+ backends/eds/lib/edsf-persona-store.vala | 27 ++++++++++++++++++++++++---
+ backends/eds/lib/edsf-persona.vala       | 31 +++++++++++++++++++++++--------
+ 2 files changed, 47 insertions(+), 11 deletions(-)
+
+diff --git a/backends/eds/lib/edsf-persona-store.vala b/backends/eds/lib/edsf-persona-store.vala
+index f21f745..320a05d 100644
+--- backends/eds/lib/edsf-persona-store.vala
++++ backends/eds/lib/edsf-persona-store.vala
+@@ -1,6 +1,6 @@
+ /*
+  * Copyright (C) 2011 Collabora Ltd.
+- * Copyright (C) 2013 Philip Withnall
++ * Copyright (C) 2013, 2016 Philip Withnall
+  *
+  * This library is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU Lesser General Public License as published by
+@@ -2489,7 +2489,15 @@ public class Edsf.PersonaStore : Folks.PersonaStore
+ 
+       foreach (E.Contact c in contacts)
+         {
+-          var iid = Edsf.Persona.build_iid_from_contact (this.id, c);
++          string? _iid = Edsf.Persona.build_iid_from_contact (this.id, c);
++
++          if (_iid == null)
++            {
++              debug ("Ignoring contact %p as UID is not set", c);
++              continue;
++            }
++
++          string iid = (!) _iid;
+           var old_persona = this._personas.get (iid);
+           var new_persona = new Persona (this, c);
+ 
+@@ -2532,7 +2540,15 @@ public class Edsf.PersonaStore : Folks.PersonaStore
+     {
+       foreach (E.Contact c in contacts)
+         {
+-          var iid = Edsf.Persona.build_iid_from_contact (this.id, c);
++          string? _iid = Edsf.Persona.build_iid_from_contact (this.id, c);
++
++          if (_iid == null)
++            {
++              debug ("Ignoring contact %p as UID is not set", c);
++              continue;
++            }
++
++          string iid = (!) _iid;
+           Persona? persona = this._personas.get (iid);
+           if (persona != null)
+             {
+@@ -2554,6 +2570,11 @@ public class Edsf.PersonaStore : Folks.PersonaStore
+ 
+       foreach (string contact_id in contacts_ids)
+         {
++          /* Not sure how this could happen, but better to be safe. We do not
++           * allow empty UIDs. */
++          if (contact_id == "")
++              continue;
++
+           var iid = Edsf.Persona.build_iid (this.id, contact_id);
+           Persona? persona = _personas.get (iid);
+           if (persona != null)
+diff --git a/backends/eds/lib/edsf-persona.vala b/backends/eds/lib/edsf-persona.vala
+index 8084fd9..8b26cf2 100644
+--- backends/eds/lib/edsf-persona.vala
++++ backends/eds/lib/edsf-persona.vala
+@@ -1,6 +1,6 @@
+ /*
+  * Copyright (C) 2011 Collabora Ltd.
+- * Copyright (C) 2013 Philip Withnall
++ * Copyright (C) 2013, 2016 Philip Withnall
+  *
+  * This library is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU Lesser General Public License as published by
+@@ -497,6 +497,9 @@ public class Edsf.Persona : Folks.Persona,
+   /**
+    * The e-d-s contact uid
+    *
++   * This is guaranteed to be a non-empty string, unique within the persona
++   * store.
++   *
+    * @since 0.6.0
+    */
+   public string contact_id { get; construct; }
+@@ -946,30 +949,41 @@ public class Edsf.Persona : Folks.Persona,
+   /**
+    * Build a IID.
+    *
++   * This requires the UID field of the contact to be set to a non-empty value
++   * already; if not, `null` will be returned.
++   *
+    * @param store_id the {@link PersonaStore.id}
+-   * @param contact the Contact
+-   * @return a valid IID
++   * @param contact the Contact, which must have a UID field set
++   * @return a valid IID, or `null` if none could be constructed
+    *
+    * @since 0.6.0
+    */
+-  internal static string build_iid_from_contact (string store_id,
++  internal static string? build_iid_from_contact (string store_id,
+       E.Contact contact)
+     {
+       var contact_id =
+           Edsf.Persona._get_property_from_contact<string> (contact, "id");
+-      return Edsf.Persona.build_iid (store_id, (!) (contact_id ?? ""));
++
++      /* If the contact has no UID, then we cannot support it. Callers must
++       * this first. */
++      if (contact_id == null || contact_id == "")
++          return null;
++
++      return Edsf.Persona.build_iid (store_id, contact_id);
+     }
+ 
+   /**
+    * Build a IID.
+    *
+-   * @param store_id the {@link PersonaStore.id}
+-   * @param contact_id the id belonging to the Contact
++   * @param store_id the {@link PersonaStore.id}, which must be non-empty
++   * @param contact_id the ID belonging to the contact, which must be non-empty
+    * @return a valid IID
+    *
+    * @since 0.6.0
+    */
+   internal static string build_iid (string store_id, string contact_id)
++      requires (store_id != "")
++      requires (contact_id != "")
+     {
+       return "%s:%s".printf (store_id, contact_id);
+     }
+@@ -990,7 +1004,8 @@ public class Edsf.Persona : Folks.Persona,
+     {
+       var _contact_id =
+           Edsf.Persona._get_property_from_contact<string> (contact, "id");
+-      var contact_id = (!) (_contact_id ?? "");
++      assert (_contact_id != null && _contact_id != "");
++      var contact_id = (!) _contact_id;
+ 
+       var uid = Folks.Persona.build_uid (BACKEND_NAME, store.id, contact_id);
+       var iid = Edsf.Persona.build_iid (store.id, contact_id);
+-- 
+cgit v0.12
+

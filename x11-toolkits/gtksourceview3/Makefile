@@ -11,6 +11,9 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Text widget that adds syntax highlighting to the GtkTextView widget
 
+LICENSE=	LGPL21
+LICENSE_FILE=	${WRKSRC}/COPYING
+
 USES=		tar:xz
 
 PORTSCOUT=	limitw:1,even
@@ -19,7 +22,7 @@ PORTSCOUT=	limitw:1,even
 
 BUILD_DEPENDS=	vala:lang/vala
 
-USES+=		gettext gmake gnome libtool pathfix pkgconfig
+USES+=		gettext gmake gnome libtool localbase pathfix pkgconfig
 USE_GNOME=	cairo gdkpixbuf2 gnomeprefix gtk30 intlhack \
 		introspection:build libxml2 referencehack
 GNU_CONFIGURE=	yes
@@ -28,8 +31,6 @@ CONFIGURE_ARGS=	--enable-compile-warnings=no \
 		--enable-glade-catalog=no \
 		--with-pkgconfigdir=${PREFIX}/libdata/pkgconfig \
 		--enable-introspection
-CPPFLAGS+=	-I${LOCALBASE}/include
-LIBS+=		-L${LOCALBASE}/lib
 INSTALL_TARGET=	install-strip
 
 post-patch:

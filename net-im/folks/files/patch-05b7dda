@@ -1,0 +1,28 @@
+From 05b7dda26b40fd420eb4d9b26580fee16ef3d9ef Mon Sep 17 00:00:00 2001
+From: Rico Tzschichholz <ricotz@ubuntu.com>
+Date: Thu, 29 Sep 2016 18:16:37 +0200
+Subject: bluez: Adapt to gio-2.0 api change in valac 0.35+
+
+---
+ backends/bluez/bluez-backend.vala | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/backends/bluez/bluez-backend.vala b/backends/bluez/bluez-backend.vala
+index efcb432..8f14cda 100644
+--- backends/bluez/bluez-backend.vala
++++ backends/bluez/bluez-backend.vala
+@@ -558,7 +558,11 @@ public class Folks.Backends.BlueZ.Backend : Folks.Backend
+           try
+             {
+               this._manager =
++#if VALA_0_36
++                  yield new DBusObjectManagerClient.for_bus (BusType.SYSTEM,
++#else
+                   yield DBusObjectManagerClient.new_for_bus (BusType.SYSTEM,
++#endif
+                       DBusObjectManagerClientFlags.NONE, "org.bluez", "/",
+                       /* DBusProxyTypeFunc: */
+                       (manager, path, iface_name) =>
+-- 
+cgit v0.12
+

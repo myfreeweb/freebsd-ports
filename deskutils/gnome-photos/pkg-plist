@@ -3,12 +3,6 @@ libexec/gnome-photos-thumbnailer
 share/appdata/org.gnome.Photos.appdata.xml
 share/applications/org.gnome.Photos.desktop
 share/dbus-1/services/org.gnome.Photos.service
-%%DOCSDIR%%/ARTISTS
-%%DOCSDIR%%/AUTHORS
-%%DOCSDIR%%/COPYING
-%%DOCSDIR%%/ChangeLog
-%%DOCSDIR%%/NEWS
-%%DOCSDIR%%/README
 share/gnome-shell/search-providers/org.gnome.Photos.search-provider.ini
 share/help/C/gnome-photos/favorites-set.page
 share/help/C/gnome-photos/favorites.page

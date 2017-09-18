@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-initial-setup
-PORTVERSION=	3.18.0
-PORTREVISION=	2
+PORTVERSION=	3.24.2
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -11,24 +10,35 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	First boot setup tool for GNOME 3
 
-BUILD_DEPENDS=	gnome-autogen.sh:devel/gnome-common \
-		gdm>=3.0.0:x11/gdm
-LIB_DEPENDS=	libgoa-1.0.so:net/gnome-online-accounts \
+LICENSE=	GPLv2+
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+BUILD_DEPENDS=	gdm>=3.0.0:x11/gdm \
+		iso-codes>=0:misc/iso-codes
+LIB_DEPENDS=	libwebkit2gtk-4.0.so:www/webkit2-gtk3 \
+		libgoa-1.0.so:net/gnome-online-accounts \
 		libaccountsservice.so:sysutils/accountsservice \
+		libgeocode-glib.so:net/geocode-glib \
 		libpwquality.so:security/libpwquality \
+		libpolkit-gobject-1.so:sysutils/polkit \
+		libcheese.so:multimedia/cheese \
+		librest-0.7.so:devel/librest \
+		libjson-glib-1.0.so:devel/json-glib \
+		libibus-1.0.so:textproc/ibus \
+		libsecret-1.so:security/libsecret \
 		libgweather-3.so:net/libgweather
-RUN_DEPENDS=	gdm>=3.0.0:x11/gdm
+RUN_DEPENDS=	gdm>=3.0.0:x11/gdm \
+		iso-codes>=0:misc/iso-codes
 
 PORTSCOUT=	limitw:1,even
 
-USES=		autoreconf compiler:c++11-lib gettext gmake gnome libtool \
-		pathfix pkgconfig tar:xz
-USE_GNOME=	gnomedesktop3 gnomeprefix gtk30 intlhack
+USES=		compiler:c++11-lib gettext gmake gnome libtool \
+		localbase pathfix pkgconfig tar:xz
+USE_GNOME=	gnomedesktop3 intltool
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
+CONFIGURE_ARGS=	--disable-software-sources
 INSTALLS_ICONS=	yes
-CPPFLAGS+=	-I${LOCALBASE}/include
-LDFLAGS+=	-L${LOCALBASE}/lib
 
 OPTIONS_DEFINE=	KERBEROS
 OPTIONS_DEFAULT=KERBEROS
@@ -36,7 +46,8 @@ OPTIONS_DEFAULT=KERBEROS
 .include <bsd.port.options.mk>
 
 .if !${PORT_OPTIONS:MKERBEROS}
-EXTRA_PATCHES+=		${FILESDIR}/extra-patch-gnome-initial-setup_gis-account-page.c
+EXTRA_PATCHES+=		${FILESDIR}/extra-patch-gnome-initial-setup_gis-account-page.c \
+			${FILESDIR}/patch-gnome-initial-setup_gis-account-page.ui
 .endif
 
 post-patch:

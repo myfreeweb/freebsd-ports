@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-shell-extension-trash
-PORTVERSION=	0.0.0.20150923
+PORTVERSION=	0.0.0.20160412
 CATEGORIES=	deskutils gnome
 DIST_SUBDIR=	gnome3
 
@@ -22,14 +22,14 @@ LDFLAGS+=	-L${LOCALBASE}/lib
 
 GH_ACCOUNT=	bertoldia
 GH_PROJECT=	gnome-shell-trash-extension
-GH_TAGNAME=	56f18ae
+GH_TAGNAME=	36b686c
 
 PKGMESSAGE=	../gnome-shell-extra-extensions/pkg-message.slaves
 
 NO_BUILD=	yes
 
 post-patch:
-	@${REINPLACE_CMD} -e 's|"3.16"|"3.18", "3.16"|g' \
+	@${REINPLACE_CMD} -e 's|"3.18"|"3.20", "3.18"|g' \
 		${WRKSRC}/metadata.json
 
 do-install:

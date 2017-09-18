@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-shell-extra-extensions
-PORTVERSION=	3.18.0
+PORTVERSION=	3.20.0
 CATEGORIES=	deskutils gnome
 
 MAINTAINER=	gnome@FreeBSD.org

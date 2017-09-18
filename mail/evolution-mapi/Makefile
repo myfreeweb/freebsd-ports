@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	evolution-mapi
-PORTVERSION=	3.18.4
+PORTVERSION=	3.22.0
 CATEGORIES=	mail gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -17,13 +17,14 @@ RUN_DEPENDS=	evolution>=3.0.0:mail/evolution
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome libtool pathfix pkgconfig tar:xz
-USE_GNOME=	intltool
+USES=		gettext gmake gnome libtool localbase pathfix pkgconfig \
+		sqlite tar:xz
+USE_GNOME=	atk cairo evolutiondataserver3 gdkpixbuf2 glib20 gtk30 \
+		intltool pango
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-CPPFLAGS+=	-I${LOCALBASE}/include -Wno-error=format-nonliteral
-CFLAGS+=	-I${LOCALBASE}/include -Wno-error=format-nonliteral
-LDFLAGS+=	-L${LOCALBASE}/lib
+CPPFLAGS+=	-Wno-error=format-nonliteral
+CFLAGS+=	-Wno-error=format-nonliteral
 CONFIGURE_ARGS+=	--datarootdir=${PREFIX}/share/
 INSTALL_TARGET=	install-strip
 

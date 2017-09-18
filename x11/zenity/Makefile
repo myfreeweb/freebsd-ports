@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	zenity
-PORTVERSION=	3.18.0
+PORTVERSION=	3.22.0
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -16,12 +16,12 @@ BUILD_DEPENDS=	itstool:textproc/itstool
 
 CONFLICTS=	gtkada-1.2.* zenity-2.*
 
-USES=		gettext gmake gnome pathfix pkgconfig perl5 tar:xz
-USE_GNOME=	gnomeprefix gtk30 intlhack
+USES=		gettext gmake gnome localbase pathfix pkgconfig \
+		perl5 tar:xz
+USE_GNOME=	cairo gdkpixbuf2 gnomeprefix gtk30 intlhack
 USE_XORG=	x11
 GNU_CONFIGURE=	yes
-CPPFLAGS+=	-I${LOCALBASE}/include
-LDFLAGS+=	-L${LOCALBASE}/lib
+CONFIGURE_ARGS=	--disable-webkitgtk
 
 OPTIONS_DEFINE=	NOTIFY
 OPTIONS_DEFAULT=NOTIFY

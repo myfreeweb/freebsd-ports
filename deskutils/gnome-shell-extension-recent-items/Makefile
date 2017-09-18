@@ -3,6 +3,7 @@
 
 PORTNAME=	gnome-shell-extension-recent-items
 PORTVERSION=	13
+PORTREVISION=	1
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	http://www.bananenfisch.net/code/
 DISTNAME=	RecentItems-${PORTVERSION}
@@ -19,6 +20,10 @@ USE_LDCONFIG=	yes
 PKGMESSAGE=	../gnome-shell-extra-extensions/pkg-message.slaves
 
 NO_BUILD=	yes
+
+post-patch:
+		@${REINPLACE_CMD} -e 's|"3.18"|"3.18","3.20"|g' \
+			${WRKSRC}/metadata.json
 
 do-install:
 	@${MKDIR} ${STAGEDIR}${PREFIX}/share/gnome-shell/extensions/RecentItems@bananenfisch.net

@@ -3,7 +3,7 @@
 
 PORTNAME=	gnome-shell-extension-audio-output-switcher
 PORTVERSION=	0.0.0.20140520
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	deskutils gnome
 DIST_SUBDIR=	gnome3
 
@@ -30,7 +30,7 @@ PKGMESSAGE=	../gnome-shell-extra-extensions/pkg-message.slaves
 NO_BUILD=	yes
 
 post-patch:
-		@${REINPLACE_CMD} -e 's|3.12"|3.12","3.14","3.16", "3.18"|g' \
+		@${REINPLACE_CMD} -e 's|3.12"|3.12","3.14","3.16", "3.18","3.20"|g' \
 			${WRKSRC}/metadata.json
 
 do-install:

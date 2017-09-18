@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-session
-PORTVERSION=	3.18.1.2
-PORTREVISION=	2
+PORTVERSION=	3.24.1
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -11,26 +10,30 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Session component for the GNOME 3 desktop
 
-LIB_DEPENDS=	libdbus-glib-1.so:devel/dbus-glib \
+LIB_DEPENDS=	libdbus-1.so:devel/dbus \
+		libdbus-glib-1.so:devel/dbus-glib \
 		libjson-glib-1.0.so:devel/json-glib \
-		libupower-glib.so:sysutils/upower
-RUN_DEPENDS=	${LOCALBASE}/sbin/console-kit-daemon:sysutils/consolekit2 \
-		${LOCALBASE}/bin/xdpyinfo:x11/xdpyinfo
+		libepoxy.so:graphics/libepoxy
+RUN_DEPENDS=	${LOCALBASE}/sbin/console-kit-daemon:sysutils/consolekit2
 
 PORTSCOUT=	limitw:1,even
 
-USES=		execinfo gettext gmake gnome pathfix pkgconfig tar:xz
-USE_GNOME=	gnomedesktop3 gtk30 intlhack intlhack libxslt:build
-USE_XORG=	ice sm xau xext xtst xrender xtrans xcomposite
-USE_GL=		gl
+USES=		execinfo gettext gmake gnome localbase pathfix \
+		pkgconfig tar:xz
+USE_GNOME=	cairo gnomedesktop3 intlhack libxslt:build
+USE_XORG=	ice sm x11 xau xcomposite xext xrender xtrans xtst
+USE_GL=		egl gl glesv2
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-docbook-docs \
 		--enable-consolekit \
-		--enable-gconf=no
-CPPFLAGS+=	-I${LOCALBASE}/include
-LDFLAGS+=	-L${LOCALBASE}/lib
+		--enable-gconf=no \
+		--disable-systemd
 
 GLIB_SCHEMAS=	org.gnome.SessionManager.gschema.xml
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|gconf-2.0|gconf-disabled|g' \
+		${WRKSRC}/configure
 
 .include <bsd.port.mk>

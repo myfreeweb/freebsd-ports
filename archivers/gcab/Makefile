@@ -15,5 +15,6 @@ USES=		cpe gettext gmake libtool pathfix pkgconfig tar:xz
 GNU_CONFIGURE=	yes
 USE_GNOME=	glib20 intlhack introspection:build
 CPE_VENDOR=	gnome
+INSTALL_TARGET=	install-strip
 
 .include <bsd.port.mk>

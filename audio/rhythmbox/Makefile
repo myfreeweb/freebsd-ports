@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	rhythmbox
-PORTVERSION=	3.2.1
-PORTREVISION=	4
+PORTVERSION=	3.4.1
 CATEGORIES=	audio gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -17,7 +16,10 @@ BUILD_DEPENDS=	${LOCALBASE}/include/linux/videodev2.h:multimedia/v4l_compat \
 		itstool:textproc/itstool
 LIB_DEPENDS=	libmusicbrainz5.so:audio/libmusicbrainz5 \
 		libtotem-plparser.so:multimedia/totem-pl-parser \
+		libdbus-1.so:devel/dbus \
 		libdbus-glib-1.so:devel/dbus-glib \
+		libhal.so:sysutils/hal \
+		libsoup-2.4.so:devel/libsoup \
 		libcheck.so:devel/check \
 		libpeas-1.0.so:devel/libpeas \
 		libjson-glib-1.0.so:devel/json-glib \
@@ -27,15 +29,14 @@ LIB_DEPENDS=	libmusicbrainz5.so:audio/libmusicbrainz5 \
 
 USES=		desktop-file-utils gettext gmake gnome libtool localbase \
 		pathfix pkgconfig tar:xz
-USE_GNOME=	intlhack gnomeprefix gtk30 introspection:build \
-		py3gobject3
-USE_XORG=	ice xproto
+USE_GNOME=	cairo intlhack gnomeprefix gtk30 introspection \
+		py3gobject3 libxml2
+USE_XORG=	ice x11 xproto
 GNU_CONFIGURE=	yes
 USE_GSTREAMER1=	flac lame jpeg cdparanoia vorbis
 CONFIGURE_ARGS=	--enable-vala \
 		--without-gudev \
-		--without-webkit \
-		--enable-visualizer=no \
+		--disable-visualizer \
 		--disable-browser-plugin \
 		--with-libsecret=yes
 INSTALLS_ICONS=	yes
@@ -45,7 +46,7 @@ INSTALL_TARGET=	install-strip
 GLIB_SCHEMAS=	org.gnome.rhythmbox.gschema.xml
 
 OPTIONS_SUB=	yes
-OPTIONS_DEFINE=	BRASERO DAAP GRILO IPOD NOTIFY PYTHON LIRC MTP
+OPTIONS_DEFINE=	BRASERO DAAP IPOD GRILO NOTIFY PYTHON LIRC MTP
 OPTIONS_DEFAULT=BRASERO NOTIFY PYTHON
 BRASERO_DESC=	Brasero disc burning support
 BRASERO_CONFIGURE_WITH=brasero
@@ -55,11 +56,14 @@ DAAP_CONFIGURE_ENABLE=	daap
 DAAP_LIB_DEPENDS=	libdmapsharing-3.0.so:net/libdmapsharing
 IPOD_DESC=	iPod support
 IPOD_CONFIGURE_WITH=	ipod
-IPOD_LIB_DEPENDS=	libgpod.so:audio/libgpod
+IPOD_LIB_DEPENDS=	libgpod.so:audio/libgpod \
+			libplist.so:devel/libplist \
+			libimobiledevice.so:comms/libimobiledevice
 GRILO_DESC=		Media discovery with Grilo
 GRILO_CONFIGURE_ENABLE=	grilo
-GRILO_BUILD_DEPENDS=	grilo-plugins2>=0:net/grilo-plugins2
-GRILO_RUN_DEPENDS=	grilo-plugins2>=0:net/grilo-plugins2
+GRILO_BUILD_DEPENDS=	grilo>=0.3.1:net/grilo
+GRILO_LIB_DEPENDS=	libgrilo-0.3.so:net/grilo
+GRILO_RUN_DEPENDS=	grilo-plugins>=0.3.2:net/grilo-plugins
 LIRC_CONFIGURE_ENABLE=	lirc
 LIRC_LIB_DEPENDS=	liblirc_client.so:comms/lirc
 NOTIFY_CONFIGURE_ENABLE=	libnotify
@@ -70,12 +74,6 @@ MTP_LIB_DEPENDS=	libmtp.so:multimedia/libmtp \
 PYTHON_CONFIGURE_ENABLE=	python
 PYTHON_USES=		python:3.3+
 PYTHON_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}libpeas>=0:devel/py3-libpeas
-# context plugin
-# webkit is for the context plugin, which is broken because
-# it needs textproc/py3-mako
-#WEBKIT_DESC=	HTML view support
-#WEBKIT_CONFIGURE_WITH=	webkit
-#WEBKIT_LIB_DEPENDS=	libwebkitgtk-3.0.so:www/webkit-gtk3
 
 .include <bsd.port.pre.mk>
 

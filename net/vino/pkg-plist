@@ -1,3 +1,4 @@
+lib/systemd/user/vino-server.service
 libexec/vino-server
 share/applications/vino-server.desktop
 share/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service

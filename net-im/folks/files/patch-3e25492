@@ -1,0 +1,64 @@
+From 3e254921510203455d3095936d306037ceaf1d94 Mon Sep 17 00:00:00 2001
+From: Philip Withnall <philip@tecnocode.co.uk>
+Date: Wed, 1 Feb 2017 00:50:12 +0000
+Subject: core: Fix initialisation of RoleDetails properties
+
+They are all non-nullable strings, which means they must be explicitly
+initialised to empty strings, rather than implicitly initialised to
+null.
+---
+ folks/role-details.vala | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/folks/role-details.vala b/folks/role-details.vala
+index 9636357..e986a54 100644
+--- folks/role-details.vala
++++ folks/role-details.vala
+@@ -34,7 +34,7 @@ using GLib;
+  */
+ public class Folks.Role : Object
+ {
+-  private string _organisation_name;
++  private string _organisation_name = "";
+   /**
+    * The name of the organisation in which the role is held.
+    */
+@@ -44,7 +44,7 @@ public class Folks.Role : Object
+       set { this._organisation_name = (value != null ? value : ""); }
+     }
+ 
+-  private string _title;
++  private string _title = "";
+   /**
+    * The title of the position held.
+    *
+@@ -56,7 +56,7 @@ public class Folks.Role : Object
+       set { this._title = (value != null ? value : ""); }
+     }
+ 
+-  private string _role;
++  private string _role = "";
+   /**
+    * The role of the position.
+    *
+@@ -70,7 +70,7 @@ public class Folks.Role : Object
+       set { this._role = (value != null ? value : ""); }
+     }
+ 
+-  private string _uid;
++  private string _uid = "";
+   /**
+    * The UID that distinguishes this role.
+    */
+@@ -163,7 +163,7 @@ public class Folks.Role : Object
+  */
+ public class Folks.RoleFieldDetails : AbstractFieldDetails<Role>
+ {
+-  private string _id;
++  private string _id = "";
+   /**
+    * {@inheritDoc}
+    */
+-- 
+cgit v0.12
+

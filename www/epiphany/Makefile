@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	epiphany
-PORTVERSION=	3.24.2
-PORTREVISION=	1
+PORTVERSION=	3.24.3
 CATEGORIES=	www gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -20,6 +19,7 @@ BUILD_DEPENDS=	iso-codes>=0:misc/iso-codes \
 LIB_DEPENDS=	libwebkit2gtk-4.0.so:www/webkit2-gtk3 \
 		libsoup-2.4.so:devel/libsoup \
 		libsoup-gnome-2.4.so:devel/libsoup-gnome \
+		libsoup-2.4.so:devel/libsoup \
 		libgcr-3.so:security/gcr \
 		libstartup-notification-1.so:x11/startup-notification \
 		libnss3.so:security/nss \

@@ -1,0 +1,101 @@
+--- configure.orig	2017-06-21 16:40:08.505012000 +0200
++++ configure	2017-06-21 16:40:26.404092000 +0200
+@@ -14374,9 +14374,7 @@
+     pkg_cv_INITIAL_SETUP_CFLAGS="$INITIAL_SETUP_CFLAGS"
+  elif test -n "$PKG_CONFIG"; then
+     if test -n "$PKG_CONFIG" && \
+-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libnm >= \$LIBNM_REQUIRED_VERSION
+-                  libnma >= \$LIBNMA_REQUIRED_VERSION
+-                  polkit-gobject-1 >= \$POLKIT_REQUIRED_VERSION
++    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"polkit-gobject-1 >= \$POLKIT_REQUIRED_VERSION
+                   accountsservice
+                   gnome-desktop-3.0 >= \$GNOME_DESKTOP_REQUIRED_VERSION
+                   fontconfig
+@@ -14394,9 +14392,7 @@
+ 		  libsecret-1
+                   pwquality
+                   webkit2gtk-4.0\""; } >&5
+-  ($PKG_CONFIG --exists --print-errors "libnm >= $LIBNM_REQUIRED_VERSION
+-                  libnma >= $LIBNMA_REQUIRED_VERSION
+-                  polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
++  ($PKG_CONFIG --exists --print-errors "polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
+                   accountsservice
+                   gnome-desktop-3.0 >= $GNOME_DESKTOP_REQUIRED_VERSION
+                   fontconfig
+@@ -14417,9 +14413,7 @@
+   ac_status=$?
+   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+   test $ac_status = 0; }; then
+-  pkg_cv_INITIAL_SETUP_CFLAGS=`$PKG_CONFIG --cflags "libnm >= $LIBNM_REQUIRED_VERSION
+-                  libnma >= $LIBNMA_REQUIRED_VERSION
+-                  polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
++  pkg_cv_INITIAL_SETUP_CFLAGS=`$PKG_CONFIG --cflags "polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
+                   accountsservice
+                   gnome-desktop-3.0 >= $GNOME_DESKTOP_REQUIRED_VERSION
+                   fontconfig
+@@ -14448,9 +14442,7 @@
+     pkg_cv_INITIAL_SETUP_LIBS="$INITIAL_SETUP_LIBS"
+  elif test -n "$PKG_CONFIG"; then
+     if test -n "$PKG_CONFIG" && \
+-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"libnm >= \$LIBNM_REQUIRED_VERSION
+-                  libnma >= \$LIBNMA_REQUIRED_VERSION
+-                  polkit-gobject-1 >= \$POLKIT_REQUIRED_VERSION
++    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"polkit-gobject-1 >= \$POLKIT_REQUIRED_VERSION
+                   accountsservice
+                   gnome-desktop-3.0 >= \$GNOME_DESKTOP_REQUIRED_VERSION
+                   fontconfig
+@@ -14468,9 +14460,7 @@
+ 		  libsecret-1
+                   pwquality
+                   webkit2gtk-4.0\""; } >&5
+-  ($PKG_CONFIG --exists --print-errors "libnm >= $LIBNM_REQUIRED_VERSION
+-                  libnma >= $LIBNMA_REQUIRED_VERSION
+-                  polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
++  ($PKG_CONFIG --exists --print-errors "polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
+                   accountsservice
+                   gnome-desktop-3.0 >= $GNOME_DESKTOP_REQUIRED_VERSION
+                   fontconfig
+@@ -14491,9 +14481,7 @@
+   ac_status=$?
+   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+   test $ac_status = 0; }; then
+-  pkg_cv_INITIAL_SETUP_LIBS=`$PKG_CONFIG --libs "libnm >= $LIBNM_REQUIRED_VERSION
+-                  libnma >= $LIBNMA_REQUIRED_VERSION
+-                  polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
++  pkg_cv_INITIAL_SETUP_LIBS=`$PKG_CONFIG --libs "polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
+                   accountsservice
+                   gnome-desktop-3.0 >= $GNOME_DESKTOP_REQUIRED_VERSION
+                   fontconfig
+@@ -14531,9 +14519,7 @@
+         _pkg_short_errors_supported=no
+ fi
+         if test $_pkg_short_errors_supported = yes; then
+-	        INITIAL_SETUP_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "libnm >= $LIBNM_REQUIRED_VERSION
+-                  libnma >= $LIBNMA_REQUIRED_VERSION
+-                  polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
++	        INITIAL_SETUP_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
+                   accountsservice
+                   gnome-desktop-3.0 >= $GNOME_DESKTOP_REQUIRED_VERSION
+                   fontconfig
+@@ -14552,9 +14538,7 @@
+                   pwquality
+                   webkit2gtk-4.0" 2>&1`
+         else
+-	        INITIAL_SETUP_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "libnm >= $LIBNM_REQUIRED_VERSION
+-                  libnma >= $LIBNMA_REQUIRED_VERSION
+-                  polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
++	        INITIAL_SETUP_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
+                   accountsservice
+                   gnome-desktop-3.0 >= $GNOME_DESKTOP_REQUIRED_VERSION
+                   fontconfig
+@@ -14576,9 +14560,7 @@
+ 	# Put the nasty error message in config.log where it belongs
+ 	echo "$INITIAL_SETUP_PKG_ERRORS" >&5
+ 
+-	as_fn_error $? "Package requirements (libnm >= $LIBNM_REQUIRED_VERSION
+-                  libnma >= $LIBNMA_REQUIRED_VERSION
+-                  polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
++	as_fn_error $? "Package requirements (polkit-gobject-1 >= $POLKIT_REQUIRED_VERSION
+                   accountsservice
+                   gnome-desktop-3.0 >= $GNOME_DESKTOP_REQUIRED_VERSION
+                   fontconfig

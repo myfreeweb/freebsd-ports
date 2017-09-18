@@ -73,6 +73,7 @@ lib/totem/plugins/vimeo/libvimeo.a
 lib/totem/plugins/vimeo/libvimeo.so
 lib/totem/plugins/vimeo/vimeo.plugin
 libdata/pkgconfig/totem.pc
+man/man1/totem-audio-preview.1.gz
 man/man1/totem-video-thumbnailer.1.gz
 man/man1/totem.1.gz
 share/GConf/gsettings/opensubtitles.convert
@@ -89,7 +90,6 @@ share/gtk-doc/html/totem/api-index-full.html
 share/gtk-doc/html/totem/core-api.html
 share/gtk-doc/html/totem/home.png
 share/gtk-doc/html/totem/index.html
-share/gtk-doc/html/totem/index.sgml
 share/gtk-doc/html/totem/ix02.html
 share/gtk-doc/html/totem/ix03.html
 share/gtk-doc/html/totem/ix04.html
@@ -396,13 +396,13 @@ share/help/zh_TW/totem/figures/totem_volume_maximum_button.png
 share/help/zh_TW/totem/figures/totem_volume_mute_button.png
 share/help/zh_TW/totem/index.docbook
 share/help/zh_TW/totem/legal.xml
-share/icons/hicolor/16x16/apps/totem.png
-share/icons/hicolor/22x22/apps/totem.png
-share/icons/hicolor/24x24/apps/totem.png
-share/icons/hicolor/256x256/apps/totem.png
-share/icons/hicolor/32x32/apps/totem.png
-share/icons/hicolor/48x48/apps/totem.png
-share/icons/hicolor/scalable/apps/totem-symbolic.svg
+share/icons/hicolor/16x16/apps/org.gnome.Totem.png
+share/icons/hicolor/22x22/apps/org.gnome.Totem.png
+share/icons/hicolor/24x24/apps/org.gnome.Totem.png
+share/icons/hicolor/256x256/apps/org.gnome.Totem.png
+share/icons/hicolor/32x32/apps/org.gnome.Totem.png
+share/icons/hicolor/48x48/apps/org.gnome.Totem.png
+share/icons/hicolor/symbolic/apps/org.gnome.Totem-symbolic.svg
 share/locale/af/LC_MESSAGES/totem.mo
 share/locale/am/LC_MESSAGES/totem.mo
 share/locale/ar/LC_MESSAGES/totem.mo
@@ -435,6 +435,7 @@ share/locale/eu/LC_MESSAGES/totem.mo
 share/locale/fa/LC_MESSAGES/totem.mo
 share/locale/fi/LC_MESSAGES/totem.mo
 share/locale/fr/LC_MESSAGES/totem.mo
+share/locale/fur/LC_MESSAGES/totem.mo
 share/locale/ga/LC_MESSAGES/totem.mo
 share/locale/gd/LC_MESSAGES/totem.mo
 share/locale/gl/LC_MESSAGES/totem.mo
@@ -503,5 +504,6 @@ share/thumbnailers/totem.thumbnailer
 %%DATADIR%%/playlist.ui
 %%DATADIR%%/preferences.ui
 %%DATADIR%%/properties.ui
+%%DATADIR%%/shortcuts.ui
 %%DATADIR%%/totem.ui
 %%DATADIR%%/uri.ui

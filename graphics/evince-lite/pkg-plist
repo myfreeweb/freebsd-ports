@@ -132,8 +132,8 @@ share/applications/evince.desktop
 %%DATADIR%%/icons/hicolor/48x48/actions/view-page-facing.png
 %%DATADIR%%/icons/hicolor/scalable/actions/object-rotate-left.svg
 %%DATADIR%%/icons/hicolor/scalable/actions/object-rotate-right.svg
-%%DATADIR%%/icons/hicolor/scalable/apps/evince-symbolic.svg
 %%DATADIR%%/icons/hicolor/scalable/mimetypes/x-office-presentation.svg
+share/icons/hicolor/symbolic/apps/evince-symbolic.svg
 share/gtk-doc/html/evince/EvFileMonitor.html
 share/gtk-doc/html/evince/EvHistory.html
 share/gtk-doc/html/evince/EvMessageArea.html
@@ -162,7 +162,6 @@ share/gtk-doc/html/evince/evince-frontend.html
 share/gtk-doc/html/evince/evince.devhelp2
 share/gtk-doc/html/evince/home.png
 share/gtk-doc/html/evince/index.html
-share/gtk-doc/html/evince/index.sgml
 share/gtk-doc/html/evince/left-insensitive.png
 share/gtk-doc/html/evince/left.png
 share/gtk-doc/html/evince/licence.html
@@ -209,7 +208,6 @@ share/gtk-doc/html/libevdocument/document-helpers.html
 share/gtk-doc/html/libevdocument/document-interfaces.html
 share/gtk-doc/html/libevdocument/home.png
 share/gtk-doc/html/libevdocument/index.html
-share/gtk-doc/html/libevdocument/index.sgml
 share/gtk-doc/html/libevdocument/left-insensitive.png
 share/gtk-doc/html/libevdocument/left.png
 share/gtk-doc/html/libevdocument/libevdocument-EvDocumentMisc.html
@@ -232,6 +230,7 @@ share/gtk-doc/html/libevdocument/style.css
 share/gtk-doc/html/libevdocument/up-insensitive.png
 share/gtk-doc/html/libevdocument/up.png
 share/gtk-doc/html/libevview/EvJob.html
+share/gtk-doc/html/libevview/annotation-glossary.html
 share/gtk-doc/html/libevview/api-index-3-10.html
 share/gtk-doc/html/libevview/api-index-3-6.html
 share/gtk-doc/html/libevview/api-index-3-8.html
@@ -239,7 +238,6 @@ share/gtk-doc/html/libevview/api-index-deprecated.html
 share/gtk-doc/html/libevview/api-index-full.html
 share/gtk-doc/html/libevview/home.png
 share/gtk-doc/html/libevview/index.html
-share/gtk-doc/html/libevview/index.sgml
 share/gtk-doc/html/libevview/left-insensitive.png
 share/gtk-doc/html/libevview/left.png
 share/gtk-doc/html/libevview/libevview-ev-annotation-window.html
@@ -3008,6 +3006,7 @@ share/locale/gl/LC_MESSAGES/evince.mo
 share/locale/gu/LC_MESSAGES/evince.mo
 share/locale/he/LC_MESSAGES/evince.mo
 share/locale/hi/LC_MESSAGES/evince.mo
+share/locale/hr/LC_MESSAGES/evince.mo
 share/locale/hu/LC_MESSAGES/evince.mo
 share/locale/id/LC_MESSAGES/evince.mo
 share/locale/is/LC_MESSAGES/evince.mo

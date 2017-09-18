@@ -1,9 +1,8 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
 # $FreeBSD$
-#   $MCom: ports/trunk/devel/mm-common/Makefile 19953 2014-10-15 08:51:31Z gusi $
 
 PORTNAME=	mm-common
-PORTVERSION=	0.9.9
+PORTVERSION=	0.9.10
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 

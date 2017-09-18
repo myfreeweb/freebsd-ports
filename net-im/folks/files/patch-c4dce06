@@ -1,0 +1,47 @@
+From c4dce06b1532f68ddc47f07eed00ec68521048f7 Mon Sep 17 00:00:00 2001
+From: Philip Withnall <philip.withnall@collabora.co.uk>
+Date: Wed, 9 Nov 2016 13:32:04 +0000
+Subject: backends: Fix libsocialweb and tracker backends with recent valac
+
+The type checking got better in recent versions of valac, so the
+ambiguous types of the personas property in the PersonaStore
+implementations in these backends now throw an error. Fix that by making
+the type more specific.
+
+This should not be an API break; these classes are still derived from
+Folks.PersonaStore, where the types have not changed and were never
+ambiguous.
+---
+ backends/libsocialweb/lib/swf-persona-store.vala | 2 +-
+ backends/tracker/lib/trf-persona-store.vala      | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/backends/libsocialweb/lib/swf-persona-store.vala b/backends/libsocialweb/lib/swf-persona-store.vala
+index 40e8f85..f957f32 100644
+--- backends/libsocialweb/lib/swf-persona-store.vala
++++ backends/libsocialweb/lib/swf-persona-store.vala
+@@ -144,7 +144,7 @@ public class Swf.PersonaStore : Folks.PersonaStore
+    *
+    * See {@link Folks.PersonaStore.personas}.
+    */
+-  public override Map<string, Persona> personas
++  public override Map<string, Folks.Persona> personas
+     {
+       get { return this._personas_ro; }
+     }
+diff --git a/backends/tracker/lib/trf-persona-store.vala b/backends/tracker/lib/trf-persona-store.vala
+index 3a355a7..e19d7cd 100644
+--- backends/tracker/lib/trf-persona-store.vala
++++ backends/tracker/lib/trf-persona-store.vala
+@@ -403,7 +403,7 @@ public class Trf.PersonaStore : Folks.PersonaStore
+    *
+    * See {@link Folks.PersonaStore.personas}.
+    */
+-  public override Map<string, Persona> personas
++  public override Map<string, Folks.Persona> personas
+     {
+       get { return this._personas_ro; }
+     }
+-- 
+cgit v0.12
+

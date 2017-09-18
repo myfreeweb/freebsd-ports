@@ -18,12 +18,10 @@ GIR_DESC=	Build introspection data
 GIR_USE=	gnome=introspection
 GIR_CONFIGURE_ENABLE=introspection
 
-USES=		gmake libtool pathfix pkgconfig tar:xz
+USES=		gmake libtool localbase pathfix pkgconfig tar:xz
 USE_GNOME=	glib20 gnomeprefix
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
-CPPFLAGS+=	-I${LOCALBASE}/include
-LDFLAGS+=	-L${LOCALBASE}/lib
 INSTALL_TARGET=	install-strip
 
 PORTDOCS=	*

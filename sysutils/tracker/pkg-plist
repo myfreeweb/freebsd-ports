@@ -1,13 +1,6 @@
 bin/tracker
-bin/tracker-control
-bin/tracker-import
-bin/tracker-info
 bin/tracker-needle
 bin/tracker-preferences
-bin/tracker-search
-bin/tracker-sparql
-bin/tracker-stats
-bin/tracker-tag
 etc/xdg/autostart/tracker-extract.desktop
 etc/xdg/autostart/tracker-miner-apps.desktop
 etc/xdg/autostart/tracker-miner-fs.desktop
@@ -27,7 +20,9 @@ include/tracker-%%TRACKER_VER%%/libtracker-miner/tracker-miner-object.h
 include/tracker-%%TRACKER_VER%%/libtracker-miner/tracker-miner-online.h
 include/tracker-%%TRACKER_VER%%/libtracker-miner/tracker-miner.h
 include/tracker-%%TRACKER_VER%%/libtracker-sparql/tracker-generated.h
+include/tracker-%%TRACKER_VER%%/libtracker-sparql/tracker-namespace-manager.h
 include/tracker-%%TRACKER_VER%%/libtracker-sparql/tracker-ontologies.h
+include/tracker-%%TRACKER_VER%%/libtracker-sparql/tracker-resource.h
 include/tracker-%%TRACKER_VER%%/libtracker-sparql/tracker-sparql.h
 include/tracker-%%TRACKER_VER%%/libtracker-sparql/tracker-version.h
 %%WEB_MINERS%%lib/firefox-addons/extensions/trackerfox@bustany.org
@@ -47,6 +42,12 @@ lib/libtracker-sparql-%%TRACKER_VER%%.a
 lib/libtracker-sparql-%%TRACKER_VER%%.so
 lib/libtracker-sparql-%%TRACKER_VER%%.so.0
 lib/libtracker-sparql-%%TRACKER_VER%%.so.0.%%LIBVER%%.0
+lib/systemd/user/tracker-extract.service
+lib/systemd/user/tracker-miner-apps.service
+lib/systemd/user/tracker-miner-fs.service
+lib/systemd/user/tracker-miner-user-guides.service
+lib/systemd/user/tracker-store.service
+lib/systemd/user/tracker-writeback.service
 @comment %%NAUTILUS%%lib/nautilus/extensions-3.0/libnautilus-tracker-tags.a
 @comment %%NAUTILUS%%lib/nautilus/extensions-3.0/libnautilus-tracker-tags.so
 %%DOCUMENT_MINERS%%lib/tracker-%%TRACKER_VER%%/extract-modules/libextract-abw.a
@@ -137,12 +138,6 @@ man/man1/tracker-status.1.gz
 man/man1/tracker-store.1.gz
 man/man1/tracker-tag.1.gz
 man/man1/tracker-writeback.1.gz
-man/man5/tracker-db.cfg.5.gz
-man/man5/tracker-extract.cfg.5.gz
-man/man5/tracker-fts.cfg.5.gz
-man/man5/tracker-miner-fs.cfg.5.gz
-man/man5/tracker-store.cfg.5.gz
-man/man5/tracker-writeback.cfg.5.gz
 share/appdata/tracker-needle.appdata.xml
 share/appdata/tracker-preferences.appdata.xml
 share/applications/tracker-needle.desktop
@@ -210,12 +205,14 @@ share/gtk-doc/html/libtracker-sparql/up.png
 share/gtk-doc/html/libtracker-sparql/tracker-overview-compiling.html
 share/gtk-doc/html/libtracker-sparql/tracker-examples.html
 share/gtk-doc/html/libtracker-sparql/left.png
+share/gtk-doc/html/libtracker-sparql/libtracker-sparql-TrackerNamespaceManager.html
 share/gtk-doc/html/libtracker-sparql/libtracker-sparql-Version-Information.html
 share/gtk-doc/html/libtracker-sparql/tracker-overview-environment-variables.html
 share/gtk-doc/html/libtracker-sparql/style.css
 share/gtk-doc/html/libtracker-sparql/tracker-overview-connection-methods.html
 share/gtk-doc/html/libtracker-sparql/index.html
 share/gtk-doc/html/libtracker-sparql/tracker-examples-writeonly-with-blank-nodes.html
+share/gtk-doc/html/libtracker-sparql/TrackerResource.html
 share/gtk-doc/html/libtracker-sparql/TrackerSparqlBuilder.html
 share/gtk-doc/html/libtracker-sparql/libtracker-sparql-Utilities.html
 share/gtk-doc/html/libtracker-sparql/annotation-glossary.html
@@ -254,12 +251,14 @@ share/locale/et/LC_MESSAGES/tracker.mo
 share/locale/eu/LC_MESSAGES/tracker.mo
 share/locale/fi/LC_MESSAGES/tracker.mo
 share/locale/fr/LC_MESSAGES/tracker.mo
+share/locale/fur/LC_MESSAGES/tracker.mo
 share/locale/gl/LC_MESSAGES/tracker.mo
 share/locale/he/LC_MESSAGES/tracker.mo
 share/locale/hu/LC_MESSAGES/tracker.mo
 share/locale/id/LC_MESSAGES/tracker.mo
 share/locale/it/LC_MESSAGES/tracker.mo
 share/locale/ja/LC_MESSAGES/tracker.mo
+share/locale/kk/LC_MESSAGES/tracker.mo
 share/locale/ko/LC_MESSAGES/tracker.mo
 share/locale/lt/LC_MESSAGES/tracker.mo
 share/locale/lv/LC_MESSAGES/tracker.mo
@@ -285,12 +284,12 @@ share/locale/tg/LC_MESSAGES/tracker.mo
 share/locale/th/LC_MESSAGES/tracker.mo
 share/locale/tr/LC_MESSAGES/tracker.mo
 share/locale/uk/LC_MESSAGES/tracker.mo
+share/locale/vi/LC_MESSAGES/tracker.mo
 share/locale/zh_CN/LC_MESSAGES/tracker.mo
 share/locale/zh_HK/LC_MESSAGES/tracker.mo
 share/locale/zh_TW/LC_MESSAGES/tracker.mo
 %%DATADIR%%/tracker-backup.xml
 %%DATADIR%%/tracker-extract-priority.xml
-%%DATADIR%%/tracker-extract.xml
 %%DATADIR%%/tracker-miner-files-index.xml
 %%DATADIR%%/tracker-miner.xml
 %%DATADIR%%/tracker-needle.ui

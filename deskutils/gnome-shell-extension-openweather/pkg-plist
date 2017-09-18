@@ -7,6 +7,7 @@ share/gnome-shell/extensions/openweather-extension@jenslody.de/openweathermap_or
 share/gnome-shell/extensions/openweather-extension@jenslody.de/prefs.js
 share/gnome-shell/extensions/openweather-extension@jenslody.de/stylesheet.css
 share/gnome-shell/extensions/openweather-extension@jenslody.de/weather-settings.ui
+share/locale/ar/LC_MESSAGES/gnome-shell-extension-openweather.mo
 share/locale/bg/LC_MESSAGES/gnome-shell-extension-openweather.mo
 share/locale/ca/LC_MESSAGES/gnome-shell-extension-openweather.mo
 share/locale/cs/LC_MESSAGES/gnome-shell-extension-openweather.mo

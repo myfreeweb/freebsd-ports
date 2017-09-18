@@ -1,0 +1,574 @@
+From 5ae297e5f8e27e75da5f6d483292c6238d47f05e Mon Sep 17 00:00:00 2001
+From: Philip Withnall <philip@tecnocode.co.uk>
+Date: Wed, 1 Feb 2017 00:14:07 +0000
+Subject: core: Remove locking everywhere
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+folks is single-threaded, and not thread-safe. It never has been. The
+locking was added ‘because it won’t hurt’ — but it actually generates
+invalid code which double-unlocks mutexes. This doesn’t hurt (in that it
+doesn’t crash), but it certainly isn’t valid, and (rightfully) generates
+a lot of ThreadSanitizer noise.
+
+https://bugzilla.gnome.org/show_bug.cgi?id=778005
+---
+ backends/eds/lib/edsf-persona.vala            |  35 ++++----
+ backends/telepathy/lib/tpf-persona-store.vala | 112 ++++++++++++--------------
+ folks/avatar-cache.vala                       |  34 ++++----
+ folks/debug.vala                              |  92 ++++++++-------------
+ folks/individual-aggregator.vala              | 100 ++++++++++-------------
+ 5 files changed, 157 insertions(+), 216 deletions(-)
+
+diff --git a/backends/eds/lib/edsf-persona.vala b/backends/eds/lib/edsf-persona.vala
+index 8b26cf2..d5907ab 100644
+--- backends/eds/lib/edsf-persona.vala
++++ backends/eds/lib/edsf-persona.vala
+@@ -1972,30 +1972,25 @@ public class Edsf.Persona : Folks.Persona,
+     {
+       GLib.HashTable<string, E.ContactField> retval;
+ 
+-      lock (Edsf.Persona._im_eds_map)
++      if (Edsf.Persona._im_eds_map == null)
+         {
+-          if (Edsf.Persona._im_eds_map == null)
+-            {
+-              var table =
+-                  new GLib.HashTable<string, E.ContactField> (str_hash,
+-                      str_equal);
+-
+-              table.insert ("aim", ContactField.IM_AIM);
+-              table.insert ("yahoo", ContactField.IM_YAHOO);
+-              table.insert ("groupwise", ContactField.IM_GROUPWISE);
+-              table.insert ("jabber", ContactField.IM_JABBER);
+-              table.insert ("msn", ContactField.IM_MSN);
+-              table.insert ("icq", ContactField.IM_ICQ);
+-              table.insert ("gadugadu", ContactField.IM_GADUGADU);
+-              table.insert ("skype", ContactField.IM_SKYPE);
+-
+-              Edsf.Persona._im_eds_map = table;
+-            }
++          var table =
++              new GLib.HashTable<string, E.ContactField> (str_hash,
++                  str_equal);
++
++          table.insert ("aim", ContactField.IM_AIM);
++          table.insert ("yahoo", ContactField.IM_YAHOO);
++          table.insert ("groupwise", ContactField.IM_GROUPWISE);
++          table.insert ("jabber", ContactField.IM_JABBER);
++          table.insert ("msn", ContactField.IM_MSN);
++          table.insert ("icq", ContactField.IM_ICQ);
++          table.insert ("gadugadu", ContactField.IM_GADUGADU);
++          table.insert ("skype", ContactField.IM_SKYPE);
+ 
+-          retval = (!) Edsf.Persona._im_eds_map;
++          Edsf.Persona._im_eds_map = table;
+         }
+ 
+-      return retval;
++      return (!) Edsf.Persona._im_eds_map;
+     }
+ 
+   private void _update_phones (bool create_if_not_exist, bool emit_notification = true)
+diff --git a/backends/telepathy/lib/tpf-persona-store.vala b/backends/telepathy/lib/tpf-persona-store.vala
+index ce71544..35fe7f1 100644
+--- backends/telepathy/lib/tpf-persona-store.vala
++++ backends/telepathy/lib/tpf-persona-store.vala
+@@ -1571,19 +1571,16 @@ public class Tpf.PersonaStore : Folks.PersonaStore
+     {
+       unowned Map<string, PersonaStore> store;
+ 
+-      lock (PersonaStore._persona_stores_by_account)
++      if (PersonaStore._persona_stores_by_account == null)
+         {
+-          if (PersonaStore._persona_stores_by_account == null)
+-            {
+-              PersonaStore._persona_stores_by_account =
+-                  new HashMap<string, PersonaStore> ();
+-              PersonaStore._persona_stores_by_account_ro =
+-                  PersonaStore._persona_stores_by_account.read_only_view;
+-            }
+-
+-          store = PersonaStore._persona_stores_by_account_ro;
++          PersonaStore._persona_stores_by_account =
++              new HashMap<string, PersonaStore> ();
++          PersonaStore._persona_stores_by_account_ro =
++              PersonaStore._persona_stores_by_account.read_only_view;
+         }
+ 
++      store = PersonaStore._persona_stores_by_account_ro;
++
+       return store;
+     }
+ 
+@@ -1597,50 +1594,44 @@ public class Tpf.PersonaStore : Folks.PersonaStore
+     {
+       debug ("Adding PersonaStore %p ('%s') to map.", store, store.id);
+ 
+-      lock (PersonaStore._persona_stores_by_account)
++      /* Lazy construction. */
++      if (PersonaStore._persona_stores_by_account == null)
+         {
+-          /* Lazy construction. */
+-          if (PersonaStore._persona_stores_by_account == null)
+-            {
+-              PersonaStore._persona_stores_by_account =
+-                  new HashMap<string, PersonaStore> ();
+-              PersonaStore._persona_stores_by_account_ro =
+-                  PersonaStore._persona_stores_by_account.read_only_view;
+-            }
++          PersonaStore._persona_stores_by_account =
++              new HashMap<string, PersonaStore> ();
++          PersonaStore._persona_stores_by_account_ro =
++              PersonaStore._persona_stores_by_account.read_only_view;
++        }
+ 
+-          /* Bail if a store already exists for this account. */
+-          return_if_fail (
+-              !PersonaStore._persona_stores_by_account.has_key (store.id));
++      /* Bail if a store already exists for this account. */
++      return_if_fail (
++          !PersonaStore._persona_stores_by_account.has_key (store.id));
+ 
+-          /* Add the store. */
+-          PersonaStore._persona_stores_by_account.set (store.id, store);
+-          store.removed.connect (PersonaStore._store_removed_cb);
+-        }
++      /* Add the store. */
++      PersonaStore._persona_stores_by_account.set (store.id, store);
++      store.removed.connect (PersonaStore._store_removed_cb);
+     }
+ 
+   private static void _remove_store_from_map (PersonaStore store)
+     {
+       debug ("Removing PersonaStore %p ('%s') from map.", store, store.id);
+ 
+-      lock (PersonaStore._persona_stores_by_account)
++      /* Bail if no store existed for this account. This can happen if the
++       * store emits its removed() signal (correctly) before being
++       * finalised; we remove the store from the map in both cases. */
++      if (PersonaStore._persona_stores_by_account == null ||
++          !PersonaStore._persona_stores_by_account.unset (store.id))
+         {
+-          /* Bail if no store existed for this account. This can happen if the
+-           * store emits its removed() signal (correctly) before being
+-           * finalised; we remove the store from the map in both cases. */
+-          if (PersonaStore._persona_stores_by_account == null ||
+-              !PersonaStore._persona_stores_by_account.unset (store.id))
+-            {
+-              return;
+-            }
++          return;
++        }
+ 
+-          store.removed.disconnect (PersonaStore._store_removed_cb);
++      store.removed.disconnect (PersonaStore._store_removed_cb);
+ 
+-          /* Lazy destruction. */
+-          if (PersonaStore._persona_stores_by_account.size == 0)
+-            {
+-              PersonaStore._persona_stores_by_account_ro = null;
+-              PersonaStore._persona_stores_by_account = null;
+-            }
++      /* Lazy destruction. */
++      if (PersonaStore._persona_stores_by_account.size == 0)
++        {
++          PersonaStore._persona_stores_by_account_ro = null;
++          PersonaStore._persona_stores_by_account = null;
+         }
+     }
+ 
+@@ -1664,28 +1655,25 @@ public class Tpf.PersonaStore : Folks.PersonaStore
+ 
+       debug ("Tpf.PersonaStore.dup_for_account (%p):", account);
+ 
+-      lock (PersonaStore._persona_stores_by_account)
++      /* If the store already exists, return it. */
++      if (PersonaStore._persona_stores_by_account != null)
+         {
+-          /* If the store already exists, return it. */
+-          if (PersonaStore._persona_stores_by_account != null)
+-            {
+-              store =
+-                  PersonaStore._persona_stores_by_account.get (
+-                      account.get_object_path ());
+-            }
++          store =
++              PersonaStore._persona_stores_by_account.get (
++                  account.get_object_path ());
++        }
+ 
+-          /* Otherwise, we have to create it. It's added to the map in its
+-           * constructor. */
+-          if (store == null)
+-            {
+-              debug ("    Creating new PersonaStore.");
+-              store = new PersonaStore (account);
+-            }
+-          else
+-            {
+-              debug ("    Found existing PersonaStore %p ('%s').", store,
+-                  store.id);
+-            }
++      /* Otherwise, we have to create it. It's added to the map in its
++       * constructor. */
++      if (store == null)
++        {
++          debug ("    Creating new PersonaStore.");
++          store = new PersonaStore (account);
++        }
++      else
++        {
++          debug ("    Found existing PersonaStore %p ('%s').", store,
++              store.id);
+         }
+ 
+       return store;
+diff --git a/folks/avatar-cache.vala b/folks/avatar-cache.vala
+index 0fea5e7..8dfb839 100644
+--- folks/avatar-cache.vala
++++ folks/avatar-cache.vala
+@@ -82,33 +82,27 @@ public class Folks.AvatarCache : Object
+    */
+   public static AvatarCache dup ()
+     {
+-      lock (AvatarCache._instance)
+-        {
+-          var _retval = AvatarCache._instance;
+-          AvatarCache retval;
+-
+-          if (_retval == null)
+-            {
+-              /* use an intermediate variable to force a strong reference */
+-              retval = new AvatarCache ();
+-              AvatarCache._instance = retval;
+-            }
+-          else
+-            {
+-              retval = (!) _retval;
+-            }
++      var _retval = AvatarCache._instance;
++      AvatarCache retval;
+ 
+-          return retval;
++      if (_retval == null)
++        {
++          /* use an intermediate variable to force a strong reference */
++          retval = new AvatarCache ();
++          AvatarCache._instance = retval;
++        }
++      else
++        {
++          retval = (!) _retval;
+         }
++
++      return retval;
+     }
+ 
+   ~AvatarCache ()
+     {
+       /* Manually clear the singleton _instance */
+-      lock (AvatarCache._instance)
+-        {
+-          AvatarCache._instance = null;
+-        }
++      AvatarCache._instance = null;
+     }
+ 
+   /**
+diff --git a/folks/debug.vala b/folks/debug.vala
+index b14fb1e..4d1bb02 100644
+--- folks/debug.vala
++++ folks/debug.vala
+@@ -74,18 +74,12 @@ public class Folks.Debug : Object
+     {
+       get
+         {
+-          lock (this._colour_enabled)
+-            {
+-              return this._colour_enabled;
+-            }
++          return this._colour_enabled;
+         }
+ 
+       set
+         {
+-          lock (this._colour_enabled)
+-            {
+-              this._colour_enabled = value;
+-            }
++          this._colour_enabled = value;
+         }
+     }
+ 
+@@ -102,18 +96,12 @@ public class Folks.Debug : Object
+     {
+       get
+         {
+-          lock (this._debug_output_enabled)
+-            {
+-              return this._debug_output_enabled;
+-            }
++          return this._debug_output_enabled;
+         }
+ 
+       set
+         {
+-          lock (this._debug_output_enabled)
+-            {
+-              this._debug_output_enabled = value;
+-            }
++          this._debug_output_enabled = value;
+         }
+     }
+ 
+@@ -168,14 +156,11 @@ public class Folks.Debug : Object
+    * G_MESSAGES_DEBUG environment variable (or 'all' was set) */
+   internal void _register_domain (string domain)
+     {
+-      lock (this._domains)
++      if (this._all || this._domains.contains (domain.down ()))
+         {
+-          if (this._all || this._domains.contains (domain.down ()))
+-            {
+-              this._set_handler (domain, LogLevelFlags.LEVEL_MASK,
+-                  this._log_handler_cb);
+-              return;
+-            }
++          this._set_handler (domain, LogLevelFlags.LEVEL_MASK,
++              this._log_handler_cb);
++          return;
+         }
+ 
+       /* Install a log handler which will blackhole the log message.
+@@ -196,24 +181,21 @@ public class Folks.Debug : Object
+    */
+   public static Debug dup ()
+     {
+-      lock (Debug._instance)
+-        {
+-          Debug? _retval = Debug._instance;
+-          Debug retval;
++      Debug? _retval = Debug._instance;
++      Debug retval;
+ 
+-          if (_retval == null)
+-            {
+-              /* use an intermediate variable to force a strong reference */
+-              retval = new Debug ();
+-              Debug._instance = retval;
+-            }
+-          else
+-            {
+-              retval = (!) _retval;
+-            }
+-
+-          return retval;
++      if (_retval == null)
++        {
++          /* use an intermediate variable to force a strong reference */
++          retval = new Debug ();
++          Debug._instance = retval;
+         }
++      else
++        {
++          retval = (!) _retval;
++        }
++
++      return retval;
+     }
+ 
+   /**
+@@ -234,23 +216,20 @@ public class Folks.Debug : Object
+     {
+       var retval = Debug.dup ();
+ 
+-      lock (retval._domains)
+-        {
+-          retval._all = false;
+-          retval._domains = new HashSet<string> ();
++      retval._all = false;
++      retval._domains = new HashSet<string> ();
+ 
+-          if (debug_flags != null && debug_flags != "")
++      if (debug_flags != null && debug_flags != "")
++        {
++          var domains_split = ((!) debug_flags).split (",");
++          foreach (var domain in domains_split)
+             {
+-              var domains_split = ((!) debug_flags).split (",");
+-              foreach (var domain in domains_split)
+-                {
+-                  var domain_lower = domain.down ();
+-
+-                  if (GLib.strcmp (domain_lower, "all") == 0)
+-                    retval._all = true;
+-                  else
+-                    retval._domains.add (domain_lower);
+-                }
++              var domain_lower = domain.down ();
++
++              if (GLib.strcmp (domain_lower, "all") == 0)
++                retval._all = true;
++              else
++                retval._domains.add (domain_lower);
+             }
+         }
+ 
+@@ -284,10 +263,7 @@ public class Folks.Debug : Object
+       this._domains_handled.clear ();
+ 
+       /* Manually clear the singleton _instance */
+-      lock (Debug._instance)
+-        {
+-          Debug._instance = null;
+-        }
++      Debug._instance = null;
+     }
+ 
+   private void _set_handler (
+diff --git a/folks/individual-aggregator.vala b/folks/individual-aggregator.vala
+index 648aaaf..d3af181 100644
+--- folks/individual-aggregator.vala
++++ folks/individual-aggregator.vala
+@@ -347,24 +347,21 @@ public class Folks.IndividualAggregator : Object
+    */
+   public static IndividualAggregator dup ()
+     {
+-      lock (IndividualAggregator._instance)
+-        {
+-          IndividualAggregator? _retval = IndividualAggregator._instance;
+-          IndividualAggregator retval;
+-
+-          if (_retval == null)
+-            {
+-              /* use an intermediate variable to force a strong reference */
+-              retval = new IndividualAggregator ();
+-              IndividualAggregator._instance = retval;
+-            }
+-          else
+-            {
+-              retval = (!) _retval;
+-            }
++      IndividualAggregator? _retval = IndividualAggregator._instance;
++      IndividualAggregator retval;
+ 
+-          return retval;
++      if (_retval == null)
++        {
++          /* use an intermediate variable to force a strong reference */
++          retval = new IndividualAggregator ();
++          IndividualAggregator._instance = retval;
++        }
++      else
++        {
++          retval = (!) _retval;
+         }
++
++      return retval;
+     }
+ 
+   /**
+@@ -411,29 +408,26 @@ public class Folks.IndividualAggregator : Object
+    */
+   public static IndividualAggregator? dup_with_backend_store (BackendStore store)
+     {
+-      lock (IndividualAggregator._instance)
+-        {
+-          IndividualAggregator? _retval = IndividualAggregator._instance;
+-          IndividualAggregator retval;
+-
+-          if (_retval == null)
+-            {
+-              /* use an intermediate variable to force a strong reference */
+-              retval = new IndividualAggregator.with_backend_store (store);
+-              IndividualAggregator._instance = retval;
+-            }
+-          else if (_retval._backend_store != store)
+-            {
+-              warning ("An aggregator already exists using another backend store");
+-              return null;
+-            }
+-          else
+-            {
+-              retval = (!) _retval;
+-            }
++      IndividualAggregator? _retval = IndividualAggregator._instance;
++      IndividualAggregator retval;
+ 
+-          return retval;
++      if (_retval == null)
++        {
++          /* use an intermediate variable to force a strong reference */
++          retval = new IndividualAggregator.with_backend_store (store);
++          IndividualAggregator._instance = retval;
+         }
++      else if (_retval._backend_store != store)
++        {
++          warning ("An aggregator already exists using another backend store");
++          return null;
++        }
++      else
++        {
++          retval = (!) _retval;
++        }
++
++      return retval;
+     }
+ 
+   /**
+@@ -535,10 +529,7 @@ public class Folks.IndividualAggregator : Object
+       this._debug.print_status.disconnect (this._debug_print_status);
+ 
+       /* Manually clear the singleton _instance */
+-      lock (IndividualAggregator._instance)
+-        {
+-          IndividualAggregator._instance = null;
+-        }
++      IndividualAggregator._instance = null;
+     }
+ 
+   private void _primary_store_setting_changed_cb (Settings settings,
+@@ -783,26 +774,23 @@ public class Folks.IndividualAggregator : Object
+    */
+   public async void unprepare () throws GLib.Error
+     {
+-      lock (this._is_prepared)
++      if (!this._is_prepared || this._prepare_pending)
+         {
+-          if (!this._is_prepared || this._prepare_pending)
+-            {
+-              return;
+-            }
++          return;
++        }
+ 
+-          try
+-            {
+-              /* Flush any PersonaStores which need it. */
+-              foreach (var p in this._stores.values)
+-                {
+-                  yield p.flush ();
+-                }
+-            }
+-          finally
++      try
++        {
++          /* Flush any PersonaStores which need it. */
++          foreach (var p in this._stores.values)
+             {
+-              this._prepare_pending = false;
++              yield p.flush ();
+             }
+         }
++      finally
++        {
++          this._prepare_pending = false;
++        }
+     }
+ 
+   /**
+-- 
+cgit v0.12
+

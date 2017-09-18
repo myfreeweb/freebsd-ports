@@ -2,14 +2,17 @@
 # $FreeBSD$
 
 PORTNAME=	tracker
-PORTVERSION=	1.6.1
-PORTREVISION=	9
+PORTVERSION=	1.10.2
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Object database, tag/metadata database, search tool and indexer
 
+LICENSE=	LGPL21
+LICENSE_FILE=	${WRKSRC}/COPYING.LGPL
+
+BUILD_DEPENDS=	valac:lang/vala
 LIB_DEPENDS=	libdbus-glib-1.so:devel/dbus-glib \
 		libgmime-2.6.so:mail/gmime26 \
 		libhal.so:sysutils/hal \
@@ -17,7 +20,8 @@ LIB_DEPENDS=	libdbus-glib-1.so:devel/dbus-glib \
 		libuuid.so:misc/e2fsprogs-libuuid \
 		libicutu.so:devel/icu \
 		libmediaart-2.0.so:multimedia/libmediaart \
-		librest-0.7.so:devel/librest
+		librest-0.7.so:devel/librest \
+		libdbus-1.so:devel/dbus
 RUN_DEPENDS=	xdg-desktop-icon:devel/xdg-utils \
 		o3totxt:converters/o3read \
 		pdftotext:graphics/poppler-utils \
@@ -25,9 +29,9 @@ RUN_DEPENDS=	xdg-desktop-icon:devel/xdg-utils \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		desktop-file-utils gettext gmake gnome libarchive libtool \
-		pathfix pkgconfig python:run shebangfix sqlite tar:xz
-USE_GNOME=	gtk30 intltool introspection:build libxslt:build
+USES=		gettext gmake gnome jpeg libarchive libtool localbase \
+		pathfix pkgconfig sqlite tar:xz
+USE_GNOME=	cairo gtk30 intltool introspection:build libxslt:build
 USE_LDCONFIG=	yes
 USE_GSTREAMER1=	yes
 GNU_CONFIGURE=	yes
@@ -59,7 +63,7 @@ GLIB_SCHEMAS=	org.freedesktop.Tracker.DB.gschema.xml \
 		org.freedesktop.Tracker.gschema.xml
 SHEBANG_FILES=	tests/tracker-writeback/01-writeback.py
 
-PLIST_SUB=	TRACKER_VER="1.0" LIBVER=601
+PLIST_SUB=	TRACKER_VER="1.0" LIBVER=1002
 
 OPTIONS_DEFINE=		AUDIO_MINERS DOCUMENT_MINERS GRAPHIC_MINERS \
 			WEB_MINERS

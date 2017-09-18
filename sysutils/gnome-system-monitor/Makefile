@@ -2,14 +2,16 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-system-monitor
-PORTVERSION=	3.16.0
-PORTREVISION=	1
+PORTVERSION=	3.22.2
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	GNOME 3 system monitor program
+
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	gnome-icon-theme>=0:misc/gnome-icon-theme \
 		itstool:textproc/itstool
