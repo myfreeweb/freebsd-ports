@@ -58,7 +58,7 @@ OPTIONS_DEFINE=		ALSA ASM DLOPEN ESOUND JACK NAS OSS SAMPLERATE	\
 			SDL_JOYSTICK SDL_LOADSO SDL_POWER SDL_RENDER	\
 			SDL_THREADS SDL_TIMERS SDL_VIDEO VIDEO_KMSDRM	\
 			VIDEO_OPENGL VIDEO_X11 VIDEO_OPENGLES2		\
-			VIDEO_WAYLAND UDEV
+			VIDEO_WAYLAND VIDEO_VULKAN UDEV
 OPTIONS_DEFAULT=	ASM DLOPEN OSS PTHREADS SDL_ATOMIC SDL_AUDIO	\
 			SDL_CPUINFO SDL_EVENTS SDL_FILE SDL_HAPTIC	\
 			SDL_JOYSTICK SDL_LOADSO SDL_POWER SDL_RENDER	\
@@ -88,11 +88,12 @@ SDL_RENDER_DESC=	Enable the SDL Render subsystem
 SDL_THREADS_DESC=	Enable the SDL Threads subsystem
 SDL_TIMERS_DESC=	Enable the SDL Timers subsystem
 SDL_VIDEO_DESC=		Enable the SDL Video subsystem
-VIDEO_KMSDRM_DESC=	KMSDRM rendering support
+VIDEO_KMSDRM_DESC=	KMSDRM display support
 VIDEO_OPENGL_DESC=	OpenGL rendering support
-VIDEO_X11_DESC=		X11 rendering support
+VIDEO_X11_DESC=		X11 display support
 VIDEO_OPENGLES2_DESC=	OpenGL ES 2.x rendering support
-VIDEO_WAYLAND_DESC=		Wayland rendering support
+VIDEO_WAYLAND_DESC=		Wayland display support
+VIDEO_VULKAN_DESC=		Vulkan rendering support
 
 ASM_CONFIGURE_ENABLE=		assembly
 DLOPEN_CONFIGURE_ENABLE=	sdl-dlopen
@@ -264,6 +265,16 @@ BUILD_DEPENDS+=	wayland-protocols>=1.7:graphics/wayland-protocols \
 .else
 CONFIGURE_ARGS+=	--disable-video-wayland \
 			--disable-wayland-shared
+.endif
+
+.if ${PORT_OPTIONS:MVIDEO_VULKAN}
+.if !${PORT_OPTIONS:MSDL_VIDEO}
+IGNORE=	option VIDEO_VULKAN requires SDL_VIDEO
+.endif
+CONFIGURE_ARGS+=	--enable-video-vulkan
+LIB_DEPENDS+=	libvulkan.so:graphics/vulkan-sdk
+.else
+CONFIGURE_ARGS+=	--disable-video-vulkan
 .endif
 
 .include <bsd.port.pre.mk>
