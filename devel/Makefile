@@ -5487,6 +5487,7 @@
     SUBDIR += rubygem-grape-route-helpers
     SUBDIR += rubygem-grape-swagger
     SUBDIR += rubygem-grape0
+    SUBDIR += rubygem-grape_logging
     SUBDIR += rubygem-grit
     SUBDIR += rubygem-guess_html_encoding
     SUBDIR += rubygem-gyoku
@@ -6070,6 +6071,7 @@
     SUBDIR += xtl
     SUBDIR += xtoolchain-llvm-devel
     SUBDIR += xtoolchain-llvm40
+    SUBDIR += xtoolchain-llvm50
     SUBDIR += xwpe
     SUBDIR += xxgdb
     SUBDIR += xxhash
