@@ -2,8 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	dolphin-emu
-PORTVERSION=	5.0
-PORTREVISION=	10
+DISTVERSION=	5.0-5566
+DISTVERSIONSUFFIX=	-g8ebdd62
+PORTREVISION=	1
 CATEGORIES=	emulators
 
 MAINTAINER=	martymac@FreeBSD.org
@@ -15,8 +16,10 @@ LICENSE_FILE=	${WRKSRC}/license.txt
 # Notes on dependencies:
 # - keep enet from Externals as Dolphin's version diverges
 # - xxhash and SOIL are not (yet?) in ports and built from Externals
-# - skip ALSA (emulated), ao (buggy) and bluez support
+# - vendored Cubeb's CMakeLists always links to all backends it finds, no flags to disable
 LIB_DEPENDS=	libpulse.so:audio/pulseaudio \
+		libsndio.so:audio/sndio \
+		libasound.so:audio/alsa-lib \
 		libavcodec.so:multimedia/ffmpeg \
 		libavformat.so:multimedia/ffmpeg \
 		libswscale.so:multimedia/ffmpeg \
@@ -38,7 +41,7 @@ USE_GL=		gl glew glu
 USE_GNOME=	atk cairo glib20 gdkpixbuf2 gtk20 pango
 USE_SDL=	sdl2
 USE_WX=		3.0+
-USE_XORG=	ice sm x11 xext xi xrandr
+USE_XORG=	ice sm x11 xext xi xrandr xxf86vm xinerama
 
 USES=		cmake compiler:c++11-lib iconv openal pkgconfig
 
@@ -47,6 +50,7 @@ CMAKE_ARGS+=	-DTRY_X11:BOOL=ON \
 		-DDISABLE_WX:BOOL=OFF \
 		-DUSE_SHARED_GTEST:BOOL=ON \
 		-DENABLE_PCH:BOOL=OFF \
+		-DDISTRIBUTOR:STRING="FreeBSD Ports" \
 		-DCMAKE_REQUIRED_INCLUDES:PATH="${LOCALBASE}/include" \
 		-DCMAKE_REQUIRED_FLAGS:STRING="-L${LOCALBASE}/lib" \
 		-DCMAKE_INSTALL_RPATH_USE_LINK_PATH:BOOL=ON
@@ -55,11 +59,21 @@ CMAKE_ARGS+=	-DTRY_X11:BOOL=ON \
 CMAKE_ARGS+=	-DDOLPHIN_WC_BRANCH:STRING="stable" \
 		-DDOLPHIN_WC_REVISION:STRING="1"
 
-OPTIONS_DEFINE=	NLS
+OPTIONS_DEFINE=	NLS QT2
 OPTIONS_SUB=	yes
+
 NLS_USES=	gettext
 NLS_CMAKE_ON=	-DDISABLE_NLS:BOOL=OFF
 NLS_CMAKE_OFF=	-DDISABLE_NLS:BOOL=ON
+
+QT2_DESC=	Enable experimental Qt based UI
+QT2_CMAKE_BOOL=	ENABLE_QT2
+
+.include <bsd.port.options.mk>
+
+.if ${PORT_OPTIONS:MQT2}
+USE_QT5=	widgets gui core
+.endif
 
 .include <bsd.port.pre.mk>
 

@@ -1,10 +1,14 @@
 bin/dolphin-emu
 bin/dolphin-emu-nogui
+%%QT2%%bin/dolphin-emu-qt2
+share/applications/dolphin-emu.desktop
 %%DATADIR%%/sys/GC/dsp_coef.bin
 %%DATADIR%%/sys/GC/dsp_rom.bin
 %%DATADIR%%/sys/GC/font-licenses.txt
-%%DATADIR%%/sys/GC/font_ansi.bin
-%%DATADIR%%/sys/GC/font_sjis.bin
+%%DATADIR%%/sys/GC/font_japanese.bin
+%%DATADIR%%/sys/GC/font_western.bin
+%%DATADIR%%/sys/GameSettings/0000000100000002.ini
+%%DATADIR%%/sys/GameSettings/0000000100000002r1.ini
 %%DATADIR%%/sys/GameSettings/010.ini
 %%DATADIR%%/sys/GameSettings/301.ini
 %%DATADIR%%/sys/GameSettings/C.ini
@@ -140,6 +144,7 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/GameSettings/G2MP01.ini
 %%DATADIR%%/sys/GameSettings/G2O.ini
 %%DATADIR%%/sys/GameSettings/G2R.ini
+%%DATADIR%%/sys/GameSettings/G2RE52.ini
 %%DATADIR%%/sys/GameSettings/G2T.ini
 %%DATADIR%%/sys/GameSettings/G2V.ini
 %%DATADIR%%/sys/GameSettings/G2X.ini
@@ -403,7 +408,6 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/GameSettings/GIL.ini
 %%DATADIR%%/sys/GameSettings/GIN.ini
 %%DATADIR%%/sys/GameSettings/GINE69.ini
-%%DATADIR%%/sys/GameSettings/GINX69.ini
 %%DATADIR%%/sys/GameSettings/GIP.ini
 %%DATADIR%%/sys/GameSettings/GIQ.ini
 %%DATADIR%%/sys/GameSettings/GIQE78.ini
@@ -620,6 +624,7 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/GameSettings/GSSE8P.ini
 %%DATADIR%%/sys/GameSettings/GST.ini
 %%DATADIR%%/sys/GameSettings/GSW.ini
+%%DATADIR%%/sys/GameSettings/GSX.ini
 %%DATADIR%%/sys/GameSettings/GSZ.ini
 %%DATADIR%%/sys/GameSettings/GT3.ini
 %%DATADIR%%/sys/GameSettings/GT4.ini
@@ -680,6 +685,8 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/GameSettings/GWJ.ini
 %%DATADIR%%/sys/GameSettings/GWK.ini
 %%DATADIR%%/sys/GameSettings/GWL.ini
+%%DATADIR%%/sys/GameSettings/GWLE6L.ini
+%%DATADIR%%/sys/GameSettings/GWLX6L.ini
 %%DATADIR%%/sys/GameSettings/GWM.ini
 %%DATADIR%%/sys/GameSettings/GWO.ini
 %%DATADIR%%/sys/GameSettings/GWP.ini
@@ -736,6 +743,8 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/GameSettings/GZP.ini
 %%DATADIR%%/sys/GameSettings/GZS.ini
 %%DATADIR%%/sys/GameSettings/GZW.ini
+%%DATADIR%%/sys/GameSettings/HA8.ini
+%%DATADIR%%/sys/GameSettings/HA9.ini
 %%DATADIR%%/sys/GameSettings/HAA.ini
 %%DATADIR%%/sys/GameSettings/HAB.ini
 %%DATADIR%%/sys/GameSettings/HAC.ini
@@ -744,6 +753,14 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/GameSettings/HAW.ini
 %%DATADIR%%/sys/GameSettings/HAX.ini
 %%DATADIR%%/sys/GameSettings/HAY.ini
+%%DATADIR%%/sys/GameSettings/HBA.ini
+%%DATADIR%%/sys/GameSettings/HBB.ini
+%%DATADIR%%/sys/GameSettings/HBC.ini
+%%DATADIR%%/sys/GameSettings/HBD.ini
+%%DATADIR%%/sys/GameSettings/HBF.ini
+%%DATADIR%%/sys/GameSettings/HBG.ini
+%%DATADIR%%/sys/GameSettings/HBI.ini
+%%DATADIR%%/sys/GameSettings/HBK.ini
 %%DATADIR%%/sys/GameSettings/HCD.ini
 %%DATADIR%%/sys/GameSettings/HCF.ini
 %%DATADIR%%/sys/GameSettings/HCL.ini
@@ -792,8 +809,13 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/GameSettings/NAN.ini
 %%DATADIR%%/sys/GameSettings/NAR.ini
 %%DATADIR%%/sys/GameSettings/P.ini
+%%DATADIR%%/sys/GameSettings/P4B.ini
 %%DATADIR%%/sys/GameSettings/PC6.ini
+%%DATADIR%%/sys/GameSettings/PCK.ini
+%%DATADIR%%/sys/GameSettings/PCS.ini
+%%DATADIR%%/sys/GameSettings/PGS.ini
 %%DATADIR%%/sys/GameSettings/PM4.ini
+%%DATADIR%%/sys/GameSettings/PNJ.ini
 %%DATADIR%%/sys/GameSettings/PRJ.ini
 %%DATADIR%%/sys/GameSettings/PZL.ini
 %%DATADIR%%/sys/GameSettings/PZLE01.ini
@@ -828,6 +850,8 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/GameSettings/R4Q.ini
 %%DATADIR%%/sys/GameSettings/R4R.ini
 %%DATADIR%%/sys/GameSettings/R4Z.ini
+%%DATADIR%%/sys/GameSettings/R55.ini
+%%DATADIR%%/sys/GameSettings/R59.ini
 %%DATADIR%%/sys/GameSettings/R5D.ini
 %%DATADIR%%/sys/GameSettings/R5I.ini
 %%DATADIR%%/sys/GameSettings/R5V.ini
@@ -1139,12 +1163,16 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/GameSettings/SJD.ini
 %%DATADIR%%/sys/GameSettings/SJDJ01.ini
 %%DATADIR%%/sys/GameSettings/SJE.ini
+%%DATADIR%%/sys/GameSettings/SJN.ini
 %%DATADIR%%/sys/GameSettings/SJO.ini
 %%DATADIR%%/sys/GameSettings/SJX.ini
 %%DATADIR%%/sys/GameSettings/SK3.ini
 %%DATADIR%%/sys/GameSettings/SK4.ini
+%%DATADIR%%/sys/GameSettings/SKA.ini
 %%DATADIR%%/sys/GameSettings/SKC.ini
+%%DATADIR%%/sys/GameSettings/SKG.ini
 %%DATADIR%%/sys/GameSettings/SKJ.ini
+%%DATADIR%%/sys/GameSettings/SKO.ini
 %%DATADIR%%/sys/GameSettings/SKV.ini
 %%DATADIR%%/sys/GameSettings/SL2.ini
 %%DATADIR%%/sys/GameSettings/SLS.ini
@@ -1161,6 +1189,7 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/GameSettings/SNG.ini
 %%DATADIR%%/sys/GameSettings/SNJ.ini
 %%DATADIR%%/sys/GameSettings/SNJE69.ini
+%%DATADIR%%/sys/GameSettings/SNS.ini
 %%DATADIR%%/sys/GameSettings/SNY.ini
 %%DATADIR%%/sys/GameSettings/SO3.ini
 %%DATADIR%%/sys/GameSettings/SOJ.ini
@@ -1173,6 +1202,7 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/GameSettings/SPT.ini
 %%DATADIR%%/sys/GameSettings/SPV.ini
 %%DATADIR%%/sys/GameSettings/SQD.ini
+%%DATADIR%%/sys/GameSettings/SQI.ini
 %%DATADIR%%/sys/GameSettings/SQM.ini
 %%DATADIR%%/sys/GameSettings/SR5.ini
 %%DATADIR%%/sys/GameSettings/SRO.ini
@@ -1188,6 +1218,8 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/GameSettings/STS.ini
 %%DATADIR%%/sys/GameSettings/SU7.ini
 %%DATADIR%%/sys/GameSettings/SUK.ini
+%%DATADIR%%/sys/GameSettings/SUKE01.ini
+%%DATADIR%%/sys/GameSettings/SUKJ01.ini
 %%DATADIR%%/sys/GameSettings/SVB.ini
 %%DATADIR%%/sys/GameSettings/SVM.ini
 %%DATADIR%%/sys/GameSettings/SVT.ini
@@ -1203,7 +1235,7 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/GameSettings/SXC.ini
 %%DATADIR%%/sys/GameSettings/SXD.ini
 %%DATADIR%%/sys/GameSettings/SXE.ini
-%%DATADIR%%/sys/GameSettings/SXEE52.ini
+%%DATADIR%%/sys/GameSettings/SZ7.ini
 %%DATADIR%%/sys/GameSettings/SZA.ini
 %%DATADIR%%/sys/GameSettings/SZB.ini
 %%DATADIR%%/sys/GameSettings/UGP.ini
@@ -1414,6 +1446,7 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/Shaders/invert.glsl
 %%DATADIR%%/sys/Shaders/invert_blue.glsl
 %%DATADIR%%/sys/Shaders/invertedoutline.glsl
+%%DATADIR%%/sys/Shaders/lens_distortion.glsl
 %%DATADIR%%/sys/Shaders/mad_world.glsl
 %%DATADIR%%/sys/Shaders/nightvision.glsl
 %%DATADIR%%/sys/Shaders/nightvision2.glsl
@@ -1432,21 +1465,6 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/Shaders/swap_RGB_GRB.glsl
 %%DATADIR%%/sys/Shaders/swap_RGB_RBG.glsl
 %%DATADIR%%/sys/Shaders/toxic.glsl
-%%DATADIR%%/sys/Themes/Boomy/README.txt
-%%DATADIR%%/sys/Themes/Boomy/browse.png
-%%DATADIR%%/sys/Themes/Boomy/classic.png
-%%DATADIR%%/sys/Themes/Boomy/config.png
-%%DATADIR%%/sys/Themes/Boomy/fullscreen.png
-%%DATADIR%%/sys/Themes/Boomy/gcpad.png
-%%DATADIR%%/sys/Themes/Boomy/graphics.png
-%%DATADIR%%/sys/Themes/Boomy/help.png
-%%DATADIR%%/sys/Themes/Boomy/open.png
-%%DATADIR%%/sys/Themes/Boomy/pause.png
-%%DATADIR%%/sys/Themes/Boomy/play.png
-%%DATADIR%%/sys/Themes/Boomy/refresh.png
-%%DATADIR%%/sys/Themes/Boomy/screenshot.png
-%%DATADIR%%/sys/Themes/Boomy/stop.png
-%%DATADIR%%/sys/Themes/Boomy/wiimote.png
 %%DATADIR%%/sys/Themes/Clean Blue/browse.png
 %%DATADIR%%/sys/Themes/Clean Blue/browse@2x.png
 %%DATADIR%%/sys/Themes/Clean Blue/classic.png
@@ -1465,6 +1483,24 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/Themes/Clean Blue/pause@2x.png
 %%DATADIR%%/sys/Themes/Clean Blue/play.png
 %%DATADIR%%/sys/Themes/Clean Blue/play@2x.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating0.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating0@2x.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating0@4x.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating1.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating1@2x.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating1@4x.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating2.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating2@2x.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating2@4x.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating3.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating3@2x.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating3@4x.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating4.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating4@2x.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating4@4x.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating5.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating5@2x.png
+%%DATADIR%%/sys/Themes/Clean Blue/rating5@4x.png
 %%DATADIR%%/sys/Themes/Clean Blue/refresh.png
 %%DATADIR%%/sys/Themes/Clean Blue/refresh@2x.png
 %%DATADIR%%/sys/Themes/Clean Blue/screenshot.png
@@ -1491,6 +1527,24 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/Themes/Clean Lite/pause@2x.png
 %%DATADIR%%/sys/Themes/Clean Lite/play.png
 %%DATADIR%%/sys/Themes/Clean Lite/play@2x.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating0.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating0@2x.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating0@4x.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating1.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating1@2x.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating1@4x.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating2.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating2@2x.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating2@4x.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating3.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating3@2x.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating3@4x.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating4.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating4@2x.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating4@4x.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating5.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating5@2x.png
+%%DATADIR%%/sys/Themes/Clean Lite/rating5@4x.png
 %%DATADIR%%/sys/Themes/Clean Lite/refresh.png
 %%DATADIR%%/sys/Themes/Clean Lite/refresh@2x.png
 %%DATADIR%%/sys/Themes/Clean Lite/screenshot.png
@@ -1517,6 +1571,24 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/Themes/Clean Pink/pause@2x.png
 %%DATADIR%%/sys/Themes/Clean Pink/play.png
 %%DATADIR%%/sys/Themes/Clean Pink/play@2x.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating0.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating0@2x.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating0@4x.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating1.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating1@2x.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating1@4x.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating2.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating2@2x.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating2@4x.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating3.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating3@2x.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating3@4x.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating4.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating4@2x.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating4@4x.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating5.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating5@2x.png
+%%DATADIR%%/sys/Themes/Clean Pink/rating5@4x.png
 %%DATADIR%%/sys/Themes/Clean Pink/refresh.png
 %%DATADIR%%/sys/Themes/Clean Pink/refresh@2x.png
 %%DATADIR%%/sys/Themes/Clean Pink/screenshot.png
@@ -1543,6 +1615,24 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/Themes/Clean/pause@2x.png
 %%DATADIR%%/sys/Themes/Clean/play.png
 %%DATADIR%%/sys/Themes/Clean/play@2x.png
+%%DATADIR%%/sys/Themes/Clean/rating0.png
+%%DATADIR%%/sys/Themes/Clean/rating0@2x.png
+%%DATADIR%%/sys/Themes/Clean/rating0@4x.png
+%%DATADIR%%/sys/Themes/Clean/rating1.png
+%%DATADIR%%/sys/Themes/Clean/rating1@2x.png
+%%DATADIR%%/sys/Themes/Clean/rating1@4x.png
+%%DATADIR%%/sys/Themes/Clean/rating2.png
+%%DATADIR%%/sys/Themes/Clean/rating2@2x.png
+%%DATADIR%%/sys/Themes/Clean/rating2@4x.png
+%%DATADIR%%/sys/Themes/Clean/rating3.png
+%%DATADIR%%/sys/Themes/Clean/rating3@2x.png
+%%DATADIR%%/sys/Themes/Clean/rating3@4x.png
+%%DATADIR%%/sys/Themes/Clean/rating4.png
+%%DATADIR%%/sys/Themes/Clean/rating4@2x.png
+%%DATADIR%%/sys/Themes/Clean/rating4@4x.png
+%%DATADIR%%/sys/Themes/Clean/rating5.png
+%%DATADIR%%/sys/Themes/Clean/rating5@2x.png
+%%DATADIR%%/sys/Themes/Clean/rating5@4x.png
 %%DATADIR%%/sys/Themes/Clean/refresh.png
 %%DATADIR%%/sys/Themes/Clean/refresh@2x.png
 %%DATADIR%%/sys/Themes/Clean/screenshot.png
@@ -1553,7 +1643,6 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/Themes/Clean/wiimote@2x.png
 %%DATADIR%%/sys/Wii/shared2/ec/shopsetu.log
 %%DATADIR%%/sys/Wii/shared2/succession/shop.log
-%%DATADIR%%/sys/Wii/shared2/sys/SYSCONF
 %%DATADIR%%/sys/Wii/shared2/wc24/mbox/Readme.txt
 %%DATADIR%%/sys/Wii/shared2/wc24/mbox/wc24recv.ctl
 %%DATADIR%%/sys/Wii/shared2/wc24/mbox/wc24recv.mbx
@@ -1567,6 +1656,20 @@ bin/dolphin-emu-nogui
 %%DATADIR%%/sys/Wii/shared2/wc24/nwc24msg.cfg
 %%DATADIR%%/sys/codehandler.bin
 %%DATADIR%%/sys/totaldb.dsy
+%%DATADIR%%/sys/wiitdb-de.txt
+%%DATADIR%%/sys/wiitdb-en.txt
+%%DATADIR%%/sys/wiitdb-es.txt
+%%DATADIR%%/sys/wiitdb-fr.txt
+%%DATADIR%%/sys/wiitdb-it.txt
+%%DATADIR%%/sys/wiitdb-ja.txt
+%%DATADIR%%/sys/wiitdb-ko.txt
+%%DATADIR%%/sys/wiitdb-nl.txt
+%%DATADIR%%/sys/wiitdb-pt.txt
+%%DATADIR%%/sys/wiitdb-ru.txt
+%%DATADIR%%/sys/wiitdb-zh_CN.txt
+%%DATADIR%%/sys/wiitdb-zh_TW.txt
+share/icons/hicolor/48x48/apps/dolphin-emu.png
+share/icons/hicolor/scalable/apps/dolphin-emu.svg
 %%NLS%%share/locale/ar/LC_MESSAGES/dolphin-emu.mo
 %%NLS%%share/locale/ca/LC_MESSAGES/dolphin-emu.mo
 %%NLS%%share/locale/cs/LC_MESSAGES/dolphin-emu.mo
@@ -1595,3 +1698,5 @@ bin/dolphin-emu-nogui
 %%NLS%%share/locale/tr/LC_MESSAGES/dolphin-emu.mo
 %%NLS%%share/locale/zh_CN/LC_MESSAGES/dolphin-emu.mo
 %%NLS%%share/locale/zh_TW/LC_MESSAGES/dolphin-emu.mo
+share/man/man6/dolphin-emu-nogui.6
+share/man/man6/dolphin-emu.6
