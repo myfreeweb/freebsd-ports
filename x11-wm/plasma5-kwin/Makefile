@@ -1,7 +1,8 @@
 # $FreeBSD: branches/plasma5/KDE/x11-wm/plasma5-kwin/Makefile 13724 2017-03-10 19:28:23Z tcberner $
 
 PORTNAME=	kwin
-PORTVERSION=	${KDE_PLASMA_VERSION}
+DISTVERSION=	${KDE_PLASMA_VERSION}
+PORTREVISION=	1
 CATEGORIES=	x11-wm kde kde-plasma
 
 MAINTAINER=	kde@FreeBSD.org
@@ -34,6 +35,12 @@ USE_QT5=	buildtools_build concurrent core dbus gui \
 		multimedia network qmake_build qml quick script \
 		testlib uiplugin uitools widgets x11extras xml
 USE_XORG=	ice sm x11 xcb xext xi
+
+.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1100000
+# Base compiler clang 3.5 does not understand -Winconsistent-missing-override
+EXTRA_PATCHES=	${PATCHDIR}/extra-patch-fbsd10
+.endif
+
 
 post-patch:
 	${REINPLACE_CMD} '/sysmacros.h/d' \

@@ -1,7 +1,7 @@
 # $FreeBSD: branches/plasma5/PORTS/devel/kdesvn/Makefile 13476 2016-12-15 19:32:14Z tcberner $
 
 PORTNAME=	kdesvn
-PORTVERSION=	2.0.0
+DISTVERSION=	2.0.0
 MASTER_SITES=	KDE/stable/${PORTNAME}/${PORTVERSION}
 CATEGORIES=	devel kde
 
@@ -20,7 +20,7 @@ RUN_DEPENDS=	git:devel/git
 CONFLICTS_INSTALL=	kdesvn-1.7.0*
 
 USES=		bdb cmake:outsource compiler:c++11-lang desktop-file-utils \
-		gettext execinfo kde:5 tar:xz
+		gettext kde:5 tar:xz
 USE_KDE=	auth bookmarks codecs completion config configwidgets \
 		coreaddons dbusaddons doctools ecm i18n iconthemes itemviews \
 		jobwidgets kio notifications parts service sonnet texteditor \
