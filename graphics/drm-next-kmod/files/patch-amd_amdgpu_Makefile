@@ -1,0 +1,10 @@
+--- amd/amdgpu/Makefile.orig	2017-09-19 02:47:48 UTC
++++ amd/amdgpu/Makefile
+@@ -38,6 +38,7 @@ SRCS=	amdgpu_acpi.c \
+ 	amdgpu_i2c.c \
+ 	amdgpu_ib.c \
+ 	amdgpu_ih.c \
++	amdgpu_ioc32.c \
+ 	amdgpu_irq.c \
+ 	amdgpu_job.c \
+ 	amdgpu_kms.c \
