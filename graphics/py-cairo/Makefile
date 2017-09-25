@@ -3,26 +3,22 @@
 #	$MCom: ports/graphics/py-cairo/Makefile,v 1.28 2010/11/15 14:12:13 kwm Exp $
 
 PORTNAME=	cairo
-PORTVERSION=	1.10.0
-PORTREVISION=	2
+PORTVERSION=	1.14.1
 CATEGORIES=	graphics python
-MASTER_SITES=	http://cairographics.org/releases/
+MASTER_SITES=	https://github.com/pygobject/pycairo/releases/download/v${PORTVERSION}/
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
-DISTNAME=	py2${PORTNAME}-${PORTVERSION}
+DISTNAME=	py${PORTNAME}-${PORTVERSION}
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Python 2 bindings for Cairo
 
-USES=		pkgconfig python:2 shebangfix tar:bzip2 waf
+USES=		gnome pkgconfig python:2 shebangfix
+USE_PYTHON=	distutils
 USE_GNOME=	cairo
 
-SHEBANG_FILES=	examples/*.py examples/*/*.py test/*.py
+PLIST_SUB=	PORTVER=${PORTVERSION}
 
 post-install:
-	@cd ${STAGEDIR}${PREFIX} && ${PYTHON_CMD} ${PYTHON_LIBDIR}/compileall.py \
-		-d ${PYTHONPREFIX_SITELIBDIR} -f ${PYTHONPREFIX_SITELIBDIR:S;${PREFIX}/;;}
-	@cd ${STAGEDIR}${PREFIX} && ${PYTHON_CMD} -O ${PYTHON_LIBDIR}/compileall.py \
-		-d ${PYTHONPREFIX_SITELIBDIR} -f ${PYTHONPREFIX_SITELIBDIR:S;${PREFIX}/;;}
 	@${STRIP_CMD} ${STAGEDIR}${PYTHONPREFIX_SITELIBDIR}/cairo/_cairo.so
 
 .include <bsd.port.mk>

@@ -93,9 +93,6 @@ XPS_CONFIGURE_ENABLE=	xps
 
 
 post-patch:
-	@${REINPLACE_CMD} -e 's|" == "|" = "|g' \
-		-e 's|-Werror||g' \
-		${WRKSRC}/configure
 	@${REINPLACE_CMD} -e '/^DOC_MODULE_VERSION/d' \
 		${WRKSRC}/help/reference/libdocument/Makefile.in \
 		${WRKSRC}/help/reference/libview/Makefile.in
