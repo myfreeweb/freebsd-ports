@@ -1,8 +1,9 @@
 # $FreeBSD$
 
 PORTNAME=	umbrello
-DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-CATEGORIES=	devel kde kde-applications
+PORTVERSION=	${KDE4_VERSION}
+PORTREVISION=	4
+CATEGORIES=	devel kde kde-kde4
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	UML modeller for KDE

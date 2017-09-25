@@ -1,8 +1,11 @@
 # $FreeBSD: branches/plasma5/KDE/astro/libkgeomap/Makefile 13724 2017-03-10 19:28:23Z tcberner $
 
 PORTNAME=	libkgeomap
-DISTVERSION=	${KDE_APPLICATIONS_VERSION}
+PORTVERSION=	${KDE4_APPLICATIONS_VERSION}
+PORTREVISION=	4
 CATEGORIES=	astro kde kde-applications
+MASTER_SITES=	KDE/${KDE4_APPLICATIONS_BRANCH}/applications/${PORTVERSION}/src
+DIST_SUBDIR=	KDE/${PORTVERSION}
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE library for browsing photos on a map

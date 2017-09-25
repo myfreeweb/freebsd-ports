@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	gstreamer
-DISTVERSION=	0.10.3
-PORTREVISION=	6
+PORTVERSION=	0.10.3
+PORTREVISION=	8
 CATEGORIES=	multimedia
 MASTER_SITES=	http://gstreamer.freedesktop.org/src/qt-${PORTNAME}/
 PKGNAMESUFFIX=	-qt4
