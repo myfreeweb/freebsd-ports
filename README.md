@@ -45,6 +45,11 @@ sway on KMS/DRM used to work on amdgpu, but broke very recently (kernel panic).
 
 GTK/Qt already had Wayland options in the GNOME/KDE ports branches that were merged in.
 
+### Xorg
+
+- `x11-servers/xorg-server`: added `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
+- `x11/xcape`: [Useful X11 keyboard utility](https://github.com/alols/xcape) [222602](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222602)
+
 ### Morrowind
 
 YOU CAN PLAY IT AGAIN!
@@ -54,7 +59,6 @@ YOU CAN PLAY IT AGAIN!
 
 ### Misc
 
-- `x11/xcape`: [Useful X11 keyboard utility](https://github.com/alols/xcape) [222602](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222602)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 
 ## Kernel patches
