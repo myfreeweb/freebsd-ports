@@ -261,10 +261,12 @@ MOZ_OPTIONS+=	--enable-extensions=default
 .else
 MOZ_OPTIONS+=	--enable-extensions=${MOZ_EXTENSIONS}
 .endif
-.if !defined(MOZ_PROTOCOLS)
+.if ${MOZILLA_VER:R:R} <= 56
+. if !defined(MOZ_PROTOCOLS)
 MOZ_OPTIONS+=	--enable-necko-protocols=default
-.else
+. else
 MOZ_OPTIONS+=	--enable-necko-protocols=${MOZ_PROTOCOLS}
+. endif
 .endif
 # others
 MOZ_OPTIONS+=	--with-system-zlib		\

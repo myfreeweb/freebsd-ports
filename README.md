@@ -50,6 +50,10 @@ GTK/Qt already had Wayland options in the GNOME/KDE ports branches that were mer
 - `x11-servers/xorg-server`: added `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
 - `x11/xcape`: [Useful X11 keyboard utility](https://github.com/alols/xcape) [222602](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222602)
 
+### Firefox
+
+- `www/firefox-beta`: added the beta port. It's 57! As always, don't forget `layers.acceleration.force-enabled` in `about:config`.
+
 ### Morrowind
 
 YOU CAN PLAY IT AGAIN!
