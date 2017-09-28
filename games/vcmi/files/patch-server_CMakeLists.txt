@@ -1,0 +1,13 @@
+--- server/CMakeLists.txt.orig	2017-09-18 07:46:58 UTC
++++ server/CMakeLists.txt
+@@ -28,6 +28,10 @@ add_executable(vcmiserver ${server_SRCS} ${server_HEAD
+ 
+ target_link_libraries(vcmiserver vcmi ${Boost_LIBRARIES} ${SYSTEM_LIBS})
+ 
++if(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
++target_link_libraries(vcmiserver ${Boost_LIBRARIES} ${SYSTEM_LIBS} execinfo)
++endif(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
++
+ if(WIN32)
+ 	set_target_properties(vcmiserver
+ 		PROPERTIES

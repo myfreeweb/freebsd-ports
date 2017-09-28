@@ -54,12 +54,14 @@ GTK/Qt already had Wayland options in the GNOME/KDE ports branches that were mer
 
 - `www/firefox-beta`: added the beta port. It's 57! As always, don't forget `layers.acceleration.force-enabled` in `about:config`.
 
-### Morrowind
+### Games
 
-YOU CAN PLAY IT AGAIN!
+YOU CAN PLAY MORROWIND AGAIN!
 
 - `x11-toolkits/mygui-devel`: current git version doesn't have weird C++ problems anymore, see [220189](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220189)
 - `games/openmw-devel`: current git version uses the current `mygui` version 
+- `devel/fuzzylite`: used for AI in VCMI [222052](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222052)
+- `games/vcmi`: open source reimplementation of Heroes of Might and Magic III! [221885](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221885)
 
 ### Misc
 
