@@ -68,8 +68,6 @@ Gecko_Pre_Include=	bsd.gecko.mk
 #
 # MOZ_EXTENSIONS		A list of extensions to build
 #
-# MOZ_PROTOCOLS			A list of protocols to build (http, ftp, etc.)
-#
 # PORT_MOZCONFIG		Defaults to ${FILESDIR}/mozconfig.in, but can be
 # 						set to a generic mozconfig included with the port
 #
@@ -105,6 +103,10 @@ USES+=		compiler:c++11-lang
 
 .if ${MOZILLA_VER:R:R} >= 50
 USE_XORG+=	xcb
+.endif
+
+.if ${OPSYS} == FreeBSD && ${OSREL} == 11.1
+LLD_UNSAFE=	yes
 .endif
 
 MOZILLA_SUFX?=	none
@@ -261,13 +263,6 @@ MOZ_OPTIONS+=	--enable-extensions=default
 .else
 MOZ_OPTIONS+=	--enable-extensions=${MOZ_EXTENSIONS}
 .endif
-.if ${MOZILLA_VER:R:R} <= 56
-. if !defined(MOZ_PROTOCOLS)
-MOZ_OPTIONS+=	--enable-necko-protocols=default
-. else
-MOZ_OPTIONS+=	--enable-necko-protocols=${MOZ_PROTOCOLS}
-. endif
-.endif
 # others
 MOZ_OPTIONS+=	--with-system-zlib		\
 		--with-system-bz2
@@ -417,6 +412,7 @@ MOZ_OPTIONS+=	--enable-dtrace \
 LIBS+=			-lelf
 . endif
 STRIP=
+LLD_UNSAFE=		yes
 .else
 MOZ_OPTIONS+=	--disable-dtrace
 .endif

@@ -582,6 +582,7 @@
     SUBDIR += logwatch
     SUBDIR += lookat
     SUBDIR += lr
+    SUBDIR += lscpu
     SUBDIR += lsof
     SUBDIR += lsop
     SUBDIR += ltrace
