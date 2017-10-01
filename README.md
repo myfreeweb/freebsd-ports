@@ -65,6 +65,7 @@ YOU CAN PLAY MORROWIND AGAIN!
 
 ### Misc
 
+- `graphics/instant-meshes`: Interactive field-aligned mesh generator [222711](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222711)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 
 ## Kernel patches

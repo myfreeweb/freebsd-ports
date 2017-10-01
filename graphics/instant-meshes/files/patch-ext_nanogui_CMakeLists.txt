@@ -1,0 +1,16 @@
+--- ext/nanogui/CMakeLists.txt.orig	2016-10-15 20:12:12 UTC
++++ ext/nanogui/CMakeLists.txt
+@@ -174,13 +174,6 @@ if (NANOGUI_BUILD_SHARED)
+   endif()
+ endif()
+ 
+-# Always use libc++ on Clang
+-if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+-  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -stdlib=libc++ -lc++abi")
+-  set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -stdlib=libc++ -lc++abi")
+-endif()
+-
+ if (NANOGUI_USE_GLAD)
+   # Build and include GLAD on Windows
+   list(APPEND LIBNANOGUI_EXTRA_SOURCE

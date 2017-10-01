@@ -1,0 +1,21 @@
+--- CMakeLists.txt.orig	2017-09-06 16:18:14 UTC
++++ CMakeLists.txt
+@@ -114,6 +114,11 @@ include_directories(
+   ${CMAKE_CURRENT_BINARY_DIR}
+ )
+ 
++if (${CMAKE_SYSTEM_NAME} MATCHES "BSD")
++  include_directories(/usr/local/include)
++  link_directories(/usr/local/lib)
++endif()
++
+ # Run bin2c on resource files
+ set(PNG_FILES
+   ${CMAKE_CURRENT_SOURCE_DIR}/resources/comb.png
+@@ -198,3 +203,6 @@ endif()
+ if (UNIX AND NOT ${U_CMAKE_BUILD_TYPE} MATCHES DEBUG)
+   add_custom_command(TARGET InstantMeshes POST_BUILD COMMAND strip $<TARGET_FILE:InstantMeshes>)
+ endif()
++
++install(TARGETS InstantMeshes
++        RUNTIME DESTINATION bin)
