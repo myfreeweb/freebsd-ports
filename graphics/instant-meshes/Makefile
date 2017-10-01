@@ -10,11 +10,10 @@ COMMENT=	Interactive field-aligned mesh generator
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
+BUILD_DEPENDS=	convert:graphics/ImageMagick
 RUN_DEPENDS=	zenity:x11/zenity
 
 USES=		cmake:outsource compiler:c++11-lang pkgconfig
-USE_GL=	gl
-USE_XORG+=	xxf86vm xrandr xinerama xcursor xi x11
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	wjakob
@@ -29,6 +28,11 @@ GH_TUPLE=	wjakob:nanogui:2a61f03:nanogui/ext/nanogui \
 	wjakob:tbb:550c18b:tbb/ext/tbb \
 	wjakob:pss:a91da33:pss/ext/pss
 
+USE_GL=	gl
+USE_XORG+=	xxf86vm xrandr xinerama xcursor xi x11
+
+INSTALLS_ICONS=	yes
+
 post-extract:
 	@${MV} ${WRKSRC_eigen}/* ${WRKSRC}/ext/nanogui/ext/eigen
 	@${MV} ${WRKSRC_glfw}/* ${WRKSRC}/ext/nanogui/ext/glfw
@@ -36,8 +40,11 @@ post-extract:
 	@${MV} ${WRKSRC_pybind11}/* ${WRKSRC}/ext/nanogui/ext/pybind11
 
 post-install:
-	${INSTALL_DATA} ${WRKSRC}/resources/icon.png \
-		${STAGEDIR}${PREFIX}/share/pixmaps/instant-meshes.png
+	convert ${WRKSRC}/resources/icon.png -resize 500x500 -gravity center \
+		-background none -extent 512x512  ${WRKSRC}/resources/icon-512.png
+	${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/512x512/apps
+	${INSTALL_DATA} ${WRKSRC}/resources/icon-512.png \
+		${STAGEDIR}${PREFIX}/share/icons/hicolor/512x512/apps/instant_meshes.png
 	${INSTALL_DATA} ${FILESDIR}/${PORTNAME}.desktop ${STAGEDIR}${DESKTOPDIR}
 
 .include <bsd.port.mk>

@@ -2,9 +2,9 @@
 Type=Application
 Version=1.0
 Name=Instant Meshes
-GenericName=Instant Meshes
+GenericName=Interactive meshing software
 Comment=Instant Meshes, an interactive field-aligned mesh generator
-Icon=instant-meshes
+Icon=instant_meshes
 Exec="Instant Meshes"
 Keywords=3d;cg;modeling;meshing;
 Categories=Graphics;3DGraphics;

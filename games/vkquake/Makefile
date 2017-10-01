@@ -1,8 +1,9 @@
 # $FreeBSD$
 
-PORTNAME=	vkquake
-DISTVERSION=	0.96.2
-CATEGORIES=	games
+PORTNAME=		vkquake
+DISTVERSION=		0.96.2-82
+DISTVERSIONSUFFIX=	-g4fe975b
+CATEGORIES=		games
 
 MAINTAINER=	greg@unrelenting.technology
 COMMENT=	Quake 1 port using Vulkan instead of OpenGL, based on QuakeSpasm
@@ -16,11 +17,13 @@ LIB_DEPENDS=	libSDL2.so:devel/sdl20 \
 
 WRKSRC_SUBDIR=	Quake
 
-USES=	gmake pkgconfig
+USES=	gmake pkgconfig desktop-file-utils
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	Novum
 GH_PROJECT=	vkQuake
+
+INSTALLS_ICONS=	yes
 
 ALL_TARGET=
 MAKE_ARGS+=	prefix=${LOCALBASE} bindir=${LOCALBASE}/bin
@@ -29,10 +32,10 @@ MAKE_ARGS+=	prefix=${LOCALBASE} bindir=${LOCALBASE}/bin
 
 CFLAGS+=	-DDATADIR='\"${Q1DIR}\"'
 
-OPTIONS_DEFINE=	USERDIRS WAVE FLAC MP3 VORBIS OPUS
-OPTIONS_RADIO=	MODPLAYER
+OPTIONS_DEFINE=			USERDIRS WAVE FLAC MP3 VORBIS OPUS
+OPTIONS_RADIO=			MODPLAYER
 OPTIONS_RADIO_MODPLAYER=	MIKMOD XMP MODPLUG
-OPTIONS_DEFAULT=	USERDIRS WAVE FLAC VORBIS OPUS MODPLUG
+OPTIONS_DEFAULT=		USERDIRS WAVE FLAC VORBIS OPUS MODPLUG
 
 USERDIRS_DESC=	Enable support for loading game files from user directories (~/.vkquake)
 WAVE_DESC=	Enable support for Wave music
@@ -47,14 +50,14 @@ MODPLUG_DESC=	Enable support for tracker module music using ModPlug
 USERDIRS_MAKE_ARGS=	DO_USERDIRS=1
 USERDIRS_MAKE_ARGS_OFF=	DO_USERDIRS=0
 
-WAVE_MAKE_ARGS=	USE_CODEC_WAVE=1
+WAVE_MAKE_ARGS=		USE_CODEC_WAVE=1
 WAVE_MAKE_ARGS_OFF=	USE_CODEC_WAVE=0
 
-FLAC_MAKE_ARGS=	USE_CODEC_FLAC=1
+FLAC_MAKE_ARGS=		USE_CODEC_FLAC=1
 FLAC_MAKE_ARGS_OFF=	USE_CODEC_FLAC=0
 FLAC_LIB_DEPENDS=	libFLAC.so:audio/flac
 
-MP3_MAKE_ARGS=	USE_CODEC_MP3=1 MP3LIB=mad
+MP3_MAKE_ARGS=		USE_CODEC_MP3=1 MP3LIB=mad
 MP3_MAKE_ARGS_OFF=	USE_CODEC_MP3=0
 MP3_LIB_DEPENDS=	libmad.so:audio/libmad
 
@@ -64,7 +67,7 @@ VORBIS_LIB_DEPENDS=	libvorbis.so:audio/libvorbis \
 		libvorbisfile.so:audio/libvorbis \
 		libogg.so:audio/libogg
 
-OPUS_MAKE_ARGS=	USE_CODEC_OPUS=1
+OPUS_MAKE_ARGS=		USE_CODEC_OPUS=1
 OPUS_MAKE_ARGS_OFF=	USE_CODEC_OPUS=0
 OPUS_LIB_DEPENDS=	libopus.so:audio/opus \
 		libopusfile.so:audio/opusfile
@@ -73,7 +76,7 @@ MIKMOD_MAKE_ARGS=	USE_CODEC_MIKMOD=1
 MIKMOD_MAKE_ARGS_OFF=	USE_CODEC_MIKMOD=0
 MIKMOD_LIB_DEPENDS=	libmikmod.so:audio/libmikmod
 
-XMP_MAKE_ARGS=	USE_CODEC_XMP=1
+XMP_MAKE_ARGS=		USE_CODEC_XMP=1
 XMP_MAKE_ARGS_OFF=	USE_CODEC_XMP=0
 XMP_LIB_DEPENDS=	libxmp.so:audio/xmp
 
@@ -84,9 +87,9 @@ MODPLUG_LIB_DEPENDS=	libmodplug.so:audio/libmodplug
 post-install:
 	${MKDIR} ${STAGEDIR}${Q1DIR}
 	${INSTALL_DATA} ${WRKSRC}/vkquake.pak ${STAGEDIR}${Q1DIR}
-	${MKDIR} ${STAGEDIR}${PREFIX}/share/icons
-	${INSTALL_DATA} ${FILESDIR}/vkquake.png ${STAGEDIR}${PREFIX}/share/icons
-	${INSTALL_DATA} ${FILESDIR}/vkquake.png ${STAGEDIR}${PREFIX}/share/pixmaps
+	${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/256x256/apps
+	${INSTALL_DATA} ${FILESDIR}/vkquake.png \
+		${STAGEDIR}${PREFIX}/share/icons/hicolor/256x256/apps/vkquake.png
 	${INSTALL_DATA} ${FILESDIR}/vkquake.desktop \
 		${STAGEDIR}${PREFIX}/share/applications
 

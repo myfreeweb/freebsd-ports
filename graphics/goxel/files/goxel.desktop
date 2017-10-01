@@ -2,8 +2,7 @@
 Type=Application
 Version=1.0
 Name=Goxel
-GenericName=Goxel
-Comment=Goxel, a 3D voxel editor
+GenericName=3D Voxel Editor
 Icon=goxel
 Exec=goxel
 Keywords=3d;voxel;

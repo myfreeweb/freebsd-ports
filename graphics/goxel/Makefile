@@ -23,12 +23,21 @@ GH_ACCOUNT=	guillaumechereau
 USE_GNOME=	gtk30 cairo gdkpixbuf2
 USE_GL=	gl
 
+INSTALLS_ICONS=	yes
+
 MAKE_ARGS+=	clang=1 debug=0
 
 do-install:
-	@${INSTALL} -s ${WRKSRC}/goxel ${STAGEDIR}${PREFIX}/bin/goxel
-	@${INSTALL_DATA} ${WRKSRC}/osx/goxel/goxel/Assets.xcassets/AppIcon.appiconset/512.png \
-		${STAGEDIR}${PREFIX}/share/pixmaps/goxel.png
-	@${INSTALL_DATA} ${FILESDIR}/${PORTNAME}.desktop ${STAGEDIR}${DESKTOPDIR}
+	${INSTALL} -s ${WRKSRC}/goxel ${STAGEDIR}${PREFIX}/bin/goxel
+	${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/32x32/apps
+	${INSTALL_DATA} ${WRKSRC}/osx/goxel/goxel/Assets.xcassets/AppIcon.appiconset/32.png \
+		${STAGEDIR}${PREFIX}/share/icons/hicolor/32x32/apps/goxel.png
+	${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/64x64/apps
+	${INSTALL_DATA} ${WRKSRC}/osx/goxel/goxel/Assets.xcassets/AppIcon.appiconset/64.png \
+		${STAGEDIR}${PREFIX}/share/icons/hicolor/64x64/apps/goxel.png
+	${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/256x256/apps
+	${INSTALL_DATA} ${WRKSRC}/osx/goxel/goxel/Assets.xcassets/AppIcon.appiconset/256.png \
+		${STAGEDIR}${PREFIX}/share/icons/hicolor/256x256/apps/goxel.png
+	${INSTALL_DATA} ${FILESDIR}/${PORTNAME}.desktop ${STAGEDIR}${DESKTOPDIR}
 
 .include <bsd.port.mk>
