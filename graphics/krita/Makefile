@@ -1,9 +1,9 @@
 # $FreeBSD$
 
 PORTNAME=	krita
-DISTVERSION=	3.3.0-rc.1
+DISTVERSION=	3.3.0
 CATEGORIES=	graphics kde
-MASTER_SITES=	KDE/unstable/${PORTNAME}/${DISTVERSION}
+MASTER_SITES=	KDE/stable/${PORTNAME}/${DISTVERSION}
 DIST_SUBDIR=	KDE/${PORTNAME}
 
 MAINTAINER=	kde@FreeBSD.org
@@ -39,16 +39,9 @@ USE_QT5=	buildtools_build concurrent core dbus gui network printsupport \
 		qmake_build quick svg testlib widgets x11extras xml
 USE_XORG=	ice sm xcb xext xi
 
-OPTIONS_DEFINE=		GMIC
-OPTIONS_DEFAULT=	#
-OPTIONS_SUB=		yes
-
-GMIC_DESC=		Build the G'Mic plugin
-GMIC_CMAKE_BOOL=	WITH_GMIC
-
 CONFLICTS_INSTALL=	calligra-2*
 
-PLIST_SUB+=	SHLIB_VER=18.0.0 \
+PLIST_SUB=	SHLIB_VER=18.0.0 \
 		SHLIB_SHVER=18
 
 .include <bsd.port.mk>
