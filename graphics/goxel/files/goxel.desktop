@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Goxel
+GenericName=Goxel
+Comment=Goxel, a 3D voxel editor
+Icon=goxel
+Exec=goxel
+Keywords=3d;voxel;
+Categories=Graphics;3DGraphics;
+Terminal=false
