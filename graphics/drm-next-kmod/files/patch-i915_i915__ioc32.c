@@ -13,6 +13,7 @@
 +	drm_i915_getparam_t __user *request = (void __user *)arg;
  	struct drm_i915_getparam32 req32;
 -	drm_i915_getparam_t __user *request;
++	struct drm_i915_getparam req;
  
 -	if (copy_from_user(&req32, (void __user *)arg, sizeof(req32)))
 +	if (copy_from_user(&req32, request, sizeof(req32)))
@@ -23,14 +24,14 @@
 -	    || __put_user(req32.param, &request->param)
 -	    || __put_user((void __user *)(unsigned long)req32.value,
 -			  &request->value))
-+	if (put_user(req32.param, &request->param)
-+	    || put_user(req32.value, &request->value))
- 		return -EFAULT;
+-		return -EFAULT;
++	req.param = req32.param;
++	req.value = (void *)(uintptr_t)req32.value;
  
 -	return drm_ioctl(file, DRM_IOCTL_I915_GETPARAM,
 -			 (unsigned long)request);
 +	return drm_ioctl_kernel(file, i915_getparam,
-+			 request, DRM_AUTH|DRM_RENDER_ALLOW);
++			 &req, DRM_AUTH|DRM_RENDER_ALLOW);
  }
  
  static drm_ioctl_compat_t *i915_compat_ioctls[] = {
