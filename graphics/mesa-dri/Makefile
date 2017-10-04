@@ -57,6 +57,9 @@ GALLIUM_DRIVERS+=	SVGA
 EXTRA_PATCHES+=	${PATCHDIR}/extra-src_mesa_drivers_dri_i965_intel__screen.c
 . endif
 VULKAN_DRIVERS+=	INTEL
+# --build-id isn't supported by old GNU ld.bfd in base
+USE_BINUTILS=		yes
+LDFLAGS+=		-B${LOCALBASE}/bin
 .elif ${ARCH} == armv6 || ${ARCH} == aarch64
 GALLIUM_DRIVERS+=	FREEDRENO VC4
 .endif

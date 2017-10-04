@@ -13,8 +13,10 @@ post-patch:
 # Clang in 11.0 fails with undefined reference to `__atomic_fetch_add_8`
 . if ${ARCH} == "i386"
 	@${REINPLACE_CMD} -e 's|-DUSE_GCC_ATOMIC_BUILTINS||' ${WRKSRC}/configure
+	@${REINPLACE_CMD} -e 's|-latomic||' ${WRKSRC}/configure
 .  if ${COMPONENT} == osmesa
 	@${REINPLACE_CMD} -e 's|-DUSE_GCC_ATOMIC_BUILTINS||' ${WRKSRC}/configure.ac
+	@${REINPLACE_CMD} -e 's|-latomic||' ${WRKSRC}/configure.ac
 .  endif
 . endif
 .endif
