@@ -27,6 +27,8 @@ OPTIONS_DEFAULT=	SHARED
 
 CMAKE_ARGS+=	-DBOOST_ROOT=${WRKDIR}/boost_1_65_1
 
+CFLAGS=	-fPIC
+
 NATIVE_CXXFLAGS=	-march=native -mtune=native
 NATIVE_CFLAGS=		-march=native -mtune=native
 
