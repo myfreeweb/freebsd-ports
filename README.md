@@ -62,6 +62,7 @@ YOU CAN PLAY MORROWIND AGAIN!
 - `games/openmw-devel`: current git version uses the current `mygui` version 
 - `devel/fuzzylite`: used for AI in VCMI [222052](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222052)
 - `games/vcmi`: open source reimplementation of Heroes of Might and Magic III! [221885](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221885)
+- `emulators/mgba`: [Game Boy (Advance/Color/original) emulator](https://mgba.io) [222779](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222779)
 
 ### Misc
 
