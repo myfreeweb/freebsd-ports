@@ -1256,7 +1256,6 @@
     SUBDIR += kdevelop-pg-qt
     SUBDIR += kdevelop-php
     SUBDIR += kdevelop-php-docs
-    SUBDIR += kdevplatform
     SUBDIR += kf5-extra-cmake-modules
     SUBDIR += kf5-kapidox
     SUBDIR += kf5-kauth
@@ -2467,6 +2466,7 @@
     SUBDIR += p5-Exporter-Lite
     SUBDIR += p5-Exporter-Tidy
     SUBDIR += p5-Exporter-Tiny
+    SUBDIR += p5-ExportTo
     SUBDIR += p5-ExtUtils-AutoInstall
     SUBDIR += p5-ExtUtils-CBuilder
     SUBDIR += p5-ExtUtils-CChecker

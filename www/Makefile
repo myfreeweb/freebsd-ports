@@ -1813,6 +1813,7 @@
     SUBDIR += py-requestbuilder
     SUBDIR += py-requests
     SUBDIR += py-requests-futures
+    SUBDIR += py-requests-mock
     SUBDIR += py-requests-oauthlib
     SUBDIR += py-requests-toolbelt
     SUBDIR += py-requests1
