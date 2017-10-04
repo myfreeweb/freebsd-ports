@@ -1,0 +1,10 @@
+--- CMakeLists.txt.orig	2017-10-04 22:39:08 UTC
++++ CMakeLists.txt
+@@ -101,6 +101,7 @@ pkg_check_modules(ENCHANT QUIET enchant)
+ pkg_check_modules(SQLITE3 sqlite3 REQUIRED)
+ if (NOT ${SQLITE3_VERSION} VERSION_LESS 3.12)
+   include(CheckSymbolExists)
++  set(CMAKE_REQUIRED_INCLUDES /usr/local/include)
+   check_symbol_exists(SQLITE_DBCONFIG_ENABLE_FTS3_TOKENIZER sqlite3.h HAVE_FTS3_TOKENIZER)
+     if (NOT HAVE_FTS3_TOKENIZER)
+         message(FATAL_ERROR "SQLite3 is missing FTS3 tokenizer support. Please compile it with -DSQLITE_ENABLE_FTS3."

@@ -3,7 +3,7 @@
 #   $MCom: ports/trunk/mail/geary/Makefile 20050 2014-11-10 09:22:41Z gusi $
 
 PORTNAME=	geary
-PORTVERSION=	0.11.1
+PORTVERSION=	0.12.0
 CATEGORIES=	mail gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -22,7 +22,8 @@ LICENSE_PERMS_PORTER=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 BUILD_DEPENDS=	vapigen:lang/vala
 LIB_DEPENDS=	libgmime-2.6.so:mail/gmime26 \
-		libwebkitgtk-3.0.so:www/webkit-gtk3 \
+		libwebkit2gtk-4.0.so:www/webkit2-gtk3 \
+		libjavascriptcoregtk-4.0.so:www/webkit2-gtk3 \
 		libcanberra.so:audio/libcanberra \
 		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
 		libnotify.so:devel/libnotify \
@@ -30,7 +31,8 @@ LIB_DEPENDS=	libgmime-2.6.so:mail/gmime26 \
 		libgcr-3.so:security/gcr \
 		libsecret-1.so:security/libsecret \
 		libp11-kit.so:security/p11-kit \
-		libsoup-2.4.so:devel/libsoup
+		libsoup-2.4.so:devel/libsoup \
+		libenchant.so:textproc/enchant
 
 USES=		cmake:outsource desktop-file-utils gettext \
 		libtool pkgconfig shebangfix sqlite tar:xz
@@ -40,8 +42,10 @@ USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
-CMAKE_ARGS=	-DNO_FATAL_WARNINGS:BOOL=ON
+CMAKE_ARGS=	-DNO_FATAL_WARNINGS:BOOL=ON \
+	-DISO_CODE_639_XML:STRING=${LOCALBASE}/share/xml/iso-codes/iso_639.xml \
+	-DISO_CODE_3166:STRING=${LOCALBASE}/share/xml/iso-codes/iso_3166.xml
 
-GLIB_SCHEMAS=	org.yorba.geary.gschema.xml
+GLIB_SCHEMAS=	org.gnome.Geary.gschema.xml
 
 .include <bsd.port.mk>
