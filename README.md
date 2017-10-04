@@ -26,7 +26,7 @@ Forget building the whole system from the `drm-next` branch.
 - ANV (Intel Vulkan) doesn't really work yet.
 - RADV (Radeon Vulkan) with the `amdgpu` KMS/DRM driver works very well! Tested on an AMD Polaris (RX 480) GPU.
 
-- `graphics/mesa-dri` and `graphics/mesa-libs`: [Mesa 17.2.1](https://www.mesa3d.org) with Vulkan drivers enabled [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540) [220982](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220982)
+- `graphics/mesa-dri` and `graphics/mesa-libs`: [Mesa 17.2.2](https://www.mesa3d.org) with Vulkan drivers enabled [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540) [220982](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220982)
 - `graphics/vulkan-sdk`: [Vulkan SDK](https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers) (headers, ICD loader, validation layers) [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
 - `games/vkquake`: [a Vulkan-powered Quake engine](https://github.com/Novum/vkQuake) [222182](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222182)
 - `emulators/dolphin-emu`: [Dolphin Emulator](https://dolphin-emu.org) (GameCube/Wii) updated to a recent git revision (Vulkan just works, dynamically loaded)
@@ -68,6 +68,7 @@ YOU CAN PLAY MORROWIND AGAIN!
 - `graphics/instant-meshes`: Interactive field-aligned mesh generator [222711](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222711)
 - `graphics/goxel`: 3D voxel editor [222729](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222729)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
+- `lang/rust-nightly`: revived port by copy-pasting from `lang/rust` and updating version numbers. Here's the resulting toolchain tarballs: [rustc](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rustc-nightly-x86_64-unknown-freebsd.tar.xz) [std](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-std-nightly-x86_64-unknown-freebsd.tar.xz) [cargo](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/cargo-nightly-x86_64-unknown-freebsd.tar.xz) [rls](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rls-nightly-x86_64-unknown-freebsd.tar.xz) [analysis](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-analysis-nightly-x86_64-unknown-freebsd.tar.xz) [docs](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-docs-nightly-x86_64-unknown-freebsd.tar.xz). Use [libc from here](https://github.com/myfreeweb/libc) and [mio from there](https://github.com/FreeBSDRust/mio) via `[patch.crates-io]` sections in `Cargo.toml` files.
 
 ## Kernel patches
 
