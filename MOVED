@@ -9649,8 +9649,6 @@ security/openvas-manager|security/openvas8-manager|2017-08-03|Renamed to include
 security/openvas-scanner|security/openvas8-scanner|2017-08-03|Renamed to include openvas 9 ports. It reflects a better name
 security/greenbone-security-assistant|security/greenbone-security-assistant8|2017-08-03|Renamed to include openvas 9 ports. It reflects a better name
 sysutils/consolekit|sysutils/consolekit2|2017-08-05|Continuation of the consolekit project
-x11-toolkits/kirigami||2017-08-07|Not needed by anything
-x11-toolkits/kirigami2|x11-toolkits/kf5-kirigami2|2017-08-07|Became an official framework
 mail/dovecot2|mail/dovecot|2017-08-07|Renamed to mail/dovecot
 mail/dovecot2-pigeonhole|mail/dovecot-pigeonhole|2017-08-07|Renamed to mail/dovecot-pigeonhole
 devel/hs-MonadCatchIO-mtl||2017-08-08|Deprecated in favor of the exceptions package
@@ -9731,4 +9729,3 @@ www/py-twistedWeb2|devel/py-twisted|2017-09-30|Has expired: Use devel/py-twisted
 devel/libclaw||2017-09-30|Has expired: useless for anything apart from removed games/plee-the-bear
 ports-mgmt/redports-node||2017-10-01|Has expired: Upstream is dead so port is not useable anymore.
 sysutils/py3-iocage|sysutils/iocage|2017-10-02|Port was renamed
-devel/kdevplatfrom||2017-10-03|Has been reintegrated into kdevelop upstream

@@ -75,8 +75,6 @@ PYTHON_CONFIGURE_ENABLE=	python
 PYTHON_USES=		python:3.3+
 PYTHON_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}libpeas>=0:devel/py3-libpeas
 
-.include <bsd.port.pre.mk>
-
 post-patch:
 	@${REINPLACE_CMD} -e 's|{MOZILLA_PLUGINDIR|{MOZILLA_PLUGINDIR}|g' \
 		${WRKSRC}/configure
@@ -85,4 +83,4 @@ post-patch:
 post-install:
 	@${RM} -r ${STAGEDIR}${PREFIX}/lib/rhythmbox/plugins/rbzeitgeist
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
