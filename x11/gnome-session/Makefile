@@ -2,13 +2,16 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-session
-PORTVERSION=	3.24.1
+PORTVERSION=	3.26.0
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Session component for the GNOME 3 desktop
+
+LICENSE=	GPLv2+
+LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		libdbus-glib-1.so:devel/dbus-glib \
@@ -18,7 +21,8 @@ RUN_DEPENDS=	${LOCALBASE}/sbin/console-kit-daemon:sysutils/consolekit2
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome localbase pathfix pkgconfig tar:xz
+USES=		gettext gmake gnome localbase:ldflags pathfix \
+		pkgconfig tar:xz
 USE_GNOME=	cairo gnomedesktop3 intlhack libxslt:build
 USE_XORG=	ice sm x11 xau xcomposite xext xrender xtrans xtst
 USE_GL=		egl gl glesv2

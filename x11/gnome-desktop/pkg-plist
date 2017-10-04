@@ -12,7 +12,7 @@ include/gnome-desktop-3.0/libgnome-desktop/gnome-xkb-info.h
 lib/girepository-1.0/GnomeDesktop-3.0.typelib
 lib/libgnome-desktop-3.so
 lib/libgnome-desktop-3.so.12
-lib/libgnome-desktop-3.so.12.2.0
+lib/libgnome-desktop-3.so.12.2.1
 libdata/pkgconfig/gnome-desktop-3.0.pc
 libexec/gnome-rr-debug
 share/gir-1.0/GnomeDesktop-3.0.gir
@@ -86,7 +86,6 @@ share/help/oc/gpl/index.docbook
 share/help/oc/lgpl/index.docbook
 share/help/pa/gpl/index.docbook
 share/help/pa/lgpl/index.docbook
-share/help/pl/fdl/index.docbook
 share/help/pt_BR/fdl/index.docbook
 share/help/pt_BR/gpl/index.docbook
 share/help/pt_BR/lgpl/index.docbook

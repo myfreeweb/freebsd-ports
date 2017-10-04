@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-shell
-PORTVERSION=	3.24.2
+PORTVERSION=	3.26.0
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -17,7 +17,7 @@ BUILD_DEPENDS=	docbook-xsl>=0:textproc/docbook-xsl \
 		gnome-control-center:sysutils/gnome-control-center
 LIB_DEPENDS=	libstartup-notification-1.so:x11/startup-notification \
 		libdrm.so:graphics/libdrm \
-		libmutter-0.so:x11-wm/mutter \
+		libmutter-1.so:x11-wm/mutter \
 		libatk-bridge-2.0.so:accessibility/at-spi2-atk \
 		libsoup-2.4.so:devel/libsoup \
 		libjson-glib-1.0.so:devel/json-glib \
@@ -37,21 +37,20 @@ RUN_DEPENDS=	gnome-control-center:sysutils/gnome-control-center
 
 PORTSCOUT=	limitw:1,even
 
-USES=		compiler:c11 cpe gettext gmake gnome libtool localbase \
+USES=		compiler:c11 cpe gettext gnome libtool localbase meson \
 		pathfix pkgconfig python:3.3+ tar:xz webplugin:native
 USE_GNOME=	cairo evolutiondataserver3 gdkpixbuf2 introspection \
 		libxslt:build libxml2
 USE_XORG=	x11 xcomposite xdamage xext xfixes xi xrandr xtst
 USE_GL=		egl gbm
 USE_GSTREAMER1=	yes
-GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 WEBPLUGIN_NAME=	libgnome-shell-browser-plugin.so
 WEBPLUGIN_DIR=	${PREFIX}/lib/mozilla/plugins/
 WEBPLUGIN_FILES=libgnome-shell-browser-plugin.so
-CONFIGURE_ARGS+=--disable-systemd \
-		--disable-networkmanager
-INSTALL_TARGET=	install-strip
+
+MESON_ARGS=	-Denable-systemd=no \
+		-Denable-networkmanager=no
 CPE_VENDOR=	gnome
 
 GLIB_SCHEMAS=	org.gnome.shell.gschema.xml

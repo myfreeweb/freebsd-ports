@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-settings-daemon
-PORTVERSION=	3.24.2
+PORTVERSION=	3.26.0
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -71,12 +71,7 @@ GLIB_SCHEMAS=	org.gnome.settings-daemon.enums.xml \
 		org.gnome.settings-daemon.plugins.power.gschema.xml \
 		org.gnome.settings-daemon.plugins.power.gschema.xml.override \
 		org.gnome.settings-daemon.plugins.sharing.gschema.xml \
-		org.gnome.settings-daemon.plugins.xrandr.gschema.xml \
 		org.gnome.settings-daemon.plugins.xsettings.gschema.xml
-
-post-patch:
-	@${REINPLACE_CMD} -e 's|/etc/gnome|${PREFIX}/etc/gnome|g' \
-		${WRKSRC}/data/org.gnome.settings-daemon.plugins.xrandr.gschema.xml.in.in
 
 post-install:
 	${INSTALL_DATA} ${FILESDIR}/org.gnome.settings-daemon.plugins.power.gschema.xml.override \

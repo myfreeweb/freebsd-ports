@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	grilo-plugins
-PORTVERSION=	0.3.4
+PORTVERSION=	0.3.5
 CATEGORIES=	net
 MASTER_SITES=	GNOME
 
@@ -27,6 +27,7 @@ LIB_DEPENDS=	libgrilo-0.3.so:net/grilo \
 USES=		gettext gmake gnome libtool pathfix pkgconfig sqlite tar:xz
 USE_LDCONFIG=	yes
 USE_GNOME=	glib20 intlhack libxml2
+USE_GSTREAMER1=	yes
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-lua-factory
 INSTALL_TARGET=	install-strip

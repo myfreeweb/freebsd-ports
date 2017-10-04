@@ -57,7 +57,6 @@ RUN_DEPENDS+=	epiphany>=3.0.0:www/epiphany \
 		gedit>=3.0.0:editors/gedit \
 		gedit-plugins>=3.0.0:editors/gedit-plugins \
 		gnome-terminal>=3.0.0:x11/gnome-terminal \
-		mousetweaks>=3.0.0:accessibility/mousetweaks \
 		brasero>=3.0.0:sysutils/brasero \
 		accerciser>=3.0.0:accessibility/accerciser \
 		gnome-calculator>=3.0.0:math/gnome-calculator \

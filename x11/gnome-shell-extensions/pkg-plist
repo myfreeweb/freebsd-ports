@@ -71,6 +71,7 @@ share/locale/af/LC_MESSAGES/gnome-shell-extensions.mo
 share/locale/an/LC_MESSAGES/gnome-shell-extensions.mo
 share/locale/ar/LC_MESSAGES/gnome-shell-extensions.mo
 share/locale/as/LC_MESSAGES/gnome-shell-extensions.mo
+share/locale/be/LC_MESSAGES/gnome-shell-extensions.mo
 share/locale/bg/LC_MESSAGES/gnome-shell-extensions.mo
 share/locale/bn_IN/LC_MESSAGES/gnome-shell-extensions.mo
 share/locale/bs/LC_MESSAGES/gnome-shell-extensions.mo
@@ -94,6 +95,7 @@ share/locale/gl/LC_MESSAGES/gnome-shell-extensions.mo
 share/locale/gu/LC_MESSAGES/gnome-shell-extensions.mo
 share/locale/he/LC_MESSAGES/gnome-shell-extensions.mo
 share/locale/hi/LC_MESSAGES/gnome-shell-extensions.mo
+share/locale/hr/LC_MESSAGES/gnome-shell-extensions.mo
 share/locale/hu/LC_MESSAGES/gnome-shell-extensions.mo
 share/locale/id/LC_MESSAGES/gnome-shell-extensions.mo
 share/locale/is/LC_MESSAGES/gnome-shell-extensions.mo

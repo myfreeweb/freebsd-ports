@@ -7,7 +7,6 @@ etc/xdg/autostart/org.gnome.SettingsDaemon.Housekeeping.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.Keyboard.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.MediaKeys.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.Mouse.desktop
-etc/xdg/autostart/org.gnome.SettingsDaemon.Orientation.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.Power.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.PrintNotifications.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.Rfkill.desktop
@@ -16,7 +15,6 @@ etc/xdg/autostart/org.gnome.SettingsDaemon.Sharing.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.Smartcard.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.Sound.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.Wacom.desktop
-etc/xdg/autostart/org.gnome.SettingsDaemon.XRANDR.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.XSettings.desktop
 include/gnome-settings-daemon-3.0/gnome-settings-daemon/gsd-enums.h
 lib/gnome-settings-daemon-3.0/libgsd.a
@@ -33,7 +31,6 @@ libexec/gsd-keyboard
 libexec/gsd-locate-pointer
 libexec/gsd-media-keys
 libexec/gsd-mouse
-libexec/gsd-orientation
 libexec/gsd-power
 libexec/gsd-print-notifications
 libexec/gsd-printer
@@ -42,15 +39,9 @@ libexec/gsd-sharing
 libexec/gsd-smartcard
 libexec/gsd-sound
 libexec/gsd-test-input-helper
-libexec/gsd-xrandr
 libexec/gsd-xsettings
 share/GConf/gsettings/gnome-settings-daemon.convert
 %%DATADIR%%/datetime/backward
-share/icons/hicolor/16x16/apps/gsd-xrandr.png
-share/icons/hicolor/22x22/apps/gsd-xrandr.png
-share/icons/hicolor/24x24/apps/gsd-xrandr.png
-share/icons/hicolor/32x32/apps/gsd-xrandr.png
-share/icons/hicolor/scalable/apps/gsd-xrandr.svg
 share/locale/af/LC_MESSAGES/gnome-settings-daemon.mo
 share/locale/am/LC_MESSAGES/gnome-settings-daemon.mo
 share/locale/ar/LC_MESSAGES/gnome-settings-daemon.mo

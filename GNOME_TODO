@@ -5,3 +5,5 @@ Needs adding to MOVED!
 * gdm needs fixing, crashing after login
 * gnome-shell extensions need checking.
 * gnome-initial-setup needs more work.
+
+accessibility/mousetweaks remove! last release 2014, doesn't build

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-desktop
-PORTVERSION=	3.24.2
+PORTVERSION=	3.26.0
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -33,7 +33,8 @@ USE_GNOME=	cairo gdkpixbuf2 gtk30 intltool introspection:build \
 USE_XORG=	x11
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--with-gnome-distributor="FreeBSD GNOME Project"
+CONFIGURE_ARGS=	--with-gnome-distributor="FreeBSD GNOME Project" \
+		--disable-udev
 INSTALL_TARGET=	install-strip
 
 post-patch:

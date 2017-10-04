@@ -12,8 +12,9 @@ From: =?UTF-8?q?Florian=20M=C3=BCllner?= <fmuellner@gnome.org>
 Date: Thu, 24 Apr 2014 17:55:56 +0200
 Subject: loginManager: Kill ConsoleKit support
 
---- js/misc/loginManager.js.orig	Sat Aug 20 01:42:50 2016
-+++ js/misc/loginManager.js	Fri Nov  4 10:57:19 2016
+
+--- js/misc/loginManager.js.orig	2017-09-12 17:26:59.000000000 +0200
++++ js/misc/loginManager.js	2017-09-28 22:57:46.278033000 +0200
 @@ -40,15 +40,38 @@ const SystemdLoginSessionIface = '<node> \
  <signal name="Lock" /> \
  <signal name="Unlock" /> \
@@ -74,7 +75,7 @@ Subject: loginManager: Kill ConsoleKit support
      }
  
      return _loginManager;
-@@ -113,6 +136,9 @@ const LoginManagerSystemd = new Lang.Class({
+@@ -113,6 +136,9 @@ var LoginManagerSystemd = new Lang.Class({
                                    Lang.bind(this, this._prepareForSleep));
      },
  
@@ -84,13 +85,13 @@ Subject: loginManager: Kill ConsoleKit support
      getCurrentSessionProxy: function(callback) {
          if (this._currentSession) {
              callback (this._currentSession);
-@@ -183,13 +209,35 @@ const LoginManagerSystemd = new Lang.Class({
+@@ -183,13 +209,35 @@ var LoginManagerSystemd = new Lang.Class({
  });
  Signals.addSignalMethods(LoginManagerSystemd.prototype);
  
--const LoginManagerDummy = new Lang.Class({
+-var LoginManagerDummy = new Lang.Class({
 -    Name: 'LoginManagerDummy',
-+const LoginManagerConsoleKit = new Lang.Class({
++var LoginManagerConsoleKit = new Lang.Class({
 +    Name: 'LoginManagerConsoleKit',
  
 +    _init: function() {
@@ -125,7 +126,7 @@ Subject: loginManager: Kill ConsoleKit support
      },
  
      canSuspend: function(asyncCallback) {
-@@ -209,4 +257,4 @@ const LoginManagerDummy = new Lang.Class({
+@@ -209,4 +257,4 @@ var LoginManagerDummy = new Lang.Class({
          callback(null);
      }
  });

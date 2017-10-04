@@ -184,6 +184,7 @@ include/gtk-4.0/gtk/gtkcellrendererspinner.h
 include/gtk-4.0/gtk/gtkcellrenderertext.h
 include/gtk-4.0/gtk/gtkcellrenderertoggle.h
 include/gtk-4.0/gtk/gtkcellview.h
+include/gtk-4.0/gtk/gtkcenterbox.h
 include/gtk-4.0/gtk/gtkcheckbutton.h
 include/gtk-4.0/gtk/gtkcheckmenuitem.h
 include/gtk-4.0/gtk/gtkclipboard.h
@@ -208,7 +209,6 @@ include/gtk-4.0/gtk/gtkentry.h
 include/gtk-4.0/gtk/gtkentrybuffer.h
 include/gtk-4.0/gtk/gtkentrycompletion.h
 include/gtk-4.0/gtk/gtkenums.h
-include/gtk-4.0/gtk/gtkeventbox.h
 include/gtk-4.0/gtk/gtkeventcontroller.h
 include/gtk-4.0/gtk/gtkexpander.h
 include/gtk-4.0/gtk/gtkfilechooser.h
