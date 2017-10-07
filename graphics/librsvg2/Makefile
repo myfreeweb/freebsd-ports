@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	librsvg
-PORTVERSION=	2.40.18
+PORTVERSION=	2.40.19
 CATEGORIES=	graphics gnome
 MASTER_SITES=	GNOME
 PKGNAMESUFFIX=	2
@@ -14,6 +14,7 @@ COMMENT=	Library for parsing and rendering SVG vector-graphic files
 PORTSCOUT=	limit:^2\.40\.
 
 LIB_DEPENDS=	libfreetype.so:print/freetype2 \
+		libfontconfig.so:x11-fonts/fontconfig \
 		libpng.so:graphics/png \
 		libcroco-0.6.so:textproc/libcroco
 
