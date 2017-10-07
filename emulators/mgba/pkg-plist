@@ -5,9 +5,9 @@ lib/libmgba.so.0.6
 lib/libmgba.so.0.6.1
 %%QT5%%man/man6/mgba-qt.6.gz
 man/man6/mgba.6.gz
+%%PORTDOCS%%%%DOCSDIR%%/CHANGES
+%%PORTDOCS%%%%DOCSDIR%%/README.md
 %%QT5%%share/applications/mgba-qt.desktop
-share/doc/mGBA/CHANGES
-share/doc/mGBA/README.md
 share/icons/hicolor/128x128/apps/mgba.png
 share/icons/hicolor/16x16/apps/mgba.png
 share/icons/hicolor/24x24/apps/mgba.png

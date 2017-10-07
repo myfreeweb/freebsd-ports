@@ -12,6 +12,13 @@ DISTNAME=	py${PORTNAME}-${PORTVERSION}
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Python 2 bindings for Cairo
 
+LICENSE=	LGPL21 MPL11
+LICENSE_COMB=	multi
+LICENSE_FILE_LGPL21=	${WRKSRC}/COPYING-LGPL-2.1
+LICENSE_FILE_MPL11=	${WRKSRC}/COPYING-MPL-1.1
+
+PORTSCOUT=	limitw:1,even
+
 USES=		gnome pkgconfig python:2 shebangfix
 USE_PYTHON=	distutils
 USE_GNOME=	cairo
