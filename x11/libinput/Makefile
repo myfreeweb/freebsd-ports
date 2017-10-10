@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	libinput
-PORTVERSION=	1.6.0
+PORTVERSION=	1.8.0
 CATEGORIES=	x11
 MASTER_SITES=	http://freedesktop.org/software/${PORTNAME}/
 
@@ -15,10 +15,11 @@ LIB_DEPENDS=	libevdev.so:devel/libevdev \
 		libudev.so:devel/libudev-devd \
 		libmtdev.so:devel/libmtdev
 
-USES=		autoreconf gmake libtool pathfix pkgconfig tar:xz
+USES=		autoreconf gmake libtool pathfix pkgconfig localbase tar:xz
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 
+CONFIGURE_ARGS+=	--disable-documentation
 CPPFLAGS+=	-I${LOCALBASE}/include/libepoll-shim
 INSTALL_TARGET=	install-strip
 
