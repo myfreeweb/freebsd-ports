@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-backgrounds
-PORTVERSION=	3.22.1
+PORTVERSION=	3.26.2
 CATEGORIES=	x11-themes graphics gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -16,8 +16,6 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 PORTSCOUT=	limitw:1,even
 
 NO_ARCH=	yes
-USES=		gettext gmake gnome pathfix tar:xz
-USE_GNOME=	intlhack
-GNU_CONFIGURE=	yes
+USES=		gettext gnome meson tar:xz
 
 .include <bsd.port.mk>

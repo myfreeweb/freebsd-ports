@@ -11,7 +11,7 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Generate interface introspection data for GObject libraries
 
-LICENSE=	LGPL20+ GPLv2+
+LICENSE=	GPLv2+ LGPL20+
 LICENSE_COMB=	multi
 LICENSE_FILE_LGPL2+=	${WRKSRC}/COPYING.LGPL
 LICENSE_FILE_GPLv2+=	${WRKSRC}/COPYING.GPL

@@ -1,6 +1,6 @@
---- daemon/Makefile.in.orig	2015-09-25 10:27:28.829353000 +0200
-+++ daemon/Makefile.in	2015-09-25 10:31:56.940846000 +0200
-@@ -100,6 +100,7 @@
+--- daemon/Makefile.in.orig	2017-10-06 22:01:45.296689000 +0200
++++ daemon/Makefile.in	2017-10-06 22:05:27.344218000 +0200
+@@ -100,6 +100,7 @@ libexec_PROGRAMS = gdm-session-worker$(EXEEXT) \
  
  sbin_PROGRAMS = gdm$(EXEEXT) $(am__EXEEXT_1)
  @XDMCP_SUPPORT_TRUE@am__append_3 = $(XDMCP_SOURCES)
@@ -8,7 +8,7 @@
  subdir = daemon
  ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
  am__aclocal_m4_deps = $(top_srcdir)/m4/intltool.m4 \
-@@ -138,6 +139,8 @@
+@@ -138,6 +139,8 @@ am__objects_2 = gdm-xdmcp-display-factory.$(OBJEXT) \
  	gdm-xdmcp-display.$(OBJEXT) \
  	gdm-xdmcp-chooser-display.$(OBJEXT) $(am__objects_1)
  @XDMCP_SUPPORT_TRUE@am__objects_3 = $(am__objects_2)
@@ -17,17 +17,16 @@
  am_gdm_OBJECTS = main.$(OBJEXT) gdm-display-access-file.$(OBJEXT) \
  	gdm-display-store.$(OBJEXT) gdm-display-factory.$(OBJEXT) \
  	gdm-local-display-factory.$(OBJEXT) gdm-display.$(OBJEXT) \
-@@ -147,7 +150,8 @@
+@@ -147,7 +150,7 @@ am_gdm_OBJECTS = main.$(OBJEXT) gdm-display-access-fil
  	gdm-session-record.$(OBJEXT) \
  	gdm-session-worker-common.$(OBJEXT) \
  	gdm-session-worker-job.$(OBJEXT) gdm-dbus-util.$(OBJEXT) \
--	gdm-xerrors.$(OBJEXT) $(am__objects_1) $(am__objects_3)
-+	gdm-xerrors.$(OBJEXT) $(am__objects_1) $(am__objects_3) \
-+	$(am__objects_5)
+-	$(am__objects_1) $(am__objects_3)
++	$(am__objects_1) $(am__objects_3) $(am__objects_5)
  nodist_gdm_OBJECTS = gdm-display-glue.$(OBJEXT) \
  	gdm-local-display-factory-glue.$(OBJEXT) \
  	gdm-manager-glue.$(OBJEXT) gdm-local-display-glue.$(OBJEXT) \
-@@ -173,15 +177,15 @@
+@@ -173,15 +176,15 @@ am__gdm_session_worker_SOURCES_DIST = session-worker-m
  	gdm-session-worker-common.h gdm-dbus-util.c gdm-dbus-util.h \
  	gdm-session-linux-auditor.h gdm-session-linux-auditor.c \
  	gdm-session-solaris-auditor.h gdm-session-solaris-auditor.c
@@ -46,7 +45,7 @@
  nodist_gdm_session_worker_OBJECTS = gdm-session-glue.$(OBJEXT) \
  	gdm-session-worker-glue.$(OBJEXT) \
  	gdm-session-enum-types.$(OBJEXT) $(am__objects_1)
-@@ -307,6 +311,7 @@
+@@ -307,6 +310,7 @@ CHECK_CFLAGS = @CHECK_CFLAGS@
  CHECK_LIBS = @CHECK_LIBS@
  COMMON_CFLAGS = @COMMON_CFLAGS@
  COMMON_LIBS = @COMMON_LIBS@
@@ -54,7 +53,7 @@
  CPP = @CPP@
  CPPFLAGS = @CPPFLAGS@
  CXX = @CXX@
-@@ -461,6 +466,7 @@
+@@ -463,6 +467,7 @@ SYSTEMD_X_SERVER = @SYSTEMD_X_SERVER@
  USE_NLS = @USE_NLS@
  VERSION = @VERSION@
  WARN_CFLAGS = @WARN_CFLAGS@
@@ -62,7 +61,7 @@
  XDMCP_LIBS = @XDMCP_LIBS@
  XEVIE_OPTION = @XEVIE_OPTION@
  XGETTEXT = @XGETTEXT@
-@@ -565,6 +571,7 @@
+@@ -567,6 +572,7 @@ AM_CPPFLAGS = \
  	-DGDM_SCREENSHOT_DIR=\"$(GDM_SCREENSHOT_DIR)\"		\
  	-DGDM_CACHE_DIR=\""$(localstatedir)/cache/gdm"\"	\
  	-DGDM_SESSION_DEFAULT_PATH=\"$(GDM_SESSION_DEFAULT_PATH)\" \
@@ -70,16 +69,17 @@
  	$(DISABLE_DEPRECATED_CFLAGS)			\
  	$(DAEMON_CFLAGS)				\
  	$(XLIB_CFLAGS)					\
-@@ -669,7 +676,7 @@
+@@ -670,7 +676,8 @@ gdm_SOURCES = main.c gdm-display-access-file.c \
+ 	gdm-session-record.c gdm-session-record.h \
  	gdm-session-worker-common.c gdm-session-worker-common.h \
  	gdm-session-worker-job.c gdm-session-worker-job.h \
- 	gdm-dbus-util.c gdm-dbus-util.h gdm-xerrors.c gdm-xerrors.h \
--	$(NULL) $(am__append_3)
-+	$(NULL) $(am__append_3) $(am__append_4)
+-	gdm-dbus-util.c gdm-dbus-util.h $(NULL) $(am__append_3)
++	gdm-dbus-util.c gdm-dbus-util.h $(NULL) $(am__append_3) \
++	$(am__append_4)
  nodist_gdm_SOURCES = \
  	gdm-display-glue.h			\
  	gdm-display-glue.c			\
-@@ -696,8 +703,8 @@
+@@ -697,8 +704,8 @@ XDMCP_SOURCES = \
  	gdm-xdmcp-chooser-display.h	\
  	$(NULL)
  

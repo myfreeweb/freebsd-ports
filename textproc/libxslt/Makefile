@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	libxslt
-PORTVERSION=	1.1.29
-PORTREVISION?=	1
+PORTVERSION=	1.1.31
+PORTREVISION?=	0
 CATEGORIES?=	textproc gnome
 MASTER_SITES=	ftp://xmlsoft.org/libxml2/ \
 		http://xmlsoft.org/sources/ \
@@ -39,8 +39,10 @@ CRYPTO_DESC=	Enable crypto support for exslt
 .endif
 
 MEM_DEBUG_CONFIGURE_ON=	--with-mem-debug
+
 CRYPTO_CONFIGURE_WITH=	crypto
-CRYPTO_LIB_DEPENDS=	libgcrypt.so:security/libgcrypt
+CRYPTO_LIB_DEPENDS=	libgpg-error.so:security/libgpg-error \
+			libgcrypt.so:security/libgcrypt
 
 post-patch:
 	@${REINPLACE_CMD} -e '/^install-data-am:/ s|install-data-local||' \

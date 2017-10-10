@@ -8,6 +8,7 @@ share/backgrounds/gnome/Icescape.jpg
 share/backgrounds/gnome/Mirror.jpg
 share/backgrounds/gnome/Road.jpg
 share/backgrounds/gnome/Sandstone.jpg
+share/backgrounds/gnome/Signpost_of_the_Shadows.jpg
 share/backgrounds/gnome/Stones.jpg
 share/backgrounds/gnome/Terraform-green.jpg
 share/backgrounds/gnome/Waterfalls.jpg
@@ -56,6 +57,7 @@ share/locale/gl/LC_MESSAGES/gnome-backgrounds.mo
 share/locale/gu/LC_MESSAGES/gnome-backgrounds.mo
 share/locale/he/LC_MESSAGES/gnome-backgrounds.mo
 share/locale/hi/LC_MESSAGES/gnome-backgrounds.mo
+share/locale/hr/LC_MESSAGES/gnome-backgrounds.mo
 share/locale/hu/LC_MESSAGES/gnome-backgrounds.mo
 share/locale/hy/LC_MESSAGES/gnome-backgrounds.mo
 share/locale/id/LC_MESSAGES/gnome-backgrounds.mo

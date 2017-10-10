@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	libgnomekbd
-PORTVERSION=	3.22.0.1
+PORTVERSION=	3.26.0
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -13,14 +13,12 @@ COMMENT=	GNOME keyboard shared library
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING.LIB
 
-BUILD_DEPENDS=	libxklavier>=5.2:x11/libxklavier
 LIB_DEPENDS=	libxklavier.so:x11/libxklavier
 
 USES=		gettext gmake libtool localbase pathfix pkgconfig tar:xz
-USE_GNOME=	cairo gnomeprefix gtk30 intltool introspection:build \
-		libxml2
+USE_GNOME=	cairo gtk30 introspection:build
 GNU_CONFIGURE=	yes
-USE_XORG=	ice x11
+USE_XORG=	x11
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes
 INSTALL_TARGET=	install-strip

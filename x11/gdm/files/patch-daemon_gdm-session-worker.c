@@ -24,8 +24,8 @@ From: Tim Lunn <tim@feathertop.org>
 Date: Mon, 11 Apr 2016 23:18:10 +1000
 Subject: gdm-session: set PAM_TTY when initialising pam
 
---- daemon/gdm-session-worker.c.orig	Fri Mar  3 20:32:37 2017
-+++ daemon/gdm-session-worker.c	Sun Mar 12 12:37:19 2017
+--- daemon/gdm-session-worker.c.orig	2017-10-03 22:18:28.000000000 +0200
++++ daemon/gdm-session-worker.c	2017-10-06 22:20:25.478874000 +0200
 @@ -28,9 +28,11 @@
  #include <string.h>
  #include <sys/types.h>
@@ -288,19 +288,21 @@ Subject: gdm-session: set PAM_TTY when initialising pam
  
  static void
  gdm_session_worker_uninitialize_pam (GdmSessionWorker *worker,
-@@ -909,9 +1118,11 @@ gdm_session_worker_uninitialize_pam (GdmSessionWorker 
+@@ -909,11 +1118,13 @@ gdm_session_worker_uninitialize_pam (GdmSessionWorker 
  
          gdm_session_worker_stop_auditor (worker);
  
 +#ifdef WITH_SYSTEMD
-         if (worker->priv->login_vt != worker->priv->session_vt) {
-                 jump_to_vt (worker, worker->priv->login_vt);
+         if (g_strcmp0 (worker->priv->display_seat_id, "seat0") == 0) {
+                 if (worker->priv->login_vt != worker->priv->session_vt) {
+                         jump_to_vt (worker, worker->priv->login_vt);
+                 }
          }
 +#endif
  
          worker->priv->login_vt = 0;
          worker->priv->session_vt = 0;
-@@ -963,32 +1174,6 @@ _get_xauth_for_pam (const char *x11_authority_file)
+@@ -965,32 +1176,6 @@ _get_xauth_for_pam (const char *x11_authority_file)
  #endif
  
  static gboolean
@@ -333,7 +335,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
  gdm_session_worker_initialize_pam (GdmSessionWorker *worker,
                                     const char       *service,
                                     const char       *username,
-@@ -1002,7 +1187,6 @@ gdm_session_worker_initialize_pam (GdmSessionWorker *w
+@@ -1004,7 +1189,6 @@ gdm_session_worker_initialize_pam (GdmSessionWorker *w
  {
          struct pam_conv        pam_conversation;
          int                    error_code;
@@ -341,7 +343,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
  
          g_assert (worker->priv->pam_handle == NULL);
  
-@@ -1063,10 +1247,12 @@ gdm_session_worker_initialize_pam (GdmSessionWorker *w
+@@ -1065,10 +1249,12 @@ gdm_session_worker_initialize_pam (GdmSessionWorker *w
                  }
          }
  
@@ -355,7 +357,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
  
          if (strcmp (service, "gdm-launch-environment") == 0) {
                  gdm_session_worker_set_environment_variable (worker, "XDG_SESSION_CLASS", "greeter");
-@@ -1075,14 +1261,6 @@ gdm_session_worker_initialize_pam (GdmSessionWorker *w
+@@ -1077,14 +1263,6 @@ gdm_session_worker_initialize_pam (GdmSessionWorker *w
          g_debug ("GdmSessionWorker: state SETUP_COMPLETE");
          worker->priv->state = GDM_SESSION_WORKER_STATE_SETUP_COMPLETE;
  
@@ -370,7 +372,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
   out:
          if (error_code != PAM_SUCCESS) {
                  gdm_session_worker_uninitialize_pam (worker, error_code);
-@@ -1629,6 +1807,26 @@ gdm_session_worker_get_environment (GdmSessionWorker *
+@@ -1631,6 +1809,26 @@ gdm_session_worker_get_environment (GdmSessionWorker *
          return (const char * const *) pam_getenvlist (worker->priv->pam_handle);
  }
  
@@ -397,7 +399,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
  static gboolean
  run_script (GdmSessionWorker *worker,
              const char       *dir)
-@@ -1659,6 +1857,9 @@ session_worker_child_watch (GPid              pid,
+@@ -1661,6 +1859,9 @@ session_worker_child_watch (GPid              pid,
                   : WIFSIGNALED (status) ? WTERMSIG (status)
                   : -1);
  
@@ -407,7 +409,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
  
          gdm_session_worker_uninitialize_pam (worker, PAM_SUCCESS);
  
-@@ -1849,12 +2050,14 @@ gdm_session_worker_start_session (GdmSessionWorker  *w
+@@ -1851,6 +2052,7 @@ gdm_session_worker_start_session (GdmSessionWorker  *w
  
          error_code = PAM_SUCCESS;
  
@@ -415,22 +417,23 @@ Subject: gdm-session: set PAM_TTY when initialising pam
          /* If we're in new vt mode, jump to the new vt now. There's no need to jump for
           * the other two modes: in the logind case, the session will activate itself when
           * ready, and in the reuse server case, we're already on the correct VT. */
-         if (worker->priv->display_mode == GDM_SESSION_DISPLAY_MODE_NEW_VT) {
-                 jump_to_vt (worker, worker->priv->session_vt);
+@@ -1859,6 +2061,7 @@ gdm_session_worker_start_session (GdmSessionWorker  *w
+                         jump_to_vt (worker, worker->priv->session_vt);
+                 }
          }
 +#endif
  
          if (!worker->priv->is_program_session && !run_script (worker, GDMCONFDIR "/PostLogin")) {
                  g_set_error (error,
-@@ -1919,6 +2122,7 @@ gdm_session_worker_start_session (GdmSessionWorker  *w
-                         _exit (2);
+@@ -1923,6 +2126,7 @@ gdm_session_worker_start_session (GdmSessionWorker  *w
+                         _exit (EXIT_FAILURE);
                  }
  
 +#ifdef WITH_SYSTEMD
                  /* Take control of the tty
                   */
                  if (needs_controlling_terminal) {
-@@ -1926,6 +2130,7 @@ gdm_session_worker_start_session (GdmSessionWorker  *w
+@@ -1930,6 +2134,7 @@ gdm_session_worker_start_session (GdmSessionWorker  *w
                                  g_debug ("GdmSessionWorker: could not take control of tty: %m");
                          }
                  }
@@ -438,7 +441,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
  
  #ifdef HAVE_LOGINCAP
                  if (setusercontext (NULL, passwd_entry, passwd_entry->pw_uid, LOGIN_SETALL) < 0) {
-@@ -2070,11 +2275,13 @@ gdm_session_worker_start_session (GdmSessionWorker  *w
+@@ -2074,11 +2279,13 @@ gdm_session_worker_start_session (GdmSessionWorker  *w
          return TRUE;
  }
  
@@ -452,7 +455,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
          int session_vt = 0;
  
          fd = open ("/dev/tty0", O_RDWR | O_NOCTTY);
-@@ -2084,6 +2291,11 @@ set_up_for_new_vt (GdmSessionWorker *worker)
+@@ -2088,6 +2295,11 @@ set_up_for_new_vt (GdmSessionWorker *worker)
                  return FALSE;
          }
  
@@ -464,7 +467,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
          if (worker->priv->display_is_initial) {
                  session_vt = atoi (GDM_INITIAL_VT);
          } else {
-@@ -2093,6 +2305,7 @@ set_up_for_new_vt (GdmSessionWorker *worker)
+@@ -2097,6 +2309,7 @@ set_up_for_new_vt (GdmSessionWorker *worker)
                  }
          }
  
@@ -472,7 +475,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
          worker->priv->session_vt = session_vt;
  
          close (fd);
-@@ -2155,6 +2368,7 @@ fail:
+@@ -2159,6 +2372,7 @@ fail:
          close (fd);
          return FALSE;
  }
@@ -480,7 +483,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
  
  static gboolean
  set_up_for_current_vt (GdmSessionWorker  *worker,
-@@ -2222,12 +2436,14 @@ set_up_for_current_vt (GdmSessionWorker  *worker,
+@@ -2226,12 +2440,14 @@ set_up_for_current_vt (GdmSessionWorker  *worker,
           }
  #endif
  
@@ -495,7 +498,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
  
          return TRUE;
  out:
-@@ -2251,6 +2467,7 @@ gdm_session_worker_open_session (GdmSessionWorker  *wo
+@@ -2255,6 +2471,7 @@ gdm_session_worker_open_session (GdmSessionWorker  *wo
                          return FALSE;
                  }
                  break;
@@ -503,7 +506,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
          case GDM_SESSION_DISPLAY_MODE_NEW_VT:
          case GDM_SESSION_DISPLAY_MODE_LOGIND_MANAGED:
                  if (!set_up_for_new_vt (worker)) {
-@@ -2261,6 +2478,7 @@ gdm_session_worker_open_session (GdmSessionWorker  *wo
+@@ -2265,6 +2482,7 @@ gdm_session_worker_open_session (GdmSessionWorker  *wo
                          return FALSE;
                  }
                  break;
@@ -511,7 +514,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
          }
  
          flags = 0;
-@@ -2282,8 +2500,18 @@ gdm_session_worker_open_session (GdmSessionWorker  *wo
+@@ -2286,8 +2504,18 @@ gdm_session_worker_open_session (GdmSessionWorker  *wo
          g_debug ("GdmSessionWorker: state SESSION_OPENED");
          worker->priv->state = GDM_SESSION_WORKER_STATE_SESSION_OPENED;
  
@@ -530,7 +533,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
          if (session_id != NULL) {
                  g_free (worker->priv->session_id);
                  worker->priv->session_id = session_id;
-@@ -2388,6 +2616,19 @@ gdm_session_worker_handle_set_session_name (GdmDBusWor
+@@ -2392,6 +2620,19 @@ gdm_session_worker_handle_set_session_name (GdmDBusWor
  }
  
  static gboolean
@@ -550,7 +553,7 @@ Subject: gdm-session: set PAM_TTY when initialising pam
  gdm_session_worker_handle_set_session_display_mode (GdmDBusWorker         *object,
                                                      GDBusMethodInvocation *invocation,
                                                      const char            *str)
-@@ -3194,6 +3435,7 @@ worker_interface_init (GdmDBusWorkerIface *interface)
+@@ -3198,6 +3439,7 @@ worker_interface_init (GdmDBusWorkerIface *interface)
          interface->handle_open = gdm_session_worker_handle_open;
          interface->handle_set_language_name = gdm_session_worker_handle_set_language_name;
          interface->handle_set_session_name = gdm_session_worker_handle_set_session_name;

@@ -25,8 +25,8 @@ Date: Fri, 12 Jun 2015 13:48:52 -0400
 Subject: require logind support
 
 
---- daemon/gdm-manager.c.orig	2017-05-09 23:09:48.000000000 +0200
-+++ daemon/gdm-manager.c	2017-06-07 16:38:09.940509000 +0200
+--- daemon/gdm-manager.c.orig	2017-10-03 22:18:28.000000000 +0200
++++ daemon/gdm-manager.c	2017-10-06 22:16:42.284601000 +0200
 @@ -36,7 +36,9 @@
  
  #include <act/act-user-manager.h>
@@ -811,7 +811,7 @@ Subject: require logind support
  static const char *
  get_username_for_greeter_display (GdmManager *manager,
                                    GdmDisplay *display)
-@@ -1684,7 +1970,6 @@ on_display_status_changed (GdmDisplay *display,
+@@ -1687,7 +1973,6 @@ on_display_status_changed (GdmDisplay *display,
                                  manager->priv->ran_once = TRUE;
                          }
                          maybe_start_pending_initial_login (manager, display);
@@ -819,7 +819,7 @@ Subject: require logind support
                          break;
                  default:
                          break;
-@@ -2014,11 +2299,57 @@ on_user_session_died (GdmSession *session,
+@@ -2022,11 +2307,57 @@ on_user_session_died (GdmSession *session,
  }
  
  static char *
@@ -879,7 +879,7 @@ Subject: require logind support
  }
  
  static void
-@@ -2027,26 +2358,6 @@ on_session_reauthenticated (GdmSession *session,
+@@ -2035,25 +2366,6 @@ on_session_reauthenticated (GdmSession *session,
                              GdmManager *manager)
  {
          gboolean fail_if_already_switched = FALSE;
@@ -899,10 +899,9 @@ Subject: require logind support
 -                                gdm_display_unmanage (display);
 -                                gdm_display_finish (display);
 -                        }
+-                        g_free (session_id);
 -                }
--                g_free (session_id);
 -        }
--
+ 
          /* There should already be a session running, so jump to its
           * VT. In the event we're already on the right VT, (i.e. user
-          * used an unlock screen instead of a user switched login screen),

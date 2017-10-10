@@ -35,6 +35,7 @@ share/dconf/profile/gdm
 %%DATADIR%%/greeter/autostart/orca-autostart.desktop
 %%DATADIR%%/locale.alias
 share/gir-1.0/Gdm-1.0.gir
+share/gnome-session/sessions/gnome-login.session
 share/help/C/gdm/index.docbook
 share/help/C/gdm/legal.xml
 share/help/ca/gdm/index.docbook
