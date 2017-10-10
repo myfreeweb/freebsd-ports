@@ -14,58 +14,39 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 
 ## Current status
 
-### drm-next-kmod
+### Vulkan
 
-The fresh kernel drivers for GPUs are available as a port now!
-Forget building the whole system from the `drm-next` branch.
-
-- `graphics/drm-next-kmod`: [patch for 32-bit Mesa compatibility](https://github.com/FreeBSDDesktop/kms-drm/pull/9) is already included as port patches in this fork. Mostly relevant for playing Wine and Linux games!
-
-### Mesa with Vulkan
-
-- ANV (Intel Vulkan) doesn't really work yet.
-- RADV (Radeon Vulkan) with the `amdgpu` KMS/DRM driver works very well! Tested on an AMD Polaris (RX 480) GPU.
-
-- `graphics/mesa-dri` and `graphics/mesa-libs`: [Mesa 17.2.2](https://www.mesa3d.org) with Vulkan drivers enabled [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540) [220982](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220982)
+- `graphics/mesa-dri` and `graphics/mesa-libs`: Vulkan drivers enabled [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540)
 - `graphics/vulkan-sdk`: [Vulkan SDK](https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers) (headers, ICD loader, validation layers) [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
-- `games/vkquake`: [a Vulkan-powered Quake engine](https://github.com/Novum/vkQuake) [222182](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222182)
-- `emulators/dolphin-emu`: [Dolphin Emulator](https://dolphin-emu.org) (GameCube/Wii) updated to a recent git revision (Vulkan just works, dynamically loaded)
-- `emulators/rpcs3`: [RPCS3](https://rpcs3.net) PlayStation 3 Emulator (Vulkan option was already added upstream)
 
-### Wayland
+NOTE: ANV (Intel Vulkan) doesn't really work yet.
+RADV (Radeon Vulkan) with the `amdgpu` KMS/DRM driver works very well!
+Tested on an AMD Polaris (RX 480) GPU.
 
-Slowly bringing in stuff from [xserver-mesa-next-udev](https://github.com/FreeBSDDesktop/freebsd-ports-graphics/tree/xserver-mesa-next-udev).
-
-sway on KMS/DRM used to work on amdgpu, but broke very recently (kernel panic).
+### Xorg and Wayland
 
 - `x11-toolkits/wlc`: updated to 0.0.10 (for sway)
 - `x11-wm/sway`: [sway, the i3-like Wayland compositor](https://github.com/SirCmpwn/sway)
 - `www/webkit2-gtk3`: Wayland option added (for GNOME Web aka Epiphany browser)
 - `devel/sdl20`: Wayland option added
-
-GTK/Qt already had Wayland options in the GNOME/KDE ports branches that were merged in.
-
-### Xorg
-
+- `x11/libinput`: Update to 1.8.0 [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
 - `x11-servers/xorg-server`: added `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
 - `x11/xcape`: [Useful X11 keyboard utility](https://github.com/alols/xcape) [222602](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222602)
 
-### Firefox
-
-- `www/firefox-beta`: added the beta port. It's 57! As always, don't forget `layers.acceleration.force-enabled` in `about:config`.
+NOTE: [Wayland kernel panic issue and workaround](https://github.com/FreeBSDDesktop/kms-drm/issues/11)
 
 ### Games
 
-YOU CAN PLAY MORROWIND AGAIN!
-
 - `x11-toolkits/mygui-devel`: current git version doesn't have weird C++ problems anymore, see [220189](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220189)
 - `games/openmw-devel`: current git version uses the current `mygui` version 
+- `games/vkquake`: [a Vulkan-powered Quake engine](https://github.com/Novum/vkQuake) [222182](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222182)
+- `emulators/dolphin-emu`: [Dolphin Emulator](https://dolphin-emu.org) (GameCube/Wii) updated to a recent git revision (Vulkan just works, dynamically loaded)
 - `devel/fuzzylite`: used for AI in VCMI [222052](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222052)
 - `games/vcmi`: open source reimplementation of Heroes of Might and Magic III! [221885](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221885)
-- `emulators/mgba`: [Game Boy (Advance/Color/original) emulator](https://mgba.io) [222779](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222779)
 
 ### Misc
 
+- `www/firefox-beta`: Firefox 57! As always, don't forget `layers.acceleration.force-enabled` in `about:config`.
 - `graphics/instant-meshes`: Interactive field-aligned mesh generator [222711](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222711)
 - `graphics/goxel`: 3D voxel editor [222729](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222729)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
@@ -85,8 +66,6 @@ YOU CAN PLAY MORROWIND AGAIN!
 ```
 include GENERIC-NODEBUG
 ident   DESKTOP
-nooptions 	XENHVM
-nodevice		xenpci
 device		evdev
 options		EVDEV_SUPPORT
 options 	KDTRACE_HOOKS
