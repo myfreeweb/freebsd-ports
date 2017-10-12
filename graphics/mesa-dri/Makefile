@@ -60,8 +60,11 @@ VULKAN_DRIVERS+=	INTEL
 # --build-id isn't supported by old GNU ld.bfd in base
 USE_BINUTILS=		yes
 LDFLAGS+=		-B${LOCALBASE}/bin
-.elif ${ARCH} == armv6 || ${ARCH} == aarch64
+.elif ${ARCH} == aarch64 || ${ARCH} == armv6 || ${ARCH} == armv7
 GALLIUM_DRIVERS+=	FREEDRENO VC4
+. if ${ARCH} == armv6 || ${ARCH} == armv7
+EXTRA_PATCHES+=	${PATCHDIR}/extra-src_gallium_drivers_vc4_Makefile.in
+. endif
 .endif
 
 CONFIGURE_ARGS+=	--with-dri-drivers="${DRI_DRIVERS:tl}" \
