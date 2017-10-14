@@ -2,7 +2,7 @@
 
 PORTNAME=	vulkan-sdk
 DISTVERSIONPREFIX=	sdk-
-DISTVERSION=	1.0.57.0
+DISTVERSION=	1.0.61.1
 CATEGORIES=	graphics devel
 
 MAINTAINER=	greg@unrelenting.technology

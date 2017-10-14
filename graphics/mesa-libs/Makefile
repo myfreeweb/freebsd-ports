@@ -11,33 +11,13 @@ USE_XORG=	dri2proto dri3proto glproto presentproto x11 xcb xdamage xext \
 		xfixes xshmfence xxf86vm
 
 OPTIONS_DEFINE=	WAYLAND
+OPTIONS_DEFAULT=	WAYLAND
 OPTIONS_SUB=	yes
-
-WAYLAND_DESC=		Enable support for the Wayland platform in EGL
-WAYLAND_BUILD_DEPENDS=	wayland-protocols>=1.8:graphics/wayland-protocols
-WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
-			libwayland-server.so:graphics/wayland
 
 .include <bsd.port.options.mk>
 .include "${.CURDIR:H:H}/graphics/mesa-dri/Makefile.common"
 
 CONFIGURE_ARGS+=	--with-dri-drivers="" --with-gallium-drivers=""
-
-# libEGL needs gallium enabled which depends on llvm
-.if "${MESA_LLVM_VER}" != ""
-.if ${PORT_OPTIONS:MWAYLAND}
-CONFIGURE_ARGS+=	--with-platforms=x11,drm,wayland
-.else
-CONFIGURE_ARGS+=	--with-platforms=x11,drm
-.endif
-PLIST_SUB+=		EGL=""
-.else
-CONFIGURE_ARGS+=	--disable-egl
-PLIST_SUB+=		EGL="@comment "
-.if ${PORT_OPTIONS:MWAYLAND}
-IGNORE=	option WAYLAND is only valid on platforms with LLVM
-.endif
-.endif
 
 MESA_BUILD_WRKSRC=	src/mapi
 MESA_INSTALL_WRKSRC=	src/mapi

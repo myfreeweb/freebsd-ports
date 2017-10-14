@@ -1,6 +1,66 @@
---- configure.orig	2016-12-20 13:57:43 UTC
+--- configure.orig	2017-09-22 18:51:01 UTC
 +++ configure
-@@ -23847,9 +23847,9 @@ if test x$video_wayland = xyes; then
+@@ -16701,13 +16701,13 @@ fi
+ done
+ 
+ 
+-    { $as_echo "$as_me:${as_lineno-$LINENO}: checking for iconv_open in -liconv" >&5
+-$as_echo_n "checking for iconv_open in -liconv... " >&6; }
++    { $as_echo "$as_me:${as_lineno-$LINENO}: checking for iconv_open in " >&5
++$as_echo_n "checking for iconv_open in ... " >&6; }
+ if ${ac_cv_lib_iconv_iconv_open+:} false; then :
+   $as_echo_n "(cached) " >&6
+ else
+   ac_check_lib_save_LIBS=$LIBS
+-LIBS="-liconv  $LIBS"
++LIBS="  $LIBS"
+ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+@@ -16738,7 +16738,7 @@ fi
+ { $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_iconv_iconv_open" >&5
+ $as_echo "$ac_cv_lib_iconv_iconv_open" >&6; }
+ if test "x$ac_cv_lib_iconv_iconv_open" = xyes; then :
+-  LIBS="$LIBS -liconv"; EXTRA_LDFLAGS="$EXTRA_LDFLAGS -liconv"
++  LIBS="$LIBS "; EXTRA_LDFLAGS="$EXTRA_LDFLAGS "
+ fi
+ 
+     for ac_func in iconv
+@@ -17186,7 +17186,7 @@ main ()
+ {
+ 
+         void *p = 0;
+-        _m_prefetch(p);
++        __builtin_prefetch(p);
+ 
+   ;
+   return 0;
+@@ -23779,7 +23779,6 @@ case "$host" in
+         CheckFcitx
+         case $ARCH in
+           linux)
+-              CheckInputEvents
+               CheckInputKD
+           ;;
+         esac
+@@ -24298,7 +24297,7 @@ $as_echo "#define SDL_VIDEO_RENDER_OGL_ES 1" >>confdef
+ $as_echo "#define SDL_VIDEO_RENDER_OGL_ES2 1" >>confdefs.h
+ 
+         SOURCES="$SOURCES $srcdir/src/video/uikit/*.m"
+-        EXTRA_LDFLAGS="$EXTRA_LDFLAGS -lm -liconv -lobjc"
++        EXTRA_LDFLAGS="$EXTRA_LDFLAGS -lm  -lobjc"
+         EXTRA_LDFLAGS="$EXTRA_LDFLAGS -Wl,-framework,AVFoundation"
+         EXTRA_LDFLAGS="$EXTRA_LDFLAGS -Wl,-framework,AudioToolbox"
+         EXTRA_LDFLAGS="$EXTRA_LDFLAGS -Wl,-framework,CoreAudio"
+@@ -24402,7 +24401,6 @@ $as_echo "#define SDL_TIMER_UNIX 1" >>confdefs.h
+         CheckNativeClient
+         CheckDummyAudio
+         CheckDummyVideo
+-        CheckInputEvents
+         CheckPTHREAD
+ 
+         # Set up files for the timer library
+@@ -24551,9 +24549,9 @@ if test x$video_wayland = xyes; then
      WAYLAND_CORE_PROTOCOL_SOURCE='$(gen)/wayland-protocol.c'
      WAYLAND_CORE_PROTOCOL_HEADER='$(gen)/wayland-client-protocol.h'
      WAYLAND_PROTOCOLS_UNSTABLE_SOURCES=`echo $WAYLAND_PROTOCOLS_UNSTABLE |\
@@ -12,7 +72,7 @@
      GEN_SOURCES="$GEN_SOURCES $WAYLAND_CORE_PROTOCOL_SOURCE $WAYLAND_PROTOCOLS_UNSTABLE_SOURCES"
      GEN_HEADERS="$GEN_HEADERS $WAYLAND_CORE_PROTOCOL_HEADER $WAYLAND_PROTOCOLS_UNSTABLE_HEADERS"
  
-@@ -23864,23 +23864,23 @@ $WAYLAND_CORE_PROTOCOL_HEADER: $WAYLAND_
+@@ -24568,23 +24566,23 @@ $WAYLAND_CORE_PROTOCOL_HEADER: $WAYLAND_CORE_PROTOCOL_
  	\$(RUN_CMD_GEN)\$(WAYLAND_SCANNER) client-header \$< \$@"
  
      WAYLAND_CORE_PROTOCOL_OBJECT="

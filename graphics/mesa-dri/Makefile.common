@@ -72,6 +72,11 @@ PKGINSTALL=	${.CURDIR}/pkg-install
 PKGDEINSTALL=	${.CURDIR}/pkg-deinstall
 INSTALL_TARGET=	install-strip
 
+WAYLAND_DESC=		Enable support for the Wayland platform in EGL and Vulkan
+WAYLAND_BUILD_DEPENDS=	wayland-protocols>=1.8:graphics/wayland-protocols
+WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
+			libwayland-server.so:graphics/wayland
+
 .include <bsd.port.pre.mk>
 
 # need LLVM for libEGL wherever possible, but mixing GCC and LLVM breaks Gallium
@@ -90,6 +95,22 @@ LDFLAGS+=	-Wl,-rpath=${LOCALBASE}/llvm${MESA_LLVM_VER}/lib
 CONFIGURE_ARGS+=	--enable-llvm
 .else
 CONFIGURE_ARGS+=	--disable-llvm
+.endif
+
+# libEGL needs gallium enabled which depends on llvm
+.if "${MESA_LLVM_VER}" != ""
+.if ${PORT_OPTIONS:MWAYLAND}
+CONFIGURE_ARGS+=	--with-platforms=x11,drm,wayland
+.else
+CONFIGURE_ARGS+=	--with-platforms=x11,drm
+.endif
+PLIST_SUB+=		EGL=""
+.else
+CONFIGURE_ARGS+=	--disable-egl
+PLIST_SUB+=		EGL="@comment "
+.if ${PORT_OPTIONS:MWAYLAND}
+IGNORE=	option WAYLAND is only valid on platforms with LLVM
+.endif
 .endif
 
 # There are issues that need to be fixed to use TLS model "initial-exec"

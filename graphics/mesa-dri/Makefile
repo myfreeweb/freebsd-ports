@@ -12,8 +12,8 @@ RUN_DEPENDS=	${LOCALBASE}/lib/libtxc_dxtn.so:graphics/s2tc
 USE_XORG=	dri2proto dri3proto glproto presentproto x11 xdamage xext \
 		xfixes xshmfence xv xvmc
 
-OPTIONS_DEFINE=	TEXTURE VAAPI VDPAU
-OPTIONS_DEFAULT=TEXTURE
+OPTIONS_DEFINE=	TEXTURE VAAPI VDPAU WAYLAND
+OPTIONS_DEFAULT=TEXTURE VAAPI VDPAU WAYLAND
 OPTIONS_SUB=	yes
 
 TEXTURE_DESC=	Enable texture-float support (patent encumbered)

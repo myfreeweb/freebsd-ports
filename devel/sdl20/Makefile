@@ -92,7 +92,7 @@ SDL_VIDEO_DESC=		Enable the SDL Video subsystem
 VIDEO_KMSDRM_DESC=	KMSDRM display support
 VIDEO_OPENGL_DESC=	OpenGL rendering support
 VIDEO_X11_DESC=		X11 display support
-VIDEO_OPENGLES2_DESC=	OpenGL ES 2.x rendering support
+VIDEO_OPENGLES2_DESC=		OpenGL ES 2.x rendering support
 VIDEO_WAYLAND_DESC=		Wayland display support
 VIDEO_VULKAN_DESC=		Vulkan rendering support
 
@@ -101,7 +101,7 @@ DLOPEN_CONFIGURE_ENABLE=	sdl-dlopen
 PTHREADS_CONFIGURE_ENABLE=	pthreads pthread-sem
 SAMPLERATE_CONFIGURE_ENABLE=	libsamplerate libsamplerate-shared
 SAMPLERATE_LIB_DEPENDS=		libsamplerate.so:audio/libsamplerate
-UDEV_CONFIGURE_ENABLE=	libudev
+UDEV_CONFIGURE_ENABLE=		libudev
 SDL_ATOMIC_CONFIGURE_ENABLE=	atomic gcc-atomics
 SDL_AUDIO_CONFIGURE_ENABLE=	audio
 SDL_CPUINFO_CONFIGURE_ENABLE=	cpuinfo
@@ -241,7 +241,7 @@ IGNORE=	option VIDEO_OPENGLES2 requires SDL_VIDEO
 .endif
 CONFIGURE_ARGS+=	--enable-video-opengles \
 			--enable-video-opengles2
-USE_GL+=			glesv2
+USE_GL+=		glesv2
 .else
 CONFIGURE_ARGS+=	--disable-video-opengles \
 			--disable-video-opengles2
@@ -270,10 +270,10 @@ CONFIGURE_ARGS+=	--disable-video-wayland \
 
 .if ${PORT_OPTIONS:MVIDEO_VULKAN}
 .if !${PORT_OPTIONS:MSDL_VIDEO}
-IGNORE=	option VIDEO_VULKAN requires SDL_VIDEO
+IGNORE=		option VIDEO_VULKAN requires SDL_VIDEO
 .endif
 CONFIGURE_ARGS+=	--enable-video-vulkan
-LIB_DEPENDS+=	libvulkan.so:graphics/vulkan-sdk
+LIB_DEPENDS+=		libvulkan.so:graphics/vulkan-sdk
 .else
 CONFIGURE_ARGS+=	--disable-video-vulkan
 .endif
