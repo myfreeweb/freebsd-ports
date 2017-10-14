@@ -2,13 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	firefox
-DISTVERSION=	57.0b8
-DISTVERSIONSUFFIX=.source
+DISTVERSION=	57.1-1-11724
+DISTVERSIONSUFFIX=-gbb3054b
 PORTEPOCH=	1
 CATEGORIES=	www ipv6
-MASTER_SITES=	MOZILLA/${PORTNAME}/releases/${DISTVERSION}/source \
-		MOZILLA/${PORTNAME}/candidates/${DISTVERSION}-candidates/build6/source
-PKGNAMESUFFIX=	-beta
+PKGNAMESUFFIX=	-nightly-wayland
 
 MAINTAINER=	gecko@FreeBSD.org
 COMMENT=	Web browser based on the browser portion of Mozilla
@@ -33,8 +31,11 @@ BUILD_DEPENDS=	nspr>=4.16:devel/nspr \
 
 LIB_DEPENDS=	libv4l2.so:multimedia/libv4l
 
+USE_GITHUB=	yes
+GH_ACCOUNT=	stransky
+GH_PROJECT=	gecko-dev
 USE_GECKO=	gecko
-CONFLICTS_INSTALL=	firefox firefox-nightly-wayland firefox-esr-45.* firefox-esr-3[18].* firefox-esr-24.*
+CONFLICTS_INSTALL=	firefox firefox-beta firefox-esr-45.* firefox-esr-3[18].* firefox-esr-24.*
 MOZ_PKGCONFIG_FILES=	# empty
 USE_MOZILLA=	-soundtouch
 MOZILLA_NAME=	Firefox
@@ -43,18 +44,19 @@ USE_GL=		gl
 USES=		tar:xz
 
 FIREFOX_ICON=		${MOZILLA}.png
-FIREFOX_ICON_SRC=	${PREFIX}/lib/${MOZILLA}/browser/chrome/icons/default/default256.png
+FIREFOX_ICON_SRC=	${PREFIX}/lib/${MOZILLA}/browser/chrome/icons/default/default48.png
 MOZ_EXPORT=	BINDGEN_CFLAGS="-isystem${LOCALBASE}/include/nspr \
 			-isystem${LOCALBASE}/include/pixman-1" # XXX bug 1341234
 MOZ_OPTIONS=	--enable-application=browser \
-		--enable-official-branding
+		--enable-official-branding \
+		--enable-default-toolkit=cairo-gtk3-wayland
 
 OPTIONS_DEFAULT=	BUNDLED_CAIRO
 OPTIONS_EXCLUDE=	GNOMEUI
 
 .include "${.CURDIR}/../../www/firefox/Makefile.options"
 
-WRKSRC:=	${WRKDIR}/${PORTNAME}-${DISTVERSION}
+WRKSRC:=	${WRKDIR}/${GH_PROJECT}-${DISTVERSIONFULL}
 
 post-extract:
 	@${SED} -e 's|@FIREFOX_ICON@|${FIREFOX_ICON}|' -e 's|@MOZILLA@|${MOZILLA}|' \
@@ -70,8 +72,9 @@ pre-configure:
 	(cd ${WRKSRC}/js/src/ && ${LOCALBASE}/bin/autoconf-2.13)
 
 post-install:
-	${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/48x48/apps
+	${MKDIR} ${STAGEDIR}${PREFIX}/share/pixmaps
 	${INSTALL_DATA} ${WRKDIR}/${MOZILLA}.desktop ${STAGEDIR}${PREFIX}/share/applications/
+	${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/48x48/apps/
 	${LN} -sf ${FIREFOX_ICON_SRC} ${STAGEDIR}${PREFIX}/share/icons/hicolor/48x48/apps/${FIREFOX_ICON}
 
 .include <bsd.port.mk>

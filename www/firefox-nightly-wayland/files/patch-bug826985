@@ -1,0 +1,130 @@
+--- build/gyp.mozbuild.orig	2017-08-10 10:39:31 UTC
++++ build/gyp.mozbuild
+@@ -22,6 +22,7 @@ gyp_vars.update({
+     'have_ethtool_cmd_speed_hi': 1 if CONFIG['MOZ_WEBRTC_HAVE_ETHTOOL_SPEED_HI'] else 0,
+     'include_alsa_audio': 1 if CONFIG['MOZ_ALSA'] else 0,
+     'include_pulse_audio': 1 if CONFIG['MOZ_PULSEAUDIO'] else 0,
++    'use_libv4l2': 1 if CONFIG['MOZ_LIBV4L2_LIBS'] else 0,
+     # basic stuff for everything
+     'include_internal_video_render': 0,
+     'clang': 1 if CONFIG['CLANG_CXX'] else 0,
+--- config/system-headers.orig	2017-10-14 17:48:36 UTC
++++ config/system-headers
+@@ -1350,3 +1350,17 @@ unicode/utypes.h
+ libutil.h
+ unwind.h
+ fenv.h
++#if MOZ_SYSTEM_OGG==1
++ogg/ogg.h
++ogg/os_types.h
++#endif
++#if MOZ_SYSTEM_THEORA==1
++theora/theoradec.h
++#endif
++#if MOZ_SYSTEM_VORBIS==1
++vorbis/codec.h
++vorbis/vorbisenc.h
++#endif
++#if MOZ_SYSTEM_TREMOR==1
++tremor/ivorbiscodec.h
++#endif
+--- media/webrtc/trunk/webrtc/modules/video_capture/linux/device_info_linux.cc.orig	2017-08-10 10:39:31 UTC
++++ media/webrtc/trunk/webrtc/modules/video_capture/linux/device_info_linux.cc
+@@ -25,6 +25,9 @@
+ #else
+ #include <linux/videodev2.h>
+ #endif
++#ifdef HAVE_LIBV4L2
++#include <libv4l2.h>
++#endif
+ 
+ #include "webrtc/system_wrappers/include/trace.h"
+ 
+@@ -33,6 +36,15 @@
+ #define BUF_LEN     ( 1024 * ( EVENT_SIZE + 16 ) )
+ #endif
+ 
++#ifdef HAVE_LIBV4L2
++#define open	v4l2_open
++#define close	v4l2_close
++#define dup	v4l2_dup
++#define ioctl	v4l2_ioctl
++#define mmap	v4l2_mmap
++#define munmap	v4l2_munmap
++#endif
++
+ namespace webrtc
+ {
+ namespace videocapturemodule
+@@ -313,6 +325,11 @@ int32_t DeviceInfoLinux::GetDeviceName(
+     char cameraName[64];
+     memset(deviceNameUTF8, 0, deviceNameLength);
+     memcpy(cameraName, cap.card, sizeof(cap.card));
++
++    if (cameraName[0] == '\0')
++    {
++        sprintf(cameraName, "Camera at /dev/video%d", deviceNumber);
++    }
+ 
+     if (deviceNameLength >= strlen(cameraName))
+     {
+--- media/webrtc/trunk/webrtc/modules/video_capture/linux/video_capture_linux.cc.orig	2017-08-10 10:39:31 UTC
++++ media/webrtc/trunk/webrtc/modules/video_capture/linux/video_capture_linux.cc
+@@ -24,6 +24,9 @@
+ #else
+ #include <linux/videodev2.h>
+ #endif
++#ifdef HAVE_LIBV4L2
++#include <libv4l2.h>
++#endif
+ 
+ #include <new>
+ 
+@@ -32,6 +35,15 @@
+ #include "webrtc/modules/video_capture/linux/video_capture_linux.h"
+ #include "webrtc/system_wrappers/include/critical_section_wrapper.h"
+ #include "webrtc/system_wrappers/include/trace.h"
++
++#ifdef HAVE_LIBV4L2
++#define open	v4l2_open
++#define close	v4l2_close
++#define dup	v4l2_dup
++#define ioctl	v4l2_ioctl
++#define mmap	v4l2_mmap
++#define munmap	v4l2_munmap
++#endif
+ 
+ namespace webrtc {
+ namespace videocapturemodule {
+--- media/webrtc/trunk/webrtc/modules/video_capture/video_capture.gypi.orig	2017-08-10 10:39:31 UTC
++++ media/webrtc/trunk/webrtc/modules/video_capture/video_capture.gypi
+@@ -7,6 +7,9 @@
+ # be found in the AUTHORS file in the root of the source tree.
+ 
+ {
++  'variables': {
++     'use_libv4l2%': 0,
++  },
+   'targets': [
+     {
+       # Note this library is missing an implementation for the video capture.
+@@ -73,6 +76,19 @@
+                 'linux/device_info_linux.h',
+                 'linux/video_capture_linux.cc',
+                 'linux/video_capture_linux.h',
++              ],
++              'conditions': [
++                ['use_libv4l2==1', {
++                  'defines': [
++                    'HAVE_LIBV4L2',
++                  ],
++                  'cflags_mozilla': [
++                    '$(MOZ_LIBV4L2_CFLAGS)',
++                  ],
++                  'libraries': [
++                    '-lv4l2',
++                  ],
++                }],
+               ],
+             }],
+             ['OS=="mac"', {

@@ -34,7 +34,7 @@ LIB_DEPENDS=	libv4l2.so:multimedia/libv4l
 
 USE_GECKO=	gecko
 CPE_PRODUCT=	${PORTNAME}_esr
-CONFLICTS_INSTALL=	firefox-[0-9]* firefox-beta
+CONFLICTS_INSTALL=	firefox-[0-9]* firefox-beta firefox-nightly-wayland
 MOZ_PKGCONFIG_FILES=	# empty
 USE_MOZILLA=	-soundtouch
 MOZILLA_NAME=	Firefox
