@@ -52,6 +52,7 @@ NOTE: [Wayland kernel panic issue and workaround](https://github.com/FreeBSDDesk
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 - `lang/rust-nightly`: revived port by copy-pasting from `lang/rust` and updating version numbers. Here's the resulting toolchain tarballs: [rustc](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rustc-nightly-x86_64-unknown-freebsd.tar.xz) [std](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-std-nightly-x86_64-unknown-freebsd.tar.xz) [cargo](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/cargo-nightly-x86_64-unknown-freebsd.tar.xz) [rls](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rls-nightly-x86_64-unknown-freebsd.tar.xz) [analysis](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-analysis-nightly-x86_64-unknown-freebsd.tar.xz) [docs](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-docs-nightly-x86_64-unknown-freebsd.tar.xz). Use [libc from here](https://github.com/myfreeweb/libc) and [mio from there](https://github.com/FreeBSDRust/mio) via `[patch.crates-io]` sections in `Cargo.toml` files.
 - `mail/geary`: update to 0.12.0 [210718](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=210718)
+- `devel/apitrace`: OpenGL tracing tools [223002](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223002)
 
 ## Kernel patches
 
