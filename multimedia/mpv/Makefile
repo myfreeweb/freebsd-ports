@@ -38,7 +38,6 @@ CONFIGURE_ARGS=	--docdir="${EXAMPLESDIR}" \
 		--disable-vaapi-wayland \
 		--disable-vapoursynth \
 		--disable-vapoursynth-lazy \
-		--disable-wayland \
 		--enable-libmpv-shared
 
 OPTIONS_DEFINE=		ARCHIVE ASS DOCS LCMS2 LUAJIT MANPAGES TEST UCHARDET ZSH
@@ -46,7 +45,7 @@ OPTIONS_DEFAULT=	ARCHIVE ASS DVDREAD DVDNAV MANPAGES OPENGL UCHARDET \
 			V4L VAAPI VDPAU X11 YTDL
 OPTIONS_GROUP=		IN VO AO
 OPTIONS_GROUP_IN=	CDIO DVDREAD DVDNAV LIBBLURAY V4L YTDL SMB
-OPTIONS_GROUP_VO=	CACA OPENGL VAAPI VDPAU X11
+OPTIONS_GROUP_VO=	CACA OPENGL VAAPI VDPAU X11 WAYLAND
 OPTIONS_GROUP_AO=	ALSA JACK PULSEAUDIO SDL SNDIO
 OPTIONS_SUB=		yes
 
@@ -59,6 +58,7 @@ YTDL_DESC=		Install youtube-dl
 IN_DESC=		Input
 VO_DESC=		Video Output
 AO_DESC=		Audio Output
+WAYLAND_DESC=		Wayland (graphics) support
 
 ALSA_LIB_DEPENDS=		libasound.so:audio/alsa-lib
 ALSA_CONFIGURE_OFF=		--disable-alsa
@@ -139,6 +139,13 @@ VDPAU_CONFIGURE_OFF=		--disable-vdpau
 X11_USE=			XORG=x11,xext,xinerama,xineramaproto,xrandr,xscrnsaver,xv,xxf86vm
 X11_VARS=			INSTALLS_ICONS=yes
 X11_CONFIGURE_OFF=		--disable-x11
+
+WAYLAND_LIB_DEPENDS=		libwayland-client.so:graphics/wayland \
+	libwayland-cursor.so:graphics/wayland \
+	libwayland-egl.so:graphics/mesa-libs \
+	libxkbcommon.so:x11/libxkbcommon
+WAYLAND_CONFIGURE_ON=		--enable-wayland
+WAYLAND_CONFIGURE_OFF=		--disable-wayland
 
 YTDL_RUN_DEPENDS=		youtube-dl:www/youtube_dl
 

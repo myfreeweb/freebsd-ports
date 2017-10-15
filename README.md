@@ -28,10 +28,11 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `x11-toolkits/wlc`: updated to 0.0.10 (for sway)
 - `x11-wm/sway`: [sway, the i3-like Wayland compositor](https://github.com/SirCmpwn/sway)
 - `www/webkit2-gtk3`: Wayland option added (for GNOME Web aka Epiphany browser)
-- `devel/sdl20`: Wayland option added
+- `devel/sdl20`: Wayland option added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018) (also, audio crash fixes imported)
 - `x11/libinput`: Update to 1.8.0 [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
 - `x11-servers/xorg-server`: added `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
 - `x11/xcape`: [Useful X11 keyboard utility](https://github.com/alols/xcape) [222602](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222602)
+- `multimedia/mpv`: Wayland option added [223029](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223029)
 
 NOTE: [Wayland kernel panic issue and workaround](https://github.com/FreeBSDDesktop/kms-drm/issues/11)
 
