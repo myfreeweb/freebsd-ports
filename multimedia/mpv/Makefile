@@ -4,6 +4,7 @@
 PORTNAME=	mpv
 PORTVERSION=	0.27.0
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	multimedia audio
 
@@ -45,7 +46,7 @@ OPTIONS_DEFAULT=	ARCHIVE ASS DVDREAD DVDNAV MANPAGES OPENGL UCHARDET \
 			V4L VAAPI VDPAU X11 YTDL
 OPTIONS_GROUP=		IN VO AO
 OPTIONS_GROUP_IN=	CDIO DVDREAD DVDNAV LIBBLURAY V4L YTDL SMB
-OPTIONS_GROUP_VO=	CACA OPENGL VAAPI VDPAU X11 WAYLAND
+OPTIONS_GROUP_VO=	CACA OPENGL VAAPI VDPAU WAYLAND X11
 OPTIONS_GROUP_AO=	ALSA JACK PULSEAUDIO SDL SNDIO
 OPTIONS_SUB=		yes
 
@@ -54,11 +55,11 @@ DVDREAD_DESC=		DVD Playback support
 DVDNAV_DESC=		DVD menu navigation
 LUAJIT_DESC=		Use LuaJIT instead of Lua scripting language support
 UCHARDET_DESC=		Guess subtitle encoding via uchardet
+WAYLAND_DESC=		Wayland (graphics) support
 YTDL_DESC=		Install youtube-dl
 IN_DESC=		Input
 VO_DESC=		Video Output
 AO_DESC=		Audio Output
-WAYLAND_DESC=		Wayland (graphics) support
 
 ALSA_LIB_DEPENDS=		libasound.so:audio/alsa-lib
 ALSA_CONFIGURE_OFF=		--disable-alsa
@@ -136,16 +137,14 @@ VAAPI_CONFIGURE_OFF=		--disable-vaapi
 VDPAU_LIB_DEPENDS=		libvdpau.so:multimedia/libvdpau
 VDPAU_CONFIGURE_OFF=		--disable-vdpau
 
+WAYLAND_LIB_DEPENDS=		libwayland-client.so:graphics/wayland \
+				libwayland-cursor.so:graphics/wayland \
+				libxkbcommon.so:x11/libxkbcommon
+WAYLAND_CONFIGURE_OFF=		--disable-wayland
+
 X11_USE=			XORG=x11,xext,xinerama,xineramaproto,xrandr,xscrnsaver,xv,xxf86vm
 X11_VARS=			INSTALLS_ICONS=yes
 X11_CONFIGURE_OFF=		--disable-x11
-
-WAYLAND_LIB_DEPENDS=		libwayland-client.so:graphics/wayland \
-	libwayland-cursor.so:graphics/wayland \
-	libwayland-egl.so:graphics/mesa-libs \
-	libxkbcommon.so:x11/libxkbcommon
-WAYLAND_CONFIGURE_ON=		--enable-wayland
-WAYLAND_CONFIGURE_OFF=		--disable-wayland
 
 YTDL_RUN_DEPENDS=		youtube-dl:www/youtube_dl
 

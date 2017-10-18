@@ -6019,6 +6019,7 @@
     SUBDIR += tnt
     SUBDIR += toh
     SUBDIR += tokamak
+    SUBDIR += tokei
     SUBDIR += tortoisehg
     SUBDIR += tpasm
     SUBDIR += tr-eric6
@@ -6056,7 +6057,6 @@
     SUBDIR += violet
     SUBDIR += visualparadigm
     SUBDIR += vstr
-    SUBDIR += vtcl
     SUBDIR += vxlog
     SUBDIR += wand-libconfig
     SUBDIR += wandio

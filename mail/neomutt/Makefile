@@ -3,6 +3,7 @@
 PORTNAME=	neomutt
 PORTVERSION=	20171013
 DISTVERSIONPREFIX=	${PORTNAME}-
+PORTREVISION=	1
 CATEGORIES=	mail
 
 MAINTAINER=	bapt@FreeBSD.org
@@ -14,9 +15,10 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.md
 RUN_DEPENDS=	${LOCALBASE}/etc/mime.types:misc/mime-support \
 		urlview:textproc/urlview
 
-USES=		iconv:translit localbase shebangfix ssl
+USES=		iconv:translit localbase perl5 shebangfix ssl
 
 USE_GITHUB=	yes
+USE_PERL5=	build
 
 HAS_CONFIGURE=	yes
 CONFIGURE_SCRIPT=	configure.autosetup
@@ -52,7 +54,7 @@ BDB_CONFIGURE_ON=		--bdb
 BDB_USES=			bdb
 GDBM_CONFIGURE_ON=		--gdbm
 GDBM_LIB_DEPENDS=		libgdbm.so:databases/gdbm
-KYOTOCABINET_CONFIGURE_ON=	kyotocabinet
+KYOTOCABINET_CONFIGURE_ON=	--kyotocabinet
 KYOTOCABINET_LIB_DEPENDS=	libkyotocabinet.so:databases/kyotocabinet
 LMDB_CONFIGURE_ON=		--lmdb
 LMDB_LIB_DEPENDS=		liblmdb.so:databases/lmdb
@@ -88,10 +90,16 @@ SLANG_VARS=	PKGMESSAGE=${FILESDIR}/pkg-message.slang
 
 NCURSES_USES=	ncurses
 
-DOCS_CONFIGURE_ENABLE=	doc
 DOCS_BUILD_DEPENDS=	xsltproc:textproc/libxslt \
 			${LOCALBASE}/share/xsl/docbook/html/docbook.xsl:textproc/docbook-xsl \
 			lynx:www/lynx
+
+.include <bsd.port.options.mk>
+
+# Trick neomutt into building manpages and neomuttrc
+.if empty(PORT_OPTIONS:MDOCS)
+BINARY_ALIAS=	xsltproc=true
+.endif
 
 post-install:
 	${RM} ${STAGEDIR}${PREFIX}/etc/mime*
