@@ -45,6 +45,7 @@ NOTE: [Wayland kernel panic issue and workaround](https://github.com/FreeBSDDesk
 - `emulators/dolphin-emu`: [Dolphin Emulator](https://dolphin-emu.org) (GameCube/Wii) updated to a recent git revision (Vulkan just works, dynamically loaded)
 - `devel/fuzzylite`: used for AI in VCMI [222052](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222052)
 - `games/vcmi`: open source reimplementation of Heroes of Might and Magic III! [221885](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221885)
+- `games/OpenClaw`: reimplementation of Captain Claw (1997) platformer [223139](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223139)
 
 ### Misc
 
