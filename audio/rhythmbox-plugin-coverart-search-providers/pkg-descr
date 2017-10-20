@@ -1,0 +1,5 @@
+Drop in replacement for the default Rhythmbox CoverArt Search plugin that
+provides new and updated cover art search providers for both local images and
+online image hosts.
+
+WWW: https://github.com/fossfreedom/coverart-search-providers
