@@ -20,7 +20,7 @@ LIB_DEPENDS=	libdbus-1.so:devel/dbus
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake localbase pathfix pkgconfig tar:xz
+USES=		gettext gmake gnome localbase pathfix pkgconfig tar:xz
 USE_GNOME=	glib20 libxslt:build
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
