@@ -14,9 +14,9 @@
 MESAVERSION=	${MESABASEVERSION}${MESASUBVERSION:C/^(.)/.\1/}
 MESADISTVERSION=${MESABASEVERSION}${MESASUBVERSION:C/^(.)/-\1/}
 
-MESABASEVERSION=	17.2.2
+MESABASEVERSION=	17.3.0
 # if there is a subversion, don't include the '-' between 7.11-rc2.
-MESASUBVERSION=
+MESASUBVERSION=		rc1
 
 MASTER_SITES=	https://mesa.freedesktop.org/archive/ \
 		https://mesa.freedesktop.org/archive/${MESABASEVERSION}/ \
@@ -58,9 +58,9 @@ python_OLD_CMD=	/usr/bin/env[[:space:]]python2 /usr/bin/python2 /bin/env[[:space
 SHEBANG_FILES=	src/gallium/*/*/*.py src/gallium/tools/trace/*.py \
 		src/gallium/drivers/svga/svgadump/svga_dump.py \
 		src/mapi/glapi/gen/*.py src/mapi/mapi_abi.py \
-		src/mesa/drivers/dri/common/xmlpool/gen_xmlpool.py \
+		src/util/xmlpool/gen_xmlpool.py \
 		src/mesa/main/get_*.py src/util/format_srgb.py \
-		src/intel/genxml/gen_pack_header.py
+		src/amd/*/*.py src/intel/genxml/gen_pack_header.py
 
 MASTERDIR=	${.CURDIR:H:H}/graphics/mesa-dri
 PATCHDIR=	${MASTERDIR}/files
@@ -72,17 +72,12 @@ PKGINSTALL=	${.CURDIR}/pkg-install
 PKGDEINSTALL=	${.CURDIR}/pkg-deinstall
 INSTALL_TARGET=	install-strip
 
-WAYLAND_DESC=		Enable support for the Wayland platform in EGL and Vulkan
-WAYLAND_BUILD_DEPENDS=	wayland-protocols>=1.8:graphics/wayland-protocols
-WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
-			libwayland-server.so:graphics/wayland
-
 .include <bsd.port.pre.mk>
 
 # need LLVM for libEGL wherever possible, but mixing GCC and LLVM breaks Gallium
 .if ${CHOSEN_COMPILER_TYPE} == clang \
  || (${COMPONENT} == libs && ${ARCH} != sparc64)	# no working LLVM
-MESA_LLVM_VER?=	50
+MESA_LLVM_VER?=	40
 .endif
 
 .if "${MESA_LLVM_VER}" != ""
@@ -95,22 +90,6 @@ LDFLAGS+=	-Wl,-rpath=${LOCALBASE}/llvm${MESA_LLVM_VER}/lib
 CONFIGURE_ARGS+=	--enable-llvm
 .else
 CONFIGURE_ARGS+=	--disable-llvm
-.endif
-
-# libEGL needs gallium enabled which depends on llvm
-.if "${MESA_LLVM_VER}" != ""
-.if ${PORT_OPTIONS:MWAYLAND}
-CONFIGURE_ARGS+=	--with-platforms=x11,drm,wayland
-.else
-CONFIGURE_ARGS+=	--with-platforms=x11,drm
-.endif
-PLIST_SUB+=		EGL=""
-.else
-CONFIGURE_ARGS+=	--disable-egl
-PLIST_SUB+=		EGL="@comment "
-.if ${PORT_OPTIONS:MWAYLAND}
-IGNORE=	option WAYLAND is only valid on platforms with LLVM
-.endif
 .endif
 
 # There are issues that need to be fixed to use TLS model "initial-exec"

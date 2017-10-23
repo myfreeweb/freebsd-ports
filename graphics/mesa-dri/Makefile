@@ -7,8 +7,6 @@ CATEGORIES=	graphics
 
 COMMENT=	OpenGL hardware acceleration drivers for DRI2+
 
-RUN_DEPENDS=	${LOCALBASE}/lib/libtxc_dxtn.so:graphics/s2tc
-
 USE_XORG=	dri2proto dri3proto glproto presentproto x11 xdamage xext \
 		xfixes xshmfence xv xvmc
 
@@ -25,6 +23,8 @@ VAAPI_USE=		XORG=xcb
 
 VDPAU_CONFIGURE_ENABLE=	vdpau
 VDPAU_LIB_DEPENDS=	libvdpau.so:multimedia/libvdpau
+
+WAYLAND_DESC=		Enable support for the Wayland platform in Vulkan drivers
 
 .include <bsd.port.options.mk>
 .include "${.CURDIR:H:H}/graphics/mesa-dri/Makefile.common"
@@ -57,14 +57,23 @@ GALLIUM_DRIVERS+=	SVGA
 EXTRA_PATCHES+=	${PATCHDIR}/extra-src_mesa_drivers_dri_i965_intel__screen.c
 . endif
 VULKAN_DRIVERS+=	INTEL
-# --build-id isn't supported by old GNU ld.bfd in base
-USE_BINUTILS=		yes
-LDFLAGS+=		-B${LOCALBASE}/bin
 .elif ${ARCH} == aarch64 || ${ARCH} == armv6 || ${ARCH} == armv7
 GALLIUM_DRIVERS+=	FREEDRENO VC4
 . if ${ARCH} == armv6 || ${ARCH} == armv7
 EXTRA_PATCHES+=	${PATCHDIR}/extra-src_gallium_drivers_vc4_Makefile.in
 . endif
+.endif
+
+.if ${VULKAN_DRIVERS:MINTEL}
+BUILD_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}mako>0:textproc/py-mako
+# --build-id isn't supported by old GNU ld.bfd in base
+USE_BINUTILS=		yes
+LDFLAGS+=		-B${LOCALBASE}/bin
+.endif
+
+# enables VK_KHR_wayland_surface in Vulkan drivers
+.if ${PORT_OPTIONS:MWAYLAND}
+CONFIGURE_ARGS+=	--with-platforms=x11,drm,wayland
 .endif
 
 CONFIGURE_ARGS+=	--with-dri-drivers="${DRI_DRIVERS:tl}" \

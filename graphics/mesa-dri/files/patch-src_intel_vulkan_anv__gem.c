@@ -1,9 +1,20 @@
 Try harder to allocate userptr
 https://github.com/FreeBSDDesktop/freebsd-base-graphics/issues/132
 
---- src/intel/vulkan/anv_gem.c.orig	2017-09-17 23:03:22 UTC
+--- src/intel/vulkan/anv_gem.c.orig	2017-10-23 13:21:18 UTC
 +++ src/intel/vulkan/anv_gem.c
-@@ -114,9 +114,16 @@ anv_gem_userptr(struct anv_device *device, void *mem, 
+@@ -31,6 +31,10 @@
+ 
+ #include "anv_private.h"
+ 
++#ifndef ETIME
++#define ETIME ETIMEDOUT
++#endif
++
+ static int
+ anv_ioctl(int fd, unsigned long request, void *arg)
+ {
+@@ -115,9 +119,16 @@ anv_gem_userptr(struct anv_device *device, void *mem, 
        .flags = 0,
     };
  
