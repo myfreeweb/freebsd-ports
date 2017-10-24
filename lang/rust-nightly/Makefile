@@ -3,7 +3,7 @@
 
 PORTNAME=	rust
 PORTVERSION?=	1.22.0
-PORTREVISION?=	2
+PORTREVISION?=	3
 PKGNAMESUFFIX=	-nightly
 CATEGORIES=	lang
 MASTER_SITES=	http://static.rust-lang.org/dist/${NIGHTLY_DATE}/:src \
@@ -44,7 +44,7 @@ ONLY_FOR_ARCHS_REASON=	requires prebuilt bootstrap compiler
 #CONFLICTS_BUILD+=	${PKGBASE}
 CONFLICTS_INSTALL?=	rust
 
-NIGHTLY_DATE?=		2017-10-01
+NIGHTLY_DATE?=		2017-10-22
 
 BOOTSTRAPS_DATE?=		2017-08-29
 BOOTSTRAPS_DATE_aarch64?=	2017-08-29
@@ -89,6 +89,7 @@ LLVM_CONFIG=			${LOCALBASE}/bin/llvm-config${LLVM_VER}
 #     - pre-install to cleanup the ${STAGEDIR}
 #     - post-install to populate the ${TMPPLIST}
 RUST_MANIFESTS=		lib/rustlib/manifest-cargo \
+			lib/rustlib/manifest-rls-preview \
 			lib/rustlib/manifest-rustc \
 			lib/rustlib/manifest-rust-analysis-${RUST_TARGET} \
 			lib/rustlib/manifest-rust-std-${RUST_TARGET}
@@ -326,6 +327,7 @@ post-install:
 # but they contain non-object files which make strip(1) unhappy.
 	@${STRIP_CMD} \
 		${STAGEDIR}${PREFIX}/bin/cargo \
+		${STAGEDIR}${PREFIX}/bin/rls \
 		${STAGEDIR}${PREFIX}/bin/rustc \
 		${STAGEDIR}${PREFIX}/bin/rustdoc \
 		${STAGEDIR}${PREFIX}/lib/*.so \
