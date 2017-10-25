@@ -1,7 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	instant-meshes
-PORTVERSION=	0
+DISTVERSION=	0.0-42
+DISTVERSIONSUFFIX=	-g4a083f4
 CATEGORIES=	graphics
 
 MAINTAINER=	greg@unrelenting.technology
@@ -17,7 +18,6 @@ USES=		cmake:outsource compiler:c++11-lang pkgconfig
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	wjakob
-GH_TAGNAME=	4a083f4
 GH_TUPLE=	wjakob:nanogui:2a61f03:nanogui/ext/nanogui \
 	libigl:eigen:c34a913:eigen \
 	wjakob:glfw:0ff30d6:glfw \
@@ -31,20 +31,37 @@ GH_TUPLE=	wjakob:nanogui:2a61f03:nanogui/ext/nanogui \
 USE_GL=	gl
 USE_XORG+=	xxf86vm xrandr xinerama xcursor xi x11
 
-INSTALLS_ICONS=	yes
+PLIST_FILES=		"bin/Instant Meshes"
+DESKTOP_ENTRIES=	"Instant Meshes" \
+		"An interactive field-aligned mesh generator" \
+		"${PORTNAME}" \
+		"env LIBGL_DRI3_DISABLE=1 \"Instant Meshes\"" \
+		"Graphics;3DGraphics;" \
+		true
+# radeonsi_dri crash with DRI3
 
 post-extract:
-	@${MV} ${WRKSRC_eigen}/* ${WRKSRC}/ext/nanogui/ext/eigen
-	@${MV} ${WRKSRC_glfw}/* ${WRKSRC}/ext/nanogui/ext/glfw
-	@${MV} ${WRKSRC_nanovg}/* ${WRKSRC}/ext/nanogui/ext/nanovg
-	@${MV} ${WRKSRC_pybind11}/* ${WRKSRC}/ext/nanogui/ext/pybind11
+	${MV} ${WRKSRC_eigen}/* ${WRKSRC}/ext/nanogui/ext/eigen
+	${MV} ${WRKSRC_glfw}/* ${WRKSRC}/ext/nanogui/ext/glfw
+	${MV} ${WRKSRC_nanovg}/* ${WRKSRC}/ext/nanogui/ext/nanovg
+	${MV} ${WRKSRC_pybind11}/* ${WRKSRC}/ext/nanogui/ext/pybind11
+
+post-build:
+	convert -verbose -resize 500x500 -gravity center -background none -extent 512x512 \
+		${WRKSRC}/resources/icon.png ${WRKDIR}/icon_512x512.png
+.for size in 128x128 192x192 256x256
+	convert -verbose -resize ${size} ${WRKDIR}/icon_512x512.png ${WRKDIR}/icon_${size}.png
+.endfor
+.for size in 16x16 24x24 32x32 48x48 64x64 96x96
+	convert -verbose -resize ${size} ${WRKDIR}/icon_512x512.png -unsharp 0x6 ${WRKDIR}/icon_${size}.png
+.endfor
 
 post-install:
-	convert ${WRKSRC}/resources/icon.png -resize 500x500 -gravity center \
-		-background none -extent 512x512  ${WRKSRC}/resources/icon-512.png
-	${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/512x512/apps
-	${INSTALL_DATA} ${WRKSRC}/resources/icon-512.png \
-		${STAGEDIR}${PREFIX}/share/icons/hicolor/512x512/apps/instant_meshes.png
-	${INSTALL_DATA} ${FILESDIR}/${PORTNAME}.desktop ${STAGEDIR}${DESKTOPDIR}
+.for size in 16x16 24x24 32x32 48x48 64x64 96x96 128x128 192x192 256x256 512x512
+	${MKDIR} ${STAGEDIR}${PREFIX}/share/icons/hicolor/${size}/apps
+	${INSTALL_DATA} ${WRKDIR}/icon_${size}.png \
+		${STAGEDIR}${PREFIX}/share/icons/hicolor/${size}/apps/${PORTNAME}.png
+	${ECHO_CMD} share/icons/hicolor/${size}/apps/${PORTNAME}.png >>${TMPPLIST}
+.endfor
 
 .include <bsd.port.mk>
