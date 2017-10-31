@@ -58,6 +58,7 @@ NOTE: [Wayland kernel panic issue and workaround](https://github.com/FreeBSDDesk
 - `mail/geary`: update to 0.12.0 [210718](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=210718)
 - `devel/apitrace`: OpenGL tracing tools [223002](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223002)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
+- `audio/picard`: 1.4.2 [223354](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223354)
 
 ## Kernel patches
 

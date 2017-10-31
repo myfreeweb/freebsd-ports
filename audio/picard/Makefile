@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	picard
-PORTVERSION=	1.3.2
+PORTVERSION=	1.4.2
 CATEGORIES=	audio python
 MASTER_SITES=	http://ftp.musicbrainz.org/pub/musicbrainz/picard/ \
 		ftp://ftp.musicbrainz.org/pub/musicbrainz/picard/ \
@@ -38,7 +38,6 @@ REPLAYGAIN_RUN_DEPENDS=	metaflac:audio/flac \
 post-patch:
 	@${REINPLACE_CMD} -e 's|distutils\.command\.install |setuptools\.command\.install |' \
 		${WRKSRC}/setup.py
-	@${CP} -R ${WRKSRC}/contrib/plugins/ ${WRKSRC}/picard/plugins
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PYTHON_SITELIBDIR}/picard/util/astrcmp.so
