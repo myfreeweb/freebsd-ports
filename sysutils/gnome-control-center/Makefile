@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-control-center
-PORTVERSION=	3.24.2
+PORTVERSION=	3.26.1
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -31,12 +31,14 @@ LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
 		libcolord.so:graphics/colord \
 		libcolord-gtk.so:graphics/colord-gtk \
 		libibus-1.0.so:textproc/ibus \
+		libsoup-2.4.so:devel/libsoup \
 		libgoa-1.0.so:net/gnome-online-accounts \
 		libpwquality.so:security/libpwquality \
 		libgtop-2.0.so:devel/libgtop \
 		libgrilo-0.3.so:net/grilo \
 		libpolkit-gobject-1.so:sysutils/polkit \
-		libsoup-2.4.so:devel/libsoup
+		libwacom.so:x11/libwacom \
+		libgudev-1.0.so:devel/libgudev
 RUN_DEPENDS=	gnome-settings-daemon>=3.4.0:sysutils/gnome-settings-daemon \
 		gsettings-desktop-schemas>=3.2.2:devel/gsettings-desktop-schemas \
 		gcm-calibrate:graphics/gnome-color-manager
@@ -48,6 +50,7 @@ USES=		compiler:c++11-lib gettext gmake gnome localbase pathfix \
 USE_GNOME=	cairo gnomedesktop3 intltool libxml2
 USE_GL=		egl
 USE_XORG=	x11 xcomposite xdamage xext xfixes xi xrandr
+USE_GSTREAMER1=	yes
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes

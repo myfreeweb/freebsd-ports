@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-power-manager
-PORTVERSION=	3.22.2
+PORTVERSION=	3.25.90
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -10,20 +10,18 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Power management system for the GNOME Desktop
 
-#LICENSE=	GPLv2+
-#LICENSE_FILE=	${WRKSRC}/COPYING
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	appstream-builder:devel/appstream-glib
 LIB_DEPENDS=	libupower-glib.so:sysutils/upower
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome libtool localbase:ldflags pathfix pkgconfig tar:xz
+USES=		gettext gnome localbase:ldflags meson pathfix pkgconfig tar:xz
 INSTALLS_ICONS=	yes
 USE_GNOME=	cairo gtk30 intlhack
-GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--with-doc-dir=${PREFIX}/share/doc \
-		--disable-docbook-docs
+MESON_ARGS=	-Denable-tests=false
 
 GLIB_SCHEMAS=	org.gnome.power-manager.gschema.xml
 
@@ -34,7 +32,8 @@ MANPAGES_BUILD_DEPENDS=	docbook2html:textproc/docbook-utils \
 			docbook-sgml>0:textproc/docbook-sgml
 
 post-patch-MANPAGES-off:
-	@${REINPLACE_CMD} -e "s|2MAN_TRUE=$$|2MAN_TRUE='#'|g ; \
-		s|2MAN_FALSE='#'|2MAN_FALSE=|g" ${WRKSRC}/configure
+	@${REINPLACE_CMD} -e "s|subdir('man')||g" \
+		${WRKSRC}/meson.build
 
 .include <bsd.port.mk>
+

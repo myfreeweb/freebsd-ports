@@ -8,7 +8,9 @@ share/applications/gnome-background-panel.desktop
 share/applications/gnome-color-panel.desktop
 share/applications/gnome-control-center.desktop
 share/applications/gnome-datetime-panel.desktop
+share/applications/gnome-default-apps-panel.desktop
 share/applications/gnome-display-panel.desktop
+share/applications/gnome-info-overview-panel.desktop
 share/applications/gnome-info-panel.desktop
 share/applications/gnome-keyboard-panel.desktop
 share/applications/gnome-mouse-panel.desktop
@@ -18,11 +20,13 @@ share/applications/gnome-power-panel.desktop
 share/applications/gnome-printers-panel.desktop
 share/applications/gnome-privacy-panel.desktop
 share/applications/gnome-region-panel.desktop
+share/applications/gnome-removable-media-panel.desktop
 share/applications/gnome-search-panel.desktop
 share/applications/gnome-sharing-panel.desktop
 share/applications/gnome-sound-panel.desktop
 share/applications/gnome-universal-access-panel.desktop
 share/applications/gnome-user-accounts-panel.desktop
+share/applications/gnome-wacom-panel.desktop
 share/bash-completion/completions/gnome-control-center
 share/dbus-1/services/org.gnome.ControlCenter.SearchProvider.service
 share/dbus-1/services/org.gnome.ControlCenter.service
