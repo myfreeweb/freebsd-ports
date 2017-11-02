@@ -17,7 +17,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 ONLY_FOR_ARCHS=	i386 amd64
 
-GHC_VERSION=		8.0.2
+GHC_VERSION=		8.2.1
 HSCOLOUR_VERSION=	1.24.1
 
 DATADIR=	${PREFIX}/share/ghc-${GHC_VERSION}
@@ -37,7 +37,7 @@ USE_PERL5=	build
 # This is better fixed in files/build.mk.in
 GNU_CONFIGURE=	yes
 
-CONFIGURE_ARGS=		--with-ld=${LD} \
+CONFIGURE_ARGS=		--disable-ld-override \
 			--with-gmp-includes=${LOCALBASE}/include \
 			--with-gmp-libraries=${LOCALBASE}/lib \
 			--with-iconv-includes=${LOCALBASE}/include \
@@ -92,18 +92,6 @@ LOCALBASE?=	/usr/local
 BOOT_GHC_VERSION=	7.10.2
 DISTFILES+=		ghc-${BOOT_GHC_VERSION}-boot-${ARCH}-freebsd${EXTRACT_SUFX}:boot
 .endif # MBOOT
-
-# LLVM is still not properly supported, further it does not make sense to have
-# to depend on old llvm ports that will be removed from the ports soon.
-# So for now, stick to GCC.
-# https://ghc.haskell.org/trac/ghc/wiki/Commentary/Compiler/Backends/LLVM/Installing
-# We should however investigate whether base's clang is enough to build ghc&co.
-# This will likely require some modifications to compiler/main/*hs
-USE_GCC=		yes
-CONFIGURE_ARGS+=	-with-gcc=${CC}
-.if empty(PORT_OPTIONS:MBOOT)
-CONFIGURE_ARGS_BOOT+=	--with-gcc=${CC}
-.endif
 
 DOCSDIR=	${PREFIX}/share/doc/${DISTNAME}
 GHC_LIBDIR=	${STAGEDIR}${PREFIX}/lib/ghc-${GHC_VERSION}
@@ -231,7 +219,7 @@ pre-configure: apply-slist
 		${TAR} xvf ${DISTDIR}/hscolour-${HSCOLOUR_VERSION}.tar.gz && \
 		cd hscolour-${HSCOLOUR_VERSION} && \
 		${SLAVE_CMD} ghc --make -o Setup Setup.hs -package Cabal && \
-		${SLAVE_CMD} ./Setup configure --ghc --prefix=${SLAVES_PREFIX} --with-gcc=${CC} --with-ld=${LD} && \
+		${SLAVE_CMD} ./Setup configure --ghc --prefix=${SLAVES_PREFIX} && \
 		${SLAVE_CMD} ./Setup build && \
 		${SLAVE_CMD} ./Setup install)
 .endif
@@ -260,8 +248,6 @@ post-install:
 .if ${PORT_OPTIONS:MDOCS}
 	${LN} -sf haddock-ghc-${GHC_VERSION} ${STAGEDIR}${PREFIX}/bin/haddock
 .endif
-	(for f in ${_EXECUTABLES} $$(${FIND} ${GHC_LIBDIR} -name '*.so'); do \
-		${STRIP_CMD} $$f; done)
 
 .include <bsd.port.mk>
 
@@ -273,7 +259,5 @@ create-bootstrap:
 	&& ${CP} ${WRKDIR}/build.boot.mk mk \
 	&& setenv ${CONFIGURE_ENV} ./configure	--with-iconv-includes=${LOCALBASE}/include \
 						--with-iconv-libraries=${LOCALBASE}/lib \
-						--with-gcc=${CC} \
-						--with-ld=${LD} \
 	&& make binary-dist TAR_COMP=xz \\
 	&& mv ghc-${GHC_VERSION}-boot-${GHC_ARCH}-unknown-freebsd.tar.xz /tmp/ghc-${GHC_VERSION}-${ARCH}-freebsd${FREEBSD_MAJOR_VERSION}-boot.tar.xz

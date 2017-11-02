@@ -1,13 +1,11 @@
 --- libraries/Cabal/Cabal/Distribution/Simple/Program/Builtin.hs.orig	2017-01-03 15:59:20 UTC
 +++ libraries/Cabal/Cabal/Distribution/Simple/Program/Builtin.hs
-@@ -54,6 +54,8 @@ import Distribution.Compat.Exception
+@@ -54,4 +54,6 @@ import Distribution.Compat.Exception
  import Distribution.Verbosity
  import Distribution.Version
  
 +import System.FilePath (takeDirectory)
 +
- import Data.Char
-          ( isDigit )
  import qualified Data.Map as Map
 @@ -251,11 +253,13 @@ alexProgram = (simpleProgram "alex") {
  

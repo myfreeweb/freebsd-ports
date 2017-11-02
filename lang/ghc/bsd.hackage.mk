@@ -210,6 +210,7 @@ double-conversion_port?=                         textproc/hs-double-conversion
 DRBG_port?=                                      security/hs-DRBG
 ed25519_port?=                                   security/hs-ed25519
 easy-file_port?=                                 devel/hs-easy-file
+echo_port?=                                      devel/hs-echo
 EdisonAPI_port?=                                 devel/hs-EdisonAPI
 EdisonCore_port?=                                devel/hs-EdisonCore
 edit-distance_port?=                             devel/hs-edit-distance

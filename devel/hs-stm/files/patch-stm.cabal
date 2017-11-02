@@ -1,0 +1,11 @@
+--- stm.cabal.orig	2017-10-30 20:06:10 UTC
++++ stm.cabal
+@@ -34,7 +34,7 @@ library
+         other-extensions: Safe
+ 
+     build-depends:
+-        base  >= 4.3 && < 4.10,
++        base  >= 4.3 && < 4.11,
+         array >= 0.3 && < 0.6
+ 
+     exposed-modules:

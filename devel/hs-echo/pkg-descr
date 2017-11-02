@@ -1,0 +1,4 @@
+This library provides an interface for querying and setting echo status which
+works with both MinTTY and other consoles.
+
+WWW: https://github.com/RyanGlScott/echo
