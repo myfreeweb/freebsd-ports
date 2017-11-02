@@ -96,7 +96,8 @@
     SUBDIR += gnotime
     SUBDIR += gnustep-wrapper
     SUBDIR += go-for-it
-    SUBDIR += gourmeto
+    SUBDIR += gourmet
+    SUBDIR += gpicker
     SUBDIR += grantlee-editor
     SUBDIR += grantleetheme
     SUBDIR += griffith
@@ -125,7 +126,7 @@
     SUBDIR += ical
     SUBDIR += ithought
     SUBDIR += jjclient
-    SUBDIR += jlje
+    SUBDIR += jlj
     SUBDIR += kaddressbook
     SUBDIR += kalarm
     SUBDIR += kcharselect
@@ -199,7 +200,7 @@
     SUBDIR += pal
     SUBDIR += parcellite
     SUBDIR += phpcollab
-    SUBDIR += phpicalendarr
+    SUBDIR += phpicalendar
     SUBDIR += pim-data-exporter
     SUBDIR += pim-sieve-editor
     SUBDIR += pinot
