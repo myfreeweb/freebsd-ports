@@ -1501,6 +1501,7 @@
     SUBDIR += podcastamatic
     SUBDIR += polipo
     SUBDIR += pound
+    SUBDIR += privatebin
     SUBDIR += privoxy
     SUBDIR += protovis
     SUBDIR += pserv
