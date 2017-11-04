@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	firefox
-DISTVERSION=	57.0b11
+DISTVERSION=	57.0b14
 DISTVERSIONSUFFIX=.source
 PORTEPOCH=	1
 CATEGORIES=	www ipv6
@@ -43,11 +43,12 @@ USE_GL=		gl
 USES=		tar:xz
 
 FIREFOX_ICON=		${MOZILLA}.png
-FIREFOX_ICON_SRC=	${PREFIX}/lib/${MOZILLA}/browser/chrome/icons/default/default256.png
+FIREFOX_ICON_SRC=	${PREFIX}/lib/${MOZILLA}/browser/chrome/icons/default/default48.png
 MOZ_EXPORT=	BINDGEN_CFLAGS="-isystem${LOCALBASE}/include/nspr \
 			-isystem${LOCALBASE}/include/pixman-1" # XXX bug 1341234
 MOZ_OPTIONS=	--enable-application=browser \
 		--enable-official-branding
+MOZILLA_PLIST_DIRS=	bin lib share/icons/hicolor/48x48/apps share/applications
 
 OPTIONS_DEFAULT=	BUNDLED_CAIRO
 OPTIONS_EXCLUDE=	GNOMEUI

@@ -1,0 +1,32 @@
+--- old-configure.in.orig	2017-11-04 14:15:09 UTC
++++ old-configure.in
+@@ -549,15 +549,6 @@ if test "$GNU_CC"; then
+                   AC_MSG_RESULT([no])
+                   LDFLAGS=$_SAVE_LDFLAGS)
+ 
+-    AC_MSG_CHECKING([for --ignore-unresolved-symbol option to ld])
+-    HAVE_LINKER_SUPPORT_IGNORE_UNRESOLVED=
+-    _SAVE_LDFLAGS=$LDFLAGS
+-    LDFLAGS="$LDFLAGS -Wl,--ignore-unresolved-symbol,environ"
+-    AC_TRY_LINK(,,AC_MSG_RESULT([yes])
+-                  [HAVE_LINKER_SUPPORT_IGNORE_UNRESOLVED=1],
+-                  AC_MSG_RESULT([no]))
+-    LDFLAGS=$_SAVE_LDFLAGS
+-
+     # Check for -mssse3 on $CC
+     AC_MSG_CHECKING([if toolchain supports -mssse3 option])
+     HAVE_TOOLCHAIN_SUPPORT_MSSSE3=
+@@ -614,11 +605,7 @@ if test "$GNU_CC"; then
+             # BSDs need `environ' exposed for posix_spawn (bug 753046)
+             case "$OS_TARGET" in
+             DragonFly|FreeBSD|NetBSD|OpenBSD)
+-                if test -n "$HAVE_LINKER_SUPPORT_IGNORE_UNRESOLVED"; then
+-                    DSO_LDOPTS="$DSO_LDOPTS -Wl,--ignore-unresolved-symbol,environ"
+-                else
+-                    DSO_LDOPTS="$DSO_LDOPTS -Wl,--warn-unresolved-symbols"
+-                fi
++                DSO_LDOPTS="$DSO_LDOPTS -Wl,--warn-unresolved-symbols"
+                 ;;
+             esac
+         fi
+

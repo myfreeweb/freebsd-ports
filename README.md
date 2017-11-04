@@ -50,7 +50,7 @@ NOTE: [Wayland kernel panic issue and workaround](https://github.com/FreeBSDDesk
 ### Misc
 
 - `lang/crystal`: The Crystal programming language!
-- `www/firefox-beta`: Firefox 57! As always, don't forget `layers.acceleration.force-enabled` in `about:config`.
+- `www/firefox-beta`: Firefox 57! With ThinLTO/LLD for extra optimization. See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
 - `graphics/instant-meshes`: Interactive field-aligned mesh generator [222711](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222711)
 - `graphics/goxel`: 3D voxel editor [222729](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222729)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
