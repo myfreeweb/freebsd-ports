@@ -126,7 +126,7 @@
     SUBDIR += ical
     SUBDIR += ithought
     SUBDIR += jjclient
-    SUBDIR += jlj
+    SUBDIR += jlje
     SUBDIR += kaddressbook
     SUBDIR += kalarm
     SUBDIR += kcharselect
@@ -200,7 +200,7 @@
     SUBDIR += pal
     SUBDIR += parcellite
     SUBDIR += phpcollab
-    SUBDIR += phpicalendar
+    SUBDIR += phpicalendarr
     SUBDIR += pim-data-exporter
     SUBDIR += pim-sieve-editor
     SUBDIR += pinot
