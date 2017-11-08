@@ -423,6 +423,7 @@
     SUBDIR += nmap
     SUBDIR += nss
     SUBDIR += nss_compat_ossl
+    SUBDIR += nyx
     SUBDIR += oath-toolkit
     SUBDIR += obfsclient
     SUBDIR += obfsproxy
@@ -877,7 +878,7 @@
     SUBDIR += py-backports.ssl_match_hostname
     SUBDIR += py-bcrypt
     SUBDIR += py-borg.localrole
-    SUBDIR += py-btchip
+    SUBDIR += py-btchip-python
     SUBDIR += py-cerealizer
     SUBDIR += py-certbot
     SUBDIR += py-certifi

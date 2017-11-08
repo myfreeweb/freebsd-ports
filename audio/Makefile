@@ -131,6 +131,7 @@
     SUBDIR += espeak
     SUBDIR += esperanza
     SUBDIR += etcd
+    SUBDIR += eteroj-lv2
     SUBDIR += etktab
     SUBDIR += exaile
     SUBDIR += exaile-devel
@@ -476,6 +477,7 @@
     SUBDIR += lollypop
     SUBDIR += lpac
     SUBDIR += lua51-mpd
+    SUBDIR += luppp
     SUBDIR += lv2
     SUBDIR += lv2file
     SUBDIR += lvtk

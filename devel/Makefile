@@ -1534,6 +1534,7 @@
     SUBDIR += libsigrokdecode
     SUBDIR += libsigscan
     SUBDIR += libsigsegv
+    SUBDIR += libsimdpp
     SUBDIR += libslang2
     SUBDIR += libsmdev
     SUBDIR += libsmpp34
@@ -4515,6 +4516,7 @@
     SUBDIR += py-jsonpointer
     SUBDIR += py-jsonref
     SUBDIR += py-jsonrpclib
+    SUBDIR += py-jsonrpclib-pelix
     SUBDIR += py-jsonschema
     SUBDIR += py-jupyter_client
     SUBDIR += py-jupyter_console
