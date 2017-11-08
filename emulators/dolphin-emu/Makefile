@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	dolphin-emu
-DISTVERSION=	5.0-5566
-DISTVERSIONSUFFIX=	-g8ebdd62
+DISTVERSION=	5.0-5791
+DISTVERSIONSUFFIX=	-g7e7b5af
 PORTREVISION=	1
 CATEGORIES=	emulators
 
@@ -25,6 +25,7 @@ LIB_DEPENDS=	libpulse.so:audio/pulseaudio \
 		libswscale.so:multimedia/ffmpeg \
 		libavutil.so:multimedia/ffmpeg \
 		libportaudio.so:audio/portaudio \
+		libhidapi.so:comms/hidapi \
 		liblzo2.so:archivers/lzo2 \
 		libpng.so:graphics/png \
 		libSoundTouch.so:audio/soundtouch \
