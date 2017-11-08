@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	libepoll-shim
-PORTVERSION=	0.0.20161220
+PORTVERSION=	0.0.20171002
 CATEGORIES=	devel
 
 MAINTAINER=	x11@FreeBSD.org
@@ -11,9 +11,9 @@ COMMENT=	epoll shim implemented using kevent
 LICENSE=	MIT
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	FreeBSDDesktop
+GH_ACCOUNT=	jiixyj
 GH_PROJECT=	epoll-shim
-GH_TAGNAME=	c04b26b
+GH_TAGNAME=	f376171
 
 USE_LDCONFIG=	yes
 

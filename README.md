@@ -34,6 +34,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `x11/xcape`: [Useful X11 keyboard utility](https://github.com/alols/xcape) [222602](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222602)
 - `multimedia/mpv`: Wayland option added [223029](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223029)
 - `graphics/mesa-libs`: Fix device name detection [223030](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223030)
+- `devel/libepoll-shim`: Update version [223530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223529)
 
 NOTE: [Wayland kernel panic issue and workaround](https://github.com/FreeBSDDesktop/kms-drm/issues/11)
 
