@@ -2468,13 +2468,13 @@
     SUBDIR += p5-Exception-Class-TryCatch
     SUBDIR += p5-Exception-Handler
     SUBDIR += p5-Expect-Simple
+    SUBDIR += p5-ExportTo
     SUBDIR += p5-Exporter
     SUBDIR += p5-Exporter-Declare
     SUBDIR += p5-Exporter-Easy
     SUBDIR += p5-Exporter-Lite
     SUBDIR += p5-Exporter-Tidy
     SUBDIR += p5-Exporter-Tiny
-    SUBDIR += p5-ExportTo
     SUBDIR += p5-ExtUtils-AutoInstall
     SUBDIR += p5-ExtUtils-CBuilder
     SUBDIR += p5-ExtUtils-CChecker
@@ -3669,7 +3669,6 @@
     SUBDIR += p5-UNIVERSAL-ref
     SUBDIR += p5-UNIVERSAL-require
     SUBDIR += p5-UNIVERSAL-which
-    SUBDIR += p5-Util-Any
     SUBDIR += p5-UUID
     SUBDIR += p5-UUID-Random
     SUBDIR += p5-UUID-Random-Patch-UseMRS
@@ -3679,6 +3678,7 @@
     SUBDIR += p5-Unix-Statgrab
     SUBDIR += p5-Unix-Uptime
     SUBDIR += p5-User-Identity
+    SUBDIR += p5-Util-Any
     SUBDIR += p5-VCP-Dest-svk
     SUBDIR += p5-VCP-Source-cvsbk
     SUBDIR += p5-VCP-autrijus
@@ -3896,7 +3896,6 @@
     SUBDIR += pear-PHP_Timer
     SUBDIR += pear-PHP_TokenStream
     SUBDIR += pear-PHP_UML
-    SUBDIR += pear-PPW
     SUBDIR += pear-Pager
     SUBDIR += pear-PhpDocumentor
     SUBDIR += pear-Pirum
@@ -5111,6 +5110,7 @@
     SUBDIR += py3-ply
     SUBDIR += py3-pretend
     SUBDIR += py3-prompt_toolkit
+    SUBDIR += py3-protobuf
     SUBDIR += py3-py
     SUBDIR += py3-pyasn1
     SUBDIR += py3-pycodestyle
@@ -5347,8 +5347,8 @@
     SUBDIR += rubygem-blockenspiel
     SUBDIR += rubygem-bones
     SUBDIR += rubygem-bootsnap
-    SUBDIR += rubygem-bosh-template
     SUBDIR += rubygem-bootstrap_form
+    SUBDIR += rubygem-bosh-template
     SUBDIR += rubygem-bosh_common
     SUBDIR += rubygem-bson
     SUBDIR += rubygem-buftok
