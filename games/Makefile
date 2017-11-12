@@ -577,7 +577,6 @@
     SUBDIR += lmarbles
     SUBDIR += lmpc
     SUBDIR += lolcat
-    SUBDIR += lordsawar
     SUBDIR += lpairs
     SUBDIR += lskat
     SUBDIR += ltris

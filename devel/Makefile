@@ -297,7 +297,6 @@
     SUBDIR += cl-alexandria-sbcl
     SUBDIR += cl-asdf
     SUBDIR += cl-cffi
-    SUBDIR += cl-cffi-sbcl
     SUBDIR += cl-infix
     SUBDIR += cl-infix-sbcl
     SUBDIR += cl-port
@@ -476,7 +475,6 @@
     SUBDIR += dulwich
     SUBDIR += duplo
     SUBDIR += dwarfdump
-    SUBDIR += dwarves
     SUBDIR += dxa65
     SUBDIR += dyncall
     SUBDIR += e00compr
@@ -1826,9 +1824,7 @@
     SUBDIR += omniNotify
     SUBDIR += omniORB
     SUBDIR += omniORB-4.1
-    SUBDIR += oniguruma4
-    SUBDIR += oniguruma5
-    SUBDIR += oniguruma6
+    SUBDIR += oniguruma
     SUBDIR += onscripter
     SUBDIR += onscripter-1byte
     SUBDIR += oozie
@@ -4073,7 +4069,6 @@
     SUBDIR += pig
     SUBDIR += pijul
     SUBDIR += piklab
-    SUBDIR += pinba_engine
     SUBDIR += pipestatus
     SUBDIR += pire
     SUBDIR += pit
@@ -4385,7 +4380,6 @@
     SUBDIR += py-epdb
     SUBDIR += py-epsilon
     SUBDIR += py-evdev
-    SUBDIR += py-event
     SUBDIR += py-exam
     SUBDIR += py-extras
     SUBDIR += py-extremes
@@ -5150,6 +5144,7 @@
     SUBDIR += py35-setuptools
     SUBDIR += py36-setuptools
     SUBDIR += py_static_check
+    SUBDIR += pybind11
     SUBDIR += pybugz
     SUBDIR += pycharm-ce
     SUBDIR += pychecker
