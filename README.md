@@ -35,6 +35,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `multimedia/mpv`: Wayland option added [223029](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223029)
 - `graphics/mesa-libs`: Fix device name detection [223030](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223030)
 - `devel/libepoll-shim`: Update version [223530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223529)
+- `graphics/wayland`: Removed posix_fallocate usage to fix Wayland on ZFS
 
 ### Games
 
