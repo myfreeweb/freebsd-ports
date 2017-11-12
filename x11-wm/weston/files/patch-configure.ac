@@ -1,6 +1,15 @@
 --- configure.ac.orig	2016-09-20 19:19:18 UTC
 +++ configure.ac
-@@ -259,6 +259,17 @@ AS_IF([test x$enable_fbdev_compositor = 
+@@ -102,7 +102,7 @@ AC_CHECK_DECL(CLOCK_MONOTONIC,[],
+ 	      [[#include <time.h>]])
+ AC_CHECK_HEADERS([execinfo.h])
+ 
+-AC_CHECK_FUNCS([mkostemp strchrnul initgroups posix_fallocate])
++AC_CHECK_FUNCS([mkostemp strchrnul initgroups])
+ 
+ COMPOSITOR_MODULES="wayland-server >= $WAYLAND_PREREQ_VERSION pixman-1 >= 0.25.2"
+ 
+@@ -259,6 +259,17 @@ AS_IF([test x$enable_fbdev_compositor = xyes], [
    PKG_CHECK_MODULES([FBDEV_COMPOSITOR], [libudev >= 136 mtdev >= 1.1.0])
  ])
  

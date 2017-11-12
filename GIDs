@@ -742,7 +742,7 @@ monero:*:781:
 # free: 798
 # free: 799
 clickhouse:*:800:
-# free: 801
+weston-launch:*:801:
 # free: 802
 # free: 803
 # free: 804

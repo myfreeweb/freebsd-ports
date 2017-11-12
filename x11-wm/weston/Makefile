@@ -54,7 +54,7 @@ LIB_DEPENDS= \
 		libwayland-client.so:${PORTSDIR}/graphics/wayland	\
 		libwayland-cursor.so:${PORTSDIR}/graphics/wayland	\
 		libwayland-egl.so:${PORTSDIR}/graphics/mesa-libs		\
-		libevent.so:${PORTSDIR}/devel/libevent2				\
+		libevent.so:${PORTSDIR}/devel/libevent				\
 		libpng.so:${PORTSDIR}/graphics/png					\
 		libwebp.so:${PORTSDIR}/graphics/webp				\
 		libffi.so:${PORTSDIR}/devel/libffi					\
@@ -62,13 +62,13 @@ LIB_DEPENDS= \
 		libudev.so:${PORTSDIR}/devel/libudev-devd			\
 		libunwind.so:${PORTSDIR}/devel/libunwind			\
 		libevdev.so:${PORTSDIR}/devel/libevdev				\
-		libinput.so:${PORTSDIR}/wayland/libinput			\
+		libinput.so:${PORTSDIR}/x11/libinput			\
 		libmtdev.so:${PORTSDIR}/devel/libmtdev
 
-BUILD_DEPENDS+=	wayland-protocols>=1.7:${PORTSDIR}/wayland/wayland-protocols
-BUILD_DEPENDS+=	wayland-scanner:${PORTSDIR}/wayland/wayland
+BUILD_DEPENDS+=	wayland-protocols>=1.7:${PORTSDIR}/graphics/wayland-protocols
+BUILD_DEPENDS+=	wayland-scanner:${PORTSDIR}/graphics/wayland
 
-RUN_DEPENDS= ${LOCALBASE}/lib/libglapi.so.0:${PORTSDIR}/graphics/libglapi
+RUN_DEPENDS= ${LOCALBASE}/lib/libglapi.so.0:${PORTSDIR}/graphics/mesa-libs
 
 CPPFLAGS+= -I${LOCALBASE}/include -I${LOCALBASE}/include/libepoll-shim
 LDFLAGS+= -L${LOCALBASE}/lib
