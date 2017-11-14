@@ -39,6 +39,7 @@
     SUBDIR += crf++
     SUBDIR += dcl
     SUBDIR += devisor
+    SUBDIR += dkh
     SUBDIR += dlpoly-classic
     SUBDIR += ecs
     SUBDIR += epte
@@ -74,6 +75,7 @@
     SUBDIR += lamprop
     SUBDIR += libaec
     SUBDIR += libctl
+    SUBDIR += libefp
     SUBDIR += libgeodecomp
     SUBDIR += libghemical
     SUBDIR += libint

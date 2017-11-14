@@ -306,7 +306,6 @@
     SUBDIR += pitivi
     SUBDIR += playd
     SUBDIR += plasma5-plasma-mediacenter
-    SUBDIR += plexhometheater
     SUBDIR += plexmediaserver
     SUBDIR += plexmediaserver-plexpass
     SUBDIR += plexpy

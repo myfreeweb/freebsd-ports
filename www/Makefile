@@ -538,6 +538,7 @@
     SUBDIR += netstiff
     SUBDIR += netsurf
     SUBDIR += newsbeuter
+    SUBDIR += newsboat
     SUBDIR += nextcloud
     SUBDIR += nghttp2
     SUBDIR += nginx
