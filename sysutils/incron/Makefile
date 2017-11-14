@@ -3,9 +3,10 @@
 
 PORTNAME=	incron
 DISTVERSION=	2017-11-13
+PORTREVISION=	1
 CATEGORIES=	sysutils
 
-MAINTAINER=	mi@aldan.algebra.com
+MAINTAINER=	joh.hendriks@gmail.com
 COMMENT=	Handle filesystem-events the way cron handles time ones
 
 LICENSE=	GPLv2 LGPL21 MIT
@@ -24,6 +25,7 @@ LDFLAGS+=	-L${LOCALBASE}/lib -linotify
 MAKE_ARGS=	PREFIX="${PREFIX}" USER=${UID}	\
 		DOCDIR="${PREFIX}/etc"	\
 		MANPATH=${MANPREFIX}/man
+USE_RC_SUBR=	${PORTNAME}
 
 post-patch:
 	${REINPLACE_CMD} -e 's,/etc/incron,${PREFIX}/etc/incron,'	\
