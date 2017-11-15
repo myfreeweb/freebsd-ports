@@ -303,6 +303,7 @@
     SUBDIR += fatback
     SUBDIR += fconfig
     SUBDIR += fcron
+    SUBDIR += fd
     SUBDIR += fdupes
     SUBDIR += feather
     SUBDIR += fetchlog
