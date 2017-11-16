@@ -75,7 +75,7 @@ KDE4_BRANCH?=			stable
 KDE_PLASMA_VERSION?=		5.11.2
 KDE_PLASMA_BRANCH?=		stable
 
-KDE_FRAMEWORKS_VERSION?=	5.39.0
+KDE_FRAMEWORKS_VERSION?=	5.40.0
 KDE_FRAMEWORKS_BRANCH?= 	stable
 
 KDE_APPLICATIONS_VERSION?=	17.08.2
@@ -523,6 +523,7 @@ khtml_LIB=		libKF5KHtml.so
 
 kimageformats_PORT=	graphics/kf5-kimageformats
 kimageformats_PATH=	${QT_PLUGINDIR}/imageformats/kimg_xcf.so
+kimageformats_TYPE=	run
 
 kio_PORT=		devel/kf5-kio
 kio_LIB=		libKF5KIOCore.so
@@ -589,6 +590,9 @@ solid_LIB=		libKF5Solid.so
 
 sonnet_PORT=		textproc/kf5-sonnet
 sonnet_LIB=		libKF5SonnetCore.so
+
+syntaxhighlighting_PORT=	textproc/kf5-syntax-highlighting
+syntaxhighlighting_LIB=		libKF5SyntaxHighlighting.so
 
 texteditor_PORT=	devel/kf5-ktexteditor
 texteditor_LIB=		libKF5TextEditor.so
