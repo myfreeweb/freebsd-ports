@@ -2,23 +2,23 @@
 # $FreeBSD$
 
 PORTNAME=	firefox
-DISTVERSION=	57.0
+DISTVERSION=	58.0b4
 DISTVERSIONSUFFIX=.source
 PORTEPOCH=	1
 CATEGORIES=	www ipv6
 MASTER_SITES=	MOZILLA/${PORTNAME}/releases/${DISTVERSION}/source \
-		MOZILLA/${PORTNAME}/candidates/${DISTVERSION}-candidates/build4/source
+		MOZILLA/${PORTNAME}/candidates/${DISTVERSION}-candidates/build1/source
 
 MAINTAINER=	gecko@FreeBSD.org
 COMMENT=	Web browser based on the browser portion of Mozilla
 
 BUILD_DEPENDS=	nspr>=4.17:devel/nspr \
-		nss>=3.33:security/nss \
+		nss>=3.34:security/nss \
 		icu>=59.1,1:devel/icu \
 		libevent>=2.1.8:devel/libevent \
 		harfbuzz>=1.5.1:print/harfbuzz \
 		graphite2>=1.3.10:graphics/graphite2 \
-		png>=1.6.31:graphics/png \
+		png>=1.6.34:graphics/png \
 		libvorbis>=1.3.5,3:audio/libvorbis \
 		libvpx>=1.5.0:multimedia/libvpx \
 		sqlite3>=3.20.1:databases/sqlite3 \
@@ -32,10 +32,12 @@ BUILD_DEPENDS=	nspr>=4.17:devel/nspr \
 LIB_DEPENDS=	libv4l2.so:multimedia/libv4l
 
 USE_GECKO=	gecko
-CONFLICTS_INSTALL=	firefox-beta firefox-nightly-wayland firefox-esr-45.* firefox-esr-3[18].* firefox-esr-24.*
+CONFLICTS_INSTALL=	firefox-esr-45.* firefox-esr-3[18].* firefox-esr-24.*
 MOZ_PKGCONFIG_FILES=	# empty
 USE_MOZILLA=	-soundtouch
 MOZILLA_NAME=	Firefox
+
+CFLAGS+=	-flto=thin
 
 USE_GL=		gl
 USES=		tar:xz
