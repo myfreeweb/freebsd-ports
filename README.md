@@ -27,7 +27,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 - `x11-toolkits/wlc`: updated to 0.0.10 (for sway)
 - `x11-wm/sway`: [sway, the i3-like Wayland compositor](https://github.com/SirCmpwn/sway)
-- `www/webkit2-gtk3`: Wayland option added (for GNOME Web aka Epiphany browser)
+- `www/webkit2-gtk3`: updated to 2.18.3, Wayland support added [223733](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223733)
 - `devel/sdl20`: Wayland option added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018)
 - `x11/libinput`: Update to 1.9.1 [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
 - `x11-servers/xorg-server`: added `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
@@ -51,13 +51,12 @@ Tested on an AMD Polaris (RX 480) GPU.
 ### Misc
 
 - `lang/crystal`: The Crystal programming language!
-- `www/firefox-beta`: Firefox 57! With ThinLTO/LLD for extra optimization. See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
+- `www/firefox-beta`: Firefox Beta, with ThinLTO/LLD for extra optimization. See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
 - `graphics/instant-meshes`: Interactive field-aligned mesh generator [222711](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222711)
 - `graphics/goxel`: 3D voxel editor [222729](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222729)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 - `lang/rust-nightly`: revived port by copy-pasting from `lang/rust` and updating version numbers. Here's the resulting toolchain tarballs: [rustc](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rustc-nightly-x86_64-unknown-freebsd.tar.xz) [std](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-std-nightly-x86_64-unknown-freebsd.tar.xz) [cargo](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/cargo-nightly-x86_64-unknown-freebsd.tar.xz) [rls](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rls-nightly-x86_64-unknown-freebsd.tar.xz) [analysis](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-analysis-nightly-x86_64-unknown-freebsd.tar.xz) [docs](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-docs-nightly-x86_64-unknown-freebsd.tar.xz). Use [libc from here](https://github.com/myfreeweb/libc) and [mio from there](https://github.com/FreeBSDRust/mio) via `[patch.crates-io]` sections in `Cargo.toml` files.
 - `mail/geary`: update to 0.12.0 [210718](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=210718)
-- `devel/apitrace`: OpenGL tracing tools [223002](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223002)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
 - `audio/picard`: 1.4.2 [223354](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223354)
 
@@ -84,8 +83,8 @@ options 	VIMAGE
 
 ## Other FreeBSD desktop resources
 
+- [kb/FreeBSDDesktop](https://unrelenting.technology/kb/FreeBSDDesktop)
 - [My dotfiles](https://github.com/myfreeweb/dotfiles) (mostly the `x11` folder)
-- [Building the awesome Alacritty terminal emulator on -CURRENT](https://github.com/jwilm/alacritty/issues/618#issuecomment-331983715) (also relevant for other Rust applications)
 - [A FreeBSD 11 Desktop How-to](https://cooltrainer.org/a-freebsd-desktop-howto/), not up to date with modern GPU stuff but very good for general desktop setup (printing, networking, etc.)
 - [FreeBSD on the ThinkPad X240](https://unrelenting.technology/articles/freebsd-on-the-thinkpad-x240), my post that's mostly updated but still contains old stuff
 

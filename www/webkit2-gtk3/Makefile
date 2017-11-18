@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	webkit
-PORTVERSION=	2.16.6
+PORTVERSION=	2.18.3
 PORTREVISION=	3
 CATEGORIES=	www
 MASTER_SITES=	http://webkitgtk.org/releases/
@@ -28,7 +28,8 @@ LIB_DEPENDS=	libenchant.so:textproc/enchant \
 		libharfbuzz-icu.so:print/harfbuzz-icu \
 		libsoup-2.4.so:devel/libsoup \
 		libgcrypt.so:security/libgcrypt \
-		libgnutls.so:security/gnutls
+		libgnutls.so:security/gnutls \
+		libtasn1.so:security/libtasn1
 
 PORTSCOUT=	limitw:1,even
 
@@ -42,16 +43,14 @@ USE_GNOME=	cairo gdkpixbuf2 gtk30 introspection:build libxml2 libxslt
 USE_GL=		gl egl glesv2
 USE_PERL5=	build
 USE_LDCONFIG=	yes
+CFLAGS+=	-DFIXED_EXECUTABLE_MEMORY_POOL_SIZE_IN_MB=32
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 INSTALL_TARGET=	install
 
 CMAKE_ARGS+=	-DPORT=GTK \
-		-DENABLE_MINIBROWSER:BOOL=ON \
 		-DENABLE_GLES2:BOOL=ON \
-		-DENABLE_ACCELERATED_2D_CANVAS:BOOL=OFF \
-		-DUSE_LD_GOLD:BOOL=OFF \
-		-DENABLE_WEBKIT:BOOL=OFF
+		-DUSE_LD_GOLD:BOOL=OFF
 CONFIGURE_ENV+=	XDG_CACHE_HOME=${WRKDIR}
 
 BROWSER_PLUGINS_DIR?=	${LOCALBASE}/lib/browser_plugins/symlinks/webkit-gtk3
@@ -59,7 +58,7 @@ BROWSER_PLUGINS_DIR?=	${LOCALBASE}/lib/browser_plugins/symlinks/webkit-gtk3
 
 OPTIONS_SUB=	yes
 OPTIONS_DEFINE=	DEBUG GEOIP NPAPI WAYLAND
-OPTIONS_DEFAULT=GEOIP
+OPTIONS_DEFAULT=GEOIP WAYLAND
 OPTIONS_DEFAULT_i386=	NPAPI
 OPTIONS_DEFAULT_amd64=	NPAPI
 
@@ -88,6 +87,7 @@ NPAPI_USE=	GNOME=gtk20
 WAYLAND_DESC=	Support Wayland render backend
 WAYLAND_CMAKE_BOOL=	ENABLE_WAYLAND_TARGET
 WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
+	libwayland-server.so:graphics/wayland \
 	libwayland-egl.so:graphics/mesa-libs
 
 .include <bsd.port.options.mk>
@@ -107,7 +107,7 @@ CFLAGS+=	-mminimal-toc
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%BROWSER_PLUGINS_DIR%%|${BROWSER_PLUGINS_DIR}|' \
-		${WRKSRC}/Source/WebKit2/Shared/Plugins/unix/PluginSearchPath.cpp
+		${WRKSRC}/Source/WebKit/Shared/Plugins/unix/PluginSearchPath.cpp
 
 pre-configure:
 # .if !exists() evaluates too early before cairo has a chance to be installed
@@ -118,9 +118,9 @@ pre-configure:
 
 post-install:
 	@${LN} -sf ../libexec/webkit2gtk-4.0/jsc ${STAGEDIR}${PREFIX}/bin/jsc-4
-	@${LN} -sf ../libexec/webkit2gtk-4.0/MiniBrowser ${STAGEDIR}${PREFIX}/bin/MiniBrowser-4
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/*.so.*.*
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/webkit2gtk-4.0/injected-bundle/*.so
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/libexec/webkit2gtk-4.0/*
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/WebKitWebDriver
 
 .include <bsd.port.mk>
