@@ -110,7 +110,6 @@ include/fl/term/ZShape.h
 include/fl/variable/InputVariable.h
 include/fl/variable/OutputVariable.h
 include/fl/variable/Variable.h
-lib/libfuzzylite-static.a
 lib/libfuzzylite.so
-lib/libfuzzylite.so.6.0
+lib/libfuzzylite.so.%%SHLIB_VER%%
 libdata/pkgconfig/fuzzylite.pc

@@ -1,22 +1,24 @@
-# Created by: Piotr Kubaj <pkubaj@anongoth.pl>
 # $FreeBSD$
 
 PORTNAME=	fuzzylite
-PORTVERSION=	6.0
 DISTVERSIONPREFIX=	v
+DISTVERSION=	6.0
 CATEGORIES=	devel
 
 MAINTAINER=	pkubaj@anongoth.pl
 COMMENT=	Fuzzy logic control library in C++
 
 LICENSE=	GPLv3
-LICENSE_FILE=	${WRKSRC}/../LICENSE
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}/${PORTNAME}
-
+USES=		cmake:outsource compiler
 USE_GITHUB=	yes
-USES=		compiler cmake
 USE_LDCONFIG=	yes
+
+CMAKE_ARGS=	-DFL_BUILD_STATIC:BOOL=OFF \
+		-DFL_BUILD_TESTS:BOOL=OFF
+CMAKE_SOURCE_PATH=	${WRKSRC}/${PORTNAME}
+PLIST_SUB=	SHLIB_VER=${DISTVERSION}
 
 .include <bsd.port.pre.mk>
 
