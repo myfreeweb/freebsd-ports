@@ -1,40 +1,35 @@
 # $FreeBSD$
 
-PORTNAME=		apitrace
-DISTVERSION=		7.1-455
+PORTNAME=	apitrace
+DISTVERSION=	7.1-455
 DISTVERSIONSUFFIX=	-g7c76b90
-CATEGORIES=		devel
+CATEGORIES=	devel
 
 MAINTAINER=	greg@unrelenting.technology
 COMMENT=	Tools for tracing OpenGL and other graphics APIs
 
 LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
-LIB_DEPENDS=	libunwind.so:devel/libunwind \
-		libpng16.so:graphics/png
+LIB_DEPENDS=	libpng16.so:graphics/png
 
 USES=		cmake:outsource compiler:c++11-lang pkgconfig python:2.7 shebangfix
-
 USE_GITHUB=	yes
 USE_XORG=	x11
 
-SHEBANG_REGEX=	./scripts/.*\.py
+SHEBANG_FILES=	scripts/*.py
 
-CMAKE_ARGS=	-DCMAKE_INSTALL_DOCDIR:STRING="${DOCSDIR}"
-
-OPTIONS_DEFINE=	QT5
+OPTIONS_DEFINE=	QT5 DOCS
 OPTIONS_DEFAULT=	QT5
-OPTIONS_SUB=		yes
-
-QT5_DESC=		Qt 5 frontend
+OPTIONS_SUB=	yes
 
 QT5_CMAKE_BOOL=	ENABLE_GUI
-QT5_USE=		qt5=qmake_build,buildtools_build,core,gui,widgets,network
-QT5_USES=		desktop-file-utils
-QT5_VARS=		installs_icons=yes
+QT5_USE=	qt5=core,gui,network,widgets,buildtools_build,qmake_build
+
+post-install:
+	${RM} ${STAGEDIR}${DOCSDIR}/LICENSE.txt
 
 post-install-QT5-on:
-	${INSTALL_DATA} ${FILESDIR}/qapitrace.desktop \
-		${STAGEDIR}${PREFIX}/share/applications
+	${INSTALL_DATA} ${FILESDIR}/qapitrace.desktop ${STAGEDIR}${PREFIX}/share/applications
 
 .include <bsd.port.mk>

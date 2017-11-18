@@ -138,6 +138,7 @@
     SUBDIR += kdepim-apps-libs
     SUBDIR += kdepim-runtime
     SUBDIR += kdepimlibs4
+    SUBDIR += kdeplasma-addons
     SUBDIR += keditbookmarks
     SUBDIR += kfind
     SUBDIR += kjots
@@ -150,6 +151,7 @@
     SUBDIR += ksshaskpass
     SUBDIR += kube
     SUBDIR += launchy
+    SUBDIR += latte-dock
     SUBDIR += libkdepim
     SUBDIR += libopensync-plugin-vformat-devel
     SUBDIR += libstreamanalyzer
@@ -200,7 +202,7 @@
     SUBDIR += pal
     SUBDIR += parcellite
     SUBDIR += phpcollab
-    SUBDIR += phpicalendarr
+    SUBDIR += phpicalendar
     SUBDIR += pim-data-exporter
     SUBDIR += pim-sieve-editor
     SUBDIR += pinot

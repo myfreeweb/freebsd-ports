@@ -20,7 +20,6 @@ lib/apitrace/wrappers/glxtrace.so
 %%PORTDOCS%%%%DOCSDIR%%/BUGS.markdown
 %%PORTDOCS%%%%DOCSDIR%%/LICENSE-brotli.txt
 %%PORTDOCS%%%%DOCSDIR%%/LICENSE-snappy.txt
-%%PORTDOCS%%%%DOCSDIR%%/LICENSE.txt
 %%PORTDOCS%%%%DOCSDIR%%/NEWS.markdown
 %%PORTDOCS%%%%DOCSDIR%%/README.markdown
 %%PORTDOCS%%%%DOCSDIR%%/USAGE.markdown

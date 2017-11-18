@@ -1,4 +1,4 @@
---- wrappers/trace.py.orig	2017-10-05 14:14:11 UTC
+--- wrappers/trace.py.orig	2017-10-13 17:18:18 UTC
 +++ wrappers/trace.py
 @@ -521,7 +521,7 @@ class Tracer:
          print '#    define alloca _alloca'
