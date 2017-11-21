@@ -44,7 +44,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `games/openmw-devel`: current git version uses the current `mygui` version 
 - `games/vkquake`: [a Vulkan-powered Quake engine](https://github.com/Novum/vkQuake) [222182](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222182)
 - `emulators/dolphin-emu`: [Dolphin Emulator](https://dolphin-emu.org) (GameCube/Wii) updated to a recent git revision (Vulkan just works, dynamically loaded)
-- `devel/fuzzylite`: used for AI in VCMI [222052](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222052)
 - `games/vcmi`: open source reimplementation of Heroes of Might and Magic III! [221885](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221885)
 - `games/OpenClaw`: reimplementation of Captain Claw (1997) platformer [223139](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223139)
 
@@ -53,7 +52,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `lang/crystal`: The Crystal programming language!
 - `www/firefox`: [58 beta](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223425) with ThinLTO/LLD for extra optimization. See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
 - `graphics/instant-meshes`: Interactive field-aligned mesh generator [222711](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222711)
-- `graphics/goxel`: 3D voxel editor [222729](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222729)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 - `lang/rust-nightly`: revived port by copy-pasting from `lang/rust` and updating version numbers. Here's the resulting toolchain tarballs: [rustc](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rustc-nightly-x86_64-unknown-freebsd.tar.xz) [std](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-std-nightly-x86_64-unknown-freebsd.tar.xz) [cargo](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/cargo-nightly-x86_64-unknown-freebsd.tar.xz) [rls](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rls-nightly-x86_64-unknown-freebsd.tar.xz) [analysis](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-analysis-nightly-x86_64-unknown-freebsd.tar.xz) [docs](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-docs-nightly-x86_64-unknown-freebsd.tar.xz). Use [libc from here](https://github.com/myfreeweb/libc) and [mio from there](https://github.com/FreeBSDRust/mio) via `[patch.crates-io]` sections in `Cargo.toml` files.
 - `mail/geary`: update to 0.12.0 [210718](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=210718)
