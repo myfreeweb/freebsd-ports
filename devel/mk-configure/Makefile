@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	mk-configure
-PORTVERSION=	0.29.1
+PORTVERSION=	0.29.2
 CATEGORIES=	devel
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}/${PORTNAME}-${PORTVERSION}
 
@@ -21,6 +21,9 @@ INSTALL_TARGET=	installdirs install install-doc
 PORTEXAMPLES=	*
 
 OPTIONS_DEFINE=	DOCS EXAMPLES
+
+MAKE_ENV+=	PROG.awk=/usr/bin/awk PROG.nm=/usr/bin/nm \
+		PROG.makedepend=/usr/bin/mkdep
 
 post-patch:
 	@${ECHO_CMD} "MKDEP ?= bmkdep" >> ${WRKSRC}/mk/sys.mk

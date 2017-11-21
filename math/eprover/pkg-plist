@@ -13,6 +13,7 @@ bin/eproof_ram
 bin/eprover
 man/man1/checkproof.1.gz
 man/man1/e_axfilter.1.gz
+man/man1/e_deduction_server.1.gz
 man/man1/e_ltb_runner.1.gz
 man/man1/eground.1.gz
 man/man1/ekb_create.1.gz

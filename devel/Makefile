@@ -843,6 +843,7 @@
     SUBDIR += goffice
     SUBDIR += goffice010
     SUBDIR += gogland-eap
+    SUBDIR += gogs
     SUBDIR += google-gdata
     SUBDIR += google-perftools
     SUBDIR += google-styleguide
@@ -4312,6 +4313,7 @@
     SUBDIR += py-cliapp
     SUBDIR += py-click
     SUBDIR += py-click-log
+    SUBDIR += py-click-plugins
     SUBDIR += py-click-threading
     SUBDIR += py-cliff
     SUBDIR += py-clint
