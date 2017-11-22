@@ -242,7 +242,6 @@
     SUBDIR += hostapd
     SUBDIR += howl
     SUBDIR += hping
-    SUBDIR += hping-devel
     SUBDIR += hs-aws
     SUBDIR += hs-connection
     SUBDIR += hs-gsasl

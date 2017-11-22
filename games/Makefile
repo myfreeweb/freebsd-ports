@@ -103,7 +103,6 @@
     SUBDIR += blokish
     SUBDIR += bloodfrontier
     SUBDIR += bluemoon
-    SUBDIR += bogged
     SUBDIR += bomber
     SUBDIR += bomberclone
     SUBDIR += bomberinstinct
@@ -432,7 +431,6 @@
     SUBDIR += icbm3d
     SUBDIR += icebreaker
     SUBDIR += iceicepenguin
-    SUBDIR += ifm
     SUBDIR += imaze
     SUBDIR += impossible_mission_puzzle
     SUBDIR += inform
@@ -979,7 +977,6 @@
     SUBDIR += timeseal
     SUBDIR += tinymux
     SUBDIR += tkmoo
-    SUBDIR += tksol
     SUBDIR += tomatoes
     SUBDIR += tome4
     SUBDIR += tomenet
@@ -1002,7 +999,6 @@
     SUBDIR += trophy
     SUBDIR += tsito
     SUBDIR += tt
-    SUBDIR += ttraffic
     SUBDIR += ttt
     SUBDIR += tty-solitaire
     SUBDIR += tux-aqfh
