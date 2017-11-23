@@ -1,4 +1,4 @@
---- tests/queue-test.c.orig	2016-10-22 16:23:10 UTC
+--- tests/queue-test.c.orig	2017-08-08 18:20:52 UTC
 +++ tests/queue-test.c
 @@ -23,6 +23,8 @@
   * SOFTWARE.

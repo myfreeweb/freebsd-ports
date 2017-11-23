@@ -1,4 +1,4 @@
---- tests/sanity-test.c.orig	2016-02-17 01:13:16 UTC
+--- tests/sanity-test.c.orig	2017-08-08 18:20:52 UTC
 +++ tests/sanity-test.c
 @@ -92,7 +92,8 @@ FAIL_TEST(sanity_malloc_direct)
  TEST(disable_leak_checks)

@@ -1,4 +1,4 @@
---- tests/client-test.c.orig	2015-07-06 19:38:51 UTC
+--- tests/client-test.c.orig	2017-08-08 18:20:52 UTC
 +++ tests/client-test.c
 @@ -34,6 +34,7 @@
  #include <sys/types.h>

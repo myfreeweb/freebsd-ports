@@ -1,4 +1,4 @@
---- tests/connection-test.c.orig	2017-02-07 22:59:06 UTC
+--- tests/connection-test.c.orig	2017-08-08 18:20:52 UTC
 +++ tests/connection-test.c
 @@ -37,6 +37,7 @@
  #include <sys/stat.h>
