@@ -29,7 +29,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `x11-wm/sway`: [sway, the i3-like Wayland compositor](https://github.com/SirCmpwn/sway)
 - `www/webkit2-gtk3`: updated to 2.18.3, Wayland support added [223733](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223733)
 - `devel/sdl20`: Wayland and udev options added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018)
-- `x11/libinput`: Update to 1.9.1 [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
+- `x11/libinput`: Update to 1.9.2, remove unnecessary/unused patches [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
 - `x11-servers/xorg-server`: added `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
 - `x11/xcape`: [Useful X11 keyboard utility](https://github.com/alols/xcape) [222602](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222602)
 - `graphics/mesa-libs`: Fix device name detection [223030](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223030)

@@ -19,21 +19,3 @@
  
  #include "input-event-codes.h"
  
-@@ -145,7 +156,7 @@ struct input_mask {
-  *
-  * If the request code is not an ABS_MT value, -EINVAL is returned.
-  */
--#define EVIOCGMTSLOTS(len)	_IOC(_IOC_READ, 'E', 0x0a, len)
-+#define EVIOCGMTSLOTS(len)	_IOC(IOC_INOUT, 'E', 0x0a, len)
- 
- #define EVIOCGKEY(len)		_IOC(_IOC_READ, 'E', 0x18, len)		/* get global key state */
- #define EVIOCGLED(len)		_IOC(_IOC_READ, 'E', 0x19, len)		/* get all LEDs */
-@@ -160,7 +171,7 @@ struct input_mask {
- #define EVIOCRMFF		_IOW('E', 0x81, int)			/* Erase a force effect */
- #define EVIOCGEFFECTS		_IOR('E', 0x84, int)			/* Report number of effects playable at the same time */
- 
--#define EVIOCGRAB		_IOW('E', 0x90, int)			/* Grab/Release device */
-+#define EVIOCGRAB		_IO('E', 0x90)				/* Grab/Release device */
- #define EVIOCREVOKE		_IOW('E', 0x91, int)			/* Revoke device access */
- 
- /**
