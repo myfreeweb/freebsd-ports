@@ -1151,6 +1151,7 @@
     SUBDIR += xpilot-ng-server
     SUBDIR += xpipeman
     SUBDIR += xpired
+    SUBDIR += xptools
     SUBDIR += xpuyopuyo
     SUBDIR += xpuzzletama
     SUBDIR += xpyraminx
