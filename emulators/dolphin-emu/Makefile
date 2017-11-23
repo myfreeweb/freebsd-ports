@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	dolphin-emu
-DISTVERSION=	5.0-5791
-DISTVERSIONSUFFIX=	-g7e7b5af
+DISTVERSION=	5.0-5931
+DISTVERSIONSUFFIX=	-gf2f50d4
 PORTREVISION=	1
 CATEGORIES=	emulators
 
@@ -92,6 +92,10 @@ CXXFLAGS+=	-D_GLIBCXX_USE_C99
 CXXFLAGS+=	-D_GLIBCXX_USE_C99_MATH_TR1
 # Turn on extra long double versions of math functions, needed for cmath
 CXXFLAGS+=	-D__ISO_C_VISIBLE=1999 -D_DECLARE_C99_LDBL_MATH
+.endif
+
+.if ${COMPILER_TYPE} == clang
+CXXFLAGS+=	-Wno-register
 .endif
 
 .include <bsd.port.post.mk>
