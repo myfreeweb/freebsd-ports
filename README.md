@@ -16,7 +16,7 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 
 ### Vulkan
 
-- `graphics/mesa-dri` and `graphics/mesa-libs`: updated to 17.3-rc1, Vulkan drivers enabled [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540) [223195](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223195)
+- `graphics/mesa-dri` and `graphics/mesa-libs`: updated to 17.3-rc, Vulkan drivers enabled [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540) [223195](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223195)
 - `graphics/vulkan-sdk`: [Vulkan SDK](https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers) (headers, ICD loader, validation layers) [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
 
 NOTE: ANV (Intel Vulkan) requires running the apps as root and might not work for complex applications.
@@ -28,13 +28,12 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `x11-toolkits/wlc`: updated to 0.0.10 (for sway)
 - `x11-wm/sway`: [sway, the i3-like Wayland compositor](https://github.com/SirCmpwn/sway)
 - `www/webkit2-gtk3`: updated to 2.18.3, Wayland support added [223733](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223733)
-- `devel/sdl20`: Wayland option added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018)
+- `devel/sdl20`: Wayland and udev options added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018)
 - `x11/libinput`: Update to 1.9.1 [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
 - `x11-servers/xorg-server`: added `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
 - `x11/xcape`: [Useful X11 keyboard utility](https://github.com/alols/xcape) [222602](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222602)
-- `multimedia/mpv`: Wayland option added [223029](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223029)
 - `graphics/mesa-libs`: Fix device name detection [223030](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223030)
-- `devel/libepoll-shim`: Update version [223530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223529)
+- `devel/libepoll-shim`: Update version [223530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223530)
 - `graphics/wayland`: Removed posix_fallocate usage to fix Wayland on ZFS
 - `x11-wm/weston`: reference Wayland compositor and some apps
 
@@ -45,7 +44,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `games/vkquake`: [a Vulkan-powered Quake engine](https://github.com/Novum/vkQuake) [222182](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222182)
 - `emulators/dolphin-emu`: [Dolphin Emulator](https://dolphin-emu.org) (GameCube/Wii) updated to a recent git revision (Vulkan just works, dynamically loaded)
 - `games/vcmi`: open source reimplementation of Heroes of Might and Magic III! [221885](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221885)
-- `games/OpenClaw`: reimplementation of Captain Claw (1997) platformer [223139](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223139)
 
 ### Misc
 
@@ -57,6 +55,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `mail/geary`: update to 0.12.0 [210718](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=210718)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
 - `audio/picard`: 1.4.2 [223354](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223354)
+- `devel/meson`: 0.43.0 [223736](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223736)
 
 ## Kernel patches
 
