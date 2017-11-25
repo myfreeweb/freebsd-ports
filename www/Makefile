@@ -540,6 +540,8 @@
     SUBDIR += newsbeuter
     SUBDIR += newsboat
     SUBDIR += nextcloud
+    SUBDIR += nextcloud-calendar
+    SUBDIR += nextcloud-contacts
     SUBDIR += nghttp2
     SUBDIR += nginx
     SUBDIR += nginx-devel
@@ -2037,6 +2039,7 @@
     SUBDIR += rubygem-hurley
     SUBDIR += rubygem-innate
     SUBDIR += rubygem-jekyll
+    SUBDIR += rubygem-jekyll-sanity
     SUBDIR += rubygem-jekyll-watch
     SUBDIR += rubygem-journey
     SUBDIR += rubygem-jquery-atwho-rails

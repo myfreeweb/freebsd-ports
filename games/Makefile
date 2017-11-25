@@ -955,6 +955,7 @@
     SUBDIR += syobon
     SUBDIR += tads
     SUBDIR += taipan
+    SUBDIR += taisei
     SUBDIR += tali
     SUBDIR += tanglet
     SUBDIR += tanks-of-freedom

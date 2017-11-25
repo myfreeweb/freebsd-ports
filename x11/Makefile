@@ -376,6 +376,7 @@
     SUBDIR += xbrightness
     SUBDIR += xcalc
     SUBDIR += xcalib
+    SUBDIR += xcape
     SUBDIR += xcb
     SUBDIR += xcb-proto
     SUBDIR += xcb-util

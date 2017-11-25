@@ -45,6 +45,7 @@ USES=		tar:xz
 
 FIREFOX_ICON=		${MOZILLA}.png
 FIREFOX_ICON_SRC=	${PREFIX}/lib/${MOZILLA}/browser/chrome/icons/default/default48.png
+FIREFOX_DESKTOP=	${MOZSRC}/taskcluster/docker/${MOZILLA}-snap/${MOZILLA}.desktop
 MOZ_OPTIONS=	--enable-application=browser \
 		--enable-official-branding
 
@@ -52,14 +53,9 @@ OPTIONS_DEFAULT=	BUNDLED_CAIRO
 
 .include "${.CURDIR}/../../www/firefox/Makefile.options"
 
-WRKSRC:=	${WRKDIR}/${PORTNAME}-${DISTVERSION}
-
-post-extract:
-	@${SED} -e 's|@FIREFOX_ICON@|${FIREFOX_ICON}|' -e 's|@MOZILLA@|${MOZILLA}|' \
-		-e 's|@MOZILLA_NAME@|${MOZILLA_NAME}|' \
-		<${FILESDIR}/firefox.desktop.in >${WRKDIR}/${MOZILLA}.desktop
-
 post-patch:
+	@${REINPLACE_CMD} -e 's/%u/%U/' -e '/X-MultipleArgs/d' \
+		${FIREFOX_DESKTOP}
 	@${REINPLACE_CMD} -e 's|%%LOCALBASE%%|${LOCALBASE}|g' \
 		${WRKSRC}/browser/app/nsBrowserApp.cpp
 
@@ -68,8 +64,8 @@ pre-configure:
 	(cd ${WRKSRC}/js/src/ && ${LOCALBASE}/bin/autoconf-2.13)
 
 post-install:
+	${INSTALL_DATA} ${FIREFOX_DESKTOP} ${STAGEDIR}${PREFIX}/share/applications/
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/pixmaps
-	${INSTALL_DATA} ${WRKDIR}/${MOZILLA}.desktop ${STAGEDIR}${PREFIX}/share/applications/
 	${LN} -sf ${FIREFOX_ICON_SRC} ${STAGEDIR}${PREFIX}/share/pixmaps/${FIREFOX_ICON}
 
 .include <bsd.port.mk>

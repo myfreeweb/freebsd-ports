@@ -202,6 +202,7 @@
     SUBDIR += bison
     SUBDIR += bisoncpp
     SUBDIR += blame
+    SUBDIR += blitz
     SUBDIR += bmake
     SUBDIR += bmkdep
     SUBDIR += bnf
@@ -5166,6 +5167,7 @@
     SUBDIR += py_static_check
     SUBDIR += pybind11
     SUBDIR += pybugz
+    SUBDIR += pycanberra
     SUBDIR += pycharm-ce
     SUBDIR += pychecker
     SUBDIR += pycount
