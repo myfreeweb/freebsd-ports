@@ -1,5 +1,6 @@
 bin/winpr-hash
 bin/winpr-makecert
+%%WAYLAND%%bin/wlfreerdp
 %%X11%%bin/xfreerdp
 include/freerdp2/freerdp/addin.h
 include/freerdp2/freerdp/altsec.h
@@ -196,6 +197,9 @@ lib/libfreerdp-client2.so.2.0.0
 lib/libfreerdp2.so
 lib/libfreerdp2.so.2
 lib/libfreerdp2.so.2.0.0
+%%WAYLAND%%lib/libuwac0.so
+%%WAYLAND%%lib/libuwac0.so.0
+%%WAYLAND%%lib/libuwac0.so.0.0.1
 lib/libwinpr-tools2.so
 lib/libwinpr-tools2.so.2
 lib/libwinpr-tools2.so.2.0.0
@@ -220,5 +224,6 @@ share/cmake/Modules/WinPR2/WinPRTargets-%%CMAKE_BUILD_TYPE%%.cmake
 share/cmake/Modules/WinPR2/WinPRTargets.cmake
 share/man/man1/winpr-hash.1
 share/man/man1/winpr-makecert.1
+%%WAYLAND%%share/man/man1/wlfreerdp.1
 %%X11%%share/man/man1/xfreerdp.1
 share/man/man7/wlog.7

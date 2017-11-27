@@ -20,13 +20,13 @@ USES=		alias cmake:outsource compiler:c++11-lib cpe gettext localbase pathfix pk
 USE_LDCONFIG=	yes
 CPE_VENDOR=	freerdp_project
 
-CMAKE_ARGS+=	-DWITH_LIBSYSTEMD=OFF -DWITH_WAYLAND=OFF -DWITH_GSTREAMER_0_10=OFF ${CMAKE_ARGS_${ARCH}}
+CMAKE_ARGS+=	-DWITH_LIBSYSTEMD=OFF -DWITH_GSTREAMER_0_10=OFF ${CMAKE_ARGS_${ARCH}}
 
 CMAKE_ARGS_aarch64=	-DWITH_NEON=ON
 CFLAGS_aarch64=		-D__ARM_NEON__=__ARM_NEON # clang
 
-OPTIONS_DEFINE=		ALSA CUPS FFMPEG GSTREAMER PULSEAUDIO X11
-OPTIONS_DEFAULT=	CUPS GSTREAMER X11
+OPTIONS_DEFINE=		ALSA CUPS FFMPEG GSTREAMER PULSEAUDIO X11 WAYLAND
+OPTIONS_DEFAULT=	CUPS GSTREAMER X11 WAYLAND
 OPTIONS_SUB=		yes
 
 OPTIONS_DEFINE_armv6=	NEON
@@ -64,6 +64,13 @@ X11_BUILD_DEPENDS=	xmlto:textproc/xmlto
 X11_CMAKE_BOOL=		WITH_X11
 X11_CMAKE_OFF=		-DWITH_XKBFILE=OFF
 X11_USE=		xorg=x11,xkbfile,xcursor,xextproto,xv,xinerama,xext,xrandr,xi,xfixes,xrender
+
+WAYLAND_DESC=		Build FreeRDP Wayland client
+WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
+			libwayland-cursor.so:graphics/wayland \
+			libxkbcommon.so:x11/libxkbcommon \
+			libepoll-shim.so:devel/libepoll-shim
+WAYLAND_CMAKE_BOOL=	WITH_WAYLAND
 
 .include <bsd.port.pre.mk>
 

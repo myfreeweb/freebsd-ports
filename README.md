@@ -35,6 +35,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `devel/libepoll-shim`: Update version [223530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223530)
 - `graphics/wayland`: updated to 1.14.0, removed kqueue patch in favor of using libepoll-shim only, removed posix_fallocate usage to fix Wayland on ZFS
 - `x11-wm/weston`: reference Wayland compositor and some apps
+- `net/freerdp`: wlfreerdp Wayland client enabled [223913](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223913)
 
 ### Games
 
