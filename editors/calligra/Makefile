@@ -5,8 +5,8 @@
 #  - add libOkular5Core.so:graphics/okular to LIB_DEPENDS
 #
 PORTNAME=	calligra
-DISTVERSION=	3.0.1
-PORTREVISION=	5
+PORTVERSION=	3.0.1
+PORTREVISION=	6
 CATEGORIES=	editors kde
 MASTER_SITES=	KDE/stable/${PORTNAME}/${PORTVERSION}
 DIST_SUBDIR=	KDE/${PORTNAME}
@@ -14,8 +14,7 @@ DIST_SUBDIR=	KDE/${PORTNAME}
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE office suite
 
-LIB_DEPENDS=	libIlmImf.so:graphics/OpenEXR \
-		libImath-2_2.so:graphics/ilmbase \
+LIB_DEPENDS=	libImath-2_2.so:graphics/ilmbase \
 		libKPropertyCore3.so:x11-toolkits/kproperty \
 		libKReport3.so:textproc/kreport \
 		libOkular5Core.so:graphics/okular \
@@ -58,6 +57,11 @@ USE_QT5=	buildtools_build core dbus gui network opengl \
 		quick script sql svg testlib webkit widgets x11extras xml
 USE_XORG=	ice sm x11 xext
 USE_LDCONFIG=	yes
+
+OPTIONS_DEFINE=	OPENEXR
+OPTIONS_DEFAULT=	OPENEXR
+
+OPENEXR_LIB_DEPENDS=	libIlmImf.so:graphics/OpenEXR
 
 CMAKE_ARGS=	-DCMAKE_INCLUDE_PATH:STRING="${QT_INCDIR} ${LOCALBASE}/include" \
 		-DPRODUCTSET:STRING="DESKTOP"

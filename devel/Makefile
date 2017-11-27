@@ -4263,6 +4263,7 @@
     SUBDIR += py-aspyct
     SUBDIR += py-astor
     SUBDIR += py-astroid
+    SUBDIR += py-asttokens
     SUBDIR += py-async_timeout
     SUBDIR += py-asyncio
     SUBDIR += py-atomiclong
@@ -5089,6 +5090,7 @@
     SUBDIR += py27-setuptools
     SUBDIR += py3-Jinja2
     SUBDIR += py3-apipkg
+    SUBDIR += py3-asttokens
     SUBDIR += py3-babel
     SUBDIR += py3-cffi
     SUBDIR += py3-click
