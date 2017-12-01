@@ -11,6 +11,7 @@ COMMENT=	Qt5 wrapper for Wayland
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
 		libwayland-client.so:graphics/wayland \
+		libwayland-egl.so:graphics/mesa-libs \
 		libxkbcommon.so:x11/libxkbcommon
 
 USES=		pkgconfig qmake:outsource
@@ -20,6 +21,7 @@ USE_QT5=	core dbus gui qml quick \
 		buildtools_build qmake_build
 USE_XORG=       x11 xcomposite
 QT_DIST=	${PORTNAME}
+QT_CONFIG+=	egl
 
 USE_LDCONFIG=	${PREFIX}/${QT_LIBDIR_REL}
 

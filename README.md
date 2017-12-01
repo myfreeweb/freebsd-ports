@@ -36,6 +36,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `graphics/wayland`: updated to 1.14.0, removed kqueue patch in favor of using libepoll-shim only, removed posix_fallocate usage to fix Wayland on ZFS
 - `x11-wm/weston`: reference Wayland compositor and some apps
 - `net/freerdp`: wlfreerdp Wayland client enabled [223913](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223913)
+- `x11-toolkits/qt5-gui` and `graphics/qt5-wayland`: Wayland-EGL enabled (and some extra stuff like evdev and eglfs)
 
 ### Games
 
