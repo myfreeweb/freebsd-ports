@@ -66,6 +66,7 @@
     SUBDIR += cantata
     SUBDIR += caps-lv2
     SUBDIR += caps-plugins
+    SUBDIR += carla
     SUBDIR += cava
     SUBDIR += ccaudio2
     SUBDIR += cd-console
@@ -688,8 +689,6 @@
     SUBDIR += py-tagpy
     SUBDIR += py-vorbis
     SUBDIR += py-xmms2
-    SUBDIR += py3-mutagen
-    SUBDIR += py3-pylast
     SUBDIR += pytone
     SUBDIR += qjackctl
     SUBDIR += qmidiarp
@@ -735,7 +734,6 @@
     SUBDIR += sdl_sound
     SUBDIR += sfront
     SUBDIR += shairplay
-    SUBDIR += shairport
     SUBDIR += shairport-sync
     SUBDIR += sherlock-lv2
     SUBDIR += shntool

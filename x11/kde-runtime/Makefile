@@ -11,7 +11,12 @@ LIB_DEPENDS=	libexiv2.so:graphics/exiv2 \
 		libwebp.so:graphics/webp \
 		libslp.so:net/openslp \
 		libssh.so:security/libssh \
-		libqzeitgeist.so:sysutils/qzeitgeist
+		libqzeitgeist.so:sysutils/qzeitgeist \
+		libImath-2_2.so:graphics/ilmbase \
+		libassuan.so:security/libassuan \
+		libgcrypt.so:security/libgcrypt \
+		libgpg-error.so:security/libgpg-error \
+		libgpgme.so:security/gpgme
 # Explicitly depend on libssh to avoid interference with ssh.4 from
 # compat7x.
 BUILD_DEPENDS=	${LOCALBASE}/lib/libssh.so:security/libssh

@@ -24,7 +24,7 @@ RUN_DEPENDS=	gedit>=0:editors/gedit
 PORTSCOUT=	limitw:1,even
 
 USES=		gettext gmake gnome libtool localbase pathfix pkgconfig \
-		python:3.3+ tar:xz
+		python:3.4+ tar:xz
 USE_GNOME=	cairo gdkpixbuf2 gtk30 gtksourceview3 intlhack introspection
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
@@ -34,10 +34,10 @@ GLIB_SCHEMAS=	org.gnome.gedit.plugins.drawspaces.gschema.xml \
 		org.gnome.gedit.plugins.wordcompletion.gschema.xml
 
 USES+=		python
-BUILD_DEPENDS+=	py3?-dbus>=0:devel/py3-dbus
+BUILD_DEPENDS+=	py3?-dbus>=0:devel/py-dbus@${PY_FLAVOR}
 LIB_DEPENDS+=	libgucharmap_2_90.so:deskutils/gucharmap
-RUN_DEPENDS+=	py3?-dbus>=0:devel/py3-dbus \
-		${PYTHON_PKGNAMEPREFIX}libpeas>=0:devel/py3-libpeas
+RUN_DEPENDS+=	py3?-dbus>=0:devel/py-dbus@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}libpeas>=0:devel/py-libpeas@${PY_FLAVOR}
 USE_GNOME+=	vte3
 CONFIGURE_ARGS+=--enable-python
 GLIB_SCHEMAS+=	org.gnome.gedit.plugins.terminal.gschema.xml

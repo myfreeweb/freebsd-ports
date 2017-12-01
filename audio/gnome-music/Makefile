@@ -16,7 +16,7 @@ LIB_DEPENDS=	libgrilo-0.3.so:net/grilo \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome libtool pathfix pkgconfig python:3 tar:xz
+USES=		gettext gmake gnome libtool pathfix pkgconfig python:3.4+ tar:xz
 USE_LDCONFIG=	yes
 USE_GNOME=	cairo gnomedesktop3 gtk30 intltool introspection:build
 GNU_CONFIGURE=	yes

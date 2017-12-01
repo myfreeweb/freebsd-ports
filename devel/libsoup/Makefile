@@ -17,13 +17,13 @@ BUILD_DEPENDS=	glib-networking>=2.29.18:net/glib-networking
 LIB_DEPENDS=	libgcrypt.so:security/libgcrypt
 RUN_DEPENDS=	glib-networking>=2.29.18:net/glib-networking
 
-USES=		sqlite tar:xz
+USES=		tar:xz
 PORTSCOUT=	limitw:1,even
 
 .if !defined(REFERENCE_PORT)
 
-USES+=		gettext gmake gnome libtool localbase pathfix \
-		pkgconfig python:3.3+:build ssl
+USES+=		gettext gmake gnome libtool pathfix pkgconfig \
+		python:build sqlite:3 tar:xz
 USE_GNOME=	glib20 intlhack introspection:build \
 		libxml2 referencehack
 USE_LDCONFIG=	yes

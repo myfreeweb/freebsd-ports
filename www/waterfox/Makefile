@@ -1,11 +1,11 @@
 # $FreeBSD$
 
 PORTNAME=	waterfox
-DISTVERSION=	56.0.s20171122
+DISTVERSION=	56.0.s20171130
 CATEGORIES=	www ipv6
 
 MAINTAINER=	jbeich@FreeBSD.org
-COMMENT=	Distilled fork of Firefox ${MOZILLA_VER:R:R}
+COMMENT=	Distilled fork of Firefox
 
 DEPRECATED=	Temporary experiment
 EXPIRATION_DATE=2017-12-12
@@ -32,7 +32,7 @@ LIB_DEPENDS=	libv4l2.so:multimedia/libv4l
 USE_GITHUB=	yes
 GH_ACCOUNT=	MrAlex94
 GH_PROJECT=	Waterfox
-GH_TAGNAME=	224e688d8ddf
+GH_TAGNAME=	8c17fb8d3c7f
 
 USE_GECKO=	gecko
 MOZ_PKGCONFIG_FILES=	# empty

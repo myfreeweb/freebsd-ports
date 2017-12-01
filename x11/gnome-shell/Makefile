@@ -10,7 +10,7 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Next generation GNOME desktop shell
 
-LICENSE=	GPLv2
+LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	docbook-xsl>=0:textproc/docbook-xsl \
@@ -33,12 +33,16 @@ LIB_DEPENDS=	libstartup-notification-1.so:x11/startup-notification \
 		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
 		libp11-kit.so:security/p11-kit \
 		libgjs.so:lang/gjs
-RUN_DEPENDS=	gnome-control-center:sysutils/gnome-control-center
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}dbus>=0:devel/py-dbus@${PY_FLAVOR} \
+		nss>=0:security/nss \
+		gnome-control-center:sysutils/gnome-control-center \
+		ca_root_nss>=0:security/ca_root_nss \
+		gkbd-keyboard-display:x11/libgnomekbd
 
 PORTSCOUT=	limitw:1,even
 
 USES=		compiler:c11 cpe gettext gnome libtool localbase meson \
-		pathfix pkgconfig python:3.3+ tar:xz webplugin:native
+		pathfix pkgconfig python:3.4+ tar:xz webplugin:native
 USE_GNOME=	cairo evolutiondataserver3 gdkpixbuf2 introspection \
 		libxslt:build libxml2
 USE_XORG=	x11 xcomposite xdamage xext xfixes xi xrandr xtst

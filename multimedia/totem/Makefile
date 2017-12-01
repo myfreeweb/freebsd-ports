@@ -30,7 +30,7 @@ LIB_DEPENDS=	libgdata.so:devel/libgdata \
 		libgrilo-0.3.so:net/grilo
 RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes \
 		${LOCALBASE}/libdata/pkgconfig/gnome-icon-theme.pc:misc/gnome-icon-theme \
-		${PYTHON_PKGNAMEPREFIX}libpeas>=0:devel/py-libpeas \
+		${PYTHON_PKGNAMEPREFIX}libpeas>=0:devel/py-libpeas@${PY_FLAVOR} \
 		gnome-settings-daemon>=2.91.0:sysutils/gnome-settings-daemon \
 		gnome-icon-theme-symbolic>=2.91.0:x11-themes/gnome-icon-theme-symbolic \
 		grilo-plugins>=0:net/grilo-plugins

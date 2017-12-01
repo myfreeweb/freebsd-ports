@@ -56,6 +56,7 @@
     SUBDIR += countrycodes
     SUBDIR += cpuid
     SUBDIR += crosspad
+    SUBDIR += crosti
     SUBDIR += cs
     SUBDIR += cstream
     SUBDIR += dahdi
@@ -380,6 +381,7 @@
     SUBDIR += ptsort
     SUBDIR += py-YABT
     SUBDIR += py-cinder
+    SUBDIR += py-colorbrewer
     SUBDIR += py-crudini
     SUBDIR += py-fuzzy
     SUBDIR += py-glance
@@ -400,8 +402,6 @@
     SUBDIR += py-spdx-lookup
     SUBDIR += py-tqdm
     SUBDIR += py-yolk
-    SUBDIR += py3-pexpect
-    SUBDIR += py3-tqdm
     SUBDIR += pylize
     SUBDIR += qbrew
     SUBDIR += qlas

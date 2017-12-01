@@ -558,7 +558,6 @@
     SUBDIR += linux-quake3-demo
     SUBDIR += linux-quake4
     SUBDIR += linux-quake4-demo
-    SUBDIR += linux-rtcw
     SUBDIR += linux-ssamtfe
     SUBDIR += linux-ssamtse
     SUBDIR += linux-unigine-heaven
@@ -575,6 +574,7 @@
     SUBDIR += lmarbles
     SUBDIR += lmpc
     SUBDIR += lolcat
+    SUBDIR += lordsawar
     SUBDIR += lpairs
     SUBDIR += lskat
     SUBDIR += ltris
@@ -921,6 +921,7 @@
     SUBDIR += solarwolf
     SUBDIR += sopwith
     SUBDIR += spacejunk
+    SUBDIR += spacezero
     SUBDIR += speak
     SUBDIR += species
     SUBDIR += spellathon

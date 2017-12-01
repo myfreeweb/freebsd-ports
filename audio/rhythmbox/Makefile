@@ -46,7 +46,7 @@ INSTALL_TARGET=	install-strip
 GLIB_SCHEMAS=	org.gnome.rhythmbox.gschema.xml
 
 OPTIONS_SUB=	yes
-OPTIONS_DEFINE=	BRASERO DAAP IPOD GRILO NOTIFY PYTHON LIRC MTP
+OPTIONS_DEFINE=	BRASERO DAAP GRILO IPOD NOTIFY PYTHON LIRC MTP
 OPTIONS_DEFAULT=BRASERO NOTIFY PYTHON
 BRASERO_DESC=	Brasero disc burning support
 BRASERO_CONFIGURE_WITH=brasero
@@ -61,9 +61,8 @@ IPOD_LIB_DEPENDS=	libgpod.so:audio/libgpod \
 			libimobiledevice.so:comms/libimobiledevice
 GRILO_DESC=		Media discovery with Grilo
 GRILO_CONFIGURE_ENABLE=	grilo
-GRILO_BUILD_DEPENDS=	grilo>=0.3.1:net/grilo
-GRILO_LIB_DEPENDS=	libgrilo-0.3.so:net/grilo
-GRILO_RUN_DEPENDS=	grilo-plugins>=0.3.2:net/grilo-plugins
+GRILO_BUILD_DEPENDS=	grilo-plugins2>=0:net/grilo-plugins2
+GRILO_RUN_DEPENDS=	grilo-plugins2>=0:net/grilo-plugins2
 LIRC_CONFIGURE_ENABLE=	lirc
 LIRC_LIB_DEPENDS=	liblirc_client.so:comms/lirc
 NOTIFY_CONFIGURE_ENABLE=	libnotify
@@ -73,7 +72,13 @@ MTP_LIB_DEPENDS=	libmtp.so:multimedia/libmtp \
 			libhal.so:sysutils/hal
 PYTHON_CONFIGURE_ENABLE=	python
 PYTHON_USES=		python:3.3+
-PYTHON_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}libpeas>=0:devel/py3-libpeas
+PYTHON_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}libpeas>=0:devel/py-libpeas@${PY_FLAVOR}
+# context plugin
+# webkit is for the context plugin, which is broken because
+# it needs textproc/py-mako@${PY_FLAVOR}
+#WEBKIT_DESC=	HTML view support
+#WEBKIT_CONFIGURE_WITH=	webkit
+#WEBKIT_LIB_DEPENDS=	libwebkitgtk-3.0.so:www/webkit-gtk3
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|{MOZILLA_PLUGINDIR|{MOZILLA_PLUGINDIR}|g' \

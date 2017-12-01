@@ -37,12 +37,13 @@ PORTDOCS=	*
 
 CONFLICTS_BUILD=	gnome-builder-3.16.*
 
-USES=		compiler:c++11-lang cpe desktop-file-utils gmake libtool localbase pathfix pkgconfig tar:xz
+USES=		compiler:c++11-lang cpe desktop-file-utils gmake libtool localbase pathfix python:3.4+ pkgconfig tar:xz
 USE_GNOME=	cairo gtk30 gtksourceview3 vte3 py3gobject3 libxml2
 USE_GNOME+=	introspection
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--disable-flatpak-plugin \
-		--disable-jhbuild-plugin
+CONFIGURE_ARGS+=--disable-flatpak-plugin \
+		--disable-jhbuild-plugin \
+		ac_cv_path_PYTHON3_CONFIG=${PYTHON_CMD}-config
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
 INSTALL_TARGET=	install-strip
