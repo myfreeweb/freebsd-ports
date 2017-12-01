@@ -1,6 +1,7 @@
 /distfiles
 /packages
 /*/*/work
+/*/*/work-*
 /INDEX-[0-9]*
 *~
 *.rej
