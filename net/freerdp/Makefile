@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	freerdp
-DISTVERSION=	2.0.0-rc0
+DISTVERSION=	2.0.0-rc1
 PORTREVISION=	2
 CATEGORIES=	net comms ipv6
 

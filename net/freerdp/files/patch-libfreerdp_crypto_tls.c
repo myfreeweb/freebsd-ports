@@ -1,4 +1,4 @@
---- libfreerdp/crypto/tls.c.orig	2017-07-24 08:46:54 UTC
+--- libfreerdp/crypto/tls.c.orig	2017-11-28 14:26:30 UTC
 +++ libfreerdp/crypto/tls.c
 @@ -853,13 +853,13 @@ int tls_connect(rdpTls* tls, BIO* underlying)
  	if (!tls_prepare(tls, underlying, SSLv23_client_method(), options, TRUE))
