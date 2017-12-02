@@ -535,6 +535,7 @@
     SUBDIR += libretro-cores
     SUBDIR += libshhcards
     SUBDIR += lightsoff
+    SUBDIR += lightyears
     SUBDIR += lincity
     SUBDIR += lincity-ng
     SUBDIR += linux-darwinia-demo
