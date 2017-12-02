@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	libinput
-PORTVERSION=	1.9.2
+PORTVERSION=	1.9.3
 CATEGORIES=	x11
 MASTER_SITES=	http://freedesktop.org/software/${PORTNAME}/
 
@@ -11,7 +11,7 @@ COMMENT=	Generic input library
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BUILD_DEPENDS=	v4l_compat>=0:multimedia/v4l_compat
+BUILD_DEPENDS=	${LOCALBASE}/include/linux/input.h:devel/libevdev-headers
 LIB_DEPENDS=	libevdev.so:devel/libevdev \
 		libepoll-shim.so:devel/libepoll-shim \
 		libwacom.so:x11/libwacom \
