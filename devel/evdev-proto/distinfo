@@ -1,0 +1,7 @@
+TIMESTAMP = 1507751436
+SHA256 (input.h) = 92e2cfa9199750420e0dfa6900553363df164884807f3935bcb7f024b0a386dd
+SIZE (input.h) = 15439
+SHA256 (input-event-codes.h) = 6e5daff2de70b83a8097f5d38cc669b77b683dfbd816422fb274c1c98b9216e1
+SIZE (input-event-codes.h) = 24158
+SHA256 (uinput.h) = 282e1500d3c28ca5164b92d6a4ec6ef45ef09277cec751dba74319f5d0e49ae3
+SIZE (uinput.h) = 9212
