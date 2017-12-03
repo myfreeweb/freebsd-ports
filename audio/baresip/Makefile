@@ -37,7 +37,6 @@ BV32_DESC=	BroadVoice32 Wideband Audio codec
 CONTACT_DESC=	Contacts module
 CONS_DESC=	Console input driver
 DTLS_SRTP_DESC=	DTLS Secure RTP module [broken]
-EVDEV_DESC=	Input event device interface module
 G711_DESC=	G.711 audio codec
 G722_DESC=	G.722 audio codec
 G722_1_DESC=	G.722.1 audio codec

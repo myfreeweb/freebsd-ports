@@ -10,7 +10,6 @@ COMMENT=	X.Org libinput input driver
 LICENSE=	MIT # various styles
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BUILD_DEPENDS=	${LOCALBASE}/include/linux/input.h:devel/libevdev-headers
 LIB_DEPENDS=	libinput.so:x11/libinput
 
 XORG_CAT=	driver

@@ -10,7 +10,7 @@ COMMENT=	X.Org Wacom tablet driver
 
 LICENSE=	GPLv2+
 
-BUILD_DEPENDS=	${LOCALBASE}/include/linux/input.h:devel/libevdev-headers
+BUILD_DEPENDS=	v4l_compat>=1.0.20110603:multimedia/v4l_compat
 RUN_DEPENDS=	webcamd>=3.1.0.1:multimedia/webcamd
 
 USES=		pathfix
