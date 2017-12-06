@@ -107,6 +107,7 @@
     SUBDIR += antlr4
     SUBDIR += apache-ant
     SUBDIR += apache-rat
+    SUBDIR += aphpbreakdown
     SUBDIR += aphpunit
     SUBDIR += api-sanity-autotest
     SUBDIR += apiextractor
@@ -1296,7 +1297,6 @@
     SUBDIR += kimwitu
     SUBDIR += kio-extras
     SUBDIR += kore
-    SUBDIR += kore-notls
     SUBDIR += ksql
     SUBDIR += kyra
     SUBDIR += kyua
@@ -1559,6 +1559,7 @@
     SUBDIR += libtool
     SUBDIR += libtpl
     SUBDIR += libtrue
+    SUBDIR += libtsm
     SUBDIR += libtuntap
     SUBDIR += libublio
     SUBDIR += libudev-devd
@@ -4270,6 +4271,7 @@
     SUBDIR += py-avro
     SUBDIR += py-babel
     SUBDIR += py-babelfish
+    SUBDIR += py-backports
     SUBDIR += py-backports.csv
     SUBDIR += py-backports.functools_lru_cache
     SUBDIR += py-backports.shutil_get_terminal_size
@@ -5285,6 +5287,7 @@
     SUBDIR += rubygem-backports
     SUBDIR += rubygem-bacon
     SUBDIR += rubygem-baf
+    SUBDIR += rubygem-batch-loader
     SUBDIR += rubygem-benelux
     SUBDIR += rubygem-bin_utils
     SUBDIR += rubygem-bindata

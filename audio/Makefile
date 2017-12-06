@@ -182,8 +182,8 @@
     SUBDIR += fluidsynth
     SUBDIR += fluidsynth-dssi
     SUBDIR += fmit
-    SUBDIR += foo-yc20
     SUBDIR += fomp-lv2
+    SUBDIR += foo-yc20
     SUBDIR += forked-daapd
     SUBDIR += fpc-a52
     SUBDIR += fpc-mad
@@ -851,6 +851,7 @@
     SUBDIR += wildmidi
     SUBDIR += wmalbum
     SUBDIR += wmix
+    SUBDIR += wmmp
     SUBDIR += wmrecord
     SUBDIR += wmsmixer
     SUBDIR += workman

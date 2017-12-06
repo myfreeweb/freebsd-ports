@@ -845,6 +845,7 @@
     SUBDIR += py-openexr
     SUBDIR += py-openimageio
     SUBDIR += py-paint
+    SUBDIR += py-photocollage
     SUBDIR += py-pillow
     SUBDIR += py-pivy
     SUBDIR += py-plotly
