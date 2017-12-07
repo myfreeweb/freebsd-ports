@@ -22,7 +22,7 @@ index 029ff8504795..2c3a40caa1ba 100644
 --- config/external/moz.build
 +++ config/external/moz.build
 @@ -23,12 +23,21 @@ external_dirs += ['modules/woff2']
-
+ 
  external_dirs += ['modules/xz-embedded']
  
 -if CONFIG['MOZ_VORBIS']:
@@ -65,7 +65,7 @@ index 09d3db5ca8c0..c6533b84c470 100644
 @@ -1325,6 +1325,28 @@ if CONFIG['MOZ_SYSTEM_HARFBUZZ']:
          'harfbuzz/hb.h',
      ]
-
+ 
 +if CONFIG['MOZ_SYSTEM_OGG']:
 +    system_headers += [
 +        'ogg/ogg.h',
@@ -182,7 +182,7 @@ index 86b051c58d33..fb6186dce78b 100644
 +
  if CONFIG['MOZ_ANDROID_HLS_SUPPORT']:
      DEFINES['MOZ_ANDROID_HLS_SUPPORT'] = True
-
+ 
 diff --git dom/media/platforms/ffmpeg/ffvpx/FFVPXRuntimeLinker.cpp dom/media/platforms/ffmpeg/ffvpx/FFVPXRuntimeLinker.cpp
 index 078f6ea5ef60..c600db067539 100644
 --- dom/media/platforms/ffmpeg/ffvpx/FFVPXRuntimeLinker.cpp

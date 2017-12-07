@@ -2,11 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	rust
-PORTVERSION?=	1.22.0
-PORTREVISION?=	3
+PORTVERSION?=	1.24.0
 PKGNAMESUFFIX=	-nightly
 CATEGORIES=	lang
-MASTER_SITES=	http://static.rust-lang.org/dist/${NIGHTLY_DATE}/:src \
+MASTER_SITES=	http://static.rust-lang.org/dist/:src \
 		https://static.rust-lang.org/dist/:rust_bootstrap \
 		LOCAL/dumbbell/rust:rust_bootstrap \
 		https://static.rust-lang.org/dist/:cargo_bootstrap \
@@ -14,7 +13,7 @@ MASTER_SITES=	http://static.rust-lang.org/dist/${NIGHTLY_DATE}/:src \
 		LOCAL/dumbbell/rust:cargo_bootstrap \
 		LOCAL/marino:bootstrap
 DISTNAME?=	${PORTNAME}c-nightly-src
-DISTFILES?=	${DISTNAME}${EXTRACT_SUFX}:src \
+DISTFILES?=	${NIGHTLY_DATE}/${DISTNAME}${EXTRACT_SUFX}:src \
 		${RUSTC_BOOTSTRAP}:rust_bootstrap \
 		${RUST_STD_BOOTSTRAP}:rust_bootstrap \
 		${CARGO_BOOTSTRAP}:cargo_bootstrap
@@ -44,10 +43,10 @@ ONLY_FOR_ARCHS_REASON=	requires prebuilt bootstrap compiler
 #CONFLICTS_BUILD+=	${PKGBASE}
 CONFLICTS_INSTALL?=	rust
 
-NIGHTLY_DATE?=		2017-10-22
+NIGHTLY_DATE?=		2017-12-07
 
-BOOTSTRAPS_DATE?=		2017-08-29
-BOOTSTRAPS_DATE_aarch64?=	2017-08-29
+BOOTSTRAPS_DATE?=		2017-11-21
+BOOTSTRAPS_DATE_aarch64?=	2017-11-21
 
 RUST_BOOTSTRAP_VERSION?=	beta
 RUST_BOOTSTRAP_VERSION_aarch64?=beta
@@ -138,10 +137,10 @@ pre-fetch:
 	fi
 
 RUST_STD_DIR=		${RUST_STD_BOOTSTRAP:T:R:R}
-LIBSTD_SUFFIX=		98d0f23d6788bfd1
+LIBSTD_SUFFIX=		43d9f4909149b1a2
 #LIBSTD_SUFFIX_aarch64=	b41e0ffe8c1bd541
 LIBSTD=			${RUST_STD_DIR}/rust-std-${RUST_TARGET}/lib/rustlib/${RUST_TARGET}/lib/libstd-${LIBSTD_SUFFIX_${ARCH}:U${LIBSTD_SUFFIX}}.rlib
-STDF=			${LIBSTD:T:R:S/lib//}.0.o
+STDF=			${LIBSTD:T:R:S/lib//}.std0.rcgu.o
 
 post-extract:
 	@${MKDIR} \

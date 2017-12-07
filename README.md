@@ -48,10 +48,10 @@ Tested on an AMD Polaris (RX 480) GPU.
 ### Misc
 
 - `lang/crystal`: The Crystal programming language!
-- `www/firefox`: [58 beta](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223425) with ThinLTO/LLD for extra optimization. See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
+- `www/firefox`: [58 beta](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223425). See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
 - `graphics/instant-meshes`: Interactive field-aligned mesh generator [222711](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222711)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
-- `lang/rust-nightly`: revived port by copy-pasting from `lang/rust` and updating version numbers. Here's the resulting toolchain tarballs: [rustc](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rustc-nightly-x86_64-unknown-freebsd.tar.xz) [std](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-std-nightly-x86_64-unknown-freebsd.tar.xz) [cargo](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/cargo-nightly-x86_64-unknown-freebsd.tar.xz) [rls](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rls-nightly-x86_64-unknown-freebsd.tar.xz) [analysis](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-analysis-nightly-x86_64-unknown-freebsd.tar.xz) [docs](https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/rust4current/rust-docs-nightly-x86_64-unknown-freebsd.tar.xz). Use [libc from here](https://github.com/myfreeweb/libc) and [mio from there](https://github.com/FreeBSDRust/mio) via `[patch.crates-io]` sections in `Cargo.toml` files.
+- `lang/rust-nightly`: revived port by copy-pasting from `lang/rust` and updating version numbers. Might need to use [libc from here](https://github.com/myfreeweb/libc) and [mio from there](https://github.com/FreeBSDRust/mio) via `[patch.crates-io]` sections in `Cargo.toml` files.
 - `mail/geary`: update to 0.12.0 [210718](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=210718)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
 - `audio/picard`: 1.4.2 [223354](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223354)
@@ -77,6 +77,22 @@ options 	VIMAGE
 ```
 
 (the important part is the `EVDEV_SUPPORT`, which is still disabled by default for some reason!)
+
+## Recommended /etc/make.conf
+
+```
+DEFAULT_VERSIONS+=ssl=libressl
+CPUTYPE?=znver1 # Replace with your CPU
+CC=clang-devel
+CXX=clang++-devel
+CFLAGS+=-flto=thin
+LDFLAGS+=-fuse-ld=gold
+LDFLAGS+=-fuse-ld=lld
+LD=ld.lld-devel
+RUST_PORT=lang/rust-nightly
+```
+
+(but for some ports you'll have to turn some of these off!!!)
 
 ## Other FreeBSD desktop resources
 

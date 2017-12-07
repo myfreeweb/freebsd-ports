@@ -7,7 +7,7 @@ index 7620b4d00623..09d3db5ca8c0 100644
 @@ -1312,6 +1312,19 @@ if not CONFIG['MOZ_TREE_PIXMAN']:
          'pixman.h',
      ]
-
+ 
 +if CONFIG['MOZ_SYSTEM_GRAPHITE2']:
 +    system_headers += [
 +        'graphite2/Font.h',
@@ -182,7 +182,7 @@ index 95a58b634593..b614eef85c89 100644
 --- old-configure.in
 +++ old-configure.in
 @@ -4333,6 +4333,27 @@ dnl ========================================================
-
+ 
  AC_SUBST(MOZ_LINUX_32_SSE2_STARTUP_ERROR)
  
 +dnl ========================================================

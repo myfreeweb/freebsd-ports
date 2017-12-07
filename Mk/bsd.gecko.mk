@@ -109,6 +109,15 @@ USE_XORG+=	xcb
 MESA_LLVM_VER?=	40
 BUILD_DEPENDS+=	llvm${MESA_LLVM_VER}>0:devel/llvm${MESA_LLVM_VER}
 MOZ_EXPORT+=	LLVM_CONFIG=llvm-config${MESA_LLVM_VER}
+.if ${MOZILLA_VER:R:R} < 58
+MOZ_EXPORT+=	BINDGEN_CFLAGS="${BINDGEN_CFLAGS}"
+. if ! ${USE_MOZILLA:M-nspr}
+BINDGEN_CFLAGS+=-isystem${LOCALBASE}/include/nspr
+. endif
+. if ! ${USE_MOZILLA:M-pixman}
+BINDGEN_CFLAGS+=-isystem${LOCALBASE}/include/pixman-1
+. endif
+.endif # MOZILLA_VER < 58
 .endif
 
 .if ${OPSYS} == FreeBSD && ${OSREL} == 11.1
@@ -300,7 +309,7 @@ USE_GNOME+=	gdkpixbuf2 gtk20
 
 .if ${PORT_OPTIONS:MOPTIMIZED_CFLAGS}
 CFLAGS+=		-O3
-MOZ_EXPORT+=	MOZ_OPTIMIZE_FLAGS="${CFLAGS:M-O*} -flto=thin -fuse-ld=lld" MOZ_OPTIMIZE_LDFLAGS="-flto=thin -fuse-ld=lld"
+MOZ_EXPORT+=	MOZ_OPTIMIZE_FLAGS="${CFLAGS:M-O*}"
 MOZ_OPTIONS+=	--enable-optimize
 .else
 MOZ_OPTIONS+=	--disable-optimize
@@ -382,7 +391,7 @@ post-patch-SNDIO-on:
 .endif
 
 .if ${PORT_OPTIONS:MRUST} || ${MOZILLA_VER:R:R} >= 54
-BUILD_DEPENDS+=	${RUST_PORT:T}>=1.19.0_2:${RUST_PORT}
+BUILD_DEPENDS+=	${RUST_PORT:T}>=1.21.0:${RUST_PORT}
 RUST_PORT?=		lang/rust
 . if ${MOZILLA_VER:R:R} < 54
 MOZ_OPTIONS+=	--enable-rust
