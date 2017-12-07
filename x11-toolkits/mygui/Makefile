@@ -1,11 +1,11 @@
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
-PORTNAME=	mygui
-PORTVERSION=	3.2.2
+PORTNAME=		mygui
+DISTVERSION=		3.2.2-132
 DISTVERSIONPREFIX=	MyGUI
-PORTREVISION?=	3
-CATEGORIES=	x11-toolkits graphics devel
+DISTVERSIONSUFFIX=	-gb1e4bc8
+CATEGORIES=		x11-toolkits graphics devel
 
 MAINTAINER=	amdmi3@FreeBSD.org
 COMMENT?=	Fast, simple and flexible GUI system for games and 3D applications

@@ -49,7 +49,5 @@ CMAKE_ARGS=	-DCMAKE_BUILD_TYPE=Release \
 
 post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/*
-	${MKDIR} ${STAGEDIR}${PREFIX}/share/appdata
-	${MV} ${STAGEDIR}${PREFIX}/share/metainfo/* ${STAGEDIR}${PREFIX}/share/appdata/
 
 .include <bsd.port.mk>

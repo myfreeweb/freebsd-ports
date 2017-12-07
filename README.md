@@ -40,8 +40,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Games
 
-- `x11-toolkits/mygui-devel`: current git version doesn't have weird C++ problems anymore, see [220189](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220189)
-- `games/openmw-devel`: current git version uses the current `mygui` version 
+- `x11-toolkits/mygui`: current git version that doesn't have weird C++ problems anymore, see [220189](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220189)
 - `games/vkquake`: [a Vulkan-powered Quake engine](https://github.com/Novum/vkQuake) [222182](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222182)
 - `emulators/dolphin-emu`: [Dolphin Emulator](https://dolphin-emu.org) (GameCube/Wii) updated to a recent git revision (Vulkan just works, dynamically loaded)
 - `games/vcmi`: open source reimplementation of Heroes of Might and Magic III! [221885](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221885)
