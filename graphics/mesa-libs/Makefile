@@ -41,7 +41,7 @@ IGNORE=	option WAYLAND is only valid on platforms with LLVM
 .endif
 
 MESA_BUILD_WRKSRC=	src/mapi src/util
-MESA_INSTALL_WRKSRC=	src/mapi src/util
+MESA_INSTALL_WRKSRC=	src/mapi
 
 .if ${PORT_OPTIONS:MWAYLAND}
 MESA_BUILD_WRKSRC+=	src/egl/wayland/wayland-drm src/egl/wayland/wayland-egl

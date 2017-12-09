@@ -16,7 +16,7 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 
 ### Vulkan
 
-- `graphics/mesa-dri` and `graphics/mesa-libs`: updated to 17.3-rc, Vulkan drivers enabled [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540) [223195](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223195)
+- `graphics/mesa-dri` and `graphics/mesa-libs`: updated to 17.3.0, enabled Vulkan drivers and VK_KHR_wayland_surface [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540) [223195](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223195)
 - `graphics/vulkan-sdk`: [Vulkan SDK](https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers) (headers, ICD loader, validation layers) [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
 
 NOTE: ANV (Intel Vulkan) requires running the apps as root and might not work for complex applications.
@@ -55,7 +55,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `mail/geary`: update to 0.12.0 [210718](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=210718)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
 - `audio/picard`: 1.4.2 [223354](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223354)
-- `devel/meson`: 0.43.0 [223736](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223736)
 
 ## Kernel patches
 

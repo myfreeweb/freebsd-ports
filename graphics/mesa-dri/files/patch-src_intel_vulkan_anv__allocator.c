@@ -2,8 +2,8 @@
 - Partially implement memfd_create() via mkostemp()
 - Ignore MAP_POPULATE if unsupported
 
---- src/intel/vulkan/anv_allocator.c.orig	2017-08-12 16:09:52.000000000 +0000
-+++ src/intel/vulkan/anv_allocator.c	2017-08-15 09:14:09.658565996 +0000
+--- src/intel/vulkan/anv_allocator.c.orig	2017-08-12 16:09:52 UTC
++++ src/intel/vulkan/anv_allocator.c
 @@ -26,12 +26,31 @@
  #include <unistd.h>
  #include <limits.h>
@@ -45,7 +45,7 @@
  static inline long
  sys_futex(void *addr1, int op, int val1,
            struct timespec *timeout, void *addr2, int val3)
-@@ -131,10 +152,53 @@ futex_wait(uint32_t *addr, int32_t value)
+@@ -131,11 +152,56 @@ futex_wait(uint32_t *addr, int32_t value)
     return sys_futex(addr, FUTEX_WAIT, value, NULL, NULL, 0);
  }
  
@@ -53,7 +53,7 @@
 +
 +/* Based on libxshmfence */
 +
- static inline int
++static inline int
 +sys_futex(void *addr, int op, int32_t val)
 +{
 +   return _umtx_op(addr, op, (uint32_t)val, NULL, NULL) == -1 ? errno : 0;
@@ -72,12 +72,15 @@
 +}
 +#endif
 +
-+static inline int
+ #ifndef HAVE_MEMFD_CREATE
+ static inline int
  memfd_create(const char *name, unsigned int flags)
  {
-+#ifdef __linux__
++#if defined(__linux__)
     return syscall(SYS_memfd_create, name, flags);
-+#else
++#elif defined(__FreeBSD__)
++   return shm_open(SHM_ANON, flags | O_RDWR | O_CREAT, 0600);
++#else /* DragonFly, NetBSD, OpenBSD, Solaris */
 +   char template[] = "/tmp/shmfd-XXXXXX";
 +#ifdef HAVE_MKOSTEMP
 +   int fd = mkostemp(template, flags);
@@ -97,5 +100,5 @@
 +   return fd;
 +#endif /* __linux__ */
  }
- 
- static inline uint32_t
+ #endif
+
