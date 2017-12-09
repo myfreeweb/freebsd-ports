@@ -10,7 +10,7 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Control center for GNOME 3 project
 
-LICENSE=	GPLv2
+LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	gnome-settings-daemon>=3.4.0:sysutils/gnome-settings-daemon \
@@ -45,7 +45,7 @@ RUN_DEPENDS=	gnome-settings-daemon>=3.4.0:sysutils/gnome-settings-daemon \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		compiler:c++11-lib gettext gmake gnome localbase pathfix \
+USES=		compiler:c++11-lib gettext gmake gnome localbase:ldflags pathfix \
 		pkgconfig samba:lib ssl tar:xz
 USE_GNOME=	cairo gnomedesktop3 intltool libxml2
 USE_GL=		egl

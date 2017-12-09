@@ -12,6 +12,7 @@ COMMENT=	Scriptable screen reader
 
 LICENSE=	LGPL21
 LICENSE_FILE=	${WRKSRC}/COPYING
+
 BUILD_DEPENDS=	py3?-dbus>=0:devel/py-dbus@${PY_FLAVOR} \
 		py3?-xdg>=0:devel/py-xdg@${PY_FLAVOR} \
 		py3?-cairo>=0:graphics/py-cairo@${PY_FLAVOR} \

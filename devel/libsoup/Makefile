@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	libsoup
-PORTVERSION=	2.60.0
+PORTVERSION=	2.60.2
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome2
@@ -17,13 +17,13 @@ BUILD_DEPENDS=	glib-networking>=2.29.18:net/glib-networking
 LIB_DEPENDS=	libgcrypt.so:security/libgcrypt
 RUN_DEPENDS=	glib-networking>=2.29.18:net/glib-networking
 
-USES=		tar:xz
+USES=		sqlite tar:xz
 PORTSCOUT=	limitw:1,even
 
 .if !defined(REFERENCE_PORT)
 
-USES+=		gettext gmake gnome libtool pathfix pkgconfig \
-		python:build sqlite:3 tar:xz
+USES+=		gettext gmake gnome libtool localbase pathfix \
+		pkgconfig python:build ssl
 USE_GNOME=	glib20 intlhack introspection:build \
 		libxml2 referencehack
 USE_LDCONFIG=	yes

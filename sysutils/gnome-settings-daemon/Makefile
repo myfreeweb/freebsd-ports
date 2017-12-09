@@ -10,7 +10,7 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	GNOME 3 settings daemon
 
-LICENSE=	GPLv2
+LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 #BUILD_DEPENDS=	gnome-session>=0:x11/gnome-session \
@@ -37,8 +37,8 @@ PORTSCOUT=	limitw:1,even
 
 USE_XORG=	x11 xext xi xtst
 USE_GNOME=	cairo gnomedesktop3 intltool
-USES=		gettext gmake gnome libtool localbase pathfix pkgconfig \
-		tar:xz
+USES=		gettext gmake gnome libtool localbase:ldflags pathfix \
+		pkgconfig tar:xz
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
 CONFIGURE_ARGS=	--disable-gudev \

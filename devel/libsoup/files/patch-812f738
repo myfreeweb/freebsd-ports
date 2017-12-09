@@ -1,0 +1,29 @@
+From 812f738827fa7344f85e5d7991716e76db4be62d Mon Sep 17 00:00:00 2001
+From: Milan Crha <mcrha@redhat.com>
+Date: Tue, 14 Nov 2017 09:36:46 +0100
+Subject: heap-buffer-overflow in soup_ntlm_parse_challenge()
+
+https://bugzilla.gnome.org/show_bug.cgi?id=788037
+---
+ libsoup/soup-auth-ntlm.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/libsoup/soup-auth-ntlm.c b/libsoup/soup-auth-ntlm.c
+index 723c8ca..19a551e 100644
+--- libsoup/soup-auth-ntlm.c
++++ libsoup/soup-auth-ntlm.c
+@@ -332,6 +332,11 @@ soup_auth_ntlm_update_connection (SoupConnectionAuth *auth, SoupMessage *msg,
+ 	if (conn->state == SOUP_NTLM_NEW && !auth_header[4])
+ 		return TRUE;
+ 
++	if (!auth_header[4] || !auth_header[5]) {
++		conn->state = SOUP_NTLM_FAILED;
++		return FALSE;
++	}
++
+ 	if (!soup_ntlm_parse_challenge (auth_header + 5, &conn->nonce,
+ 					priv->domain ? NULL : &priv->domain,
+ 					&conn->ntlmv2_session)) {
+-- 
+cgit v0.12
+
