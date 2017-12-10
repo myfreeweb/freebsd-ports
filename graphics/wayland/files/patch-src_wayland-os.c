@@ -68,7 +68,7 @@
  
  	newfd = fcntl(fd, F_DUPFD, minfd);
  	return set_cloexec_or_close(newfd);
-@@ -123,11 +148,13 @@ wl_os_recvmsg_cloexec(int sockfd, struct msghdr *msg, 
+@@ -123,15 +148,18 @@ wl_os_recvmsg_cloexec(int sockfd, struct msghdr *msg, 
  {
  	ssize_t len;
  
@@ -82,3 +82,16 @@
  
  	return recvmsg_cloexec_fallback(sockfd, msg, flags);
  }
+ 
++#ifdef HAVE_SYS_EPOLL_H
+ int
+ wl_os_epoll_create_cloexec(void)
+ {
+@@ -148,6 +176,7 @@ wl_os_epoll_create_cloexec(void)
+ 	fd = epoll_create(1);
+ 	return set_cloexec_or_close(fd);
+ }
++#endif
+ 
+ int
+ wl_os_accept_cloexec(int sockfd, struct sockaddr *addr, socklen_t *addrlen)

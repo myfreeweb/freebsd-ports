@@ -9,15 +9,7 @@
  #include <stdlib.h>
  #include <stdint.h>
  #include <assert.h>
-@@ -38,6 +40,7 @@
- #include <stdarg.h>
- #include <fcntl.h>
- #include <stdio.h>
-+
- #include <sys/epoll.h>
- 
- #include "wayland-private.h"
-@@ -73,10 +76,12 @@ socket(int domain, int type, int protocol)
+@@ -73,10 +75,12 @@ socket(int domain, int type, int protocol)
  {
  	wrapped_calls_socket++;
  
@@ -30,7 +22,7 @@
  
  	return real_socket(domain, type, protocol);
  }
-@@ -89,10 +94,12 @@ fcntl(int fd, int cmd, ...)
+@@ -89,10 +93,12 @@ fcntl(int fd, int cmd, ...)
  
  	wrapped_calls_fcntl++;
  
@@ -43,7 +35,7 @@
  
  	va_start(ap, cmd);
  	arg = va_arg(ap, void*);
-@@ -106,10 +113,12 @@ recvmsg(int sockfd, struct msghdr *msg, int flags)
+@@ -106,10 +112,12 @@ recvmsg(int sockfd, struct msghdr *msg, int flags)
  {
  	wrapped_calls_recvmsg++;
  
@@ -56,7 +48,7 @@
  
  	return real_recvmsg(sockfd, msg, flags);
  }
-@@ -156,12 +165,14 @@ TEST(os_wrappers_socket_cloexec)
+@@ -156,12 +164,14 @@ TEST(os_wrappers_socket_cloexec)
  	do_os_wrappers_socket_cloexec(0);
  }
  
@@ -71,7 +63,7 @@
  
  static void
  do_os_wrappers_dupfd_cloexec(int n)
-@@ -195,11 +206,13 @@ TEST(os_wrappers_dupfd_cloexec)
+@@ -195,11 +205,13 @@ TEST(os_wrappers_dupfd_cloexec)
  	do_os_wrappers_dupfd_cloexec(0);
  }
  
@@ -85,7 +77,7 @@
  
  struct marshal_data {
  	struct wl_connection *read_connection;
-@@ -218,8 +231,7 @@ struct marshal_data {
+@@ -218,8 +230,7 @@ struct marshal_data {
  static void
  setup_marshal_data(struct marshal_data *data)
  {
@@ -95,7 +87,7 @@
  
  	data->read_connection = wl_connection_create(data->s[0]);
  	assert(data->read_connection);
-@@ -328,11 +340,13 @@ TEST(os_wrappers_recvmsg_cloexec)
+@@ -328,11 +339,13 @@ TEST(os_wrappers_recvmsg_cloexec)
  	do_os_wrappers_recvmsg_cloexec(0);
  }
  
