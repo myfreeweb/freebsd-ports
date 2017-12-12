@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	xmlsec1
-PORTVERSION=	1.2.23
+PORTVERSION=	1.2.25
 PORTREVISION=	1
 CATEGORIES=	security
 MASTER_SITES=	http://www.aleksey.com/xmlsec/download/ \
@@ -20,7 +20,7 @@ LIB_DEPENDS=	libgcrypt.so:security/libgcrypt \
 		libgpg-error.so:security/libgpg-error \
 		libltdl.so:devel/libltdl
 
-USES=		libtool localbase pathfix pkgconfig ssl
+USES=		libtool localbase pathfix pkgconfig ssl gmake
 USE_GNOME=	libxml2 libxslt
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
@@ -37,9 +37,16 @@ PORTDOCS=	api authors.html bugs.html c14n.html documentation.html		\
 		xmlsec-man.html
 
 OPTIONS_DEFINE=	DOCS GNUTLS NSS
+OPTIONS_DEFAULT=	NSS
 OPTIONS_SUB=	yes
 
-DOCS_MAKE_ENV=		DOCS=docs
+DOCS_CONFIGURE_ENABLE=	docs-build
+DOCS_BUILD_DEPENDS=	gtkdoc-mkhtml:textproc/gtk-doc \
+	gtkdoc-mktmpl:textproc/gtk-doc \
+	gtkdoc-mkdb:textproc/gtk-doc \
+	gtkdoc-scan:textproc/gtk-doc \
+	xsltproc:textproc/libxslt \
+	perl:lang/perl5
 GNUTLS_DESC=		Enable GNUTLS support
 GNUTLS_CONFIGURE_ON=	--with-gnutls="${LOCALBASE}"
 GNUTLS_CONFIGURE_OFF=	--without-gnutls
@@ -53,6 +60,15 @@ NSS_LIB_DEPENDS=	libnss3.so:security/nss \
 			libnspr4.so:devel/nspr \
 			libplds4.so:devel/nspr \
 			libplc4.so:devel/nspr
+
+post-patch:
+	@${REINPLACE_CMD} -e 's/mozilla-nss/nss/' \
+		-e 's/mozilla-nspr/nspr/' ${WRKSRC}/configure
+	@${REINPLACE_CMD} -e 's/(CP) -ru/(CP) -r/' \
+		-e 's/(CP) -u/(CP)/' \
+		${WRKSRC}/docs/Makefile.am ${WRKSRC}/docs/Makefile.in \
+		${WRKSRC}/docs/api/Makefile.am ${WRKSRC}/docs/api/Makefile.in \
+		${WRKSRC}/man/Makefile.am ${WRKSRC}/man/Makefile.in
 
 post-patch-GNUTLS-on:
 # Don't rely on broken autodetection
