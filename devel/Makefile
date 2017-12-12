@@ -4147,6 +4147,7 @@
     SUBDIR += py-DateTime
     SUBDIR += py-DocumentTemplate
     SUBDIR += py-ExtensionClass
+    SUBDIR += py-IBMQuantumExperience
     SUBDIR += py-InlineEgg
     SUBDIR += py-Jinja2
     SUBDIR += py-Jinja2-doc
