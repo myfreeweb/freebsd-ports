@@ -2,11 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	inkscape
-PORTVERSION=	0.92.2
+PORTVERSION=	0.92
+PORTVERSIONSUFFIX=	-2479
 CATEGORIES=	graphics gnome
-MASTER_SITES=	https://launchpadlibrarian.net/332184472/ \
-		https://inkscape.org/en/gallery/item/11254/ \
-		LOCAL/kwm
+MASTER_SITES=	https://gitlab.com/${GL_ACCOUNT}/${GL_PROJECT}/repository/archive${EXTRACT_SUFX}?ref=${GL_BRANCH}&num;/
+DISTNAME=	${GL_PROJECT}-${GL_BRANCH}-${GL_COMMIT}
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Full featured open source SVG editor
@@ -20,6 +20,7 @@ LICENSE_FILE_LGPL21=	${WRKSRC}/LGPL2.1.txt
 BUILD_DEPENDS=	${LOCALBASE}/include/boost/concept_check.hpp:devel/boost-libs
 LIB_DEPENDS=	libpopt.so:devel/popt \
 		libgc.so:devel/boehm-gc \
+		libgdl-3.so:x11-toolkits/gdl \
 		libgsl.so:math/gsl \
 		libgtkspell.so:textproc/gtkspell \
 		liblcms2.so:graphics/lcms2 \
@@ -30,7 +31,7 @@ LIB_DEPENDS=	libpopt.so:devel/popt \
 		libMagick++-6.so:graphics/ImageMagick
 #aspell?
 
-USE_GNOME=	gtkmm24 libxml2 libxslt
+USE_GNOME=	gtkmm30 libxml2 libxslt
 USES=		compiler:c++11-lib cmake cpe desktop-file-utils gnome \
 		iconv:wchar_t jpeg pathfix pkgconfig python:2,build \
 		shebangfix tar:bzip2
@@ -38,10 +39,15 @@ USE_XORG=	x11
 INSTALLS_ICONS=	yes
 CMAKE_ARGS+=	-DWITH_GNOME_VFS:BOOL=NO
 
+# GitLab variables.
+GL_ACCOUNT=	${PORTNAME}
+GL_PROJECT=	${PORTNAME}
+GL_BRANCH=	master
+GL_COMMIT=	032b8d6d039b93824ebd6312ad0a6bdd1ba2ba76
+
 python_CMD?=	${LOCALBASE}/bin/python2
-SHEBANG_FILES=	cxxtest/cxxtestgen.pl share/extensions/*.p[lm] \
-		share/extensions/*.py share/extensions/genpofiles.sh \
-		fix-roff-punct
+SHEBANG_FILES=	share/extensions/*.p[lm] \
+		share/extensions/*.py share/extensions/genpofiles.sh
 
 OPTIONS_DEFINE=	POPPLER VISIO CDR DBUS WPG
 OPTIONS_DEFAULT=POPPLER VISIO CDR WPG

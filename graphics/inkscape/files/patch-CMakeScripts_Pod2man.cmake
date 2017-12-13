@@ -1,11 +1,17 @@
---- CMakeScripts/Pod2man.cmake.orig	2017-01-06 16:19:54.351838000 +0100
-+++ CMakeScripts/Pod2man.cmake	2017-01-06 16:20:26.957487000 +0100
-@@ -48,7 +48,7 @@
-         )
-         install(
-             FILES ${MANFILE_FULL}
--            DESTINATION ${CMAKE_INSTALL_PREFIX}/${SHARE_INSTALL}/man/man${SECTION}
-+            DESTINATION ${CMAKE_INSTALL_PREFIX}/man/man${SECTION}
-         )
-     endif()
- endmacro(pod2man PODFILE NAME SECTION CENTER)
+--- CMakeScripts/Pod2man.cmake.orig	2017-12-13 13:18:30.000000000 +0300
++++ CMakeScripts/Pod2man.cmake	2017-12-13 17:28:25.963923000 +0300
+@@ -28,12 +28,12 @@
+             set(MANPAGE_TARGET "man-${NAME}-${LANG}")
+             set(MANFILE_TEMP "${CMAKE_CURRENT_BINARY_DIR}/${NAME}.${LANG}.tmp")
+             set(MANFILE_FULL "${CMAKE_CURRENT_BINARY_DIR}/${NAME}.${LANG}.${SECTION}")
+-            set(MANFILE_DEST "${CMAKE_INSTALL_PREFIX}/${SHARE_INSTALL}/man/${LANG}/man${SECTION}")
++            set(MANFILE_DEST "${CMAKE_INSTALL_PREFIX}/man/${LANG}/man${SECTION}")
+         else()
+             set(MANPAGE_TARGET "man-${NAME}")
+             set(MANFILE_TEMP "${CMAKE_CURRENT_BINARY_DIR}/${NAME}.tmp")
+             set(MANFILE_FULL "${CMAKE_CURRENT_BINARY_DIR}/${NAME}.${SECTION}")
+-            set(MANFILE_DEST "${CMAKE_INSTALL_PREFIX}/${SHARE_INSTALL}/man/man${SECTION}")
++            set(MANFILE_DEST "${CMAKE_INSTALL_PREFIX}/man/man${SECTION}")
+         endif()
+         add_custom_command(
+             OUTPUT ${MANFILE_TEMP}

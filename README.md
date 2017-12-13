@@ -46,6 +46,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `graphics/inkscape`: git master version with GTK3, works on Wayland natively
 - `editors/libreoffice`: **6.0.0.beta2** with GTK3 by default, works on Wayland natively [224288](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224288)
 - `lang/crystal`: The Crystal programming language!
 - `www/firefox`: [58 beta](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223425). See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
@@ -91,7 +92,7 @@ LD=ld.lld-devel
 RUST_PORT=lang/rust-nightly
 ```
 
-(but for some ports you'll have to turn some of these off!!!)
+(but for some ports you'll have to turn some of these off!!! especially ThinLTO)
 
 ## Other FreeBSD desktop resources
 
