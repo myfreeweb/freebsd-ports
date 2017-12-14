@@ -1,0 +1,11 @@
+--- lib/SConscript.orig	2017-12-14 02:47:06.193397000 +0300
++++ lib/SConscript	2017-12-14 02:47:09.089659000 +0300
+@@ -79,7 +79,7 @@
+         return path
+ 
+ # Normal dependencies
+-parse_pkg_config(env, "libmypaint")
++parse_pkg_config(env, "libmypaint-2.0")
+ parse_pkg_config(env, "glib-2.0")
+ parse_pkg_config(env, "libpng")
+ parse_pkg_config(env, "lcms2")
