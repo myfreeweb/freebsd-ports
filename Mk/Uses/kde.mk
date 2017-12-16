@@ -75,7 +75,7 @@ KDE4_BRANCH?=			stable
 KDE_PLASMA_VERSION?=		5.11.2
 KDE_PLASMA_BRANCH?=		stable
 
-KDE_FRAMEWORKS_VERSION?=	5.40.0
+KDE_FRAMEWORKS_VERSION?=	5.41.0
 KDE_FRAMEWORKS_BRANCH?= 	stable
 
 KDE_APPLICATIONS_VERSION?=	17.08.2
@@ -85,6 +85,15 @@ KDE_APPLICATIONS_BRANCH?=	stable
 # Only the major version is used for the comparison.
 _KDE_APPLICATIONS_ATTIC_VERSION=	16.12.3
 
+# Extended KDE universe applications.
+CALLIGRA_VERSION?=		2.9.11
+CALLIGRA_BRANCH?=		stable
+
+KDEVELOP_VERSION?=		4.7.4
+KDEVELOP_BRANCH?=		stable
+
+KTP_VERSION?=			0.9.0
+KTP_BRANCH?=			stable
 # ==============================================================================
 
 # === INSTALLATION PREFIXES AND HEADER LOCATION ================================
