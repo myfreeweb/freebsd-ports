@@ -46,6 +46,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `devel/gitg`: 3.26
 - `devel/gnome-builder`: 3.27 (XXX: crashes)
 - `graphics/mypaint` and `graphics/libmypaint`: git master version, works on Wayland natively
 - `graphics/inkscape`: git master version with GTK3, works on Wayland natively
