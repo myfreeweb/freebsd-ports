@@ -46,6 +46,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `devel/gnome-builder`: 3.27 (XXX: crashes)
 - `graphics/mypaint` and `graphics/libmypaint`: git master version, works on Wayland natively
 - `graphics/inkscape`: git master version with GTK3, works on Wayland natively
 - `editors/libreoffice`: **6.0.0.beta2** with GTK3 by default, works on Wayland natively [224288](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224288)

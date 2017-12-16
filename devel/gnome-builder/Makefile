@@ -1,7 +1,7 @@
 # $FreeBSD: head/devel/gnome-builder/Makefile 430235 2017-01-01 03:45:12Z sunpoet $
 
 PORTNAME=	gnome-builder
-PORTVERSION=	3.24.2
+PORTVERSION=	3.27.3
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -16,11 +16,13 @@ BUILD_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
 		libjson-glib-1.0.so:devel/json-glib \
+		libjsonrpc_glib-1.0.so:devel/jsonrpc-glib \
 		libsoup-2.4.so:devel/libsoup \
 		libpeas-1.0.so:devel/libpeas \
 		libenchant.so:textproc/enchant \
 		libgspell-1.so:textproc/gspell \
 		libwebkit2gtk-4.0.so:www/webkit2-gtk3 \
+		libdazzle-1.0.so:x11-toolkits/libdazzle \
 		libdevhelp-3.so:devel/devhelp \
 		libgit2.so:devel/libgit2 \
 		libgit2-glib-1.0.so:devel/libgit2-glib \
@@ -37,13 +39,14 @@ PORTDOCS=	*
 
 CONFLICTS_BUILD=	gnome-builder-3.16.*
 
-USES=		compiler:c++11-lang cpe desktop-file-utils gmake libtool localbase pathfix pkgconfig tar:xz
+USES=		compiler:c++11-lang cpe desktop-file-utils meson localbase pathfix pkgconfig tar:xz
 USE_GNOME=	cairo gtk30 gtksourceview3 vte3 py3gobject3 libxml2
+USE_GNOME+=	atkmm cairomm glibmm gtkmm30 libsigc++20 pangomm
 USE_GNOME+=	introspection
-GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--disable-flatpak-plugin \
-		--disable-jhbuild-plugin \
-		ac_cv_path_PYTHON3_CONFIG=${PYTHON_CMD}-config
+MESON_ARGS=	-Dwith_flatpak=false \
+		-Dwith_jhbuild=false \
+		-Dwith_sysprof=false
+CFLAGS+=	-Wno-format-nonliteral
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
 INSTALL_TARGET=	install-strip
@@ -64,13 +67,5 @@ GLIB_SCHEMAS=	org.gnome.builder.build.gschema.xml \
 		org.gnome.builder.project-tree.gschema.xml \
 		org.gnome.builder.terminal.gschema.xml \
 		org.gnome.builder.workbench.gschema.xml
-
-OPTIONS_SUB=	YES
-OPTIONS_DEFINE=	CPLUSCPLUS
-OPTIONS_DEFAULT=
-
-CPLUSCPLUS_CONFIGURE_ARGS=	idemm
-# xxx sort these
-CPLUSCPLUS_USE=	GNOME=atkmm,cairomm,glibmm,gtkmm30,libsigc++20,pangomm
 
 .include <bsd.port.mk>

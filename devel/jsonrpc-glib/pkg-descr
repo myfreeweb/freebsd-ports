@@ -1,0 +1,4 @@
+JSONRPC-GLib is a library providing communication with JSON-RPC based peers in
+either a synchronous or asynchronous fashion.
+
+WWW: https://github.com/GNOME/jsonrpc-glib

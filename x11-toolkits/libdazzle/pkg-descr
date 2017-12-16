@@ -1,0 +1,5 @@
+libdazzle is a companion library to GObject and Gtk+, providing various UI
+features including utilities for GIO, extra widgets for Gtk, an animation
+framework, state machines, paneling and high-performance counters.
+
+WWW: https://github.com/GNOME/libdazzle
