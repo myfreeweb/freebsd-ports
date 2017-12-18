@@ -4015,7 +4015,6 @@ graphics/solang||2013-02-14|Has expired: Broken for more than 6 months
 math/octave-devel||2013-02-14|Has expired: Broken for more than 6 months
 net/spnetkit||2013-02-14|Has expired: Broken for more than 6 months
 devel/py-flakes|devel/py-pyflakes|2013-02-18|Renamed to correct upstream name
-net/samba4-devel|net/samba4|2013-02-18|Renamed to reflect maturity of upstream version
 net/libnet-devel|net/libnet|2013-02-18|Renamed to stable branch
 x11-fm/tkdesk||2013-02-19|Obsolete and unmaintained, doesn't run
 textproc/libmspub|print/libmspub|2013-02-21|Duplicate of print/libmspub
@@ -9978,3 +9977,6 @@ textproc/pecl-cld||2017-12-13|Has expired: Depends on expired devel/cld
 textproc/p5-Lingua-Identify-CLD||2017-12-13|Has expired: Depends on expired devel/cld
 devel/cld||2017-12-13|Has expired: Unfetchable for more than six months (google code has gone away)
 devel/py-ode|devel/py-PyODE|2017-12-14|Rename to reflect official Python modules naming scheme
+net-im/pork||2017-12-16|Removed, AIM shut down on 2017-12-15
+security/aimsniff||2017-12-16|Removed, AIM shut down on 2017-12-15
+net-im/bsflite||2017-12-18|Removed, AIM shut down on 2017-12-15
