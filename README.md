@@ -36,6 +36,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `x11-wm/weston`: reference Wayland compositor and some apps
 - `net/freerdp`: wlfreerdp Wayland client enabled [223913](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223913)
 - `x11-toolkits/qt5-gui` and `graphics/qt5-wayland`: Wayland-EGL enabled (and some extra stuff like evdev and eglfs)
+- `multimedia/libva`: install to lib/dri instead of lib/va [224424](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224424)
 
 ### Games
 
