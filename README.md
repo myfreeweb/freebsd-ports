@@ -37,6 +37,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `net/freerdp`: wlfreerdp Wayland client enabled [223913](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223913)
 - `x11-toolkits/qt5-gui` and `graphics/qt5-wayland`: Wayland-EGL enabled (and some extra stuff like evdev and eglfs)
 - `multimedia/libva`: install to lib/dri instead of lib/va [224424](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224424)
+- `multimedia/mpv`: add VAAPI on Wayland support [224425](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224425)
 
 ### Games
 
