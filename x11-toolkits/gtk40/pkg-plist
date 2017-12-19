@@ -397,8 +397,8 @@ libdata/pkgconfig/gtk+-unix-print-4.0.pc
 share/applications/gtk4-demo.desktop
 share/applications/gtk4-icon-browser.desktop
 share/applications/gtk4-widget-factory.desktop
-share/gettext/its/gtkbuilder.its
-share/gettext/its/gtkbuilder.loc
+@comment share/gettext/its/gtkbuilder.its
+@comment share/gettext/its/gtkbuilder.loc
 share/gir-1.0/Gdk-4.0.gir
 %%X11%%share/gir-1.0/GdkX11-4.0.gir
 share/gir-1.0/Gsk-4.0.gir

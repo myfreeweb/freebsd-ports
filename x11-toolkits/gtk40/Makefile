@@ -53,11 +53,6 @@ INSTALL_TARGET=	install-strip
 LIBVERSION=	0.9102.0
 PLIST_SUB+=	LIBVERSION=${LIBVERSION}
 
-GLIB_SCHEMAS=	org.gtk.Demo.gschema.xml \
-		org.gtk.Settings.ColorChooser.gschema.xml \
-		org.gtk.Settings.Debug.gschema.xml \
-		org.gtk.Settings.FileChooser.gschema.xml
-
 OPTIONS_DEFINE=	CUPS CLOUDPRINT COLORD
 OPTIONS_DEFAULT=CUPS COLORD BROADWAY X11
 OPTIONS_SUB=	yes
