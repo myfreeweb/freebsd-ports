@@ -170,6 +170,7 @@
     SUBDIR += skype4
     SUBDIR += teamwords
     SUBDIR += telegram
+    SUBDIR += telegram-desktop
     SUBDIR += telegram-purple
     SUBDIR += telegramqml
     SUBDIR += telepathy-accounts-signon
