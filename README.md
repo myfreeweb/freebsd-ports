@@ -49,6 +49,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `editors/neovim-qt`: nvim GUI [224427](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224427)
 - `devel/gitg`: 3.26
 - `devel/gnome-builder`: 3.27 (XXX: crashes)
 - `graphics/mypaint` and `graphics/libmypaint`: git master version, works on Wayland natively
