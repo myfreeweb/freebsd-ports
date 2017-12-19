@@ -56,6 +56,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `graphics/inkscape`: git master version with GTK3, works on Wayland natively
 - `editors/libreoffice`: **6.0.0.beta2** with GTK3 by default, works on Wayland natively [224288](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224288)
 - `lang/crystal`: The Crystal programming language!
+- `lang/ponyc`: The Pony programming language! [205444](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=205444)
 - `www/firefox`: [58 beta](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223425). See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
 - `graphics/instant-meshes`: Interactive field-aligned mesh generator [222711](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222711)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
