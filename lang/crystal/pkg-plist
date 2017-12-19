@@ -14,9 +14,6 @@ lib/crystal/big/big_rational.cr
 lib/crystal/big/json.cr
 lib/crystal/big/lib_gmp.cr
 lib/crystal/big/yaml.cr
-lib/crystal/big_float.cr
-lib/crystal/big_int.cr
-lib/crystal/big_rational.cr
 lib/crystal/bit_array.cr
 lib/crystal/bool.cr
 lib/crystal/box.cr
@@ -203,6 +200,8 @@ lib/crystal/crypto/bcrypt/blowfish.cr
 lib/crystal/crypto/bcrypt/password.cr
 lib/crystal/crypto/blowfish.cr
 lib/crystal/crypto/subtle.cr
+lib/crystal/crystal/hasher.cr
+lib/crystal/crystal/main.cr
 lib/crystal/crystal/system.cr
 lib/crystal/crystal/system/random.cr
 lib/crystal/crystal/system/time.cr
@@ -280,6 +279,7 @@ lib/crystal/gzip/reader.cr
 lib/crystal/gzip/writer.cr
 lib/crystal/hash.cr
 lib/crystal/html.cr
+lib/crystal/html/entities.cr
 lib/crystal/http.cr
 lib/crystal/http/client.cr
 lib/crystal/http/client/response.cr
@@ -327,6 +327,7 @@ lib/crystal/io/hexdump.cr
 lib/crystal/io/memory.cr
 lib/crystal/io/multi_writer.cr
 lib/crystal/io/sized.cr
+lib/crystal/io/syscall.cr
 lib/crystal/iterable.cr
 lib/crystal/iterator.cr
 lib/crystal/json.cr
@@ -553,6 +554,7 @@ lib/crystal/lib_c/x86_64-macosx-darwin/c/dlfcn.cr
 lib/crystal/lib_c/x86_64-macosx-darwin/c/errno.cr
 lib/crystal/lib_c/x86_64-macosx-darwin/c/fcntl.cr
 lib/crystal/lib_c/x86_64-macosx-darwin/c/iconv.cr
+lib/crystal/lib_c/x86_64-macosx-darwin/c/mach/mach_time.cr
 lib/crystal/lib_c/x86_64-macosx-darwin/c/netdb.cr
 lib/crystal/lib_c/x86_64-macosx-darwin/c/netinet/in.cr
 lib/crystal/lib_c/x86_64-macosx-darwin/c/netinet/tcp.cr
@@ -608,6 +610,8 @@ lib/crystal/lib_c/x86_64-portbld-freebsd/c/termios.cr
 lib/crystal/lib_c/x86_64-portbld-freebsd/c/time.cr
 lib/crystal/lib_c/x86_64-portbld-freebsd/c/unistd.cr
 lib/crystal/lib_c/x86_64-unknown-freebsd
+lib/crystal/lib_c/x86_64-windows-msvc/c/errno.cr
+lib/crystal/lib_c/x86_64-windows-msvc/c/winapi.cr
 lib/crystal/lib_z/lib_z.cr
 lib/crystal/llvm.cr
 lib/crystal/llvm/abi.cr
@@ -648,7 +652,6 @@ lib/crystal/llvm/value.cr
 lib/crystal/llvm/value_methods.cr
 lib/crystal/logger.cr
 lib/crystal/macros.cr
-lib/crystal/main.cr
 lib/crystal/markdown.cr
 lib/crystal/markdown/html_renderer.cr
 lib/crystal/markdown/parser.cr
@@ -709,9 +712,8 @@ lib/crystal/process/status.cr
 lib/crystal/raise.cr
 lib/crystal/random.cr
 lib/crystal/random/isaac.cr
-lib/crystal/random/mt19937.cr
 lib/crystal/random/pcg32.cr
-lib/crystal/random/system.cr
+lib/crystal/random/secure.cr
 lib/crystal/range.cr
 lib/crystal/range/bsearch.cr
 lib/crystal/readline.cr
@@ -720,7 +722,6 @@ lib/crystal/reflect.cr
 lib/crystal/regex.cr
 lib/crystal/regex/lib_pcre.cr
 lib/crystal/regex/match_data.cr
-lib/crystal/secure_random.cr
 lib/crystal/semantic_version.cr
 lib/crystal/set.cr
 lib/crystal/signal.cr
@@ -758,7 +759,6 @@ lib/crystal/thread.cr
 lib/crystal/thread/condition_variable.cr
 lib/crystal/thread/mutex.cr
 lib/crystal/time.cr
-lib/crystal/time/day_of_week.cr
 lib/crystal/time/format.cr
 lib/crystal/time/format/formatter.cr
 lib/crystal/time/format/parser.cr
@@ -772,6 +772,7 @@ lib/crystal/uri.cr
 lib/crystal/uri/uri_parser.cr
 lib/crystal/value.cr
 lib/crystal/weak_ref.cr
+lib/crystal/winerror.cr
 lib/crystal/xml.cr
 lib/crystal/xml/attribute_type.cr
 lib/crystal/xml/attributes.cr
@@ -790,11 +791,21 @@ lib/crystal/xml/xpath_context.cr
 lib/crystal/yaml.cr
 lib/crystal/yaml/any.cr
 lib/crystal/yaml/builder.cr
+lib/crystal/yaml/enums.cr
 lib/crystal/yaml/from_yaml.cr
 lib/crystal/yaml/lib_yaml.cr
 lib/crystal/yaml/mapping.cr
+lib/crystal/yaml/nodes.cr
+lib/crystal/yaml/nodes/builder.cr
+lib/crystal/yaml/nodes/nodes.cr
+lib/crystal/yaml/nodes/parser.cr
+lib/crystal/yaml/parse_context.cr
 lib/crystal/yaml/parser.cr
 lib/crystal/yaml/pull_parser.cr
+lib/crystal/yaml/schema/core.cr
+lib/crystal/yaml/schema/core/parser.cr
+lib/crystal/yaml/schema/core/time_parser.cr
+lib/crystal/yaml/schema/fail_safe.cr
 lib/crystal/yaml/to_yaml.cr
 lib/crystal/zip/checksum_reader.cr
 lib/crystal/zip/checksum_writer.cr

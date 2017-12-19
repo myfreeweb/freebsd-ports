@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	crystal
-DISTVERSION=	0.23.1
+DISTVERSION=	0.24.0
 CATEGORIES=	lang
 MASTER_SITES=	https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/crystal/:bootstrap
 DISTFILES=	${BOOTSTRAP_PATH}:bootstrap
@@ -19,7 +19,9 @@ ONLY_FOR_ARCHS_REASON=	requires prebuilt bootstrap compiler
 LIB_DEPENDS=	libgc-threaded.so:devel/boehm-gc-threaded \
 		libevent.so:devel/libevent \
 		libpcre.so:devel/pcre
-BUILD_DEPENDS=	llvm-config40:devel/llvm40
+BUILD_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
+
+LLVM_VER?=	40
 
 USES=		compiler gmake pkgconfig
 
@@ -27,7 +29,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	crystal-lang
 
 MAKE_ARGS=	SHELL=sh \
-		LLVM_CONFIG=llvm-config40 \
+		LLVM_CONFIG=llvm-config${LLVM_VER} \
 		FLAGS="--release --no-debug" \
 		EXPORTS='CRYSTAL_CONFIG_PATH="lib:${PREFIX}/lib/${PORTNAME}"' \
 		CRYSTAL_CACHE_DIR="${WRKDIR}/cache"
@@ -42,9 +44,9 @@ OPTIONS_SUB=		yes
 .include <bsd.port.options.mk>
 
 .if ${OSVERSION} >= 1200000
-BOOTSTRAP_PATH=	crystal-0.23.1-freebsd12.0
+BOOTSTRAP_PATH=	crystal-0.24.0-freebsd12.0
 .else
-BOOTSTRAP_PATH=	crystal-0.23.1-freebsd11.1
+BOOTSTRAP_PATH=	crystal-0.24.0-freebsd11.1
 .endif
 .if ${OSVERSION} < 1100000
 IGNORE=		not supported on 10.x or older
@@ -71,7 +73,7 @@ do-install:
 	(cd ${INSTALL_WRKSRC}/src && ${COPYTREE_SHARE} . ${STAGEDIR}${PREFIX}/lib/${PORTNAME})
 
 do-install-DOCS-on:
-	(cd ${INSTALL_WRKSRC}/doc && ${COPYTREE_SHARE} . ${STAGEDIR}${DOCSDIR})
+	(cd ${INSTALL_WRKSRC}/docs && ${COPYTREE_SHARE} . ${STAGEDIR}${DOCSDIR})
 
 do-install-EXAMPLES-on:
 	(cd ${INSTALL_WRKSRC}/samples && ${COPYTREE_SHARE} . ${STAGEDIR}${EXAMPLESDIR})

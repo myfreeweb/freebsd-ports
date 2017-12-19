@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=		shards
-DISTVERSION=		0.7.1
+DISTVERSION=		0.7.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=		devel
 
@@ -12,7 +12,9 @@ LICENSE=	APACHE20
 
 BUILD_DEPENDS=	crystal:lang/crystal
 LIB_DEPENDS=	libyaml.so:textproc/libyaml \
-		libpcre.so:devel/pcre
+		libpcre.so:devel/pcre \
+		libgc-threaded.so:devel/boehm-gc-threaded \
+		libevent.so:devel/libevent
 RUN_DEPENDS=	git:devel/git
 
 USE_GITHUB=	yes
