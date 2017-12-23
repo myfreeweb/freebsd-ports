@@ -1,151 +1,22 @@
---- portmaster.orig	2017-12-14 16:26:55 UTC
+--- portmaster.orig	2017-12-21 09:02:44 UTC
 +++ portmaster
-@@ -310,7 +310,7 @@ safe_exit () {
- } # safe_exit()
- 
- flavor_part	() { expr "$1" : ".*@" >/dev/null && echo "${1#*@}"; }
--dir_part	() { echo "${1%@*}"; }
-+dir_part	() { echo "${1%%@*}"; }
- export_flavor	() { local flavor="$1"; if [ "$FLAVOR" != "$flavor" ]; then
- 			pm_v "===>>> Setting FLAVOR to '$flavor' (was '$FLAVOR')";
- 			export FLAVOR="$flavor"; fi; }
-@@ -652,7 +652,7 @@ for var in "$@" ; do
- 				export LOCAL_PACKAGEDIR ;;
- 	--delete-packages)	PM_DELETE_PACKAGES=pm_delete_packages
- 				export PM_DELETE_PACKAGES ;;
--	--flavor=*)		PM_FLAVOR=${var#--flavor=} ;;
-+#	--flavor=*)		PM_FLAVOR=${var#--flavor=} ;;
- 	--update-if-newer)	PM_UPDATE_IF_NEWER=pm_update_if_newer
- 				export PM_UPDATE_IF_NEWER ;;
- 	--delete-build-only)	PM_DEL_BUILD_ONLY=pm_dbo
-@@ -1039,7 +1039,7 @@ find_moved_port () {
- 				return 0
- 			else
- 				reason=${moved##*|}
--				[ "$3" != 'nonfatal' ] &&
-+				[ "$flag" != 'nonfatal' ] &&
- 					fail "The $sf port has been deleted: $reason"
- 			fi ;;
- 		${sf}\|*) moved_npd=${moved#*\|}	# New port directory
-@@ -1449,6 +1449,24 @@ check_force_multi () {
- 	fi
- }
- 
-+find_new_port () {
-+	# Global: new_port
-+	local portdir flavor flavor_option
-+
-+	[ -n "$new_port" ] && return
-+
-+	portdir=$(dir_part "$1")
-+	flavor=$(flavor_part "$1")
-+	flavor_option=${flavor:+FLAVOR=$flavor}
-+#	export_flavor $flavor
-+	if pm_cd_pd $portdir; then
-+		new_port=`pm_make -V PKGNAME ${flavor_option}`
-+	else
-+		new_port=`parse_index $portdir name` ||
-+			fail "No entry for $portdir in $PM_INDEX"
-+	fi
-+}
-+
- check_for_updates () {
- 	# Global: num_updates
- 	local nf iport originflavor flavor origin port_ver do_update skip
-@@ -2148,24 +2166,6 @@ update_pm_nu () {
- 	PM_NEEDS_UPDATE="${PM_NEEDS_UPDATE}${1} "
- }
- 
--find_new_port () {
--	# Global: new_port
--	local portdir flavor flavor_option
--
--	[ -n "$new_port" ] && return
--
--	portdir=$(dir_part "$1")
--	flavor=$(flavor_part "$1")
--	flavor_option=${flavor:+FLAVOR=$flavor}
--#	export_flavor $flavor
--	if pm_cd_pd $portdir; then
--		new_port=`pm_make -V PKGNAME ${flavor_option}`
--	else
--		new_port=`parse_index $portdir name` ||
--			fail "No entry for $portdir in $PM_INDEX"
--	fi
--}
--
- update_build_l () {
- 	local originflavor origin flavor iport
- 
-@@ -2280,10 +2280,12 @@ make_dep_list () {
+@@ -2264,12 +2264,14 @@ make_dep_list () {
  
  	for dep_type in $*; do
  		case $dep_type in
-+		all-depends-list)
-+			var_opt="$var_opt -V BUILD_DEPENDS -V LIB_DEPENDS -V RUN_DEPENDS" ;;
- 		build-depends-list)
--			var_opt="$var_opt -V BUILD_DEPENDS" ;;
-+			var_opt="$var_opt -V BUILD_DEPENDS -V LIB_DEPENDS" ;;
+-		all-depends-list)
+-			var_opt="$var_opt -V BUILD_DEPENDS -V LIB_DEPENDS -V RUN_DEPENDS" ;;
+-		build-depends-list)
+-			var_opt="$var_opt -V BUILD_DEPENDS -V LIB_DEPENDS" ;;
++		all-depends-list|build-depends-list)
++			var_opt="$var_opt -V PKG_DEPENDS -V EXTRACT_DEPENDS \
++				-V PATCH_DEPENDS -V FETCH_DEPENDS -V BUILD_DEPENDS -V LIB_DEPENDS"
++			[ "$dep_type" = all-depends-list ] && var_opt="$var_opt -V RUN_DEPENDS" ;;
  		run-depends-list)
--			var_opt="$var_opt -V RUN_DEPENDS" ;;
-+ 			var_opt="$var_opt -V RUN_DEPENDS -V LIB_DEPENDS" ;;
+- 			var_opt="$var_opt -V RUN_DEPENDS -V LIB_DEPENDS" ;;
++			var_opt="$var_opt -V RUN_DEPENDS -V LIB_DEPENDS" ;;
++		test-depends-list)
++			var_opt="$var_opt -V TEST_DEPENDS" ;;
  		*)
  			fail "make_dep_list: Unsupported option '$dep_type'"
  		esac
-@@ -2436,9 +2438,7 @@ dependency_check () {
- 				confl_p=`pkg query -g "%n-%v" $glob 2>/dev/null`
- 				if [ -n "$confl_p" ]; then
- 					confl_p=${confl_p%% *}
--echo -e "<><><> Changing d_port from $d_port " 
- 					d_port="$pd/`origin_from_pdb $confl_p`"
--echo "to $d_port"
- 					if [ "${d_port#$pd/}" = "$portdir" ]; then
- 						echo -e "\n===>>> $origin seems to depend on $portdir"
- 						echo '       which looks like a dependency loop'
-@@ -2797,7 +2797,12 @@ multiport () {
- 				numports=$(( $numports - 1 ))
- 				continue
- 			fi
--			origin=`origin_from_pdb $port` ;;
-+			origin=$(origin_from_pdb $port)
-+			unset PM_OLD_ORIGIN
-+			if [ -n "$origin" ] && ! pm_isdir_pd "$origin"; then
-+				export PM_OLD_ORIGIN=$origin
-+				find_moved_port $origin $port nonfatal && origin=$moved_npd
-+			fi ;;
- 		esac
- 
- 		case "$PM_NEEDS_UPDATE" in
-@@ -3033,7 +3038,7 @@ if [ -z "$REPLACE_ORIGIN" ]; then
- 			*)	echo '' ; no_valid_port ;;
- 			esac
- 		done ;;
--	*)	upg_port=$(pkg query %n-%v $argv) ;;
-+	*)	upg_port=$(pkg query %n-%v "$argv") ;;
- 	esac
- 
- 	if [ -z "$portdir" -a -z "$upg_port" ]; then
-@@ -3129,12 +3134,13 @@ iport_from_pkgname () {
- 	dir=$(dir_part $1)
- 	flavor=$(flavor_part $1)
- 	pkgname=$(make -C "$pd/$dir" -V PKGNAME FLAVOR=$flavor) || return 1
--	pkg info -x ${pkgname%-*}'-[^-]*'
-+	pkg info -x "^${pkgname%-*}"'-[^-]*' 2>/dev/null
- }
- 
- if [ -z "$upg_port" -a -z "$REPLACE_ORIGIN" ]; then
- 	upg_port=`iport_from_origin ${portdir}` ||
--		upg_port=`iport_from_pkgname $portdir`
-+		upg_port=`iport_from_pkgname $portdir` ||
-+		upg_port="$PM_OLD_ORIGIN"
- 	# || fail "XXX Cannot find installed port '$portdir'"
- fi
- 
-@@ -3594,6 +3600,7 @@ if [ -z "$use_package" ]; then
- 	fi
- 
- 	pm_cd_pd $portdir
-+	export_flavor $(flavor_part $portdir)
- 	[ -z "$DONT_PRE_CLEAN" ] && { pm_make clean NOCLEANDEPENDS=ncd ||
- 		fail 'make clean failed'; }
- 

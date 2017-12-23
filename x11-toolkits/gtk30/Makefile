@@ -31,7 +31,8 @@ LIB_DEPENDS=	libepoxy.so:graphics/libepoxy \
 		libharfbuzz.so:print/harfbuzz
 RUN_DEPENDS+=	hicolor-icon-theme>=0:misc/hicolor-icon-theme \
 		adwaita-icon-theme>=0:x11-themes/adwaita-icon-theme \
-		at-spi2-atk>=0:accessibility/at-spi2-atk
+		at-spi2-atk>=0:accessibility/at-spi2-atk \
+		librsvg2>=0:graphics/librsvg2
 
 USE_PERL5=	build
 USE_LDCONFIG=	yes

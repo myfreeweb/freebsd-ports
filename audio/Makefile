@@ -144,6 +144,7 @@
     SUBDIR += faac
     SUBDIR += faad
     SUBDIR += fapg
+    SUBDIR += faust
     SUBDIR += fcplay
     SUBDIR += fdk-aac
     SUBDIR += fdmf
@@ -631,6 +632,7 @@
     SUBDIR += patchage
     SUBDIR += pavucontrol
     SUBDIR += pavumeter
+    SUBDIR += pc-mixer
     SUBDIR += pd
     SUBDIR += pd-cyclone
     SUBDIR += pear-Text_Spell_Audio

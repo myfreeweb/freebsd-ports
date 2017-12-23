@@ -2,7 +2,7 @@
 # $FreeBSD: head/lang/spidermonkey38/Makefile 449591 2017-09-10 20:55:38Z gerald $
 
 PORTNAME=	spidermonkey
-PORTVERSION=	52.4.0
+PORTVERSION=	52.5.2
 PORTREVISION=	0
 CATEGORIES=	lang
 MASTER_SITES=	MOZILLA/firefox/releases/${PORTVERSION}esr/source

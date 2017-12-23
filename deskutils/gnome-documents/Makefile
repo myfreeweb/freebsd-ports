@@ -22,12 +22,15 @@ LIB_DEPENDS=	libsoup-2.4.so:devel/libsoup \
 		libtracker-sparql-1.0.so:sysutils/tracker \
 		libgepub.so:textproc/libgepub \
 		libzapojit-0.0.so:net/libzapojit
-RUN_DEPENDS=	gnome-online-miners>=0:net/gnome-online-miners
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}dbus>0:devel/py-dbus@${PY_FLAVOR} \
+		gnome-online-miners>=0:net/gnome-online-miners \
+		${LOCALBASE}/share/certs/ca-root-nss.crt:security/ca_root_nss \
+		unoconv:textproc/unoconv
 
 PORTSCOUT=	limitw:1,even
 
 USES=		compiler:c++11-lib gettext gmake gnome libtool localbase \
-		pathfix pkgconfig tar:xz
+		pathfix pkgconfig python:2.7 tar:xz
 USE_GNOME=	cairo gdkpixbuf2 gnomedesktop3 intltool introspection librsvg2
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes

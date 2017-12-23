@@ -88,6 +88,9 @@ RUN_DEPENDS=	xdg-open:devel/xdg-utils \
 DISTFILES+=	4b87018f7fff1d054939d19920b751a0-collada2gltf-master-cb1d97788a.tar.bz2:src \
 #		pdfium-3235.tar.bz2:src
 
+NOT_FOR_ARCHS=		aarch64 armv6 armv7
+NOT_FOR_ARCHS_REASON=	Unsupported host_cpu
+
 .if defined(PRERELEASE)
 MASTER_SITES+=	http://dev-builds.libreoffice.org/pre-releases/src/
 .endif

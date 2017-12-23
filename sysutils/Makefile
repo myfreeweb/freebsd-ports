@@ -1220,8 +1220,10 @@
     SUBDIR += trueos-libqt5
     SUBDIR += tuptime
     SUBDIR += tw_cli
+    SUBDIR += twmn
     SUBDIR += tzdialog
     SUBDIR += u-boot-a13-olinuxino
+    SUBDIR += u-boot-a64-olinuxino
     SUBDIR += u-boot-bananapi
     SUBDIR += u-boot-bananapim2
     SUBDIR += u-boot-beaglebone
@@ -1276,6 +1278,7 @@
     SUBDIR += usb_modeswitch
     SUBDIR += usbhid-dump
     SUBDIR += usbhotkey
+    SUBDIR += usbtop
     SUBDIR += usbutils
     SUBDIR += uschedule
     SUBDIR += userinfo

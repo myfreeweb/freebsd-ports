@@ -1,11 +1,9 @@
 # Created by: Dmitry Marakasov <amdmi3@FreeBSD.org>
 # $FreeBSD$
 
-PORTNAME=		mygui
-DISTVERSION=		3.2.2-132
-DISTVERSIONPREFIX=	MyGUI
-DISTVERSIONSUFFIX=	-gb1e4bc8
-CATEGORIES=		x11-toolkits graphics devel
+PORTNAME=	mygui
+PORTVERSION=	3.2.3.git20171212
+CATEGORIES=	x11-toolkits graphics devel
 
 MAINTAINER=	amdmi3@FreeBSD.org
 COMMENT?=	Fast, simple and flexible GUI system for games and 3D applications
@@ -23,12 +21,11 @@ BUILD_WRKSRC=	${WRKSRC}/${MYGUI_SUBDIR}
 INSTALL_WRKSRC=	${WRKSRC}/${MYGUI_SUBDIR}
 .endif
 
-BROKEN_armv6=		fails to compile: memory:2050:9: error: cannot initialize a member subobject of type 'std::__1::basic_string<char> *' with an rvalue of type 'int'
-BROKEN_armv7=		fails to compile: memory:2050:9: error: cannot initialize a member subobject of type 'std::__1::basic_string<char> *' with an rvalue of type 'int'
 BROKEN_powerpc64=	fails to build
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	MyGUI
+GH_TAGNAME=	b1e4bc8
 
 MYGUI_RENDERSYSTEM?=	0
 
@@ -38,9 +35,6 @@ CMAKE_ARGS=	-DMYGUI_BUILD_DEMOS=FALSE \
 		-DMYGUI_BUILD_DOCS=FALSE \
 		-DMYGUI_RENDERSYSTEM=${MYGUI_RENDERSYSTEM}
 USE_LDCONFIG=	yes
-
-USE_CXXSTD=	c++11
-CXXFLAGS+=	-fPIC
 
 PLIST=		${.CURDIR}/pkg-plist
 

@@ -405,6 +405,7 @@
     SUBDIR += librsync2
     SUBDIR += libsocket++
     SUBDIR += libsrtp
+    SUBDIR += libstorj
     SUBDIR += libtnl
     SUBDIR += libtrace
     SUBDIR += libunp
@@ -1040,6 +1041,7 @@
     SUBDIR += py-libcloud
     SUBDIR += py-libdnet
     SUBDIR += py-libnet
+    SUBDIR += py-libstorj
     SUBDIR += py-magic-wormhole
     SUBDIR += py-matrix-synapse-ldap3
     SUBDIR += py-maxminddb
