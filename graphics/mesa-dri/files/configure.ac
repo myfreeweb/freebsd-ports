@@ -37,3 +37,12 @@
  fi
  AM_CONDITIONAL(HAVE_CLOVER, test "x$enable_opencl" = xyes)
  AM_CONDITIONAL(HAVE_CLOVER_ICD, test "x$enable_opencl_icd" = xyes)
+@@ -2577,6 +2577,8 @@
+                AC_MSG_ERROR([swr enabled but no swr architectures selected])
+             fi
+ 
++            PKG_CHECK_MODULES([TINYXML2], [tinyxml2])
++
+             HAVE_GALLIUM_SWR=yes
+             ;;
+         xvc4)

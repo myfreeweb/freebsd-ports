@@ -17,6 +17,7 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 ### Vulkan
 
 - `graphics/mesa-dri` and `graphics/mesa-libs`: updated to 17.3.0, enabled Vulkan drivers and VK_KHR_wayland_surface [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540) [223195](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223195)
+	- + enabled SWR software renderer, run like this: `LIBGL_ALWAYS_SOFTWARE=true GALLIUM_DRIVER=llvmpipe LD_PRELOAD=/usr/local/lib/libtinyxml2.so glxgears`
 - `graphics/vulkan-sdk`: [Vulkan SDK](https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers) (headers, ICD loader, validation layers) [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
 
 NOTE: ANV (Intel Vulkan) requires running the apps as root and might not work for complex applications.
