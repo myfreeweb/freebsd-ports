@@ -21,7 +21,7 @@ LIB_DEPENDS=	libgc-threaded.so:devel/boehm-gc-threaded \
 		libpcre.so:devel/pcre
 BUILD_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
 
-LLVM_VER?=	40
+LLVM_VER?=	50
 
 USES=		compiler gmake pkgconfig
 
