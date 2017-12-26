@@ -1,0 +1,11 @@
+--- icd/CMakeLists.txt.orig	2017-12-26 00:43:06.217312000 +0300
++++ icd/CMakeLists.txt	2017-12-26 00:43:14.226028000 +0300
+@@ -4,7 +4,7 @@
+     set(DisplayServer Win32)
+ elseif(CMAKE_SYSTEM_NAME STREQUAL "Android")
+     add_definitions(-DVK_USE_PLATFORM_ANDROID_KHR -DVK_USE_PLATFORM_ANDROID_KHX)
+-elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
++elseif(UNIX AND NOT APPLE)
+     if (BUILD_WSI_XCB_SUPPORT)
+         add_definitions(-DVK_USE_PLATFORM_XCB_KHR -DVK_USE_PLATFORM_XCB_KHX)
+     endif()

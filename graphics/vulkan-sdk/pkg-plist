@@ -8,6 +8,7 @@ etc/vulkan/explicit_layer.d/VkLayer_threading.json
 etc/vulkan/explicit_layer.d/VkLayer_unique_objects.json
 include/vulkan/vk_icd.h
 include/vulkan/vk_layer.h
+include/vulkan/vk_layer_dispatch_table.h
 include/vulkan/vk_platform.h
 include/vulkan/vk_sdk_platform.h
 include/vulkan/vulkan.h
@@ -20,5 +21,5 @@ lib/libVkLayer_unique_objects.so
 lib/libVkLayer_utils.so
 lib/libvulkan.so
 lib/libvulkan.so.1
-lib/libvulkan.so.1.0.61
+lib/libvulkan.so.1.0.65
 libdata/pkgconfig/vulkan.pc
