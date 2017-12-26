@@ -1181,6 +1181,7 @@
     SUBDIR += snortreport
     SUBDIR += snortsam
     SUBDIR += snortsnarf
+    SUBDIR += snuffleupagus
     SUBDIR += softether
     SUBDIR += softether-devel
     SUBDIR += softhsm
