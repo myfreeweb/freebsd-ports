@@ -1,9 +1,8 @@
 # $FreeBSD$
 
-PORTNAME=		vkquake
-DISTVERSION=		0.96.2-82
-DISTVERSIONSUFFIX=	-g4fe975b
-CATEGORIES=		games
+PORTNAME=	vkquake
+DISTVERSION=	0.97.2
+CATEGORIES=	games
 
 MAINTAINER=	greg@unrelenting.technology
 COMMENT=	Quake 1 port using Vulkan instead of OpenGL, based on QuakeSpasm
@@ -17,7 +16,7 @@ LIB_DEPENDS=	libSDL2.so:devel/sdl20 \
 
 WRKSRC_SUBDIR=	Quake
 
-USES=	gmake pkgconfig desktop-file-utils
+USES=		gmake pkgconfig desktop-file-utils
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	Novum
@@ -28,21 +27,21 @@ INSTALLS_ICONS=	yes
 ALL_TARGET=
 MAKE_ARGS+=	prefix=${LOCALBASE} bindir=${LOCALBASE}/bin
 
-.include "${.CURDIR}/../quake-data/Makefile.include"
+.include	"${.CURDIR}/../quake-data/Makefile.include"
 
 CFLAGS+=	-DDATADIR='\"${Q1DIR}\"'
 
-OPTIONS_DEFINE=			USERDIRS WAVE FLAC MP3 VORBIS OPUS
+OPTIONS_DEFINE=			USERDIRS WAVE FLAC MP3 VORBIS # OPUS
 OPTIONS_RADIO=			MODPLAYER
 OPTIONS_RADIO_MODPLAYER=	MIKMOD XMP MODPLUG
-OPTIONS_DEFAULT=		USERDIRS WAVE FLAC VORBIS OPUS MODPLUG
+OPTIONS_DEFAULT=		USERDIRS WAVE FLAC VORBIS MODPLUG # OPUS MODPLUG
 
 USERDIRS_DESC=	Enable support for loading game files from user directories (~/.vkquake)
 WAVE_DESC=	Enable support for Wave music
 FLAC_DESC=	Enable support for FLAC music
 MP3_DESC=	Enable support for MP3 music
 VORBIS_DESC=	Enable support for Ogg Vorbis music
-OPUS_DESC=	Enable support for Opus music
+# OPUS_DESC=	Enable support for Opus music
 MIKMOD_DESC=	Enable support for tracker module music using MikMod
 XMP_DESC=	Enable support for tracker module music using XMP
 MODPLUG_DESC=	Enable support for tracker module music using ModPlug
@@ -64,13 +63,14 @@ MP3_LIB_DEPENDS=	libmad.so:audio/libmad
 VORBIS_MAKE_ARGS=	USE_CODEC_VORBIS=1 VORBISLIB=vorbis
 VORBIS_MAKE_ARGS_OFF=	USE_CODEC_VORBIS=0
 VORBIS_LIB_DEPENDS=	libvorbis.so:audio/libvorbis \
-		libvorbisfile.so:audio/libvorbis \
-		libogg.so:audio/libogg
+			libvorbisfile.so:audio/libvorbis \
+			libogg.so:audio/libogg
 
-OPUS_MAKE_ARGS=		USE_CODEC_OPUS=1
-OPUS_MAKE_ARGS_OFF=	USE_CODEC_OPUS=0
-OPUS_LIB_DEPENDS=	libopus.so:audio/opus \
-		libopusfile.so:audio/opusfile
+# XXX: crashes on start
+# OPUS_MAKE_ARGS=		USE_CODEC_OPUS=1
+# OPUS_MAKE_ARGS_OFF=	USE_CODEC_OPUS=0
+# OPUS_LIB_DEPENDS=	libopus.so:audio/opus \
+# 			libopusfile.so:audio/opusfile
 
 MIKMOD_MAKE_ARGS=	USE_CODEC_MIKMOD=1
 MIKMOD_MAKE_ARGS_OFF=	USE_CODEC_MIKMOD=0
