@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	crystal
-DISTVERSION=	0.24.0
+DISTVERSION=	0.24.1
 CATEGORIES=	lang
 MASTER_SITES=	https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/crystal/:bootstrap
 DISTFILES=	${BOOTSTRAP_PATH}:bootstrap
@@ -18,10 +18,9 @@ ONLY_FOR_ARCHS_REASON=	requires prebuilt bootstrap compiler
 
 LIB_DEPENDS=	libgc-threaded.so:devel/boehm-gc-threaded \
 		libevent.so:devel/libevent \
-		libpcre.so:devel/pcre
-BUILD_DEPENDS=	llvm-config${LLVM_VER}:devel/llvm${LLVM_VER}
-
-LLVM_VER?=	50
+		libpcre.so:devel/pcre \
+		${LOCALBASE}/llvm50/lib/libLLVM-5.0.so:devel/llvm50
+BUILD_DEPENDS=	llvm-config50:devel/llvm50
 
 USES=		compiler gmake pkgconfig
 
@@ -29,7 +28,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	crystal-lang
 
 MAKE_ARGS=	SHELL=sh \
-		LLVM_CONFIG=llvm-config${LLVM_VER} \
+		LLVM_CONFIG=llvm-config50 \
 		FLAGS="--release --no-debug" \
 		EXPORTS='CRYSTAL_CONFIG_PATH="lib:${PREFIX}/lib/${PORTNAME}"' \
 		CRYSTAL_CACHE_DIR="${WRKDIR}/cache"
@@ -64,7 +63,7 @@ post-patch:
 	${LN} -s x86_64-portbld-freebsd ${WRKSRC}/src/lib_c/x86_64-unknown-freebsd
 
 do-build-DOCS-on:
-	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} doc \
+	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} docs \
 			CRYSTAL_CACHE_DIR="${WRKDIR}/cache"
 
 do-install:

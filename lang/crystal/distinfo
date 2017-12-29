@@ -1,5 +1,5 @@
-TIMESTAMP = 1513694037
+TIMESTAMP = 1514504626
 SHA256 (crystal/crystal-0.24.0-freebsd12.0) = 88bca1a688290da9f0bb97bb2d4a8d0b10a1b2fc545c692ded44b82eb9c5ccf8
 SIZE (crystal/crystal-0.24.0-freebsd12.0) = 44264868
-SHA256 (crystal/crystal-lang-crystal-0.24.0_GH0.tar.gz) = c34f4326ee576f60b8960e331aae8d5265a12b30707582e1f5c6c6032d364a80
-SIZE (crystal/crystal-lang-crystal-0.24.0_GH0.tar.gz) = 1724569
+SHA256 (crystal/crystal-lang-crystal-0.24.1_GH0.tar.gz) = 4999a4d2a9ffc7bfbea8351b97057c3a135c2091cbd518e5c22ea7f5392b67d8
+SIZE (crystal/crystal-lang-crystal-0.24.1_GH0.tar.gz) = 1744210

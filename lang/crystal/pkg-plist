@@ -8,6 +8,7 @@ lib/crystal/benchmark.cr
 lib/crystal/benchmark/bm.cr
 lib/crystal/benchmark/ips.cr
 lib/crystal/big.cr
+lib/crystal/big/big_decimal.cr
 lib/crystal/big/big_float.cr
 lib/crystal/big/big_int.cr
 lib/crystal/big/big_rational.cr
@@ -134,9 +135,11 @@ lib/crystal/compiler/crystal/tools/doc/html/other_types.html
 lib/crystal/compiler/crystal/tools/doc/html/type.html
 lib/crystal/compiler/crystal/tools/doc/item.cr
 lib/crystal/compiler/crystal/tools/doc/macro.cr
+lib/crystal/compiler/crystal/tools/doc/main.cr
 lib/crystal/compiler/crystal/tools/doc/markdown_doc_renderer.cr
 lib/crystal/compiler/crystal/tools/doc/method.cr
 lib/crystal/compiler/crystal/tools/doc/templates.cr
+lib/crystal/compiler/crystal/tools/doc/to_json.cr
 lib/crystal/compiler/crystal/tools/doc/type.cr
 lib/crystal/compiler/crystal/tools/expand.cr
 lib/crystal/compiler/crystal/tools/formatter.cr
@@ -272,7 +275,7 @@ lib/crystal/float/printer/grisu3.cr
 lib/crystal/float/printer/ieee.cr
 lib/crystal/gc.cr
 lib/crystal/gc/boehm.cr
-lib/crystal/gc/null.cr
+lib/crystal/gc/none.cr
 lib/crystal/gzip/gzip.cr
 lib/crystal/gzip/header.cr
 lib/crystal/gzip/reader.cr
@@ -770,6 +773,7 @@ lib/crystal/unicode/unicode.cr
 lib/crystal/union.cr
 lib/crystal/uri.cr
 lib/crystal/uri/uri_parser.cr
+lib/crystal/uuid.cr
 lib/crystal/value.cr
 lib/crystal/weak_ref.cr
 lib/crystal/winerror.cr
