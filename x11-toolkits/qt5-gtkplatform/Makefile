@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	gtkplatform
-DISTVERSION=	0.2.1
+DISTVERSION=	0.2.2
 CATEGORIES=	x11-toolkits devel
 PKGNAMEPREFIX=	qt5-
 
