@@ -66,16 +66,20 @@ EXTRA_PATCHES+=	${PATCHDIR}/extra-src_gallium_drivers_vc4_Makefile.in
 . endif
 .endif
 
-.if ${VULKAN_DRIVERS:MINTEL}
+.if ${VULKAN_DRIVERS}
 BUILD_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}mako>0:textproc/py-mako@${PY_FLAVOR}
+# enables VK_KHR_wayland_surface in Vulkan drivers
+. if ${PORT_OPTIONS:MWAYLAND}
+CONFIGURE_ARGS+=	--with-platforms=x11,drm,wayland
+. endif
+.endif
+
+.if ${VULKAN_DRIVERS:MINTEL}
+. if ${/usr/bin/ld:L:tA} != /usr/bin/ld.lld
 # --build-id isn't supported by old GNU ld.bfd in base
 USE_BINUTILS=		yes
 LDFLAGS+=		-B${LOCALBASE}/bin
-.endif
-
-# enables VK_KHR_wayland_surface in Vulkan drivers
-.if ${PORT_OPTIONS:MWAYLAND}
-CONFIGURE_ARGS+=	--with-platforms=x11,drm,wayland
+. endif
 .endif
 
 CONFIGURE_ARGS+=	--with-dri-drivers="${DRI_DRIVERS:tl}" \

@@ -183,6 +183,7 @@
     SUBDIR += fftw3-long
     SUBDIR += fftw3-quad
     SUBDIR += fityk
+    SUBDIR += flann
     SUBDIR += form
     SUBDIR += fpc-fftw
     SUBDIR += fpc-gmp
@@ -732,6 +733,7 @@
     SUBDIR += superlu
     SUBDIR += superlu_mt
     SUBDIR += surf
+    SUBDIR += symmetrica
     SUBDIR += tablix
     SUBDIR += taucs
     SUBDIR += testu01

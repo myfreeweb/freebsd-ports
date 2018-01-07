@@ -9,6 +9,7 @@ PKGNAMEPREFIX=	qt5-
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Qt graphical user interface module
 
+BUILD_DEPENDS=	at-spi2-core>=0:accessibility/at-spi2-core
 LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		libdrm.so:graphics/libdrm \
 		libfontconfig.so:x11-fonts/fontconfig \
@@ -26,7 +27,7 @@ LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		libxkbcommon.so:x11/libxkbcommon
 RUN_DEPENDS=	xdg-open:devel/xdg-utils
 
-USES=		jpeg
+USES=		jpeg localbase
 USE_GL=		gl egl
 USE_GNOME=	glib20
 USE_QT5=	core dbus network qmake_build buildtools_build
@@ -71,6 +72,12 @@ RUN_DEPENDS+=	${LOCALBASE}/share/fonts/encodings/encodings.dir:x11-fonts/encodin
 .endif
 
 CFLAGS_powerpc64=	-mminimal-toc
+
+post-configure:
+.for d in src/gui ${MORE_WRKSRCS}
+	${MKDIR} ${WRKSRC}/${d}
+	cd ${WRKSRC}/${d} && ${SETENV} ${QMAKE_ENV} ${_QMAKE} ${QMAKE_ARGS} ${WRKSRC}/${d}
+.endfor
 
 post-build:
 .for d in ${MORE_WRKSRCS}

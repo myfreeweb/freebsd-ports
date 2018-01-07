@@ -303,7 +303,6 @@
     SUBDIR += p5-Array-LineReader
     SUBDIR += p5-Array-PrintCols
     SUBDIR += p5-Array-RefElem
-    SUBDIR += p5-Asterisk
     SUBDIR += p5-Asterisk-FastAGI
     SUBDIR += p5-Bot-Training
     SUBDIR += p5-Bot-Training-MegaHAL
@@ -358,6 +357,7 @@
     SUBDIR += p5-Text-FIGlet
     SUBDIR += p5-Tie-DxHash
     SUBDIR += p5-Zen-Koans
+    SUBDIR += p5-asterisk-perl
     SUBDIR += pantry
     SUBDIR += parley
     SUBDIR += pastebinit
@@ -399,7 +399,6 @@
     SUBDIR += py-qt4-demo
     SUBDIR += py-qt4-doc
     SUBDIR += py-qt5-demo
-    SUBDIR += py-qt5-doc
     SUBDIR += py-socli
     SUBDIR += py-spdx
     SUBDIR += py-spdx-lookup
@@ -469,6 +468,7 @@
     SUBDIR += tempcontrol
     SUBDIR += termatrix
     SUBDIR += teseq
+    SUBDIR += thefuck
     SUBDIR += timediff
     SUBDIR += tkcron
     SUBDIR += tkinfo

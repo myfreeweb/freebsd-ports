@@ -12,7 +12,6 @@ COMMENT=	Sketching and painting program
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/eigen3.pc:math/eigen3
 LIB_DEPENDS=	libImath.so:graphics/ilmbase \
 		libOpenColorIO.so:graphics/opencolorio \
 		libX11.so:x11/libX11 \
@@ -30,7 +29,7 @@ LIB_DEPENDS=	libImath.so:graphics/ilmbase \
 		libxcb-util.so:x11/xcb-util
 
 USES=		cmake:outsource compiler:c++11-lib desktop-file-utils \
-		gettext jpeg kde:5 shared-mime-info
+		eigen:3 gettext jpeg kde:5 shared-mime-info
 
 USE_KDE=	archive completion config coreaddons crash guiaddons i18n \
 		itemmodels itemviews kio service widgetsaddons windowsystem

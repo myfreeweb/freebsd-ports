@@ -43,6 +43,7 @@ include/freerdp2/freerdp/client/rdpei.h
 include/freerdp2/freerdp/client/rdpgfx.h
 include/freerdp2/freerdp/client/rdpsnd.h
 include/freerdp2/freerdp/client/remdesk.h
+include/freerdp2/freerdp/client/sshagent.h
 include/freerdp2/freerdp/client/tsmf.h
 include/freerdp2/freerdp/codec/audio.h
 include/freerdp2/freerdp/codec/bitmap.h
@@ -124,6 +125,8 @@ include/freerdp2/freerdp/utils/signal.h
 include/freerdp2/freerdp/utils/stopwatch.h
 include/freerdp2/freerdp/version.h
 include/freerdp2/freerdp/window.h
+%%WAYLAND%%include/uwac0/uwac/uwac-tools.h
+%%WAYLAND%%include/uwac0/uwac/uwac.h
 include/winpr2/winpr/asn1.h
 include/winpr2/winpr/bcrypt.h
 include/winpr2/winpr/bitstream.h
@@ -208,6 +211,7 @@ lib/libwinpr2.so.2
 lib/libwinpr2.so.2.0.0
 libdata/pkgconfig/freerdp-client2.pc
 libdata/pkgconfig/freerdp2.pc
+%%WAYLAND%%libdata/pkgconfig/uwac0.pc
 libdata/pkgconfig/winpr-tools2.pc
 libdata/pkgconfig/winpr2.pc
 share/cmake/Modules/FreeRDP-Client2/FreeRDP-ClientConfig.cmake
@@ -218,12 +222,16 @@ share/cmake/Modules/FreeRDP2/FreeRDPConfig.cmake
 share/cmake/Modules/FreeRDP2/FreeRDPConfigVersion.cmake
 share/cmake/Modules/FreeRDP2/FreeRDPTargets-%%CMAKE_BUILD_TYPE%%.cmake
 share/cmake/Modules/FreeRDP2/FreeRDPTargets.cmake
+%%WAYLAND%%share/cmake/Modules/uwac0/uwac-%%CMAKE_BUILD_TYPE%%.cmake
+%%WAYLAND%%share/cmake/Modules/uwac0/uwac.cmake
+%%WAYLAND%%share/cmake/Modules/uwac0/uwacConfig.cmake
+%%WAYLAND%%share/cmake/Modules/uwac0/uwacConfigVersion.cmake
 share/cmake/Modules/WinPR2/WinPRConfig.cmake
 share/cmake/Modules/WinPR2/WinPRConfigVersion.cmake
 share/cmake/Modules/WinPR2/WinPRTargets-%%CMAKE_BUILD_TYPE%%.cmake
 share/cmake/Modules/WinPR2/WinPRTargets.cmake
-share/man/man1/winpr-hash.1
-share/man/man1/winpr-makecert.1
-%%WAYLAND%%share/man/man1/wlfreerdp.1
-%%X11%%share/man/man1/xfreerdp.1
-share/man/man7/wlog.7
+%%MANPAGES%%man/man1/winpr-hash.1.gz
+%%MANPAGES%%man/man1/winpr-makecert.1.gz
+%%WAYLAND%%%%MANPAGES%%man/man1/wlfreerdp.1.gz
+%%X11%%%%MANPAGES%%man/man1/xfreerdp.1.gz
+%%MANPAGES%%man/man7/wlog.7.gz

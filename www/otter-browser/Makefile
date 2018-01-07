@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	otter-browser
-DISTVERSION=	0.9.91
+PORTVERSION=	0.9.93
 DISTVERSIONPREFIX=	v
 CATEGORIES=	www
 
@@ -18,17 +18,20 @@ USE_QT5=	concurrent core dbus gui multimedia network printsupport \
 		qml script sql sql-sqlite3 svg widgets xmlpatterns \
 		buildtools_build qmake_build
 
-OPTIONS_SINGLE=		BACKEND
-OPTIONS_SINGLE_BACKEND=	WEBKIT WEBENGINE
-OPTIONS_DEFAULT=	WEBKIT
-
-WEBKIT_CMAKE_BOOL=	ENABLE_QTWEBKIT
-WEBKIT_USE=		QT5=webkit
-WEBENGINE_DESC=		WebEngine webpage renderer support
-WEBENGINE_CMAKE_BOOL=	ENABLE_QTWEBENGINE
-WEBENGINE_USE=		QT5=location,quick,webchannel,webengine
-
 USE_GITHUB=	yes
 GH_ACCOUNT=	OtterBrowser
+
+OPTIONS_MULTI=		BACKEND
+OPTIONS_MULTI_BACKEND=	QTWEBENGINE QTWEBKIT
+OPTIONS_DEFAULT=	QTWEBENGINE QTWEBKIT
+
+QTWEBENGINE_DESC=	Build QtWebEngine backend
+QTWEBKIT_DESC=		Build QtWebKit backend
+
+QTWEBENGINE_USE=	qt5=location,quick,webchannel,webengine
+QTWEBENGINE_CMAKE_BOOL=	ENABLE_QTWEBENGINE
+
+QTWEBKIT_USE=		qt5=webkit
+QTWEBKIT_CMAKE_BOOL=	ENABLE_QTWEBKIT
 
 .include <bsd.port.mk>

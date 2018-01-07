@@ -313,6 +313,13 @@ MOZ_EXPORT+=	MOZ_OPTIMIZE_FLAGS="${CFLAGS:M-O*}"
 MOZ_OPTIONS+=	--enable-optimize
 .else
 MOZ_OPTIONS+=	--disable-optimize
+. if ${MOZILLA_VER:R:R} >= 56
+.  if ${/usr/bin/ld:L:tA} != /usr/bin/ld.lld
+# ld 2.17 barfs on Stylo built with -C opt-level=0
+USE_BINUTILS=	yes
+LDFLAGS+=		-B${LOCALBASE}/bin
+.  endif
+. endif
 .endif
 
 .if ${PORT_OPTIONS:MCANBERRA}
@@ -339,8 +346,7 @@ MOZ_OPTIONS+=	--disable-gstreamer
 .endif
 
 .if ${PORT_OPTIONS:MGCONF}
-BUILD_DEPENDS+=	${gconf2_DETECT}:${gconf2_LIB_DEPENDS:C/.*://}
-USE_GNOME+=		gconf2:build
+USE_GNOME+=		gconf2
 MOZ_OPTIONS+=	--enable-gconf
 .else
 MOZ_OPTIONS+=	--disable-gconf

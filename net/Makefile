@@ -545,6 +545,7 @@
     SUBDIR += openldap24-server
     SUBDIR += openmpi
     SUBDIR += openmpi2
+    SUBDIR += openmpi3
     SUBDIR += openmq
     SUBDIR += openmq-client
     SUBDIR += openntpd
@@ -1202,7 +1203,6 @@
     SUBDIR += rubygem-fog-aliyun
     SUBDIR += rubygem-fog-atmos
     SUBDIR += rubygem-fog-aws
-    SUBDIR += rubygem-fog-aws0
     SUBDIR += rubygem-fog-aws1
     SUBDIR += rubygem-fog-azure
     SUBDIR += rubygem-fog-brightbox
@@ -1243,6 +1243,7 @@
     SUBDIR += rubygem-iproto
     SUBDIR += rubygem-lita-gems
     SUBDIR += rubygem-macaddr
+    SUBDIR += rubygem-mqtt
     SUBDIR += rubygem-net-ldap
     SUBDIR += rubygem-net-netrc
     SUBDIR += rubygem-net-ping

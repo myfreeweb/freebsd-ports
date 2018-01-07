@@ -1160,6 +1160,7 @@
     SUBDIR += pcrs
     SUBDIR += pdfgrep
     SUBDIR += pdfoutline
+    SUBDIR += pdfsandwich
     SUBDIR += pdftohtml
     SUBDIR += pear-File_Fortune
     SUBDIR += pear-File_MARC
@@ -1524,6 +1525,7 @@
     SUBDIR += rubygem-libxml-ruby
     SUBDIR += rubygem-linguistics
     SUBDIR += rubygem-liquid
+    SUBDIR += rubygem-liquid-tag-parser
     SUBDIR += rubygem-loggability
     SUBDIR += rubygem-loofah
     SUBDIR += rubygem-ltsv
@@ -1584,6 +1586,7 @@
     SUBDIR += rubygem-tidy
     SUBDIR += rubygem-truncato
     SUBDIR += rubygem-twitter-text
+    SUBDIR += rubygem-twitter-text1
     SUBDIR += rubygem-unf
     SUBDIR += rubygem-unf_ext
     SUBDIR += rubygem-version_sorter

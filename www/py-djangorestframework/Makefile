@@ -2,7 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	djangorestframework
-PORTVERSION=	3.7.7
+PORTVERSION=	3.6.4
+PORTEPOCH=	1
 CATEGORIES=	www python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -12,7 +13,7 @@ COMMENT=	Django REST framework
 
 LICENSE=	BSD2CLAUSE
 
-USES=		python:2.7+
+USES=		python
 USE_PYTHON=	distutils autoplist
 
 .include <bsd.port.mk>

@@ -1197,6 +1197,7 @@
     SUBDIR += icu-lx
     SUBDIR += idutils
     SUBDIR += imake
+    SUBDIR += inastemp
     SUBDIR += include-what-you-use
     SUBDIR += inifiled
     SUBDIR += inilib
@@ -2982,7 +2983,6 @@
     SUBDIR += p5-MooseX-Role-Matcher
     SUBDIR += p5-MooseX-Role-Parameterized
     SUBDIR += p5-MooseX-Role-Strict
-    SUBDIR += p5-MooseX-Role-WithOverloading
     SUBDIR += p5-MooseX-Runnable
     SUBDIR += p5-MooseX-SemiAffordanceAccessor
     SUBDIR += p5-MooseX-SetOnce
@@ -3131,7 +3131,6 @@
     SUBDIR += p5-Parse-PMFile
     SUBDIR += p5-Parse-PerlConfig
     SUBDIR += p5-Parse-Pidl
-    SUBDIR += p5-Parse-Pidl44
     SUBDIR += p5-Parse-PlainConfig
     SUBDIR += p5-Parse-RecDescent
     SUBDIR += p5-Parse-Win32Registry
@@ -3433,7 +3432,6 @@
     SUBDIR += p5-Test-Benchmark
     SUBDIR += p5-Test-BinaryData
     SUBDIR += p5-Test-Bits
-    SUBDIR += p5-Test-Block
     SUBDIR += p5-Test-CPAN-Meta
     SUBDIR += p5-Test-CPAN-Meta-YAML
     SUBDIR += p5-Test-CheckDeps
@@ -4405,6 +4403,7 @@
     SUBDIR += py-efilter
     SUBDIR += py-efl
     SUBDIR += py-eggtestinfo
+    SUBDIR += py-ejson
     SUBDIR += py-entrypoints
     SUBDIR += py-enum-compat
     SUBDIR += py-enum34
@@ -5462,6 +5461,7 @@
     SUBDIR += rubygem-google-api-client
     SUBDIR += rubygem-google-api-client010
     SUBDIR += rubygem-google-protobuf
+    SUBDIR += rubygem-googleapis-common-protos-types
     SUBDIR += rubygem-graf
     SUBDIR += rubygem-grape
     SUBDIR += rubygem-grape-entity

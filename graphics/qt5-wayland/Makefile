@@ -14,7 +14,7 @@ LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libwayland-egl.so:graphics/mesa-libs \
 		libxkbcommon.so:x11/libxkbcommon
 
-USES=		pkgconfig qmake:outsource
+USES=		pkgconfig qmake:norecursive
 USE_GL=		egl gl
 USE_GNOME=	glib20
 USE_QT5=	core dbus gui qml quick \
@@ -24,5 +24,10 @@ QT_DIST=	${PORTNAME}
 QT_CONFIG+=	egl
 
 USE_LDCONFIG=	${PREFIX}/${QT_LIBDIR_REL}
+
+OPTIONS_DEFINE=	WAYLAND
+WAYLAND_DESC=		Requires graphics/mesa-libs with WAYLAND on
+WAYLAND_IGNORE_OFF=	Cannot be built without wayland support
+WAYLAND_LIB_DEPENDS=	libwayland-egl.so:graphics/mesa-libs
 
 .include <bsd.port.mk>
