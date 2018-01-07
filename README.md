@@ -50,6 +50,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `multimedia/gnome-twitch`: Twitch livestream player [224980](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224980)
 - `archivers/maxcso`: ISO to CSO compressor for PSP/PS2 emulators [224638](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224638)
 - `devel/llvm50`, `devel/llvm-devel`, `devel/cmake`: workarounds for LLVM linking / `llvm-config`!!! [223191](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223191)
 - `editors/neovim-qt`: nvim GUI [224427](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224427)
