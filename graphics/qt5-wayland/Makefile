@@ -26,6 +26,7 @@ QT_CONFIG+=	egl
 USE_LDCONFIG=	${PREFIX}/${QT_LIBDIR_REL}
 
 OPTIONS_DEFINE=	WAYLAND
+OPTIONS_DEFAULT=	WAYLAND
 WAYLAND_DESC=		Requires graphics/mesa-libs with WAYLAND on
 WAYLAND_IGNORE_OFF=	Cannot be built without wayland support
 WAYLAND_LIB_DEPENDS=	libwayland-egl.so:graphics/mesa-libs

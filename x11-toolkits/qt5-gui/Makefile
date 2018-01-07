@@ -11,14 +11,10 @@ COMMENT=	Qt graphical user interface module
 
 BUILD_DEPENDS=	at-spi2-core>=0:accessibility/at-spi2-core
 LIB_DEPENDS=	libdbus-1.so:devel/dbus \
-		libdrm.so:graphics/libdrm \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
 		libharfbuzz.so:print/harfbuzz \
-		libinput.so:x11/libinput \
-		libmtdev.so:devel/libmtdev \
 		libpng.so:graphics/png \
-		libudev.so:devel/libudev-devd \
 		libxcb.so:x11/libxcb \
 		libxcb-image.so:x11/xcb-util-image \
 		libxcb-keysyms.so:x11/xcb-util-keysyms \
@@ -34,7 +30,9 @@ USE_QT5=	core dbus network qmake_build buildtools_build
 QT_DIST=	base
 USE_XORG=	ice sm x11 xi xrender
 HAS_CONFIGURE=	yes
-CONFIGURE_ARGS=	-system-harfbuzz
+CONFIGURE_ARGS=	-no-eglfs \
+		-no-evdev \
+		-system-harfbuzz
 USE_LDCONFIG=	${PREFIX}/${QT_LIBDIR_REL}
 
 BUILD_WRKSRC=	${WRKSRC}/src/${PORTNAME}
@@ -61,7 +59,7 @@ MORE_WRKSRCS+=	src/openglextensions
 QT_DEFINES=	ACCESSIBILITY DBUS FONTCONFIG FREETYPE GLIB \
 		IMAGEFORMAT_PNG OPENGL SHAPE XCB XKB XKBCOMMON XRENDER
 QT_CONFIG=	accessibility accessibility-atspi-bridge dbus \
-		egl fontconfig glib opengl png system-freetype \
+		fontconfig glib opengl png system-freetype \
 		system-jpeg system-png xcb xcb-glx xcb-render \
 		xcb-xlib xinput2 xlib xrender
 

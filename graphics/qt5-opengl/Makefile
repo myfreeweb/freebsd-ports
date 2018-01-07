@@ -8,7 +8,7 @@ PKGNAMEPREFIX=	qt5-
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Qt 5-compatible OpenGL support module
 
-USE_GL=		gl
+USE_GL=		egl gl
 USE_QT5=	core gui widgets qmake_build buildtools_build
 QT_DIST=	base
 HAS_CONFIGURE=	yes
