@@ -1,4 +1,3 @@
-
 # $FreeBSD$
 #
 
@@ -1427,8 +1426,8 @@
     SUBDIR += toonel
     SUBDIR += torsocks
     SUBDIR += traceroute
-    SUBDIR += traff
     SUBDIR += traefik
+    SUBDIR += traff
     SUBDIR += trafshow
     SUBDIR += trafshow3
     SUBDIR += tramp
