@@ -16,8 +16,9 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 
 ### Vulkan
 
-- `graphics/mesa-dri` and `graphics/mesa-libs`: updated to 17.3.0, enabled Vulkan drivers and VK_KHR_wayland_surface [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540) [223195](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223195)
-	- + enabled SWR software renderer, run like this: `LIBGL_ALWAYS_SOFTWARE=true GALLIUM_DRIVER=llvmpipe LD_PRELOAD=/usr/local/lib/libtinyxml2.so glxgears`
+- `graphics/mesa-dri` and `graphics/mesa-libs`:
+	- enabled VK_KHR_wayland_surface [223195](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223195)
+	- + enabled SWR software renderer, run like this: `LIBGL_ALWAYS_SOFTWARE=true GALLIUM_DRIVER=swr LD_PRELOAD=/usr/local/lib/libtinyxml2.so glxgears`
 - `graphics/vulkan-sdk`: [Vulkan SDK](https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers) (headers, ICD loader, validation layers) [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
 
 NOTE: ANV (Intel Vulkan) requires running the apps as root and might not work for complex applications.
@@ -28,21 +29,16 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 - `x11-toolkits/wlc`: updated to 0.0.10 (for sway)
 - `x11-wm/sway`: [sway, the i3-like Wayland compositor](https://github.com/SirCmpwn/sway)
+- `x11-wm/weston`: reference Wayland compositor and some apps
 - `www/webkit2-gtk3`: updated to 2.18.3, Wayland support added [223733](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223733)
 - `devel/sdl20`: Wayland and udev options added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018)
 - `x11/libinput`: Update to 1.9.2, remove unnecessary/unused patches [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
 - `x11-servers/xorg-server`: added `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
 - `graphics/mesa-libs`: Fix device name detection [223030](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223030)
 - `devel/libepoll-shim`: Update version [223530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223530)
-- `x11-wm/weston`: reference Wayland compositor and some apps
-- `net/freerdp`: wlfreerdp Wayland client enabled [223913](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223913)
-- `multimedia/libva`: install to lib/dri instead of lib/va [224424](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224424)
-- `multimedia/mpv`: add VAAPI on Wayland support [224425](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224425)
-- `x11-toolkits/qt5-gtkplatform`: Qt-on-GTK, better Wayland support than `wayland-egl` [224453](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224453)
 
 ### Games
 
-- `x11-toolkits/mygui`: current git version that doesn't have weird C++ problems anymore, see [220189](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220189)
 - `games/vkquake`: [a Vulkan-powered Quake engine](https://github.com/Novum/vkQuake) [222182](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222182)
 - `emulators/dolphin-emu`: [Dolphin Emulator](https://dolphin-emu.org) (GameCube/Wii) updated to a recent git revision (Vulkan just works, dynamically loaded)
 - `games/vcmi`: open source reimplementation of Heroes of Might and Magic III! [221885](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221885)
@@ -94,16 +90,8 @@ options 	VIMAGE
 ```
 DEFAULT_VERSIONS+=ssl=libressl
 CPUTYPE?=znver1 # Replace with your CPU
-CC=clang-devel
-CXX=clang++-devel
-CFLAGS+=-flto=thin
-LDFLAGS+=-fuse-ld=gold
-LDFLAGS+=-fuse-ld=lld
-LD=ld.lld-devel
 RUST_PORT=lang/rust-nightly
 ```
-
-(but for some ports you'll have to turn some of these off!!! especially ThinLTO)
 
 ## Other FreeBSD desktop resources
 
