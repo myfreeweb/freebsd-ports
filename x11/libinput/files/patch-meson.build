@@ -1,3 +1,23 @@
+--- meson.build.orig	2017-11-28 05:13:06 UTC
++++ meson.build
+@@ -72,6 +72,8 @@ endif
+ 
+ ############ udev bits ############
+ 
++if false
++
+ udev_dir = get_option('udev-dir')
+ if udev_dir == ''
+ 	udev_dir = join_paths(get_option('prefix'), 'lib', 'udev')
+@@ -127,6 +129,8 @@ litest_model_quirks_file = configure_file(input : 'ude
+ 	       output : '90-libinput-model-quirks-litest.rules',
+ 	       install : false,
+ 	       configuration : litest_udev_rules_config)
++
++endif
+ 
+ ############ libinput-util.a ############
+ src_libinput_util = [
 --- meson.build.orig	2017-10-30 05:16:22 UTC
 +++ meson.build
 @@ -44,6 +44,8 @@ pkgconfig = import('pkgconfig')
