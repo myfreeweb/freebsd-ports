@@ -186,6 +186,7 @@
     SUBDIR += linux-sublime3
     SUBDIR += madedit
     SUBDIR += manedit
+    SUBDIR += medit
     SUBDIR += mg
     SUBDIR += micro
     SUBDIR += mined
@@ -216,6 +217,7 @@
     SUBDIR += py-editorconfig
     SUBDIR += py-room
     SUBDIR += rox-edit
+    SUBDIR += rubygem-neovim
     SUBDIR += scite
     SUBDIR += se
     SUBDIR += semi
@@ -243,6 +245,7 @@
     SUBDIR += vile
     SUBDIR += vim
     SUBDIR += vim-lite
+    SUBDIR += vim-tiny
     SUBDIR += web-mode
     SUBDIR += with-editor
     SUBDIR += wordgrinder

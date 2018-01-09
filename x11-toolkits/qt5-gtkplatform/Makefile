@@ -15,13 +15,13 @@ LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
 		libinput.so:x11/libinput \
 		libmtdev.so:devel/libmtdev \
+		libnotify.so:devel/libnotify \
 		libudev.so:devel/libudev-devd \
-		libxkbcommon.so:x11/libxkbcommon \
-		libnotify.so:devel/libnotify
+		libxkbcommon.so:x11/libxkbcommon
 
-USES=		qmake:outsource
+USES=		qmake:outsource pkgconfig
 USE_GNOME=	gtk30 cairo gdkpixbuf2
-USE_QT5=	core gui widgets dbus
+USE_QT5=	buildtools_build core gui widgets dbus
 USE_XORG=	x11 xext xrender
 USE_GL=		gl egl
 
