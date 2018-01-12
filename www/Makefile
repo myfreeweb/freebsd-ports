@@ -1832,6 +1832,8 @@
     SUBDIR += py-qp
     SUBDIR += py-qpy
     SUBDIR += py-qt4-webkit
+    SUBDIR += py-qt5-webchannel
+    SUBDIR += py-qt5-webengine
     SUBDIR += py-qt5-webkit
     SUBDIR += py-qt5-webkitwidgets
     SUBDIR += py-rackspace-monitoring

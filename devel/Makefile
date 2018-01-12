@@ -1543,6 +1543,7 @@
     SUBDIR += libsoup-gnome
     SUBDIR += libsoup-reference
     SUBDIR += libspark2012
+    SUBDIR += libspice-server
     SUBDIR += libstatgrab
     SUBDIR += libstatgrab0
     SUBDIR += libstrfunc
@@ -1663,6 +1664,7 @@
     SUBDIR += lua-alien
     SUBDIR += lua-bitlib
     SUBDIR += lua-bitop
+    SUBDIR += lua-bitop-51
     SUBDIR += lua-cjson
     SUBDIR += lua-gettext
     SUBDIR += lua-lgi
@@ -5527,6 +5529,7 @@
     SUBDIR += rubygem-librarianp
     SUBDIR += rubygem-libyajl2
     SUBDIR += rubygem-licensee
+    SUBDIR += rubygem-licensee8
     SUBDIR += rubygem-listen
     SUBDIR += rubygem-little-plugger
     SUBDIR += rubygem-local_time

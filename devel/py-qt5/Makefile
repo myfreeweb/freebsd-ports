@@ -1,7 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	qt5
-DISTVERSION=	${PYQT5_VERSION}
+PORTVERSION=	${PYQT5_VERSION}
+PORTREVISION=	1
 CATEGORIES=	devel python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -11,11 +12,12 @@ COMMENT=	Python bindings for the Qt 5 toolkit (meta port)
 USES=		metaport python pyqt:5
 USE_PYTHON=	flavors
 
+# Keep these synchronized with _USE_PYQT_ALL / _USE_PYQT5_ONLY in Mk/Use/pyqt.mk
 OPTIONS_DEFINE=	core dbus dbussupport demo designer \
 		designerplugin gui multimedia multimediawidgets \
 		network opengl printsupport qml qscintilla2 sql \
-		serialport svg test webkit webkitwidgets \
-		widgets xml xmlpatterns
+		serialport svg test webchannel webengine webkit \
+		webkitwidgets widgets xml xmlpatterns
 OPTIONS_DEFAULT=${OPTIONS_DEFINE}
 
 .for opt in ${OPTIONS_DEFINE}

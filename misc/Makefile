@@ -266,6 +266,7 @@
     SUBDIR += loop
     SUBDIR += lv
     SUBDIR += lxde-common
+    SUBDIR += lxi-tools
     SUBDIR += magicpoint
     SUBDIR += man.el
     SUBDIR += mbuffer
@@ -377,6 +378,7 @@
     SUBDIR += phraze
     SUBDIR += pinfo
     SUBDIR += pipe
+    SUBDIR += pnpids
     SUBDIR += podsleuth
     SUBDIR += posixtestsuite
     SUBDIR += proxyper
