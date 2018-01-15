@@ -25,8 +25,8 @@ Date: Fri, 12 Jun 2015 13:48:52 -0400
 Subject: require logind support
 
 
---- daemon/gdm-manager.c.orig	2017-10-03 22:18:28.000000000 +0200
-+++ daemon/gdm-manager.c	2017-10-06 22:16:42.284601000 +0200
+--- daemon/gdm-manager.c.orig	2017-10-24 21:33:58.000000000 +0200
++++ daemon/gdm-manager.c	2018-01-14 13:33:21.588929000 +0100
 @@ -36,7 +36,9 @@
  
  #include <act/act-user-manager.h>
@@ -640,7 +640,46 @@ Subject: require logind support
  
                  if (error != NULL) {
                          g_debug ("GdmManager: Error while retrieving remoteness for session: %s",
-@@ -956,7 +1364,8 @@ on_reauthentication_client_rejected (GdmSession       
+@@ -725,29 +1133,6 @@ out:
+         return recorded;
+ }
+ 
+-static GdmSession *
+-find_user_session_for_display (GdmManager *self,
+-                               GdmDisplay *display)
+-{
+-
+-        GList *node = self->priv->user_sessions;
+-
+-        while (node != NULL) {
+-                GdmSession *session = node->data;
+-                GdmDisplay *candidate_display;
+-                GList *next_node = node->next;
+-
+-                candidate_display = get_display_for_user_session (session);
+-
+-                if (candidate_display == display)
+-                        return session;
+-
+-                node = next_node;
+-        }
+-
+-        return NULL;
+-}
+-
+ static gboolean
+ gdm_manager_handle_register_display (GdmDBusManager        *manager,
+                                      GDBusMethodInvocation *invocation,
+@@ -787,7 +1172,7 @@ gdm_manager_handle_register_display (GdmDBusManager   
+                 }
+         }
+ 
+-        session = find_user_session_for_display (self, display);
++        session = get_user_session_for_display (display);
+ 
+         if (session != NULL) {
+                 GPid pid;
+@@ -961,7 +1346,8 @@ on_reauthentication_client_rejected (GdmSession       
                   * same audit session, ignore it since it doesn't "own" the
                   * reauthentication session
                   */
@@ -650,7 +689,7 @@ Subject: require logind support
                                                              NULL);
                  session_id = g_object_get_data (G_OBJECT (session), "caller-session-id");
  
-@@ -1168,16 +1577,20 @@ static gboolean
+@@ -1173,16 +1559,20 @@ static gboolean
  display_is_on_seat0 (GdmDisplay *display)
  {
          gboolean is_on_seat0 = TRUE;
@@ -677,7 +716,7 @@ Subject: require logind support
          return is_on_seat0;
  }
  
-@@ -1315,133 +1728,6 @@ maybe_start_pending_initial_login (GdmManager *manager
+@@ -1320,133 +1710,6 @@ maybe_start_pending_initial_login (GdmManager *manager
          g_free (user_session_seat_id);
  }
  
@@ -811,7 +850,7 @@ Subject: require logind support
  static const char *
  get_username_for_greeter_display (GdmManager *manager,
                                    GdmDisplay *display)
-@@ -1687,7 +1973,6 @@ on_display_status_changed (GdmDisplay *display,
+@@ -1692,7 +1955,6 @@ on_display_status_changed (GdmDisplay *display,
                                  manager->priv->ran_once = TRUE;
                          }
                          maybe_start_pending_initial_login (manager, display);
@@ -819,7 +858,7 @@ Subject: require logind support
                          break;
                  default:
                          break;
-@@ -2022,11 +2307,57 @@ on_user_session_died (GdmSession *session,
+@@ -2027,11 +2289,57 @@ on_user_session_died (GdmSession *session,
  }
  
  static char *
@@ -879,7 +918,7 @@ Subject: require logind support
  }
  
  static void
-@@ -2035,25 +2366,6 @@ on_session_reauthenticated (GdmSession *session,
+@@ -2040,25 +2348,6 @@ on_session_reauthenticated (GdmSession *session,
                              GdmManager *manager)
  {
          gboolean fail_if_already_switched = FALSE;

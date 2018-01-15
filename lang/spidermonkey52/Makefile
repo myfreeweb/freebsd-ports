@@ -2,7 +2,7 @@
 # $FreeBSD: head/lang/spidermonkey38/Makefile 449591 2017-09-10 20:55:38Z gerald $
 
 PORTNAME=	spidermonkey
-PORTVERSION=	52.5.2
+PORTVERSION=	52.5.3
 PORTREVISION=	0
 CATEGORIES=	lang
 MASTER_SITES=	MOZILLA/firefox/releases/${PORTVERSION}esr/source
@@ -103,6 +103,8 @@ post-patch:
 	@${RM}  ${WRKSRC}/tests/test262/intl402/ch10/10.2/10.2.3_b.js \
 		${WRKSRC}/tests/Intl/DateTimeFormat/format.js \
 		${WRKSRC}/tests/ecma_6/String/normalize-generateddata-part1-not-listed.js
+pre-configure:
+	cd ${WRKSRC} && ${LOCALBASE}/bin/autoconf-2.13
 
 regression-test: build
 	@${ECHO_MSG} -n "===> Running jstests.py: "

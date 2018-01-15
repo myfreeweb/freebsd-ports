@@ -23,15 +23,16 @@ USE_LDCONFIG=	yes
 CONFIGURE_ARGS=	--disable-systemd --localstatedir=/var/
 INSTALL_TARGET=	install-strip
 
+# XXX HACK! this file isn't present on the pristine jails of the builders
+# and configure breaks without it. Beter solutions welcome.
+.if defined(PACKAGE_BUILDING)
+CONFIGURE_ENV+=	ac_cv_file__var_log_utx_log=yes
+.endif
+
 post-patch:
 	@${REINPLACE_CMD} -e 's|/etc/gdm/custom.conf|${LOCALBASE}/etc/gdm/custom.conf|g' \
 		${WRKSRC}/src/daemon.c
 	@${REINPLACE_CMD} -e 's|/lib/AccountsService|/db/AccountsService|g' \
 		${WRKSRC}/src/user.c ${WRKSRC}/src/Makefile.in
-# XXX HACK! this file isn't present on the pristine jails of the builders
-# and configure breaks without it. Beter solutions welcome.
-.if defined(PACKAGE_BUILDING)
-	${TOUCH} /var/log/utx.log
-.endif
 
 .include <bsd.port.mk>

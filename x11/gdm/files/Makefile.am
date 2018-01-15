@@ -6,9 +6,9 @@ From: Ray Strode <rstrode@redhat.com>
 Date: Mon, 15 Aug 2016 13:48:00 -0400
 Subject: pam_gdm: add stub pam module
 
---- Makefile.am.orig	Mon Oct 31 17:09:41 2016
-+++ Makefile.am	Mon Oct 31 17:09:56 2016
-@@ -6,7 +6,6 @@ SUBDIRS = 			\
+--- Makefile.am.orig	2017-10-30 16:21:02.000000000 +0100
++++ Makefile.am	2018-01-14 12:30:07.298406000 +0100
+@@ -7,7 +7,6 @@ SUBDIRS = 			\
  	daemon 			\
  	libgdm 			\
  	utils 			\

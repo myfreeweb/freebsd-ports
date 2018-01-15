@@ -21,7 +21,7 @@ RUN_DEPENDS=	gsettings-desktop-schemas>=3.2.0:devel/gsettings-desktop-schemas \
 
 NO_ARCH=	yes
 USES=		gettext gmake localbase pkgconfig python:3.4+ shebangfix tar:xz
-USE_GNOME=	gtk30 intlhack py3gobject3
+USE_GNOME=	gtk30 intlhack pygobject3
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes
 SHEBANG_FILES=	plugins/ipython_view.py

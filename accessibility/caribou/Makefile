@@ -25,7 +25,7 @@ RUN_DEPENDS=	py3?-atspi>=2.1.91:accessibility/py-atspi@${PY_FLAVOR}
 USES=		gettext gmake gnome libtool localbase pathfix \
 		pkgconfig python:3.3+ shebangfix tar:xz
 USE_GNOME=	cairo gdkpixbuf2 gtk30 intlhack introspection:build libxml2 \
-		libxslt:build py3gobject3
+		libxslt:build pygobject3
 USE_PYTHON=	py3kplist
 SHEBANG_FILES=	tools/fix_gir.py tools/make_schema.py
 USE_GL=		egl

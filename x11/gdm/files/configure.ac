@@ -14,8 +14,8 @@ Subject: drop consolekit support
 
 https://bugzilla.gnome.org/show_bug.cgi?id=722482
 
---- configure.ac.orig	Wed Apr 12 16:14:35 2017
-+++ configure.ac	Mon Apr 17 14:17:27 2017
+--- configure.ac.orig	2017-10-30 16:21:11.000000000 +0100
++++ configure.ac	2018-01-14 13:01:16.646216000 +0100
 @@ -232,12 +232,6 @@ AM_CONDITIONAL(ENABLE_EXHERBO_PAM_CONFIG, test x$with_
  AM_CONDITIONAL(ENABLE_LFS_PAM_CONFIG, test x$with_default_pam_config = xlfs)
  AM_CONDITIONAL(ENABLE_ARCH_PAM_CONFIG, test x$with_default_pam_config = xarch)
@@ -45,7 +45,16 @@ https://bugzilla.gnome.org/show_bug.cgi?id=722482
  AC_ARG_WITH([systemdsystemunitdir],
              AS_HELP_STRING([--with-systemdsystemunitdir=DIR],
                             [Directory for systemd service files]),
-@@ -646,14 +648,8 @@ dnl --------------------------------------------------
+@@ -548,6 +550,8 @@ fi
+ if test "x$supports_pam_extensions" = "xyes" ; then
+ 	AM_CONDITIONAL(SUPPORTS_PAM_EXTENSIONS, true)
+ 	AC_DEFINE(SUPPORTS_PAM_EXTENSIONS, 1, [Define if PAM supports GDMs custom extensions])
++else
++	AM_CONDITIONAL(SUPPORTS_PAM_EXTENSIONS, false)
+ fi
+ 
+ AC_CHECK_LIB(keyutils, keyctl_read, [
+@@ -655,14 +659,8 @@ dnl --------------------------------------------------
  dnl - Check for utmp stuff
  dnl ---------------------------------------------------------------------------
  
@@ -62,7 +71,7 @@ https://bugzilla.gnome.org/show_bug.cgi?id=722482
  AC_CHECK_LIB(util, logwtmp, [
  	  	   AC_DEFINE(HAVE_LOGWTMP, 1, [Define if have logwtmp])
  		       EXTRA_DAEMON_LIBS="$EXTRA_DAEMON_LIBS -lutil" ])
-@@ -902,12 +898,42 @@ AC_SUBST(XINERAMA_LIBS)
+@@ -911,12 +909,42 @@ AC_SUBST(XINERAMA_LIBS)
  CPPFLAGS="$xinerama_save_cppflags"
  
  dnl ---------------------------------------------------------------------------
@@ -106,7 +115,7 @@ https://bugzilla.gnome.org/show_bug.cgi?id=722482
  AC_SUBST(SYSTEMD_CFLAGS)
  AC_SUBST(SYSTEMD_LIBS)
  
-@@ -1100,6 +1126,14 @@ fi
+@@ -1111,6 +1139,14 @@ fi
  AC_SUBST(GDM_CUSTOM_CONF)
  AC_SUBST(GDM_OLD_CONF, '${gdmconfdir}/gdm.conf')
  
@@ -121,7 +130,7 @@ https://bugzilla.gnome.org/show_bug.cgi?id=722482
  AC_ARG_WITH(gnome-settings-daemon-directory,
                [AC_HELP_STRING([--with-gnome-settings-daemon-directory],
                                [Specify the directory of gnome-settings-daemon used by the chooser @<:@default=libexecdir@:>@])],,
-@@ -1588,6 +1622,7 @@ echo "
+@@ -1601,6 +1637,7 @@ echo "
          dmconfdir:                ${dmconfdir}
          localstatedir:            ${localstatedir}
          datadir:                  ${datadir}
@@ -129,7 +138,7 @@ https://bugzilla.gnome.org/show_bug.cgi?id=722482
  	gnome-settings-daemon location: ${with_gnome_settings_daemon_directory}
  	gnome-session-check-accel location: ${with_check_accelerated_directory}
  	source code location:	  ${srcdir}
-@@ -1618,6 +1653,8 @@ echo \
+@@ -1631,6 +1668,8 @@ echo \
  "        Xinerama support:         ${XINERAMA_SUPPORT}
          XDMCP support:            ${XDMCP_SUPPORT}
          SELinux support:          ${use_selinux}
@@ -138,7 +147,7 @@ https://bugzilla.gnome.org/show_bug.cgi?id=722482
          systemd unit dir:         ${with_systemdsystemunitdir}
          plymouth support:         ${use_plymouth}
          wayland support:          ${enable_wayland_support}
-@@ -1626,3 +1663,4 @@ echo \
+@@ -1639,3 +1678,4 @@ echo \
          Enable documentation:     ${enable_documentation}
          Install GDM's Xsession:   ${enable_gdm_xsession}
  "

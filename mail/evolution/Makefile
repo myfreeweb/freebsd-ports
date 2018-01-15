@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	evolution
-PORTVERSION=	3.24.4
+PORTVERSION=	3.26.4
 CATEGORIES=	mail gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -50,14 +50,12 @@ USE_LDCONFIG=	yes
 CMAKE_ARGS=	-DENABLE_TEXT_HIGHLIGHT=YES \
 		-DVERSION_COMMENT="FreeBSD GNOME Team"
 
-GLIB_SCHEMAS=	org.gnome.evolution.gschema.xml \
-		org.gnome.evolution.addressbook.gschema.xml \
+GLIB_SCHEMAS=	org.gnome.evolution.addressbook.gschema.xml \
+		org.gnome.evolution.bogofilter.gschema.xml \
 		org.gnome.evolution.calendar.gschema.xml \
+		org.gnome.evolution.gschema.xml \
 		org.gnome.evolution.importer.gschema.xml \
 		org.gnome.evolution.mail.gschema.xml \
-		org.gnome.evolution.shell.gschema.xml \
-		org.gnome.evolution.bogofilter.gschema.xml \
-		org.gnome.evolution.spamassassin.gschema.xml \
 		org.gnome.evolution.plugin.attachment-reminder.gschema.xml \
 		org.gnome.evolution.plugin.autocontacts.gschema.xml \
 		org.gnome.evolution.plugin.email-custom-header.gschema.xml \
@@ -67,7 +65,10 @@ GLIB_SCHEMAS=	org.gnome.evolution.gschema.xml \
 		org.gnome.evolution.plugin.mail-notification.gschema.xml \
 		org.gnome.evolution.plugin.prefer-plain.gschema.xml \
 		org.gnome.evolution.plugin.publish-calendar.gschema.xml \
-		org.gnome.evolution.plugin.templates.gschema.xml
+		org.gnome.evolution.plugin.templates.gschema.xml \
+		org.gnome.evolution.shell.gschema.xml \
+		org.gnome.evolution.spamassassin.gschema.xml \
+		org.gnome.evolution.text-highlight.gschema.xml
 
 EVO_VERSION=	3.24
 PLIST_SUB=	VERSION=${EVO_VERSION} \

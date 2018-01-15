@@ -1,9 +1,8 @@
 # Created by: Michael Johnson <ahze@FreeBSD.org>
-# $FreeBSD$
+# $FreeBSD: head/www/webkit2-gtk3/Makefile 453790 2017-11-09 02:31:47Z jbeich $
 
 PORTNAME=	webkit
-PORTVERSION=	2.18.3
-PORTREVISION=	3
+PORTVERSION=	2.18.5
 CATEGORIES=	www
 MASTER_SITES=	http://webkitgtk.org/releases/
 PKGNAMESUFFIX=	2-gtk3
@@ -28,8 +27,8 @@ LIB_DEPENDS=	libenchant.so:textproc/enchant \
 		libharfbuzz-icu.so:print/harfbuzz-icu \
 		libsoup-2.4.so:devel/libsoup \
 		libgcrypt.so:security/libgcrypt \
-		libgnutls.so:security/gnutls \
-		libtasn1.so:security/libtasn1
+		libtasn1.so:security/libtasn1 \
+		libgnutls.so:security/gnutls
 
 PORTSCOUT=	limitw:1,even
 
@@ -108,6 +107,13 @@ CFLAGS+=	-mminimal-toc
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%BROWSER_PLUGINS_DIR%%|${BROWSER_PLUGINS_DIR}|' \
 		${WRKSRC}/Source/WebKit/Shared/Plugins/unix/PluginSearchPath.cpp
+# debug why
+#	@${REINPLACE_CMD} -e 's|<webkit2/webkit2.h>|<Source/WebKit/UIProcess/API/gtk/webkit2.h>|g' \
+#		${WRKSRC}/Tools/MiniBrowser/gtk/BrowserWindow.h \
+#		${WRKSRC}/Tools/MiniBrowser/gtk/BrowserSettingsDialog.h \
+#		${WRKSRC}/Tools/MiniBrowser/gtk/BrowserTab.h \
+#		${WRKSRC}/Tools/MiniBrowser/gtk/BrowserSearchBar.h \
+#		${WRKSRC}/Tools/MiniBrowser/gtk/BrowserDownloadsBar.h
 
 pre-configure:
 # .if !exists() evaluates too early before cairo has a chance to be installed
@@ -118,9 +124,9 @@ pre-configure:
 
 post-install:
 	@${LN} -sf ../libexec/webkit2gtk-4.0/jsc ${STAGEDIR}${PREFIX}/bin/jsc-4
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/WebKitWebDriver
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/*.so.*.*
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/webkit2gtk-4.0/injected-bundle/*.so
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/libexec/webkit2gtk-4.0/*
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/WebKitWebDriver
 
 .include <bsd.port.mk>

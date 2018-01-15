@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gjs
-PORTVERSION=	1.49.3
+PORTVERSION=	1.50.2
 CATEGORIES=	lang gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -15,7 +15,7 @@ LICENSE_COMB=	multi
 LICENSE_FILE_MPL11=	${WRKSRC}/COPYING
 LICENSE_FILE_LGPL20+=	${WRKSRC}/COPYING.LGPL
 
-LIB_DEPENDS=	libmozjs-38.so:lang/spidermonkey38 \
+LIB_DEPENDS=	libmozjs-52.so:lang/spidermonkey52 \
 		libffi.so:devel/libffi
 
 USES=		compiler:c++11-lib gettext gmake gnome libtool \

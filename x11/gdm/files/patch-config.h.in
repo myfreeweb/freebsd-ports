@@ -1,5 +1,5 @@
---- config.h.in.orig	2017-06-07 16:09:38.170158000 +0200
-+++ config.h.in	2017-06-07 16:10:57.000000000 +0200
+--- config.h.in.orig	2018-01-14 13:03:01.638908000 +0100
++++ config.h.in	2018-01-14 13:03:20.000000000 +0100
 @@ -113,6 +113,9 @@
  /* Define to 1 if you have the <execinfo.h> header file. */
  #undef HAVE_EXECINFO_H
@@ -52,7 +52,7 @@
  /* Define to 1 if you have the <utmpx.h> header file. */
  #undef HAVE_UTMPX_H
  
-@@ -369,8 +363,14 @@
+@@ -372,8 +366,14 @@
  /* Version number of package */
  #undef VERSION
  
