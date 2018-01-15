@@ -1,0 +1,93 @@
+--- src/librustc_metadata/creader.rs.orig	2017-12-07 00:07:53.000000000 +0300
++++ src/librustc_metadata/creader.rs	2018-01-11 01:15:56.811552000 +0300
+@@ -750,10 +750,13 @@
+             // Sanitizers can only be used on some tested platforms with
+             // executables linked to `std`
+             const ASAN_SUPPORTED_TARGETS: &[&str] = &["x86_64-unknown-linux-gnu",
+-                                                      "x86_64-apple-darwin"];
++                                                      "x86_64-apple-darwin",
++                                                      "x86_64-unknown-freebsd"];
+             const TSAN_SUPPORTED_TARGETS: &[&str] = &["x86_64-unknown-linux-gnu",
+-                                                      "x86_64-apple-darwin"];
+-            const LSAN_SUPPORTED_TARGETS: &[&str] = &["x86_64-unknown-linux-gnu"];
++                                                      "x86_64-apple-darwin",
++                                                      "x86_64-unknown-freebsd"];
++            const LSAN_SUPPORTED_TARGETS: &[&str] = &["x86_64-unknown-linux-gnu",
++                                                      "x86_64-unknown-freebsd"];
+             const MSAN_SUPPORTED_TARGETS: &[&str] = &["x86_64-unknown-linux-gnu"];
+ 
+             let supported_targets = match *sanitizer {
+--- src/libstd/Cargo.toml.orig	2017-12-07 00:07:53.000000000 +0300
++++ src/libstd/Cargo.toml	2018-01-11 01:15:34.702391000 +0300
+@@ -38,6 +38,11 @@
+ rustc_msan = { path = "../librustc_msan" }
+ rustc_tsan = { path = "../librustc_tsan" }
+ 
++[target.x86_64-unknown-freebsd.dependencies]
++rustc_asan = { path = "../librustc_asan" }
++rustc_lsan = { path = "../librustc_lsan" }
++rustc_tsan = { path = "../librustc_tsan" }
++
+ [build-dependencies]
+ build_helper = { path = "../build_helper" }
+--- src/build_helper/lib.rs.orig	2018-01-10 18:11:28.301850000 +0300
++++ src/build_helper/lib.rs	2018-01-10 18:10:28.258518000 +0300
+@@ -256,6 +256,10 @@
+             format!("clang_rt.{}-x86_64", sanitizer_name),
+             "build/lib/linux",
+         ),
++        "x86_64-unknown-freebsd" => (
++            format!("clang_rt.{}-x86_64", sanitizer_name),
++            "build/lib/freebsd",
++        ),
+         "x86_64-apple-darwin" => (
+             format!("dylib=clang_rt.{}_osx_dynamic", sanitizer_name),
+             "build/lib/darwin",
+--- src/libcompiler_builtins/compiler-rt/lib/sanitizer_common/sanitizer_linux.cc
++++ src/libcompiler_builtins/compiler-rt/lib/sanitizer_common/sanitizer_linux.cc
+@@ -223,7 +223,8 @@ static void kernel_stat_to_stat(struct kernel_stat *in, struct stat *out) {
+ 
+ uptr internal_stat(const char *path, void *buf) {
+ #if SANITIZER_FREEBSD
+-  return internal_syscall(SYSCALL(stat), path, buf);
++  return internal_syscall(SYSCALL(fstatat), AT_FDCWD, (uptr)path,
++                          (uptr)buf, 0);
+ #elif SANITIZER_USES_CANONICAL_LINUX_SYSCALLS
+   return internal_syscall(SYSCALL(newfstatat), AT_FDCWD, (uptr)path,
+                           (uptr)buf, 0);
+@@ -247,7 +248,8 @@ uptr internal_stat(const char *path, void *buf) {
+ 
+ uptr internal_lstat(const char *path, void *buf) {
+ #if SANITIZER_FREEBSD
+-  return internal_syscall(SYSCALL(lstat), path, buf);
++  return internal_syscall(SYSCALL(fstatat), AT_FDCWD, (uptr)path,
++                         (uptr)buf, AT_SYMLINK_NOFOLLOW);
+ #elif SANITIZER_USES_CANONICAL_LINUX_SYSCALLS
+   return internal_syscall(SYSCALL(newfstatat), AT_FDCWD, (uptr)path,
+                          (uptr)buf, AT_SYMLINK_NOFOLLOW);
+@@ -590,7 +592,9 @@ uptr internal_getppid() {
+ }
+ 
+ uptr internal_getdents(fd_t fd, struct linux_dirent *dirp, unsigned int count) {
+-#if SANITIZER_USES_CANONICAL_LINUX_SYSCALLS
++#if SANITIZER_FREEBSD
++  return internal_syscall(SYSCALL(getdirentries), fd, (uptr)dirp, count, NULL);
++#elif SANITIZER_USES_CANONICAL_LINUX_SYSCALLS
+   return internal_syscall(SYSCALL(getdents64), fd, (uptr)dirp, count);
+ #else
+   return internal_syscall(SYSCALL(getdents), fd, (uptr)dirp, count);
+--- src/libcompiler_builtins/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.h.orig	2017-05-24 19:09:24.000000000 +0000
++++ src/libcompiler_builtins/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.h	2017-05-24 20:12:47.183536000 +0000
+@@ -485,7 +485,12 @@
+   };
+ #elif SANITIZER_FREEBSD
+   struct __sanitizer_dirent {
++#if __FreeBSD_version < 1200031
+     unsigned int d_fileno;
++#else
++    unsigned long long d_fileno;
++    unsigned long long d_off;
++#endif
+     unsigned short d_reclen;
+     // more fields that we don't care about
+   };
