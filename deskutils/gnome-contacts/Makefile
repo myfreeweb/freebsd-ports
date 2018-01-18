@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-contacts
-PORTVERSION=	3.22.1
+PORTVERSION=	3.26
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 
@@ -37,16 +37,14 @@ USE_GL=		egl
 USE_GNOME=	cairo evolutiondataserver3 gdkpixbuf2 gnomedesktop3 gtk30 \
 		intlhack introspection:build
 USE_XORG=	x11 xcomposite xdamage xext xfixes xi xrandr
-USES=		gettext gmake gnome localbase pathfix perl5 \
-		pkgconfig sqlite tar:xz
-GNU_CONFIGURE=	yes
-MAKE_ENV=	XDG_CACHE_HOME=${WRKDIR}
+USES=		gettext gnome localbase meson perl5 pkgconfig sqlite tar:xz
 
-GLIB_SCHEMAS=	org.gnome.Contacts.enums.xml \
-		org.gnome.Contacts.gschema.xml
+#GLIB_SCHEMAS=	org.gnome.Contacts.enums.xml \
+#		org.gnome.Contacts.gschema.xml
+GLIB_SCHEMAS=	org.gnome.Contacts.gschema.xml
 
 OPTIONS_SUB=	yes
-OPTIONS_DEFINE=	MANPAGES NLS
+OPTIONS_DEFINE=	MANPAGES
 OPTIONS_DEFAULT=MANPAGES
 
 OPTIONS_DEFINE_i386=	CHEESE
@@ -54,16 +52,13 @@ OPTIONS_DEFINE_amd64=	CHEESE
 OPTIONS_DEFAULT_i386=	CHEESE
 OPTIONS_DEFAULT_amd64=	CHEESE
 
-MANPAGES_CONFIGURE_ENABLE=	man-pages
+MANPAGES_MESON_TRUE=	with-manpage
 MANPAGES_USE=		GNOME=libxslt:build
 MANPAGES_BUILD_DEPENDS=	docbook-xml>=0:textproc/docbook-xml \
 			docbook-xsl>=0:textproc/docbook-xsl
 
-NLS_CONFIGURE_ENABLE=	nls
-NLS_USES=		gettext
-
 CHEESE_DESC=		Cheese webcam support
-CHEESE_CONFIGURE_WITH=	cheese
+CHEESE_MESON_TRUE=	with-cheese
 CHEESE_LIB_DEPENDS=	libcheese-gtk.so:multimedia/cheese
 
 .include <bsd.port.mk>

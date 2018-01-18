@@ -10,8 +10,11 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Library for easy management of RSS/Atom/Pie feeds
 
-LIB_DEPENDS=	libsoup-2.4.so:${PORTSDIR}/devel/libsoup \
-		libxml2.so:${PORTSDIR}/textproc/libxml2
+LICENSE=	GPLv3
+LICENSE_FILE=	${WRKSRC}/COPYING
+
+LIB_DEPENDS=	libsoup-2.4.so:devel/libsoup \
+		libxml2.so:textproc/libxml2
 
 USES=		gettext gmake gnome libtool localbase pathfix pkgconfig tar:xz
 USE_GNOME=	glib20 intlhack introspection:build

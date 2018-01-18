@@ -4576,6 +4576,7 @@
     SUBDIR += py-libzfs
     SUBDIR += py-linecache2
     SUBDIR += py-llfuse
+    SUBDIR += py-llvmcpy
     SUBDIR += py-llvmlite
     SUBDIR += py-lock_file
     SUBDIR += py-lockfile

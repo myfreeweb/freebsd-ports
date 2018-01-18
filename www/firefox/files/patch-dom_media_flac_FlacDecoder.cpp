@@ -9,9 +9,9 @@ index 53fc3c9937f7..b23771ab80fa 100644
  #include "MediaContainerType.h"
  #include "MediaPrefs.h"
 +#include "PDMFactory.h"
-
+ 
  namespace mozilla {
-
+ 
 @@ -15,6 +16,10 @@ FlacDecoder::IsEnabled()
  {
  #ifdef MOZ_FFVPX

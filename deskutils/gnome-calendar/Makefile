@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-calendar
-PORTVERSION=	3.24.2
+PORTVERSION=	3.26.2
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -23,12 +23,11 @@ LIB_DEPENDS=	libicui18n.so:devel/icu \
 		libgoa-1.0.so:net/gnome-online-accounts
 RUN_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
 
-USES=		desktop-file-utils gettext gmake gnome libtool localbase \
-		pathfix pkgconfig tar:xz
+USES=		desktop-file-utils gettext gnome localbase:ldflags meson \
+		pkgconfig tar:xz
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
-USE_GNOME=	cairo evolutiondataserver3 intltool
-GNU_CONFIGURE=	yes
+USE_GNOME=	cairo evolutiondataserver3
 
 GLIB_SCHEMAS=	org.gnome.calendar.enums.xml \
 		org.gnome.calendar.gschema.xml

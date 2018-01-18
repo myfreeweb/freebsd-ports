@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gedit
-PORTVERSION=	3.22.0
+PORTVERSION=	3.22.1
 CATEGORIES=	editors gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -28,7 +28,7 @@ RUN_DEPENDS=	iso-codes>=0:misc/iso-codes \
 PORTSCOUT=	limitw:1,even
 
 USES=		desktop-file-utils gettext gmake gnome libtool localbase \
-		pathfix pkgconfig python:3.2+ tar:xz
+		pathfix pkgconfig python:3.4+ shebangfix tar:xz
 USE_GNOME=	cairo gdkpixbuf2 gtksourceview3 intlhack introspection \
 		libxml2 pygobject3
 USE_XORG=	sm x11
@@ -40,6 +40,7 @@ CPPFLAGS+=	-Wno-error=format-nonliteral
 CFLAGS+=	-Wno-error=format-nonliteral
 LDFLAGS+=	-L${LOCALBASE}/lib
 USE_LDCONFIG=	yes
+SHEBANG_FILES=	plugins/externaltools/data/send-to-fpaste.tool.in
 PLIST_SUB=	VERSION="3.14"
 INSTALL_TARGET=	install-strip
 

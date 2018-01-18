@@ -24,8 +24,8 @@ From: Tim Lunn <tim@feathertop.org>
 Date: Mon, 11 Apr 2016 23:18:10 +1000
 Subject: gdm-session: set PAM_TTY when initialising pam
 
---- daemon/gdm-session-worker.c.orig	2017-10-30 16:21:02.000000000 +0100
-+++ daemon/gdm-session-worker.c	2018-01-14 13:56:27.481472000 +0100
+--- daemon/gdm-session-worker.c.orig	2017-10-31 18:16:51.000000000 +0100
++++ daemon/gdm-session-worker.c	2018-01-17 17:38:41.826277000 +0100
 @@ -28,9 +28,11 @@
  #include <string.h>
  #include <sys/types.h>
@@ -590,18 +590,18 @@ Subject: gdm-session: set PAM_TTY when initialising pam
  
  static gboolean
  gdm_session_worker_handle_initialize (GdmDBusWorker         *object,
-@@ -2991,8 +3274,10 @@ gdm_session_worker_handle_initialize (GdmDBusWorker   
+@@ -2993,8 +3276,10 @@ gdm_session_worker_handle_initialize (GdmDBusWorker   
          while (g_variant_iter_loop (&iter, "{sv}", &key, &value)) {
                  if (g_strcmp0 (key, "service") == 0) {
-                         worker->priv->service = g_strdup (g_variant_get_string (value, NULL));
+                         worker->priv->service = g_variant_dup_string (value, NULL);
 +#ifdef SUPPORTS_PAM_EXTENSIONS
                  } else if (g_strcmp0 (key, "extensions") == 0) {
                          worker->priv->extensions = filter_extensions (g_variant_get_strv (value, NULL));
 +#endif
                  } else if (g_strcmp0 (key, "username") == 0) {
-                         worker->priv->username = g_strdup (g_variant_get_string (value, NULL));
+                         worker->priv->username = g_variant_dup_string (value, NULL);
                  } else if (g_strcmp0 (key, "is-program-session") == 0) {
-@@ -3411,6 +3696,7 @@ worker_interface_init (GdmDBusWorkerIface *interface)
+@@ -3434,6 +3719,7 @@ worker_interface_init (GdmDBusWorkerIface *interface)
          interface->handle_open = gdm_session_worker_handle_open;
          interface->handle_set_language_name = gdm_session_worker_handle_set_language_name;
          interface->handle_set_session_name = gdm_session_worker_handle_set_session_name;

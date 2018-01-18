@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-color-manager
-PORTVERSION=	3.22.2
+PORTVERSION=	3.26.0
 CATEGORIES=	graphics gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -28,14 +28,14 @@ LIB_DEPENDS=	liblcms2.so:graphics/lcms2 \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		desktop-file-utils gettext gmake gnome localbase:ldflags \
-		pathfix pkgconfig tar:xz
+USES=		desktop-file-utils gettext gnome localbase:ldflags \
+		meson pkgconfig tar:xz
 USE_XORG=	x11 xrandr
 USE_GNOME=	cairo gnomedesktop3 gtk30 intlhack vte3
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
-GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--enable-clutter=no
+MESON_ARGS=	-Denable-tests=false \
+		-Denable-packagekit=false
 
 OPTIONS_DEFINE=	RAW
 OPTIONS_DEFAULT=RAW
@@ -43,13 +43,10 @@ OPTIONS_SUB=	yes
 
 RAW_DESC=	Enable RAW EXIF support
 RAW_LIB_DEPENDS=	libexiv2.so:graphics/exiv2
-RAW_CONFIGURE_ON=	--enable-exiv=yes
-RAW_CONFIGURE_OFF=	--enable-exiv=no
+RAW_MESON_TRUE=	enable-exiv
 
 post-patch:
-	@${REINPLACE_CMD} -e 's|-Wclobbered||g ; s|-Wempty-body||g ; \
-		s|-Wignored-qualifiers||g ; s|-Wtype-limits||g ; \
-		s|-Wmissing-parameter-type||g' \
-			${WRKSRC}/configure
+	@${REINPLACE_CMD} -e "s|'share/man/man1'|'man/man1'|g" \
+		${WRKSRC}/man/meson.build
 
 .include <bsd.port.mk>

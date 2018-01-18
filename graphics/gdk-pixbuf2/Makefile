@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gdk-pixbuf
-PORTVERSION=	2.36.10
+PORTVERSION=	2.36.11
 CATEGORIES=	graphics
 MASTER_SITES=	GNOME
 PKGNAMESUFFIX=	2
@@ -14,42 +14,33 @@ COMMENT=	Graphic library for GTK+
 LICENSE=	LGPL20+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-USES=		cpe gmake gnome libtool localbase pathfix pkgconfig \
+BUILD_DEPENDS=	docbook-xsl>0:textproc/docbook-xsl
+
+USES=		cpe gettext gnome localbase:ldflags meson pkgconfig \
 		shared-mime-info tar:xz
 USE_XORG=	xt xi x11
 CPE_VENDOR=	gnome
-USE_GNOME+=	glib20 introspection:build
+USE_GNOME+=	glib20 introspection:build libxslt:build
 USE_LDCONFIG=	yes
-GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--enable-introspection=yes --with-x11
-INSTALL_TARGET=	install-strip
 
 OPTIONS_SUB=	yes
-OPTIONS_DEFINE=	JASPER JPEG PNG TIFF NLS
-OPTIONS_DEFAULT=JASPER JPEG PNG TIFF
+OPTIONS_DEFINE=	JASPER JPEG PNG TIFF
+OPTIONS_DEFAULT=JPEG PNG TIFF
 
-JASPER_CONFIGURE_WITH=	libjasper
+JASPER_MESON_TRUE=	enable_jasper
 JASPER_LIB_DEPENDS=	libjasper.so:graphics/jasper
 
-JPEG_CONFIGURE_WITH=	libjpeg
+JPEG_MESON_TRUE=	enable_jpeg
 JPEG_USES=		jpeg
 
-PNG_CONFIGURE_WITH=	libpng
+PNG_MESON_TRUE=		enable_png
 PNG_LIB_DEPENDS=	libpng.so:graphics/png
 
-TIFF_CONFIGURE_WITH=	libtiff
+TIFF_MESON_TRUE=	enable_tiff
 TIFF_LIB_DEPENDS=	libtiff.so:graphics/tiff
 
-NLS_CONFIGURE_ENABLE=	nls
-NLS_USES=		gettext
-
-# workaround tiff enable bug in configure
-post-patch:
-	@${REINPLACE_CMD} -e 's|$$LIBTIFF|$$TIFF_LIBS|' \
-		${WRKSRC}/configure
-
-post-install:
-	@cd ${WRKSRC}/docs/reference/gdk-pixbuf && \
-		${SETENV} DESTDIR=${STAGEDIR} ${GMAKE} install-man1
+#post-install:
+#	${RM} -rf ${STAGEDIR}${PREFIX}/libexec/installed-tests
+#	${RM} -rf ${STAGEDIR}${PREFIX}/share/installed-tests
 
 .include <bsd.port.mk>

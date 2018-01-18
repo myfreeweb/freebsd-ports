@@ -3,10 +3,9 @@ include/libgepub/gepub-doc.h
 include/libgepub/gepub-text-chunk.h
 include/libgepub/gepub-widget.h
 include/libgepub/gepub.h
-lib/girepository-1.0/Gepub-0.4.typelib
-lib/libgepub.a
+lib/girepository-1.0/Gepub-0.5.typelib
 lib/libgepub.so
 lib/libgepub.so.0
 lib/libgepub.so.0.0.0
 libdata/pkgconfig/libgepub.pc
-share/gir-1.0/Gepub-0.4.gir
+share/gir-1.0/Gepub-0.5.gir

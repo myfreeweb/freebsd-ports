@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-documents
-PORTVERSION=	3.24.2
+PORTVERSION=	3.26.1
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -19,7 +19,7 @@ LIB_DEPENDS=	libsoup-2.4.so:devel/libsoup \
 		libgdata.so:devel/libgdata \
 		libgoa-1.0.so:net/gnome-online-accounts \
 		libgjs.so:lang/gjs \
-		libtracker-sparql-1.0.so:sysutils/tracker \
+		libtracker-sparql-2.0.so:sysutils/tracker \
 		libgepub.so:textproc/libgepub \
 		libzapojit-0.0.so:net/libzapojit
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}dbus>0:devel/py-dbus@${PY_FLAVOR} \

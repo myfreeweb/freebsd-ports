@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-characters
-PORTVERSION=	3.22.0
+PORTVERSION=	3.26.2
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -21,7 +21,7 @@ LIB_DEPENDS=	libgjs.so:lang/gjs \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2
 
-USES=		gettext gmake gnome libtool localbase pathfix \
+USES=		gettext gmake gnome iconv:wchar_t libtool localbase pathfix \
 		pkgconfig tar:xz
 USE_GNOME=	cairo gtk30 intlhack introspection
 USE_LDCONFIG=	yes

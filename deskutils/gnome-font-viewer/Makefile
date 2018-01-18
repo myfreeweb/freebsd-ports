@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-font-viewer
-PORTVERSION=	3.22.0
+PORTVERSION=	3.26.0
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -20,11 +20,9 @@ LIB_DEPENDS=	libfreetype.so:print/freetype2 \
 CONFLICTS=	gnome-utils-2.[0-9]*
 PORTSCOUT=	limitw:1,even
 
-USES=		desktop-file-utils gettext gmake localbase pathfix \
-		pkgconfig tar:xz
+USES=		desktop-file-utils gettext localbase meson pkgconfig tar:xz
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
-USE_GNOME=	cairo intlhack gtk30 gnomedesktop3
-GNU_CONFIGURE=	yes
+USE_GNOME=	cairo gtk30 gnomedesktop3
 
 .include <bsd.port.mk>

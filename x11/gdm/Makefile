@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gdm
-PORTVERSION=	3.26.2
+PORTVERSION=	3.26.2.1
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -72,6 +72,7 @@ CONFIGURE_ARGS=	--disable-static \
 		--with-user=gdm \
 		--with-group=gdm \
 		--with-initial-vt=09 \
+		--enable-gdm-xsession \
 		--disable-wayland-support \
 		--with-systemd=no
 
@@ -142,13 +143,18 @@ post-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/etc/gdm/home
 	${MKDIR} ${STAGEDIR}${PREFIX}/etc/gdm/home/.pulse/
 
-	${INSTALL_DATA} ${WRKDIR}/gdm-autologin ${STAGEDIR}${PREFIX}/etc/pam.d/gdm-autologin
-	${INSTALL_DATA} ${WRKDIR}/gdm-launch-environment ${STAGEDIR}${PREFIX}/etc/pam.d/gdm-launch-environment
-	${INSTALL_DATA} ${WRKDIR}/gdm-password ${STAGEDIR}${PREFIX}/etc/pam.d/gdm-password
+	${INSTALL_DATA} ${WRKDIR}/gdm-autologin \
+		${STAGEDIR}${PREFIX}/etc/pam.d/gdm-autologin
+	${INSTALL_DATA} ${WRKDIR}/gdm-launch-environment \
+		${STAGEDIR}${PREFIX}/etc/pam.d/gdm-launch-environment
+	${INSTALL_DATA} ${WRKDIR}/gdm-password \
+		${STAGEDIR}${PREFIX}/etc/pam.d/gdm-password
 
-	${INSTALL_DATA} ${WRKDIR}/client.conf ${STAGEDIR}${PREFIX}/etc/gdm/home/.pulse/
+	${INSTALL_DATA} ${WRKDIR}/client.conf \
+		${STAGEDIR}${PREFIX}/etc/gdm/home/.pulse/client.conf.sample
 
-	${INSTALL_DATA} ${WRKDIR}/locale.conf ${STAGEDIR}${PREFIX}/etc/gdm/
+	${INSTALL_DATA} ${WRKDIR}/locale.conf \
+		${STAGEDIR}${PREFIX}/etc/gdm/locale.conf.sample
 
 	@${SED} -e 's|%%PREFIX%%|${PREFIX}|g' < ${PKGDIR}/pkg-message \
 		| /usr/bin/fmt 75 79 > ${PKGMESSAGE}

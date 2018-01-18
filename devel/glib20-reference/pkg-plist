@@ -79,6 +79,7 @@ share/doc/gio/GPollableOutputStream.html
 share/doc/gio/GPropertyAction.html
 share/doc/gio/GProxy.html
 share/doc/gio/GProxyAddress.html
+share/doc/gio/GProxyAddressEnumerator.html
 share/doc/gio/GProxyResolver.html
 share/doc/gio/GRemoteActionGroup.html
 share/doc/gio/GResolver.html
@@ -94,6 +95,7 @@ share/doc/gio/GSimplePermission.html
 share/doc/gio/GSimpleProxyResolver.html
 share/doc/gio/GSocket.html
 share/doc/gio/GSocketAddress.html
+share/doc/gio/GSocketAddressEnumerator.html
 share/doc/gio/GSocketClient.html
 share/doc/gio/GSocketConnectable.html
 share/doc/gio/GSocketConnection.html
