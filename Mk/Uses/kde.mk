@@ -75,7 +75,7 @@ KDE4_BRANCH?=			stable
 KDE_PLASMA_VERSION?=		5.11.2
 KDE_PLASMA_BRANCH?=		stable
 
-KDE_FRAMEWORKS_VERSION?=	5.41.0
+KDE_FRAMEWORKS_VERSION?=	5.42.0
 KDE_FRAMEWORKS_BRANCH?= 	stable
 
 KDE_APPLICATIONS_VERSION?=	17.08.2
@@ -101,7 +101,7 @@ KTP_BRANCH?=			stable
 KDE_PREFIX=	${LOCALBASE}
 # ==============================================================================
 
-# === CATEGORIES HANDLING -- SETTING DEFAULT VALUES ==============================
+# === CATEGORIES HANDLING -- SETTING DEFAULT VALUES ============================
 # Doing MASTER_SITES magic based on the category of the port
 _KDE_CATEGORIES_SUPPORTED=	kde-applications kde-frameworks kde-kde4 kde-plasma
 .  for cat in ${_KDE_CATEGORIES_SUPPORTED}
@@ -123,7 +123,7 @@ LICENSE?=		LGPL20
 #    vendor is therefore kde.
 CPE_VENDOR?=		kde
 
-.    if  ${_KDE_CATEGORY:Mkde-kde4}
+.    if ${_KDE_CATEGORY:Mkde-kde4}
 PORTVERSION?=		${KDE4_VERSION}
 MASTER_SITES?=		KDE/${KDE4_BRANCH}/${KDE4_VERSION}/src
 DIST_SUBDIR?=		KDE/${KDE4_VERSION}

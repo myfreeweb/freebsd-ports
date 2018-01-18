@@ -46,8 +46,9 @@ GL_BRANCH=	master
 GL_COMMIT=	032b8d6d039b93824ebd6312ad0a6bdd1ba2ba76
 
 python_CMD?=	${LOCALBASE}/bin/python2
-SHEBANG_FILES=	share/extensions/*.p[lm] \
-		share/extensions/*.py share/extensions/genpofiles.sh
+SHEBANG_FILES=	cxxtest/cxxtestgen.pl share/extensions/*.p[lm] \
+		share/extensions/*.py share/extensions/genpofiles.sh \
+		fix-roff-punct
 
 OPTIONS_DEFINE=	POPPLER VISIO CDR DBUS WPG
 OPTIONS_DEFAULT=POPPLER VISIO CDR WPG

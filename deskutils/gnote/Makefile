@@ -27,6 +27,7 @@ USES=		desktop-file-utils compiler:c++11-lib gettext gmake \
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
+CONFIGURE_ARGS=	--with-dbus-service-dir=${PREFIX}/share/dbus-1/services
 INSTALL_TARGET=	install-strip
 
 GLIB_SCHEMAS=	org.gnome.gnote.gschema.xml

@@ -1,7 +1,8 @@
-# $FreeBSD: branches/plasma5/KDE/x11/kf5-kactivities/Makefile 13452 2016-12-12 16:23:57Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kactivities
-PORTVERSION=	${KDE_FRAMEWORKS_VERSION}
+DISTVERSION=	${KDE_FRAMEWORKS_VERSION}
+PORTREVISION=	1
 CATEGORIES=	x11 kde kde-frameworks
 
 MAINTAINER=	kde@FreeBSD.org
