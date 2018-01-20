@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	luajit
-DISTVERSION=	2.0.5
+DISTVERSION=	2.1.0-beta3
 PORTREVISION=	1
 CATEGORIES=	lang
 MASTER_SITES=	http://luajit.org/download/
@@ -16,7 +16,7 @@ USES=		gmake
 USE_LDCONFIG=	yes
 MAKE_ARGS=	CC=${CC}
 
-PLIST_SUB+=	VERSION=${DISTVERSION}
+PLIST_SUB+=	VERSION=${DISTVERSION} LIBVERSION=${DISTVERSION:C/-.*//}
 BROKEN_powerpc64=	Not ported to powerpc64 upstream
 
 .include <bsd.port.options.mk>
