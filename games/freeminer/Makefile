@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	freeminer
-PORTVERSION=	0.4.10.4
-PORTREVISION=	7
+PORTVERSION=	0.4.14.8
 CATEGORIES=	games
 
 MAINTAINER=	amdmi3@FreeBSD.org
@@ -13,7 +12,12 @@ LICENSE=	LGPL21+ GPLv3+ # source mentions GPLv3+, LICENSE.txt LGPL21+
 LICENSE_COMB=	multi
 LICENSE_FILE_GPLv3+ =	${WRKSRC}/COPYING # don't remove space
 
-LIB_DEPENDS=	libsqlite3.so:databases/sqlite3
+LIB_DEPENDS=	libsqlite3.so:databases/sqlite3 \
+	libenet.so:net/enet \
+	libgmp.so:math/gmp \
+	libsnappy.so:archivers/snappy \
+	libjsoncpp.so:devel/jsoncpp \
+	libmsgpackc.so:devel/msgpack
 
 USE_GITHUB=	yes
 
@@ -21,6 +25,8 @@ USES=		compiler:c++11-lib cmake
 LLD_UNSAFE=	yes
 CMAKE_ARGS=	-DCUSTOM_MANDIR="${PREFIX}/man" \
 		-DCUSTOM_EXAMPLE_CONF_DIR="${PREFIX}/etc" \
+		-DENABLE_SYSTEM_JSONCPP=ON \
+		-DENABLE_SYSTEM_MSGPACK=ON \
 		-DRUN_IN_PLACE=0
 
 PORTDATA=	*
@@ -41,9 +47,10 @@ LUAJIT_DESC=	LuaJIT support
 CLIENT_CMAKE_ON=	-DBUILD_CLIENT=1
 CLIENT_CMAKE_OFF=	-DBUILD_CLIENT=0
 CLIENT_LIB_DEPENDS=	libpng.so:graphics/png \
+			libogg.so:audio/libogg \
 			libIrrlicht.so:x11-toolkits/irrlicht
 CLIENT_USES=		jpeg
-CLIENT_USE=		GL=gl XORG=x11
+CLIENT_USE=		GL=gl,glu XORG=x11,sm,ice,xext,xxf86vm
 SERVER_CMAKE_ON=	-DBUILD_SERVER=1
 SERVER_CMAKE_OFF=	-DBUILD_SERVER=0
 CURL_CMAKE_ON=		-DENABLE_CURL=1
@@ -92,6 +99,9 @@ post-patch:
 .if ! ${PORT_OPTIONS:MLUAJIT}
 	@${REINPLACE_CMD} -e '/find_/ s|LUA_|NO&|g' \
 		${WRKSRC}/src/CMakeLists.txt
+.else
+	@${REINPLACE_CMD} -e 's|const luaL_reg|const luaL_Reg|' \
+		${WRKSRC}/src/script/lua_api/*
 .endif
 
 post-install:

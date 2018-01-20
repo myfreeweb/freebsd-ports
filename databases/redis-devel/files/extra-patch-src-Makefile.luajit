@@ -33,7 +33,7 @@
  	FINAL_LIBS := ../deps/jemalloc/lib/libjemalloc.a $(FINAL_LIBS)
  endif
  
-+FINAL_CFLAGS+=-I${PREFIX}/include/luajit-2.0
++FINAL_CFLAGS+=-I${PREFIX}/include/luajit-2.1 -DWITH_LUAJIT
 +FINAL_LIBS+= -L${PREFIX}/lib -lluajit-5.1
 +
  REDIS_CC=$(QUIET_CC)$(CC) $(FINAL_CFLAGS)

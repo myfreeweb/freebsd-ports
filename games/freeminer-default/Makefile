@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	default
-PORTVERSION=	0.4.10.4
+PORTVERSION=	0.4.14.8
 CATEGORIES=	games
 PKGNAMEPREFIX=	freeminer-
 

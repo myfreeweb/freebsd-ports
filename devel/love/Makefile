@@ -3,7 +3,7 @@
 
 PORTNAME=	love
 PORTVERSION=	11.2
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	devel games
 MASTER_SITES=	https://bitbucket.org/rude/love/downloads/ \
 		http://mirror.amdmi3.ru/distfiles/
@@ -56,6 +56,14 @@ GME_LIB_DEPENDS=	libgme.so:audio/libgme
 post-patch:
 	@${REINPLACE_CMD} -e 's|/usr/include|${LOCALBASE}/include|g' \
 		${WRKSRC}/platform/unix/deps.m4
+
+post-patch-LUAJIT-on:
+	@${REINPLACE_CMD} -e 's|luaL_reg|luaL_Reg|' \
+		${WRKSRC}/src/libraries/luasocket/libluasocket/*
+
+#post-patch-LUAJIT-off:
+#	@${REINPLACE_CMD} -e 's|$${with_lua}$${with_luaversion}|$${with_lua}-$${with_luaversion}|g' \
+#		${WRKSRC}/configure
 
 post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}

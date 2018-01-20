@@ -43,8 +43,8 @@ CLIENT_CMAKE_ON=	-DBUILD_CLIENT=1
 CLIENT_CMAKE_OFF=	-DBUILD_CLIENT=0
 CLIENT_LIB_DEPENDS=	libpng.so:graphics/png \
 			libIrrlicht.so:x11-toolkits/irrlicht
-CLIENT_USES=		jpeg
-CLIENT_USE=		GL=gl XORG=x11,xext
+CLIENT_USES=		jpeg ncurses
+CLIENT_USE=		GL=gl,glu XORG=x11,xext,sm,ice
 SERVER_CMAKE_BOOL=	BUILD_SERVER
 CURL_CMAKE_BOOL=	ENABLE_CURL
 CURL_LIB_DEPENDS=	libcurl.so:ftp/curl

@@ -59,6 +59,10 @@ SDL2_CONFIGURE_WITH=	sdl2
 SDL2_USE=	SDL=sdl2
 SDL2_USE_OFF=	SDL=sdl
 
+post-patch:
+	@${REINPLACE_CMD} -e 's| luaL_reg| luaL_Reg|' -e 's|luaL_Register|luaL_register|' \
+		${WRKSRC}/src/*.c
+
 .include <bsd.port.pre.mk>
 
 .if ${COMPILER_TYPE} == "gcc"

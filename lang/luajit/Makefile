@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	luajit
-DISTVERSION=	2.0.5
-PORTREVISION=	3
+DISTVERSION=	2.1.0-beta3
 CATEGORIES=	lang
 MASTER_SITES=	http://luajit.org/download/
 DISTNAME=	LuaJIT-${DISTVERSION}
@@ -15,15 +14,14 @@ LICENSE=	MIT PD
 LICENSE_COMB=	multi
 LICENSE_FILE=	${WRKSRC}/COPYRIGHT
 
-IGNORE_aarch64=		fails to compile: lj_arch.h:55:2: No support for this architecture (yet)
-IGNORE_powerpc64=	fails to compile: lj_arch.h:346:2: No support for PowerPC 64 bit mode
-
 WRKSRC=		${WRKDIR}/LuaJIT-${DISTVERSION}
 USES=		gmake
 USE_LDCONFIG=	yes
 MAKE_ARGS=	CC=${CC}
 
-PLIST_SUB+=	VERSION=${DISTVERSION}
+PLIST_SUB+=	VERSION=${DISTVERSION} LIBVERSION=${DISTVERSION:C/-.*//}
+
+BROKEN_powerpc64=	Not ported to powerpc64 upstream
 
 .include <bsd.port.options.mk>
 
