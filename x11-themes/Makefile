@@ -145,6 +145,7 @@
     SUBDIR += murrine-configurator
     SUBDIR += nimbus
     SUBDIR += numix-theme
+    SUBDIR += openbox-arc-theme
     SUBDIR += openbox-themes
     SUBDIR += plank-theme-moka
     SUBDIR += plasma5-wallpapers-freebsd
