@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-calendar
-PORTVERSION=	3.26.2
+PORTVERSION=	3.26.3
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -24,10 +24,11 @@ LIB_DEPENDS=	libicui18n.so:devel/icu \
 RUN_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
 
 USES=		desktop-file-utils gettext gnome localbase:ldflags meson \
-		pkgconfig tar:xz
+		pkgconfig python:3.4+,build shebangfix tar:xz
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
 USE_GNOME=	cairo evolutiondataserver3
+SHEBANG_FILES=	meson_post_install.py
 
 GLIB_SCHEMAS=	org.gnome.calendar.enums.xml \
 		org.gnome.calendar.gschema.xml

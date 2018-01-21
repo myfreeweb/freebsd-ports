@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-todo
-PORTVERSION=	3.22.1
+PORTVERSION=	3.26.2
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -22,14 +22,16 @@ LIB_DEPENDS=	libpeas-1.0.so:devel/libpeas \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		compiler:c11 gettext gmake gnome libtool \
-		localbase pathfix pkgconfig tar:xz
-USE_GNOME=	cairo evolutiondataserver3 gnomedesktop3 gtk30 \
-		intlhack introspection
+USES=		compiler:c11 gettext gnome localbase meson pkgconfig \
+		python:3.4+,build shebangfix tar:xz
+USE_GNOME=	cairo evolutiondataserver3 gnomedesktop3 gtk30 introspection
 USE_LDCONFIG=	yes
-GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
+SHEBANG_FILES=	meson_post_install.py
 
-GLIB_SCHEMAS=	org.gnome.todo.gschema.xml
+GLIB_SCHEMAS=	org.gnome.todo.background.gschema.xml \
+		org.gnome.todo.enums.xml \
+		org.gnome.todo.gschema.xml \
+		org.gnome.todo.txt.gschema.xml
 
 .include <bsd.port.mk>

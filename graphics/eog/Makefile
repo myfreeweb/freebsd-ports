@@ -26,7 +26,7 @@ PORTSCOUT=	limitw:1,even
 
 USES=		desktop-file-utils gettext gmake gnome jpeg libtool localbase \
 		pathfix pkgconfig tar:xz
-USE_GNOME=	cairo intltool librsvg2 gtk30 gnomedesktop3 introspection
+USE_GNOME=	cairo librsvg2 gtk30 gnomedesktop3 introspection
 USE_XORG=	x11
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes

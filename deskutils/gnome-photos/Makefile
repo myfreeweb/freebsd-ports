@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-photos
-PORTVERSION=	3.24.2
-PORTREVISION=	1
+PORTVERSION=	3.26.3
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -22,7 +21,7 @@ LIB_DEPENDS=	libexempi.so:textproc/exempi \
 		libgrilo-0.3.so:net/grilo \
 		libexiv2.so:graphics/exiv2 \
 		libgexiv2.so:graphics/gexiv2 \
-		libtracker-control-1.0.so:sysutils/tracker \
+		libtracker-control-2.0.so:sysutils/tracker \
 		libgeocode-glib.so:net/geocode-glib \
 		libgjs.so:lang/gjs \
 		libbabl-0.1.so:x11/babl \
@@ -38,7 +37,7 @@ PORTSCOUT=	limitw:1,even
 
 USES=		compiler:c11 gettext gmake gnome jpeg libtool \
 		localbase pathfix pkgconfig tar:xz
-USE_GNOME=	cairo gnomedesktop3 gtk30 intlhack libxml2
+USE_GNOME=	cairo gnomedesktop3 gtk30 libxml2
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-settings-daemon
-PORTVERSION=	3.26.1
+PORTVERSION=	3.26.2
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -13,10 +13,6 @@ COMMENT=	GNOME 3 settings daemon
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-#BUILD_DEPENDS=	gnome-session>=0:x11/gnome-session \
-#		geoclue>=0:net/geoclue \
-#		docbook-xsl>=0:textproc/docbook-xsl \
-#		gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
 LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
 		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
 		libpolkit-gobject-1.so:sysutils/polkit \
@@ -30,8 +26,6 @@ LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
 		libupower-glib.so:sysutils/upower \
 		libgeocode-glib.so:net/geocode-glib \
 		libgweather-3.so:net/libgweather
-#RUN_DEPENDS=	gnome-session>=0:x11/gnome-session \
-#		gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
 
 PORTSCOUT=	limitw:1,even
 

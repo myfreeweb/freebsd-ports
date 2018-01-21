@@ -63,6 +63,7 @@
 %%PYTHON_SITELIBDIR%%/gi/types.py
 %%PYTHON_SITELIBDIR%%/gi/types.pyc
 %%PYTHON_SITELIBDIR%%/gi/types.%%PYTHON_PYOEXTENSION%%
+%%PYTHON_SITELIBDIR%%/pygobject-%%VERSION%%-py%%PYTHON_VER%%.egg-info
 %%PYTHON_SITELIBDIR%%/pygtkcompat/__init__.py
 %%PYTHON_SITELIBDIR%%/pygtkcompat/__init__.pyc
 %%PYTHON_SITELIBDIR%%/pygtkcompat/__init__.%%PYTHON_PYOEXTENSION%%

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	colord
-PORTVERSION=	1.3.2
+PORTVERSION=	1.3.5
 CATEGORIES=	graphics
 MASTER_SITES=	http://www.freedesktop.org/software/colord/releases/
 

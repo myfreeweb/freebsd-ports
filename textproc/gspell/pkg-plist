@@ -55,6 +55,7 @@ share/gtk-doc/html/gspell-1.0/up-insensitive.png
 share/gtk-doc/html/gspell-1.0/up.png
 %%NLS%%share/locale/ar/LC_MESSAGES/gspell-1.mo
 %%NLS%%share/locale/ca/LC_MESSAGES/gspell-1.mo
+%%NLS%%share/locale/ca@valencia/LC_MESSAGES/gspell-1.mo
 %%NLS%%share/locale/cs/LC_MESSAGES/gspell-1.mo
 %%NLS%%share/locale/da/LC_MESSAGES/gspell-1.mo
 %%NLS%%share/locale/de/LC_MESSAGES/gspell-1.mo
@@ -92,6 +93,7 @@ share/gtk-doc/html/gspell-1.0/up.png
 %%NLS%%share/locale/sv/LC_MESSAGES/gspell-1.mo
 %%NLS%%share/locale/tr/LC_MESSAGES/gspell-1.mo
 %%NLS%%share/locale/vi/LC_MESSAGES/gspell-1.mo
+%%NLS%%share/locale/zh_CN/LC_MESSAGES/gspell-1.mo
 %%NLS%%share/locale/zh_TW/LC_MESSAGES/gspell-1.mo
 share/vala/vapi/gspell-1.deps
 share/vala/vapi/gspell-1.vapi

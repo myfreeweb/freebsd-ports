@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnote
-PORTVERSION=	3.24.0
+PORTVERSION=	3.26.0
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 
@@ -27,7 +27,6 @@ USES=		desktop-file-utils compiler:c++11-lib gettext gmake \
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
-CONFIGURE_ARGS=	--with-dbus-service-dir=${PREFIX}/share/dbus-1/services
 INSTALL_TARGET=	install-strip
 
 GLIB_SCHEMAS=	org.gnome.gnote.gschema.xml

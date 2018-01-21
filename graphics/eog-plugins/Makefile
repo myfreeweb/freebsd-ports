@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	eog-plugins
-PORTVERSION=	3.16.6
+PORTVERSION=	3.26.1
 CATEGORIES=	graphics gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -28,7 +28,7 @@ RUN_DEPENDS=	eog:graphics/eog
 
 PORTSCOUT=	limitw:1,even
 
-USE_GNOME=	cairo gdkpixbuf2 gtk30 intltool introspection libxml2
+USE_GNOME=	cairo gdkpixbuf2 gtk30 introspection libxml2
 USES=		gettext gmake gnome libtool localbase pathfix pkgconfig tar:xz
 GNU_CONFIGURE=	yes
 INSTALL_TARGET=	install-strip

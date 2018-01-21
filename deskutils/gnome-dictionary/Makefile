@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-dictionary
-PORTVERSION=	3.24.0
+PORTVERSION=	3.26.1
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -15,18 +15,15 @@ LICENSE_COMB=		multi
 LICENSE_FILE_GPLv2=	${WRKSRC}/COPYING
 LICENSE_FILE_LGPL21=	${WRKSRC}/COPYING.libs
 
-#BUILD_DEPENDS=	gtkdoc-check:textproc/gtk-doc
-BUILD_DEPENDS=	itstool:textproc/itstool
+BUILD_DEPENDS=	itstool:textproc/itstool \
+		docbook-xsl>=0:textproc/docbook-xsl
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome libtool localbase pathfix \
-		pkgconfig tar:xz
-USE_GNOME=	cairo gtk30 intltool introspection:build
+USES=		gettext gnome localbase meson pkgconfig tar:xz
+USE_GNOME=	cairo gtk30 introspection:build libxslt:build
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes
-GNU_CONFIGURE=	yes
-INSTALL_TARGET=	install-strip
 
 GLIB_SCHEMAS=	org.gnome.dictionary.gschema.xml
 

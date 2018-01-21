@@ -354,6 +354,7 @@
     SUBDIR += hs-svgcairo
     SUBDIR += hugin
     SUBDIR += icat
+    SUBDIR += icc-profiles-adobe-cs4
     SUBDIR += icc-profiles-basiccolor
     SUBDIR += icc-profiles-openicc
     SUBDIR += iccexamin

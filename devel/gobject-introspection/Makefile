@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gobject-introspection
-PORTVERSION=	1.54.0
+PORTVERSION=	1.54.1
 PORTEPOCH=	1
 CATEGORIES=	devel
 MASTER_SITES=	GNOME
@@ -23,7 +23,7 @@ LIB_DEPENDS=	libffi.so:devel/libffi
 PORTSCOUT=	limitw:1,even
 
 USES=		bison gettext gmake gnome libtool localbase pathfix \
-		pkgconfig python:3 tar:xz
+		pkgconfig python:3.4+ tar:xz
 GNU_CONFIGURE=	yes
 USE_GNOME=	glib20
 USE_LDCONFIG=	yes
@@ -32,9 +32,5 @@ INSTALL_TARGET=	install-strip
 
 # Force it to put the .cache in ${WRKSRC} instead of ~/.cache. ports/143260
 MAKE_ENV=	HOME=${WRKDIR}
-
-post-patch:
-	@${REINPLACE_CMD} -e 's|'gcc'|'cc'|g' \
-		${WRKSRC}/giscanner/dumper.py
 
 .include <bsd.port.mk>

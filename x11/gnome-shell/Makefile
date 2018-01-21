@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-shell
-PORTVERSION=	3.26.1
+PORTVERSION=	3.26.2
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -42,13 +42,16 @@ RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}dbus>=0:devel/py-dbus@${PY_FLAVOR} \
 PORTSCOUT=	limitw:1,even
 
 USES=		compiler:c11 cpe gettext gnome libtool localbase meson \
-		pathfix pkgconfig python:3.4+ tar:xz webplugin:native
+		pathfix pkgconfig python:3.4+ shebangfix tar:xz webplugin:native
 USE_GNOME=	cairo evolutiondataserver3 gdkpixbuf2 introspection \
 		libxslt:build libxml2
 USE_XORG=	x11 xcomposite xdamage xext xfixes xi xrandr xtst
 USE_GL=		egl gbm
 USE_GSTREAMER1=	yes
 USE_LDCONFIG=	yes
+SHEBANG_FILES=	src/gnome-shell-perf-tool.in \
+		src/gnome-shell-extension-tool.in
+
 WEBPLUGIN_NAME=	libgnome-shell-browser-plugin.so
 WEBPLUGIN_DIR=	${PREFIX}/lib/mozilla/plugins/
 WEBPLUGIN_FILES=libgnome-shell-browser-plugin.so
@@ -60,6 +63,8 @@ CPE_VENDOR=	gnome
 GLIB_SCHEMAS=	org.gnome.shell.gschema.xml
 
 post-patch:
+	@${REINPLACE_CMD} -e 's|python3|${PYTHON_VERSION}|g' \
+		${WRKSRC}/meson.build
 	@${REINPLACE_CMD} -e 's|applications.menu|gnome-applications.menu|g' \
 		${WRKSRC}/src/shell-app-system.c
 

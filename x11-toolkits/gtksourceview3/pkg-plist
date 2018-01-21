@@ -182,6 +182,7 @@ share/gir-1.0/GtkSource-3.0.gir
 %%DATADIR%%-3.0/language-specs/lex.lang
 %%DATADIR%%-3.0/language-specs/libtool.lang
 %%DATADIR%%-3.0/language-specs/llvm.lang
+%%DATADIR%%-3.0/language-specs/logcat.lang
 %%DATADIR%%-3.0/language-specs/lua.lang
 %%DATADIR%%-3.0/language-specs/m4.lang
 %%DATADIR%%-3.0/language-specs/makefile.lang

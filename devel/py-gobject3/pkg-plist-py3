@@ -63,6 +63,7 @@
 %%PYTHON_SITELIBDIR%%/gi/repository/__pycache__/__init__.cpython-%%PYTHON_SUFFIX%%.%%PYTHON_PYOEXTENSION%%
 %%PYTHON_SITELIBDIR%%/gi/repository/__pycache__/__init__.cpython-%%PYTHON_SUFFIX%%.pyc
 %%PYTHON_SITELIBDIR%%/gi/types.py
+%%PYTHON_SITELIBDIR%%/pygobject-%%VERSION%%-py%%PYTHON_VER%%.egg-info
 %%PYTHON_SITELIBDIR%%/pygtkcompat/__init__.py
 %%PYTHON_SITELIBDIR%%/pygtkcompat/__pycache__/__init__.cpython-%%PYTHON_SUFFIX%%.%%PYTHON_PYOEXTENSION%%
 %%PYTHON_SITELIBDIR%%/pygtkcompat/__pycache__/__init__.cpython-%%PYTHON_SUFFIX%%.pyc

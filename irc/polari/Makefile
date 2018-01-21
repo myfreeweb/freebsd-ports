@@ -2,7 +2,7 @@
 # $FreeBSD: head/irc/polari/Makefile 408881 2016-02-14 18:57:53Z kwm $
 
 PORTNAME=	polari
-PORTVERSION=	3.22.2
+PORTVERSION=	3.26.1
 CATEGORIES=	irc gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -23,13 +23,11 @@ RUN_DEPENDS=	gjs-console:lang/gjs
 
 PORTSCOUT=	limitw:1,even
 
-USES=		desktop-file-utils gettext gmake gnome libtool localbase \
-		pathfix pkgconfig tar:xz
-USE_GNOME=	cairo gnomedesktop3 gtk30 intlhack introspection
+USES=		desktop-file-utils gettext gnome localbase \
+		meson pkgconfig tar:xz
+USE_GNOME=	cairo gtk30 introspection
 USE_LDCONFIG=	yes
-GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
-INSTALL_TARGET=	install-strip
 
 GLIB_SCHEMAS=	org.gnome.Polari.gschema.xml
 

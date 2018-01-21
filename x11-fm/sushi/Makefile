@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	sushi
-PORTVERSION=	3.21.91
+PORTVERSION=	3.24.0
 CATEGORIES=	x11-fm gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -35,6 +35,7 @@ USES=		gettext gmake gnome libtool localbase pathfix \
 INSTALLS_ICONS=	yes
 USE_GNOME=	cairo gnomeprefix gtksourceview3 intlhack introspection
 USE_GL=		egl
+USE_GSTREAMER1=	yes
 USE_LDCONFIG=	yes
 USE_XORG=	x11 xcomposite xdamage xext xi xfixes xrandr
 GNU_CONFIGURE=	yes

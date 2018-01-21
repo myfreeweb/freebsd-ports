@@ -39,7 +39,8 @@ RUN_DEPENDS=	iso-codes>=0:misc/iso-codes \
 PORTSCOUT=	limitw:1,even
 
 USES=		compiler:c++11-lib cpe desktop-file-utils gettext gnome \
-		localbase:ldflags meson pkgconfig python:3.3+ sqlite tar:xz
+		localbase:ldflags meson pkgconfig python:3.4+ shebangfix \
+		sqlite tar:xz
 CPE_VENDOR=	gnome
 USE_GNOME=	cairo gnomedesktop3 intlhack libwnck3 libxml2 libxslt
 USE_XORG=	x11
@@ -49,6 +50,7 @@ MESON_ARGS=	-Ddistributor_name="GNOME Web by the FreeBSD GNOME Project" \
 		-Dunit_tests=false
 GLIB_SCHEMAS=	org.gnome.Epiphany.enums.xml \
 		org.gnome.epiphany.gschema.xml
+SHEBANG_FILES=	post_install.py
 
 PLIST_SUB+=	EPHY_VERSION=${PORTVERSION:R}
 

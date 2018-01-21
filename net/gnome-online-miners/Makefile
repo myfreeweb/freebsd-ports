@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-online-miners
-PORTVERSION=	3.20.0
+PORTVERSION=	3.26.0
 CATEGORIES=	net
 MASTER_SITES=	GNOME
 
@@ -16,7 +16,7 @@ LIB_DEPENDS=	libgdata.so:devel/libgdata \
 		libjson-glib-1.0.so:devel/json-glib \
 		librest-0.7.so:devel/librest \
 		libsoup-2.4.so:devel/libsoup \
-		libtracker-control-1.0.so:sysutils/tracker \
+		libtracker-control-2.0.so:sysutils/tracker \
 		libgoa-1.0.so:net/gnome-online-accounts \
 		libgfbgraph-0.2.so:net/gfbgraph \
 		libzapojit-0.0.so:net/libzapojit \

@@ -102,6 +102,7 @@
     SUBDIR += libXt
     SUBDIR += libbonoboui
     SUBDIR += libbonoboui-reference
+    SUBDIR += libdazzle
     SUBDIR += libgdiplus
     SUBDIR += libgnomeprintui
     SUBDIR += libgnomeprintuimm

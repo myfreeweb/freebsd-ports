@@ -37,10 +37,10 @@ USE_GL=		egl
 USE_GNOME=	cairo evolutiondataserver3 gdkpixbuf2 gnomedesktop3 gtk30 \
 		intlhack introspection:build
 USE_XORG=	x11 xcomposite xdamage xext xfixes xi xrandr
-USES=		gettext gnome localbase meson perl5 pkgconfig sqlite tar:xz
+USES=		gettext gnome localbase meson perl5 pkgconfig \
+		python:3.4+,build shebangfix sqlite tar:xz
+SHEBANG_FILES=	meson_post_install.py
 
-#GLIB_SCHEMAS=	org.gnome.Contacts.enums.xml \
-#		org.gnome.Contacts.gschema.xml
 GLIB_SCHEMAS=	org.gnome.Contacts.gschema.xml
 
 OPTIONS_SUB=	yes

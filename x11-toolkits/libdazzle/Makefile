@@ -2,19 +2,18 @@
 
 PORTNAME=	libdazzle
 PORTVERSION=	3.27.3
-CATEGORIES=	x11-toolkits gnome
+CATEGORIES=	x11-toolkits
 MASTER_SITES=	GNOME
-DIST_SUBDIR=	gnome3
 
 MAINTAINER=	gnome@FreeBSD.org
-COMMENT=	Companion library to GObject and Gtk+
+COMMENT=	Staging and stabilizing for facy Glib and Gtk+ features
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-USES=		meson pkgconfig tar:xz
-USE_GNOME=	glib20 gtk30 introspection
-USE_LDCONFIG=	yes
-CPE_VENDOR=	gnome
+BUILD_DEPENDS=	valac:lang/vala
+
+USES=		gnome meson tar:xz
+USE_GNOME=	cairo gdkpixbuf2 gtk30 introspection:build
 
 .include <bsd.port.mk>

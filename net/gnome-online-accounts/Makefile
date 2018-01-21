@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-online-accounts
-PORTVERSION=	3.26.1
+PORTVERSION=	3.26.2
 CATEGORIES=	net
 MASTER_SITES=	GNOME
 
@@ -39,13 +39,11 @@ CONFIGURE_ARGS+=--enable-kerberos=no
 
 OPTIONS_SUB=	yes
 OPTIONS_DEFINE=	TELEPATHY
-OPTIONS_DEFAULT=
 
-TELEPATHY_DESC=			Foo
+TELEPATHY_DESC=			Telepathy data provider
 TELEPATHY_CONFIGURE_ENABLE=	telepathy
 TELEPATHY_LIB_DEPENDS=		libtelepathy-glib.so:net-im/telepathy-glib
 
-# disable telepaty by default
 # + flickr
 
 .include <bsd.port.mk>

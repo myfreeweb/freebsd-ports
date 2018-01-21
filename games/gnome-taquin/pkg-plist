@@ -105,6 +105,19 @@ share/help/hu/gnome-taquin/legal.xml
 share/help/hu/gnome-taquin/license.page
 share/help/hu/gnome-taquin/shortcuts.page
 share/help/hu/gnome-taquin/start-screen.page
+share/help/pl/gnome-taquin/15-Puzzle.page
+share/help/pl/gnome-taquin/16-Puzzle.page
+share/help/pl/gnome-taquin/beginning.page
+share/help/pl/gnome-taquin/figures/fifteen.png
+share/help/pl/gnome-taquin/figures/logo.png
+share/help/pl/gnome-taquin/figures/logo32.png
+share/help/pl/gnome-taquin/figures/sixteen.png
+share/help/pl/gnome-taquin/figures/start-screen.png
+share/help/pl/gnome-taquin/index.page
+share/help/pl/gnome-taquin/legal.xml
+share/help/pl/gnome-taquin/license.page
+share/help/pl/gnome-taquin/shortcuts.page
+share/help/pl/gnome-taquin/start-screen.page
 share/help/sv/gnome-taquin/15-Puzzle.page
 share/help/sv/gnome-taquin/16-Puzzle.page
 share/help/sv/gnome-taquin/beginning.page
@@ -150,6 +163,8 @@ share/locale/ko/LC_MESSAGES/gnome-taquin.mo
 share/locale/lt/LC_MESSAGES/gnome-taquin.mo
 share/locale/lv/LC_MESSAGES/gnome-taquin.mo
 share/locale/nb/LC_MESSAGES/gnome-taquin.mo
+share/locale/ne/LC_MESSAGES/gnome-taquin.mo
+share/locale/nl/LC_MESSAGES/gnome-taquin.mo
 share/locale/oc/LC_MESSAGES/gnome-taquin.mo
 share/locale/pa/LC_MESSAGES/gnome-taquin.mo
 share/locale/pl/LC_MESSAGES/gnome-taquin.mo
@@ -164,5 +179,6 @@ share/locale/sv/LC_MESSAGES/gnome-taquin.mo
 share/locale/tr/LC_MESSAGES/gnome-taquin.mo
 share/locale/uk/LC_MESSAGES/gnome-taquin.mo
 share/locale/vi/LC_MESSAGES/gnome-taquin.mo
+share/locale/zh_CN/LC_MESSAGES/gnome-taquin.mo
 share/locale/zh_HK/LC_MESSAGES/gnome-taquin.mo
 share/locale/zh_TW/LC_MESSAGES/gnome-taquin.mo

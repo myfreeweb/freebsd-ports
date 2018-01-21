@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-sound-recorder
-PORTVERSION=	3.19.91
+PORTVERSION=	3.24.0.1
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
