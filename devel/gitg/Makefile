@@ -3,17 +3,15 @@
 
 PORTNAME=	gitg
 PORTVERSION=	3.26.0
-PORTREVISION=	1
 CATEGORIES=	devel deskutils gnome
 MASTER_SITES=	GNOME
+DIST_SUBDIR=	gnome3
 
 MAINTAINER=	kwm@FreeBSD.org
 COMMENT=	GTK-based git repository viewer
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
-
-BROKEN=		fails to configure
 
 BUILD_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas \
 		valac:lang/vala
