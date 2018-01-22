@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	libinput
-PORTVERSION=	1.9.4
+PORTVERSION=	1.9.901
 CATEGORIES=	x11
 MASTER_SITES=	http://freedesktop.org/software/${PORTNAME}/
 

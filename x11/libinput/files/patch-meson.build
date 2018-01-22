@@ -29,17 +29,6 @@
  dep_lm = cc.find_library('m', required : false)
  dep_rt = cc.find_library('rt', required : false)
  
-@@ -145,7 +147,9 @@ src_libfilter = [
- 		'src/filter.h',
- 		'src/filter-private.h'
- ]
--libfilter = static_library('filter', src_libfilter)
-+libfilter = static_library('filter', src_libfilter,
-+			   dependencies : dep_udev,
-+			   include_directories : includes_include)
- dep_libfilter = declare_dependency(link_with : libfilter)
- 
- ############ libinput.so ############
 @@ -184,6 +188,7 @@ deps_libinput = [
  	dep_mtdev,
  	dep_udev,
