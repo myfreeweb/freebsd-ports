@@ -32,9 +32,10 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `x11-wm/weston`: reference Wayland compositor and some apps
 - `www/webkit2-gtk3`: updated to 2.18.3, Wayland support added [223733](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223733)
 - `devel/sdl20`: Wayland and udev options added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018)
-- `x11/libinput`:
-	- update to 1.9.4, remove unnecessary/unused patches [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
+- `x11/libinput`: [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
+	- update to 1.9.901
 	- fix [touchpad dropping out](https://blog.grem.de/pages/t470s.html)
+	- fix device rejection when running without /dev/input access
 - `devel/libepoll-shim`: update version ~~[223530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223530)~~ included in 222905
 - `x11-servers/xorg-server`:
 	- add `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
@@ -49,6 +50,8 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `sysutils/u-boot-rpi3`: update to 2018.01, with netboot support [225355](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225355)
+- `lang/luajit`: update to 2.1.0-beta3 (works on arm64) [225342](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225342)
 - `multimedia/gnome-twitch`: Twitch livestream player [224980](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224980)
 - `archivers/maxcso`: ISO to CSO compressor for PSP/PS2 emulators [224638](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224638)
 - `devel/llvm50`, `devel/llvm-devel`, `devel/cmake`: workarounds for LLVM linking / `llvm-config`!!! [223191](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223191)
