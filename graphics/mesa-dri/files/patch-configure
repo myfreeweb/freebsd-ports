@@ -1,35 +1,30 @@
---- configure.orig	2017-10-02 15:49:13 UTC
+--- configure.orig	2018-01-23 18:08:55 UTC
 +++ configure
-@@ -761,6 +761,8 @@
- VC5_SIMULATOR_CFLAGS
- SIMPENROSE_LIBS
- SIMPENROSE_CFLAGS
-+TINYXML2_LIBS
-+TINYXML2_CFLAGS
- SWR_SKX_CXXFLAGS
- SWR_KNL_CXXFLAGS
- SWR_AVX2_CXXFLAGS
-@@ -1299,6 +1301,8 @@
- FREEDRENO_LIBS
- ETNAVIV_CFLAGS
- ETNAVIV_LIBS
-+TINYXML2_CFLAGS
-+TINYXML2_LIBS
- SIMPENROSE_CFLAGS
- SIMPENROSE_LIBS
- VC5_SIMULATOR_CFLAGS
-@@ -2188,6 +2192,10 @@
-               C compiler flags for ETNAVIV, overriding pkg-config
-   ETNAVIV_LIBS
-               linker flags for ETNAVIV, overriding pkg-config
-+  TINYXML2_CFLAGS
-+              C compiler flags for TINYXML2, overriding pkg-config
-+  TINYXML2_LIBS
-+              linker flags for TINYXML2, overriding pkg-config
-   SIMPENROSE_CFLAGS
-               C compiler flags for SIMPENROSE, overriding pkg-config
-   SIMPENROSE_LIBS
-@@ -22846,7 +22846,7 @@ fi
+@@ -22559,11 +22559,20 @@ $as_echo "yes" >&6; }
+ fi
+ fi
+ 
+-ac_fn_c_check_header_mongrel "$LINENO" "linux/futex.h" "ac_cv_header_linux_futex_h" "$ac_includes_default"
+-if test "x$ac_cv_header_linux_futex_h" = xyes; then :
+-  DEFINES="$DEFINES -DHAVE_LINUX_FUTEX_H"
++for ac_header in linux/futex.h sys/umtx.h
++do :
++  as_ac_Header=`$as_echo "ac_cv_header_$ac_header" | $as_tr_sh`
++ac_fn_c_check_header_compile "$LINENO" "$ac_header" "$as_ac_Header" "#include <errno.h>
++     #include <sys/types.h>
++"
++if eval test \"x\$"$as_ac_Header"\" = x"yes"; then :
++  cat >>confdefs.h <<_ACEOF
++#define `$as_echo "HAVE_$ac_header" | $as_tr_cpp` 1
++_ACEOF
++ DEFINES="$DEFINES -DHAVE_LINUX_FUTEX_H"
+ fi
+ 
++done
+ 
+ 
+ # Check whether --enable-selinux was given.
+@@ -23308,7 +23308,7 @@ fi
  
  
  case "$host_os" in
@@ -38,27 +33,7 @@
      dri3_default=yes
      ;;
  *)
-@@ -26399,9 +26399,19 @@ if test "x$enable_opencl" = xyes; then
-         as_fn_error $? "cannot enable OpenCL without Gallium" "$LINENO" 5
-     fi
- 
-+    if test "x$acv_mesa_CLANG" = xno; then
-+
-+    GCC_VERSION=`$CC -dumpversion`
-+    if test $? -eq 0; then
-+        GCC_VERSION_MAJOR=`echo $GCC_VERSION | cut -d. -f1`
-+        GCC_VERSION_MINOR=`echo $GCC_VERSION | cut -d. -f2`
-+    fi
-+
-     if test $GCC_VERSION_MAJOR -lt 4 -o $GCC_VERSION_MAJOR -eq 4 -a $GCC_VERSION_MINOR -lt 7; then
-         as_fn_error $? "gcc >= 4.7 is required to build clover" "$LINENO" 5
-     fi
-+# end of clang test.
-+    fi
- 
-     if test "x$have_libclc" = xno; then
-         as_fn_error $? "pkg-config cannot find libclc.pc which is required to build clover.
-@@ -26464,9 +26474,6 @@ rm -f core conftest.err conftest.$ac_obj
+@@ -27096,9 +27106,6 @@ rm -f core conftest.err conftest.$ac_obj
          CLANG_LIBDIR=${LLVM_LIBDIR}
      fi
      CLANG_RESOURCE_DIR=$CLANG_LIBDIR/clang/${LLVM_VERSION}
@@ -68,102 +43,3 @@
  fi
   if test "x$enable_opencl" = xyes; then
    HAVE_CLOVER_TRUE=
-@@ -28139,6 +28147,98 @@
-                as_fn_error $? "swr enabled but no swr architectures selected" "$LINENO" 5
-             fi
- 
-+
-+pkg_failed=no
-+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for TINYXML2" >&5
-+$as_echo_n "checking for TINYXML2... " >&6; }
-+
-+if test -n "$TINYXML2_CFLAGS"; then
-+    pkg_cv_TINYXML2_CFLAGS="$TINYXML2_CFLAGS"
-+ elif test -n "$PKG_CONFIG"; then
-+    if test -n "$PKG_CONFIG" && \
-+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"tinyxml2\""; } >&5
-+  ($PKG_CONFIG --exists --print-errors "tinyxml2") 2>&5
-+  ac_status=$?
-+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-+  test $ac_status = 0; }; then
-+  pkg_cv_TINYXML2_CFLAGS=`$PKG_CONFIG --cflags "tinyxml2" 2>/dev/null`
-+		      test "x$?" != "x0" && pkg_failed=yes
-+else
-+  pkg_failed=yes
-+fi
-+ else
-+    pkg_failed=untried
-+fi
-+if test -n "$TINYXML2_LIBS"; then
-+    pkg_cv_TINYXML2_LIBS="$TINYXML2_LIBS"
-+ elif test -n "$PKG_CONFIG"; then
-+    if test -n "$PKG_CONFIG" && \
-+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"tinyxml2\""; } >&5
-+  ($PKG_CONFIG --exists --print-errors "tinyxml2") 2>&5
-+  ac_status=$?
-+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-+  test $ac_status = 0; }; then
-+  pkg_cv_TINYXML2_LIBS=`$PKG_CONFIG --libs "tinyxml2" 2>/dev/null`
-+		      test "x$?" != "x0" && pkg_failed=yes
-+else
-+  pkg_failed=yes
-+fi
-+ else
-+    pkg_failed=untried
-+fi
-+
-+
-+
-+if test $pkg_failed = yes; then
-+   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-+$as_echo "no" >&6; }
-+
-+if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
-+        _pkg_short_errors_supported=yes
-+else
-+        _pkg_short_errors_supported=no
-+fi
-+        if test $_pkg_short_errors_supported = yes; then
-+	        TINYXML2_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "tinyxml2" 2>&1`
-+        else
-+	        TINYXML2_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "tinyxml2" 2>&1`
-+        fi
-+	# Put the nasty error message in config.log where it belongs
-+	echo "$TINYXML2_PKG_ERRORS" >&5
-+
-+	as_fn_error $? "Package requirements (tinyxml2) were not met:
-+
-+$TINYXML2_PKG_ERRORS
-+
-+Consider adjusting the PKG_CONFIG_PATH environment variable if you
-+installed software in a non-standard prefix.
-+
-+Alternatively, you may set the environment variables TINYXML2_CFLAGS
-+and TINYXML2_LIBS to avoid the need to call pkg-config.
-+See the pkg-config man page for more details." "$LINENO" 5
-+elif test $pkg_failed = untried; then
-+     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-+$as_echo "no" >&6; }
-+	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
-+$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-+as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
-+is in your PATH or set the PKG_CONFIG environment variable to the full
-+path to pkg-config.
-+
-+Alternatively, you may set the environment variables TINYXML2_CFLAGS
-+and TINYXML2_LIBS to avoid the need to call pkg-config.
-+See the pkg-config man page for more details.
-+
-+To get pkg-config, see <http://pkg-config.freedesktop.org/>.
-+See \`config.log' for more details" "$LINENO" 5; }
-+else
-+	TINYXML2_CFLAGS=$pkg_cv_TINYXML2_CFLAGS
-+	TINYXML2_LIBS=$pkg_cv_TINYXML2_LIBS
-+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-+$as_echo "yes" >&6; }
-+
-+fi
-+
-             HAVE_GALLIUM_SWR=yes
-             ;;
-         xvc4)

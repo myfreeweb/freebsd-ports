@@ -12,7 +12,7 @@ USE_XORG=	dri2proto dri3proto glproto presentproto x11 xdamage xext \
 		xfixes xshmfence xv xvmc
 
 OPTIONS_DEFINE=	TEXTURE VAAPI VDPAU WAYLAND
-OPTIONS_DEFAULT=TEXTURE VAAPI VDPAU WAYLAND
+OPTIONS_DEFAULT=TEXTURE
 OPTIONS_SUB=	yes
 
 TEXTURE_DESC=	Enable texture-float support (patent encumbered)
@@ -26,12 +26,14 @@ VDPAU_CONFIGURE_ENABLE=	vdpau
 VDPAU_LIB_DEPENDS=	libvdpau.so:multimedia/libvdpau
 
 WAYLAND_DESC=		Enable support for the Wayland platform in Vulkan drivers
+WAYLAND_BUILD_DEPENDS=	wayland-protocols>=1.8:graphics/wayland-protocols
+WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland
 
 .include <bsd.port.options.mk>
 .include "${.CURDIR:H:H}/graphics/mesa-dri/Makefile.common"
 
 ALL_DRI_DRIVERS=	I915 I965 RADEON R200 SWRAST
-ALL_GALLIUM_DRIVERS=	FREEDRENO R300 R600 RADEONSI SVGA SWRAST SWR VC4
+ALL_GALLIUM_DRIVERS=	FREEDRENO R300 R600 RADEONSI SVGA SWRAST VC4
 ALL_VULKAN_DRIVERS=	INTEL RADEON
 
 DRI_DRIVERS=		SWRAST	# classic swrast
@@ -53,8 +55,7 @@ VULKAN_DRIVERS+=	RADEON
 .endif
 .if ${ARCH} == amd64 || ${ARCH} == i386
 DRI_DRIVERS+=		I915 I965
-GALLIUM_DRIVERS+=	SVGA SWR
-LIB_DEPENDS+=	libtinyxml2.so:textproc/tinyxml2
+GALLIUM_DRIVERS+=	SVGA
 . if ${OPSYS} == FreeBSD && ${OSVERSION} < 1100000
 EXTRA_PATCHES+=	${PATCHDIR}/extra-src_mesa_drivers_dri_i965_intel__screen.c
 . endif
@@ -68,17 +69,21 @@ EXTRA_PATCHES+=	${PATCHDIR}/extra-src_gallium_drivers_vc4_Makefile.in
 
 .if ${VULKAN_DRIVERS}
 BUILD_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}mako>0:textproc/py-mako@${PY_FLAVOR}
-# enables VK_KHR_wayland_surface in Vulkan drivers
-. if ${PORT_OPTIONS:MWAYLAND}
-CONFIGURE_ARGS+=	--with-platforms=x11,drm,wayland
-. endif
 .endif
 
-.if ${VULKAN_DRIVERS:MINTEL}
+.if ${DRI_DRIVERS} || ${VULKAN_DRIVERS:MINTEL}
 . if ${/usr/bin/ld:L:tA} != /usr/bin/ld.lld
 # --build-id isn't supported by old GNU ld.bfd in base
 USE_BINUTILS=		yes
 LDFLAGS+=		-B${LOCALBASE}/bin
+. endif
+.endif
+
+# enables VK_KHR_wayland_surface in Vulkan drivers
+.if ${PORT_OPTIONS:MWAYLAND}
+CONFIGURE_ARGS+=	--with-platforms=x11,drm,wayland
+. if empty(VULKAN_DRIVERS)
+IGNORE=	option WAYLAND is only valid on platforms with Vulkan
 . endif
 .endif
 

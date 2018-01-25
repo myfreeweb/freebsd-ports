@@ -11,7 +11,6 @@ USE_XORG=	dri2proto dri3proto glproto presentproto x11 xcb xdamage xext \
 		xfixes xshmfence xxf86vm
 
 OPTIONS_DEFINE=	WAYLAND
-OPTIONS_DEFAULT=	WAYLAND
 OPTIONS_SUB=	yes
 
 WAYLAND_DESC=		Enable support for the Wayland platform in EGL

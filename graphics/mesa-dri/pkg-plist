@@ -69,12 +69,6 @@ include/GL/internal/dri_interface.h
 @comment lib/libglapi.so
 @comment lib/libglapi.so.0
 @comment lib/libglapi.so.0.0.0
-%%SWR_GDRIVER%%lib/libswrAVX.so
-%%SWR_GDRIVER%%lib/libswrAVX.so.0
-%%SWR_GDRIVER%%lib/libswrAVX.so.0.0.0
-%%SWR_GDRIVER%%lib/libswrAVX2.so
-%%SWR_GDRIVER%%lib/libswrAVX2.so.0
-%%SWR_GDRIVER%%lib/libswrAVX2.so.0.0.0
 %%VDPAU%%%%R300_GDRIVER%%lib/vdpau/libvdpau_r300.so
 %%VDPAU%%%%R300_GDRIVER%%lib/vdpau/libvdpau_r300.so.1
 %%VDPAU%%%%R300_GDRIVER%%lib/vdpau/libvdpau_r300.so.1.0

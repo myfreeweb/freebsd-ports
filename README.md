@@ -17,8 +17,9 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 ### Vulkan
 
 - `graphics/mesa-dri` and `graphics/mesa-libs`:
-	- enabled VK_KHR_wayland_surface [223195](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223195)
-	- + enabled SWR software renderer, run like this: `LIBGL_ALWAYS_SOFTWARE=true GALLIUM_DRIVER=swr LD_PRELOAD=/usr/local/lib/libtinyxml2.so glxgears`
+	- updated to 18.0.0.rc2 [225415](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225415)
+	- enabled VK_KHR_wayland_surface [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540)
+	- (included upstream) fix device name detection [223030](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223030)
 - `graphics/vulkan-sdk`: [Vulkan SDK](https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers) (headers, ICD loader, validation layers) [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
 
 NOTE: ANV (Intel Vulkan) requires running the apps as root and might not work for complex applications.
@@ -40,7 +41,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `x11-servers/xorg-server`:
 	- add `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
 	- fix terminal handling without 'keyboard' driver [220562](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220562)
-- `graphics/mesa-libs`: Fix device name detection [223030](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223030)
 
 ### Games
 
