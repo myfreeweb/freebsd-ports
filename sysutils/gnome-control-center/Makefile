@@ -57,17 +57,22 @@ USE_LDCONFIG=	yes
 
 OPTIONS_SUB=	yes
 
+OPTIONS_DEFINE=	WAYLAND
+
 OPTIONS_DEFINE_i386=	CHEESE
 OPTIONS_DEFAULT_i386=	CHEESE
 OPTIONS_DEFINE_amd64=	CHEESE
 OPTIONS_DEFAULT_amd64=	CHEESE
 
+WAYLAND_DESC=	Wayland display server support
+
 CHEESE_DESC=	Cheese webcam support
 CHEESE_LIB_DEPENDS=	libcheese.so:multimedia/cheese
 CHEESE_CONFIGURE_WITH=	cheese
 
-post-patch:
+post-patch-WAYLAND-off:
 	@${REINPLACE_CMD} -e 's|gdk-wayland-3.0|gdk-wayland-3.0-disabled|g' \
+		-e 's|gudev-1.0|gudev-1.0-disable|g' \
 		${WRKSRC}/configure
 	@${REINPLACE_CMD} -e 's|HAVE_WAYLAND|DON_WANT_WAYLAND|g' \
 		${WRKSRC}/panels/common/gnome-settings-bus.h

@@ -17,11 +17,12 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 BUILD_DEPENDS=	docbook-xsl>0:textproc/docbook-xsl
 
 USES=		cpe gettext gnome localbase:ldflags meson pkgconfig \
-		shared-mime-info tar:xz
+		python:3.4+,build shared-mime-info shebangfix tar:xz
 USE_XORG=	xt xi x11
 CPE_VENDOR=	gnome
 USE_GNOME+=	glib20 introspection:build libxslt:build
 USE_LDCONFIG=	yes
+SHEBANG_FILES=	build-aux/gen-thumbnailer.py
 
 OPTIONS_SUB=	yes
 OPTIONS_DEFINE=	JASPER JPEG PNG TIFF
