@@ -1195,6 +1195,7 @@
     SUBDIR += softether-devel
     SUBDIR += softhsm
     SUBDIR += softhsm2
+    SUBDIR += sops
     SUBDIR += spass
     SUBDIR += spike-proxy
     SUBDIR += spybye

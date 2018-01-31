@@ -1103,6 +1103,7 @@
     SUBDIR += sas3ircu
     SUBDIR += savelogs
     SUBDIR += sb16config
+    SUBDIR += sbase
     SUBDIR += sbsigntool
     SUBDIR += scalpel
     SUBDIR += scan_ffs
