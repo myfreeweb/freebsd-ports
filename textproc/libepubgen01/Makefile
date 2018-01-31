@@ -1,10 +1,10 @@
 # $FreeBSD$
 
 PORTNAME=	libepubgen
-PORTVERSION=	0.0.1
+PORTVERSION=	0.1.0
 CATEGORIES=	textproc
 MASTER_SITES=	SF/${PORTNAME}/${PORTNAME}-${PORTVERSION}
-PKGNAMESUFFIX=	00
+PKGNAMESUFFIX=	01
 
 MAINTAINER=	office@FreeBSD.org
 COMMENT=	Library for generating documents in ePub format

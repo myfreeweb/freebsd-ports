@@ -2,7 +2,6 @@
 
 .include "${.CURDIR}/Makefile.common"
 
-PORTREVISION=	4
 MASTER_SITES=	http://download.documentfoundation.org/libreoffice/src/${PORTVERSION}/ \
 		http://dev-www.libreoffice.org/src/:src \
 		http://dev-www.libreoffice.org/extern/:ext
@@ -15,8 +14,7 @@ COMMENT=	Full integrated office productivity suite
 
 CONFLICTS_BUILD=	mdds0
 
-BUILD_DEPENDS=	${LOCALBASE}/lib/libcppunit.so:devel/cppunit \
-		p5-Archive-Zip>=0:archivers/p5-Archive-Zip \
+BUILD_DEPENDS=	p5-Archive-Zip>=0:archivers/p5-Archive-Zip \
 		zip:archivers/zip \
 		${LOCALBASE}/include/sqlext.h:databases/unixODBC \
 		dmake:devel/dmake \
@@ -64,7 +62,7 @@ LIB_DEPENDS=	libapr-1.so:devel/apr1 \
 		libexttextcat-2.0.so:textproc/libexttextcat \
 		libmwaw-0.3.so:textproc/libmwaw03 \
 		libodfgen-0.1.so:textproc/libodfgen01 \
-		libepubgen-0.0.so:textproc/libepubgen00 \
+		libepubgen-0.1.so:textproc/libepubgen01 \
 		librevenge-0.0.so:textproc/librevenge \
 		libstaroffice-0.0.so:textproc/libstaroffice \
 		libvisio-0.1.so:textproc/libvisio01 \
@@ -86,7 +84,8 @@ RUN_DEPENDS=	xdg-open:devel/xdg-utils \
 		${LOCALBASE}/share/fonts/LinLibertineG/LinLibertine_DR_G.ttf:x11-fonts/linuxlibertine-g
 
 DISTFILES+=	4b87018f7fff1d054939d19920b751a0-collada2gltf-master-cb1d97788a.tar.bz2:src \
-#		pdfium-3235.tar.bz2:src
+		cppunit-1.14.0.tar.gz:src
+#		pdfium-3312.tar.bz2:src
 
 NOT_FOR_ARCHS=		aarch64 armv6 armv7
 NOT_FOR_ARCHS_REASON=	Unsupported host_cpu
@@ -97,7 +96,7 @@ MASTER_SITES+=	http://dev-builds.libreoffice.org/pre-releases/src/
 
 CONFLICTS_INSTALL=	libreoffice4-4.*
 
-INSTALL_TARGET=	distro-pack-install-strip
+INSTALL_TARGET=	distro-pack-install
 WRKSRC=		${WRKDIR}/${PORTNAME}-${LOVERSION}
 
 GNU_CONFIGURE=	yes
@@ -113,6 +112,7 @@ OPTIONS_DEFINE=	CUPS GNOME GTK2 GTK3 JAVA KDE4 MMEDIA PGSQL SDK SYSTRAY \
 		TEST WEBDAV
 OPTIONS_DEFAULT=	CUPS GTK3 MMEDIA
 
+GTK2_DESC=	GTK+ 2 GUI toolkit support
 GTK3_DESC=	GTK+ 3 GUI toolkit support
 JAVA_DESC=	Add Java support (XML filters, macros)
 MMEDIA_DESC=	Enable multimedia backend for impress
@@ -252,7 +252,8 @@ CONFIGURE_ARGS=	--disable-dependency-tracking \
 		--with-system-zlib \
 		--with-vendor="FreeBSD ports" \
 		--without-fonts \
-		--without-myspell-dicts
+		--without-myspell-dicts \
+		--without-system-cppunit
 
 CONFIGURE_ENV=	DMAKE=${LOCALBASE}/bin/dmake \
 		GNUTAR="${TAR}" \
@@ -312,7 +313,7 @@ post-install:
 	    -exec ${ECHO_CMD} "@dir {}" \; >> ${TMPPLIST}
 	@cd ${STAGEDIR}${PREFIX} && \
 	${FIND} -s bin lib man -not -type d >> ${TMPPLIST}
-.for subdir in appdata application-registry applications bash-completion icons mime mime-info mimelnk
+.for subdir in appdata application-registry applications bash-completion icons mime mime-info
 	@cd ${STAGEDIR}${PREFIX} && \
 	${FIND} -s share/${subdir} -not -type d >> ${TMPPLIST}
 .endfor
