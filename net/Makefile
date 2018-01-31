@@ -60,6 +60,8 @@
     SUBDIR += boclient
     SUBDIR += boinc-client
     SUBDIR += boinc_curses
+    SUBDIR += bosh-bootloader
+    SUBDIR += bosh-cli
     SUBDIR += bounce
     SUBDIR += bsdec2-image-upload
     SUBDIR += bsdproxy
@@ -510,6 +512,7 @@
     SUBDIR += nifmon
     SUBDIR += nload
     SUBDIR += nmsg
+    SUBDIR += nncp
     SUBDIR += nocatsplash
     SUBDIR += norm
     SUBDIR += nph

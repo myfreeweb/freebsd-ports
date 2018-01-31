@@ -35,6 +35,8 @@ LIB_DEPENDS=	libpulse.so:audio/pulseaudio \
 		libcurl.so:ftp/curl \
 		libgtest.so:devel/googletest
 
+USES=		cmake compiler:c++11-lib iconv openal pkgconfig
+
 USE_GITHUB=	yes
 GH_PROJECT=	dolphin
 
@@ -43,8 +45,6 @@ USE_GNOME=	atk cairo glib20 gdkpixbuf2 gtk20 pango
 USE_SDL=	sdl2
 USE_WX=		3.0+
 USE_XORG=	ice sm x11 xext xi xrandr xxf86vm xinerama
-
-USES=		cmake compiler:c++11-lib iconv openal pkgconfig
 
 CMAKE_ARGS+=	-DTRY_X11:BOOL=ON \
 		-DUSE_UPNP:BOOL=ON \

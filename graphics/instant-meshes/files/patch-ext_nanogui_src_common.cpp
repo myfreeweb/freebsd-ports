@@ -1,6 +1,6 @@
---- ext/nanogui/src/common.cpp.orig	2017-10-01 00:15:16 UTC
+--- ext/nanogui/src/common.cpp.orig	2016-10-15 20:12:12 UTC
 +++ ext/nanogui/src/common.cpp
-@@ -248,7 +248,7 @@ std::string file_dialog(const std::vector<std::pair<st
+@@ -248,7 +248,7 @@ std::string file_dialog(const std::vecto
      return std::string(ofn.lpstrFile);
  #else
      char buffer[FILE_DIALOG_MAX_BUFFER];

@@ -377,6 +377,7 @@
     SUBDIR += impressive
     SUBDIR += imv
     SUBDIR += inkscape
+    SUBDIR += instant-meshes
     SUBDIR += intel-backlight
     SUBDIR += intergif
     SUBDIR += inventor

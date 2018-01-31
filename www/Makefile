@@ -65,7 +65,6 @@
     SUBDIR += caldavzap
     SUBDIR += calendarserver
     SUBDIR += castget
-    SUBDIR += caudium14
     SUBDIR += cblog
     SUBDIR += cgi-lib
     SUBDIR += cgi-lib.pl
@@ -242,7 +241,6 @@
     SUBDIR += havp
     SUBDIR += helma
     SUBDIR += hiawatha
-    SUBDIR += hinventory-client
     SUBDIR += horde-ansel
     SUBDIR += horde-base
     SUBDIR += horde-passwd
@@ -352,7 +350,6 @@
     SUBDIR += kplaylist
     SUBDIR += kwebkitpart
     SUBDIR += larbin
-    SUBDIR += lessc
     SUBDIR += libapreq2
     SUBDIR += libdom
     SUBDIR += libecap
@@ -564,7 +561,6 @@
     SUBDIR += npapi-xine
     SUBDIR += npc
     SUBDIR += npm
-    SUBDIR += npm-less-plugin-clean-css
     SUBDIR += npm-node4
     SUBDIR += npm-node6
     SUBDIR += npm-node8
@@ -1728,7 +1724,6 @@
     SUBDIR += py-multidict
     SUBDIR += py-nevow
     SUBDIR += py-notebook
-    SUBDIR += py-octoprint
     SUBDIR += py-pafy
     SUBDIR += py-paste
     SUBDIR += py-pastedeploy
@@ -1826,6 +1821,7 @@
     SUBDIR += py-pyramid_rpc
     SUBDIR += py-pysearch
     SUBDIR += py-python-digitalocean
+    SUBDIR += py-python-dotenv
     SUBDIR += py-pywebdav
     SUBDIR += py-pyweblib
     SUBDIR += py-pywikibot
@@ -2296,12 +2292,12 @@
     SUBDIR += tivoka
     SUBDIR += tntnet
     SUBDIR += tokyopromenade
-    SUBDIR += tomcat-devel
     SUBDIR += tomcat-native
     SUBDIR += tomcat6
     SUBDIR += tomcat7
     SUBDIR += tomcat8
     SUBDIR += tomcat85
+    SUBDIR += tomcat9
     SUBDIR += tomee
     SUBDIR += trac
     SUBDIR += trac-OhlohWidgetsMacro
@@ -2402,7 +2398,6 @@
     SUBDIR += uchiwa
     SUBDIR += udmsearch
     SUBDIR += ufdbguard
-    SUBDIR += uglifyjs
     SUBDIR += unit
     SUBDIR += unit-go
     SUBDIR += unit-php56
@@ -2527,7 +2522,6 @@
     SUBDIR += xpi-mrtech-local-install
     SUBDIR += xpi-neo-diggler
     SUBDIR += xpi-no-referrer
-    SUBDIR += xpi-noscript
     SUBDIR += xpi-passwordmaker
     SUBDIR += xpi-pdf_download
     SUBDIR += xpi-permatabs

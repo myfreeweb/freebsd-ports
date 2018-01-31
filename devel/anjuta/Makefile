@@ -102,9 +102,9 @@ DEVHELP_LIB_DEPENDS=	libsoup-2.4.so:devel/libsoup \
 			libdevhelp-3.so:devel/devhelp
 DEVHELP_CONFIGURE_ENBABLE=	plugin-devhelp
 
-VALA_VER=		0.34
-VALA_BUILD_DEPENDS=	vala>=${VALA_VER}<${VALA_VER}.99:lang/vala
-VALA_RUN_DEPENDS=	vala>=${VALA_VER}<${VALA_VER}.99:lang/vala
+VALA_VER=		0.36
+VALA_BUILD_DEPENDS=	vala>=${VALA_VER},1<${VALA_VER}.99,1:lang/vala
+VALA_RUN_DEPENDS=	vala>=${VALA_VER},1<${VALA_VER}.99,1:lang/vala
 VALA_CONFIGURE_ENABLE=	vala
 
 post-patch:

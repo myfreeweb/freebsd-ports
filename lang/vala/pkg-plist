@@ -20,6 +20,7 @@ lib/libvaladoc-%%VERSION%%.so
 lib/libvaladoc-%%VERSION%%.so.0
 lib/libvaladoc-%%VERSION%%.so.0.0.0
 lib/vala-%%VERSION%%/gen-introspect-%%VERSION%%
+lib/vala-%%VERSION%%/libvalaccodegen.so
 lib/valadoc/doclets/devhelp/libdoclet.so
 lib/valadoc/doclets/gtkdoc/libdoclet.so
 lib/valadoc/doclets/html/libdoclet.so

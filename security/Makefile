@@ -408,7 +408,6 @@
     SUBDIR += md4coll
     SUBDIR += md5coll
     SUBDIR += md5deep
-    SUBDIR += mdcrack
     SUBDIR += medusa
     SUBDIR += meek
     SUBDIR += metasploit
@@ -424,6 +423,7 @@
     SUBDIR += ncrypt
     SUBDIR += netpgp
     SUBDIR += nettle
+    SUBDIR += nextcloud-passman
     SUBDIR += nextcloud-twofactor_totp
     SUBDIR += nextcloud-twofactor_u2f
     SUBDIR += ngrok
@@ -744,6 +744,7 @@
     SUBDIR += p5-dicewaregen
     SUBDIR += p5-openxpki
     SUBDIR += p5-openxpki-i18n
+    SUBDIR += p5-plog
     SUBDIR += pad
     SUBDIR += pam-modules
     SUBDIR += pam-mysql
@@ -863,7 +864,6 @@
     SUBDIR += please
     SUBDIR += polarssl13
     SUBDIR += poly1305aes
-    SUBDIR += pond
     SUBDIR += portsentry
     SUBDIR += ppars
     SUBDIR += proftpd-mod_clamav
@@ -1234,7 +1234,6 @@
     SUBDIR += swatch
     SUBDIR += switzerland
     SUBDIR += symbion-sslproxy
-    SUBDIR += tclgpg
     SUBDIR += tclsasl
     SUBDIR += tcpcrypt
     SUBDIR += testssl.sh
