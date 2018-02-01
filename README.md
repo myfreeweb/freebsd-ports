@@ -28,9 +28,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Xorg and Wayland
 
-- `x11-toolkits/wlc`: updated to 0.0.10 (for sway)
-- `x11-wm/sway`: [sway, the i3-like Wayland compositor](https://github.com/SirCmpwn/sway)
-- `x11-wm/weston`: reference Wayland compositor and some apps
 - `www/webkit2-gtk3`: updated to 2.18.3, Wayland support added [223733](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223733)
 - `devel/sdl20`: Wayland and udev options added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018)
 - `x11/libinput`: [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
@@ -56,18 +53,15 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `archivers/maxcso`: ISO to CSO compressor for PSP/PS2 emulators [224638](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224638)
 - `devel/llvm50`, `devel/llvm-devel`, `devel/cmake`: workarounds for LLVM linking / `llvm-config`!!! [223191](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223191)
 - `editors/neovim-qt`: nvim GUI [224427](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224427)
-- `devel/gitg`: 3.26
 - `devel/gnome-builder`: 3.27 (XXX: crashes)
 - `graphics/mypaint` and `graphics/libmypaint`: git master version, works on Wayland natively
 - `graphics/inkscape`: git master version with GTK3, works on Wayland natively
-- `editors/libreoffice`: **6.0.0.beta2** with GTK3 by default, works on Wayland natively [224288](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224288)
+- `editors/libreoffice`: **6.0.0** with GTK3 by default, works on Wayland natively [224288](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224288)
 - `lang/crystal`: The Crystal programming language! [224459](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224459)
 - `lang/ponyc`: The Pony programming language! [205444](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=205444)
-- `www/firefox`: [58 beta](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223425). See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
-- `graphics/instant-meshes`: Interactive field-aligned mesh generator [222711](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222711)
+- `www/firefox`: (no extra updates here currently) See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 - `lang/rust-nightly`: revived port by copy-pasting from `lang/rust` and updating version numbers. Might need to use [libc from here](https://github.com/myfreeweb/libc) and [mio from there](https://github.com/FreeBSDRust/mio) via `[patch.crates-io]` sections in `Cargo.toml` files.
-- `mail/geary`: update to 0.12.0 [210718](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=210718)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
 - `audio/picard`: 1.4.2 [223354](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223354)
 
