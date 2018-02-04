@@ -47,6 +47,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `sysutils/fusefs-ntfs-compression`: ntfs-3g plugin for XPRESS/LXZ support [225638](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225638)
 - `sysutils/u-boot-rpi3`: update to 2018.01, with netboot support [225355](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225355)
 - `lang/luajit`: update to 2.1.0-beta3 (works on arm64) [225342](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225342)
 - `multimedia/gnome-twitch`: Twitch livestream player [224980](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224980)
