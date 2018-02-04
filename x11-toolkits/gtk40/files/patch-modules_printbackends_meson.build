@@ -1,0 +1,13 @@
+--- modules/printbackends/meson.build.orig	2018-02-04 14:45:56 UTC
++++ modules/printbackends/meson.build
+@@ -76,9 +76,7 @@ if get_option('enable-test-print-backend') == 'yes'
+   print_backends += ['test']
+ endif
+ 
+-if not print_backends.contains('papi') and not print_backends.contains('cups')
+-  print_backends += ['lpr']
+-endif
++print_backends += ['lpr']
+ 
+ printbackends_subdir = 'gtk-4.0/@0@/printbackends'.format(gtk_binary_version)
+ printbackends_install_dir = join_paths(get_option('libdir'), printbackends_subdir)

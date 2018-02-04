@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-power-manager
-PORTVERSION=	3.25.90
+PORTVERSION=	3.26.0
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -34,6 +34,10 @@ MANPAGES_BUILD_DEPENDS=	docbook2html:textproc/docbook-utils \
 post-patch-MANPAGES-off:
 	@${REINPLACE_CMD} -e "s|subdir('man')||g" \
 		${WRKSRC}/meson.build
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|share/man/man1|man/man1|g' \
+		${WRKSRC}/man/meson.build
 
 .include <bsd.port.mk>
 

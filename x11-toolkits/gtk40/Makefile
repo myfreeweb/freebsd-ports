@@ -4,11 +4,8 @@
 # adwaita-icon-theme, gnome-themes-standard and mate-themes
 # when gnome is ported to gtk4
 
-#FIXME
-# wtf is gsk.gir
-
 PORTNAME=	gtk
-PORTVERSION=	3.91.2
+PORTVERSION=	3.93.0
 PORTREVISION?=	0
 CATEGORIES=	x11-toolkits
 MASTER_SITES=	GNOME/sources/gtk+/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
@@ -17,7 +14,8 @@ DISTNAME=	gtk+-${PORTVERSION}
 DIST_SUBDIR=	gnome3
 
 MAINTAINER=	gnome@FreeBSD.org
-COMMENT=	Gimp Toolkit for X11 GUI (current stable version)
+#COMMENT=	Gimp Toolkit for X11 GUI (current stable version)
+COMMENT=	Gimp Toolkit for X11 GUI (current unstable version)
 
 LICENSE=	LGPL20
 
@@ -40,18 +38,26 @@ RUN_DEPENDS+=	hicolor-icon-theme>=0:misc/hicolor-icon-theme \
 
 USE_PERL5=	build
 USE_LDCONFIG=	yes
-GNU_CONFIGURE=	yes
 USE_GNOME=	atk cairo gdkpixbuf2 introspection:build pango
-USES+=		compiler:c11 gettext gmake gnome libtool localbase \
+USES+=		compiler:c11 gettext gnome localbase:ldflags meson \
 		pathfix perl5 pkgconfig
-CONFIGURE_ARGS=	--disable-vulkan \
-		--enable-introspection
-#CPPFLAGS+=	-fno-omit-frame-pointer
+MESON_ARGS=	-Denable-mir-backend=false \
+		-Denable-win32-backend=false \
+		-Denable-papi-print-backend=no \
+		-Denable-vulkan=no \
+		-Denable-quartz-backend=false
 #INSTALLS_ICONS=	yes
-INSTALL_TARGET=	install-strip
 
-LIBVERSION=	0.9102.0
+LIBVERSION=	0.9300.0
 PLIST_SUB+=	LIBVERSION=${LIBVERSION}
+
+GLIB_SCHEMAS=	org.gtk.Demo.gschema.xml \
+		org.gtk.Settings.ColorChooser.gschema.xml \
+		org.gtk.Settings.Debug.gschema.xml \
+		org.gtk.Settings.EmojiChooser.gschema.xml \
+		org.gtk.Settings.FileChooser.gschema.xml
+
+# DOCS
 
 OPTIONS_DEFINE=	CUPS CLOUDPRINT COLORD
 OPTIONS_DEFAULT=CUPS COLORD BROADWAY X11
@@ -62,40 +68,48 @@ OPTIONS_MULTI=	BACKEND
 OPTIONS_MULTI_BACKEND=	BROADWAY WAYLAND X11
 
 BROADWAY_DESC=	Broadway (HTML5) GDK backend
-BROADWAY_CONFIGURE_ENABLE=	broadway-backend
+BROADWAY_MESON_TRUE=	enable-broadway-backend
 
 COLORD_DESC=	Color profile support
 COLORD_LIB_DEPENDS=	libcolord.so:graphics/colord
-COLORD_CONFIGURE_ENABLE=colord
+COLORD_MESON_YES=	enable-colord
 
 CUPS_LIB_DEPENDS=	libcups.so:print/cups
-CUPS_CONFIGURE_ENABLE=	cups
+CUPS_MESON_YES=	enable-cups-print-backend
 
 CLOUDPRINT_DESC=	Cloud printing support
-CLOUDPRINT_CONFIGURE_ENABLE=	cloudprint
+CLOUDPRINT_MESON_YES=	enable-cloudprint-print-backend
 CLOUDPRINT_LIB_DEPENDS=	librest-0.7.so:devel/librest \
 			libjson-glib-1.0.so:devel/json-glib
 
 WAYLAND_DESC=		Wayland GDK backend (support Wayland applications)
-WAYLAND_CONFIGURE_ENABLE=	wayland-backend
+WAYLAND_MESON_TRUE=	enable-wayland-backend
 WAYLAND_BUILD_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols \
 			v4l_compat>=0:multimedia/v4l_compat
 WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
 			libxkbcommon.so:x11/libxkbcommon
+WAYLAND_RUN_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols
 WAYLAND_USE=		GL=egl
 
 X11_DESC=		X11 GDK backend (support X.org applications)
-X11_CONFIGURE_ENABLE=	x11-backend
+X11_MESON_TRUE=		enable-x11-backend
 X11_USE=		XORG=x11,xcomposite,xcursor,xdamage,xext,xfixes,xi,xinerama,xrandr
 
-# don't explicitly disable debug, this causes segfaults. ports r437293
-DEBUG_CONFIGURE_ON=	--enable-debug=yes
+DEBUG_DESC=	Debug related
+OPTIONS_GROUP=	DEBUG
+OPTIONS_GROUP_DEBUG=	DEMOS BUILDTEST INSTALLTEST
+
+DEMOS_DESC=		Build demos and example programs
+DEMOS_MESON_TRUE=	demos
+
+BUILDTEST_DESC=		Build tests
+BUILDTEST_MESON_TRUE=	build-tests
+
+INSTALLTEST_DESC=	Install tests
+INSTALLTEST_MESON_TRUE=	install-tests
+INSTALLTEST_IMPLIES=	BUILDTEST
 
 .include <bsd.port.options.mk>
-
-post-patch:
-	@${REINPLACE_CMD} -e 's|[{]libdir[}]/locale|{datadir}/locale|g' \
-		${WRKSRC}/configure
 
 pre-configure:
 # .if !exists() evaluates too early before cairo has a chance to be installed
@@ -110,15 +124,12 @@ pre-configure:
 	fi
 .endif
 
-pre-build:
-	@${RM} -r ${WRKSRC}/docs/gtk.info*
-
-post-install:
-	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-4.0/modules
-	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-4.0/${GTK3_VERSION}/engines
-	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-4.0/${GTK3_VERSION}/loaders
-#	${INSTALL_MAN} ${WRKSRC}/docs/reference/gtk/gtk-query-immodules-4.0.1 \
-#		${STAGEDIR}${PREFIX}/man/man1
+#post-install:
+#	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-4.0/modules
+#	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-4.0/${GTK4_VERSION}/engines
+#	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-4.0/${GTK4_VERSION}/loaders
+##	${INSTALL_MAN} ${WRKSRC}/docs/reference/gtk/gtk-query-immodules-4.0.1 \
+##		${STAGEDIR}${PREFIX}/man/man1
 
 .include <bsd.port.mk>
 

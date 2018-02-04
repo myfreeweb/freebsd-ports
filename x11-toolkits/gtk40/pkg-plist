@@ -7,22 +7,22 @@ bin/gtk4-icon-browser
 bin/gtk4-launch
 bin/gtk4-query-immodules
 bin/gtk4-query-settings
-@comment bin/gtk4-update-icon-cache
+bin/gtk4-update-icon-cache
 bin/gtk4-widget-factory
 %%ETCDIR%%-4.0/im-multipress.conf
-%%BROADWAY%%include/gtk-4.0/gdk/broadway/gdkbroadwaycursor.h
-%%BROADWAY%%include/gtk-4.0/gdk/broadway/gdkbroadwaydisplay.h
-%%BROADWAY%%include/gtk-4.0/gdk/broadway/gdkbroadwaymonitor.h
-%%BROADWAY%%include/gtk-4.0/gdk/broadway/gdkbroadwaywindow.h
 include/gtk-4.0/gdk/gdk-autocleanup.h
 include/gtk-4.0/gdk/gdk.h
 include/gtk-4.0/gdk/gdkapplaunchcontext.h
-%%BROADWAY%%include/gtk-4.0/gdk/gdkbroadway.h
 include/gtk-4.0/gdk/gdkcairo.h
+include/gtk-4.0/gdk/gdkclipboard.h
 include/gtk-4.0/gdk/gdkconfig.h
+include/gtk-4.0/gdk/gdkcontentdeserializer.h
+include/gtk-4.0/gdk/gdkcontentformats.h
+include/gtk-4.0/gdk/gdkcontentprovider.h
+include/gtk-4.0/gdk/gdkcontentproviderimpl.h
+include/gtk-4.0/gdk/gdkcontentserializer.h
 include/gtk-4.0/gdk/gdkcursor.h
 include/gtk-4.0/gdk/gdkdevice.h
-include/gtk-4.0/gdk/gdkdevicemanager.h
 include/gtk-4.0/gdk/gdkdevicepad.h
 include/gtk-4.0/gdk/gdkdevicetool.h
 include/gtk-4.0/gdk/gdkdisplay.h
@@ -37,21 +37,17 @@ include/gtk-4.0/gdk/gdkframetimings.h
 include/gtk-4.0/gdk/gdkglcontext.h
 include/gtk-4.0/gdk/gdkkeys.h
 include/gtk-4.0/gdk/gdkkeysyms.h
-include/gtk-4.0/gdk/gdkmain.h
 include/gtk-4.0/gdk/gdkmonitor.h
 include/gtk-4.0/gdk/gdkpango.h
 include/gtk-4.0/gdk/gdkpixbuf.h
-include/gtk-4.0/gdk/gdkprivate.h
 include/gtk-4.0/gdk/gdkproperty.h
 include/gtk-4.0/gdk/gdkrectangle.h
 include/gtk-4.0/gdk/gdkrgba.h
-include/gtk-4.0/gdk/gdkscreen.h
 include/gtk-4.0/gdk/gdkseat.h
-include/gtk-4.0/gdk/gdkselection.h
+include/gtk-4.0/gdk/gdktexture.h
 include/gtk-4.0/gdk/gdkthreads.h
 include/gtk-4.0/gdk/gdktypes.h
 include/gtk-4.0/gdk/gdkversionmacros.h
-include/gtk-4.0/gdk/gdkvisual.h
 include/gtk-4.0/gdk/gdkvulkancontext.h
 %%WAYLAND%%include/gtk-4.0/gdk/gdkwayland.h
 include/gtk-4.0/gdk/gdkwindow.h
@@ -60,11 +56,9 @@ include/gtk-4.0/gdk/gdkwindow.h
 %%WAYLAND%%include/gtk-4.0/gdk/wayland/gdkwaylanddisplay.h
 %%WAYLAND%%include/gtk-4.0/gdk/wayland/gdkwaylandglcontext.h
 %%WAYLAND%%include/gtk-4.0/gdk/wayland/gdkwaylandmonitor.h
-%%WAYLAND%%include/gtk-4.0/gdk/wayland/gdkwaylandselection.h
 %%WAYLAND%%include/gtk-4.0/gdk/wayland/gdkwaylandwindow.h
 %%X11%%include/gtk-4.0/gdk/x11/gdkx-autocleanups.h
 %%X11%%include/gtk-4.0/gdk/x11/gdkx11applaunchcontext.h
-%%X11%%include/gtk-4.0/gdk/x11/gdkx11cursor.h
 %%X11%%include/gtk-4.0/gdk/x11/gdkx11device-core.h
 %%X11%%include/gtk-4.0/gdk/x11/gdkx11device-xi2.h
 %%X11%%include/gtk-4.0/gdk/x11/gdkx11device.h
@@ -80,7 +74,6 @@ include/gtk-4.0/gdk/gdkwindow.h
 %%X11%%include/gtk-4.0/gdk/x11/gdkx11screen.h
 %%X11%%include/gtk-4.0/gdk/x11/gdkx11selection.h
 %%X11%%include/gtk-4.0/gdk/x11/gdkx11utils.h
-%%X11%%include/gtk-4.0/gdk/x11/gdkx11visual.h
 %%X11%%include/gtk-4.0/gdk/x11/gdkx11window.h
 include/gtk-4.0/gsk/gsk.h
 include/gtk-4.0/gsk/gskenums.h
@@ -88,7 +81,6 @@ include/gtk-4.0/gsk/gskenumtypes.h
 include/gtk-4.0/gsk/gskrenderer.h
 include/gtk-4.0/gsk/gskrendernode.h
 include/gtk-4.0/gsk/gskroundedrect.h
-include/gtk-4.0/gsk/gsktexture.h
 include/gtk-4.0/gsk/gsktypes.h
 include/gtk-4.0/gtk/a11y/gtk-a11y-autocleanups.h
 include/gtk-4.0/gtk/a11y/gtkbooleancellaccessible.h
@@ -187,7 +179,6 @@ include/gtk-4.0/gtk/gtkcellview.h
 include/gtk-4.0/gtk/gtkcenterbox.h
 include/gtk-4.0/gtk/gtkcheckbutton.h
 include/gtk-4.0/gtk/gtkcheckmenuitem.h
-include/gtk-4.0/gtk/gtkclipboard.h
 include/gtk-4.0/gtk/gtkcolorbutton.h
 include/gtk-4.0/gtk/gtkcolorchooser.h
 include/gtk-4.0/gtk/gtkcolorchooserdialog.h
@@ -210,6 +201,8 @@ include/gtk-4.0/gtk/gtkentrybuffer.h
 include/gtk-4.0/gtk/gtkentrycompletion.h
 include/gtk-4.0/gtk/gtkenums.h
 include/gtk-4.0/gtk/gtkeventcontroller.h
+include/gtk-4.0/gtk/gtkeventcontrollermotion.h
+include/gtk-4.0/gtk/gtkeventcontrollerscroll.h
 include/gtk-4.0/gtk/gtkexpander.h
 include/gtk-4.0/gtk/gtkfilechooser.h
 include/gtk-4.0/gtk/gtkfilechooserbutton.h
@@ -324,9 +317,7 @@ include/gtk-4.0/gtk/gtkstyleprovider.h
 include/gtk-4.0/gtk/gtkswitch.h
 include/gtk-4.0/gtk/gtktestutils.h
 include/gtk-4.0/gtk/gtktextbuffer.h
-include/gtk-4.0/gtk/gtktextbufferrichtext.h
 include/gtk-4.0/gtk/gtktextchild.h
-include/gtk-4.0/gtk/gtktextdisplay.h
 include/gtk-4.0/gtk/gtktextiter.h
 include/gtk-4.0/gtk/gtktextmark.h
 include/gtk-4.0/gtk/gtktexttag.h
@@ -386,9 +377,7 @@ lib/gtk-4.0/%%GTK4_VERSION%%/immodules/im-viqr.so
 lib/gtk-4.0/%%GTK4_VERSION%%/printbackends/libprintbackend-file.so
 lib/gtk-4.0/%%GTK4_VERSION%%/printbackends/libprintbackend-lpr.so
 lib/libgtk-4.so
-lib/libgtk-4.so.0
 lib/libgtk-4.so.%%LIBVERSION%%
-libdata/pkgconfig/gail-4.0.pc
 libdata/pkgconfig/gtk+-4.0.pc
 %%BROADWAY%%libdata/pkgconfig/gtk+-broadway-4.0.pc
 libdata/pkgconfig/gtk+-unix-print-4.0.pc
@@ -658,10 +647,3 @@ share/locale/zh_HK/LC_MESSAGES/gtk40-properties.mo
 share/locale/zh_HK/LC_MESSAGES/gtk40.mo
 share/locale/zh_TW/LC_MESSAGES/gtk40-properties.mo
 share/locale/zh_TW/LC_MESSAGES/gtk40.mo
-share/themes/Default/gtk-4.0/gtk-keys.css
-share/themes/Emacs/gtk-4.0/gtk-keys.css
-@postexec %D/bin/gtk4-query-immodules --update-cache > /dev/null 2>&1 || /usr/bin/true
-@rmtry lib/gtk-4.0/%%GTK4_VERSION%%/immodules.cache
-@dir lib/gtk-4.0/%%GTK3_VERSION%%/engines
-@dir lib/gtk-4.0/%%GTK3_VERSION%%/loaders
-@dir lib/gtk-4.0/modules
