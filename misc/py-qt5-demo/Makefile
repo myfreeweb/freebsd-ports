@@ -1,7 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	demo
-DISTVERSION=	${PYQT5_VERSION}
+PORTVERSION=	${PYQT5_VERSION}
+PORTREVISION=	2
 CATEGORIES=	misc devel python
 MASTER_SITES=	${MASTER_SITES_PYQT5}
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}qt5-
@@ -23,6 +24,7 @@ USE_PYQT=	core_run dbus_run designer_run \
 		xmlpatterns_run sip_run qscintilla2_run \
 		printsupport_run serialport_run webkitwidgets_run widgets_run
 USE_PYTHON=	py3kplist flavors
+NO_ARCH=	yes
 
 EXAMPLESDIR=	${PREFIX}/share/examples/py-qt5
 
