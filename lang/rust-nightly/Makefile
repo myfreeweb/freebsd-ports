@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	rust
-PORTVERSION?=	1.24.0
+PORTVERSION?=	1.25.0
 PKGNAMESUFFIX=	-nightly
 CATEGORIES=	lang
 MASTER_SITES=	http://static.rust-lang.org/dist/:src \
@@ -43,10 +43,10 @@ ONLY_FOR_ARCHS_REASON=	requires prebuilt bootstrap compiler
 #CONFLICTS_BUILD+=	${PKGBASE}
 CONFLICTS_INSTALL?=	rust
 
-NIGHTLY_DATE?=		2017-12-07
+NIGHTLY_DATE?=		2018-02-06
 
-BOOTSTRAPS_DATE?=		2017-11-21
-BOOTSTRAPS_DATE_aarch64?=	2017-11-21
+BOOTSTRAPS_DATE?=		2018-01-02
+BOOTSTRAPS_DATE_aarch64?=	2018-01-02
 
 RUST_BOOTSTRAP_VERSION?=	beta
 RUST_BOOTSTRAP_VERSION_aarch64?=beta
@@ -137,10 +137,13 @@ pre-fetch:
 	fi
 
 RUST_STD_DIR=		${RUST_STD_BOOTSTRAP:T:R:R}
-LIBSTD_SUFFIX=		43d9f4909149b1a2
+LIBSTD_SUFFIX=		99f69fd793bffdf9
+LIBSTD_OBJECT_SUFFIX=	5b06edc8b1cfb17da72db5f40061ffd8
 #LIBSTD_SUFFIX_aarch64=	b41e0ffe8c1bd541
 LIBSTD=			${RUST_STD_DIR}/rust-std-${RUST_TARGET}/lib/rustlib/${RUST_TARGET}/lib/libstd-${LIBSTD_SUFFIX_${ARCH}:U${LIBSTD_SUFFIX}}.rlib
-STDF=			${LIBSTD:T:R:S/lib//}.std0.rcgu.o
+
+#std-99f69fd793bffdf9.std0-5b06edc8b1cfb17da72db5f40061ffd8.rs.rcgu.o
+STDF=			${LIBSTD:T:R:S/lib//}.std0-${LIBSTD_OBJECT_SUFFIX}.rs.rcgu.o
 
 post-extract:
 	@${MKDIR} \
