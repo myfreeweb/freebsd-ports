@@ -3,7 +3,6 @@
 
 PORTNAME=	xmlsec1
 PORTVERSION=	1.2.25
-PORTREVISION=	1
 CATEGORIES=	security
 MASTER_SITES=	http://www.aleksey.com/xmlsec/download/ \
 		ftp://ftp.aleksey.com/pub/xmlsec/releases/ \
@@ -25,7 +24,8 @@ USE_GNOME=	libxml2 libxslt
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-openssl="${OPENSSLBASE}" \
-		--with-gcrypt="${LOCALBASE}"
+		--with-gcrypt="${LOCALBASE}" \
+		--disable-docs-build
 MAKE_ENV=	ABS_BUILDDIR=${WRKSRC} TMPFOLDER=${WRKSRC}
 INSTALL_TARGET=	install-strip
 PORTDOCS=	api authors.html bugs.html c14n.html documentation.html		\
@@ -36,17 +36,10 @@ PORTDOCS=	api authors.html bugs.html c14n.html documentation.html		\
 		xmldsig-verifier.html xmldsig.html xmlenc.html			\
 		xmlsec-man.html
 
-OPTIONS_DEFINE=	DOCS GNUTLS NSS
+OPTIONS_DEFINE=	GNUTLS NSS
 OPTIONS_DEFAULT=	NSS
 OPTIONS_SUB=	yes
 
-DOCS_CONFIGURE_ENABLE=	docs-build
-DOCS_BUILD_DEPENDS=	gtkdoc-mkhtml:textproc/gtk-doc \
-	gtkdoc-mktmpl:textproc/gtk-doc \
-	gtkdoc-mkdb:textproc/gtk-doc \
-	gtkdoc-scan:textproc/gtk-doc \
-	xsltproc:textproc/libxslt \
-	perl:lang/perl5
 GNUTLS_DESC=		Enable GNUTLS support
 GNUTLS_CONFIGURE_ON=	--with-gnutls="${LOCALBASE}"
 GNUTLS_CONFIGURE_OFF=	--without-gnutls
