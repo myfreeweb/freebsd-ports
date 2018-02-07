@@ -10,7 +10,7 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Small but powerful text editor for GNOME 3 Desktop Environment
 
-LICENSE=	GPLv2
+LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	iso-codes>=0:misc/iso-codes \
@@ -31,6 +31,7 @@ USES=		desktop-file-utils gettext gmake gnome libtool localbase \
 		pathfix pkgconfig python:3.4+ shebangfix tar:xz
 USE_GNOME=	cairo gdkpixbuf2 gtksourceview3 intlhack introspection \
 		libxml2 pygobject3
+SHEBANG_FILES=	plugins/externaltools/data/send-to-fpaste.tool.in
 USE_XORG=	sm x11
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--disable-updater \
@@ -40,7 +41,6 @@ CPPFLAGS+=	-Wno-error=format-nonliteral
 CFLAGS+=	-Wno-error=format-nonliteral
 LDFLAGS+=	-L${LOCALBASE}/lib
 USE_LDCONFIG=	yes
-SHEBANG_FILES=	plugins/externaltools/data/send-to-fpaste.tool.in
 PLIST_SUB=	VERSION="3.14"
 INSTALL_TARGET=	install-strip
 
