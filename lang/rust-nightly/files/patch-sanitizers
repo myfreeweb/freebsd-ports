@@ -17,19 +17,6 @@
              const MSAN_SUPPORTED_TARGETS: &[&str] = &["x86_64-unknown-linux-gnu"];
  
              let supported_targets = match *sanitizer {
---- src/libstd/Cargo.toml.orig	2017-12-07 00:07:53.000000000 +0300
-+++ src/libstd/Cargo.toml	2018-01-11 01:15:34.702391000 +0300
-@@ -38,6 +38,11 @@
- rustc_msan = { path = "../librustc_msan" }
- rustc_tsan = { path = "../librustc_tsan" }
- 
-+[target.x86_64-unknown-freebsd.dependencies]
-+rustc_asan = { path = "../librustc_asan" }
-+rustc_lsan = { path = "../librustc_lsan" }
-+rustc_tsan = { path = "../librustc_tsan" }
-+
- [build-dependencies]
- build_helper = { path = "../build_helper" }
 --- src/build_helper/lib.rs.orig	2018-01-10 18:11:28.301850000 +0300
 +++ src/build_helper/lib.rs	2018-01-10 18:10:28.258518000 +0300
 @@ -256,6 +256,10 @@
