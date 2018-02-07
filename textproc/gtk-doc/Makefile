@@ -3,6 +3,7 @@
 
 PORTNAME=	gtk-doc
 PORTVERSION=	1.27
+PORTREVISION=	1
 CATEGORIES=	textproc
 MASTER_SITES=	GNOME
 
@@ -11,11 +12,13 @@ COMMENT=	Code documentation system, originally for GTK+
 
 BUILD_DEPENDS=	jade:textproc/jade \
 		itstool:textproc/itstool \
+		highlight:textproc/highlight \
 		docbook-xml>0:textproc/docbook-xml \
 		${LOCALBASE}/share/xsl/docbook/xhtml/chunk.xsl:textproc/docbook-xsl \
 		rarian-sk-config:textproc/rarian
 RUN_DEPENDS=	jade:textproc/jade \
 		docbook-xml>0:textproc/docbook-xml \
+		highlight:textproc/highlight \
 		${PYTHON_PKGNAMEPREFIX}six>=0:devel/py-six@${PY_FLAVOR} \
 		${LOCALBASE}/share/xsl/docbook/xhtml/chunk.xsl:textproc/docbook-xsl \
 		rarian-sk-config:textproc/rarian
