@@ -40,6 +40,7 @@ include/xmlsec1/xmlsec/openssl/x509.h
 include/xmlsec1/xmlsec/parser.h
 include/xmlsec1/xmlsec/private.h
 include/xmlsec1/xmlsec/private/xslt.h
+include/xmlsec1/xmlsec/soap.h
 include/xmlsec1/xmlsec/strings.h
 include/xmlsec1/xmlsec/templates.h
 include/xmlsec1/xmlsec/transforms.h
