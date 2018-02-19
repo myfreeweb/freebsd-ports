@@ -1,12 +1,13 @@
 # $FreeBSD$
 
-PORTNAME=	crystal
-DISTVERSION=	0.24.1
-CATEGORIES=	lang
-MASTER_SITES=	https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/crystal/:bootstrap
-DISTFILES=	${BOOTSTRAP_PATH}:bootstrap
-DIST_SUBDIR=	${PORTNAME}
-EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
+PORTNAME=		crystal
+DISTVERSIONPREFIX=	v
+DISTVERSION=		0.24.1
+CATEGORIES=		lang
+MASTER_SITES=		https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/crystal/:bootstrap
+DISTFILES=		${BOOTSTRAP_PATH}:bootstrap
+DIST_SUBDIR=		${PORTNAME}
+EXTRACT_ONLY=		${DISTNAME}${EXTRACT_SUFX}
 
 MAINTAINER=	greg@unrelenting.technology
 COMMENT=	Language with Ruby-like syntax and static type checking
@@ -19,16 +20,17 @@ ONLY_FOR_ARCHS_REASON=	requires prebuilt bootstrap compiler
 LIB_DEPENDS=	libgc-threaded.so:devel/boehm-gc-threaded \
 		libevent.so:devel/libevent \
 		libpcre.so:devel/pcre \
-		${LOCALBASE}/llvm50/lib/libLLVM-5.0.so:devel/llvm50
-BUILD_DEPENDS=	llvm-config50:devel/llvm50
+		libLLVM-${LLVM_VERSION:C/([1-9])([0-9])/\1.\2/}.so:devel/llvm${LLVM_VERSION}
+BUILD_DEPENDS=	${LOCALBASE}/bin/llvm-config${LLVM_VERSION}:devel/llvm${LLVM_VERSION}
 
 USES=		compiler gmake pkgconfig
+LLVM_VERSION=	50
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	crystal-lang
 
 MAKE_ARGS=	SHELL=sh \
-		LLVM_CONFIG=llvm-config50 \
+		LLVM_CONFIG="${LOCALBASE}/bin/llvm-config${LLVM_VERSION}" \
 		FLAGS="--release --no-debug" \
 		EXPORTS='CRYSTAL_CONFIG_PATH="lib:${PREFIX}/lib/${PORTNAME}"' \
 		CRYSTAL_CACHE_DIR="${WRKDIR}/cache"
@@ -43,9 +45,9 @@ OPTIONS_SUB=		yes
 .include <bsd.port.options.mk>
 
 .if ${OSVERSION} >= 1200000
-BOOTSTRAP_PATH=	crystal-0.24.0-freebsd12.0
+BOOTSTRAP_PATH=	crystal-0.24.1-freebsd12.0
 .else
-BOOTSTRAP_PATH=	crystal-0.24.0-freebsd11.1
+BOOTSTRAP_PATH=	crystal-0.24.1-freebsd11.1
 .endif
 .if ${OSVERSION} < 1100000
 IGNORE=		not supported on 10.x or older
