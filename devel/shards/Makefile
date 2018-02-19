@@ -1,8 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=		shards
-DISTVERSION=		0.7.2
 DISTVERSIONPREFIX=	v
+DISTVERSION=		0.7.2
 CATEGORIES=		devel
 
 MAINTAINER=	greg@unrelenting.technology

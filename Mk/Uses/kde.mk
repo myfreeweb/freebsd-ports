@@ -62,7 +62,7 @@ _KDE_RELNAME=		KDE${_KDE_VERSION}
 # === VERSIONS OF THE DIFFERENT COMPONENTS =====================================
 # Old KDE desktop.
 KDE4_VERSION?=			4.14.3
-KDE4_KDELIBS_VERSION=		4.14.37
+KDE4_KDELIBS_VERSION=		4.14.38
 KDE4_ACTIVITIES_VERSION=	4.13.3
 KDE4_WORKSPACE_VERSION=		4.11.22
 KDE4_KDEPIM_VERSION?=		4.14.10
@@ -75,7 +75,7 @@ KDE4_BRANCH?=			stable
 KDE_PLASMA_VERSION?=		5.11.2
 KDE_PLASMA_BRANCH?=		stable
 
-KDE_FRAMEWORKS_VERSION?=	5.42.0
+KDE_FRAMEWORKS_VERSION?=	5.43.0
 KDE_FRAMEWORKS_BRANCH?= 	stable
 
 KDE_APPLICATIONS_VERSION?=	17.08.2
@@ -164,6 +164,7 @@ DIST_SUBDIR?=		KDE/frameworks/${KDE_FRAMEWORKS_VERSION}
 IGNORE?=		unknown CATEGORY value '${_KDE_CATEGORY}' #'
 .    endif
 .  endif #defined(_KDE_CATEGORY)
+
 # ==============================================================================
 
 # ==== SETUP CMAKE ENVIRONMENT =================================================
@@ -201,7 +202,9 @@ PLIST_SUB+=		KDE_APPLICATIONS_VERSION="${KDE_APPLICATIONS_VERSION}"
 .  if ${_KDE_VERSION:M*4*}
 PLIST_SUB+=		KDE4_VERSION="${KDE4_VERSION}" \
 			KDE4_GENERIC_LIB_VERSION=${KDE4_KDELIBS_VERSION} \
-			KDE4_NON_GENERIC_LIB_VERSION=${KDE4_KDELIBS_VERSION:S,^4,5,}
+			KDE4_NON_GENERIC_LIB_VERSION=${KDE4_KDELIBS_VERSION:S,^4,5,} \
+			KDE4_KDELIBS_VERSION=${KDE4_KDELIBS_VERSION} \
+			KDE4_NG_KDELIBS_VERSION=${KDE4_KDELIBS_VERSION:S,^4,5,}
 .  elif ${_KDE_VERSION:M*5*}
 PLIST_SUB+=		KDE_PLASMA_VERSION="${KDE_PLASMA_VERSION}" \
 			KDE_FRAMEWORKS_VERSION="${KDE_FRAMEWORKS_VERSION}"
@@ -244,8 +247,8 @@ _USE_KDE5_ALL=	baseapps kate
 # List of components of the KDE Frameworks distribution.
 # The *_TIER<n> variables are internal, primarily for checking
 # that our list of frameworks matches the structure offered upstream.
-_USE_FRAMEWORKS_TIER1=	apidox archive bluez-qt breeze-icons codecs config \
-			coreaddons dbusaddons dnssd i18n idletime itemmodels \
+_USE_FRAMEWORKS_TIER1=	apidox archive bluez-qt attica5 breeze-icons codecs config \
+			coreaddons dbusaddons dnssd holidays i18n idletime itemmodels \
 			itemviews kirigami2 oxygen-icons5 plotting prison solid \
 			sonnet syntaxhighlighting threadweaver wayland \
 			widgetsaddons windowsystem
@@ -255,11 +258,11 @@ _USE_FRAMEWORKS_TIER2=	activities-stats auth completion crash doctools \
 			filemetadata kimageformats jobwidgets notifications \
 			package pty unitconversion
 
-_USE_FRAMEWORKS_TIER3=	activities bookmarks configwidgets \
+_USE_FRAMEWORKS_TIER3=	activities baloo5 bookmarks configwidgets \
 			designerplugin emoticons globalaccel guiaddons \
 			iconthemes init kcmutils kdeclarative \
 			kded kdesu kdewebkit kio newstuff notifyconfig parts \
-			people plasma-framework runner service texteditor \
+			people plasma-framework purpose runner service texteditor \
 			textwidgets wallet xmlgui xmlrpcclient
 
 _USE_FRAMEWORKS_TIER4= 	frameworkintegration
@@ -332,11 +335,35 @@ korundum_PORT=		devel/ruby-korundum
 korundum_PATH=		${KDE_PREFIX}/lib/kde4/krubypluginfactory.so
 korundum_TYPE=		run
 
+libkcddb_PORT=		audio/libkcddb
+libkcddb_LIB=		libkcddb.so
+
+libkcompactdisc_PORT=	audio/libkcompactdisc
+libkcompactdisc_LIB=	libkcompactdisc.so
+
+libkdcraw_PORT=		graphics/libkdcraw-kde4
+libkdcraw_LIB=		libkdcraw.so
+
 libkdeedu_PORT=		misc/libkdeedu
 libkdeedu_LIB=		libkeduvocdocument.so
 
+libkdegames_PORT=	games/libkdegames
+libkdegames_LIB=	libkdegames.so
+
+libkexiv2_PORT=		graphics/libkexiv2-kde4
+libkexiv2_LIB=		libkexiv2.so
+
+libkipi_PORT=		graphics/libkipi-kde4
+libkipi_LIB=		libkipi.so
+
 libkonq_PORT=		x11/libkonq
 libkonq_LIB=		libkonq.so
+
+libksane_PORT=		graphics/libksane
+libksane_LIB=		libksane.so
+
+marble_PORT=		astro/marble
+marble_LIB=		libmarblewidget.so
 
 nepomuk-core_PORT=	sysutils/nepomuk-core
 nepomuk-core_LIB=	libnepomukcore.so
@@ -381,7 +408,15 @@ smokekde_LIB=		libsmokekdecore.so
 smokeqt_PORT=		devel/smokeqt
 smokeqt_LIB=		libsmokeqtcore.so
 
+workspace_PORT=		x11/kde4-workspace
+workspace_LIB=		libkworkspace.so
+
 # Non-Software Compilation components
+akonadi_PORT=		databases/akonadi
+akonadi_LIB=		libakonadiprotocolinternals.so
+
+attica_PORT=		x11-toolkits/attica
+attica_LIB=		libattica.so
 
 automoc4_PORT=		devel/automoc4
 automoc4_PATH=		${LOCALBASE}/bin/automoc4
@@ -481,6 +516,9 @@ globalaccel_LIB=	libKF5GlobalAccel.so
 
 guiaddons_PORT=		x11-toolkits/kf5-kguiaddons
 guiaddons_LIB=		libKF5GuiAddons.so
+
+holidays_PORT=		net/kf5-kholidays
+holidays_LIB=		libKF5Holidays.so
 
 i18n_PORT=		devel/kf5-ki18n
 i18n_LIB=		libKF5I18n.so
@@ -587,6 +625,9 @@ prison_LIB=		libKF5Prison.so
 
 pty_PORT=		devel/kf5-kpty
 pty_LIB=		libKF5Pty.so
+
+purpose_PORT=		misc/kf5-purpose
+purpose_LIB=		libKF5Purpose.so
 
 runner_PORT=		x11/kf5-krunner
 runner_LIB=		libKF5Runner.so

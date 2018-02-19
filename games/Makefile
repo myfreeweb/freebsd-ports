@@ -572,7 +572,6 @@
     SUBDIR += lm-solve
     SUBDIR += lmarbles
     SUBDIR += lmpc
-    SUBDIR += lolcat
     SUBDIR += lordsawar
     SUBDIR += lpairs
     SUBDIR += lskat
@@ -868,6 +867,7 @@
     SUBDIR += rtb
     SUBDIR += rubix
     SUBDIR += rubygem-fortune_gem
+    SUBDIR += rubygem-lolcat
     SUBDIR += rubygem-vimgolf
     SUBDIR += sampsvr
     SUBDIR += sarien
@@ -1162,6 +1162,7 @@
     SUBDIR += xrally
     SUBDIR += xrick
     SUBDIR += xrisk
+    SUBDIR += xroach
     SUBDIR += xrobots
     SUBDIR += xrot
     SUBDIR += xrubik

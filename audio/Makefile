@@ -513,6 +513,7 @@
     SUBDIR += mma
     SUBDIR += moc
     SUBDIR += modplugplay
+    SUBDIR += moodbar
     SUBDIR += moony-lv2
     SUBDIR += mous
     SUBDIR += mp-player
@@ -637,6 +638,7 @@
     SUBDIR += penguinsap
     SUBDIR += pianobar
     SUBDIR += picard
+    SUBDIR += picard-plugins
     SUBDIR += pithos
     SUBDIR += plasma5-plasma-pa
     SUBDIR += play
@@ -654,6 +656,7 @@
     SUBDIR += puddletag
     SUBDIR += pulseaudio
     SUBDIR += pulseaudio-module-sndio
+    SUBDIR += py-SoundFile
     SUBDIR += py-al
     SUBDIR += py-ao
     SUBDIR += py-apetag

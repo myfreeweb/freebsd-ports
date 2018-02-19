@@ -14,7 +14,7 @@ COMMENT=	Language with Ruby-like syntax and static type checking
 
 LICENSE=	APACHE20
 
-ONLY_FOR_ARCHS?=	amd64
+ONLY_FOR_ARCHS=	amd64
 ONLY_FOR_ARCHS_REASON=	requires prebuilt bootstrap compiler
 
 LIB_DEPENDS=	libgc-threaded.so:devel/boehm-gc-threaded \

@@ -1,8 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	pykde4
-DISTVERSION=	${KDE4_VERSION}
-PORTREVISION=	6
+PORTVERSION=	${KDE4_VERSION}
+PORTREVISION=	7
 CATEGORIES=	devel kde kde-kde4 python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -11,7 +11,7 @@ COMMENT=	Python bindings for KDE
 
 LIB_DEPENDS=	libqwt.so:x11-toolkits/qwt5
 
-USES=		cmake:outsource kde:4 python:2 pyqt:4 tar:xz
+USES=		cmake:outsource kde:4 python:2.7 pyqt:4 tar:xz
 USE_KDE=	kdelibs nepomuk-core okular pimlibs \
 		akonadi automoc4 soprano
 USE_PYQT=	declarative designer gui network opengl phonon script sip \

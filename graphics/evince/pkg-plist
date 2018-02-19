@@ -80,7 +80,7 @@ lib/libevdocument3.so.4.0.0
 lib/libevview3.a
 lib/libevview3.so
 lib/libevview3.so.3
-lib/libevview3.so.3.0.0
+lib/libevview3.so.%%GTK3_VERSION%%
 lib/mozilla/plugins/libevbrowserplugin.a
 lib/mozilla/plugins/libevbrowserplugin.so
 %%NAUTILUS%%lib/nautilus/extensions-%%VERSION%%/libevince-properties-page.a
