@@ -32,6 +32,7 @@ LIB_DEPENDS=	libapr-1.so:devel/apr1 \
 		libicutu.so:devel/icu \
 		liblangtag.so:devel/liblangtag \
 		liborcus-0.13.so:devel/liborcus \
+		libcppunit.so:devel/cppunit \
 		libcurl.so:ftp/curl \
 		libcairo.so:graphics/cairo \
 		libgraphite2.so:graphics/graphite2 \
@@ -72,6 +73,7 @@ LIB_DEPENDS=	libapr-1.so:devel/apr1 \
 		libxmlsec1-nss.so:security/xmlsec1 \
 		libxslt.so:textproc/libxslt \
 		libmythes-1.2.so:textproc/mythes \
+		libqxp-0.0.so:textproc/libqxp00 \
 		librdf.so:textproc/redland \
 		libserf-1.so:www/serf
 RUN_DEPENDS=	xdg-open:devel/xdg-utils \
@@ -83,8 +85,7 @@ RUN_DEPENDS=	xdg-open:devel/xdg-utils \
 		${LOCALBASE}/share/fonts/Liberation/LiberationMono-Bold.ttf:x11-fonts/liberation-fonts-ttf \
 		${LOCALBASE}/share/fonts/LinLibertineG/LinLibertine_DR_G.ttf:x11-fonts/linuxlibertine-g
 
-DISTFILES+=	4b87018f7fff1d054939d19920b751a0-collada2gltf-master-cb1d97788a.tar.bz2:src \
-		cppunit-1.14.0.tar.gz:src
+DISTFILES+=	4b87018f7fff1d054939d19920b751a0-collada2gltf-master-cb1d97788a.tar.bz2:src
 #		pdfium-3312.tar.bz2:src
 
 NOT_FOR_ARCHS=		aarch64 armv6 armv7
@@ -99,6 +100,8 @@ CONFLICTS_INSTALL=	libreoffice4-4.*
 INSTALL_TARGET=	distro-pack-install
 WRKSRC=		${WRKDIR}/${PORTNAME}-${LOVERSION}
 
+SHEBANG_GLOB=	*.py
+
 GNU_CONFIGURE=	yes
 USE_GL=		gl glew glu
 USE_OPENLDAP=	yes
@@ -106,7 +109,7 @@ USE_PERL5=	build
 USE_QT4=	# empty but required
 USE_XORG=	xaw xrandr
 USES=		autoreconf:build bison compiler:c++11-lib cpe gmake jpeg \
-		perl5 pkgconfig python shared-mime-info tar:xz
+		perl5 pkgconfig python shebangfix shared-mime-info tar:xz
 
 OPTIONS_DEFINE=	CUPS GNOME GTK2 GTK3 JAVA KDE4 MMEDIA PGSQL SDK SYSTRAY \
 		TEST WEBDAV
@@ -114,19 +117,19 @@ OPTIONS_DEFAULT=	CUPS GTK3 MMEDIA
 
 GTK2_DESC=	GTK+ 2 GUI toolkit support
 GTK3_DESC=	GTK+ 3 GUI toolkit support
-JAVA_DESC=	Add Java support (XML filters, macros)
-MMEDIA_DESC=	Enable multimedia backend for impress
+JAVA_DESC=	Add Java support (XML filters, macros, DB connections)
+MMEDIA_DESC=	Enable multimedia backend for Impress
 PGSQL_DESC=	Build with PostgreSQL-SDBC driver
 SDK_DESC=	Build with SDK
 SYSTRAY_DESC=	Enable systemtray quickstarter
 TEST_DESC=	Run all regression tests
-WEBDAV_DESC=	Enable webdav protocol
+WEBDAV_DESC=	Enable WebDAV protocol
 
 CUPS_CONFIGURE_ENABLE=	cups
 CUPS_LIB_DEPENDS=	libcups.so:print/cups
 
 GNOME_CONFIGURE_ENABLE=	dbus dconf
-GNOME_IMPLIES=	GTK2
+GNOME_IMPLIES=	GTK3
 GNOME_LIB_DEPENDS=	libdbus-glib-1.so:devel/dbus-glib
 GNOME_USE=	GNOME=dconf
 
@@ -243,6 +246,7 @@ CONFIGURE_ARGS=	--disable-dependency-tracking \
 		--with-gnu-patch=${LOCALBASE}/bin/gpatch \
 		--with-os-version=${OSVERSION} \
 		--with-parallelism=${MAKE_JOBS_NUMBER} \
+		--with-system-cppunit \
 		--with-system-curl \
 		--with-system-dicts \
 		--with-system-libs \
@@ -252,8 +256,7 @@ CONFIGURE_ARGS=	--disable-dependency-tracking \
 		--with-system-zlib \
 		--with-vendor="FreeBSD ports" \
 		--without-fonts \
-		--without-myspell-dicts \
-		--without-system-cppunit
+		--without-myspell-dicts
 
 CONFIGURE_ENV=	DMAKE=${LOCALBASE}/bin/dmake \
 		GNUTAR="${TAR}" \
