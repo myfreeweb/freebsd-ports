@@ -415,6 +415,7 @@
     SUBDIR += libcue
     SUBDIR += libe-book
     SUBDIR += libebml
+    SUBDIR += libepubgen
     SUBDIR += libextractor
     SUBDIR += libexttextcat
     SUBDIR += libflate
@@ -432,6 +433,7 @@
     SUBDIR += libnxml
     SUBDIR += libodfgen01
     SUBDIR += libparsifal
+    SUBDIR += libqxp
     SUBDIR += librevenge
     SUBDIR += libsass
     SUBDIR += libsoldout

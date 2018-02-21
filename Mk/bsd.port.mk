@@ -2110,8 +2110,12 @@ FETCH_CMD?=		${FETCH_BINARY} ${FETCH_ARGS}
 .if defined(RANDOMIZE_MASTER_SITES)
 .if exists(/usr/games/random)
 RANDOM_CMD?=	/usr/games/random
+.elif exists(/usr/bin/random)
+RANDOM_CMD?=	/usr/bin/random
+.endif
+.if defined(RANDOM_CMD) && !empty(RANDOM_CMD)
 RANDOM_ARGS?=	-w -f -
-_RANDOMIZE_SITES=	 |${RANDOM_CMD} ${RANDOM_ARGS}
+_RANDOMIZE_SITES=	 ${RANDOM_CMD} ${RANDOM_ARGS}
 .endif
 .endif
 
@@ -3642,11 +3646,12 @@ package-message:
 
 # Empty pre-* and post-* targets
 
+.if exists(${SCRIPTDIR})
 .for stage in pre post
 .for name in pkg check-sanity fetch extract patch configure build stage install package
 
-.if exists(${SCRIPTDIR}/${stage}-${name})
 .if !target(${stage}-${name}-script)
+.if exists(${SCRIPTDIR}/${stage}-${name})
 ${stage}-${name}-script:
 	@ cd ${.CURDIR} && ${SETENV} ${SCRIPTS_ENV} ${SH} \
 			${SCRIPTDIR}/${.TARGET:S/-script$//}
@@ -3655,6 +3660,7 @@ ${stage}-${name}-script:
 
 .endfor
 .endfor
+.endif
 
 .if !target(pretty-print-www-site)
 pretty-print-www-site:
