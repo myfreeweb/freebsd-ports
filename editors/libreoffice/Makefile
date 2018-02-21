@@ -63,7 +63,7 @@ LIB_DEPENDS=	libapr-1.so:devel/apr1 \
 		libexttextcat-2.0.so:textproc/libexttextcat \
 		libmwaw-0.3.so:textproc/libmwaw03 \
 		libodfgen-0.1.so:textproc/libodfgen01 \
-		libepubgen-0.1.so:textproc/libepubgen01 \
+		libepubgen-0.1.so:textproc/libepubgen \
 		librevenge-0.0.so:textproc/librevenge \
 		libstaroffice-0.0.so:textproc/libstaroffice \
 		libvisio-0.1.so:textproc/libvisio01 \
@@ -73,7 +73,7 @@ LIB_DEPENDS=	libapr-1.so:devel/apr1 \
 		libxmlsec1-nss.so:security/xmlsec1 \
 		libxslt.so:textproc/libxslt \
 		libmythes-1.2.so:textproc/mythes \
-		libqxp-0.0.so:textproc/libqxp00 \
+		libqxp-0.0.so:textproc/libqxp \
 		librdf.so:textproc/redland \
 		libserf-1.so:www/serf
 RUN_DEPENDS=	xdg-open:devel/xdg-utils \
