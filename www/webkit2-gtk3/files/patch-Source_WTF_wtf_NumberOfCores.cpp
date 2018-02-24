@@ -3,7 +3,7 @@
 @@ -33,6 +33,7 @@
  #include <sys/types.h>
  #include <sys/sysctl.h>
- #elif OS(LINUX) || OS(AIX) || OS(SOLARIS) || OS(OPENBSD) || OS(NETBSD) || OS(FREEBSD)
+ #elif OS(LINUX) || OS(AIX) || OS(OPENBSD) || OS(NETBSD) || OS(FREEBSD)
 +#include <stdio.h> // sscanf()
  #include <unistd.h>
  #elif OS(WINDOWS)
