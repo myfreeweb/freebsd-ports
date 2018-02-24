@@ -49,24 +49,19 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 - `mail/geary`: 0.12.1
 - `www/woff2`: [226165](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226165)
-- `sysutils/fusefs-ntfs-compression`: ntfs-3g plugin for XPRESS/LXZ support [225638](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225638)
 - `sysutils/u-boot-rpi3`: update to 2018.01, with netboot support [225355](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225355)
 - `lang/luajit`: update to 2.1.0-beta3 (works on arm64) [225342](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225342)
 - `multimedia/gnome-twitch`: Twitch livestream player [224980](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224980)
 - `archivers/maxcso`: ISO to CSO compressor for PSP/PS2 emulators [224638](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224638)
-- `devel/llvm50`, `devel/llvm-devel`, `devel/cmake`: workarounds for LLVM linking / `llvm-config`!!! [223191](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223191)
 - `editors/neovim-qt`: nvim GUI [224427](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224427)
 - `devel/gnome-builder`: 3.27 (XXX: crashes)
 - `graphics/mypaint` and `graphics/libmypaint`: git master version, works on Wayland natively
 - `graphics/inkscape`: git master version with GTK3, works on Wayland natively
 - `editors/libreoffice`: **6.0.0** with GTK3 by default, works on Wayland natively [224288](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224288)
-- `lang/crystal`: The Crystal programming language! [224459](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224459)
-- `lang/ponyc`: The Pony programming language! [205444](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=205444)
 - `www/firefox`: (no extra updates here currently) See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 - `lang/rust-nightly`: revived port by copy-pasting from `lang/rust` and updating version numbers. Might need to use [libc from here](https://github.com/myfreeweb/libc) and [mio from there](https://github.com/FreeBSDRust/mio) via `[patch.crates-io]` sections in `Cargo.toml` files.
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
-- `audio/picard`: 1.4.2 [223354](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223354)
 
 ## Kernel patches
 
