@@ -1,0 +1,15 @@
+%%CONV%%bin/woff2_compress
+%%CONV%%bin/woff2_decompress
+%%CONV%%bin/woff2_info
+include/woff2/decode.h
+include/woff2/encode.h
+include/woff2/output.h
+lib/libwoff2common.so
+lib/libwoff2common.so.1.0.2
+lib/libwoff2dec.so
+lib/libwoff2dec.so.1.0.2
+lib/libwoff2enc.so
+lib/libwoff2enc.so.1.0.2
+libdata/pkgconfig/libwoff2common.pc
+libdata/pkgconfig/libwoff2dec.pc
+libdata/pkgconfig/libwoff2enc.pc

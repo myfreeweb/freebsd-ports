@@ -1,0 +1,11 @@
+--- CMakeLists.txt.orig	2017-11-13 21:31:28.000000000 +0300
++++ CMakeLists.txt	2018-02-24 14:53:53.596129000 +0300
+@@ -268,7 +268,7 @@
+ endif()
+ 
+ install(
+-  TARGETS woff2common woff2dec woff2enc
++  TARGETS woff2common woff2dec woff2enc woff2_decompress woff2_compress woff2_info
+   ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+   LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+   RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
