@@ -47,6 +47,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `mail/geary`: 0.12.1
 - `www/woff2`: [226165](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226165)
 - `sysutils/fusefs-ntfs-compression`: ntfs-3g plugin for XPRESS/LXZ support [225638](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225638)
 - `sysutils/u-boot-rpi3`: update to 2018.01, with netboot support [225355](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225355)
