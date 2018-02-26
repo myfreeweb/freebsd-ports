@@ -12,7 +12,11 @@ COMMENT=	Library and executables to access Microsoft Word files
 
 LIB_DEPENDS=	libwmf.so:graphics/libwmf
 
-USE_GNOME=	libgsf
+LIB_DEPENDS=	libfreetype.so:print/freetype2 \
+		libpng.so:graphics/png \
+		libwmf.so:graphics/libwmf
+
+USES=		gmake jpeg pkgconfig libtool
 GNU_CONFIGURE=	yes
 USES=		gmake pkgconfig libtool
 CPPFLAGS+=	-I${LOCALBASE}/include

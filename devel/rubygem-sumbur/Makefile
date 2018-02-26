@@ -9,6 +9,8 @@ MASTER_SITES=	RG
 MAINTAINER=	vg@FreeBSD.org
 COMMENT=	Consistent spreading for server balancing
 
+LICENSE=	MIT
+
 USE_RUBY=	yes
 USES=		gem
 

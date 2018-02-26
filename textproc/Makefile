@@ -1297,6 +1297,7 @@
     SUBDIR += py-et_xmlfile
     SUBDIR += py-excelerator
     SUBDIR += py-feedparser
+    SUBDIR += py-gambit-elasticsearch
     SUBDIR += py-genshi
     SUBDIR += py-guess-language
     SUBDIR += py-hexdump
