@@ -1,3 +1,4 @@
+/you/have/to/check/what/makeplist/gives/you
 bin/WebKitWebDriver
 bin/jsc-4
 include/webkitgtk-4.0/JavaScriptCore/JSBase.h
@@ -208,7 +209,7 @@ libdata/pkgconfig/webkit2gtk-4.0.pc
 libdata/pkgconfig/webkit2gtk-web-extension-4.0.pc
 libexec/webkit2gtk-4.0/WebKitNetworkProcess
 libexec/webkit2gtk-4.0/WebKitPluginProcess
-%%NPAPI%%libexec/webkit2gtk-4.0/WebKitPluginProcess2
+libexec/webkit2gtk-4.0/WebKitPluginProcess2
 libexec/webkit2gtk-4.0/WebKitStorageProcess
 libexec/webkit2gtk-4.0/WebKitWebProcess
 libexec/webkit2gtk-4.0/jsc

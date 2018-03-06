@@ -31,7 +31,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Desktop stack
 
-- `www/webkit2-gtk3`: updated to 2.19.91, Wayland support added (stable version: [223733](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223733))
+- `www/webkit2-gtk3`: updated to 2.19.92, Wayland support added (stable version: [223733](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223733))
 - `devel/sdl20`: Wayland and udev options added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018)
 - `x11/libinput`: [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
 	- update to 1.9.901
