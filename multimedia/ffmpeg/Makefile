@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	ffmpeg
-PORTVERSION=	3.4.2
+DISTVERSION=	3.5-2436
+DISTVERSIONSUFFIX=	-g0645698ecc
 PORTEPOCH=	1
 CATEGORIES=	multimedia audio ipv6 net
-MASTER_SITES=	https://ffmpeg.org/releases/
 
 MAINTAINER=	multimedia@FreeBSD.org
 COMMENT=	Realtime audio/video encoder/converter and streaming server
@@ -18,17 +18,21 @@ BUILD_DEPENDS=	nasm:devel/nasm \
 
 HAS_CONFIGURE=	yes
 USES=		compiler:c11 cpe gmake localbase:ldflags perl5 \
-		pkgconfig shebangfix tar:xz
+		pkgconfig shebangfix
 USE_LDCONFIG=	yes
 USE_PERL5=	build
 SHEBANG_FILES=	doc/texi2pod.pl
 NOPRECIOUSMAKEVARS=	yes # ARCH
 
+USE_GITHUB=	yes
+GH_ACCOUNT=	FFmpeg
+GH_PROJECT=	FFmpeg
+
 PORTSCOUT=	limit:^3\.
 
 OPTIONS_DEFINE=	ALSA AMR_NB AMR_WB ASS BS2B CACA CDIO CELT CHROMAPRINT DC1394 \
-		DEBUG DOCS DRM FDK_AAC FFSERVER FLITE FONTCONFIG \
-		FREETYPE FREI0R FRIBIDI GME GSM ICONV ILBC JACK KVAZAAR LADSPA \
+		DEBUG DOCS DRM FDK_AAC FLITE FONTCONFIG \
+		FREETYPE FREI0R FRIBIDI GME GSM ICONV ILBC KVAZAAR LADSPA \
 		LAME LIBBLURAY LIBRSVG2 LIBXML2 MODPLUG MYSOFA OPENAL OPENCL OPENCV OPENGL \
 		OPENH264 OPENJPEG OPTIMIZED_CFLAGS OPUS PULSEAUDIO \
 		RUBBERBAND RTCPU SDL SMB SNAPPY SNDIO SOXR SPEEX SSH \
@@ -36,7 +40,7 @@ OPTIONS_DEFINE=	ALSA AMR_NB AMR_WB ASS BS2B CACA CDIO CELT CHROMAPRINT DC1394 \
 		VO_AMRWBENC VPX WAVPACK WEBP X264 X265 XCB XVID \
 		XVIDEO ZIMG ZMQ ZVBI
 
-OPTIONS_DEFAULT=	FFSERVER FONTCONFIG FREETYPE FREI0R GMP GNUTLS ICONV \
+OPTIONS_DEFAULT=	FONTCONFIG FREETYPE FREI0R GMP GNUTLS ICONV \
 			OPENCV OPTIMIZED_CFLAGS OPUS RTCPU THEORA V4L VAAPI VDPAU \
 			VORBIS VPX X264 X265 XVID
 
@@ -63,7 +67,6 @@ CHROMAPRINT_DESC=	Audio fingerprinting with chromaprint
 DC1394_DESC=	IIDC-1394 grabbing using libdc1394
 DRM_DESC=	KMS grabbing using libdrm
 FDK_AAC_DESC=	AAC audio encoding via Fraunhofer FDK
-FFSERVER_DESC=	Build and install ffserver
 FLITE_DESC=	Voice synthesis support via libflite
 GME_DESC=	Game Music Emu demuxer
 GPL3_DESC=	Allow (L)GPL version 3 code(cs)
@@ -148,10 +151,6 @@ FDK_AAC_LIB_DEPENDS=	libfdk-aac.so:audio/fdk-aac
 FDK_AAC_CONFIGURE_ENABLE=	libfdk-aac
 FDK_AAC_IMPLIES=	NONFREE
 
-# ffserver
-FFSERVER_CONFIGURE_ENABLE=	ffserver
-FFSERVER_VARS=		USE_RC_SUBR+=ffserver
-
 # flite
 FLITE_LIB_DEPENDS=	libflite.so:audio/flite
 FLITE_CONFIGURE_ENABLE=	libflite
@@ -200,10 +199,6 @@ ICONV_CONFIGURE_ENABLE=	iconv
 # ilbc
 ILBC_LIB_DEPENDS=	libilbc.so:net/libilbc
 ILBC_CONFIGURE_ENABLE=	libilbc
-
-# jack
-JACK_LIB_DEPENDS=	libjack.so:audio/jack
-JACK_CONFIGURE_ENABLE=	jack
 
 # kvazaar
 KVAZAAR_LIB_DEPENDS=	libkvazaar.so:multimedia/kvazaar
@@ -456,7 +451,7 @@ CONFIGURE_ENV_armv7_clang=	ASFLAGS=-no-integrated-as
 CONFIGURE_ARGS_FreeBSD_10_armv6=--disable-fast-unaligned
 
 DOC_FILES=	Changelog CREDITS INSTALL.md LICENSE.md MAINTAINERS \
-		README.md RELEASE_NOTES
+		README.md
 # under doc subdirectory
 DOC_DOCFILES=	APIchanges *.txt
 PORTDOCS=	*
@@ -467,8 +462,6 @@ CONFIGURE_ARGS+=${CONFIGURE_ARGS_${OPSYS}_${OSREL:R}_${ARCH}}
 
 post-patch:
 # {C,LD}FLAGS safeness
-	@${REINPLACE_CMD} -e 's|/etc/ffserver.conf|${PREFIX}/etc/ffserver.conf|' \
-		${WRKSRC}/fftools/ffserver.c
 	@${REINPLACE_CMD} -E \
 		-e 's|require_pkg_config opencv|require_pkg_config opencv-core|g' \
 		${CONFIGURE_WRKSRC}/${CONFIGURE_SCRIPT}
@@ -478,9 +471,5 @@ post-install:
 		"${DOC_FILES}" ${STAGEDIR}${DOCSDIR})
 	(cd ${WRKSRC}/doc && ${COPYTREE_SHARE} \
 		"${DOC_DOCFILES}" ${STAGEDIR}${DOCSDIR})
-
-post-install-FFSERVER-on:
-	${INSTALL_DATA} ${WRKSRC}/doc/ffserver.conf \
-		${STAGEDIR}${PREFIX}/etc/ffserver.conf.sample
 
 .include <bsd.port.mk>

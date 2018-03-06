@@ -17,6 +17,7 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 ### Graphics stack
 
 - `graphics/mesa-dev`: alternative mesa port! Development version ([little fork](https://github.com/myfreeweb/mesa) with my BSD patches), everything built together, using Meson! Always includes GL, GLES, Vulkan (RADV, ANV), Gallium Nine, OpenCL (Clover), VAAPI, VDPAU.
+	- to install and keep pkg happy without rebuilding everything, just `pkg add -f` over existing `mesa-libs/dri`
 - `graphics/mesa-dri` and `graphics/mesa-libs`:
 	- updated to 18.0.0.rc4 [225415](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225415)
 	- enabled VK_KHR_wayland_surface [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540)
@@ -49,6 +50,8 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `multimedia/mpv`: 0.28.2
+- `multimedia/ffmpeg`: git master (because mpv 0.28.x requires it)
 - `devel/boehm-gc*`: [225560](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225560)
 - `mail/geary`: 0.12.1
 - `www/woff2`: [226165](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226165)
