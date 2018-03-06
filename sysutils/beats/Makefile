@@ -2,16 +2,14 @@
 # $FreeBSD$
 
 PORTNAME=	beats
-PORTVERSION=	6.2.1
+PORTVERSION=	6.2.2
 DISTVERSIONPREFIX=v
 CATEGORIES=	sysutils
 
-MAINTAINER=	girgen@FreeBSD.org
+MAINTAINER=	elastic@FreeBSD.org
 COMMENT=	Collect logs locally and send to remote logstash
 
 LICENSE=	APACHE20
-
-BROKEN=		overwrites go-1.10 files, see PR-226039
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	elastic
@@ -38,6 +36,8 @@ METRICBEAT_VARS=GO_TARGETS+=metricbeat
 
 HEARTBEAT_DESC=	Heartbeat
 HEARTBEAT_VARS=GO_TARGETS+=heartbeat
+
+MAKE_ENV+=	GOBUILD_FLAGS=""
 
 do-build:
 	@for GO_TARGET in ${GO_TARGETS}; do \

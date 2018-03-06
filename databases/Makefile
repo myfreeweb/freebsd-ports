@@ -628,6 +628,7 @@
     SUBDIR += php56-pgsql
     SUBDIR += php56-sqlite3
     SUBDIR += php56-sybase_ct
+    SUBDIR += php7-tarantool
     SUBDIR += php70-dba
     SUBDIR += php70-interbase
     SUBDIR += php70-memcache
@@ -963,7 +964,6 @@
     SUBDIR += rubygem-em-redis-unified
     SUBDIR += rubygem-familia
     SUBDIR += rubygem-flipper-active_record
-    SUBDIR += rubygem-flipper-active_record010
     SUBDIR += rubygem-flipper-active_record011
     SUBDIR += rubygem-globalid
     SUBDIR += rubygem-globalid-rails5
@@ -1054,6 +1054,7 @@
     SUBDIR += twemproxy
     SUBDIR += unixODBC
     SUBDIR += useracc
+    SUBDIR += usql
     SUBDIR += vfront
     SUBDIR += virtualpg
     SUBDIR += virtuoso

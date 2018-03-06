@@ -140,7 +140,7 @@
     SUBDIR += enet
     SUBDIR += erlang-ranch
     SUBDIR += erlang-xmlrpc
-    SUBDIR += eternaltcp
+    SUBDIR += eternalterminal
     SUBDIR += etrace
     SUBDIR += eventviews
     SUBDIR += exabgp
@@ -189,6 +189,7 @@
     SUBDIR += gnome-online-miners
     SUBDIR += gnu-dico
     SUBDIR += gnu-radius
+    SUBDIR += gobgp
     SUBDIR += go-amqp
     SUBDIR += go-bapu
     SUBDIR += go-cs
@@ -1031,6 +1032,7 @@
     SUBDIR += py-dugong
     SUBDIR += py-ec2-cli-tools
     SUBDIR += py-eventlet
+    SUBDIR += py-flask-xml-rpc
     SUBDIR += py-gntp
     SUBDIR += py-gspread
     SUBDIR += py-gspreadsheet
@@ -1167,9 +1169,10 @@
     SUBDIR += redir
     SUBDIR += relayd
     SUBDIR += remmina
-    SUBDIR += remmina-plugin-gnome
+    SUBDIR += remmina-plugin-exec
     SUBDIR += remmina-plugin-nx
     SUBDIR += remmina-plugin-rdp
+    SUBDIR += remmina-plugin-secret
     SUBDIR += remmina-plugin-telepathy
     SUBDIR += remmina-plugin-vnc
     SUBDIR += remmina-plugin-xdmcp

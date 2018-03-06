@@ -156,6 +156,7 @@
     SUBDIR += eventum
     SUBDIR += extjs
     SUBDIR += fabio
+    SUBDIR += falkon
     SUBDIR += fancybox
     SUBDIR += faup
     SUBDIR += fcgi
@@ -1727,6 +1728,7 @@
     SUBDIR += py-meld3
     SUBDIR += py-mt
     SUBDIR += py-multidict
+    SUBDIR += py-mwoauth
     SUBDIR += py-nevow
     SUBDIR += py-notebook
     SUBDIR += py-pafy
@@ -1867,6 +1869,7 @@
     SUBDIR += py-sockjs-tornado
     SUBDIR += py-splinter
     SUBDIR += py-spyne
+    SUBDIR += py-sseclient
     SUBDIR += py-surl
     SUBDIR += py-textile
     SUBDIR += py-tmdb3
@@ -2022,7 +2025,6 @@
     SUBDIR += rubygem-gollum-rugged_adapter
     SUBDIR += rubygem-gon
     SUBDIR += rubygem-gon61
-    SUBDIR += rubygem-gon-rails4
     SUBDIR += rubygem-hackpad-cli
     SUBDIR += rubygem-haml
     SUBDIR += rubygem-haml-coderay

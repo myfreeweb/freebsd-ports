@@ -436,7 +436,6 @@
     SUBDIR += oath-toolkit
     SUBDIR += obfs4proxy-tor
     SUBDIR += obfsclient
-    SUBDIR += obfsproxy
     SUBDIR += ocaml-cryptgps
     SUBDIR += ocaml-cryptokit
     SUBDIR += ocaml-ssl
@@ -939,6 +938,7 @@
     SUBDIR += py-mnemonic
     SUBDIR += py-oauth2client
     SUBDIR += py-oauthlib
+    SUBDIR += py-obfsproxy-tor
     SUBDIR += py-onetime
     SUBDIR += py-openssl
     SUBDIR += py-paramiko
@@ -1053,6 +1053,7 @@
     SUBDIR += rkhunter
     SUBDIR += rndpassw
     SUBDIR += ruby-camellia
+    SUBDIR += rubygem-aes_key_wrap
     SUBDIR += rubygem-airbrussh
     SUBDIR += rubygem-attr_encrypted
     SUBDIR += rubygem-attr_encrypted30

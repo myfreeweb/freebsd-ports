@@ -36,6 +36,7 @@
     SUBDIR += R-cran-car
     SUBDIR += R-cran-coda
     SUBDIR += R-cran-combinat
+    SUBDIR += R-cran-conf.design
     SUBDIR += R-cran-ddalpha
     SUBDIR += R-cran-deldir
     SUBDIR += R-cran-dimRed
@@ -136,7 +137,6 @@
     SUBDIR += cgal
     SUBDIR += chaco
     SUBDIR += chryzodus
-    SUBDIR += clarence
     SUBDIR += clasp
     SUBDIR += clblas
     SUBDIR += clblast
@@ -747,7 +747,6 @@
     SUBDIR += trlan
     SUBDIR += truthtable
     SUBDIR += tvmet
-    SUBDIR += ufc
     SUBDIR += ump
     SUBDIR += units
     SUBDIR += unuran

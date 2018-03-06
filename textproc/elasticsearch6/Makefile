@@ -3,7 +3,7 @@
 
 PORTNAME=	elasticsearch
 PORTVERSION=	6.2.2
-PORTREVISION=	0
+PORTREVISION=	5
 CATEGORIES=	textproc java devel
 MASTER_SITES=	https://artifacts.elastic.co/downloads/${PORTNAME}/ \
 		http://mirrors.rit.edu/zi/
@@ -14,7 +14,9 @@ COMMENT=	Full-text search engine for Java
 
 LICENSE=	APACHE20
 
-RUN_DEPENDS=	bash>0:shells/bash
+BUILD_DEPENDS=	jna>0:devel/jna
+RUN_DEPENDS=	bash>0:shells/bash \
+		jna>0:devel/jna
 
 CONFLICTS=	elasticsearch-[0-9]* elasticsearch2-[0-9]* elasticsearch5-[0-9]*
 
@@ -24,8 +26,9 @@ USE_JAVA=	yes
 NO_BUILD=	yes
 JAVA_VERSION=	1.8+
 USE_RC_SUBR=	${PORTNAME}
-SHEBANG_FILES=	bin/elasticsearch-plugin \
-		bin/elasticsearch
+SHEBANG_FILES=	bin/elasticsearch \
+		bin/elasticsearch-env \
+		bin/elasticsearch-plugin
 
 OPTIONS_DEFINE=	DOCS
 
@@ -33,6 +36,7 @@ OPTIONS_DEFINE=	DOCS
 
 CONFIG_FILES=	elasticsearch.yml log4j2.properties jvm.options
 BINS=		elasticsearch \
+		elasticsearch-env \
 		elasticsearch-plugin
 
 PORTDOCS=	LICENSE.txt \
@@ -51,6 +55,7 @@ SUB_FILES=	pkg-message
 post-patch:
 	${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|g" ${WRKSRC}/config/elasticsearch.yml
 	${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|g" ${WRKSRC}/bin/elasticsearch
+	${RM} ${WRKSRC}/lib/jna-*.jar
 
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/etc/elasticsearch
@@ -69,6 +74,7 @@ do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/elasticsearch/plugins
 	${MKDIR} ${STAGEDIR}${PREFIX}/libexec/elasticsearch
 	${INSTALL} -lrs ${STAGEDIR}${PREFIX}/lib/elasticsearch/bin/elasticsearch-plugin ${STAGEDIR}${PREFIX}/bin/elasticsearch-plugin
+	${LN} -s ${JAVASHAREDIR}/classes/jna.jar ${STAGEDIR}${PREFIX}/lib/elasticsearch/lib/jna.jar
 
 do-install-DOCS-on:
 	${MKDIR} ${STAGEDIR}${DOCSDIR}
