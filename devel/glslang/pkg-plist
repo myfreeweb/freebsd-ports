@@ -34,6 +34,7 @@ include/glslang/MachineIndependent/Scan.h
 include/glslang/MachineIndependent/ScanContext.h
 include/glslang/MachineIndependent/SymbolTable.h
 include/glslang/MachineIndependent/Versions.h
+include/glslang/MachineIndependent/attribute.h
 include/glslang/MachineIndependent/gl_types.h
 include/glslang/MachineIndependent/glslang_tab.cpp.h
 include/glslang/MachineIndependent/iomapper.h
