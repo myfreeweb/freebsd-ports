@@ -1,0 +1,4 @@
+Current git master version of Mesa 3D graphics stack, with some BSD patches.
+Everything in one port (GL, Vulkan, Nine, VAAPI, VDPAU, OpenCL/Clover, OSMesa).
+
+WWW: https://github.com/myfreeweb/mesa

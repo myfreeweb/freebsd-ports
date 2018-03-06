@@ -9,24 +9,26 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 ## Usage
 
 - Make sure you have an up-to-date FreeBSD 12-CURRENT kernel and base
-- Clone this repo into `/usr/ports` (if it's already managed by git, add this repo as a remote, fetch and checkout)
+- Clone this repo into `/usr/ports` (if it's already managed by git, add this repo as a remote, fetch and checkout/merge)
 - Build any ports you want :)
 
 ## Current status
 
-### Vulkan
+### Graphics stack
 
+- `graphics/mesa-dev`: alternative mesa port! Development version ([little fork](https://github.com/myfreeweb/mesa) with my BSD patches), everything built together, using Meson! Always includes GL, GLES, Vulkan (RADV, ANV), Gallium Nine, OpenCL (Clover), VAAPI, VDPAU.
 - `graphics/mesa-dri` and `graphics/mesa-libs`:
-	- updated to 18.0.0.rc2 [225415](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225415)
+	- updated to 18.0.0.rc4 [225415](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225415)
 	- enabled VK_KHR_wayland_surface [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540)
 	- (included upstream) fix device name detection [223030](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223030)
 - `graphics/vulkan-sdk`: [Vulkan SDK](https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers) (headers, ICD loader, validation layers) [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
+- `graphics/libdrm`: 2.4.91
 
 NOTE: ANV (Intel Vulkan) requires running the apps as root and might not work for complex applications.
 RADV (Radeon Vulkan) with the `amdgpu` KMS/DRM driver works very well!
 Tested on an AMD Polaris (RX 480) GPU.
 
-### Xorg and Wayland
+### Desktop stack
 
 - `www/webkit2-gtk3`: updated to 2.19.91, Wayland support added (stable version: [223733](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223733))
 - `devel/sdl20`: Wayland and udev options added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018)
@@ -58,7 +60,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `devel/gnome-builder`: 3.27 (XXX: crashes)
 - `graphics/mypaint` and `graphics/libmypaint`: git master version, works on Wayland natively
 - `graphics/inkscape`: git master version with GTK3, works on Wayland natively
-- `editors/libreoffice`: **6.0.0** with GTK3 by default, works on Wayland natively [224288](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224288)
+- `editors/libreoffice`: **6.0.1** with GTK3 by default, works on Wayland natively [224288](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224288) || further work [by lwhsu@ over there](https://github.com/lwhsu/freebsd-ports-libreoffice)
 - `www/firefox`: (no extra updates here currently) See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
