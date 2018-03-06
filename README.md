@@ -51,6 +51,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `devel/sdl20`: 2.0.8 [226409](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226409)
 - `multimedia/mpv`: 0.28.2
 - `multimedia/ffmpeg`: git master (because mpv 0.28.x requires it)
 - `devel/boehm-gc*`: [225560](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225560)
