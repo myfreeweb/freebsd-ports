@@ -45,6 +45,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Games
 
+- `games/cataclysm-dda`: update to git master and fix everything [226418](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226418)
 - `games/vkquake`: [a Vulkan-powered Quake engine](https://github.com/Novum/vkQuake) [222182](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222182)
 - `emulators/dolphin-emu`: [Dolphin Emulator](https://dolphin-emu.org) (GameCube/Wii) updated to a recent git revision (Vulkan just works, dynamically loaded)
 - `games/vcmi`: open source reimplementation of Heroes of Might and Magic III! [221885](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221885)

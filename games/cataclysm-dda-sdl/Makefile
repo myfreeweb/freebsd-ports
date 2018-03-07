@@ -1,0 +1,9 @@
+# $FreeBSD$
+
+OPTIONS_UNSET+=	NCURSES
+PORT_OPTIONS+=	SDL SOUND
+PKGNAMESUFFIX=	-sdl
+
+MASTERDIR=	${.CURDIR}/../cataclysm-dda
+
+.include	"${MASTERDIR}/Makefile"
