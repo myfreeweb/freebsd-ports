@@ -16,6 +16,7 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 
 ### Graphics stack
 
+- `graphics/drm-next-kmod`: hack workaround patch for ioctl auth issues [kms-drm#33](https://github.com/FreeBSDDesktop/kms-drm/issues/33)
 - `graphics/mesa-dev`: alternative mesa port! Development version ([little fork](https://github.com/myfreeweb/mesa) with my BSD patches), everything built together, using Meson! Always includes GL, GLES, Vulkan (RADV, ANV), Gallium Nine, OpenCL (Clover), VAAPI, VDPAU.
 	- to install and keep pkg happy without rebuilding everything, just `pkg add -f` over existing `mesa-libs/dri`
 - `graphics/mesa-dri` and `graphics/mesa-libs`:
