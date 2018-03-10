@@ -25,6 +25,7 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 	- (included upstream) fix device name detection [223030](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223030)
 - `graphics/vulkan-sdk`: [Vulkan SDK](https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers) (headers, ICD loader, validation layers) [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
 - `graphics/libdrm`: 2.4.91
+- `x11/xcb-proto` and `x11/libxcb`: 1.13 [226502](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226502)
 
 NOTE: ANV (Intel Vulkan) requires running the apps as root and might not work for complex applications.
 RADV (Radeon Vulkan) with the `amdgpu` KMS/DRM driver works very well!
