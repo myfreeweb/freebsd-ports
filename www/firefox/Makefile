@@ -3,26 +3,27 @@
 
 PORTNAME=	firefox
 DISTVERSION=	59.0
+PORTREVISION=	3
 PORTEPOCH=	1
 CATEGORIES=	www ipv6
 MASTER_SITES=	https://hg.mozilla.org/releases/mozilla-release/archive/
-DISTNAME=	${MASTER_SITES:M*hg*:S,/archive/,,:T}-2f6a4d2cf42c9d59626061d45c043817cb220814
+DISTNAME=	${MASTER_SITES:M*hg*:S,/archive/,,:T}-e9128973a480c8aedf3a2e1c67d3e168613fa17c
 DISTFILES=	${DISTNAME:C/.*-//}${EXTRACT_SUFX}
 DIST_SUBDIR=	firefox
 
 MAINTAINER=	gecko@FreeBSD.org
 COMMENT=	Web browser based on the browser portion of Mozilla
 
-BUILD_DEPENDS=	nspr>=4.17:devel/nspr \
-		nss>=3.34.1:security/nss \
+BUILD_DEPENDS=	nspr>=4.18:devel/nspr \
+		nss>=3.35:security/nss \
 		icu>=59.1,1:devel/icu \
 		libevent>=2.1.8:devel/libevent \
-		harfbuzz>=1.7.2:print/harfbuzz \
+		harfbuzz>=1.7.4:print/harfbuzz \
 		graphite2>=1.3.10:graphics/graphite2 \
 		png>=1.6.34:graphics/png \
 		libvorbis>=1.3.5,3:audio/libvorbis \
 		libvpx>=1.5.0:multimedia/libvpx \
-		sqlite3>=3.20.1:databases/sqlite3 \
+		sqlite3>=3.21.0:databases/sqlite3 \
 		${PYTHON_PKGNAMEPREFIX}sqlite3>0:databases/py-sqlite3@${PY_FLAVOR} \
 		v4l_compat>0:multimedia/v4l_compat \
 		autoconf-2.13:devel/autoconf213 \

@@ -610,6 +610,8 @@
     SUBDIR += pguri
     SUBDIR += pgworksheet
     SUBDIR += php-mdcached
+    SUBDIR += php-memcache
+    SUBDIR += php-memcached
     SUBDIR += php-xapian
     SUBDIR += php5-pdo_cassandra
     SUBDIR += php5-tarantool
@@ -632,8 +634,6 @@
     SUBDIR += php7-tarantool
     SUBDIR += php70-dba
     SUBDIR += php70-interbase
-    SUBDIR += php70-memcache
-    SUBDIR += php70-memcached
     SUBDIR += php70-mysqli
     SUBDIR += php70-odbc
     SUBDIR += php70-pdo
@@ -647,7 +647,6 @@
     SUBDIR += php70-sqlite3
     SUBDIR += php71-dba
     SUBDIR += php71-interbase
-    SUBDIR += php71-memcache
     SUBDIR += php71-mysqli
     SUBDIR += php71-odbc
     SUBDIR += php71-pdo
@@ -661,7 +660,6 @@
     SUBDIR += php71-sqlite3
     SUBDIR += php72-dba
     SUBDIR += php72-interbase
-    SUBDIR += php72-memcache
     SUBDIR += php72-mysqli
     SUBDIR += php72-odbc
     SUBDIR += php72-pdo
@@ -802,6 +800,7 @@
     SUBDIR += py-kyotocabinet
     SUBDIR += py-leveldb
     SUBDIR += py-lmdb
+    SUBDIR += py-marshmallow-sqlalchemy
     SUBDIR += py-motor
     SUBDIR += py-mycli
     SUBDIR += py-mysql-connector-python

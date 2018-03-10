@@ -33,7 +33,7 @@ LIB_DEPENDS=	libpopt.so:devel/popt \
 
 USE_GNOME=	gtkmm30 libxml2 libxslt
 USES=		compiler:c++11-lib cmake cpe desktop-file-utils gnome \
-		iconv:wchar_t jpeg pathfix pkgconfig python:2,build \
+		iconv:wchar_t jpeg pathfix pkgconfig python:2.7,build \
 		shebangfix tar:bzip2
 USE_XORG=	x11
 INSTALLS_ICONS=	yes
@@ -88,7 +88,7 @@ USES+=			gettext
 #NLS_USES=		gettext
 
 post-patch:
-	@${REINPLACE_CMD} -e 's|COMMAND python|COMMAND python2|g' \
+	@${REINPLACE_CMD} -e 's|COMMAND python|COMMAND ${PYTHON_VERSION}|g' \
 		${WRKSRC}/share/*/CMakeLists.txt
 
 .include <bsd.port.mk>

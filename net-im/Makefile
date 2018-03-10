@@ -199,7 +199,9 @@
     SUBDIR += tkabber
     SUBDIR += tkabber-plugins
     SUBDIR += tox
+    SUBDIR += tox12
     SUBDIR += toxic
+    SUBDIR += toxins
     SUBDIR += turpial
     SUBDIR += twirssi
     SUBDIR += twitmail
