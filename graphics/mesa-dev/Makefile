@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=		mesa-dev
-DISTVERSION=		18.1.0-20180306
+DISTVERSION=		18.1.0-20180310
 CATEGORIES=		graphics
 
 MAINTAINER=	greg@unrelenting.technology
@@ -18,7 +18,7 @@ USE_XORG=	dri2proto dri3proto glproto presentproto x11 xdamage xext \
 USE_GITHUB=	yes
 GH_ACCOUNT=	myfreeweb
 GH_PROJECT=	mesa
-GH_TAGNAME=	eedc437c76
+GH_TAGNAME=	a4b830ad2d
 
 MESA_LLVM_VER?=	50
 

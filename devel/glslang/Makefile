@@ -1,8 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	glslang
-DISTVERSION=	2.3-1838
-DISTVERSIONSUFFIX=	-g2651ccaec8
+DISTVERSION=	5.1
 CATEGORIES=	devel graphics
 
 MAINTAINER=	greg@unrelenting.technology

@@ -2,7 +2,7 @@
 
 PORTNAME=	vulkan-sdk
 DISTVERSIONPREFIX=	sdk-
-DISTVERSION=	1.0.68.0
+DISTVERSION=	1.1.70.0
 CATEGORIES=	graphics devel
 
 MAINTAINER=	greg@unrelenting.technology
@@ -14,7 +14,7 @@ BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}lxml>0:devel/py-lxml@${PY_FLAVOR} \
 	${LOCALBASE}/include/spirv-tools/libspirv.h:devel/spirv-tools \
 	glslangValidator:devel/glslang
 
-USES=	cmake:outsource compiler:c++11-lib python:build pkgconfig
+USES=	cmake:outsource compiler:c++11-lib python:3.4+,build pkgconfig
 
 USE_LDCONFIG=	yes
 

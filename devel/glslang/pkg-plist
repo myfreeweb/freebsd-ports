@@ -1,6 +1,7 @@
 bin/glslangValidator
 bin/spirv-remap
 include/SPIRV/GLSL.ext.AMD.h
+include/SPIRV/GLSL.ext.EXT.h
 include/SPIRV/GLSL.ext.KHR.h
 include/SPIRV/GLSL.ext.NV.h
 include/SPIRV/GLSL.std.450.h
