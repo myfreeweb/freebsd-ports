@@ -48,9 +48,9 @@ LDFLAGS+=		-B${LOCALBASE}/bin
 .endif
 
 MESON_ARGS=	-Dglx-tls="false"\
-		-Dgallium-omx="false" \
-		-Dgallium-nine="true" \
 		-Dgallium-opencl="icd" \
+		-Dgallium-omx="disabled" \
+		-Dgallium-nine="true" \
 		-Dosmesa="gallium"
 
 OPTIONS_DEFINE=	TEXTURE
