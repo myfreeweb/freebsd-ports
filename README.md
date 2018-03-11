@@ -54,6 +54,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `www/epiphany`: 3.18.x
 - `audio/clementine-player`: git qt5 branch
 - `audio/liblastfm-qt5`: qt5 for clementine [226530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226530)
 - `audio/libechonest-qt5`: qt5 for clementine [226529](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226529)
