@@ -1,6 +1,6 @@
---- src/CMakeLists.txt.orig	2016-04-19 15:08:35 UTC
+--- src/CMakeLists.txt.orig	2018-03-11 17:39:07 UTC
 +++ src/CMakeLists.txt
-@@ -1388,6 +1388,7 @@ add_executable(clementine
+@@ -1369,6 +1369,7 @@ add_executable(clementine
  
  if (${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
    target_link_libraries(clementine execinfo)

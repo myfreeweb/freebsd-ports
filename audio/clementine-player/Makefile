@@ -2,13 +2,13 @@
 # $FreeBSD$
 
 PORTNAME=	clementine
-PORTVERSION=	1.3.1
-PORTREVISION=	17
+DISTVERSION=	1.3.1-517
+DISTVERSIONSUFFIX=	-g335bc89c9
 CATEGORIES=	audio
 PKGNAMESUFFIX=	-player
 
 MAINTAINER=	sbruno@FreeBSD.org
-COMMENT=	Cross-platform music player based on Amarok 1.4
+COMMENT=	Modern music player and library organizer
 
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
@@ -16,11 +16,12 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 BUILD_DEPENDS=	${LOCALBASE}/include/boost/shared_ptr.hpp:devel/boost-libs
 LIB_DEPENDS=	libtag.so:audio/taglib \
 		libchromaprint.so:audio/chromaprint \
+		libimobiledevice.so:comms/libimobiledevice \
 		libprotobuf.so:devel/protobuf \
-		libqca.so:devel/qca \
-		libqjson.so:devel/qjson \
+		libqca-qt5.so:devel/qca-qt5 \
+		libqjson-qt5.so:devel/qjson-qt5 \
 		libfftw3.so:math/fftw3 \
-		libechonest.so:audio/libechonest \
+		libechonest5.so:audio/libechonest-qt5 \
 		libcryptopp.so:security/cryptopp
 
 BROKEN_powerpc64=	fails to compile: tagreader.cpp: undefined reference to TagLib::String::String
@@ -36,23 +37,21 @@ USES=		cmake \
 		pkgconfig \
 		sqlite
 
-USE_GL=		glew
+USE_GL=		gl glu glew
 
-CONFLICTS_BUILD=	qt-3.*
-USE_QT4=	corelib \
+USE_QT5=	core \
+		concurrent \
 		dbus \
 		gui \
 		imageformats \
 		qmake_build \
 		linguist_build \
-		moc_build \
 		network \
 		opengl \
-		qtestlib \
-		rcc_build \
+		testlib \
 		sql \
-		uic_build \
-		webkit \
+		widgets \
+		x11extras \
 		xml
 
 USE_GSTREAMER1=	cdparanoia \
@@ -63,6 +62,7 @@ USE_GSTREAMER1=	cdparanoia \
 		lame \
 		mpg123 \
 		neon \
+		opus \
 		shout2 \
 		soup \
 		taglib \
@@ -174,7 +174,7 @@ GPOD_LIB_DEPENDS=	libgpod.so:audio/libgpod \
 GPOD_CMAKE_ON=		-DENABLE_LIBGPOD=ON
 GPOD_CMAKE_OFF=		-DENABLE_LIBGPOD=OFF
 
-LASTFM_LIB_DEPENDS=	liblastfm.so:audio/liblastfm
+LASTFM_LIB_DEPENDS=	liblastfm5.so:audio/liblastfm-qt5
 LASTFM_CMAKE_ON=	-DENABLE_LIBLASTFM=ON
 LASTFM_CMAKE_OFF=	-DENABLE_LIBLASTFM=OFF
 

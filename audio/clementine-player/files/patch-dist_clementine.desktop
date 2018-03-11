@@ -1,6 +1,6 @@
---- dist/clementine.desktop.orig	2016-04-19 15:08:35 UTC
+--- dist/clementine.desktop.orig	2018-03-11 17:39:57 UTC
 +++ dist/clementine.desktop
-@@ -26,8 +26,8 @@ Comment[sr]=Репродукује му�
+@@ -31,8 +31,8 @@ Comment[sr]=Репродукује музику и las
  Comment[sr@ijekavian]=Репродукује музику и last.fm токове
  Comment[sr@ijekavianlatin]=Reprodukuje muziku i last.fm tokove
  Comment[sr@latin]=Reprodukuje muziku i last.fm tokove
@@ -11,3 +11,57 @@
  Icon=clementine
  Terminal=false
  Categories=AudioVideo;Player;Qt;Audio;
+@@ -42,7 +42,7 @@ Actions=Play;Pause;Stop;StopAfterCurrent;Previous;Next
+ 
+ [Desktop Action Play]
+ Name=Play
+-Exec=clementine --play
++Exec=clementine-player --play
+ Name[af]=Speel
+ Name[be]=Прайграць
+ Name[bg]=Възпроизвеждане
+@@ -94,7 +94,7 @@ Name[zh_TW]=播放
+ 
+ [Desktop Action Pause]
+ Name=Pause
+-Exec=clementine --pause
++Exec=clementine-player --pause
+ Name[be]=Прыпыніць
+ Name[bg]=Пауза
+ Name[br]=Ehan
+@@ -141,7 +141,7 @@ Name[zh_TW]=暫停
+ 
+ [Desktop Action Stop]
+ Name=Stop
+-Exec=clementine --stop
++Exec=clementine-player --stop
+ Name[be]=Спыніць
+ Name[bg]=Спиране
+ Name[br]=Paouez
+@@ -191,7 +191,7 @@ Name[zh_TW]=停止
+ 
+ [Desktop Action StopAfterCurrent]
+ Name=Stop after this track
+-Exec=clementine --stop-after-current
++Exec=clementine-player --stop-after-current
+ Name[be]=Спыніць пасьля гэтага трэку
+ Name[bg]=Спри след тази песен
+ Name[br]=Paouez goude ar roud-mañ
+@@ -238,7 +238,7 @@ Name[zh_TW]=在這首歌之後停止
+ 
+ [Desktop Action Previous]
+ Name=Previous
+-Exec=clementine --previous
++Exec=clementine-player --previous
+ Name[af]=Vorige
+ Name[be]=Папярэдні
+ Name[bg]=Предишна
+@@ -287,7 +287,7 @@ Name[zh_TW]=往前
+ 
+ [Desktop Action Next]
+ Name=Next
+-Exec=clementine --next
++Exec=clementine-player --next
+ Name[af]=Volgende
+ Name[be]=Далей
+ Name[bg]=Следваща
