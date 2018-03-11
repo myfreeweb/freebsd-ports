@@ -17,10 +17,11 @@ LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 
 GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
-USE_GNOME=	cairo gtk20 intltool
+USE_GNOME=	cairo gtk30 intltool
 USES=		desktop-file-utils gettext-tools gmake libtool \
 		localbase pathfix pkgconfig tar:bzip2
 USE_LDCONFIG=	yes
+CONFIGURE_ARGS=	--enable-gtk3
 INSTALL_TARGET=	install-strip
 
 OPTIONS_DEFINE=	VTE NLS DOCS
