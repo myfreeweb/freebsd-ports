@@ -505,6 +505,7 @@
     SUBDIR += viz
     SUBDIR += whichman
     SUBDIR += window
+    SUBDIR += with
     SUBDIR += wmScoreBoard
     SUBDIR += wmcalendar
     SUBDIR += wmjulia

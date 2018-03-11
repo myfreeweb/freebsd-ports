@@ -93,7 +93,7 @@ WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
 
 .include <bsd.port.options.mk>
 
-.if ${ARCH} == armv6
+.if ${ARCH} == armv6 || ${ARCH} == armv7
 CMAKE_ARGS+=	-DENABLE_JIT:BOOL=OFF
 .endif
 
