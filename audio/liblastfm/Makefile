@@ -2,12 +2,12 @@
 # $FreeBSD$
 
 PORTNAME=	liblastfm
-PORTVERSION=	1.0.9
-PORTREVISION=	1
+DISTVERSION=	1.1.0-3
+DISTVERSIONSUFFIX=	-g4433165
 CATEGORIES=	audio
 
 MAINTAINER=	jhale@FreeBSD.org
-COMMENT=	Qt C++ library for the Last.fm webservices
+COMMENT=	Qt4 C++ library for the Last.fm webservices
 
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
@@ -17,10 +17,18 @@ GH_ACCOUNT=	lastfm
 
 USES=		cmake pkgconfig
 USE_LDCONFIG=	yes
+
+
+.if defined(PKGNAMESUFFIX)
+USE_QT5=	core dbus network sql xml \
+		buildtools_build qmake_build
+TEST_USE=		QT5=testlib_build
+.else
+CMAKE_ARGS=	-DBUILD_WITH_QT4:BOOL=ON
 USE_QT4=	corelib dbus network sql xml \
 		moc_build qmake_build rcc_build
-
-CMAKE_ARGS=	-DBUILD_WITH_QT4:BOOL=ON
+TEST_USE=		QT4=qtestlib_build
+.endif
 
 OPTIONS_DEFINE=		FINGERPRINT TEST
 OPTIONS_DEFAULT=	FINGERPRINT
@@ -34,7 +42,6 @@ FINGERPRINT_CMAKE_BOOL=	BUILD_FINGERPRINT
 FINGERPRINT_BUILD_DEPENDS=	${NONEXISTENT}:math/fftw3:patch
 FINGERPRINT_CMAKE_ON=	-DLIBFFTW3_INCLUDE_DIR:PATH=`${MAKE} -C ${PORTSDIR}/math/fftw3 -VWRKSRC`/api
 
-TEST_USE=		QT4=qtestlib_build
 TEST_CMAKE_BOOL=	BUILD_TESTS
 TEST_TARGET=		test
 
