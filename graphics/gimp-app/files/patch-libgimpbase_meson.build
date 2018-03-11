@@ -1,0 +1,11 @@
+--- libgimpbase/meson.build.orig	2018-03-11 14:38:04 UTC
++++ libgimpbase/meson.build
+@@ -90,7 +90,7 @@ libgimpbase = library('gimpbase-' + api_version,
+   libgimpbase_sources,
+   include_directories: rootInclude,
+   dependencies: [
+-    gexiv2, gio, math,
++    execinfo, gexiv2, gio, math,
+   ],
+   c_args:     [ libgimpbase_cflags, ],
+   vs_module_defs: 'gimpbase.def',

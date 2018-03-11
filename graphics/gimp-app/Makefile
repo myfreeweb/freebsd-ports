@@ -2,12 +2,9 @@
 # $FreeBSD$
 
 PORTNAME?=	gimp-app
-PORTVERSION=	2.8.22
-PORTREVISION=	1
+DISTVERSION=	2.99.0-20180311
 PORTEPOCH?=	1
 CATEGORIES?=	graphics gnome
-MASTER_SITES=	GIMP/gimp/v${PORTVERSION:R}
-DISTNAME=	gimp-${PORTVERSION}
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	GNU Image Manipulation Program
@@ -19,53 +16,48 @@ BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes
 LIB_DEPENDS=	libpng.so:graphics/png \
 		libtiff.so:graphics/tiff \
 		liblcms2.so:graphics/lcms2 \
-		libgegl-0.2.so:graphics/gegl \
+		libgegl-0.3.so:graphics/gegl3 \
+		libgegl-npd-0.3.so:graphics/gegl3 \
+		libmypaint-2.0.so:graphics/libmypaint \
 		libbabl-0.1.so:x11/babl \
-		libfontconfig.so:x11-fonts/fontconfig \
+		libwebp.so:graphics/webp \
+		libgexiv2.so:graphics/gexiv2 \
 		libdbus-1.so:devel/dbus \
+		libdbus-glib-1.so:devel/dbus-glib \
+		libfontconfig.so:x11-fonts/fontconfig \
+		libharfbuzz.so:print/harfbuzz \
 		libfreetype.so:print/freetype2
 RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes
 
-GNU_CONFIGURE=	yes
-USES+=		cpe gettext gmake jpeg libtool \
-		localbase pathfix pkgconfig shebangfix tar:bzip2
+USE_GITHUB=	yes
+GH_ACCOUNT=	GNOME
+GH_PROJECT=	gimp
+GH_TAGNAME=	78c6be7ffbb
+
+USES+=		cpe gettext meson jpeg libtool \
+		pathfix pkgconfig shebangfix
 USE_XORG=	ice sm xcursor xext xfixes xmu xpm xt x11
-USE_GNOME+=	cairo gtk20 intlhack
+USE_GNOME+=	cairo gtk30 librsvg2 intlhack
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
-INSTALL_TARGET=	install-strip
-TEST_TARGET=	check
-.if !defined(XAUTHORITY)
-TEST_ENV=	XAUTHORITY=${HOME}/.Xauthority
-.endif
-CONFIGURE_ARGS?=--with-html-dir=${PREFIX}/share/doc/gimp \
-		--disable-gtk-doc \
-		--without-linux-input \
-		--with-print \
-		--enable-default-binary \
-		--with-lcms=lcms2 \
-		--disable-gimp-console \
-		--disable-python \
-		--with-desktop-dir=${PREFIX}/share \
-		--docdir=${PREFIX}/share/doc/gimp \
-		--enable-default-binary
-CONFIGURE_ENV=	GIMP_THREAD_LIBS=-lpthread
-LIBS+=		-lexecinfo
+MESON_ARGS=	-Dsysconfdir=${PREFIX}/etc \
+						-Dwith-python=false \
+						-Dwith-alsa=false \
+						-Dwith-linux-input=false \
+						-Dwith-xvfb-run=false
 CPE_PRODUCT=	gimp
 CPE_VENDOR=	gnu
 
-SHEBANG_FILES=	plug-ins/pygimp/plug-ins/*.py
-
-PLIST_SUB+=	LIBVER=0.800.${PORTVERSION:E}
+PLIST_SUB+=	LIBVER=0.9900.0
 
 .if !defined(GIMP_SLAVE)
 
 USES+=		desktop-file-utils
 
-OPTIONS_DEFINE?=	AA DBUS LIBEXIF GHOSTSCRIPT GVFS HELPBROWSER JASPER \
-			LIBMNG LIBRSVG2 POPPLER SIMD WMF
-OPTIONS_DEFAULT=	AA DBUS LIBEXIF GVFS HELPBROWSER LIBMNG LIBRSVG2 \
-			POPPLER WMF
+OPTIONS_DEFINE?=	AA GHOSTSCRIPT HELPBROWSER JASPER \
+			LIBMNG POPPLER WMF OPENEXR
+OPTIONS_DEFAULT=	AA GHOSTSCRIPT JASPER \
+			LIBMNG POPPLER WMF OPENEXR
 OPTIONS_SUB=		yes
 AA_DESC=		Ascii-art Plug-in
 HELPBROWSER_DESC=	Internal help browser
@@ -82,58 +74,31 @@ LIB_DEPENDS+=	libgimp-2.0.so:graphics/gimp-app
 
 .else
 
-DEBUG_CONFIGURE_ON=	--enable-debug
-
 AA_LIB_DEPENDS=		libaa.so:graphics/aalib
-AA_CONFIGURE_OFF=	--without-aa
-
-DBUS_LIB_DEPENDS=	libdbus-glib-1.so:devel/dbus-glib
-DBUS_CONFIGURE_WITH=	dbus
+AA_MESON_OFF=	-Dwith-aa=false
 
 GHOSTSCRIPT_USES=		ghostscript
-GHOSTSCRIPT_CONFIGURE_WITH=	gs
+GHOSTSCRIPT_MESON_OFF=	-Dwith-ghostscript=false
 
-GVFS_USE=		GNOME=gvfs
-GVFS_LIB_DEPENDS_OFF=	libcurl.so:ftp/curl
-GVFS_CONFIGURE_OFF=	--without-gvfs
-
-HELPBROWSER_LIB_DEPENDS=	libwebkitgtk-1.0.so:www/webkit-gtk2 \
+HELPBROWSER_LIB_DEPENDS=	libwebkit2gtk-4.0.so:www/webkit2-gtk3 \
 				libsoup-2.4.so:devel/libsoup
-HELPBROWSER_CONFIGURE_WITH=	webkit
+HELPBROWSER_MESON_ON=	-Dwith-webkit=true
 
 JASPER_LIB_DEPENDS=	libjasper.so:graphics/jasper
-JASPER_CONFIGURE_WITH=	libjasper
-
-LIBEXIF_LIB_DEPENDS=	libexif.so:graphics/libexif
-LIBEXIF_CONFIGURE_OFF=	--without-libexif
+JASPER_MESON_OFF=	-Dwith-jasper=false
 
 LIBMNG_LIB_DEPENDS=	libmng.so:graphics/libmng
-LIBMNG_CONFIGURE_OFF=	--without-libmng
-
-LIBRSVG2_USE= 		GNOME=librsvg2
-LIBRSVG2_CONFIGURE_WITH=librsvg
+LIBMNG_MESON_OFF=	-Dwith-mng=false
 
 POPPLER_LIB_DEPENDS=	libpoppler-glib.so:graphics/poppler-glib
-POPPLER_CONFIGURE_OFF=	--without-poppler
-
-SIMD_CONFIGURE_OFF=	--disable-mmx \
-			--disable-sse \
-			--disable-altivec
+POPPLER_MESON_OFF=	-Dwith-poppler=false
 
 WMF_LIB_DEPENDS=	libwmf.so:graphics/libwmf
-WMF_CONFIGURE_OFF=	--without-wmf
+WMF_MESON_OFF=	-Dwith-wmf=false
+
+OPENEXR_LIB_DEPENDS=	libIlmImf.so:graphics/OpenEXR
+OPENEXR_MESON_OFF=	-Dwith-openexr=false
 
 .endif
-
-post-patch:
-	@${REINPLACE_CMD} -e 's|%%GIMP_LIBS%%|${GIMP_LIBS}|; \
-		s|%%GIMP_THUMB_LIBS%%|${GIMP_THUMB_LIBS}|; \
-		s|%%GIMP_UI_LIBS%%|${GIMP_UI_LIBS}|' \
-			${WRKSRC}/plug-ins/pygimp/Makefile.in
-	@${REINPLACE_CMD} -e 's/-u /-Wl,-u,/' \
-		${WRKSRC}/app/Makefile.in
-	@${REINPLACE_CMD} -e 's|"libpng"|"libpng15"|' \
-		-e 's|x86_64|amd64|g' \
-		${WRKSRC}/configure
 
 .include <bsd.port.mk>

@@ -12,11 +12,9 @@ include/libmypaint-2.0/mypaint-tiled-surface.h
 %%GEGL%%include/libmypaint-gegl/mypaint-gegl-surface.h
 lib/girepository-1.0/MyPaint-2.0.typelib
 %%GEGL%%lib/girepository-1.0/MyPaintGegl-2.0.typelib
-lib/libmypaint-2.0.la
 lib/libmypaint-2.0.so
 lib/libmypaint-2.0.so.0
 lib/libmypaint-2.0.so.0.0.0
-%%GEGL%%lib/libmypaint-gegl-2.0.la
 %%GEGL%%lib/libmypaint-gegl-2.0.so
 %%GEGL%%lib/libmypaint-gegl-2.0.so.0
 %%GEGL%%lib/libmypaint-gegl-2.0.so.0.0.0

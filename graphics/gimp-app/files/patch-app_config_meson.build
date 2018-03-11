@@ -1,0 +1,11 @@
+--- app/config/meson.build.orig	2018-03-11 14:45:06 UTC
++++ app/config/meson.build
+@@ -44,7 +44,7 @@ test('app-config',
+     include_directories: [ rootInclude, rootAppInclude, ],
+ 
+     dependencies: [
+-      gegl, gio, gio_specific,
++      execinfo, gegl, gio, gio_specific,
+     ],
+     link_with: [
+       libgimpbase,

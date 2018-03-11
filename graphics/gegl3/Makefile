@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	gegl
-PORTVERSION=	0.3.20
+DISTVERSION=	0.3.29-20180311
+DISTVERSIONSUFFIX=	-g25211a9
 PORTREVISION=	3
 CATEGORIES=	graphics
-MASTER_SITES=	GIMP
 PKGNAMESUFFIX=	3
 
 MAINTAINER=	gnome@FreeBSD.org
@@ -20,8 +20,11 @@ LIB_DEPENDS=	libbabl-0.1.so:x11/babl \
 		libjson-glib-1.0.so:devel/json-glib \
 		libpng.so:graphics/png
 
-USES=		cpe gettext gmake jpeg libtool localbase pathfix pkgconfig \
-		shebangfix uniquefiles tar:bzip2
+USE_GITHUB=	yes
+GH_ACCOUNT=	GNOME
+
+USES=		cpe gettext autoreconf gmake jpeg libtool localbase pathfix pkgconfig \
+		shebangfix uniquefiles
 USE_GNOME=	glib20 intltool introspection:build
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
@@ -30,7 +33,7 @@ CONFIGURE_ARGS=	--without-vala --disable-docs
 CONFIGURE_ARGS+=--without-mrg --without-lensfun
 INSTALL_TARGET=	install-strip
 
-GEGL_MINOR=	320
+GEGL_MINOR=	329
 GEGL_VER=	0.3
 PLIST_SUB+=	GEGL_MINOR="${GEGL_MINOR}" GEGL_VER=${GEGL_VER}
 
@@ -79,7 +82,7 @@ JASPER_CONFIGURE_WITH=	jasper
 LCMS2_LIB_DEPENDS=	liblcms2.so:graphics/lcms2
 LCMS2_CONFIGURE_OFF=	--without-lcms
 
-LUA_USES=		lua
+LUA_USES=		lua:5.2
 LUA_CONFIGURE_WITH=	lua
 
 OPENEXR_LIB_DEPENDS=	libIlmImf.so:graphics/OpenEXR \
@@ -132,8 +135,8 @@ PLIST_SUB+=	PANGOCAIRO="@comment "
 
 post-patch:
 	${REINPLACE_CMD} -e "s/lua >/lua-${LUA_VER} >/g" \
-		-e 's|\(lua\)\(5\.1\)|\1-\2|g ; s|x86_64|amd64|g' \
-		${WRKSRC}/configure
+		-e 's|\(lua\)\(5\.\d\)|\1-\2|g ; s|x86_64|amd64|g' \
+		${WRKSRC}/configure.ac
 
 post-patch-EXAMPLES-off:
 	${REINPLACE_CMD} -e 's|tools examples|tools|g' \
