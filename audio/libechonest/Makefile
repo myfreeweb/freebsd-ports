@@ -7,25 +7,32 @@ PORTREVISION=	1
 CATEGORIES=	audio
 
 MAINTAINER=	nivit@FreeBSD.org
-COMMENT=	Collection of C++/Qt classes designed to use the APIs of The Echo Nest
+COMMENT=	Collection of C++/Qt4 classes designed to use the APIs of The Echo Nest
 
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-LIB_DEPENDS=	libqjson.so:devel/qjson
-
+USE_GITHUB=	yes
 GH_ACCOUNT=	lfranchi
 
-OPTIONS_DEFINE=	TEST
+USES=		cmake pkgconfig
+USE_LDCONFIG=	yes
 
 PLIST_SUB=	PORTVERSION=${PORTVERSION}
 
-TEST_CMAKE_BOOL=ECHONEST_BUILD_TESTS
-TEST_USE=	qt4=qtestlib_build,xml_build
+.if defined(PKGNAMESUFFIX)
+CMAKE_ARGS+=	-DBUILD_WITH_QT4=OFF
+LIB_DEPENDS=	libqjson-qt5.so:devel/qjson-qt5
+USE_QT5=	core buildtools_build qmake_build network
+TEST_USE=	qt5=testlib_build
+.else
+LIB_DEPENDS=	libqjson.so:devel/qjson
+USE_QT4=	corelib qmake_build moc_build network xml rcc_build
+TEST_USE=	qt4=qtestlib_build
+.endif
 
-USES=		cmake pkgconfig
-USE_GITHUB=	yes
-USE_LDCONFIG=	yes
-USE_QT4=	corelib qmake_build moc_build network rcc_build
+OPTIONS_DEFINE=	TEST
+
+TEST_CMAKE_BOOL=ECHONEST_BUILD_TESTS
 
 .include <bsd.port.mk>
