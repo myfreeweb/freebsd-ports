@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	efl
-PORTVERSION=	1.19.2
+PORTVERSION=	1.20.7
 PORTREVISION=	2
 CATEGORIES=	devel enlightenment
 MASTER_SITES=	http://download.enlightenment.org/rel/libs/${PORTNAME}/
@@ -20,7 +20,8 @@ LIB_DEPENDS=	libgif.so:graphics/giflib \
 		libfreetype.so:print/freetype2 \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libdbus-1.so:devel/dbus \
-		libsndfile.so:audio/libsndfile
+		libsndfile.so:audio/libsndfile \
+		libunwind.so:devel/libunwind
 
 GNU_CONFIGURE=	yes
 USES=		autoreconf compiler:c++14-lang gettext-tools gmake iconv jpeg \
@@ -28,32 +29,40 @@ USES=		autoreconf compiler:c++14-lang gettext-tools gmake iconv jpeg \
 		shebangfix tar:xz
 SHEBANG_FILES=	src/scripts/eina/eina-bench-cmp
 USE_XORG=	x11 xcursor xcomposite xdamage xext xfixes xi xinerama xp \
-		xrandr xrender xtst xscrnsaver
+		xrandr xrender xtst xscrnsaver xcb
 USE_LDCONFIG=	yes
 
 CONFIGURE_ARGS=	--with-profile=release \
+		--enable-multisense \
+		--disable-systemd \
+		--disable-elput \
+		--disable-cserve \
 		--enable-i-really-know-what-i-am-doing-and-that-this-will-probably-break-things-and-i-will-fix-them-myself-and-send-patches-abb
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
+INSTALLS_ICONS=	yes
 
 PLIST_SUB=	BRANCHVERSION=${PORTVERSION:R} PORTVERSION=${PORTVERSION}
 
-OPTIONS_DEFINE=		AVAHI FRIBIDI HARFBUZZ NLS PHYSICS PULSEAUDIO SSL
+OPTIONS_DEFINE=		AVAHI FRIBIDI HARFBUZZ NLS PHYSICS PULSEAUDIO SSL WAYLAND WAYLAND_EGL
 OPTIONS_GROUP=		EMOTION INPUT LOADER
 OPTIONS_GROUP_EMOTION=	GSTREAMER LIBXINE V4L VLC
 OPTIONS_GROUP_INPUT=	IBUS SCIM
 OPTIONS_GROUP_LOADER=	OPENJPEG PDF PS RAW SVG WEBP XCF
 OPTIONS_RADIO=		ENGINE
-OPTIONS_RADIO_ENGINE=	OPENGL SDL
-OPTIONS_DEFAULT=	FRIBIDI HARFBUZZ PHYSICS SSL GSTREAMER PDF SVG OPENGL
+OPTIONS_RADIO_ENGINE=	OPENGL OPENGLES SDL
+OPTIONS_DEFAULT=	FRIBIDI HARFBUZZ PHYSICS PULSEAUDIO SSL WAYLAND WAYLAND_EGL GSTREAMER PDF SVG OPENGL
 OPTIONS_SUB=		yes
 
 HARFBUZZ_DESC=		OpenType text shaping engine
 PHYSICS_DESC=		Physics effects
+WAYLAND_DESC=		Wayland backend support
+WAYLAND_EGL_DESC=	Wayland-EGL backend support
 VLC_DESC=		Multimedia support by VLC
 IBUS_DESC=		Intelligent Input Bus
 SCIM_DESC=		Smart Common Input Method
 XCF_DESC=		Gimp image format support
+OPENGLES_DESC=		2D/3D rendering support via OpenGL ES
 
 AVAHI_LIB_DEPENDS=		libavahi-client.so:net/avahi-app
 AVAHI_CONFIGURE_ENABLE=		avahi
@@ -72,6 +81,19 @@ PHYSICS_CONFIGURE_ENABLE=	physics
 
 PULSEAUDIO_LIB_DEPENDS=		libpulse.so:audio/pulseaudio
 PULSEAUDIO_CONFIGURE_ENABLE=	pulseaudio
+
+WAYLAND_LIB_DEPENDS=		libepoll-shim.so:devel/libepoll-shim \
+				libxkbcommon.so:x11/libxkbcommon \
+				libwayland-client.so:graphics/wayland \
+				libwayland-cursor.so:graphics/wayland
+WAYLAND_CFLAGS=			-I${LOCALBASE}/include/libepoll-shim
+WAYLAND_LDFLAGS=		-lepoll-shim
+WAYLAND_CONFIGURE_ENABLE=	wayland
+
+WAYLAND_EGL_LIB_DEPENDS=	libwayland-egl.so:graphics/mesa-libs
+WAYLAND_EGL_CONFIGURE_ENABLE=	egl
+WAYLANG_EGL_USE=		GL=egl
+WAYLAND_EGL_IMPLIES=		WAYLAND OPENGLES
 
 GSTREAMER_USE=			GSTREAMER1=core
 GSTREAMER_CONFIGURE_ENABLE=	gstreamer1
@@ -112,6 +134,10 @@ XCF_CONFIGURE_ENABLE=		xcf
 
 OPENGL_USE=			GL=gl
 
+OPENGLES_USE=			GL=glesv2
+OPENGLES_CONFIGURE_ON=		--with-opengl=es
+
+
 SDL_USE=			SDL=sdl2
 SDL_CONFIGURE_ENABLE=		sdl
 
@@ -120,7 +146,7 @@ SDL_CONFIGURE_ENABLE=		sdl
 .if ${PORT_OPTIONS:MPULSEAUDIO}
 PLIST_SUB+=			AUDIO=""
 .else
-CONFIGURE_ARGS+=		--disable-audio
+CONFIGURE_ARGS+=		--disable-pulseaudio
 PLIST_SUB+=			AUDIO="@comment "
 .endif
 
@@ -136,7 +162,7 @@ CONFIGURE_ARGS+=		--with-glib=yes
 CONFIGURE_ARGS+=		--disable-ibus --with-glib=no
 .endif
 
-.if empty(PORT_OPTIONS:MOPENGL)
+.if empty(PORT_OPTIONS:MOPENGL) && empty(PORT_OPTIONS:MOPENGLES)
 CONFIGURE_ARGS+=		--with-opengl=none
 .endif
 
