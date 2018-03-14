@@ -45,6 +45,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 	- add `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
 	- fix terminal handling without 'keyboard' driver [220562](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220562)
 - `x11-toolkits/efl`: 1.20.7 and Wayland support [226220](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226220)
+- `graphics/glfw`: Wayland backend option [226605](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226605)
 
 ### Games
 

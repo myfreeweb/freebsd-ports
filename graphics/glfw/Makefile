@@ -13,7 +13,6 @@ COMMENT=	Portable framework for OpenGL development
 LICENSE=	ZLIB
 
 USES=		cmake localbase zip
-USE_XORG=	x11 xcursor xinerama xrandr xxf86vm
 USE_GL=		glu
 USE_LDCONFIG=	yes
 CMAKE_ARGS=	-DBUILD_SHARED_LIBS:BOOL=ON
@@ -42,7 +41,16 @@ EXAMPLES_FILES2=	clipboard cursor empty events gamma glfwinfo iconify \
 			joysticks monitors msaa reopen sharing tearing threads \
 			title windows
 
-OPTIONS_DEFINE=	DOCS EXAMPLES
+OPTIONS_DEFINE=	DOCS EXAMPLES WAYLAND
+
+WAYLAND_DESC=		Use Wayland backend instead of X11
+
+WAYLAND_CMAKE_BOOL=	GLFW_USE_WAYLAND
+WAYLAND_LIB_DEPENDS+=	libwayland-client.so:graphics/wayland \
+			libwayland-cursor.so:graphics/wayland \
+			libwayland-egl.so:graphics/mesa-libs \
+			libxkbcommon.so:x11/libxkbcommon
+WAYLAND_USE_OFF=	xorg=x11,xcursor,xinerama,xrandr,xxf86vm
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|lib$${LIB_SUFFIX}/pkgconfig|libdata/pkgconfig|' \
