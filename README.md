@@ -64,7 +64,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `audio/liblastfm-qt5`: qt5 for clementine [226530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226530)
 - `audio/libechonest-qt5`: qt5 for clementine [226529](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226529)
 - `devel/geany`: GTK3 [226523](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226523)
-- `devel/sdl20`: 2.0.8 [226409](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226409)
+- `devel/sdl20`: 2.0.8 [226409](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226409) (TEMPORARILY ROLLED BACK [#4109](https://bugzilla.libsdl.org/show_bug.cgi?id=4109))
 - `multimedia/mpv`: 0.28.2
 - `multimedia/ffmpeg`: git master (because mpv 0.28.x requires it)
 - `devel/boehm-gc*`: [225560](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225560)
