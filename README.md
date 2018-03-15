@@ -66,8 +66,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `devel/geany`: GTK3 [226523](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226523)
 - `devel/sdl20`: 2.0.8 [226409](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226409) (TEMPORARILY ROLLED BACK [#4109](https://bugzilla.libsdl.org/show_bug.cgi?id=4109))
 - `multimedia/mpv`: 0.28.2
-- `multimedia/ffmpeg`: git master (because mpv 0.28.x requires it)
-- `devel/boehm-gc*`: [225560](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225560)
+- `multimedia/ffmpeg`: git master (because mpv 0.28.x requires it) (WARNING breaks some things e.g. RPCS3)
 - `mail/geary`: 0.12.1
 - `www/woff2`: [226165](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226165)
 - `sysutils/u-boot-rpi3`: update to 2018.01, with netboot support [225355](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225355)
