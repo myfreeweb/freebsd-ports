@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome3
-PORTVERSION=	3.18.0
-PORTREVISION=	1
+PORTVERSION=	3.26
 CATEGORIES?=	x11 gnome
 
 MAINTAINER=	gnome@FreeBSD.org
@@ -34,7 +33,7 @@ RUN_DEPENDS?=	dconf-editor:devel/dconf-editor \
 		${LOCALBASE}/share/sounds/freedesktop/index.theme:audio/freedesktop-sound-theme \
 		ekiga:net-im/ekiga
 
-CONFLICTS?=	gnome3-lite-[0-9]*
+CONFLICTS?=	gnome-lite-[0-9]*
 
 USES=		metaport
 
@@ -46,9 +45,8 @@ DOCS_RUN_DEPENDS=	gnome-user-docs>=0:misc/gnome-user-docs
 
 .include <bsd.port.options.mk>
 
-.if ${.CURDIR:T}!="gnome3-lite"
-RUN_DEPENDS+=	empathy>=3.0.0:net-im/empathy \
-		epiphany>=3.0.0:www/epiphany \
+.if ${.CURDIR:T}!="gnome-lite"
+RUN_DEPENDS+=	epiphany>=3.0.0:www/epiphany \
 		gucharmap>=3.0.0:deskutils/gucharmap \
 		gnome-characters>=3.0.0:deskutils/gnome-characters \
 		gnome-calendar>=3.0:deskutils/gnome-calendar \
@@ -57,7 +55,6 @@ RUN_DEPENDS+=	empathy>=3.0.0:net-im/empathy \
 		gedit>=3.0.0:editors/gedit \
 		gedit-plugins>=3.0.0:editors/gedit-plugins \
 		gnome-terminal>=3.0.0:x11/gnome-terminal \
-		mousetweaks>=3.0.0:accessibility/mousetweaks \
 		brasero>=3.0.0:sysutils/brasero \
 		accerciser>=3.0.0:accessibility/accerciser \
 		gnome-calculator>=3.0.0:math/gnome-calculator \
@@ -74,6 +71,6 @@ RUN_DEPENDS+=	empathy>=3.0.0:net-im/empathy \
 		evolution>=3.0.0:mail/evolution \
 		cheese>=3.0.0:multimedia/cheese
 
-.endif # !gnome3-lite section
+.endif # !gnome-lite section
 
 .include <bsd.port.mk>

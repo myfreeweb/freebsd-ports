@@ -20,9 +20,12 @@
     SUBDIR += R-cran-bit
     SUBDIR += R-cran-bit64
     SUBDIR += R-cran-bitops
+    SUBDIR += R-cran-broom
     SUBDIR += R-cran-caTools
     SUBDIR += R-cran-caret
     SUBDIR += R-cran-chron
+    SUBDIR += R-cran-classInt
+    SUBDIR += R-cran-cli
     SUBDIR += R-cran-crayon
     SUBDIR += R-cran-data.table
     SUBDIR += R-cran-doParallel
@@ -42,6 +45,7 @@
     SUBDIR += R-cran-magrittr
     SUBDIR += R-cran-memoise
     SUBDIR += R-cran-microbenchmark
+    SUBDIR += R-cran-pillar
     SUBDIR += R-cran-pkgconfig
     SUBDIR += R-cran-pkgmaker
     SUBDIR += R-cran-plogr
@@ -813,7 +817,6 @@
     SUBDIR += go-godef
     SUBDIR += go-goregen
     SUBDIR += go-hashicorp-logutils
-    SUBDIR += go-json-rest
     SUBDIR += go-logrus
     SUBDIR += go-metrics
     SUBDIR += go-nuid
@@ -1347,7 +1350,6 @@
     SUBDIR += libdatrie
     SUBDIR += libdbusmenu
     SUBDIR += libdbusmenu-qt
-    SUBDIR += libdbusmenu-qt5
     SUBDIR += libddoc
     SUBDIR += libdevq
     SUBDIR += libdfui
@@ -1707,6 +1709,7 @@
     SUBDIR += mercator
     SUBDIR += mercurial
     SUBDIR += mercurialeclipse
+    SUBDIR += mergify
     SUBDIR += meson
     SUBDIR += mico
     SUBDIR += mime
@@ -4450,6 +4453,7 @@
     SUBDIR += py-flake8-quotes
     SUBDIR += py-flask-babel
     SUBDIR += py-flexmock
+    SUBDIR += py-fluent-logger
     SUBDIR += py-flufl.i18n
     SUBDIR += py-flufl.lock
     SUBDIR += py-foolscap
@@ -4794,6 +4798,7 @@
     SUBDIR += py-pytest-localserver
     SUBDIR += py-pytest-mock
     SUBDIR += py-pytest-runner
+    SUBDIR += py-pytest-sugar
     SUBDIR += py-pytest-timeout
     SUBDIR += py-pytest-tornado
     SUBDIR += py-pytest-xdist
@@ -5414,6 +5419,7 @@
     SUBDIR += rubygem-elif
     SUBDIR += rubygem-enumerize
     SUBDIR += rubygem-equalizer
+    SUBDIR += rubygem-equatable
     SUBDIR += rubygem-errand
     SUBDIR += rubygem-et-orbi
     SUBDIR += rubygem-eventmachine
@@ -5606,6 +5612,7 @@
     SUBDIR += rubygem-mutter
     SUBDIR += rubygem-native-package-installer
     SUBDIR += rubygem-naught
+    SUBDIR += rubygem-necromancer
     SUBDIR += rubygem-needle
     SUBDIR += rubygem-nenv
     SUBDIR += rubygem-nesty
@@ -5635,6 +5642,7 @@
     SUBDIR += rubygem-paperclip-rails5
     SUBDIR += rubygem-paperclip-rails50
     SUBDIR += rubygem-parser
+    SUBDIR += rubygem-pastel
     SUBDIR += rubygem-patch_finder
     SUBDIR += rubygem-pathutil
     SUBDIR += rubygem-peek
@@ -5736,6 +5744,7 @@
     SUBDIR += rubygem-rubocop
     SUBDIR += rubygem-ruby-atmos-pure
     SUBDIR += rubygem-ruby-bugzilla
+    SUBDIR += rubygem-ruby-enum
     SUBDIR += rubygem-ruby-filemagic
     SUBDIR += rubygem-ruby-fogbugz
     SUBDIR += rubygem-ruby-libvirt
@@ -5817,6 +5826,7 @@
     SUBDIR += rubygem-stream
     SUBDIR += rubygem-streetaddress
     SUBDIR += rubygem-stringex
+    SUBDIR += rubygem-strings
     SUBDIR += rubygem-strong_migrations
     SUBDIR += rubygem-structured_warnings
     SUBDIR += rubygem-stud
@@ -5850,6 +5860,24 @@
     SUBDIR += rubygem-treetop
     SUBDIR += rubygem-trollop
     SUBDIR += rubygem-trollop1
+    SUBDIR += rubygem-tty
+    SUBDIR += rubygem-tty-color
+    SUBDIR += rubygem-tty-command
+    SUBDIR += rubygem-tty-cursor
+    SUBDIR += rubygem-tty-editor
+    SUBDIR += rubygem-tty-file
+    SUBDIR += rubygem-tty-font
+    SUBDIR += rubygem-tty-markdown
+    SUBDIR += rubygem-tty-pager
+    SUBDIR += rubygem-tty-platform
+    SUBDIR += rubygem-tty-progressbar
+    SUBDIR += rubygem-tty-prompt
+    SUBDIR += rubygem-tty-reader
+    SUBDIR += rubygem-tty-screen
+    SUBDIR += rubygem-tty-spinner
+    SUBDIR += rubygem-tty-table
+    SUBDIR += rubygem-tty-tree
+    SUBDIR += rubygem-tty-which
     SUBDIR += rubygem-turn
     SUBDIR += rubygem-typed-array
     SUBDIR += rubygem-tzinfo
@@ -5874,6 +5902,7 @@
     SUBDIR += rubygem-webpacker-rails50
     SUBDIR += rubygem-will_paginate
     SUBDIR += rubygem-windows_error
+    SUBDIR += rubygem-wisper
     SUBDIR += rubygem-wmi-lite
     SUBDIR += rubygem-xdg
     SUBDIR += rubygem-xpath

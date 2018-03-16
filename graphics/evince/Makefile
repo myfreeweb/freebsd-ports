@@ -44,7 +44,8 @@ CONFIGURE_ARGS+=--disable-introspection \
 USE_GNOME+=	libxml2
 .else
 USE_GNOME+=	introspection:build
-CONFIGURE_ARGS+=	--enable-introspection
+CONFIGURE_ARGS+=	--enable-introspection \
+			--with-systemduserunitdir=no
 .endif
 
 GLIB_SCHEMAS=	org.gnome.Evince.gschema.xml
@@ -85,7 +86,6 @@ T1LIB_IMPLIES=		DVI
 XPS_DESC=	XPS support
 XPS_LIB_DEPENDS=	libgxps.so:graphics/libgxps
 XPS_CONFIGURE_ENABLE=	xps
-
 
 post-patch:
 	@${REINPLACE_CMD} -e '/^DOC_MODULE_VERSION/d' \

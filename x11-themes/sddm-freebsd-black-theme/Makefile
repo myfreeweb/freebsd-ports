@@ -4,7 +4,7 @@ PORTNAME=	sddm-freebsd-black-theme
 PORTVERSION=	1.0
 CATEGORIES=	x11-themes
 
-MAINTAINER=	lbdm@privacychain.ch
+MAINTAINER=	lebarondemerde@privacychain.ch
 COMMENT=	Simple SDDM theme inspired on the FBSD SLiM theme
 
 LICENSE=	CC-BY-SA-3.0

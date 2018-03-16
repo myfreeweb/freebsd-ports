@@ -389,9 +389,7 @@
     SUBDIR += mathopd
     SUBDIR += mattermost-server
     SUBDIR += mattermost-webapp
-    SUBDIR += mediawiki123
     SUBDIR += mediawiki127
-    SUBDIR += mediawiki128
     SUBDIR += mediawiki129
     SUBDIR += mediawiki130
     SUBDIR += mergelog
@@ -1866,6 +1864,7 @@
     SUBDIR += py-textile
     SUBDIR += py-tmdb3
     SUBDIR += py-tornado
+    SUBDIR += py-tornado4
     SUBDIR += py-trello
     SUBDIR += py-treq
     SUBDIR += py-turbogears2
@@ -1907,6 +1906,7 @@
     SUBDIR += qt5-webkit
     SUBDIR += qt5-websockets
     SUBDIR += qt5-websockets-qml
+    SUBDIR += quark
     SUBDIR += qupzilla-qt4
     SUBDIR += qupzilla-qt5
     SUBDIR += qutebrowser
