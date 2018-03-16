@@ -6,20 +6,23 @@ DISTVERSION=	0.2.8
 CATEGORIES=	editors
 
 MAINTAINER=	chuck@tuffli.net
-COMMENT=	Neovim client library and GUI, in Qt5
+COMMENT=	Neovim client library and QT5 GUI
 
 LICENSE=	ISCL
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	neovim>=0:editors/neovim
 LIB_DEPENDS=	libmsgpackc.so:devel/msgpack
 RUN_DEPENDS=	neovim>=0:editors/neovim
 
-USES=		cmake desktop-file-utils
-CMAKE_ARGS=	-DUSE_SYSTEM_MSGPACK:BOOL=ON
-
-USE_QT5=	buildtools_build core qmake_build testlib network gui widgets
-
+USES=		cmake:outsource desktop-file-utils
 USE_GITHUB=	yes
 GH_ACCOUNT=	equalsraf
+USE_QT5=	core gui testlib network widgets buildtools_build qmake_build
+
+CMAKE_ON=	USE_SYSTEM_MSGPACK
+CMAKE_OFF=	ENABLE_TESTS
+
+DATADIR=	${PREFIX}/share/nvim-qt
 
 .include <bsd.port.mk>

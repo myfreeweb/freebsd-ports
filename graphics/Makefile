@@ -149,6 +149,7 @@
     SUBDIR += drawpile
     SUBDIR += driconf
     SUBDIR += drm-next-kmod
+    SUBDIR += drm-stable-kmod
     SUBDIR += dspdfviewer
     SUBDIR += duhdraw
     SUBDIR += dynamechs
