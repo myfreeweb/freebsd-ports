@@ -12,7 +12,8 @@ COMMENT=	GNOME music playing application
 
 BUILD_DEPENDS=	itstool:textproc/itstool
 LIB_DEPENDS=	libgrilo-0.3.so:net/grilo \
-		libmediaart-2.0.so:multimedia/libmediaart
+		libmediaart-2.0.so:multimedia/libmediaart \
+		libtracker-sparql-2.0.so:sysutils/tracker
 
 PORTSCOUT=	limitw:1,even
 
