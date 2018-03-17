@@ -1,3 +1,3 @@
-TIMESTAMP = 1501945956
-SHA256 (picard-1.4.2.tar.gz) = f0adee3877bbd66c827a43b57dd2233037b99f6ebfdc1700b26cb9d400992234
-SIZE (picard-1.4.2.tar.gz) = 2116021
+TIMESTAMP = 1521323820
+SHA256 (metabrainz-picard-2.0.0.dev4-34-gba32f829_GH0.tar.gz) = a20e865881d50922812388eeb0bc0a06102842ddcd4ff0e78ba8841dc15758fe
+SIZE (metabrainz-picard-2.0.0.dev4-34-gba32f829_GH0.tar.gz) = 2663620

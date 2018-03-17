@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	picard-plugins
-PORTVERSION=	1.0.20180211
+PORTVERSION=	2.0.20180318
 CATEGORIES=	audio python
 
 MAINTAINER=	jhale@FreeBSD.org
@@ -10,11 +10,11 @@ COMMENT=	Plugins for Picard tagger
 LICENSE=	GPLv2+ GPLv3+ MIT WTFPL
 LICENSE_COMB=	multi
 
-USES=		python:2.7
+USES=		python:3.5+
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	metabrainz
-GH_TAGNAME=	7d0cf37
+GH_TAGNAME=	1182e33
 
 PORTSCOUT=	limit:^1\.
 
@@ -45,17 +45,23 @@ do-build:
 	${PYTHON_CMD} -m compileall ${WRKSRC}/plugins
 	${PYTHON_CMD} -O -m compileall ${WRKSRC}/plugins
 
+
 do-install:
 # Plugins that include a separate UI (those with an __init__.py) must
 # be installed into their own subdirectories under PLUGINSDIR. Plugins
 # written as a single .py file must be installed directly in PLUGINSDIR.
-	@${MKDIR} ${STAGEDIR}${PLUGINSDIR}
+	@${MKDIR} ${STAGEDIR}${PLUGINSDIR}/__pycache__
 	@(cd ${WRKSRC}/plugins; \
 	   for dir in *; \
 	   do \
 	      if [ -f $${dir}/__init__.py ]; \
 	         then ${COPYTREE_SHARE} $${dir} ${STAGEDIR}${PLUGINSDIR} "! -name *\.orig"; \
-	         else ${INSTALL_DATA} $${dir}/* ${STAGEDIR}${PLUGINSDIR}; \
+	         else \
+	             [ -d $${dir}/__pycache__ ] && \
+	                 ${INSTALL_DATA} $${dir}/__pycache__/* ${STAGEDIR}${PLUGINSDIR}/__pycache__/; \
+	             ${MV} $${dir}/__pycache__ ${STAGEDIR}${PLUGINSDIR}/_temp__pycache__; \
+	             ${INSTALL_DATA} $${dir}/* ${STAGEDIR}${PLUGINSDIR}; \
+	             ${MV} ${STAGEDIR}${PLUGINSDIR}/_temp__pycache__ $${dir}/__pycache__; \
 	      fi; \
 	   done;)
 
