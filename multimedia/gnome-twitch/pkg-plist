@@ -1,6 +1,7 @@
 bin/gnome-twitch
 include/gnome-twitch/gt-log.h
 include/gnome-twitch/gt-player-backend.h
+lib/girepository-1.0/GnomeTwitch-0.4.1.typelib
 %%GSTREAMER_CAIRO%%lib/gnome-twitch/player-backends/libplayer-backend-gstreamer-cairo.so
 %%GSTREAMER_CLUTTER%%lib/gnome-twitch/player-backends/libplayer-backend-gstreamer-clutter.so
 %%GSTREAMER_OPENGL%%lib/gnome-twitch/player-backends/libplayer-backend-gstreamer-opengl.so
@@ -9,7 +10,11 @@ include/gnome-twitch/gt-player-backend.h
 %%GSTREAMER_CLUTTER%%lib/gnome-twitch/player-backends/player-backend-gstreamer-clutter.plugin
 %%GSTREAMER_OPENGL%%lib/gnome-twitch/player-backends/player-backend-gstreamer-opengl.plugin
 %%MPV_OPENGL%%lib/gnome-twitch/player-backends/player-backend-mpv-opengl.plugin
-share/appdata/com.vinszent.GnomeTwitch.appdata.xml
+lib/libgnome-twitch.so
+lib/libgnome-twitch.so.0
+lib/libgnome-twitch.so.0.4.1
+libdata/pkgconfig/gnome-twitch.pc
+share/gir-1.0/GnomeTwitch-0.4.1.gir
 share/applications/com.vinszent.GnomeTwitch.desktop
 share/icons/hicolor/16x16/apps/com.vinszent.GnomeTwitch.png
 share/icons/hicolor/24x24/apps/com.vinszent.GnomeTwitch.png
@@ -30,3 +35,4 @@ share/locale/pt/LC_MESSAGES/gnome-twitch.mo
 share/locale/ru/LC_MESSAGES/gnome-twitch.mo
 share/locale/sr/LC_MESSAGES/gnome-twitch.mo
 share/locale/sv/LC_MESSAGES/gnome-twitch.mo
+share/metainfo/com.vinszent.GnomeTwitch.appdata.xml
