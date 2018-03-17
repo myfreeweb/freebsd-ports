@@ -58,6 +58,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `net-im/fractal`: GTK Matrix client [226683](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226683)
 - `audio/lollypop`: update to 0.9.401
 - `audio/sonata`: update to git master (GTK3)
 - `www/epiphany`: 3.18.x
