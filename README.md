@@ -58,6 +58,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `security/gonepass`: 1Password vault reader [226706](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226706)
 - `multimedia/gaupol`: 1.3.1 [226704](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226704)
 - `deskutils/mat`: Metadata Anonymization Toolkit (GTK3) [226702](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226702)
 - `databases/sequeler`: GTK3 SQL client
