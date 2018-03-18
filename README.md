@@ -58,6 +58,9 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `databases/sequeler`: GTK3 SQL client
+- `x11-toolkits/granite`: v0.5 for sequeler [226696](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226696)
+- `databases/libgda5`: [unicode fix](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=870741) for build w/ new glib [226693](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226693)
 - `audio/picard`: update to git master (Qt5)
 - `net-im/fractal`: GTK Matrix client [226683](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226683)
 - `audio/lollypop`: update to 0.9.401
