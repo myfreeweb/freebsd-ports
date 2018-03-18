@@ -3,16 +3,16 @@
 PORTNAME=	fractal
 DISTVERSION=	0.1.19
 CATEGORIES=	net-im
-MASTER_SITES+=	https://gitlab.gnome.org/danigm/fractal/repository/archive${EXTRACT_SUFX}?ref=${DISTVERSION}&num;/
-DISTNAME=	${PORTNAME}-${DISTVERSION}-${COMMIT}
-DISTFILES+=	${PORTNAME}-${DISTVERSION}-${COMMIT}${EXTRACT_SUFX}
-
-COMMIT=		1fe7b79b1c29da1c24dc913b4d7983eadb820b2d
 
 MAINTAINER=	greg@unrelenting.technology
 COMMENT=	GTK+ Matrix IM client
 
 LICENSE=	GPLv3+
+
+USE_GITLAB=	yes
+GL_SITE=	https://gitlab.gnome.org
+GL_ACCOUNT=	danigm
+GL_COMMIT=		1fe7b79b1c29da1c24dc913b4d7983eadb820b2d
 
 LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		libgmp.so:math/gmp

@@ -1,6 +1,4 @@
-TIMESTAMP = 1521319405
-SHA256 (fractal-0.1.19-1fe7b79b1c29da1c24dc913b4d7983eadb820b2d.tar.gz) = f700734175d93c9c202ff21c340544057be731bef6dfc56a3eb19777c89891d8
-SIZE (fractal-0.1.19-1fe7b79b1c29da1c24dc913b4d7983eadb820b2d.tar.gz) = 412795
+TIMESTAMP = 1521396704
 SHA256 (rust/crates/adler32-1.0.2.tar.gz) = 6cbd0b9af8587c72beadc9f72d35b9fbb070982c9e6203e46e93f10df25f8f45
 SIZE (rust/crates/adler32-1.0.2.tar.gz) = 5348
 SHA256 (rust/crates/aho-corasick-0.6.4.tar.gz) = d6531d44de723825aa81398a6415283229725a00fa30713812ab9323faa82fc4
@@ -349,3 +347,5 @@ SHA256 (rust/crates/winapi-x86_64-pc-windows-gnu-0.4.0.tar.gz) = 712e227841d057c
 SIZE (rust/crates/winapi-x86_64-pc-windows-gnu-0.4.0.tar.gz) = 2947998
 SHA256 (rust/crates/ws2_32-sys-0.2.1.tar.gz) = d59cefebd0c892fa2dd6de581e937301d8552cb44489cdff035c6187cb63fa5e
 SIZE (rust/crates/ws2_32-sys-0.2.1.tar.gz) = 4697
+SHA256 (danigm-fractal-1fe7b79b1c29da1c24dc913b4d7983eadb820b2d_GL0.tar.gz) = 77b8ce8ea70425b6732c3c7da47f6e3f10952ed4eec2e1c687f7b63706a549e6
+SIZE (danigm-fractal-1fe7b79b1c29da1c24dc913b4d7983eadb820b2d_GL0.tar.gz) = 412111
