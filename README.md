@@ -88,7 +88,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `graphics/mypaint` and `graphics/libmypaint`: git master version, works on Wayland natively
 - `graphics/gimp-app` (& `graphics/gegl3`, `x11/babl`): git gtk3-port-meson version, works on Wayland natively (opening pngs seems to crash the plugin but selecting Proceed in console works and the file gets loaded o_0) (gimp plugin ports are probably screwed!)
 - `graphics/inkscape`: git master version with GTK3, works on Wayland natively
-- `editors/libreoffice`: **6.0.1** with GTK3 by default, works on Wayland natively [224288](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224288) || further work [by lwhsu@ over there](https://github.com/lwhsu/freebsd-ports-libreoffice)
+- `editors/libreoffice`: GTK3 by default, works on Wayland natively
 - `www/firefox`: (no extra updates here currently) See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
