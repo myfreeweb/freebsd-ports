@@ -9287,7 +9287,6 @@ games/libfov||2017-04-30|Has expired: Unfetchable for more than six months (goog
 games/dcross||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 games/lostfeathers||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 games/hexglass||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
-textproc/ibus-table||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 textproc/chm2pdf||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 textproc/dtdinst||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 textproc/py-xmltv||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
@@ -10372,3 +10371,7 @@ www/mediawiki123|www/mediawiki127|2018-03-14|Has expired: Upstream no longer mai
 www/mediawiki128|www/mediawiki130|2018-03-14|Has expired: Upstream no longer maintained
 sysutils/py-zfs||2018-03-16|Not needed since ZFS 28
 net/freebsd-tftp||2018-03-16|Imported into base in FreeBSD 8.0
+multimedia/plexpy|multimedia/tautulli|2018-03-17|Project renamed due to copyright infringement
+net-im/ring-daemon||2018-03-18|Ring can't build because it depends on custom bundled versions of other packages
+net-im/ring-libclient||2018-03-18|Ring can't build because it depends on custom bundled versions of other packages
+net-im/ring-gnome||2018-03-18|Ring can't build because it depends on custom bundled versions of other packages

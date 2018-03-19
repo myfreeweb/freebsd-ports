@@ -603,6 +603,7 @@
     SUBDIR += pgreplay
     SUBDIR += pgroonga
     SUBDIR += pgrouting
+    SUBDIR += pgsanity
     SUBDIR += pgsphere
     SUBDIR += pgtcl
     SUBDIR += pgtop
@@ -821,6 +822,7 @@
     SUBDIR += py-psycogreen
     SUBDIR += py-psycopg2
     SUBDIR += py-psycopg2cffi
+    SUBDIR += py-pum
     SUBDIR += py-pyPgSQL
     SUBDIR += py-pyhs
     SUBDIR += py-pylibmc

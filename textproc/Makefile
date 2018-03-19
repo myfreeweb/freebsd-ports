@@ -336,6 +336,7 @@
     SUBDIR += ibus-kmfl
     SUBDIR += ibus-m17n
     SUBDIR += ibus-qt
+    SUBDIR += ibus-table
     SUBDIR += ibus-typing-booster
     SUBDIR += icdiff
     SUBDIR += id-aspell
@@ -1340,6 +1341,8 @@
     SUBDIR += py-pygtail
     SUBDIR += py-pyhamcrest
     SUBDIR += py-pyhwp
+    SUBDIR += py-pylons-sphinx-themes
+    SUBDIR += py-pypandoc
     SUBDIR += py-pyphen
     SUBDIR += py-pyscss
     SUBDIR += py-pysrt

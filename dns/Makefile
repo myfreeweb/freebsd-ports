@@ -180,6 +180,7 @@
     SUBDIR += py-dnspython
     SUBDIR += py-easyzone
     SUBDIR += py-idna
+    SUBDIR += py-idna_ssl
     SUBDIR += py-idnkit2
     SUBDIR += py-ldns
     SUBDIR += py-namebench

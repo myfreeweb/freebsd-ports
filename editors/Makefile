@@ -120,6 +120,7 @@
     SUBDIR += libreoffice-gug
     SUBDIR += libreoffice-hi
     SUBDIR += libreoffice-hr
+    SUBDIR += libreoffice-hsb
     SUBDIR += libreoffice-i18n
     SUBDIR += libreoffice-id
     SUBDIR += libreoffice-is
