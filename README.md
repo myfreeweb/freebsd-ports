@@ -58,6 +58,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `math/nasc`: dual pane text calculator similar to Soulver
 - `net-im/gajim`: 1.0 (GTK3) [226794](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226794)
 - `x11/py-xdot`: 0.9 [226792](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226792)
 - `graphics/akira`: VERY WIP (nothing works yet) UI design tool
