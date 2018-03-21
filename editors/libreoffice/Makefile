@@ -132,7 +132,7 @@ CUPS_LIB_DEPENDS=	libcups.so:print/cups
 DOCS_CONFIGURE_WITH=	help
 
 GNOME_CONFIGURE_ENABLE=	dbus dconf
-GNOME_IMPLIES=	GTK2
+GNOME_IMPLIES=	GTK3
 GNOME_LIB_DEPENDS=	libdbus-glib-1.so:devel/dbus-glib
 GNOME_USE=	GNOME=dconf
 
