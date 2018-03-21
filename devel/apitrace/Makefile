@@ -1,8 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	apitrace
-DISTVERSION=	7.1-455
-DISTVERSIONSUFFIX=	-g7c76b90
+DISTVERSION=	7.1-493
+DISTVERSIONSUFFIX=	-g5a57da2e
 CATEGORIES=	devel
 
 MAINTAINER=	greg@unrelenting.technology
@@ -16,6 +16,7 @@ LIB_DEPENDS=	libpng.so:graphics/png
 USES=		cmake:outsource compiler:c++11-lang pkgconfig python:2.7 shebangfix
 USE_GITHUB=	yes
 USE_XORG=	x11
+CMAKE_OFF=	ENABLE_TESTS
 
 SHEBANG_FILES=	scripts/*.py
 
