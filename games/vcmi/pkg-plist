@@ -7,6 +7,7 @@ lib/vcmi/AI/libEmptyAI.so
 lib/vcmi/AI/libStupidAI.so
 lib/vcmi/AI/libVCAI.so
 lib/vcmi/libvcmi.so
+libdata/ldconfig/vcmi
 share/applications/vcmiclient.desktop
 share/applications/vcmilauncher.desktop
 share/icons/hicolor/256x256/apps/vcmiclient.png
@@ -29,6 +30,10 @@ share/icons/hicolor/64x64/apps/vcmiclient.png
 %%DATADIR%%/Mods/vcmi/Data/stackWindow/spell-effects.png
 %%DATADIR%%/Mods/vcmi/Sprites/PortraitsLarge.json
 %%DATADIR%%/Mods/vcmi/Sprites/PortraitsSmall.json
+%%DATADIR%%/Mods/vcmi/Sprites/QuickRecruitmentWindow/CreaturePurchaseCard.png
+%%DATADIR%%/Mods/vcmi/Sprites/QuickRecruitmentWindow/QuickRecruitmentAllButton.def
+%%DATADIR%%/Mods/vcmi/Sprites/QuickRecruitmentWindow/QuickRecruitmentNoneButton.def
+%%DATADIR%%/Mods/vcmi/Sprites/QuickRecruitmentWindow/costBackground.png
 %%DATADIR%%/Mods/vcmi/Sprites/ScSelC.json
 %%DATADIR%%/Mods/vcmi/Sprites/buttons/commander.json
 %%DATADIR%%/Mods/vcmi/Sprites/buttons/commanderNormal.png
@@ -57,9 +62,16 @@ share/icons/hicolor/64x64/apps/vcmiclient.png
 %%DATADIR%%/Mods/vcmi/Sprites/stackWindow/upgrade-normal.png
 %%DATADIR%%/Mods/vcmi/Sprites/stackWindow/upgrade-pressed.png
 %%DATADIR%%/Mods/vcmi/Sprites/stackWindow/upgradeButton.json
+%%DATADIR%%/Mods/vcmi/Sprites/vcmi/battleQueue/defendBig.png
+%%DATADIR%%/Mods/vcmi/Sprites/vcmi/battleQueue/defendSmall.png
+%%DATADIR%%/Mods/vcmi/Sprites/vcmi/battleQueue/statesBig.json
+%%DATADIR%%/Mods/vcmi/Sprites/vcmi/battleQueue/statesSmall.json
+%%DATADIR%%/Mods/vcmi/Sprites/vcmi/battleQueue/waitBig.png
+%%DATADIR%%/Mods/vcmi/Sprites/vcmi/battleQueue/waitSmall.png
 %%DATADIR%%/Mods/vcmi/mod.json
 %%DATADIR%%/config/ERMU_to_picture.json
 %%DATADIR%%/config/NEUTRAL.PAL
+%%DATADIR%%/config/ambientSounds.json
 %%DATADIR%%/config/artifacts.json
 %%DATADIR%%/config/battleStartpos.json
 %%DATADIR%%/config/battles_graphics.json
