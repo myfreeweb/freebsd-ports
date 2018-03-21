@@ -35,4 +35,10 @@ NLS_USES_OFF=	gettext-tools
 # PYDISTUTILS_INSTALLNOSINGLE is deprecated so...
 PYDISTUTILS_INSTALLARGS:=	${PYDISTUTILS_INSTALLARGS:N--single-version-externally-managed}
 
+post-patch:
+	@${REINPLACE_CMD} \
+		-e 's|%%STAGEDIR%%|"${STAGEDIR}"|' \
+		-e 's|%%PREFIX%%|"${PREFIX}"|' \
+		${WRKSRC}/setup.py
+
 .include <bsd.port.post.mk>
