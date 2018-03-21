@@ -9,16 +9,14 @@ COMMENT=	GTK+ Matrix IM client
 
 LICENSE=	GPLv3+
 
-USE_GITLAB=	yes
-GL_SITE=	https://gitlab.gnome.org
-GL_ACCOUNT=	danigm
-GL_COMMIT=		1fe7b79b1c29da1c24dc913b4d7983eadb820b2d
-
 LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		libgmp.so:math/gmp
 
 USES=		ssl cargo meson shebangfix
-
+USE_GITLAB=	yes
+GL_SITE=	https://gitlab.gnome.org
+GL_ACCOUNT=	danigm
+GL_COMMIT=	1fe7b79b1c29da1c24dc913b4d7983eadb820b2d
 USE_GNOME=	gtk30 cairo
 INSTALLS_ICONS=	yes
 SHEBANG_FILES=	${WRKSRC}/scripts/*.sh
