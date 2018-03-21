@@ -71,7 +71,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `databases/libgda5`: [unicode fix](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=870741) for build w/ new glib [226693](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226693)
 - `audio/picard`: update to git master (Qt5)
 - `net-im/fractal`: GTK Matrix client [226683](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226683)
-- `audio/lollypop`: update to 0.9.401
+- `audio/lollypop`: update to 0.9.402 [226836](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226836)
 - `audio/sonata`: update to git master (GTK3)
 - `www/epiphany`: 3.18.x
 - `audio/clementine-player`: git qt5 branch
