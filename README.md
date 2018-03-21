@@ -67,7 +67,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `multimedia/gaupol`: 1.3.1 [226704](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226704)
 - `deskutils/mat`: Metadata Anonymization Toolkit (GTK3) [226702](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226702)
 - `databases/sequeler`: GTK3 SQL client
-- `x11-toolkits/granite`: v0.5 for sequeler [226696](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226696)
 - `databases/libgda5`: [unicode fix](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=870741) for build w/ new glib [226693](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226693)
 - `audio/picard`: update to git master (Qt5)
 - `net-im/fractal`: GTK Matrix client [226683](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226683)
@@ -87,7 +86,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `lang/luajit`: update to 2.1.0-beta3 (works on arm64) [225342](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225342)
 - `multimedia/gnome-twitch`: Twitch livestream player [224980](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224980)
 - `archivers/maxcso`: ISO to CSO compressor for PSP/PS2 emulators [224638](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224638)
-- `editors/neovim-qt`: nvim GUI [224427](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224427)
 - `devel/gnome-builder`: 3.27 (XXX: crashes)
 - `graphics/mypaint` and `graphics/libmypaint`: git master version, works on Wayland natively
 - `graphics/gimp-app` (& `graphics/gegl3`, `x11/babl`): git gtk3-port-meson version, works on Wayland natively (opening pngs seems to crash the plugin but selecting Proceed in console works and the file gets loaded o_0) (gimp plugin ports are probably screwed!)
