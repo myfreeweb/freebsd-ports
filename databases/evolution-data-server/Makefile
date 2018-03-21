@@ -50,7 +50,7 @@ GLIB_SCHEMAS=	org.gnome.Evolution.DefaultSources.gschema.xml \
 		org.gnome.evolution-data-server.gschema.xml \
 		org.gnome.evolution.shell.network-config.gschema.xml
 
-PLIST_SUB=	EVO_VERSION="1.2"
+PLIST_SUB=	VERSION="3.26" EVO_VERSION="1.2"
 
 OPTIONS_SUB=	yes
 OPTIONS_DEFINE=	WEATHER KERBEROS LDAP

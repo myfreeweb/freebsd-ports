@@ -20,6 +20,8 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	elementary
 
 USES=	cmake gettext pkgconfig tar:xz
+USE_GITHUB=	yes
+GH_ACCOUNT=	elementary
 USE_GNOME=	glib20 gtk30 cairo introspection:build
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes
