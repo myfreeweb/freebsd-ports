@@ -58,6 +58,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `cad/solvespace`: git master (GTK3 HiDPI)
 - `x11-toolkits/gtk30`: 3.22.29
 - `lang/vala`: 0.40
 - `devel/libgee`: 0.20.1
