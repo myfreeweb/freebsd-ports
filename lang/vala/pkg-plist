@@ -6,8 +6,6 @@ bin/valac
 bin/valac-%%VERSION%%
 bin/valadoc
 bin/valadoc-%%VERSION%%
-bin/vapicheck
-bin/vapicheck-%%VERSION%%
 bin/vapigen
 bin/vapigen-%%VERSION%%
 include/vala-%%VERSION%%/vala.h
@@ -118,8 +116,6 @@ share/devhelp/books/vala-%%VERSION%%/vala-%%VERSION%%.devhelp2
 %%DATADIR%%-%%VERSION%%/vapi/gdu.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gedit-2.20.deps
 %%DATADIR%%-%%VERSION%%/vapi/gedit-2.20.vapi
-%%DATADIR%%-%%VERSION%%/vapi/gedit.deps
-%%DATADIR%%-%%VERSION%%/vapi/gedit.vapi
 %%DATADIR%%-%%VERSION%%/vapi/geocode-glib-1.0.deps
 %%DATADIR%%-%%VERSION%%/vapi/geocode-glib-1.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gio-2.0.vapi
@@ -133,7 +129,6 @@ share/devhelp/books/vala-%%VERSION%%/vala-%%VERSION%%.devhelp2
 %%DATADIR%%-%%VERSION%%/vapi/gnet-2.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gnome-desktop-2.0.deps
 %%DATADIR%%-%%VERSION%%/vapi/gnome-desktop-2.0.vapi
-%%DATADIR%%-%%VERSION%%/vapi/gnome-keyring-1.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gnome-vfs-2.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gnutls.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gobject-2.0.vapi
@@ -234,8 +229,6 @@ share/devhelp/books/vala-%%VERSION%%/vala-%%VERSION%%.devhelp2
 %%DATADIR%%-%%VERSION%%/vapi/gtkmozembed.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gtksourceview-2.0.deps
 %%DATADIR%%-%%VERSION%%/vapi/gtksourceview-2.0.vapi
-%%DATADIR%%-%%VERSION%%/vapi/gtksourceview-3.0.deps
-%%DATADIR%%-%%VERSION%%/vapi/gtksourceview-3.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gudev-1.0.deps
 %%DATADIR%%-%%VERSION%%/vapi/gudev-1.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/hal.deps
@@ -259,11 +252,10 @@ share/devhelp/books/vala-%%VERSION%%/vala-%%VERSION%%.devhelp2
 %%DATADIR%%-%%VERSION%%/vapi/libgda-4.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/libgda-report-4.0.deps
 %%DATADIR%%-%%VERSION%%/vapi/libgda-report-4.0.vapi
-%%DATADIR%%-%%VERSION%%/vapi/libgdata.deps
-%%DATADIR%%-%%VERSION%%/vapi/libgdata.vapi
 %%DATADIR%%-%%VERSION%%/vapi/libglade-2.0.deps
 %%DATADIR%%-%%VERSION%%/vapi/libglade-2.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/libgnome-2.0.vapi
+%%DATADIR%%-%%VERSION%%/vapi/libgnome-menu-3.0.deps
 %%DATADIR%%-%%VERSION%%/vapi/libgnome-menu-3.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/libgnome-menu.vapi
 %%DATADIR%%-%%VERSION%%/vapi/libgnomeui-2.0.deps
@@ -290,8 +282,6 @@ share/devhelp/books/vala-%%VERSION%%/vala-%%VERSION%%.devhelp2
 %%DATADIR%%-%%VERSION%%/vapi/libpeas-gtk-1.0.deps
 %%DATADIR%%-%%VERSION%%/vapi/libpeas-gtk-1.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/libpq.vapi
-%%DATADIR%%-%%VERSION%%/vapi/librsvg-2.0.deps
-%%DATADIR%%-%%VERSION%%/vapi/librsvg-2.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/libsexy.deps
 %%DATADIR%%-%%VERSION%%/vapi/libsexy.vapi
 %%DATADIR%%-%%VERSION%%/vapi/libsoup-2.2.vapi
