@@ -977,7 +977,6 @@
     SUBDIR += thegrind
     SUBDIR += thudboard
     SUBDIR += tileworld
-    SUBDIR += timeseal
     SUBDIR += tinymux
     SUBDIR += tkmoo
     SUBDIR += tomatoes

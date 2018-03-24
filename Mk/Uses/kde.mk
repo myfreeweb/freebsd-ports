@@ -78,8 +78,9 @@ KDE_PLASMA_BRANCH?=		stable
 KDE_FRAMEWORKS_VERSION?=	5.44.0
 KDE_FRAMEWORKS_BRANCH?= 	stable
 
-KDE_APPLICATIONS_VERSION?=	17.08.2
-KDE_APPLICATIONS_SHLIB_VER?=	5.6.2
+# Current KDE applications.
+KDE_APPLICATIONS_VERSION?=	17.12.3
+KDE_APPLICATIONS_SHLIB_VER?=	5.97.0
 KDE_APPLICATIONS_BRANCH?=	stable
 # Upstream moves old software to Attic/. Specify the newest applications release there.
 # Only the major version is used for the comparison.
@@ -127,9 +128,17 @@ CPE_VENDOR?=		kde
 PORTVERSION?=		${KDE4_VERSION}
 MASTER_SITES?=		KDE/${KDE4_BRANCH}/${KDE4_VERSION}/src
 DIST_SUBDIR?=		KDE/${KDE4_VERSION}
+PKGNAMESUFFIX=		-kde4
+CONFLICTS_INSTALL=	${PORTNAME:C/-kde4//}-4.*
 .    elif  ${_KDE_CATEGORY:Mkde-applications}
 PORTVERSION?=		${KDE_APPLICATIONS_VERSION}
-# Decide where the file lies on KDE's servers: Everything < 16.00 lies in Attic
+.      if ${_KDE_VERSION:M4}
+CONFLICTS_INSTALL?=	${PORTNAME}-[0-9]*
+PKGNAMESUFFIX?=		-kde4
+.      else
+CONFLICTS_INSTALL?=	${PORTNAME}-kde4-[0-9]*
+.      endif
+# Decide where the file lies on KDE's servers: Check whether the file lies in Attic
 .      if ${KDE_APPLICATIONS_VERSION:R:R} <= ${_KDE_APPLICATIONS_ATTIC_VERSION:R:R}
 MASTER_SITES?=		KDE/Attic/applications/${KDE_APPLICATIONS_VERSION}/src
 .      else

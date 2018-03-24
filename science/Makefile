@@ -171,6 +171,7 @@
     SUBDIR += py-pyaixi
     SUBDIR += py-pydicom
     SUBDIR += py-pymol
+    SUBDIR += py-pyosf
     SUBDIR += py-pysal
     SUBDIR += py-pyteomics
     SUBDIR += py-pyteomics.biolccc
@@ -189,6 +190,7 @@
     SUBDIR += pynn
     SUBDIR += qcl
     SUBDIR += qtresistors
+    SUBDIR += rdkit
     SUBDIR += rubygem-ai4r
     SUBDIR += rubygem-cdo
     SUBDIR += rubygem-ruby-dcl
