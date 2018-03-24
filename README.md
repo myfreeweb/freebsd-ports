@@ -58,6 +58,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `devel/libgee`: 0.20.1
 - `math/nasc`: dual pane text calculator similar to Soulver
 - `net-im/gajim`: 1.0 (GTK3) [226794](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226794)
 - `x11/py-xdot`: 0.9 [226792](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226792)
