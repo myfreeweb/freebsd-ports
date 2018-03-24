@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	efl
-PORTVERSION=	1.20.7
-PORTREVISION=	2
+DISTVERSION=	1.20.7
 CATEGORIES=	devel enlightenment
 MASTER_SITES=	http://download.enlightenment.org/rel/libs/${PORTNAME}/
 DIST_SUBDIR=	enlightenment
@@ -28,8 +27,8 @@ USES=		autoreconf compiler:c++14-lang gettext-tools gmake iconv jpeg \
 		libtool pathfix pkgconfig python:2.7,run shared-mime-info \
 		shebangfix tar:xz
 SHEBANG_FILES=	src/scripts/eina/eina-bench-cmp
-USE_XORG=	x11 xcursor xcomposite xdamage xext xfixes xi xinerama xp \
-		xrandr xrender xtst xscrnsaver xcb
+USE_XORG=	x11 xcb xcursor xcomposite xdamage xext xfixes xi xinerama xp \
+		xrandr xrender xtst xscrnsaver
 USE_LDCONFIG=	yes
 
 CONFIGURE_ARGS=	--with-profile=release \
@@ -51,7 +50,7 @@ OPTIONS_GROUP_INPUT=	IBUS SCIM
 OPTIONS_GROUP_LOADER=	OPENJPEG PDF PS RAW SVG WEBP XCF
 OPTIONS_RADIO=		ENGINE
 OPTIONS_RADIO_ENGINE=	OPENGL OPENGLES SDL
-OPTIONS_DEFAULT=	FRIBIDI HARFBUZZ PHYSICS PULSEAUDIO SSL WAYLAND WAYLAND_EGL GSTREAMER PDF SVG OPENGL
+OPTIONS_DEFAULT=	FRIBIDI HARFBUZZ PHYSICS PULSEAUDIO SSL GSTREAMER PDF SVG OPENGL
 OPTIONS_SUB=		yes
 
 HARFBUZZ_DESC=		OpenType text shaping engine
@@ -135,8 +134,7 @@ XCF_CONFIGURE_ENABLE=		xcf
 OPENGL_USE=			GL=gl
 
 OPENGLES_USE=			GL=glesv2
-OPENGLES_CONFIGURE_ON=		--with-opengl=es
-
+OPENGLES_CONFIGURE_ON=		--with-opengl=es --enable-egl
 
 SDL_USE=			SDL=sdl2
 SDL_CONFIGURE_ENABLE=		sdl
@@ -176,9 +174,13 @@ PLIST_SUB+=			ELUA=""
 .endif
 
 post-install:
-	${RM} -r ${STAGEDIR}${PREFIX}/share/gdb
-	for i in `${FIND} ${STAGEDIR}${PREFIX}/bin ${STAGEDIR}${PREFIX}/lib -type f`; do \
+	@${RM} -r ${STAGEDIR}${PREFIX}/share/gdb
+	@for i in `${FIND} ${STAGEDIR}${PREFIX}/bin ${STAGEDIR}${PREFIX}/lib -type f`; do \
 	    if ${FILE} $$i | ${GREP} -q "not stripped"; then ${STRIP_CMD} $$i; fi; \
 	done
+	# workaround for https://phab.enlightenment.org/T6783 : it leaves an empty directory
+	@if [ -d ${STAGEDIR}${PREFIX}/lib/evas/utils -a -z "$$(ls -A ${STAGEDIR}${PREFIX}/lib/evas/utils)" ]; then \
+	    ${RMDIR} ${STAGEDIR}${PREFIX}/lib/evas/utils; \
+	fi
 
 .include <bsd.port.mk>

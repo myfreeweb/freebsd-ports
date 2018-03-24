@@ -1896,8 +1896,8 @@ lib/elementary/modules/web/none/v-%%BRANCHVERSION%%/module.so
 lib/ethumb/modules/emotion/v-%%BRANCHVERSION%%/module.so
 lib/ethumb/modules/emotion/v-%%BRANCHVERSION%%/template.edj
 lib/ethumb_client/utils/v-%%BRANCHVERSION%%/ethumbd_slave
-lib/evas/modules/engines/gl_generic/v-%%BRANCHVERSION%%/module.so
-lib/evas/modules/engines/gl_x11/v-%%BRANCHVERSION%%/module.so
+%%OPENGL%%lib/evas/modules/engines/gl_generic/v-%%BRANCHVERSION%%/module.so
+%%OPENGL%%lib/evas/modules/engines/gl_x11/v-%%BRANCHVERSION%%/module.so
 lib/evas/modules/engines/software_x11/v-%%BRANCHVERSION%%/module.so
 %%WAYLAND_EGL%%lib/evas/modules/engines/wayland_egl/v-%%BRANCHVERSION%%/module.so
 %%WAYLAND%%lib/evas/modules/engines/wayland_shm/v-%%BRANCHVERSION%%/module.so
