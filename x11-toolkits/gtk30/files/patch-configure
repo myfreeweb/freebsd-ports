@@ -1,6 +1,3 @@
-Second part of this patch from:
-https://git.gnome.org/browse/gtk%2B/commit/?id=31f7b55
-
 --- configure.orig	2016-10-24 05:10:09.000000000 +0200
 +++ configure	2016-11-15 07:54:17.741400000 +0100
 @@ -27913,9 +27913,7 @@ fi
@@ -13,21 +10,3 @@ https://git.gnome.org/browse/gtk%2B/commit/?id=31f7b55
  if test "$have_cloudprint" = "yes"; then
    GTK_PRINT_BACKENDS="$GTK_PRINT_BACKENDS,cloudprint"
  fi
-@@ -29142,7 +29136,7 @@
- int
- main ()
- {
--int main (void) { return 0; }
-+return 0
-   ;
-   return 0;
- }
-@@ -29246,7 +29240,7 @@
- int
- main ()
- {
--int main (void) { return 0; }
-+return 0
-   ;
-   return 0;
- }
