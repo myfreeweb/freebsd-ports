@@ -22,8 +22,8 @@ LIB_DEPENDS=	libmpfr.so:math/mpfr \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome libtool localbase pkgconfig tar:xz
-USE_GNOME=	cairo gdkpixbuf2 gtk30 gtksourceview3
+USES=		compiler:c11 gettext gmake gnome libtool localbase pkgconfig tar:xz
+USE_GNOME=	cairo gdkpixbuf2 gtk30 gtksourceview3 intltool
 GNU_CONFIGURE=	yes
 INSTALL_TARGET=	install-strip
 

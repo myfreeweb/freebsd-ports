@@ -22,7 +22,8 @@ PORTSCOUT=	limitw:1,even
 
 BUILD_DEPENDS=	vala:lang/vala
 
-USES+=		gettext gmake gnome libtool localbase pathfix pkgconfig
+USES+=		compiler:c11 gettext gmake gnome libtool localbase pathfix pkgconfig
+USE_CSTD=	c11
 USE_GNOME=	cairo gdkpixbuf2 gnomeprefix gtk30 intlhack \
 		introspection:build libxml2 referencehack
 GNU_CONFIGURE=	yes

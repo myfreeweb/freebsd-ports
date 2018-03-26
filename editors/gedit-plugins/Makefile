@@ -23,8 +23,9 @@ RUN_DEPENDS=	gedit>=0:editors/gedit
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome libtool localbase pathfix pkgconfig \
+USES=		compiler:c11 gettext gmake gnome libtool localbase pathfix pkgconfig \
 		python:3.4+ tar:xz
+USE_CSTD=	c11
 USE_GNOME=	cairo gdkpixbuf2 gtk30 gtksourceview3 intlhack introspection
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes

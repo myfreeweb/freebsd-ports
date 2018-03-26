@@ -185,6 +185,7 @@
     SUBDIR += nautilus-actions
     SUBDIR += nautilus-sendto
     SUBDIR += nemo-extensions
+    SUBDIR += nextcloudclient
     SUBDIR += note
     SUBDIR += notecase
     SUBDIR += noti
