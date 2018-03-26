@@ -58,6 +58,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `editors/gnome-latex`: renamed from `editors/latexila`, updated to 3.27.2 [226938](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226938)
 - `cad/solvespace`: git master (GTK3 HiDPI)
 - `x11-toolkits/gtk30`: 3.22.29
 - `lang/vala`: 0.40

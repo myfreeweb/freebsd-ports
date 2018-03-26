@@ -1,15 +1,14 @@
 # Created by: Olivier Duchateau
 # $FreeBSD$
 
-PORTNAME=	latexila
-PORTVERSION=	3.22.1
-PORTREVISION=	1
+PORTNAME=	gnome-latex
+PORTVERSION=	3.27.2
 CATEGORIES=	editors
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
 
-MAINTAINER=	ports@FreeBSD.org
-COMMENT=	Integrated LaTeX environment
+MAINTAINER=	greg@unrelenting.technology
+COMMENT=	LaTeX editor for the GNOME desktop
 
 LICENSE=	GPLv3
 
@@ -19,10 +18,9 @@ BUILD_DEPENDS=	valac:lang/vala \
 LIB_DEPENDS=	libgee-0.8.so:devel/libgee \
 		libgspell-1.so:textproc/gspell
 
-USES=		compiler:c11 desktop-file-utils gettext-tools gmake pkgconfig \
-		tar:xz
+USES=		compiler:c11 desktop-file-utils gettext-tools gmake pkgconfig tar:xz
 GNU_CONFIGURE=	yes
-USE_GNOME=	cairo glib20 gtk30 gtksourceview3 intltool intlhack libxml2
+USE_GNOME=	cairo glib20 gtk30 gtksourceview4 tepl4 intltool intlhack libxml2
 USE_TEX=	latex dvipsk
 INSTALLS_ICONS=	yes
 INSTALL_TARGET=	install-strip
@@ -32,6 +30,6 @@ NLS_USES=	gettext-runtime
 NLS_CONFIGURE_ENABLE=	nls
 OPTIONS_SUB=	yes
 
-GLIB_SCHEMAS=	org.gnome.latexila.gschema.xml
+GLIB_SCHEMAS=	org.gnome.gnome-latex.gschema.xml
 
 .include <bsd.port.mk>
