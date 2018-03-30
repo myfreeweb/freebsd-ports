@@ -1,0 +1,59 @@
+#!bin/sh
+# $FreeBSD$
+
+set -e
+
+. "${dp_SCRIPTSDIR}/functions.sh"
+
+validate_env dp_CHROOT_DIR dp_CP dp_CURDIR dp_DISTDIR dp_ECHO dp_MOUNT_DEVFS dp_MOUNT_NULLFS dp_PORT_DBDIR dp_PORTSDIR dp_SETENV dp_UMOUNT dp_WRKDIR
+
+[ -n "${DEBUG_CHROOT}" ] && set -x
+
+set -u
+
+in_curdir="yes"
+if [ "${dp_CURDIR##${dp_PORTSDIR}}" == "${dp_CURDIR}" ]
+then
+    in_curdir=""
+fi
+
+in_wrkdir="yes"
+if [ "${dp_WRKDIR##${dp_PORTSDIR}}" == "${dp_WRKDIR##$}" -a "${dp_WRKDIR##${dp_CURDIR}}" == "${dp_WRKDIR##$}" ]
+then
+    in_wrkdir=""
+fi
+
+cleanup() {
+
+    ${dp_UMOUNT} ${dp_CHROOT_DIR}/wrkdirs
+    ${dp_UMOUNT} ${dp_CHROOT_DIR}/port
+    ${dp_UMOUNT} ${dp_CHROOT_DIR}${dp_PORT_DBDIR}
+    ${dp_UMOUNT} ${dp_CHROOT_DIR}/distfiles
+    ${dp_UMOUNT} ${dp_CHROOT_DIR}/usr/ports
+    ${dp_UMOUNT} ${dp_CHROOT_DIR}/dev
+
+    trap - EXIT INT TERM
+
+}
+
+${dp_MOUNT_DEVFS} ${dp_CHROOT_DIR}/dev
+${dp_MOUNT_NULLFS} ${dp_PORTSDIR} ${dp_CHROOT_DIR}/usr/ports
+${dp_MOUNT_NULLFS} ${dp_DISTDIR} ${dp_CHROOT_DIR}/distfiles
+${dp_MOUNT_NULLFS} ${dp_PORT_DBDIR} ${dp_CHROOT_DIR}${dp_PORT_DBDIR}
+${dp_MOUNT_NULLFS} ${dp_CURDIR} ${dp_CHROOT_DIR}/port
+${dp_MOUNT_NULLFS} ${dp_WRKDIR} ${dp_CHROOT_DIR}/wrkdirs
+
+if [ -f /etc/make.conf ]; then
+	${dp_CP} /etc/make.conf ${dp_CHROOT_DIR}/etc/
+fi
+if [ -f /etc/resolv.conf ]; then
+	${dp_CP} /etc/resolv.conf ${dp_CHROOT_DIR}/etc/
+fi
+for var in ARCH=i386 MACHINE=i386 DISTDIR=/distfiles PORTSDIR=/usr/ports WRKDIRPREFIX=/wrkdirs STRICT_DEPENDS=; do
+    ${dp_ECHO} $var >> ${dp_CHROOT_DIR}/etc/make.conf
+done
+
+trap cleanup EXIT INT TERM
+
+chroot_dir="$1"; shift
+/usr/sbin/chroot $chroot_dir ${dp_SETENV} UNAME_m=i386 UNAME_p=i386 "$@"

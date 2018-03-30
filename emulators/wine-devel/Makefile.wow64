@@ -1,0 +1,226 @@
+WINELIB32DIR=		${PREFIX}/lib32
+
+.if !defined(WINE_WOW64)
+
+EXTRACT_ONLY:=	${DISTFILES:C/:.*//g}
+DISTFILES=	${EXTRACT_ONLY} ${BASE_FILE}:${OSREL:C/\..+//}
+MASTER_SITES+=	https://download.freebsd.org/ftp/releases/i386/${OSREL10}-RELEASE/base.txz?dummy=/:10 \
+		https://download.freebsd.org/ftp/releases/i386/${OSREL11}-RELEASE/base.txz?dummy=/:11 \
+		LOCAL/dbn/i386/12.0-CURRENT/:12
+
+# Ensure distfiles are available for chroot build
+BUILD_DEPENDS+=	mesa-dri>0:graphics/mesa-dri
+
+BUNDLE_LIBS=	yes
+NEED_ROOT=	yes
+PKGINSTALL=	${FILESDIR}/pkg-install-${ARCH}
+PKGDEINSTALL=	${PKGINSTALL}
+USE_LDCONFIG32=	${WINELIB32DIR} ${WINELIB32DIR}/wine
+POST_PLIST=	add-plist-wow64
+
+WINE_METAMODE=	yes
+
+CHROOT_ENV=	${SETENV} \
+			dp_CHROOT_DIR="${CHROOT_DIR}" \
+			dp_CP="${CP}" \
+			dp_CURDIR="${.CURDIR}" \
+			dp_DISTDIR="${ACTUAL_DISTDIR}" \
+			dp_ECHO="${ECHO}" \
+			dp_MOUNT_DEVFS="${MOUNT_DEVFS}" \
+			dp_MOUNT_NULLFS="${MOUNT_NULLFS}" \
+			dp_PORTSDIR="${PORTSDIR}" \
+			dp_PORT_DBDIR="${PORT_DBDIR}" \
+			dp_SCRIPTSDIR="${SCRIPTSDIR}" \
+			dp_SETENV="${SETENV}" \
+			dp_UMOUNT="${UMOUNT}" \
+			dp_WRKDIR="${WRKDIR}"
+CHROOT_DIR=	/tmp/i386
+CHROOT_CMD=	${CHROOT_ENV} ${SH} ${FILESDIR}/chroot ${CHROOT_DIR}
+CHROOT_MAKE=	${CHROOT_CMD} make -C /port ${MAKEFLAGS} ARCH=i386
+
+BASE_FILE=	base${OSREL${OSREL:C/\..+//}}.txz
+OSREL10=	10.3
+OSREL11=	11.1
+OSREL12=	12.20180307
+
+ACTUAL_DISTDIR?=${DISTDIR}
+. if defined(POUDRIERE_VERSION)
+# We are in a poudriere build and need access to the full distfiles cache
+ACTUAL_DISTDIR=	/distfiles
+. endif
+
+. if ${.TARGETS} == makesum
+DISTFILES=	${EXTRACT_ONLY} base${OSREL10}.txz:10 base${OSREL11}.txz:11 base${OSREL12}.txz:12
+. endif
+
+. if ${UID} != 0
+ERROR+=		"${PKGNAME} must be built as root"
+. endif
+.if !defined(JAILED)
+JAILED!=	${SYSCTL} -n security.jail.jailed
+.endif
+.if ${JAILED} == 1
+. for sysctl in security.jail.enforce_statfs:enforce_statfs=1 \
+		security.jail.mount_allowed:allow.mount \
+		security.jail.mount_devfs_allowed:allow.mount.devfs \
+		security.jail.mount_nullfs_allowed:allow.mount.nullfs
+_sysctl!=	${SYSCTL} -n ${sysctl:C/:.*//}
+.  if ${_sysctl} == 0
+JAIL_PARAMS+=	${sysctl:C/.*://}
+.  endif
+. endfor
+. if defined(JAIL_PARAMS)
+ERROR+=		"Nested jail requires these missing params: ${JAIL_PARAMS}"
+. endif
+.endif
+
+post-extract:
+	${MKDIR} ${CHROOT_DIR}/distfiles ${CHROOT_DIR}/port ${CHROOT_DIR}/usr/ports ${CHROOT_DIR}/wrkdirs
+	cd ${CHROOT_DIR} && ${EXTRACT_CMD} ${EXTRACT_BEFORE_ARGS} ${_DISTDIR}${BASE_FILE} ${EXTRACT_AFTER_ARGS}
+	${CHROOT_CMD} service ldconfig start
+
+pre-configure:
+	${CHROOT_CMD} pkg install -y libXrender libXrandr libXinerama libXi libXext libXcursor libXcomposite libX11 \
+		fontconfig libxml2 gnutls freetype2 png libGLU lcms2 jpeg-turbo desktop-file-utils \
+		pkgconf flex bison prelink gmake dialog4ports \
+		glproto dri2proto dri3proto xextproto randrproto mesa-dri mesa-libs
+	${CHROOT_MAKE} depends clean-depends WINE_WOW64=wine32 -DBATCH
+
+do-configure:
+	${MAKE} configure WINE_WOW64=wine64-build -DBATCH
+	${CHROOT_MAKE} configure WINE_WOW64=wine32-tools -DBATCH
+
+do-build:
+	${MAKE} build WINE_WOW64=wine64-build -DBATCH
+	${CHROOT_MAKE} build WINE_WOW64=wine32-tools -DBATCH
+	${CHROOT_MAKE} configure WINE_WOW64=wine32-combo -DBATCH
+	${CHROOT_MAKE} build WINE_WOW64=wine32-combo -DBATCH
+
+do-install:
+	${CHROOT_MAKE} stage WINE_WOW64=wine32-combo -DBATCH
+	${MAKE} stage WINE_WOW64=wine64-build -DBATCH
+
+add-plist-wow64:
+	# Fix pkg-plist references
+	[ -f ${TMPPLIST}.orig ] || ${MV} ${TMPPLIST} ${TMPPLIST}.orig
+	( \
+		${SED} -E \
+			-e '/^lib\/.*(${WINE32_FILES:N${WOW64_FILES:S/ /|/gW:S/*/\*/g}:S/ /|/gW:S/./\./g:S/*/.*/g:S/\//\\\//g})$$/d' \
+			${TMPPLIST}.orig; \
+		${SED} -Ene 's!^lib/!lib32/!gp' ${TMPPLIST}.orig; \
+		${CAT} ${TMPPLIST}.i386; \
+	) > ${TMPPLIST}
+
+post-clean:
+	${RM} -r ${CHROOT_DIR}
+
+MPG123_FILES=	l3codeca.*
+OPENAL_FILES=	openal32.* x3daudio*.dll* xapofx*.dll* xaudio*.dll*
+WINE32_FILES=	*16 *16.so bin/wine libkernel.def mmcndmgr.dll *.vxd *.vxd.so w32skrnl.* wine.1.gz wow32.* winevdm.*
+WINE64_FILES=	bin/wine64
+WOW64_FILES=	mmcndmgr.dll
+X11_FILES=	glu32.dll* winex11.* %%DATADIR%%/fonts/*
+
+plist: stage
+	${MAKE} makeplist > ${WRKDIR}/pkg-plist
+	${SED} -E -e '1d' \
+		-e '/^bin32\//d' \
+		-e '/^lib\//d' \
+		-e '/^lib32\/lib[^w]/d' \
+		-e '/^lib32\/\.libGL/d' \
+		-e '/(l_intl\.nls|ldconfig|patch-nvidia\.sh|wine\.inf)/d' \
+		-e 's!^lib32!lib!g' \
+		-e 's!^(.*)(${MPG123_FILES:S/ /|/gW:S/./\./g:S/*/.*/g})$$!%%MPG123%%\1\2!g' \
+		-e 's!^(.*)(${OPENAL_FILES:S/ /|/gW:S/./\./g:S/*/.*/g})$$!%%OPENAL%%\1\2!g' \
+		-e 's!^(.*)(${WINE32_FILES:S/ /|/gW:S/./\./g:S/*/.*/g})$$!%%WINE32%%\1\2!g' \
+		-e 's!^(.*)(${WINE64_FILES:S/ /|/gW:S/./\./g:S/*/.*/g})$$!%%WINE64%%\1\2!g' \
+		-e 's!^(.*)(${X11_FILES:S/ /|/gW:S/./\./g:S/*/.*/g})$$!%%X11%%\1\2!g' \
+		${WRKDIR}/pkg-plist > ${.CURDIR}/pkg-plist
+
+shell: patch
+	${CHROOT_MAKE} shell WINE_WOW64=wine32-shell -DBATCH
+
+.else # defined(WINE_WOW64)
+
+CONFIGURE_OUTSOURCE=	yes
+CONFIGURE_WRKSRC=	${WRKDIR}/${WINE_WOW64}
+. for stage in configure build stage
+${stage:tu}_COOKIE=	${WRKDIR}/.${WINE_WOW64}-${stage}_done.${PORTNAME}.${PREFIX:S/\//_/g}
+. endfor
+
+. if ${WINE_WOW64} != wine64-build
+
+RUN_DEPENDS+=		mesa-dri>0:graphics/mesa-dri
+
+CONFIGURE_ARGS+=	--bindir=${PREFIX}/bin32 --libdir=${WINELIB32DIR}
+
+WRKDIR=			${WRKDIRPREFIX}
+
+.  if ${WINE_WOW64} == wine32-combo
+
+ACTUAL-PACKAGE-DEPENDS=	${DO_NADA}
+CONFIGURE_ARGS+=	--with-wine64=../wine64-build --with-wine-tools=../wine32-tools
+WINELIBDIR=		${WINELIB32DIR}
+
+post-install-script:
+	# Install bounce script to access the 32-bit executables
+	${INSTALL_SCRIPT} ${FILESDIR}/binbounce ${STAGEDIR}${PREFIX}/bin/wine
+	${ECHO_CMD} bin32/wine >> ${TMPPLIST}.i386
+	# Install libGL
+	${MKDIR} ${STAGEDIR}${PREFIX}/lib32/.libGL/dri
+	${INSTALL_DATA} ${LOCALBASE}/lib/libGL.so.1 ${STAGEDIR}${PREFIX}/lib32/.libGL/	
+	${ECHO_CMD} lib32/.libGL/libGL.so.1 >> ${TMPPLIST}.i386
+	# Install dri libraries (internal libGL requirements)
+	for lib in ${LOCALBASE}/lib/dri/*.so; do \
+		${INSTALL_DATA} $${lib} ${STAGEDIR}${PREFIX}/lib32/.libGL/dri/ ; \
+		${ECHO_CMD} lib32/.libGL/dri/$${lib##*/} >> ${TMPPLIST}.i386 ; \
+	done
+	# Find all soft dependencies (via strings(1))
+	${CAT}  ${TMPPLIST} ${TMPPLIST}.i386 \
+		| ${GREP} -v '[@%]' \
+		| ${SED} "s!^!${STAGEDIR}${PREFIX}/!g" \
+		| ${XARGS} -n1 file -F' ' \
+		| ${GREP} ELF \
+		| ${CUT} -f1 -d' ' \
+		| ${XARGS} strings \
+		| ${GREP} '^lib.*\.so' \
+		| ${SORT} -u \
+		> ${WRKDIR}/winesoftlibs
+	for lib in `${CAT} ${WRKDIR}/winesoftlibs` ; do \
+		if [ -e ${LOCALBASE}/lib/$${lib} ] && ! ${GREP} -q $${lib} ${TMPPLIST} ${TMPPLIST}.i386; then \
+			${INSTALL_DATA} ${LOCALBASE}/lib/$${lib} ${STAGEDIR}${PREFIX}/lib32/ ; \
+			${ECHO_CMD} lib32/$${lib} >> ${TMPPLIST}.i386 ; \
+		fi ; \
+	done
+	# Find all libraries that are linked too (via ldd(1))
+	${CAT} ${TMPPLIST} ${TMPPLIST}.i386 \
+		| ${GREP} -v '[@%]' \
+		| ${SED} "s!^!${STAGEDIR}${PREFIX}/!g" \
+		| ${XARGS} -n1 file -F' ' \
+		| ${GREP} ELF \
+		| ${CUT} -f1 -d' ' \
+		| env LD_LIBRARY_PATH=${STAGEDIR}${PREFIX}/lib32:${LD_LIBRARY_PATH} ${XARGS} ldd -f '%p\n' \
+		| ${SORT} -u \
+		| ${GREP} -v '^\(/usr\)\?/lib' \
+		| ${GREP} -v "^${STAGEDIR}${PREFIX}/lib32/libwine.so" \
+		| ${GREP} -v "^${STAGEDIR}${PREFIX}/lib32/wine" \
+		> ${WRKDIR}/winelibs
+	for lib in `${CAT} ${WRKDIR}/winelibs` ; do \
+		if ! ${GREP} -q $${lib##*/} ${TMPPLIST} ${TMPPLIST}.i386; then \
+			${INSTALL_DATA} $${lib} ${STAGEDIR}${PREFIX}/lib32/ ; \
+			${ECHO_CMD} lib32/$${lib##*/} >> ${TMPPLIST}.i386 ; \
+		fi ; \
+	done
+	# Install nvidia patching script
+	${MKDIR} ${STAGEDIR}${DATADIR}
+	${INSTALL_SCRIPT} ${FILESDIR}/nvidia.sh ${STAGEDIR}${DATADIR}/patch-nvidia.sh
+	${ECHO_CMD} ${DATADIR:S|$(PREFIX)/||}/patch-nvidia.sh >> ${TMPPLIST}.i386
+
+.  elif ${WINE_WOW64} == wine32-shell
+
+shell:
+	tcsh -i
+
+.  endif
+. endif
+.endif
