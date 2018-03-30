@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	abiword
-PORTVERSION=	3.0.1
-PORTREVISION=	8
+PORTVERSION=	3.0.2
 CATEGORIES=	editors
 MASTER_SITES=	http://www.abisource.com/downloads/abiword/${PORTVERSION}/source/
 DIST_SUBDIR=	AbiWord
@@ -19,13 +18,24 @@ LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
 		libpng.so:graphics/png \
 		libwv.so:textproc/wv \
 		libfribidi.so:converters/fribidi \
-		libgoffice-0.10.so:devel/goffice010
+		libgoffice-0.10.so:devel/goffice010 \
+		libdbus-1.so:devel/dbus \
+		libgpg-error.so:security/libgpg-error \
+		libraptor2.so:textproc/raptor2 \
+		librasqal.so:textproc/rasqal \
+		libfontconfig.so:x11-fonts/fontconfig \
+		libicalss.so:devel/libical \
+		libfreetype.so:print/freetype2 \
+		librdf.so:textproc/redland \
+		libwmf.so:graphics/libwmf
 RUN_DEPENDS=	${LOCALBASE}/share/fonts/dejavu/DejaVuSerif.ttf:x11-fonts/dejavu
 
 USES=		desktop-file-utils gmake iconv jpeg libtool pathfix pkgconfig
-USE_GNOME=	libxml2 gtk30 librsvg2 libxslt
+USE_GNOME=	cairo libxml2 gtk30 librsvg2 libxslt
+USE_XORG+=	x11
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
+CXXFLAGS+=	-std=c++98
 LDFLAGS+=	-L${LOCALBASE}/lib
 CONFIGURE_ARGS=	--without-gnomevfs --enable-plugins="${ABIWORD_PLUGINS}" \
 		--enable-shared="yes" --enable-static="no"
