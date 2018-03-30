@@ -60,6 +60,7 @@ GLIB_SCHEMAS=	org.gtk.Demo.gschema.xml \
 
 OPTIONS_DEFINE=	CUPS CLOUDPRINT COLORD DEBUG BROADWAY WAYLAND
 OPTIONS_DEFAULT=CUPS COLORD BROADWAY
+OPTIONS_EXCLUDE_FreeBSD_10=	WAYLAND
 OPTIONS_SUB=	yes
 
 BROADWAY_DESC=	Enable GDK Broadway backend for showing GTK+ in the webbrowser using HTML5 and web sockets.
@@ -90,6 +91,13 @@ WAYLAND_USE=		GL=egl
 
 # don't explicitly disable debug, this causes segfaults. ports r437293
 DEBUG_CONFIGURE_ON=	--enable-debug=yes
+
+WAYLAND_BUILD_DEPENDS=		wayland-protocols>=0:graphics/wayland-protocols
+WAYLAND_CONFIGURE_ENABLE=	wayland-backend
+WAYLAND_LIB_DEPENDS=		libwayland-client.so:graphics/wayland \
+				libwayland-egl.so:graphics/mesa-libs \
+				libxkbcommon.so:x11/libxkbcommon
+WAYLAND_RUN_DEPENDS=		wayland-protocols>=0:graphics/wayland-protocols
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|[{]libdir[}]/locale|{datadir}/locale|g' \

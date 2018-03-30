@@ -82,6 +82,7 @@
     SUBDIR += kst2
     SUBDIR += lamprop
     SUBDIR += libaec
+    SUBDIR += libcint
     SUBDIR += libctl
     SUBDIR += libefp
     SUBDIR += libgeodecomp
@@ -177,6 +178,7 @@
     SUBDIR += py-pyteomics
     SUBDIR += py-pyteomics.biolccc
     SUBDIR += py-qspin
+    SUBDIR += py-quantities
     SUBDIR += py-scikit-fuzzy
     SUBDIR += py-scikit-learn
     SUBDIR += py-scikit-sparse

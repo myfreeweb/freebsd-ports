@@ -40,6 +40,7 @@
     SUBDIR += ansible
     SUBDIR += ansible1
     SUBDIR += ansible23
+    SUBDIR += ansible24
     SUBDIR += anvil
     SUBDIR += apachetop
     SUBDIR += apcpwr
@@ -456,6 +457,7 @@
     SUBDIR += hal
     SUBDIR += hal-info
     SUBDIR += hardlink
+    SUBDIR += hare
     SUBDIR += hatop
     SUBDIR += hdrecover
     SUBDIR += healthd
@@ -928,8 +930,10 @@
     SUBDIR += py-gmailfs-fuse
     SUBDIR += py-google-compute-engine
     SUBDIR += py-halite
+    SUBDIR += py-hared
     SUBDIR += py-honcho
     SUBDIR += py-iowait
+    SUBDIR += py-mqttwarn
     SUBDIR += py-nagiosplugin
     SUBDIR += py-nomad
     SUBDIR += py-pkginfo

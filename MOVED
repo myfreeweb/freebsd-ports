@@ -10406,3 +10406,8 @@ graphics/skanlite|graphics/skanlite-kde4|2018-03-25|Make room for KDE updates
 lang/x10||2018-03-25|Has expired: Broken for more than 6 months
 science/siril|astro/siril|2018-03-25|Moved to a more appropriate category
 editors/latexila|editors/gnome-latex|2018-03-26|Project renamed
+net/samba44|net/samba45|2018-03-26|Has expired: unsupported upstream
+mail/sisyphus||2018-03-26|Has expired: Never built
+www/fira-webfont||2018-03-26|Has expired: Unused with no apparent use case
+www/dummyflash||2018-03-26|Has expired: Unused, unmaintained, and obsolete
+devel/guikachu||2018-03-26|Has expired: Broken for more than 9 months

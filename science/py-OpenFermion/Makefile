@@ -2,7 +2,9 @@
 
 PORTNAME=	OpenFermion
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.4
+DISTVERSION=	0.4-29
+DISTVERSIONSUFFIX=	-g781d0a7
+PORTREVISION=	1
 CATEGORIES=	science python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -12,6 +14,7 @@ COMMENT=	Electronic structure package for quantum computers
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
+py27_BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}future>0:devel/py-future@${FLAVOR}
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}cvxopt>0:math/py-cvxopt@${FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}future>0:devel/py-future@${FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}h5py>0:science/py-h5py@${FLAVOR} \
@@ -25,8 +28,5 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	quantumlib
 USE_PYTHON=	distutils autoplist
 NO_ARCH=	yes
-
-post-patch: # workaround for https://github.com/quantumlib/OpenFermion/issues/289 (non-ascii file)
-	@truncate -s 0 ${WRKSRC}/README.rst
 
 .include <bsd.port.mk>

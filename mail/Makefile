@@ -549,6 +549,7 @@
     SUBDIR += py-pyspf
     SUBDIR += py-pyzmail
     SUBDIR += py-spambayes
+    SUBDIR += py-validate_email
     SUBDIR += py-zope.sendmail
     SUBDIR += pymsgauth
     SUBDIR += pysieved
@@ -647,7 +648,6 @@
     SUBDIR += sieve-connect
     SUBDIR += sigrot
     SUBDIR += simscan
-    SUBDIR += sisyphus
     SUBDIR += slapd-cyrus
     SUBDIR += sma
     SUBDIR += smfsav
