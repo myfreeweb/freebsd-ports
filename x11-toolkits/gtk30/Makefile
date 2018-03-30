@@ -5,7 +5,6 @@
 
 PORTNAME=	gtk
 PORTVERSION=	3.22.29
-PORTREVISION?=	0
 CATEGORIES=	x11-toolkits
 MASTER_SITES=	GNOME/sources/gtk+/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
 PKGNAMESUFFIX=	3
@@ -78,17 +77,6 @@ CLOUDPRINT_CONFIGURE_ENABLE=	cloudprint
 CLOUDPRINT_LIB_DEPENDS=	librest-0.7.so:devel/librest \
 			libjson-glib-1.0.so:devel/json-glib
 
-WAYLAND_DESC=		GDK Wayland backend
-WAYLAND_CONFIGURE_ENABLE=	wayland-backend
-WAYLAND_BUILD_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols \
-			v4l_compat>=0:multimedia/v4l_compat
-WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
-			libxkbcommon.so:x11/libxkbcommon
-WAYLAND_RUN_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols
-WAYLAND_USE=		GL=egl
-
-.include <bsd.port.options.mk>
-
 # don't explicitly disable debug, this causes segfaults. ports r437293
 DEBUG_CONFIGURE_ON=	--enable-debug=yes
 
@@ -109,12 +97,6 @@ pre-configure:
 		${ECHO_MSG} "${PKGNAME}: Needs cairo with X11 support enabled."; \
 		${FALSE}; \
 	fi
-.if ${PORT_OPTIONS:MWAYLAND}
-	@if ! pkg-config --exists wayland-egl; then \
-		${ECHO_MSG} "${PKGNAME}: Needs mesa-libs with wayland support enabled."; \
-		${FALSE}; \
-	fi
-.endif
 
 pre-build:
 	@${RM} -r ${WRKSRC}/docs/gtk.info*
