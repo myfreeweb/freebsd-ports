@@ -28,11 +28,14 @@ DATADIR=	${PREFIX}/share/${DATADIR_NAME}
 
 GNU_CONFIGURE=	yes
 USES=		alias cpe gettext-runtime gmake libtool pathfix perl5 \
-		pkgconfig python:build ssl tar:xz
+		pkgconfig localbase python:build ssl tar:xz
 USE_PERL5=	build
 USE_GNOME=	glib20 libxml2
 CONFIGURE_ARGS+=	--program-transform-name="" \
-			--with-ssl=${OPENSSLBASE}
+			--with-ssl=${OPENSSLBASE} \
+			--with-lz4 \
+			--with-nghttp2 \
+			--with-snappy
 INSTALL_TARGET=	install-strip
 USE_LDCONFIG=	yes
 
@@ -43,7 +46,6 @@ LIB_DEPENDS+=	libgpg-error.so:security/libgpg-error \
 		libsnappy.so:archivers/snappy
 
 CFLAGS+=	-funit-at-a-time
-LIBS+=		-L${LOCALBASE}/lib
 PLIST_SUB+=	PORTVERSION=${PORTVERSION}
 
 .for x in capinfos editcap mergecap rawshark text2pcap dftest randpkt \
@@ -62,7 +64,7 @@ PLIST_SUB+=		${x:tu}=bin/$x \
 .endif
 .endfor
 
-OPTIONS_DEFINE=		RTP SNMP IPV6 GEOIP LUA DECRYPT ANDROIDDUMP CARES
+OPTIONS_DEFINE=		RTP SNMP GEOIP LUA DECRYPT ANDROIDDUMP CARES
 
 OPTIONS_RADIO=		GUI
 OPTIONS_SINGLE=		KERBEROS
@@ -93,14 +95,11 @@ KRB_MIT_USES=		gssapi:mit
 
 RTP_LIB_DEPENDS=	libportaudio.so:audio/portaudio \
     			libspandsp.so:comms/spandsp
-RTP_CPPFLAGS=		-I${LOCALBASE}/include
 SNMP_LIB_DEPENDS=	libsmi.so:net-mgmt/libsmi
 CARES_LIB_DEPENDS=	libcares.so:dns/c-ares
 GEOIP_LIB_DEPENDS=	libGeoIP.so:net/GeoIP
 DECRYPT_LIB_DEPENDS=	libgnutls.so:security/gnutls \
 			libgcrypt.so:security/libgcrypt
-
-IPV6_CONFIGURE_ENABLE=	ipv6
 
 KRB_NONE_CONFIGURE_ON=	--without-krb5
 KRB_NONE_CONFIGURE_OFF=	--with-krb5
@@ -114,7 +113,7 @@ RTP_CONFIGURE_WITH=	portaudio spandsp
 SNMP_CONFIGURE_WITH=	libsmi
 CARES_CONFIGURE_WITH=	c-ares
 GEOIP_CONFIGURE_WITH=	geoip
-DECRYPT_CONFIGURE_WITH=	gnutls gcrypt
+DECRYPT_CONFIGURE_WITH=	gnutls
 ANDROIDDUMP_CONFIGURE_ON=--enable-androiddump=yes
 ANDROIDDUMP_CONFIGURE_OFF=--enable-androiddump=no
 
