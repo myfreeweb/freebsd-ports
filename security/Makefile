@@ -312,6 +312,7 @@
     SUBDIR += knocker
     SUBDIR += kpcli
     SUBDIR += kqoauth
+    SUBDIR += kr
     SUBDIR += krb5
     SUBDIR += krb5-114
     SUBDIR += krb5-115

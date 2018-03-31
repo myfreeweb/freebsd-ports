@@ -1,6 +1,6 @@
-https://github.com/jrfonseca/xdot.py/commit/3f866766be44adbe3634de95cd0a031e8a863c91
+# https://github.com/jrfonseca/xdot.py/commit/3f866766be44adbe3634de95cd0a031e8a863c91
 
---- setup.py.orig	2018-03-19 21:44:44 UTC
+--- setup.py.orig	2018-03-30 00:51:44 UTC
 +++ setup.py
 @@ -31,7 +31,6 @@ setup(
          """,

@@ -625,6 +625,7 @@
     SUBDIR += pure-rational
     SUBDIR += py-Diofant
     SUBDIR += py-PyWavelets
+    SUBDIR += py-Pyomo
     SUBDIR += py-altgraph
     SUBDIR += py-apgl
     SUBDIR += py-basemap
@@ -672,6 +673,7 @@
     SUBDIR += py-pymc
     SUBDIR += py-pymc3
     SUBDIR += py-pysparse
+    SUBDIR += py-pysym
     SUBDIR += py-pyvtk
     SUBDIR += py-roman
     SUBDIR += py-scientific
