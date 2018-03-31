@@ -78,6 +78,7 @@
     SUBDIR += linux-telegram-desktop
     SUBDIR += loudmouth
     SUBDIR += mastodon
+    SUBDIR += matterircd
     SUBDIR += mbpurple
     SUBDIR += mcabber
     SUBDIR += meanwhile
