@@ -58,6 +58,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `graphics/simple-scan`: GNOME scanning app
 - `devel/libgusb`: GObject libusb wrapper (w/ [PR #10](https://github.com/hughsie/libgusb/pull/10))
 - `graphics/colord`: build vapi [227134](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227134)
 - `net/wireshark`: port fixes [227131](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227131)
