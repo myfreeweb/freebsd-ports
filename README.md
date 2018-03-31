@@ -58,6 +58,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `devel/libgusb`: GObject libusb wrapper (w/ [PR #10](https://github.com/hughsie/libgusb/pull/10))
 - `graphics/colord`: build vapi [227134](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227134)
 - `net/wireshark`: port fixes [227131](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227131)
 - `editors/abiword`: 3.0.2 [220975](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220975)
