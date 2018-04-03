@@ -58,6 +58,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `textproc/ibus-uniemoji`: unicode/emoji input method [227269](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227269)
 - `mail/geary`: 0.12.1 / workaround for [Vala/gee array null termination bug](https://bugzilla.gnome.org/show_bug.cgi?id=794731)
 - `graphics/simple-scan`: GNOME scanning app
 - `devel/libgusb`: GObject libusb wrapper (w/ [PR #10](https://github.com/hughsie/libgusb/pull/10))
