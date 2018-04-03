@@ -160,6 +160,7 @@ lib/libibus-1.0.so.5.0.517
 %%PYTHON_LIB%%%%PYTHON_SITELIBDIR%%/ibus/utility.pyo
 libdata/pkgconfig/ibus-1.0.pc
 %%GTK3%%libexec/ibus-ui-gtk3
+%%WAYLAND%%libexec/ibus-wayland
 %%XIM%%libexec/ibus-x11
 %%GCONF%%libexec/ibus-gconf
 %%DCONF%%libexec/ibus-dconf

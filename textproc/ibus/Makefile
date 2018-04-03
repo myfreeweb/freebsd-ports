@@ -31,7 +31,7 @@ OPTIONS_SUB=	yes
 INSTALL_TARGET=	install-strip
 CONFIGURE_ARGS=	--disable-tests --with-html-dir=${PREFIX}/share/doc
 
-OPTIONS_DEFINE=	NLS GTK2 GTK3 VALA GINTRO PYTHON_LIB DOCS XIM ENGINE EMOJI
+OPTIONS_DEFINE=	NLS GTK2 GTK3 VALA GINTRO PYTHON_LIB DOCS XIM WAYLAND ENGINE EMOJI
 OPTIONS_RADIO=	CONFIG
 OPTIONS_RADIO_CONFIG=	GCONF DCONF
 OPTIONS_DEFAULT=	GTK2 GTK3 VALA GINTRO PYTHON_LIB DCONF XIM ENGINE EMOJI
@@ -44,6 +44,7 @@ PYTHON_LIB_DESC=	Install ibus Python libraries
 GCONF_DESC=	Use GConf for configuration
 DCONF_DESC=	Use dconf for configuration
 XIM_DESC=	Install XIM server
+WAYLAND_DESC=	Install Wayland server
 ENGINE_DESC=	Install ibus simple engine
 EMOJI_DESC=	Install emoji dictionary
 CPE_VENDOR=	ibus_project
@@ -86,6 +87,10 @@ DCONF_VARS=		GLIB_SCHEMAS=org.freedesktop.ibus.gschema.xml
 DOCS_CONFIGURE_ENABLE=	gtk-doc-html
 
 XIM_CONFIGURE_ENABLE=	xim
+
+WAYLAND_CONFIGURE_ENABLE=	wayland
+WAYLAND_LIB_DEPENDS=		libwayland-client.so:graphics/wayland \
+				libxkbcommon.so:x11/libxkbcommon
 
 ENGINE_CONFIGURE_ENABLE=	engine
 
