@@ -1,3 +1,4 @@
+bin/MiniBrowser-4
 bin/WebKitWebDriver
 bin/jsc-4
 include/webkitgtk-4.0/JavaScriptCore/JSBase.h
@@ -206,6 +207,7 @@ lib/webkit2gtk-4.0/injected-bundle/libwebkit2gtkinjectedbundle.so
 libdata/pkgconfig/javascriptcoregtk-4.0.pc
 libdata/pkgconfig/webkit2gtk-4.0.pc
 libdata/pkgconfig/webkit2gtk-web-extension-4.0.pc
+libexec/webkit2gtk-4.0/MiniBrowser
 libexec/webkit2gtk-4.0/WebKitNetworkProcess
 libexec/webkit2gtk-4.0/WebKitPluginProcess
 %%NPAPI%%libexec/webkit2gtk-4.0/WebKitPluginProcess2

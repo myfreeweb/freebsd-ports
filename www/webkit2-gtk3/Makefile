@@ -9,7 +9,7 @@ PKGNAMESUFFIX=	2-gtk3
 DISTNAME=	${PORTNAME}gtk-${PORTVERSION}
 
 MAINTAINER=	gnome@FreeBSD.org
-COMMENT=	Open source browser engine using the GTK+ 3 toolkit
+COMMENT=	Opensource browser engine using the GTK+ 3 toolkit
 
 LICENSE=	GPLv2 BSD2CLAUSE
 LICENSE_COMB=	dual
@@ -50,6 +50,7 @@ LDFLAGS+=	-L${LOCALBASE}/lib
 INSTALL_TARGET=	install
 
 CMAKE_ARGS+=	-DPORT=GTK \
+		-DENABLE_MINIBROWSER:BOOL=ON \
 		-DENABLE_GLES2:BOOL=ON \
 		-DUSE_LD_GOLD:BOOL=OFF
 CONFIGURE_ENV+=	XDG_CACHE_HOME=${WRKDIR}
@@ -109,6 +110,8 @@ CFLAGS+=	-mminimal-toc
 post-patch:
 	@${REINPLACE_CMD} -e 's|%%BROWSER_PLUGINS_DIR%%|${BROWSER_PLUGINS_DIR}|' \
 		${WRKSRC}/Source/WebKit/Shared/Plugins/unix/PluginSearchPath.cpp
+	@${REINPLACE_CMD} -e 's|"python"|"${PYTHON_VERSION}"|g' \
+		${WRKSRC}/Source/WebInspectorUI/Scripts/copy-user-interface-resources.pl
 # debug why
 #	@${REINPLACE_CMD} -e 's|<webkit2/webkit2.h>|<Source/WebKit/UIProcess/API/gtk/webkit2.h>|g' \
 #		${WRKSRC}/Tools/MiniBrowser/gtk/BrowserWindow.h \
@@ -126,6 +129,7 @@ pre-configure:
 
 post-install:
 	@${LN} -sf ../libexec/webkit2gtk-4.0/jsc ${STAGEDIR}${PREFIX}/bin/jsc-4
+	@${LN} -sf ../libexec/webkit2gtk-4.0/MiniBrowser ${STAGEDIR}${PREFIX}/bin/MiniBrowser-4
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/WebKitWebDriver
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/*.so.*.*
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/webkit2gtk-4.0/injected-bundle/*.so
