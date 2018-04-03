@@ -85,7 +85,6 @@ lib/mozilla/plugins/libevbrowserplugin.a
 lib/mozilla/plugins/libevbrowserplugin.so
 %%NAUTILUS%%lib/nautilus/extensions-%%VERSION%%/libevince-properties-page.a
 %%NAUTILUS%%lib/nautilus/extensions-%%VERSION%%/libevince-properties-page.so
-lib/systemd/user/evince.service
 libdata/pkgconfig/evince-document-%%VERSION%%.pc
 libdata/pkgconfig/evince-view-%%VERSION%%.pc
 %%DBUS%%libexec/evinced

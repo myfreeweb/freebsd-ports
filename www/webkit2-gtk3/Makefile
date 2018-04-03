@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/webkit2-gtk3/Makefile 453790 2017-11-09 02:31:47Z jbeich $
 
 PORTNAME=	webkit
-PORTVERSION=	2.19.92
+PORTVERSION=	2.20.0
 CATEGORIES=	www
 MASTER_SITES=	http://webkitgtk.org/releases/
 PKGNAMESUFFIX=	2-gtk3
@@ -14,11 +14,11 @@ COMMENT=	Open source browser engine using the GTK+ 3 toolkit
 LICENSE=	GPLv2 BSD2CLAUSE
 LICENSE_COMB=	dual
 
-LIB_DEPENDS=	libenchant.so:textproc/enchant \
+LIB_DEPENDS=	libenchant-2.so:textproc/enchant2 \
+		libwoff2dec.so:devel/woff2 \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
 		libwebp.so:graphics/webp \
-		libwoff2dec.so:www/woff2 \
 		libpng.so:graphics/png \
 		libsecret-1.so:security/libsecret \
 		libnotify.so:devel/libnotify \

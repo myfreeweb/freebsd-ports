@@ -4443,6 +4443,7 @@
     SUBDIR += py-fabric
     SUBDIR += py-fabric3
     SUBDIR += py-fam
+    SUBDIR += py-fastcache
     SUBDIR += py-fasteners
     SUBDIR += py-fastentrypoints
     SUBDIR += py-fastimport

@@ -424,6 +424,7 @@ lib/gtk-3.0/%%GTK3_VERSION%%/immodules/im-thai.so
 lib/gtk-3.0/%%GTK3_VERSION%%/immodules/im-ti-er.so
 lib/gtk-3.0/%%GTK3_VERSION%%/immodules/im-ti-et.so
 lib/gtk-3.0/%%GTK3_VERSION%%/immodules/im-viqr.so
+%%WAYLAND%%lib/gtk-3.0/%%GTK3_VERSION%%/immodules/im-wayland.so
 lib/gtk-3.0/%%GTK3_VERSION%%/immodules/im-xim.so
 %%CLOUDPRINT%%lib/gtk-3.0/%%GTK3_VERSION%%/printbackends/libprintbackend-cloudprint.so
 %%CUPS%%lib/gtk-3.0/%%GTK3_VERSION%%/printbackends/libprintbackend-cups.so

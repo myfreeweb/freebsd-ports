@@ -35,6 +35,7 @@ LIB_DEPENDS=	libpulse.so:audio/pulseaudio \
 		libcurl.so:ftp/curl \
 		libgtest.so:devel/googletest
 
+LLD_UNSAFE=	yes
 USES=		cmake compiler:c++11-lib iconv openal pkgconfig
 
 USE_GITHUB=	yes

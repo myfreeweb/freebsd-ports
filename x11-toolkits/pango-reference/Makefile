@@ -1,8 +1,6 @@
 # Created by: Jean-Yves Lefort <jylefort@FreeBSD.org>
 # $FreeBSD$
 
-PORTREVISION=	1
-
 NO_ARCH=	yes
 REFERENCE_SRC=	${WRKSRC}/docs
 
