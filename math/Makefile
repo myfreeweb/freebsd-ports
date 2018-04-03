@@ -84,6 +84,7 @@
     SUBDIR += R-cran-sf
     SUBDIR += R-cran-sm
     SUBDIR += R-cran-sp
+    SUBDIR += R-cran-spData
     SUBDIR += R-cran-spdep
     SUBDIR += R-cran-sspir
     SUBDIR += R-cran-stabledist
@@ -95,7 +96,6 @@
     SUBDIR += SCIP
     SUBDIR += SoPlex
     SUBDIR += aamath
-    SUBDIR += abacus
     SUBDIR += abakus
     SUBDIR += abs
     SUBDIR += acalc
@@ -323,6 +323,7 @@
     SUBDIR += mpexpr
     SUBDIR += mpfr
     SUBDIR += mpir
+    SUBDIR += mppp
     SUBDIR += mprime
     SUBDIR += msieve
     SUBDIR += mtl

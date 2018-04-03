@@ -96,6 +96,7 @@
     SUBDIR += pycogent
     SUBDIR += pyfasta
     SUBDIR += python-nexus
+    SUBDIR += rainbow
     SUBDIR += recombine
     SUBDIR += ruby-bio
     SUBDIR += rubygem-bio
@@ -114,6 +115,7 @@
     SUBDIR += t_coffee
     SUBDIR += tinker
     SUBDIR += treepuzzle
+    SUBDIR += trimadap
     SUBDIR += trimmomatic
     SUBDIR += ugene
     SUBDIR += vcftools
