@@ -3,6 +3,7 @@ bin/mgba
 include/mgba/flags.h
 lib/libmgba.so.0.6
 lib/libmgba.so.0.6.1
+%%LIBRETRO%%lib/libretro/mgba_libretro.so
 %%QT5%%man/man6/mgba-qt.6.gz
 man/man6/mgba.6.gz
 %%PORTDOCS%%%%DOCSDIR%%/CHANGES
