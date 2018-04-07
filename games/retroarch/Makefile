@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	RetroArch
-PORTVERSION=	1.7.1
+PORTVERSION=	1.7.1 # sync with games/libretro-core-info
 DISTVERSIONPREFIX=	v
 CATEGORIES=	games emulators
 
