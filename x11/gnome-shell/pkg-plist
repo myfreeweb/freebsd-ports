@@ -31,6 +31,7 @@ share/gnome-control-center/keybindings/50-gnome-shell-system.xml
 %%DATADIR%%/Shell-0.1.gir
 %%DATADIR%%/ShellMenu-0.1.gir
 %%DATADIR%%/St-1.0.gir
+%%DATADIR%%/gnome-shell-osk-layouts.gresource
 %%DATADIR%%/gnome-shell-theme.gresource
 %%DATADIR%%/perf-background.xml
 share/locale/af/LC_MESSAGES/gnome-shell.mo

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	glib
-PORTVERSION=	2.55.0
+PORTVERSION=	2.56.0
 PORTEPOCH=	1
 CATEGORIES=	devel
 MASTER_SITES=	GNOME
@@ -38,7 +38,7 @@ INSTALL_TARGET=	install-strip
 
 SHEBANG_FILES=	*/*.pl
 
-LIBVERSION=	0.5500.0
+LIBVERSION=	0.5600.0
 PLIST_SUB+=	LIBVERSION=${LIBVERSION}
 
 glib_MAN=	gtester.1 gtester-report.1 glib-gettextize.1

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gdm
-PORTVERSION=	3.26.2.1
+PORTVERSION=	3.28.0
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -155,6 +155,10 @@ post-install:
 
 	${INSTALL_DATA} ${WRKDIR}/locale.conf \
 		${STAGEDIR}${PREFIX}/etc/gdm/locale.conf.sample
+
+	@${RM} ${STAGEDIR}${PREFIX}/lib/udev/rules.d/61-gdm.rules
+	@${RMDIR} ${STAGEDIR}${PREFIX}/lib/udev/rules.d
+	@${RMDIR} ${STAGEDIR}${PREFIX}/lib/udev
 
 	@${SED} -e 's|%%PREFIX%%|${PREFIX}|g' < ${PKGDIR}/pkg-message \
 		| /usr/bin/fmt 75 79 > ${PKGMESSAGE}

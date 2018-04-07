@@ -6,8 +6,8 @@ From: Ray Strode <rstrode@redhat.com>
 Date: Fri, 12 Jun 2015 13:48:52 -0400
 Subject: require logind support
 
---- common/gdm-log.c.orig	Mon Sep 21 16:12:33 2015
-+++ common/gdm-log.c	Sun Oct 18 14:23:39 2015
+--- common/gdm-log.c.orig	2018-02-19 19:16:32.000000000 +0100
++++ common/gdm-log.c	2018-04-05 21:59:25.290775000 +0200
 @@ -30,7 +30,9 @@
  #include <unistd.h>
  
@@ -18,7 +18,15 @@ Subject: require logind support
  
  #include <glib.h>
  #include <glib/gstdio.h>
-@@ -133,7 +135,27 @@ gdm_log_init (void)
+@@ -125,12 +127,35 @@ gdm_log_set_debug (gboolean debug)
+ void
+ gdm_log_init (void)
+ {
++        const char *prg_name;
++        int         options;
++ 
+         if (initialized)
+                 return;
  
          initialized = TRUE;
  

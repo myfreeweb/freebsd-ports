@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-terminal
-PORTVERSION=	3.26.2
+PORTVERSION=	3.28.0
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -49,10 +49,5 @@ MIGRATION_DESC=		Profile migration to gsettings (pulls in gconf2)
 NAUTILUS_CONFIGURE_WITH=	nautilus-extension
 NAUTILUS_USE=		GNOME=nautilus3
 NAUTILUS_DESC=		Open in terminal extension for nautilus
-
-post-install:
-.for i in ca cs de el es fi fr gl sv
-	@${RMDIR} ${STAGEDIR}${PREFIX}/share/help/${i}/gnome-terminal/figures
-.endfor
 
 .include <bsd.port.mk>
