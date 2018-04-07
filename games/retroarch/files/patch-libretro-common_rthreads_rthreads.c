@@ -1,6 +1,6 @@
---- libretro-common/rthreads/rthreads.c.orig	2016-07-16 23:05:18 UTC
+--- libretro-common/rthreads/rthreads.c.orig	2018-02-19 12:43:32 UTC
 +++ libretro-common/rthreads/rthreads.c
-@@ -57,6 +57,8 @@
+@@ -66,6 +66,8 @@
  #include <mach/mach.h>
  #endif
  
