@@ -3498,6 +3498,7 @@
     SUBDIR += p5-Test-LeakTrace
     SUBDIR += p5-Test-LectroTest
     SUBDIR += p5-Test-LoadAllModules
+    SUBDIR += p5-Test-Log-Log4perl
     SUBDIR += p5-Test-Log4perl
     SUBDIR += p5-Test-LongString
     SUBDIR += p5-Test-Manifest
@@ -4300,6 +4301,7 @@
     SUBDIR += py-backports_abc
     SUBDIR += py-bandit
     SUBDIR += py-bcdoc
+    SUBDIR += py-bidict
     SUBDIR += py-billiard
     SUBDIR += py-binplist
     SUBDIR += py-biplist
@@ -4986,6 +4988,8 @@
     SUBDIR += py-testinfra
     SUBDIR += py-testoob
     SUBDIR += py-testpath
+    SUBDIR += py-testresources
+    SUBDIR += py-testscenarios
     SUBDIR += py-testtools
     SUBDIR += py-threema-msgapi
     SUBDIR += py-thrift
@@ -5031,6 +5035,7 @@
     SUBDIR += py-usb
     SUBDIR += py-user_agents
     SUBDIR += py-utils
+    SUBDIR += py-validators
     SUBDIR += py-validictory
     SUBDIR += py-vcrpy
     SUBDIR += py-vcversioner
@@ -5477,7 +5482,9 @@
     SUBDIR += rubygem-flipper
     SUBDIR += rubygem-flipper-active_support_cache_store
     SUBDIR += rubygem-flipper-active_support_cache_store011
+    SUBDIR += rubygem-flipper-active_support_cache_store013
     SUBDIR += rubygem-flipper011
+    SUBDIR += rubygem-flipper013
     SUBDIR += rubygem-fluent-logger
     SUBDIR += rubygem-fog
     SUBDIR += rubygem-fog-core

@@ -939,6 +939,7 @@
     SUBDIR += py-mhash
     SUBDIR += py-mixbox
     SUBDIR += py-mnemonic
+    SUBDIR += py-netmiko
     SUBDIR += py-ntlm-auth
     SUBDIR += py-oauth2client
     SUBDIR += py-oauthlib
@@ -986,6 +987,7 @@
     SUBDIR += py-requests-kerberos
     SUBDIR += py-rsa
     SUBDIR += py-safe
+    SUBDIR += py-scp
     SUBDIR += py-scrypt
     SUBDIR += py-service_identity
     SUBDIR += py-signedjson

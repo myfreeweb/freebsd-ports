@@ -7,7 +7,7 @@ DISTVERSIONSUFFIX=	-g4433165
 CATEGORIES=	audio
 
 MAINTAINER=	jhale@FreeBSD.org
-COMMENT=	Qt4 C++ library for the Last.fm webservices
+COMMENT=	Qt C++ library for the Last.fm webservices
 
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING

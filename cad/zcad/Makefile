@@ -13,8 +13,8 @@ COMMENT=	Simple CAD program
 
 BUILD_DEPENDS=	lazbuild:editors/lazarus
 
-USES=		tar:xz
-USE_FPC=	cairo fcl-base fcl-image fcl-json fcl-stl fcl-xml opengl \
+USES=		fpc tar:xz
+USE_FPC=	cairo chm fcl-base fcl-image fcl-json fcl-stl fcl-xml opengl \
 		pasjpeg rtl-extra rtl-objpas x11
 
 LAZARUS_VER=	1.8.0

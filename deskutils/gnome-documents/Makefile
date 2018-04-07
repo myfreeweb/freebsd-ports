@@ -15,6 +15,8 @@ LICENSE=	GPLv2
 BUILD_DEPENDS=	itstool:textproc/itstool
 LIB_DEPENDS=	libsoup-2.4.so:devel/libsoup \
 		libwebkit2gtk-4.0.so:www/webkit2-gtk3 \
+		libclutter-1.0.so:graphics/clutter \
+		libclutter-gtk-1.0.so:graphics/clutter-gtk3 \
 		libevview3.so:graphics/evince \
 		libgdata.so:devel/libgdata \
 		libgoa-1.0.so:net/gnome-online-accounts \

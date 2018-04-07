@@ -1,7 +1,0 @@
-TIMESTAMP = 1516485852
-SHA256 (u-boot-2018.01.tar.bz2) = 938f597394b33e82e5af8c98bd5ea1a238f61892aabef36384adbf7ca5b52dda
-SIZE (u-boot-2018.01.tar.bz2) = 12023681
-SHA256 (gonzoua-rpi3-psci-monitor-2b8890a_GH0.tar.gz) = a7b89678adea178359646a1e95a078d5c60d23821ba355f27f14ed7b28f32f4d
-SIZE (gonzoua-rpi3-psci-monitor-2b8890a_GH0.tar.gz) = 5115
-SHA256 (raspberrypi-firmware-9bcdc30_GH0.tar.gz) = 4125a89b40194b501559d55e2bc0955ed76d22fc17d158657cc4d52aa9c8ba5a
-SIZE (raspberrypi-firmware-9bcdc30_GH0.tar.gz) = 121813837
