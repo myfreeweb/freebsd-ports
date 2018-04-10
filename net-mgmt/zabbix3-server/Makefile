@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	zabbix3
-PORTVERSION=	3.0.14
+PORTVERSION=	3.0.16
 PORTREVISION?=	0
 CATEGORIES=	net-mgmt
 MASTER_SITES=	SF/zabbix/ZABBIX%20Latest%20Stable/${PORTVERSION}
@@ -152,7 +152,9 @@ post-patch:
 	@${GREP} -rl "/etc/zabbix" ${WRKSRC} \
 	  | ${XARGS} ${REINPLACE_CMD} -e 's#/etc/zabbix#${ETCDIR}#g'
 	@${REINPLACE_CMD} -e 's#/usr/sbin/fping#${LOCALBASE}/sbin/fping#g' \
-		${WRKSRC}/conf/zabbix_*.conf
+		${WRKSRC}/conf/zabbix_*.conf \
+		${WRKSRC}/src/zabbix_proxy/proxy.c \
+		${WRKSRC}/src/zabbix_server/server.c
 
 .if ${ZABBIX_BUILD} == "server"
 	@${REINPLACE_CMD} -e 's#PidFile=/tmp/zabbix_server.pid#PidFile=/var/run/zabbix/zabbix_server.pid#g' \
