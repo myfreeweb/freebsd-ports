@@ -213,6 +213,8 @@ share/devhelp/books/vala-%%VERSION%%/vala-%%VERSION%%.devhelp2
 %%DATADIR%%-%%VERSION%%/vapi/gstreamer-video-0.10.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gstreamer-video-1.0.deps
 %%DATADIR%%-%%VERSION%%/vapi/gstreamer-video-1.0.vapi
+%%DATADIR%%-%%VERSION%%/vapi/gstreamer-webrtc-1.0.deps
+%%DATADIR%%-%%VERSION%%/vapi/gstreamer-webrtc-1.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gtk+-2.0.deps
 %%DATADIR%%-%%VERSION%%/vapi/gtk+-2.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gtk+-3.0.deps
@@ -252,6 +254,8 @@ share/devhelp/books/vala-%%VERSION%%/vala-%%VERSION%%.devhelp2
 %%DATADIR%%-%%VERSION%%/vapi/libgda-4.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/libgda-report-4.0.deps
 %%DATADIR%%-%%VERSION%%/vapi/libgda-report-4.0.vapi
+%%DATADIR%%-%%VERSION%%/vapi/libgeoclue-2.0.deps
+%%DATADIR%%-%%VERSION%%/vapi/libgeoclue-2.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/libglade-2.0.deps
 %%DATADIR%%-%%VERSION%%/vapi/libglade-2.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/libgnome-2.0.vapi

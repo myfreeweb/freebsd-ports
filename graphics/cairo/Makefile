@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	cairo
-PORTVERSION=	1.14.10
+PORTVERSION=	1.14.12
 PORTEPOCH=	2
 CATEGORIES=	graphics
 MASTER_SITES=	http://cairographics.org/releases/
@@ -71,7 +71,7 @@ MIPS_BUILD_DEPENDS=	${LOCALBASE}/include/atomic_ops.h:devel/libatomic_ops
 MIPS_USES=	localbase
 MIPS_CONFIGURE_ENV=	cairo_cv_atomic_primitives="libatomic-ops"
 
-PLIST_SUB+=	LIBVER=2.11400.10
+PLIST_SUB+=	LIBVER=2.11400.12
 
 post-patch:
 	@${REINPLACE_CMD} -e '/strings/s/ - / -a /' \
