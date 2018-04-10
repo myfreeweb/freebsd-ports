@@ -34,11 +34,11 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `graphics/wayland-protocols`: 1.13, required by weston git [226408](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226408)
 - `devel/sdl20`: Wayland and udev options added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018)
 - `devel/libevdev` / `devel/evdev-proto` / `devel/py-evdev`: 1.5.9 and stuff [217248](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=217248)
+- `devel/libepoll-shim`: update version [223530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223530)
 - `x11/libinput`: [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
-	- update to 1.9.901
+	- update to 1.10.4
 	- fix [touchpad dropping out](https://blog.grem.de/pages/t470s.html)
 	- fix device rejection when running without /dev/input access
-- `devel/libepoll-shim`: update version ~~[223530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223530)~~ included in 222905
 - `x11-servers/xorg-server`:
 	- add `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
 	- fix terminal handling without 'keyboard' driver [220562](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220562)
