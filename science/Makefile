@@ -79,6 +79,7 @@
     SUBDIR += isaac-cfd
     SUBDIR += jstrack
     SUBDIR += kalzium
+    SUBDIR += kalzium-kde4
     SUBDIR += kst2
     SUBDIR += lamprop
     SUBDIR += libaec
@@ -197,6 +198,10 @@
     SUBDIR += rdkit
     SUBDIR += rubygem-ai4r
     SUBDIR += rubygem-cdo
+    SUBDIR += rubygem-rgeo
+    SUBDIR += rubygem-rgeo-geojson
+    SUBDIR += rubygem-rgeo-proj4
+    SUBDIR += rubygem-rgeo-shapefile
     SUBDIR += rubygem-ruby-dcl
     SUBDIR += rubygem-ruby-netcdf
     SUBDIR += sigrok-cli
@@ -206,8 +211,8 @@
     SUBDIR += silo
     SUBDIR += simlib
     SUBDIR += simsmith
-    SUBDIR += siril
     SUBDIR += step
+    SUBDIR += step-kde4
     SUBDIR += svmlight
     SUBDIR += szip
     SUBDIR += tfel

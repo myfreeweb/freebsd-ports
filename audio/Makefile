@@ -239,6 +239,7 @@
     SUBDIR += goobox
     SUBDIR += gqmpeg
     SUBDIR += gqradio
+    SUBDIR += gradio
     SUBDIR += gramofile
     SUBDIR += grip
     SUBDIR += gsm
@@ -356,6 +357,7 @@
     SUBDIR += jmusic
     SUBDIR += jokosher
     SUBDIR += juk
+    SUBDIR += juk-kde4
     SUBDIR += juke
     SUBDIR += julius
     SUBDIR += jxm
@@ -364,8 +366,10 @@
     SUBDIR += kid3-kde4
     SUBDIR += kid3-qt4
     SUBDIR += kid3-qt5
+    SUBDIR += kio-audiocd-kde4
     SUBDIR += kmix
-    SUBDIR += kscd
+    SUBDIR += kmix-kde4
+    SUBDIR += kscd-kde4
     SUBDIR += ksmp3play
     SUBDIR += kstreamripper
     SUBDIR += kwave
@@ -640,7 +644,6 @@
     SUBDIR += picard
     SUBDIR += picard-plugins
     SUBDIR += pithos
-    SUBDIR += plasma5-plasma-pa
     SUBDIR += play
     SUBDIR += playgsf
     SUBDIR += playmidi

@@ -1114,6 +1114,7 @@
     SUBDIR += py-soap2py
     SUBDIR += py-soappy
     SUBDIR += py-socketio-client
+    SUBDIR += py-softlayer
     SUBDIR += py-speedtest-cli
     SUBDIR += py-sshuttle
     SUBDIR += py-stomp.py

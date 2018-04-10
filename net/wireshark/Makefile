@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME?=	wireshark
-PORTVERSION=	2.4.5
+PORTVERSION=	2.4.6
 PORTREVISION?=	0
 CATEGORIES=	net ipv6
 MASTER_SITES=	http://www.wireshark.org/download/src/ \
@@ -27,8 +27,8 @@ DATADIR_NAME=	wireshark
 DATADIR=	${PREFIX}/share/${DATADIR_NAME}
 
 GNU_CONFIGURE=	yes
-USES=		alias cpe gettext-runtime gmake libtool pathfix perl5 \
-		pkgconfig localbase python:build ssl tar:xz
+USES=		alias cpe gettext-runtime gmake libtool localbase pathfix \
+		perl5 pkgconfig python:build ssl tar:xz
 USE_PERL5=	build
 USE_GNOME=	glib20 libxml2
 CONFIGURE_ARGS+=	--program-transform-name="" \
@@ -95,6 +95,7 @@ KRB_MIT_USES=		gssapi:mit
 
 RTP_LIB_DEPENDS=	libportaudio.so:audio/portaudio \
     			libspandsp.so:comms/spandsp
+RTP_CPPFLAGS=		-I${LOCALBASE}/include
 SNMP_LIB_DEPENDS=	libsmi.so:net-mgmt/libsmi
 CARES_LIB_DEPENDS=	libcares.so:dns/c-ares
 GEOIP_LIB_DEPENDS=	libGeoIP.so:net/GeoIP

@@ -1,4 +1,3 @@
-# Created by: Raphael Kubo da Costa <rakuco@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	juk
@@ -12,10 +11,12 @@ LICENSE=	GPLv2
 
 LIB_DEPENDS=	libtag.so:audio/taglib
 
-USES=		cmake:outsource kde:4 tar:xz
-USE_KDE=	automoc4 kdelibs
-USE_QT4=	moc_build qmake_build rcc_build uic_build
-
-CMAKE_ARGS=	-DWITH_TunePimp:BOOL=OFF
+USES=		cmake:outsource kde:5 tar:xz
+USE_KDE=	auth bookmarks codecs completion config configwidgets \
+		coreaddons crash globalaccel i18n iconthemes itemviews \
+		jobwidgets kio notifications service solid sonnet textwidgets \
+		wallet widgetsaddons windowsystem xmlgui
+USE_QT5=	core dbus gui network phonon4 svg widgets xml \
+		buildtools_build qmake_build
 
 .include <bsd.port.mk>

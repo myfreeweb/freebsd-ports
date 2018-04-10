@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/games/blinken/Makefile 13724 2017-03-10 19:28:23Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	blinken
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
@@ -8,7 +8,9 @@ MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Memory enhancement game for KDE
 
 USES=		cmake:outsource gettext kde:5 tar:xz
-USE_KDE=	dbusaddons doctools ecm guiaddons i18n xmlgui
-USE_QT5=	buildtools_build core gui phonon4 qmake_build svg widgets
+USE_KDE=	auth codecs config configwidgets coreaddons crash dbusaddons \
+		doctools ecm guiaddons i18n widgetsaddons xmlgui
+USE_QT5=	core dbus gui phonon4 svg widgets xml \
+		buildtools_build qmake_build
 
 .include <bsd.port.mk>

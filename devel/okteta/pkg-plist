@@ -542,7 +542,7 @@ lib/libokteta2core.so.2
 lib/libokteta2gui.so
 lib/libokteta2gui.so.0.9.1
 lib/libokteta2gui.so.2
-%%QT_PLUGINDIR%%/designer/oktetadesignerplugin.so
+%%QT_PLUGINDIR%%/designer/oktetawidgets.so
 %%QT_PLUGINDIR%%/oktetapart.so
 share/applications/org.kde.okteta.desktop
 share/config.kcfg/structviewpreferences.kcfg
@@ -675,8 +675,10 @@ share/locale/hu/LC_MESSAGES/liboktetagui.mo
 share/locale/hu/LC_MESSAGES/liboktetakasten.mo
 share/locale/hu/LC_MESSAGES/okteta.mo
 share/locale/hu/LC_MESSAGES/oktetapart.mo
+share/locale/id/LC_MESSAGES/libkasten.mo
 share/locale/id/LC_MESSAGES/liboktetacore.mo
 share/locale/id/LC_MESSAGES/okteta.mo
+share/locale/id/LC_MESSAGES/liboktetagui.mo
 share/locale/id/LC_MESSAGES/oktetapart.mo
 share/locale/is/LC_MESSAGES/libkasten.mo
 share/locale/is/LC_MESSAGES/liboktetacore.mo

@@ -163,12 +163,14 @@
     SUBDIR += jmref
     SUBDIR += k9copy-kde4
     SUBDIR += kaffeine
-    SUBDIR += kdemultimedia
     SUBDIR += kdemultimedia-ffmpegthumbs
+    SUBDIR += kdemultimedia-kde4
+    SUBDIR += kdemultimedia-ffmpegthumbs-kde4
+    SUBDIR += kdemultimedia-mplayerthumbs-kde4
     SUBDIR += kdenlive
     SUBDIR += kf5-kmediaplayer
     SUBDIR += kissdx
-    SUBDIR += kmplayer
+    SUBDIR += kmplayer-kde4
     SUBDIR += kodi
     SUBDIR += kodi-devel
     SUBDIR += kplayer-kde4

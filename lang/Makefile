@@ -4,6 +4,7 @@
     COMMENT = Programming languages
 
     SUBDIR += Gofer
+    SUBDIR += J
     SUBDIR += abcl
     SUBDIR += adacontrol
     SUBDIR += afnix
@@ -152,6 +153,7 @@
     SUBDIR += kf5-kross
     SUBDIR += kross-interpreters
     SUBDIR += kturtle
+    SUBDIR += kturtle-kde4
     SUBDIR += lafontaine
     SUBDIR += lci
     SUBDIR += ldc
@@ -266,6 +268,7 @@
     SUBDIR += picoc
     SUBDIR += pocl
     SUBDIR += polyml
+    SUBDIR += ponyc
     SUBDIR += ptoc
     SUBDIR += pure
     SUBDIR += py-clojure_py

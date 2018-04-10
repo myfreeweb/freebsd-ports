@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/games/kapman/Makefile 13724 2017-03-10 19:28:23Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kapman
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
@@ -8,9 +8,11 @@ MAINTAINER=	kde@FreeBSD.org
 COMMENT=	${${PORTNAME}_DESC}
 
 USES=		cmake:outsource gettext kde:5 tar:xz
-USE_KDE=	config configwidgets coreaddons ecm i18n libkdegames \
-		notifyconfig windowsystem xmlgui
-USE_QT5=	buildtools_build core gui qmake_build svg widgets xml
+USE_KDE=	auth codecs completion config configwidgets coreaddons crash \
+		dbusaddons ecm i18n libkdegames notifyconfig widgetsaddons \
+		windowsystem xmlgui
+USE_QT5=	core dbus gui network qml quick svg widgets xml \
+		buildtools_build qmake_build
 
 .include <${.CURDIR}/../kdegames/Makefile.common>
 .include <bsd.port.mk>

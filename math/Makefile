@@ -108,6 +108,7 @@
     SUBDIR += amath
     SUBDIR += ambit
     SUBDIR += analitza
+    SUBDIR += analitza-kde4
     SUBDIR += ann
     SUBDIR += antic
     SUBDIR += apc
@@ -133,6 +134,7 @@
     SUBDIR += calcoo
     SUBDIR += calctool
     SUBDIR += cantor
+    SUBDIR += cantor-kde4
     SUBDIR += cblas
     SUBDIR += ccmath
     SUBDIR += ceres-solver
@@ -268,11 +270,16 @@
     SUBDIR += jtransforms
     SUBDIR += jts
     SUBDIR += kalgebra
+    SUBDIR += kalgebra-kde4
     SUBDIR += kbruch
+    SUBDIR += kbruch-kde4
     SUBDIR += kcalc
+    SUBDIR += kcalc-kde4
     SUBDIR += kig
+    SUBDIR += kig-kde4
     SUBDIR += kktdirect
     SUBDIR += kmplot
+    SUBDIR += kmplot-kde4
     SUBDIR += labplot
     SUBDIR += lambda
     SUBDIR += lapack
@@ -361,6 +368,7 @@
     SUBDIR += octave-forge-data-smoothing
     SUBDIR += octave-forge-database
     SUBDIR += octave-forge-dataframe
+    SUBDIR += octave-forge-dicom
     SUBDIR += octave-forge-divand
     SUBDIR += octave-forge-doctest
     SUBDIR += octave-forge-econometrics
@@ -708,11 +716,13 @@
     SUBDIR += randlib
     SUBDIR += rapid
     SUBDIR += reduce
+    SUBDIR += reduce-psl
     SUBDIR += reed-solomon
     SUBDIR += rexx-regmath
     SUBDIR += rkward-kde4
     SUBDIR += rngstreams
     SUBDIR += rocs
+    SUBDIR += rocs-kde4
     SUBDIR += rpcalc
     SUBDIR += rpy
     SUBDIR += rpy2

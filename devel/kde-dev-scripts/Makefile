@@ -7,9 +7,9 @@ CATEGORIES=	devel kde kde-applications
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE development scripts
 
-USES=		cmake:outsource kde:4 perl5 python:run shebangfix tar:xz
-USE_KDE=	kdelibs automoc4
-USE_QT4=	moc_build qmake_build rcc_build uic_build
+USES=		cmake:outsource kde:5 perl5 python:run shebangfix tar:xz
+USE_KDE=	doctools ecm
+USE_QT5=	buildtools_build qmake_build
 
 SHEBANG_FILES=	cxxmetric \
 		draw_lib_dependencies \

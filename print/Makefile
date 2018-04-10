@@ -97,7 +97,8 @@
     SUBDIR += hyperlatex
     SUBDIR += indexinfo
     SUBDIR += jabref
-    SUBDIR += kde4-print-manager
+    SUBDIR += print-manager
+    SUBDIR += print-manager-kde4
     SUBDIR += kde_poster
     SUBDIR += kover
     SUBDIR += kpdftool
@@ -184,7 +185,6 @@
     SUBDIR += pmw
     SUBDIR += pnm2ppa
     SUBDIR += poster
-    SUBDIR += print-manager
     SUBDIR += ps2eps
     SUBDIR += pscal
     SUBDIR += psdim

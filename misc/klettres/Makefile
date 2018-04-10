@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/misc/klettres/Makefile 13724 2017-03-10 19:28:23Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	klettres
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
@@ -8,10 +8,10 @@ MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Alphabet learning tool for KDE
 
 USES=		cmake:outsource gettext kde:5 tar:xz
-USE_KDE=	completion configwidgets coreaddons \
-		doctools ecm emoticons i18n init \
-		itemmodels kdelibs4support newstuff \
-		widgetsaddons
-USE_QT5=	buildtools_build core gui qmake_build svg
+USE_KDE=	attica auth codecs completion config configwidgets coreaddons \
+		crash doctools ecm emoticons i18n init itemmodels \
+		kdelibs4support newstuff service widgetsaddons xmlgui
+USE_QT5=	core dbus gui network phonon4 svg widgets xml \
+		buildtools_build qmake_build
 
 .include <bsd.port.mk>

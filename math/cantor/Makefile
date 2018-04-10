@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/math/cantor/Makefile 13724 2017-03-10 19:28:23Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	cantor
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
@@ -7,16 +7,21 @@ CATEGORIES=	math kde kde-applications
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE 5 frontend to mathematical software
 
-LIB_DEPENDS=	libspectre.so:print/libspectre \
+LIB_DEPENDS=	libAnalitza.so:math/analitza \
+		libcln.so:math/cln \
 		libqalculate.so:math/libqalculate \
-		libAnalitza.so:math/analitza
+		libspectre.so:print/libspectre
 BUILD_DEPENDS=	${LOCALBASE}/share/xsl/docbook/html/docbook.xsl:textproc/docbook-xsl \
 		docbook-xml>0:textproc/docbook-xml
 
-USES=		cmake:outsource gettext kde:5 pkgconfig python:3 tar:xz
-USE_KDE=	ecm config emoticons itemmodels itemviews init newstuff \
-		texteditor coreaddons archive parts pty kdelibs4support
-USE_QT5=	core buildtools_build qmake_build xml xmlpatterns
+USES=		cmake:outsource gettext kde:5 pkgconfig python:3.4+ tar:xz
+USE_KDE=	attica auth archive bookmarks codecs completion config \
+		configwidgets coreaddons crash ecm emoticons i18n iconthemes \
+		itemmodels itemviews init jobwidgets kdelibs4support kio \
+		newstuff parts pty service solid sonnet texteditor textwidgets \
+		widgetsaddons xmlgui
+USE_QT5=	core dbus gui network printsupport widgets xml xmlpatterns \
+		buildtools_build qmake_build
 USE_LDCONFIG=	yes
 
 OPTIONS_DEFINE=	LUAJIT MAXIMA OCTAVE R SAGE SCILAB
@@ -44,10 +49,14 @@ SAGE_RUN_DEPENDS=	sage:math/sage
 SCILAB_DESC=	Install Scilab
 SCILAB_RUN_DEPENDS=	scilab:math/scilab
 
+# Disable python2 binding (should probably be an option PYTHON2, PYTHON3)
+CMAKE_ON=	CMAKE_DISABLE_FIND_PACKAGE_PythonLibs
+
 post-patch:
 	${REINPLACE_CMD} -e '/FIND_PROGRAM(_GFORTRAN_EXECUTABLE/s,gfortran,${FC},' \
 		${WRKSRC}/cmake/FindR.cmake
 	${REINPLACE_CMD} -e '/find_library(PYTHONLIBS3_LIBRARY/s,python3.5m,python3.5m python3.6m,' \
+			 -e '/pkg_check_modules/s,python3,python-${PYTHON_VER},' \
 		${WRKSRC}/cmake/FindPythonLibs3.cmake
 
 .include <bsd.port.mk>

@@ -67,10 +67,10 @@
     SUBDIR += jucipp
     SUBDIR += jupp
     SUBDIR += kate
-    SUBDIR += kate-plugin-pate
-    SUBDIR += kile
+    SUBDIR += kate-kde4
+    SUBDIR += kate-plugin-pate-kde4
+    SUBDIR += kile-kde4
     SUBDIR += klat4
-    SUBDIR += kmarkdownwebview
     SUBDIR += komodo-edit
     SUBDIR += latexila
     SUBDIR += lazarus

@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/games/kjumpingcube/Makefile 13724 2017-03-10 19:28:23Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kjumpingcube
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
@@ -8,10 +8,12 @@ MAINTAINER=	kde@FreeBSD.org
 COMMENT=	${${PORTNAME}_DESC}
 
 USES=		cmake:outsource gettext kde:5 tar:xz
-USE_KDE=	config configwidgets coreaddons ecm guiaddons i18n \
-		iconthemes itemviews kio libkdegames newstuff notifyconfig \
-		widgetsaddons xmlgui
-USE_QT5=	buildtools_build gui qmake_build qml quick widgets
+USE_KDE=	auth codecs completion config configwidgets coreaddons crash \
+		dbusaddons ecm guiaddons i18n  iconthemes itemviews jobwidgets \
+		kio libkdegames newstuff notifyconfig service widgetsaddons \
+		xmlgui
+USE_QT5=	core dbus gui network qml quick svg widgets xml \
+		buildtools_build qmake_build
 
 .include <${.CURDIR}/../kdegames/Makefile.common>
 .include <bsd.port.mk>

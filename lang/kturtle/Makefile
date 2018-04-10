@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/lang/kturtle/Makefile 13829 2017-04-09 08:51:06Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kturtle
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
@@ -8,8 +8,10 @@ MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Educational programming environment for KDE
 
 USES=		cmake:outsource gettext kde:5 tar:xz
-USE_KDE=	ecm emoticons i18n init itemmodels \
-		kdelibs4support kio newstuff
-USE_QT5=	buildtools_build core gui qmake_build svg widgets xml
+USE_KDE=	attica auth codecs config configwidgets coreaddons crash ecm \
+		emoticons i18n init itemmodels kdelibs4support kio newstuff \
+		service sonnet textwidgets widgetsaddons xmlgui
+USE_QT5=	core dbus gui network printsupport svg widgets xml \
+		buildtools_build qmake_build
 
 .include <bsd.port.mk>
