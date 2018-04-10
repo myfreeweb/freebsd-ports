@@ -19,7 +19,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 BUILD_DEPENDS=	vala:lang/vala
 
 USES+=		compiler:c11 gettext gmake gnome libtool localbase pathfix pkgconfig tar:xz
-USE_GNOME=	cairo gdkpixbuf2 gnomeprefix gtk30 intlhack 
+USE_GNOME=	cairo gdkpixbuf2 gnomeprefix gtk30 intlhack \
 		introspection:build libxml2 referencehack
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
