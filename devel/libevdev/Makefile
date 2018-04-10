@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	libevdev
-PORTVERSION=	1.5.7
+PORTVERSION=	1.5.9
 CATEGORIES=	devel
 MASTER_SITES=	http://freedesktop.org/software/${PORTNAME}/
 
@@ -17,15 +17,15 @@ LIB_DEPENDS=	libepoll-shim.so:devel/libepoll-shim
 USES=		gmake libtool pathfix python:build tar:xz compiler localbase
 EXTRACT_AFTER_ARGS=	--exclude include # v4l_compat
 GNU_CONFIGURE=	yes
-CONFIGURE_ENV=	ac_cv_path_DOXYGEN="" ac_cv_path_VALGRIND=""
+CONFIGURE_ENV=	ac_cv_path_DOXYGEN="" ac_cv_path_VALGRIND="" ac_cv_path_NM=""
 CPPFLAGS+=	-I${LOCALBASE}/include/libepoll-shim
 INSTALL_TARGET=	install-strip
 USE_LDCONFIG=	yes
 
 # Test requires /dev/uinput and should be run as root
 .if exists(/dev/uinput)
-TEST_USES+=		pkgconfig
-TEST_LIB_DEPENDS=	libcheck.so:devel/check
+TEST_USES+=	pkgconfig
+TEST_DEPENDS=	checkmk:devel/check
 TEST_TARGET=	check
 TEST_WRKSRC=	${WRKSRC}/test
 .endif

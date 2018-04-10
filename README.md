@@ -33,6 +33,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 - `graphics/wayland-protocols`: 1.13, required by weston git [226408](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226408)
 - `devel/sdl20`: Wayland and udev options added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018)
+- `devel/libevdev` / `devel/evdev-proto` / `devel/py-evdev`: 1.5.9 and stuff [217248](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=217248)
 - `x11/libinput`: [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
 	- update to 1.9.901
 	- fix [touchpad dropping out](https://blog.grem.de/pages/t470s.html)

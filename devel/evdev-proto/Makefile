@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	evdev-proto
-PORTVERSION=	4.13
+PORTVERSION=	4.16
 CATEGORIES=	devel
 MASTER_SITES=	https://github.com/torvalds/linux/raw/v${PORTVERSION}/include/uapi/linux/
 DISTNAME=	input.h input-event-codes.h uinput.h
@@ -36,7 +36,8 @@ post-patch:
 		/EVIOCGMTSLOTS/ s/_IOC_READ/IOC_INOUT/ ; \
 		/#define/ s/_IOC_READ/IOC_OUT/ ; \
 		/#define/ s/_IOC_WRITE/IOC_IN/ ; \
-		s/[[:space:]]+__user[[:space:]]+/ /' \
+		s/[[:space:]]+__user[[:space:]]+/ / ; \
+		/__USE_TIME_BITS64/ s|^#if (.*)$$|#if 1 /* \1 */|' \
 		${WRKSRC}/input.h
 	@${REINPLACE_CMD} -i '' -E -e \
 		's/__u([[:digit:]]+)/uint\1_t/g ; \
