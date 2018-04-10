@@ -11,8 +11,7 @@ COMMENT=	Qt5 wrapper for Wayland
 
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
-		libwayland-client.so:graphics/wayland \
-		libwayland-egl.so:graphics/mesa-libs \
+		libwayland-egl.so:graphics/wayland \
 		libxkbcommon.so:x11/libxkbcommon
 
 USES=		pkgconfig qmake:norecursive
@@ -25,11 +24,5 @@ QT_DIST=	${PORTNAME}
 QT_CONFIG+=	egl
 
 USE_LDCONFIG=	${PREFIX}/${QT_LIBDIR_REL}
-
-OPTIONS_DEFINE=	WAYLAND
-OPTIONS_DEFAULT=	WAYLAND
-WAYLAND_DESC=		Requires graphics/mesa-libs with WAYLAND on
-WAYLAND_IGNORE_OFF=	Cannot be built without wayland support
-WAYLAND_LIB_DEPENDS=	libwayland-egl.so:graphics/mesa-libs
 
 .include <bsd.port.mk>

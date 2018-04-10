@@ -12,9 +12,7 @@ LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
 		libharfbuzz.so:print/harfbuzz \
 		libxkbcommon.so:x11/libxkbcommon \
-		libwayland-client.so:graphics/wayland \
-		libwayland-cursor.so:graphics/wayland \
-		libwayland-egl.so:graphics/mesa-libs \
+		libwayland-egl.so:graphics/wayland \
 		libepoll-shim.so:devel/libepoll-shim \
 		libpng.so:graphics/png
 

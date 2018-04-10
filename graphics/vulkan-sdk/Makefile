@@ -43,10 +43,7 @@ XCB_CMAKE_BOOL=		BUILD_WSI_XCB_SUPPORT
 XCB_LIB_DEPENDS=	libX11-xcb.so:x11/libX11 \
 			libxcb.so:x11/libxcb
 WAYLAND_CMAKE_BOOL=	BUILD_WSI_WAYLAND_SUPPORT
-WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
-			libwayland-server.so:graphics/wayland \
-			libwayland-cursor.so:graphics/wayland \
-			libwayland-egl.so:graphics/mesa-libs
+WAYLAND_LIB_DEPENDS=	libwayland-egl.so:graphics/wayland
 DEMOS_CMAKE_BOOL=	BUILD_DEMOS
 
 .include <bsd.port.mk>

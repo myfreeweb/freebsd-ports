@@ -97,8 +97,7 @@ NPAPI_CMAKE_BOOL=	ENABLE_PLUGIN_PROCESS_GTK2
 NPAPI_USE=		GNOME=gtk20
 
 WAYLAND_CMAKE_BOOL=	ENABLE_WAYLAND_TARGET
-WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
-			libwayland-egl.so:graphics/mesa-libs
+WAYLAND_LIB_DEPENDS=	libwayland-egl.so:graphics/wayland
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|/usr/lib/browser/plugins|${BROWSER_PLUGINS_DIR}|' \

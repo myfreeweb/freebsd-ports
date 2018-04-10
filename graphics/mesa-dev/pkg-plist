@@ -88,9 +88,6 @@ lib/libglapi.so.0
 lib/libglapi.so.0.0.0
 lib/libvulkan_intel.so
 lib/libvulkan_radeon.so
-lib/libwayland-egl.so
-lib/libwayland-egl.so.1
-lib/libwayland-egl.so.1.0.0
 lib/libxatracker.so
 lib/vdpau/libvdpau_nouveau.so
 lib/vdpau/libvdpau_nouveau.so.1
@@ -116,7 +113,6 @@ libdata/pkgconfig/gl.pc
 libdata/pkgconfig/glesv1_cm.pc
 libdata/pkgconfig/glesv2.pc
 libdata/pkgconfig/osmesa.pc
-libdata/pkgconfig/wayland-egl.pc
 libdata/pkgconfig/xatracker.pc
 share/vulkan/icd.d/intel_icd.x86_64.json
 share/vulkan/icd.d/radeon_icd.x86_64.json

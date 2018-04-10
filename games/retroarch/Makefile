@@ -50,9 +50,7 @@ FREETYPE_LIB_DEPENDS=	libfreetype.so:print/freetype2
 FREETYPE_CONFIGURE_ENABLE=	freetype
 WAYLAND_BUILD_DEPENDS=	${LOCALBASE}/include/linux/input.h:devel/evdev-proto \
 			${LOCALBASE}/include/linux/kd.h:graphics/svgalib
-WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
-			libwayland-server.so:graphics/wayland \
-			libwayland-egl.so:graphics/mesa-libs
+WAYLAND_LIB_DEPENDS=	libwayland-egl.so:graphics/wayland
 WAYLAND_CONFIGURE_ENABLE=	wayland
 UDEV_LIB_DEPENDS=	libudev.so:devel/libudev-devd \
 			libepoll-shim.so:devel/libepoll-shim

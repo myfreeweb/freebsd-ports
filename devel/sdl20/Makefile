@@ -254,9 +254,7 @@ IGNORE=	option VIDEO_WAYLAND requires VIDEO_OPENGLES2
 .endif
 CONFIGURE_ARGS+=	--enable-video-wayland \
 			--enable-wayland-shared
-LIB_DEPENDS+=		libwayland-client.so:graphics/wayland \
-			libwayland-cursor.so:graphics/wayland \
-			libwayland-egl.so:graphics/mesa-libs \
+LIB_DEPENDS+=		libwayland-egl.so:graphics/wayland \
 			libxkbcommon.so:x11/libxkbcommon
 BUILD_DEPENDS+=	wayland-protocols>=1.7:graphics/wayland-protocols \
 			wayland-scanner:graphics/wayland \

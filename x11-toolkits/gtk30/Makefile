@@ -82,8 +82,7 @@ DEBUG_CONFIGURE_ON=	--enable-debug=yes
 
 WAYLAND_BUILD_DEPENDS=		wayland-protocols>=0:graphics/wayland-protocols
 WAYLAND_CONFIGURE_ENABLE=	wayland-backend
-WAYLAND_LIB_DEPENDS=		libwayland-client.so:graphics/wayland \
-				libwayland-egl.so:graphics/mesa-libs \
+WAYLAND_LIB_DEPENDS=		libwayland-egl.so:graphics/wayland \
 				libxkbcommon.so:x11/libxkbcommon
 WAYLAND_RUN_DEPENDS=		wayland-protocols>=0:graphics/wayland-protocols
 
