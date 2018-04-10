@@ -20,9 +20,7 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 - `graphics/mesa-dev`: alternative mesa port! Development version ([little fork](https://github.com/myfreeweb/mesa) with my BSD patches), everything built together, using Meson! Always includes GL, GLES, Vulkan (RADV, ANV), Gallium Nine, OpenCL (Clover), VAAPI, VDPAU.
 	- to install and keep pkg happy without rebuilding everything, just `pkg add -f` over existing `mesa-libs/dri`
 - `graphics/mesa-dri` and `graphics/mesa-libs`:
-	- updated to 18.0.0.rc4 [225415](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225415)
 	- enabled VK_KHR_wayland_surface [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540)
-	- (included upstream) fix device name detection [223030](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223030)
 - `graphics/vulkan-sdk`: [Vulkan SDK](https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers) (headers, ICD loader, validation layers) [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
 - `graphics/libdrm`: 2.4.91
 - `x11/xcb-proto` and `x11/libxcb`: 1.13 [226502](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226502)
@@ -34,7 +32,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 ### Desktop stack
 
 - `graphics/wayland-protocols`: 1.13, required by weston git [226408](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226408)
-- `www/webkit2-gtk3`: updated to 2.19.92, Wayland support added (stable version: [223733](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223733))
 - `devel/sdl20`: Wayland and udev options added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018)
 - `x11/libinput`: [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
 	- update to 1.9.901
@@ -45,7 +42,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 	- add `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
 	- fix terminal handling without 'keyboard' driver [220562](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220562)
 - `x11-toolkits/efl`: 1.20.7 and Wayland support [226220](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226220)
-- `graphics/glfw`: Wayland backend option [226605](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226605)
 
 ### Games
 
@@ -66,13 +62,11 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `graphics/simple-scan`: GNOME scanning app
 - `devel/libgusb`: GObject libusb wrapper (w/ [PR #10](https://github.com/hughsie/libgusb/pull/10))
 - `graphics/colord`: build vapi [227134](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227134)
-- `net/wireshark`: port fixes [227131](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227131)
 - `editors/abiword`: 3.0.2 [220975](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220975)
 - `sysutils/libcpuid`: git master
 - `emulators/wine-devel`: WoW64 [D14721](https://reviews.freebsd.org/D14721)
 - `editors/gnome-latex`: renamed from `editors/latexila`, updated to 3.27.2 [226938](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226938)
 - `cad/solvespace`: git master (GTK3 HiDPI)
-- `lang/vala`: 0.40
 - `devel/libgee`: 0.20.1
 - `math/nasc`: dual pane text calculator similar to Soulver
 - `net-im/gajim`: 1.0 (GTK3) [226794](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226794)
@@ -87,7 +81,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `net-im/fractal`: GTK Matrix client [226683](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226683)
 - `audio/lollypop`: update to 0.9.402 [226836](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226836)
 - `audio/sonata`: update to git master (GTK3)
-- `www/epiphany`: 3.18.x
 - `audio/clementine-player`: git qt5 branch
 - `audio/liblastfm-qt5`: qt5 for clementine [226530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226530)
 - `audio/libechonest-qt5`: qt5 for clementine [226529](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226529)
@@ -95,7 +88,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `devel/sdl20`: 2.0.8 [226409](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226409) (TEMPORARILY ROLLED BACK [#4109](https://bugzilla.libsdl.org/show_bug.cgi?id=4109))
 - `multimedia/mpv`: 0.28.2
 - `multimedia/ffmpeg`: git master (because mpv 0.28.x requires it) (WARNING breaks some things e.g. RPCS3)
-- `www/woff2`: [226165](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226165)
 - `sysutils/u-boot-rpi3`: update to 2018.01, with netboot support [225355](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225355)
 - `lang/luajit`: update to 2.1.0-beta3 (works on arm64) [225342](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225342)
 - `multimedia/gnome-twitch`: Twitch livestream player [224980](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224980)
