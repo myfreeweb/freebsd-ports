@@ -1,8 +1,22 @@
-Index: configure
-diff -u configure.orig configure
---- configure.orig	2010-10-18 21:36:00.000000000 +0900
-+++ configure	2010-10-18 23:50:45.966557478 +0900
-@@ -9501,7 +9501,7 @@
+--- configure.orig	2018-01-03 04:13:07 UTC
++++ configure
+@@ -23163,6 +23163,15 @@ cat >>confdefs.h <<_ACEOF
+ _ACEOF
+ 
+ 
++        ac_fn_c_check_member "$LINENO" "icaltimetype" "is_utc" "ac_cv_member_icaltimetype_is_utc" "#include <libical/ical.h>
++"
++if test "x$ac_cv_member_icaltimetype_is_utc" = xyes; then :
++
++$as_echo "#define ICALTIME_HAS_IS_UTC /**/" >>confdefs.h
++
++fi
++
++
+         { $as_echo "$as_me:${as_lineno-$LINENO}: checking for icalproperty_new_acknowledged in -lical" >&5
+ $as_echo_n "checking for icalproperty_new_acknowledged in -lical... " >&6; }
+ if ${ac_cv_lib_ical_icalproperty_new_acknowledged+:} false; then :
+@@ -24748,7 +24757,7 @@ if ${ac_cv_lib_gssapi_gss_unwrap+:} false; then :
    $as_echo_n "(cached) " >&6
  else
    ac_check_lib_save_LIBS=$LIBS
@@ -11,7 +25,7 @@ diff -u configure.orig configure
  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
  /* end confdefs.h.  */
  
-@@ -9803,7 +9803,7 @@
+@@ -25050,7 +25059,7 @@ fi
      GSSAPIBASE_STATIC_LIBS="$GSSAPIBASE_LIBS $gssapi_dir/libgssapi_krb5.a $gssapi_dir/libkrb5.a $gssapi_dir/libk5crypto.a $gssapi_dir/libcom_err.a ${K5SUPSTATIC}"
    elif test "$gss_impl" = "heimdal"; then
      CPPFLAGS="$CPPFLAGS -DKRB5_HEIMDAL"

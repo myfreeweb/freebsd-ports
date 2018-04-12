@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/net/kblog/Makefile 13959 2017-04-26 14:27:50Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kblog
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
@@ -13,7 +13,8 @@ USES=		cmake:outsource compiler:c++11-lib gettext kde:5 tar:xz
 USE_KDE=	coreaddons ecm kdelibs4support kio xmlrpcclient
 # pim components
 USE_KDE+=	calendarcore syndication
-USE_QT5=	buildtools_build gui qmake_build webkit
+USE_QT5=	gui webkit \
+		buildtools_build qmake_build
 USE_LDCONFIG=	yes
 
 DESCR=		${.CURDIR:H:H}/deskutils/kdepim/pkg-descr

@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/net/calendarsupport/Makefile 13916 2017-04-20 18:30:09Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	calendarsupport
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
@@ -12,13 +12,14 @@ LICENSE=	LGPL21
 LIB_DEPENDS=	libboost_system.so:devel/boost-libs
 
 USES=		cmake:outsource compiler:c++11-lib gettext kde:5 tar:xz
-USE_KDE=	codecs ecm i18n
+USE_KDE=	auth codecs completion config configwidgets coreaddons ecm \
+		guiaddons i18n iconthemes itemmodels jobwidgets kio service \
+		widgetsaddons
 # pim components
 USE_KDE+=	akonadi akonadicalendar calendarcore calendarutils holidays \
-		identitymanagement kdepim-apps-libs  mime \
-		pimcommon
-USE_QT5=	buildtools_build gui qmake_build testlib uitools widgets
+		identitymanagement kdepim-apps-libs mime pimcommon pimtextedit
+USE_QT5=	core gui network printsupport testlib uitools widgets xml \
+		buildtools_build qmake_build
 USE_LDCONFIG=	yes
-
 
 .include <bsd.port.mk>

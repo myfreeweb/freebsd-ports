@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/net/libkgapi/Makefile 13961 2017-04-26 15:29:37Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	libkgapi
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
@@ -19,8 +19,9 @@ USE_KDE=	auth bookmarks codecs completion config configwidgets \
 		widgetsaddons windowsystem xmlgui solid sonnet
 # pim components
 USE_KDE+=	calendarcore contacts
-USE_QT5=	core dbus network printsupport webengine widgets xml \
-		buildtools_build gui qmake_build
+USE_QT5=	core dbus gui location qml network printsupport quick webchannel \
+		webengine widgets xml \
+		buildtools_build qmake_build
 
 USE_LDCONFIG=	yes
 

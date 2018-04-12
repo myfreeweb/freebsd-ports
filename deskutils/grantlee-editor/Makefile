@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/deskutils/grantlee-editor/Makefile 13937 2017-04-23 15:49:32Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	grantlee-editor
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
@@ -12,7 +12,8 @@ LICENSE=	LGPL21
 LIB_DEPENDS=	libassuan.so:security/libassuan \
 		libgpg-error.so:security/libgpg-error \
 		libgpgme.so:security/gpgme \
-		libgpgmepp.so:security/gpgme-cpp
+		libgpgmepp.so:security/gpgme-cpp \
+		libqgpgme.so:security/gpgme-qt5
 
 USES=		cmake:outsource compiler:c++11-lib gettext grantlee:5 \
 		kde:5 tar:xz

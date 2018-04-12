@@ -15,7 +15,8 @@ COMMENT=	Opensource browser engine using the GTK+ 3 toolkit
 LICENSE=	GPLv2 BSD2CLAUSE
 LICENSE_COMB=	dual
 
-LIB_DEPENDS=	libenchant.so:textproc/enchant \
+LIB_DEPENDS=	libenchant-2.so:textproc/enchant2 \
+		libwoff2dec.so:devel/woff2 \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
 		libwebp.so:graphics/webp \
@@ -28,10 +29,8 @@ LIB_DEPENDS=	libenchant.so:textproc/enchant \
 		libharfbuzz-icu.so:print/harfbuzz-icu \
 		libsoup-2.4.so:devel/libsoup \
 		libgcrypt.so:security/libgcrypt \
-		libgnutls.so:security/gnutls \
 		libtasn1.so:security/libtasn1 \
-		libwoff2dec.so:devel/woff2 \
-		libupower-glib.so:sysutils/upower
+		libgnutls.so:security/gnutls
 
 PORTSCOUT=	limitw:1,even
 
@@ -63,7 +62,6 @@ CONFIGURE_ENV=		XDG_CACHE_HOME=${WRKDIR}
 INSTALL_TARGET=		install
 
 BROWSER_PLUGINS_DIR?=	${LOCALBASE}/lib/browser_plugins/symlinks/webkit-gtk3
-#_BROWSER_PLUGINS_DIR=	${BROWSER_PLUGINS_DIR:S|^/|"|:S|/|", "|g}",
 
 OPTIONS_DEFINE=		DEBUG GEOIP NPAPI WAYLAND
 OPTIONS_DEFAULT=	GEOIP
@@ -92,7 +90,6 @@ GEOIP_CMAKE_BOOL=	ENABLE_GEOLOCATION
 GEOIP_BUILD_DEPENDS=	geoclue>=2.4.3:net/geoclue
 GEOIP_RUN_DEPENDS=	geoclue>=2.4.3:net/geoclue
 
-NPAPI_DESC=	Support gtk2 (NPAPI) based plugins (like flash)
 NPAPI_CMAKE_BOOL=	ENABLE_PLUGIN_PROCESS_GTK2
 NPAPI_USE=		GNOME=gtk20
 

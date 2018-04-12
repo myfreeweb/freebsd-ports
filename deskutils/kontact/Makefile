@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/deskutils/kontact/Makefile 13937 2017-04-23 15:49:32Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kontact
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
@@ -17,7 +17,7 @@ USE_KDE=	auth codecs completion config configwidgets coreaddons crash \
 USE_KDE+=	akonadi grantleetheme kdepim-apps-libs kontactinterface libkdepim
 USE_QT5=	core dbus gui location network qml quick webchannel webengine \
 		widgets xml \
-		buildtools_build  qmake_build
+		buildtools_build qmake_build
 USE_LDCONFIG=	yes
 
 DESCR=		${.CURDIR:H:H}/deskutils/kdepim/pkg-descr

@@ -1,0 +1,12 @@
+--- config.h.in.orig	2018-01-03 04:13:08 UTC
++++ config.h.in
+@@ -451,6 +451,9 @@
+ /* Do we have zlib? */
+ #undef HAVE_ZLIB
+ 
++/* Does icaltimetype have is_utc field? */
++#undef ICALTIME_HAS_IS_UTC
++
+ /* Define to the sub-directory where libtool stores uninstalled libraries. */
+ #undef LT_OBJDIR
+ 

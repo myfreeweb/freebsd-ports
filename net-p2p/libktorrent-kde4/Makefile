@@ -1,13 +1,13 @@
-# $FreeBSD: branches/plasma5/KDE/net-p2p/libktorrent-kde4/Makefile 13847 2017-04-10 12:34:17Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	libktorrent
 DISTVERSION=	1.3.1
-PORTREVISION=	8
-PKGNAMESUFFIX=	-kde4
+PORTREVISION=	18
 CATEGORIES=	net-p2p kde
 MASTER_SITES=	http://ktorrent.org/downloads/${DISTVERSION:C,^1,4,:C,-.*,,}/
+PKGNAMESUFFIX=	-kde4
 
-MAINTAINER=	makc@FreeBSD.org
+MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Torrent library from KTorrent project
 
 BUILD_DEPENDS=	${LOCALBASE}/include/boost/concept_check.hpp:devel/boost-libs

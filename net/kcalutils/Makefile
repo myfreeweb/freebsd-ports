@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/net/kcalutils/Makefile 13959 2017-04-26 14:27:50Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kcalutils
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
@@ -10,10 +10,12 @@ COMMENT=	KDE utility and user interface functions for accessing calendar
 LICENSE=	LGPL21
 
 USES=		cmake:outsource compiler:c++11-lib gettext grantlee:5 kde:5 tar:xz
-USE_KDE=	codecs config coreaddons ecm i18n kdelibs4support
+USE_KDE=	codecs config coreaddons ecm i18n iconthemes kdelibs4support \
+		widgetsaddons
 # pim components
-USE_KDE+=	calendarcore identitymanagement
-USE_QT5=	buildtools_build qmake_build
+USE_KDE+=	calendarcore identitymanagement pimtextedit
+USE_QT5=	core gui widgets xml \
+		buildtools_build qmake_build
 USE_LDCONFIG=	yes
 
 DESCR=		${.CURDIR:H:H}/deskutils/kdepim/pkg-descr

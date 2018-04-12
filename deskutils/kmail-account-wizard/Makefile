@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/deskutils/kmail-account-wizard/Makefile 13947 2017-04-25 06:54:14Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kmail-account-wizard
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
@@ -10,7 +10,8 @@ COMMENT=	KDE mail account wizard
 LIB_DEPENDS=	libassuan.so:security/libassuan \
 		libgpg-error.so:security/libgpg-error \
 		libgpgme.so:security/gpgme \
-		libgpgmepp.so:security/gpgme-cpp
+		libgpgmepp.so:security/gpgme-cpp \
+		libqgpgme.so:security/gpgme-qt5
 
 USES=		cmake:outsource compiler:c++11-lib gettext  kde:5 tar:xz
 USE_KDE=	attica auth codecs config configwidgets coreaddons crash \
@@ -25,6 +26,5 @@ USE_QT5=	core dbus gui network script widgets xml \
 USE_LDCONFIG=	yes
 
 DESCR=		${.CURDIR:H:H}/deskutils/kdepim/pkg-descr
-
 
 .include <bsd.port.mk>
