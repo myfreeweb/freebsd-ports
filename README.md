@@ -84,7 +84,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `audio/sonata`: update to git master (GTK3)
 - `audio/clementine-player`: git qt5 branch
 - `audio/liblastfm`: qt5 flavor for clementine [D14667](https://reviews.freebsd.org/D14667)
-- `audio/libechonest-qt5`: qt5 for clementine [226529](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226529)
+- `audio/libechonest`: qt5 flavor for clementine [226529](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226529)
 - `devel/geany`: GTK3 [226523](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226523)
 - `devel/sdl20`: 2.0.8 [226409](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226409) (TEMPORARILY ROLLED BACK [#4109](https://bugzilla.libsdl.org/show_bug.cgi?id=4109))
 - `multimedia/mpv`: 0.28.2
