@@ -18,8 +18,8 @@ LIB_DEPENDS=	libtag.so:audio/taglib \
 		libchromaprint.so:audio/chromaprint \
 		libimobiledevice.so:comms/libimobiledevice \
 		libprotobuf.so:devel/protobuf \
-		libqca-qt5.so:devel/qca-qt5 \
-		libqjson-qt5.so:devel/qjson-qt5 \
+		libqca-qt5.so:devel/qca@qt5 \
+		libqjson-qt5.so:devel/qjson@qt5 \
 		libfftw3.so:math/fftw3 \
 		libechonest5.so:audio/libechonest-qt5 \
 		libcryptopp.so:security/cryptopp

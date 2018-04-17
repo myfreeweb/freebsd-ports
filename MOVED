@@ -10318,3 +10318,34 @@ textproc/elasticsearch-plugin-migration||2018-04-09|ElasticSearch 1.x End of Lif
 textproc/elasticsearch-plugin-sql||2018-04-09|ElasticSearch 1.x End of Life
 textproc/elasticsearch-river-rabbitmq||2018-04-09|ElasticSearch 1.x End of Life
 devel/libkgapi|devel/libkgapi-kde4|2018-04-11|Make room for KDE updates
+finance/libalkimia|finance/alkimia-qt4|2018-04-13|Project renamed
+security/py-zxcvbn-python|security/py-zxcvbn|2018-04-13|Renamed upstream
+devel/py-libusb115|devel/py-libusb1|2018-04-14|Unused and unmaintained upstream
+devel/qca-qt5|devel/qca@qt5|2018-04-14|Moved to a flavoured version
+devel/qjson-qt5|devel/qjson@qt5|2018-04-14|Moved to a flavoured version
+sysutils/polkit-qt5|sysutils/polkit-qt@qt5|2018-04-14|Moved to flavoured version
+multimedia/gstreamer1-qt4|multimedia/gstreamer1-qt@qt4|2018-04-14|Moved to a flavoured version
+multimedia/gstreamer1-qt5|multimedia/gstreamer1-qt@qt5|2018-04-14|Moved to a flavoured version
+www/mod_antiloris||2018-04-16|Apache 2.2 End of Life
+www/mod_auth_imap2||2018-04-16|Apache 2.2 End of Life
+www/mod_authn_sasl||2018-04-16|Apache 2.2 End of Life
+www/mod_bw||2018-04-16|Apache 2.2 End of Life
+www/mod_cband||2018-04-16|Apache 2.2 End of Life
+www/mod_clamav||2018-04-16|Apache 2.2 End of Life
+www/mod_extract_forwarded||2018-04-16|Apache 2.2 End of Life
+www/mod_hosts_access||2018-04-16|Apache 2.2 End of Life
+www/mod_log_config-st||2018-04-16|Apache 2.2 End of Life
+www/mod_log_mysql||2018-04-16|Apache 2.2 End of Life
+www/mod_log_sql2-dtc||2018-04-16|Apache 2.2 End of Life
+www/mod_macro22||2018-04-16|Apache 2.2 End of Life
+www/mod_musicindex||2018-04-16|Apache 2.2 End of Life
+www/mod_ntlm2||2018-04-16|Apache 2.2 End of Life
+www/mod_proxy_html||2018-04-16|Apache 2.2 End of Life
+www/mod_remoteip||2018-04-16|Apache 2.2 End of Life
+www/mod_spdy||2018-04-16|Apache 2.2 End of Life
+www/mod_uid||2018-04-16|Apache 2.2 End of Life
+www/mod_vhost_ldap||2018-04-16|Apache 2.2 End of Life
+www/mod_whatkilledus||2018-04-16|Apache 2.2 End of Life
+www/mod_xml2enc||2018-04-16|Apache 2.2 End of Life
+www/apache22||2018-04-16|Apache 2.2 End of Life
+www/mod_python33||2018-04-16|Apache 2.2 End of Life

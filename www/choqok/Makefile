@@ -13,8 +13,8 @@ COMMENT=	KDE micro-blogging client
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-LIB_DEPENDS=	libqjson-qt5.so:devel/qjson-qt5 \
-		libqca-qt5.so:devel/qca-qt5 \
+LIB_DEPENDS=	libqjson-qt5.so:devel/qjson@qt5 \
+		libqca-qt5.so:devel/qca@qt5 \
 		libqoauth-qt5.so:net/qoauth-qt5 \
 		libtelepathy-qt5.so:net-im/telepathy-qt5
 

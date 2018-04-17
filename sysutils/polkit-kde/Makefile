@@ -1,9 +1,9 @@
 # Created by: Dima Panov <fluffy@Fluffy.Khv.RU>
-# $FreeBSD: ports/sysutils/polkit-kde/Makefile,v 1.8 2012/06/06 06:44:25 miwi Exp $
+# $FreeBSD$
 
 PORTNAME=	polkit-kde
-DISTVERSION=	0.99.1
-PORTREVISION=	3
+PORTVERSION=	0.99.1
+PORTREVISION=	6
 CATEGORIES=	sysutils kde
 MASTER_SITES=	KDE/stable/apps/KDE4.x/admin/
 DISTNAME=	${PORTNAME}-agent-1-${PORTVERSION:C/1$/0/}
@@ -13,7 +13,7 @@ COMMENT=	Polkit authentication UI for KDE Workspaces
 
 LICENSE=	GPLv2
 
-LIB_DEPENDS=	libpolkit-qt-agent-1.so:sysutils/polkit-qt
+LIB_DEPENDS=	libpolkit-qt-agent-1.so:sysutils/polkit-qt@qt4
 
 USES=		cmake kde:4 tar:bzip2
 USE_KDE=	kdelibs automoc4

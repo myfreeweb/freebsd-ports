@@ -175,7 +175,7 @@ carbon:*:230:
 # free: 232
 # free: 233
 kafka:*:234:
-# free: 235
+openhab:*:235:
 # free: 236
 # free: 237
 # free: 238
@@ -831,7 +831,7 @@ pdagent:*:887:
 vuls:*:888:
 mattermost:*:889:
 matterircd:*:890:
-# free: 891
+urbackup:*:891:
 tautulli:*:892:
 logstash:*:893:
 arangodb:*:894:

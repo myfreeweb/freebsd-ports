@@ -113,6 +113,7 @@
     SUBDIR += hsqldb
     SUBDIR += influxdb
     SUBDIR += innotop
+    SUBDIR += iowow
     SUBDIR += ip4r
     SUBDIR += ipa_sdb
     SUBDIR += iplike

@@ -98,6 +98,7 @@
     SUBDIR += chbg
     SUBDIR += cimg
     SUBDIR += cinepaint
+    SUBDIR += cloudcompare
     SUBDIR += clutter
     SUBDIR += clutter-gtk
     SUBDIR += clutter-gtk3
@@ -660,6 +661,7 @@
     SUBDIR += openjpeg15
     SUBDIR += openjump
     SUBDIR += opennurbs
+    SUBDIR += openorienteering-mapper
     SUBDIR += openrm
     SUBDIR += openshadinglanguage
     SUBDIR += opensubdiv

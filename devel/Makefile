@@ -4320,7 +4320,6 @@
     SUBDIR += py-blist
     SUBDIR += py-bluelet
     SUBDIR += py-boto
-    SUBDIR += py-boto3
     SUBDIR += py-botocore
     SUBDIR += py-bsd
     SUBDIR += py-buildbot
@@ -4595,6 +4594,7 @@
     SUBDIR += py-kaptan
     SUBDIR += py-kayako
     SUBDIR += py-kazoo
+    SUBDIR += py-keystone-engine
     SUBDIR += py-keystoneauth1
     SUBDIR += py-keystonemiddleware
     SUBDIR += py-kid
@@ -4613,7 +4613,6 @@
     SUBDIR += py-libtaxii
     SUBDIR += py-libtmux
     SUBDIR += py-libusb1
-    SUBDIR += py-libusb115
     SUBDIR += py-libversion
     SUBDIR += py-libvirt
     SUBDIR += py-libzfs
@@ -4845,6 +4844,7 @@
     SUBDIR += py-python-engineio
     SUBDIR += py-python-gflags
     SUBDIR += py-python-gist
+    SUBDIR += py-python-gitlab
     SUBDIR += py-python-jenkins
     SUBDIR += py-python-magic
     SUBDIR += py-python-pcre
@@ -5194,13 +5194,11 @@
     SUBDIR += qbs
     SUBDIR += qbzr
     SUBDIR += qca
-    SUBDIR += qca-qt5
     SUBDIR += qconf
     SUBDIR += qct
     SUBDIR += qdevelop
     SUBDIR += qgit
     SUBDIR += qjson
-    SUBDIR += qjson-qt5
     SUBDIR += qmake
     SUBDIR += qprog
     SUBDIR += qross
@@ -5442,6 +5440,7 @@
     SUBDIR += rubygem-deep_test
     SUBDIR += rubygem-deface
     SUBDIR += rubygem-default_value_for
+    SUBDIR += rubygem-default_value_for30
     SUBDIR += rubygem-delayed_job
     SUBDIR += rubygem-delayer
     SUBDIR += rubygem-delayer-deferred
@@ -5537,6 +5536,7 @@
     SUBDIR += rubygem-google-api-client
     SUBDIR += rubygem-google-protobuf
     SUBDIR += rubygem-google-protobuf351
+    SUBDIR += rubygem-googleapis-common-protos
     SUBDIR += rubygem-googleapis-common-protos-types
     SUBDIR += rubygem-graf
     SUBDIR += rubygem-grape
@@ -5618,6 +5618,7 @@
     SUBDIR += rubygem-lru_redux
     SUBDIR += rubygem-lumberjack
     SUBDIR += rubygem-main
+    SUBDIR += rubygem-manpages
     SUBDIR += rubygem-map
     SUBDIR += rubygem-marcel
     SUBDIR += rubygem-memoist

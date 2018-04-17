@@ -19,7 +19,7 @@ LIB_DEPENDS=	libgpgme.so:security/gpgme \
 		libical.so:devel/libical \
 		libuuid.so:misc/e2fsprogs-libuuid \
 		libprison.so:graphics/prison \
-		libqjson.so:devel/qjson
+		libqjson.so:devel/qjson@qt4
 
 USES=		cmake:outsource kde:4 shared-mime-info shebangfix tar:xz
 USE_KDE=	kdelibs akonadi \
