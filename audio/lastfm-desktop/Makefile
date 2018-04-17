@@ -3,7 +3,7 @@
 
 PORTNAME=	lastfm-desktop
 PORTVERSION=	2.1.36
-PORTREVISION=	5
+PORTREVISION=	6
 CATEGORIES=	audio
 
 MAINTAINER=	vg@FreeBSD.org
@@ -12,7 +12,7 @@ COMMENT=	Official Last.fm desktop application suite
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-LIB_DEPENDS=	liblastfm.so:audio/liblastfm \
+LIB_DEPENDS=	liblastfm.so:audio/liblastfm@qt4 \
 		libavcodec.so:multimedia/ffmpeg \
 		libgpod.so:audio/libgpod \
 		libimobiledevice.so:comms/libimobiledevice \

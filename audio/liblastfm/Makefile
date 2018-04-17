@@ -2,9 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	liblastfm
-DISTVERSION=	1.1.0-3
+DISTVERSION=	1.0.9-5
 DISTVERSIONSUFFIX=	-g4433165
 CATEGORIES=	audio
+PKGNAMESUFFIX=	-${FLAVOR}
 
 MAINTAINER=	jhale@FreeBSD.org
 COMMENT=	Qt C++ library for the Last.fm webservices
@@ -12,23 +13,26 @@ COMMENT=	Qt C++ library for the Last.fm webservices
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	lastfm
+FLAVORS=	qt4 qt5
+FLAVOR?=	${FLAVORS:[1]}
 
 USES=		cmake pkgconfig
 USE_LDCONFIG=	yes
+USE_GITHUB=	yes
+GH_ACCOUNT=	lastfm
 
-
-.if defined(PKGNAMESUFFIX)
-USE_QT5=	core dbus network sql xml \
-		buildtools_build qmake_build
-TEST_USE=		QT5=testlib_build
-.else
-CMAKE_ARGS=	-DBUILD_WITH_QT4:BOOL=ON
+.if ${FLAVOR} == qt4
 USE_QT4=	corelib dbus network sql xml \
 		moc_build qmake_build rcc_build
-TEST_USE=		QT4=qtestlib_build
+CMAKE_ON+=	BUILD_WITH_QT4
+.else
+USE_QT5=	core dbus network sql xml \
+		buildtools_build qmake_build
+CMAKE_OFF+=	BUILD_WITH_QT4
+QTVER_SUFFIX=	5
 .endif
+
+PLIST_SUB=	QTVER_SUFFIX="${QTVER_SUFFIX}"
 
 OPTIONS_DEFINE=		FINGERPRINT TEST
 OPTIONS_DEFAULT=	FINGERPRINT
@@ -40,8 +44,15 @@ FINGERPRINT_LIB_DEPENDS=libsamplerate.so:audio/libsamplerate \
 FINGERPRINT_CMAKE_BOOL=	BUILD_FINGERPRINT
 # We only need fftw3.h from math/fftw3; no need to install
 FINGERPRINT_BUILD_DEPENDS=	${NONEXISTENT}:math/fftw3:patch
-FINGERPRINT_CMAKE_ON=	-DLIBFFTW3_INCLUDE_DIR:PATH=`${MAKE} -C ${PORTSDIR}/math/fftw3 -VWRKSRC`/api
+# ${SED} replacement is a workaround for a poudriere bug (at least existing in
+# 3.2.99.20180309) causing the fftw3 WRKDIR to be flavored unnecessarily
+FINGERPRINT_CMAKE_ON=	-DLIBFFTW3_INCLUDE_DIR:PATH=`${MAKE} -C ${PORTSDIR}/math/fftw3 -VWRKSRC | ${SED} 's|${PKGNAMESUFFIX}||'`/api
 
+.if ${FLAVOR} == qt4
+TEST_USE=		QT4=qtestlib_build
+.else
+TEST_USE=		QT5=testlib_build
+.endif
 TEST_CMAKE_BOOL=	BUILD_TESTS
 TEST_TARGET=		test
 

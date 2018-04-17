@@ -3,7 +3,7 @@
 
 PORTNAME=	amarok
 PORTVERSION=	2.8.0
-PORTREVISION=	15
+PORTREVISION=	16
 CATEGORIES=	audio kde
 MASTER_SITES=	KDE/stable/${PORTNAME}/${PORTVERSION}/src
 
@@ -15,7 +15,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libtag.so:audio/taglib \
 		libtag-extras.so:audio/taglib-extras \
-		liblastfm.so:audio/liblastfm \
+		liblastfm.so:audio/liblastfm@qt4 \
 		libqjson.so:devel/qjson@qt4 \
 		libqca.so:devel/qca@qt4 \
 		libdbus-1.so:devel/dbus

@@ -1,6 +1,6 @@
 http://www.last.fm 301 redirects to https://www.last.fm causing test to fail
 
---- tests/TestUrlBuilder.h.orig	2018-03-31 12:04:00 UTC
+--- tests/TestUrlBuilder.h.orig	2018-03-12 12:32:35 UTC
 +++ tests/TestUrlBuilder.h
 @@ -81,7 +81,7 @@ private slots:
  
