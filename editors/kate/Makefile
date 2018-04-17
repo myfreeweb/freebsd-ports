@@ -2,10 +2,10 @@
 
 PORTNAME=	kate
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-CATEGORIES=	editors kde kde-applications 
+CATEGORIES=	editors kde kde-applications # kde kde-applications-applications
 
 MAINTAINER=	kde@FreeBSD.org
-COMMENT=	Basic editor framework for the KDE system
+COMMENT=	KDE5 kate
 
 BUILD_DEPENDS=	${LOCALBASE}/share/xsl/docbook/html/docbook.xsl:textproc/docbook-xsl \
 		docbook-xml>0:textproc/docbook-xml

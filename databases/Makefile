@@ -125,7 +125,7 @@
     SUBDIR += jlog
     SUBDIR += jrobin
     SUBDIR += jrrd
-    SUBDIR += kbibtex
+    SUBDIR += kbibtex-kde4
     SUBDIR += kdb
     SUBDIR += kexi
     SUBDIR += kyotocabinet

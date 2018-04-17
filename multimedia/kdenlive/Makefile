@@ -1,7 +1,7 @@
 # $FreeBSD: branches/plasma5/KDE/multimedia/kdenlive/Makefile 13957 2017-04-26 14:25:40Z tcberner $
 
 PORTNAME=	kdenlive
-PORTVERSION=	${KDE_APPLICATIONS_VERSION}
+DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	multimedia kde kde-applications
 
 MAINTAINER=	avilla@FreeBSD.org
@@ -37,7 +37,6 @@ DVDWIZARD_DESC=	DVD authoring via DVDAuthor and cdrtools
 SCREENCAST_DESC=Screen capture support via recordMyDesktop
 V4L_DESC=	Webcam support via Video4Linux
 XINE_DESC=	DVD preview support via xine
-JOGSHUTTLE_DESC=Jog/Shuttle support
 
 DVDWIZARD_RUN_DEPENDS=	dvdauthor:multimedia/dvdauthor \
 			cdrecord:sysutils/cdrtools

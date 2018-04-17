@@ -14,4 +14,16 @@ USE_KDE=	config coreaddons ecm i18n kdeclarative kio service widgetsaddons
 USE_QT5=	core dbus gui network qml widgets xml \
 		buildtools_build qmake_build
 
+OPTIONS_DEFINE=	KACCOUNTS KDECONNECT
+OPTIONS_DEFAULT=	KACCOUNTS KDECONNECT
+OPTIONS_SUB=		yes
+KACCOUNTS_DESC=		Use kaccounts login data
+KACCOUNTS_LIB_DEPENDS=	libaccounts-qt5.so:net-im/libaccounts-qt5 \
+			libkaccounts.so:net-im/kaccounts-integration 
+KACCOUNTS_CMAKE_BOOL_OFF=CMAKE_DISABLE_FIND_PACKAGE_KAccounts
+
+KDECONNECT_DESC=	Integrate into kdeconnect
+KDECONNECT_CMAKE_BOOL=	KDECONNECT
+KDECONNECT_LIB_DEPENDS=	libkdeconnectdeclarativeplugin.so:deskutils/kdeconnect-kde-kf5
+
 .include <bsd.port.mk>

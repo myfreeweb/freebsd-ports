@@ -70,6 +70,7 @@ lib/libkwinxrenderutils.so.%%KDE_PLASMA_VERSION%%
 %%QT_PLUGINDIR%%/kwin/effects/configs/kwin_presentwindows_config.so
 %%QT_PLUGINDIR%%/kwin/effects/configs/kwin_resize_config.so
 %%QT_PLUGINDIR%%/kwin/effects/configs/kwin_showfps_config.so
+%%QT_PLUGINDIR%%/kwin/effects/configs/kwin_slide_config.so
 %%QT_PLUGINDIR%%/kwin/effects/configs/kwin_thumbnailaside_config.so
 %%QT_PLUGINDIR%%/kwin/effects/configs/kwin_trackmouse_config.so
 %%QT_PLUGINDIR%%/kwin/effects/configs/kwin_windowgeometry_config.so
@@ -79,6 +80,7 @@ lib/libkwinxrenderutils.so.%%KDE_PLASMA_VERSION%%
 %%QT_PLUGINDIR%%/org.kde.kdecoration2/kwin5_aurorae.so
 %%QT_PLUGINDIR%%/org.kde.kglobalaccel5.platforms/KF5GlobalAccelPrivateKWin.so
 %%QT_PLUGINDIR%%/org.kde.kwin.platforms/KWinX11Platform.so
+%%QT_PLUGINDIR%%/org.kde.kwin.scenes/KWinSceneOpenGL.so
 %%QT_PLUGINDIR%%/org.kde.kwin.scenes/KWinSceneQPainter.so
 %%QT_PLUGINDIR%%/org.kde.kwin.scenes/KWinSceneXRender.so
 %%QT_PLUGINDIR%%/org.kde.kwin.waylandbackends/KWinWaylandDrmBackend.so
@@ -98,7 +100,9 @@ lib/libkwinxrenderutils.so.%%KDE_PLASMA_VERSION%%
 %%QT_QMLDIR%%/org/kde/kwin/private/kdecoration/libkdecorationprivatedeclarative.so
 %%QT_QMLDIR%%/org/kde/kwin/private/kdecoration/qmldir
 share/config.kcfg/kwin.kcfg
+share/config.kcfg/kwin_colorcorrect.kcfg
 share/dbus-1/interfaces/org.kde.KWin.xml
+share/dbus-1/interfaces/org.kde.kwin.ColorCorrect.xml
 share/dbus-1/interfaces/org.kde.kwin.Compositing.xml
 share/dbus-1/interfaces/org.kde.kwin.Effects.xml
 share/doc/HTML/ca/kcontrol/desktop/index.cache.bz2

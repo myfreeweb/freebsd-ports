@@ -11,7 +11,7 @@ COMMENT=	KDE framework for searching and managing user metadata
 CONFLICTS_INSTALL=	kde-runtime-4.12.*
 
 LIB_DEPENDS=	libxapian.so:databases/xapian-core \
-		libqjson.so:devel/qjson
+		libqjson.so:devel/qjson@qt4
 
 USES=		cmake:outsource kde:4 tar:xz
 USE_KDE=	akonadi automoc4 kdelibs kfilemetadata \

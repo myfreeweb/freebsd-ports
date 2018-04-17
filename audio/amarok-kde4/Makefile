@@ -6,6 +6,7 @@ PORTVERSION=	2.8.0
 PORTREVISION=	16
 CATEGORIES=	audio kde
 MASTER_SITES=	KDE/stable/${PORTNAME}/${PORTVERSION}/src
+PKGNAMESUFFIX=	-kde4
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE music player
@@ -21,7 +22,7 @@ LIB_DEPENDS=	libtag.so:audio/taglib \
 		libdbus-1.so:devel/dbus
 BUILD_DEPENDS=	${LOCALBASE}/lib/qt4/plugins/script/libqtscript_core.so.1.0.0:devel/qtscriptgenerator
 RUN_DEPENDS=	${LOCALBASE}/lib/qt4/plugins/script/libqtscript_core.so.1.0.0:devel/qtscriptgenerator \
-		${KDE_PREFIX}/lib/kde4/kio_upnp_ms.so:net/kio-upnp-ms
+		${KDE_PREFIX}/lib/kde4/kio_upnp_ms.so:net/kio-upnp-ms-kde4
 
 USES=		cmake:outsource kde:4 mysql:client,embedded pkgconfig \
 		shared-mime-info shebangfix ssl tar:bzip2

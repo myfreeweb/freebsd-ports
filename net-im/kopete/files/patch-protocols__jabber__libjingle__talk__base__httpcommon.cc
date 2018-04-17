@@ -1,4 +1,4 @@
---- protocols/jabber/libjingle/talk/base/httpcommon.cc.orig	2016-11-27 16:25:29 UTC
+--- protocols/jabber/libjingle/talk/base/httpcommon.cc.orig	2018-03-15 04:21:08 UTC
 +++ protocols/jabber/libjingle/talk/base/httpcommon.cc
 @@ -25,6 +25,10 @@
   * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
@@ -11,7 +11,7 @@
  #include <time.h>
  
  #ifdef WIN32
-@@ -399,7 +403,7 @@ bool HttpDateToSeconds(const std::string
+@@ -399,7 +403,7 @@ bool HttpDateToSeconds(const std::string& date, time_t
      gmt = non_gmt + kTimeZoneOffsets[zindex] * 60 * 60;
    }
    // TODO: Android should support timezone, see b/2441195

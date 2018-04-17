@@ -320,8 +320,9 @@
     SUBDIR += kcalutils
     SUBDIR += kcontacts
     SUBDIR += kdav
-    SUBDIR += kdenetwork-filesharing
+    SUBDIR += kdenetwork
     SUBDIR += kdenetwork-kde4
+    SUBDIR += kdenetwork-filesharing
     SUBDIR += kdenetwork-filesharing-kde4
     SUBDIR += kdenetwork-strigi-analyzers-kde4
     SUBDIR += kea
@@ -331,7 +332,8 @@
     SUBDIR += kget-kde4
     SUBDIR += kidentitymanagement
     SUBDIR += kimap
-    SUBDIR += kio-upnp-ms
+    SUBDIR += kio-gdrive
+    SUBDIR += kio-upnp-ms-kde4
     SUBDIR += kippo
     SUBDIR += kissd
     SUBDIR += kldap
@@ -346,8 +348,8 @@
     SUBDIR += krdc-kde4
     SUBDIR += krfb
     SUBDIR += krfb-kde4
-    SUBDIR += ksmtp
     SUBDIR += ktnef
+    SUBDIR += ksmtp
     SUBDIR += kwooty
     SUBDIR += l2tpd
     SUBDIR += l4ip
@@ -373,18 +375,19 @@
     SUBDIR += libfixbuf
     SUBDIR += libgnetwork
     SUBDIR += libgravatar
-    SUBDIR += libgrss
     SUBDIR += libgweather
     SUBDIR += libilbc
-    SUBDIR += libkfbapi
+    SUBDIR += libkfbapi-kde4
     SUBDIR += libkgapi
     SUBDIR += libksieve
     SUBDIR += libkvkontakte
+    SUBDIR += libkvkontakte-kde4
     SUBDIR += libmaia
     SUBDIR += libmateweather
     SUBDIR += libmaxminddb
     SUBDIR += libmdf
     SUBDIR += libmediawiki
+    SUBDIR += libmediawiki-kde4
     SUBDIR += libmms
     SUBDIR += libmxp
     SUBDIR += libnatpmp
@@ -1064,7 +1067,6 @@
     SUBDIR += py-netif
     SUBDIR += py-netifaces
     SUBDIR += py-netlib
-    SUBDIR += py-netsnmpagent
     SUBDIR += py-netstring
     SUBDIR += py-nnpy
     SUBDIR += py-ntplib
@@ -1119,7 +1121,6 @@
     SUBDIR += py-soap2py
     SUBDIR += py-soappy
     SUBDIR += py-socketio-client
-    SUBDIR += py-softlayer
     SUBDIR += py-speedtest-cli
     SUBDIR += py-sshuttle
     SUBDIR += py-stomp.py
@@ -1137,7 +1138,6 @@
     SUBDIR += py-wmi-query
     SUBDIR += py-wolframalpha
     SUBDIR += py-xmlrpc
-    SUBDIR += py-zeroconf
     SUBDIR += py-zope.proxy
     SUBDIR += py-zsi
     SUBDIR += pygopherd
@@ -1255,9 +1255,6 @@
     SUBDIR += rubygem-gitaly-proto
     SUBDIR += rubygem-gitaly-proto083
     SUBDIR += rubygem-gitaly-proto084
-    SUBDIR += rubygem-gitaly-proto088
-    SUBDIR += rubygem-gitaly-proto094
-    SUBDIR += rubygem-gitaly-proto095
     SUBDIR += rubygem-gitlab_omniauth-ldap
     SUBDIR += rubygem-gitlab_omniauth-ldap1
     SUBDIR += rubygem-grpc
@@ -1283,7 +1280,6 @@
     SUBDIR += rubygem-omniauth-authentiq
     SUBDIR += rubygem-omniauth-azure-oauth2
     SUBDIR += rubygem-omniauth-facebook
-    SUBDIR += rubygem-omniauth-facebook4
     SUBDIR += rubygem-omniauth-github
     SUBDIR += rubygem-omniauth-github-discourse
     SUBDIR += rubygem-omniauth-github11
@@ -1296,7 +1292,6 @@
     SUBDIR += rubygem-omniauth-twitter12
     SUBDIR += rubygem-open-uri-cached
     SUBDIR += rubygem-opennebula
-    SUBDIR += rubygem-ovirt-engine-sdk
     SUBDIR += rubygem-packetfu
     SUBDIR += rubygem-pcaprub
     SUBDIR += rubygem-private_address_check

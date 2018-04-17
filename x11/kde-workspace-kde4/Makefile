@@ -36,8 +36,8 @@ RUN_DEPENDS=	${KDE_PREFIX}/env/xdg-env.sh:misc/kde4-xdg-env \
 		xset:x11/xset \
 		setxkbmap:x11/setxkbmap \
 		${KDE_PREFIX}/bin/ksysguardd:sysutils/ksysguardd-kde4 \
-		${KDE_PREFIX}/lib/kde4/libexec/polkit-kde-authentication-agent-1:sysutils/polkit-kde \
-		${KDE_PREFIX}/lib/kde4/libexec/polkitkde1helper:sysutils/kcm-polkit-kde \
+		${KDE_PREFIX}/lib/kde4/libexec/polkit-kde-authentication-agent-1:sysutils/polkit-kde-kde4 \
+		${KDE_PREFIX}/lib/kde4/libexec/polkitkde1helper:sysutils/kcm-polkit-kde4 \
 		${LOCALBASE}/etc/pam.d/kde:security/pam_kde \
 		${KDE_PREFIX}/share/apps/ksplash/Themes/Default/Theme.rc:x11-themes/kde-base-artwork-kde4
 
@@ -93,7 +93,7 @@ GSTREAMER_DESC=	Multimedia via Phonon-GStreamer
 GSTREAMER_USE=	QT4=phonon-gst_run
 
 KACTIVITY_DESC=		Activity Manager daemon
-KACTIVITY_RUN_DEPENDS=	${KDE_PREFIX}/bin/kactivitymanagerd:x11/kactivitymanagerd
+KACTIVITY_RUN_DEPENDS=	${KDE_PREFIX}/bin/kactivitymanagerd:x11/kactivitymanagerd-kde4
 
 PYTHON_DESC=		Python plasmoids support
 PYTHON_RUN_DEPENDS=	${KDE_PREFIX}/share/apps/plasma_scriptengine_python/plasma_importer.py:x11/plasma-scriptengine-python-kde4

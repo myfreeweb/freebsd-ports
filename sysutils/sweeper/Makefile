@@ -1,4 +1,3 @@
-# Created by: Martin Wilke <miwi@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	sweeper
@@ -8,8 +7,11 @@ CATEGORIES=	sysutils kde kde-applications
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Cleans temporal files for KDE
 
-USES=		cmake:outsource kde:4 tar:xz
-USE_KDE=	automoc4 kdelibs
-USE_QT4=	qmake_build moc_build rcc_build uic_build
+USES=		cmake:outsource kde:5 tar:xz
+USE_KDE=	activities-stats auth bookmarks codecs config configwidgets \
+		coreaddons crash i18n kio service sonnet textwidgets \
+		widgetsaddons xmlgui
+USE_QT5=	core dbus gui widgets xml \
+		buildtools_build qmake_build
 
 .include <bsd.port.mk>

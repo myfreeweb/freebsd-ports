@@ -1,7 +1,5 @@
 # $FreeBSD$
 
-# TODO: once plasma5 ports are in, re-add dependency on workspace.
-
 PORTNAME=	ktorrent
 DISTVERSION=	5.1.0
 CATEGORIES=	net-p2p kde
@@ -19,7 +17,7 @@ LIB_DEPENDS=	libKF5Torrent.so:net-p2p/libktorrent \
 USE_KDE=	archive auth bookmarks codecs completion config configwidgets \
 		coreaddons crash dbusaddons dnssd i18n iconthemes itemviews \
 		jobwidgets kcmutils kdewebkit kio kross notifications \
-		notifyconfig parts plotting service \
+		notifyconfig parts plasma-workspace plotting service \
 		solid sonnet syndication textwidgets widgetsaddons \
 		windowsystem xmlgui
 USE_QT5=	core dbus gui network phonon4 script webkit widgets xml \

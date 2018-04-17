@@ -127,6 +127,7 @@
     SUBDIR += eawpats
     SUBDIR += eawplus
     SUBDIR += ecasound
+    SUBDIR += elisa
     SUBDIR += emms
     SUBDIR += enscribe
     SUBDIR += epos-devel
@@ -369,6 +370,7 @@
     SUBDIR += kio-audiocd-kde4
     SUBDIR += kmix
     SUBDIR += kmix-kde4
+    SUBDIR += kscd
     SUBDIR += kscd-kde4
     SUBDIR += ksmp3play
     SUBDIR += kstreamripper
@@ -644,6 +646,7 @@
     SUBDIR += picard
     SUBDIR += picard-plugins
     SUBDIR += pithos
+    SUBDIR += plasma5-plasma-pa
     SUBDIR += play
     SUBDIR += playgsf
     SUBDIR += playmidi
@@ -754,7 +757,7 @@
     SUBDIR += sidplay
     SUBDIR += sidplay2
     SUBDIR += sidplayer
-    SUBDIR += simon
+    SUBDIR += simon-kde4
     SUBDIR += simplemod
     SUBDIR += siren
     SUBDIR += skype-call-recorder

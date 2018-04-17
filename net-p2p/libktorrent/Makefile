@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/PORTS/net-p2p/libktorrent/Makefile 13833 2017-04-09 15:07:57Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	libktorrent
 DISTVERSION=	2.1.0

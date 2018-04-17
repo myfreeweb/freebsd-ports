@@ -3,7 +3,7 @@
 
 PORTNAME=	kdepim-runtime
 PORTVERSION=	${KDE4_KDEPIM_VERSION}
-PORTREVISION=	12
+PORTREVISION=	10
 CATEGORIES=	deskutils kde
 MASTER_SITES=	KDE/${KDE4_APPLICATIONS_BRANCH}/applications/${KDE4_APPLICATIONS_VERSION}/src
 DIST_SUBDIR=	KDE/${PORTVERSION}
@@ -14,9 +14,9 @@ COMMENT=	KDE PIM tools and services
 
 LIB_DEPENDS=	libboost_thread.so:devel/boost-libs \
 		libkgapi2.so:devel/libkgapi-kde4 \
-		libkolab.so:devel/libkolab \
+		libkolab.so:devel/libkolab-kde4 \
 		libkolabxml.so:textproc/libkolabxml \
-		libkfbapi.so:net/libkfbapi \
+		libkfbapi.so:net/libkfbapi-kde4 \
 		libqjson.so:devel/qjson@qt4
 
 CONFLICTS_INSTALL=	kdepim-runtime44-4.*

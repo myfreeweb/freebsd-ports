@@ -18,7 +18,7 @@ USE_QT4=	dbus gui script sql webkit xml \
 		moc_build qmake_build rcc_build uic_build
 USE_LDCONFIG=	yes
 
-# editors/kate-kde4-plugin-pate installs pate
+# editors/kate-plugin-pate-kde4 installs pate
 CMAKE_ARGS+=	-DBUILD_pate=off
 
 .include <bsd.port.mk>

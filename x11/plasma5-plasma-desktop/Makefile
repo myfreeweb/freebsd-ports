@@ -2,6 +2,7 @@
 
 PORTNAME=	plasma-desktop
 DISTVERSION=	${KDE_PLASMA_VERSION}
+PORTREVISION=	2
 CATEGORIES=	x11 kde kde-plasma
 
 MAINTAINER=	kde@FreeBSD.org
@@ -34,9 +35,9 @@ USE_KDE=	activities activities-stats archive attica auth baloo \
 		widgetsaddons windowsystem xmlgui
 USE_KDE+=	drkonqi_run infocenter_run kmenuedit_run ksysguard_run \
 		polkit-kde-agent-1_run systemsettings_run
-USE_QT5=	buildtools_build concurrent core dbus gui network phonon4 \
-		printsupport qmake_build qml quick sql svg widgets x11extras \
-		xml
+USE_QT5=	concurrent core dbus gui network phonon4 printsupport qml \
+		quick sql svg widgets x11extras xml \
+		buildtools_build qmake_build
 USE_XORG=	ice sm x11 xcb xcursor xext xfixes xft xi xrender
 
 OPTIONS_DEFINE=	PULSEAUDIO SYNAPTICS

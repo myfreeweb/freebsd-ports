@@ -2,11 +2,11 @@
 
 PORTNAME=	libkgapi
 PORTVERSION=	2.2.0
-PORTREVISION=	5
+PORTREVISION=	3
 CATEGORIES=	devel kde
 MASTER_SITES=	KDE/stable/libkgapi/${PORTVERSION}/src
-PKGNAMESUFFIX=	-kde4
 DIST_SUBDIR=	KDE
+PKGNAMESUFFIX=	-kde4
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE-based library for accessing various Google services

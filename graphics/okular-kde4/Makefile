@@ -9,7 +9,7 @@ MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE 4 universal document viewer
 
 LIB_DEPENDS=	libdjvulibre.so:graphics/djvulibre \
-		libkscreen.so:graphics/libkscreen \
+		libkscreen.so:graphics/libkscreen-kde4 \
 		libqca.so:devel/qca@qt4 \
 		libtiff.so:graphics/tiff \
 		libpoppler-qt4.so:graphics/poppler-qt4 \

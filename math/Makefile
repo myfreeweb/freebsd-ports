@@ -287,7 +287,7 @@
     SUBDIR += kktdirect
     SUBDIR += kmplot
     SUBDIR += kmplot-kde4
-    SUBDIR += labplot
+    SUBDIR += labplot-kde4
     SUBDIR += lambda
     SUBDIR += lapack
     SUBDIR += lapack++
@@ -729,7 +729,7 @@
     SUBDIR += reduce-psl
     SUBDIR += reed-solomon
     SUBDIR += rexx-regmath
-    SUBDIR += rkward-kde4
+    SUBDIR += rkward
     SUBDIR += rngstreams
     SUBDIR += rocs
     SUBDIR += rocs-kde4

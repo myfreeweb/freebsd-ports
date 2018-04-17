@@ -236,9 +236,12 @@
     SUBDIR += kde4-l10n-ug
     SUBDIR += kde4-l10n-wa
     SUBDIR += kde4-xdg-env
+    SUBDIR += kdeedu
     SUBDIR += kdeedu-data
     SUBDIR += kdeedu-kde4
+    SUBDIR += kdeutils
     SUBDIR += kdeutils-kde4
+    SUBDIR += kf5-purpose
     SUBDIR += kenny
     SUBDIR += kf5-purpose
     SUBDIR += kgeography
@@ -249,6 +252,10 @@
     SUBDIR += ktouch
     SUBDIR += ktouch-kde4
     SUBDIR += kwordquiz
+    SUBDIR += kgeography-kde4
+    SUBDIR += klettres-kde4
+    SUBDIR += krecipes-kde4
+    SUBDIR += ktouch-kde4
     SUBDIR += kwordquiz-kde4
     SUBDIR += latex-mk
     SUBDIR += lazyread
@@ -299,9 +306,6 @@
     SUBDIR += nut
     SUBDIR += ondir
     SUBDIR += opencyc
-    SUBDIR += openhab2
-    SUBDIR += openhab2-addons
-    SUBDIR += openmvg
     SUBDIR += openr2
     SUBDIR += orville-write
     SUBDIR += osinfo-db

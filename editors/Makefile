@@ -17,6 +17,7 @@
     SUBDIR += bpatch
     SUBDIR += bvi
     SUBDIR += calligra
+    SUBDIR += calligraplan
     SUBDIR += chexedit
     SUBDIR += codelite
     SUBDIR += coedit
@@ -50,6 +51,7 @@
     SUBDIR += gmanedit
     SUBDIR += gnotepad+
     SUBDIR += gobby
+    SUBDIR += grantlee-editor
     SUBDIR += gwrite
     SUBDIR += heme
     SUBDIR += hexcurse
@@ -59,6 +61,7 @@
     SUBDIR += hnb
     SUBDIR += hte
     SUBDIR += impress
+    SUBDIR += incidenceeditor
     SUBDIR += jed
     SUBDIR += jedit
     SUBDIR += joe
@@ -66,11 +69,11 @@
     SUBDIR += jove
     SUBDIR += jucipp
     SUBDIR += jupp
-    SUBDIR += kakoune
     SUBDIR += kate
     SUBDIR += kate-kde4
     SUBDIR += kate-plugin-pate-kde4
     SUBDIR += kile-kde4
+    SUBDIR += kimagemapeditor
     SUBDIR += klat4
     SUBDIR += komodo-edit
     SUBDIR += latexila

@@ -4,7 +4,6 @@
     COMMENT = Multimedia software
 
     SUBDIR += 2mandvd
-    SUBDIR += Bento4
     SUBDIR += QtAV
     SUBDIR += ab25
     SUBDIR += abby
@@ -43,6 +42,8 @@
     SUBDIR += devede
     SUBDIR += dirac
     SUBDIR += dragon
+    SUBDIR += dragon-kde4
+    SUBDIR += dtv
     SUBDIR += dtv-scan-tables
     SUBDIR += dumpmpeg
     SUBDIR += dv2jpg
@@ -163,8 +164,10 @@
     SUBDIR += jmref
     SUBDIR += k9copy-kde4
     SUBDIR += kaffeine
-    SUBDIR += kdemultimedia-ffmpegthumbs
+    SUBDIR += kamoso
+    SUBDIR += kdemultimedia
     SUBDIR += kdemultimedia-kde4
+    SUBDIR += kdemultimedia-ffmpegthumbs
     SUBDIR += kdemultimedia-ffmpegthumbs-kde4
     SUBDIR += kdemultimedia-mplayerthumbs-kde4
     SUBDIR += kdenlive
@@ -309,8 +312,8 @@
     SUBDIR += photofilmstrip
     SUBDIR += php-pHash
     SUBDIR += pitivi
-    SUBDIR += playd
     SUBDIR += plasma5-plasma-mediacenter
+    SUBDIR += playd
     SUBDIR += plexmediaserver
     SUBDIR += plexmediaserver-plexpass
     SUBDIR += plexwatch

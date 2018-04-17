@@ -329,6 +329,7 @@
     SUBDIR += gbottler
     SUBDIR += gbrainy
     SUBDIR += gcompris
+    SUBDIR += gcompris-qt
     SUBDIR += gdado
     SUBDIR += gemdropx
     SUBDIR += gemrb
@@ -465,11 +466,11 @@
     SUBDIR += jvgs
     SUBDIR += jzip
     SUBDIR += kajaani-kombat
-    SUBDIR += kajongg
     SUBDIR += kajongg-kde4
     SUBDIR += kanagram
     SUBDIR += kanagram-kde4
     SUBDIR += kapman
+    SUBDIR += kanagram-kde4
     SUBDIR += kapman-kde4
     SUBDIR += kardsgt
     SUBDIR += kartofel
@@ -483,6 +484,10 @@
     SUBDIR += kbounce
     SUBDIR += kbounce-kde4
     SUBDIR += kbreakout
+    SUBDIR += katomic-kde4
+    SUBDIR += kblackbox-kde4
+    SUBDIR += kblocks-kde4
+    SUBDIR += kbounce-kde4
     SUBDIR += kbreakout-kde4
     SUBDIR += kcheckers
     SUBDIR += kdegames
@@ -512,6 +517,7 @@
     SUBDIR += klines
     SUBDIR += klines-kde4
     SUBDIR += klondike
+    SUBDIR += klondike-kde4
     SUBDIR += kmahjongg
     SUBDIR += kmahjongg-kde4
     SUBDIR += kmines
@@ -520,6 +526,7 @@
     SUBDIR += knavalbattle-kde4
     SUBDIR += knetwalk
     SUBDIR += knetwalk-kde4
+    SUBDIR += knights
     SUBDIR += knights-kde4
     SUBDIR += kobodeluxe
     SUBDIR += kolf
@@ -569,6 +576,7 @@
     SUBDIR += libkdegames
     SUBDIR += libkdegames-kde4
     SUBDIR += libkmahjongg
+    SUBDIR += libkdegames-kde4
     SUBDIR += libkmahjongg-kde4
     SUBDIR += liblcf
     SUBDIR += libmaitretarot
@@ -776,6 +784,7 @@
     SUBDIR += pachi
     SUBDIR += pacmanarena
     SUBDIR += paintown
+    SUBDIR += pairs
     SUBDIR += pairs-kde4
     SUBDIR += palapeli
     SUBDIR += palapeli-kde4

@@ -1,27 +1,24 @@
-# $FreeBSD: branches/plasma5/KDE/graphics/libkface-kde4/Makefile 13750 2017-03-11 19:58:37Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	libkface
-DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-CATEGORIES=	graphics kde kde-applications
+PORTVERSION=	${KDE4_APPLICATIONS_VERSION}
+PORTREVISION=	4
+CATEGORIES=	graphics kde
+MASTER_SITES=	KDE/${KDE4_APPLICATIONS_BRANCH}/applications/${PORTVERSION}/src
+DIST_SUBDIR=	KDE/${PORTVERSION}
 PKGNAMESUFFIX=	-kde4
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE4 library for face recognition
 
-# Ugly "fix" to work with both the quarterly branch and head
-.if !exists(${.CURDIR:H:H}/graphics/opencv)
-LIB_DEPENDS=	libopencv_legacy.so:graphics/opencv2
-.else
+LICENSE=	GPLv2+ LGPL20+
+LICENSE_COMB=	multi
+
 LIB_DEPENDS=	libopencv_legacy.so:graphics/opencv
-.endif
 
-USES=		cmake pathfix pkgconfig kde:4 tar:xz
-USE_KDE=	automoc4 kdelibs
-USE_QT4=	corelib qmake_build moc_build rcc_build uic_build
-
+USES=		cmake:outsource kde:4 pathfix pkgconfig tar:xz
+USE_KDE=	kdelibs automoc4 marble
 USE_LDCONFIG=	yes
-
-# Override KDE4 versions to fetch the last one
-KDE_APPLICATIONS_VERSION=	${KDE4_APPLICATIONS_VERSION}
+USE_QT4=	network phonon xml moc_build qmake_build rcc_build uic_build
 
 .include <bsd.port.mk>

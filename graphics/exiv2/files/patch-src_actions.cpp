@@ -1,3 +1,8 @@
+FreeBSD does not know either 
+* PTHREAD_RECURSIVE_MUTEX_INITIALIZER nor 
+* PTHREAD_RECUSRIVE_MUTEX_INITIALIZER_NP
+
+
 --- src/actions.cpp.orig	2017-03-08 20:42:28 UTC
 +++ src/actions.cpp
 @@ -2048,6 +2048,8 @@ namespace {

@@ -7,10 +7,10 @@ CATEGORIES=	net-im kde kde-applications
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KWallet integration module for KDE Telepathy
 
-LIB_DEPENDS=	libqca-qt5.so:devel/qca-qt5 \
-		libtelepathy-qt5.so:net-im/telepathy-qt5 \
+LIB_DEPENDS=	libqca-qt5.so:devel/qca@qt5 \
+		libtelepathy-qt5.so:net-im/telepathy@qt5 \
 		libKTpCommonInternals.so:net-im/ktp-common-internals  \
-		libaccounts-qt5.so:net-im/libaccounts-qt5 \
+		libaccounts-qt5.so:net-im/libaccounts@qt5 \
 		libkaccounts.so:net-im/kaccounts-integration
 
 USES=		cmake:outsource gettext kde:5 pkgconfig tar:xz

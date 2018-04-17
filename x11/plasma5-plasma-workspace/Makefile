@@ -8,7 +8,7 @@ MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Plasma5 Plasma workspace
 
 LIB_DEPENDS=	libcln.so:math/cln \
-		libdbusmenu-qt5.so:devel/libdbusmenu-qt5 \
+		libdbusmenu-qt5.so:devel/libdbusmenu-qt@qt5 \
 		libqalculate.so:math/libqalculate \
 		libxcb-image.so:x11/xcb-util-image \
 		libxcb-util.so:x11/xcb-util
@@ -35,20 +35,14 @@ USE_KDE=	activities activitymanagerd attica auth baloo bookmarks \
 		widgetsaddons windowsystem xmlgui xmlrpcclient \
 		breeze_run breeze-icons_run oxygen-icons5_run \
 		kde-cli-tools_run kded_run milou_run
-USE_QT5=	buildtools_build concurrent core dbus graphicaleffects gui \
-		network paths_run phonon4 printsupport qdbus qmake_build qml quick \
-		quickcontrols_run script sql testlib webkit widgets x11extras \
-		xml
+USE_QT5=	concurrent core dbus graphicaleffects gui network phonon4 \
+		printsupport qdbus qml quick quickcontrols_run script sql \
+		testlib webkit widgets x11extras xml \
+		paths_run \
+		buildtools_build qmake_build
 USE_XORG=	ice sm x11 xau xcb xcomposite xext xfixes xft xkbfile xrender xtst
 
-CMAKE_ARGS+=	-DBUILD_TESTING:BOOL=OFF
-
-OPTIONS_DEFINE= 	CALENDAR
-OPTIONS_DEFAULT=	${OPTIONS_DEFINE}
-OPTIONS_SUB=		yes
-
-CALENDAR_DESC=	Support display of holidays in calendar applet
-CALENDAR_USE=	KDE=holidays
+CMAKE_OFF=	BUILD_TESTING
 
 post-patch:
 # set the paths in startkde

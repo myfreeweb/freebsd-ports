@@ -29,14 +29,16 @@
     SUBDIR += gpxloggerd
     SUBDIR += jday
     SUBDIR += josm
-    SUBDIR += kstars
+    SUBDIR += kstars-kde4
     SUBDIR += libgal
+    SUBDIR += libkgeomap
     SUBDIR += libkgeomap-kde4
     SUBDIR += libnova
     SUBDIR += libosmium
     SUBDIR += libosmpbf
     SUBDIR += luna
     SUBDIR += marble
+    SUBDIR += marble-kde4
     SUBDIR += match
     SUBDIR += merkaartor
     SUBDIR += mkgmap
