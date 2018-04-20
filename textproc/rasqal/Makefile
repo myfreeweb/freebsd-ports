@@ -2,7 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	rasqal
-DISTVERSION=	0.9.33
+PORTVERSION=	0.9.33
+PORTREVISION=	1
 CATEGORIES=	textproc
 MASTER_SITES=	http://download.librdf.org/source/ \
 		SF/librdf/${PORTNAME}/${PORTVERSION}

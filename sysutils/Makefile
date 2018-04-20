@@ -323,6 +323,7 @@
     SUBDIR += fileprune
     SUBDIR += fileschanged
     SUBDIR += filetype
+    SUBDIR += filevercmp
     SUBDIR += filewatcherd
     SUBDIR += finfo
     SUBDIR += firstboot-freebsd-update
@@ -498,6 +499,7 @@
     SUBDIR += installwatch
     SUBDIR += intel-nvmupdate
     SUBDIR += intel-pcm
+    SUBDIR += intel-pcm-devel
     SUBDIR += intel-qcu
     SUBDIR += iocage
     SUBDIR += iocell
@@ -543,6 +545,7 @@
     SUBDIR += kdebugsettings
     SUBDIR += kdeadmin
     SUBDIR += kdeadmin-kde4
+    SUBDIR += kdebugsettings
     SUBDIR += kdf
     SUBDIR += kdf-kde4
     SUBDIR += kdialog
@@ -662,9 +665,9 @@
     SUBDIR += megarc
     SUBDIR += memdump
     SUBDIR += memfetch
-    SUBDIR += memtest
     SUBDIR += memtest86
     SUBDIR += memtest86+
+    SUBDIR += memtester
     SUBDIR += metalog
     SUBDIR += mfid
     SUBDIR += mgeupsd
@@ -958,6 +961,7 @@
     SUBDIR += py-halite
     SUBDIR += py-hared
     SUBDIR += py-honcho
+    SUBDIR += py-hpilo
     SUBDIR += py-iowait
     SUBDIR += py-mqttwarn
     SUBDIR += py-nagiosplugin
@@ -1119,6 +1123,8 @@
     SUBDIR += runit
     SUBDIR += runit-faster
     SUBDIR += runwhen
+    SUBDIR += rw
+    SUBDIR += s-tui
     SUBDIR += s6
     SUBDIR += s6-rc
     SUBDIR += safe-rm
@@ -1198,7 +1204,6 @@
     SUBDIR += swapd
     SUBDIR += swapexd
     SUBDIR += swapmon
-    SUBDIR += sweeper
     SUBDIR += sweeper-kde4
     SUBDIR += symlinks
     SUBDIR += symon

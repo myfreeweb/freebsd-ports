@@ -208,6 +208,7 @@
     SUBDIR += telepathy-sofiasip
     SUBDIR += tkabber
     SUBDIR += tkabber-plugins
+    SUBDIR += toot
     SUBDIR += tox
     SUBDIR += tox12
     SUBDIR += toxbot

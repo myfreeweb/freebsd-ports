@@ -1,7 +1,8 @@
-# $FreeBSD: head/graphics/krita/Makefile 459315 2018-01-18 04:11:02Z jbeich $
+# $FreeBSD$
 
 PORTNAME=	krita
-DISTVERSION=	3.3.0
+DISTVERSION=	3.3.3
+PORTREVISION=	1
 CATEGORIES=	graphics kde
 MASTER_SITES=	KDE/stable/${PORTNAME}/${DISTVERSION}
 DIST_SUBDIR=	KDE/${PORTNAME}
@@ -30,19 +31,19 @@ LIB_DEPENDS=	libImath.so:graphics/ilmbase \
 
 USES=		cmake:outsource compiler:c++11-lib desktop-file-utils \
 		eigen:3 gettext jpeg kde:5 shared-mime-info
-
 USE_KDE=	archive completion config coreaddons crash guiaddons i18n \
 		itemmodels itemviews kio service widgetsaddons windowsystem
-USE_QT5=	buildtools_build concurrent core dbus gui network printsupport \
-		qmake_build quick svg testlib widgets x11extras xml
+USE_QT5=	concurrent core dbus gui multimedia network printsupport \
+		quick svg testlib widgets x11extras xml \
+		buildtools_build qmake_build 
 USE_XORG=	ice sm xcb xext xi
 
 OPTIONS_DEFINE=		GMIC OPENEXR
 OPTIONS_DEFAULT=	OPENEXR
 OPTIONS_SUB=		yes
 
-GMIC_DESC=		Build the G'Mic plugin
-GMIC_CMAKE_BOOL=	WITH_GMIC
+GMIC_DESC=		Depend on the G'Mic plugin
+GMIC_RUN_DEPENDS=	gmic_krita_qt:graphics/gmic-qt
 
 OPENEXR_LIB_DEPENDS=	libIlmImf.so:graphics/OpenEXR
 OPENEXR_CMAKE_BOOL_OFF=	CMAKE_DISABLE_FIND_PACKAGE_OpenEXR
