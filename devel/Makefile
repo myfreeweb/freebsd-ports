@@ -2535,6 +2535,7 @@
     SUBDIR += p5-File-ConfigDir
     SUBDIR += p5-File-Copy-Link
     SUBDIR += p5-File-Copy-Recursive
+    SUBDIR += p5-File-Copy-Recursive-Reduced
     SUBDIR += p5-File-CountLines
     SUBDIR += p5-File-CreationTime
     SUBDIR += p5-File-DesktopEntry
@@ -6024,6 +6025,7 @@
     SUBDIR += sonarqube
     SUBDIR += sope2
     SUBDIR += sope3
+    SUBDIR += sope4
     SUBDIR += sord
     SUBDIR += sourcenav
     SUBDIR += sparc64-binutils
@@ -6056,7 +6058,7 @@
     SUBDIR += subversion
     SUBDIR += subversion-book
     SUBDIR += subversion-static
-    SUBDIR += subversion18
+    SUBDIR += subversion19
     SUBDIR += subversive
     SUBDIR += svk
     SUBDIR += svn2git
