@@ -88,7 +88,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `devel/geany`: GTK3 [226523](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226523)
 - `devel/sdl20`: 2.0.8 [226409](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226409) (TEMPORARILY ROLLED BACK [#4109](https://bugzilla.libsdl.org/show_bug.cgi?id=4109))
 - `multimedia/mpv`: 0.28.2
-- `multimedia/ffmpeg`: git master (because mpv 0.28.x requires it) (WARNING breaks some things e.g. RPCS3)
+- `multimedia/ffmpeg`: 4.0 (because mpv 0.28.x requires it) (might break some things)
 - `sysutils/u-boot-rpi3`: update to 2018.01, with netboot support [225355](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225355)
 - `lang/luajit`: update to 2.1.0-beta3 (works on arm64) [225342](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225342)
 - `multimedia/gnome-twitch`: Twitch livestream player [224980](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224980)

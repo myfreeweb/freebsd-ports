@@ -14,13 +14,3 @@
  cpu="generic"
  intrinsics="none"
  
-@@ -6491,6 +6486,9 @@ elif enabled llvm_gcc; then
- elif enabled clang; then
-     check_cflags -mllvm -stack-alignment=16
-     check_cflags -mstack-alignment=16
-+    if enabled x86_32; then
-+        check_cflags -mstackrealign
-+    fi
-     check_cflags -Qunused-arguments
-     check_cflags -Werror=implicit-function-declaration
-     check_cflags -Werror=missing-prototypes

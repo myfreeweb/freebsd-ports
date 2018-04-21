@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	ffmpeg
-DISTVERSION=	3.5-2436
-DISTVERSIONSUFFIX=	-g0645698ecc
+PORTVERSION=	4.0
 PORTEPOCH=	1
 CATEGORIES=	multimedia audio ipv6 net
+MASTER_SITES=	https://ffmpeg.org/releases/
 
 MAINTAINER=	multimedia@FreeBSD.org
 COMMENT=	Realtime audio/video encoder/converter and streaming server
@@ -18,15 +18,11 @@ BUILD_DEPENDS=	nasm:devel/nasm \
 
 HAS_CONFIGURE=	yes
 USES=		compiler:c11 cpe gmake localbase:ldflags perl5 \
-		pkgconfig shebangfix
+		pkgconfig shebangfix tar:xz
 USE_LDCONFIG=	yes
 USE_PERL5=	build
 SHEBANG_FILES=	doc/texi2pod.pl
 NOPRECIOUSMAKEVARS=	yes # ARCH
-
-USE_GITHUB=	yes
-GH_ACCOUNT=	FFmpeg
-GH_PROJECT=	FFmpeg
 
 PORTSCOUT=	limit:^3\.
 
@@ -46,7 +42,7 @@ OPTIONS_DEFAULT=	FONTCONFIG FREETYPE FREI0R GMP GNUTLS ICONV \
 
 OPTIONS_RADIO=	RTMP SSL
 OPTIONS_RADIO_RTMP=	GCRYPT GMP LIBRTMP
-OPTIONS_RADIO_SSL=	GNUTLS OPENSSL
+OPTIONS_RADIO_SSL=	GNUTLS OPENSSL LIBRESSL
 OPTIONS_GROUP=	LICENSE
 OPTIONS_GROUP_LICENSE=	GPL3 NONFREE
 
@@ -67,6 +63,7 @@ GME_DESC=	Game Music Emu demuxer
 GPL3_DESC=	Allow (L)GPL version 3 code(cs)
 ILBC_DESC=	Internet Low Bit Rate codec
 KVAZAAR_DESC=	H.265 video codec support via Kvazaar
+LIBRESSL_DESC=	SSL/TLS support via LibreSSL
 LICENSE_DESC=	Licensing options
 MYSOFA_DESC=	SOFAlizer binaural filter
 NEON_DESC=	Media Processing Engine instructions
@@ -211,6 +208,12 @@ LAME_CONFIGURE_ENABLE=	libmp3lame
 # libbluray
 LIBBLURAY_LIB_DEPENDS=	libbluray.so:multimedia/libbluray
 LIBBLURAY_CONFIGURE_ENABLE=	libbluray
+
+# libressl
+LIBRESSL_LIB_DEPENDS=	libtls.so:security/libressl
+LIBRESSL_USES=		ssl
+LIBRESSL_CONFIGURE_ENABLE=	libtls
+LIBRESSL_IMPLIES=	NONFREE
 
 # librsvg
 LIBRSVG2_LIB_DEPENDS=	librsvg-2.so:graphics/librsvg2
@@ -415,7 +418,7 @@ LICENSE_FILE_GPLv3=	${WRKSRC}/COPYING.GPLv3
 LICENSE_FILE_LGPL3=	${WRKSRC}/COPYING.LGPLv3
 
 NONFREE_CONFIGURE_ENABLE=nonfree
-NONFREE_VARS=		RESTRICTED="enabling OPENSSL or FDK_AAC restricts redistribution"
+NONFREE_VARS=		RESTRICTED="enabling OPENSSL, LIBRESSL or FDK_AAC restricts redistribution"
 
 INSTALL_TARGET=	install-progs install-doc install-data \
 		install-libs install-headers install-examples
@@ -446,7 +449,7 @@ CONFIGURE_ENV_armv7_clang=	ASFLAGS=-no-integrated-as
 CONFIGURE_ARGS_FreeBSD_10_armv6=--disable-fast-unaligned
 
 DOC_FILES=	Changelog CREDITS INSTALL.md LICENSE.md MAINTAINERS \
-		README.md
+		README.md RELEASE_NOTES
 # under doc subdirectory
 DOC_DOCFILES=	APIchanges *.txt
 PORTDOCS=	*
