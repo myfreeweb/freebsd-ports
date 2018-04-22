@@ -56,6 +56,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `math/cvc4`: an SMT solver [227702](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227702)
 - `emulators/mesen`: a NES emulator [227351](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227351)
 - `games/retroarch`: 1.7.1, add WAYLAND option [227345](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227345) (+ UDEV option but we don't have evdev gamepad drivers yet)
 - `textproc/ibus`: add WAYLAND option (not actually used for toolkit based apps; also ibus's UI drawing is still X11 only)
