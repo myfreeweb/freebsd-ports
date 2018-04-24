@@ -5,10 +5,10 @@
 # when gnome is ported to gtk4
 
 PORTNAME=	gtk
-PORTVERSION=	3.93.0
+DISTVERSION=	3.93.0-20180424
 PORTREVISION?=	0
 CATEGORIES=	x11-toolkits
-MASTER_SITES=	GNOME/sources/gtk+/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
+#MASTER_SITES=	GNOME/sources/gtk+/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
 PKGNAMESUFFIX=	4
 DISTNAME=	gtk+-${PORTVERSION}
 DIST_SUBDIR=	gnome3
@@ -36,31 +36,34 @@ RUN_DEPENDS+=	hicolor-icon-theme>=0:misc/hicolor-icon-theme \
 		adwaita-icon-theme>=0:x11-themes/adwaita-icon-theme \
 		at-spi2-atk>=0:accessibility/at-spi2-atk
 
+USE_GITLAB=	yes
+GL_SITE=	https://gitlab.gnome.org
+GL_ACCOUNT=	GNOME
+GL_COMMIT=	2210b9a30254b4e1c648a4c7cf3333bab34b00c9
+
 USE_PERL5=	build
 USE_LDCONFIG=	yes
 USE_GNOME=	atk cairo gdkpixbuf2 introspection:build pango
+USE_GSTREAMER1=	bad
 USES+=		compiler:c11 gettext gnome localbase:ldflags meson \
 		pathfix perl5 pkgconfig
-MESON_ARGS=	-Denable-mir-backend=false \
-		-Denable-win32-backend=false \
-		-Denable-papi-print-backend=no \
-		-Denable-vulkan=no \
-		-Denable-quartz-backend=false
+MESON_ARGS=	-Dwin32-backend=false \
+		-Dquartz-backend=false
 #INSTALLS_ICONS=	yes
 
 LIBVERSION=	0.9300.0
 PLIST_SUB+=	LIBVERSION=${LIBVERSION}
 
-GLIB_SCHEMAS=	org.gtk.Demo.gschema.xml \
-		org.gtk.Settings.ColorChooser.gschema.xml \
-		org.gtk.Settings.Debug.gschema.xml \
-		org.gtk.Settings.EmojiChooser.gschema.xml \
-		org.gtk.Settings.FileChooser.gschema.xml
+# GLIB_SCHEMAS=	org.gtk.Demo.gschema.xml \
+# 		org.gtk.Settings.ColorChooser.gschema.xml \
+# 		org.gtk.Settings.Debug.gschema.xml \
+# 		org.gtk.Settings.EmojiChooser.gschema.xml \
+# 		org.gtk.Settings.FileChooser.gschema.xml
 
 # DOCS
 
-OPTIONS_DEFINE=	CUPS CLOUDPRINT COLORD
-OPTIONS_DEFAULT=CUPS COLORD BROADWAY X11
+OPTIONS_DEFINE=	CUPS CLOUDPRINT COLORD VULKAN
+OPTIONS_DEFAULT=CUPS COLORD BROADWAY X11 WAYLAND VULKAN
 OPTIONS_SUB=	yes
 
 BACKEND_DESC=	GDK backends
@@ -68,22 +71,22 @@ OPTIONS_MULTI=	BACKEND
 OPTIONS_MULTI_BACKEND=	BROADWAY WAYLAND X11
 
 BROADWAY_DESC=	Broadway (HTML5) GDK backend
-BROADWAY_MESON_TRUE=	enable-broadway-backend
+BROADWAY_MESON_TRUE=	broadway-backend
 
 COLORD_DESC=	Color profile support
 COLORD_LIB_DEPENDS=	libcolord.so:graphics/colord
-COLORD_MESON_YES=	enable-colord
+COLORD_MESON_YES=	colord
+
+# TODO print backends concat
 
 CUPS_LIB_DEPENDS=	libcups.so:print/cups
-CUPS_MESON_YES=	enable-cups-print-backend
 
 CLOUDPRINT_DESC=	Cloud printing support
-CLOUDPRINT_MESON_YES=	enable-cloudprint-print-backend
 CLOUDPRINT_LIB_DEPENDS=	librest-0.7.so:devel/librest \
 			libjson-glib-1.0.so:devel/json-glib
 
 WAYLAND_DESC=		Wayland GDK backend (support Wayland applications)
-WAYLAND_MESON_TRUE=	enable-wayland-backend
+WAYLAND_MESON_TRUE=	wayland-backend
 WAYLAND_BUILD_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols \
 			v4l_compat>=0:multimedia/v4l_compat
 WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
@@ -92,8 +95,12 @@ WAYLAND_RUN_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols
 WAYLAND_USE=		GL=egl
 
 X11_DESC=		X11 GDK backend (support X.org applications)
-X11_MESON_TRUE=		enable-x11-backend
+X11_MESON_TRUE=		x11-backend
 X11_USE=		XORG=x11,xcomposite,xcursor,xdamage,xext,xfixes,xi,xinerama,xrandr
+
+VULKAN_DESC=		Vulkan GSK backend
+VULKAN_MESON_YES=	vulkan
+VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-sdk
 
 DEBUG_DESC=	Debug related
 OPTIONS_GROUP=	DEBUG

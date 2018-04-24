@@ -56,6 +56,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `x11-toolkits/gtk40`: git master, vulkan, skip installing gschemas (fix parallel install w/ gtk3)
 - `multimedia/shotcut`: 18.03.06
 - `math/cvc4`: an SMT solver [227702](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227702)
 - `emulators/mesen`: a NES emulator [227351](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227351)
