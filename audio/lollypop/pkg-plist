@@ -1,12 +1,12 @@
 bin/lollypop
 bin/lollypop-cli
+%%PYTHON_SITELIBDIR%%/lollypop/app_notification.py
 %%PYTHON_SITELIBDIR%%/lollypop/application.py
 %%PYTHON_SITELIBDIR%%/lollypop/art.py
 %%PYTHON_SITELIBDIR%%/lollypop/art_album.py
 %%PYTHON_SITELIBDIR%%/lollypop/art_base.py
 %%PYTHON_SITELIBDIR%%/lollypop/art_radio.py
 %%PYTHON_SITELIBDIR%%/lollypop/art_widgets.py
-%%PYTHON_SITELIBDIR%%/lollypop/cache.py
 %%PYTHON_SITELIBDIR%%/lollypop/cellrenderer.py
 %%PYTHON_SITELIBDIR%%/lollypop/codecs.py
 %%PYTHON_SITELIBDIR%%/lollypop/collectionimporter.py
@@ -28,6 +28,7 @@ bin/lollypop-cli
 %%PYTHON_SITELIBDIR%%/lollypop/helper_dbus.py
 %%PYTHON_SITELIBDIR%%/lollypop/helper_passwords.py
 %%PYTHON_SITELIBDIR%%/lollypop/helper_task.py
+%%PYTHON_SITELIBDIR%%/lollypop/information_store.py
 %%PYTHON_SITELIBDIR%%/lollypop/inhibitor.py
 %%PYTHON_SITELIBDIR%%/lollypop/inotify.py
 %%PYTHON_SITELIBDIR%%/lollypop/lastfm.py
@@ -56,7 +57,7 @@ bin/lollypop-cli
 %%PYTHON_SITELIBDIR%%/lollypop/pop_albums.py
 %%PYTHON_SITELIBDIR%%/lollypop/pop_artwork.py
 %%PYTHON_SITELIBDIR%%/lollypop/pop_externals.py
-%%PYTHON_SITELIBDIR%%/lollypop/pop_info.py
+%%PYTHON_SITELIBDIR%%/lollypop/pop_information.py
 %%PYTHON_SITELIBDIR%%/lollypop/pop_lastfm.py
 %%PYTHON_SITELIBDIR%%/lollypop/pop_menu.py
 %%PYTHON_SITELIBDIR%%/lollypop/pop_next.py
@@ -74,7 +75,6 @@ bin/lollypop-cli
 %%PYTHON_SITELIBDIR%%/lollypop/sqlcursor.py
 %%PYTHON_SITELIBDIR%%/lollypop/sync_mtp.py
 %%PYTHON_SITELIBDIR%%/lollypop/tagreader.py
-%%PYTHON_SITELIBDIR%%/lollypop/thirdparty/GioNotify.py
 %%PYTHON_SITELIBDIR%%/lollypop/toolbar.py
 %%PYTHON_SITELIBDIR%%/lollypop/toolbar_end.py
 %%PYTHON_SITELIBDIR%%/lollypop/toolbar_info.py
@@ -89,6 +89,7 @@ bin/lollypop-cli
 %%PYTHON_SITELIBDIR%%/lollypop/view_artist_albums.py
 %%PYTHON_SITELIBDIR%%/lollypop/view_container.py
 %%PYTHON_SITELIBDIR%%/lollypop/view_device.py
+%%PYTHON_SITELIBDIR%%/lollypop/view_lyrics.py
 %%PYTHON_SITELIBDIR%%/lollypop/view_playlists.py
 %%PYTHON_SITELIBDIR%%/lollypop/view_radios.py
 %%PYTHON_SITELIBDIR%%/lollypop/view_tracks.py
@@ -98,14 +99,11 @@ bin/lollypop-cli
 %%PYTHON_SITELIBDIR%%/lollypop/widgets_context.py
 %%PYTHON_SITELIBDIR%%/lollypop/widgets_device.py
 %%PYTHON_SITELIBDIR%%/lollypop/widgets_indicator.py
-%%PYTHON_SITELIBDIR%%/lollypop/widgets_info.py
 %%PYTHON_SITELIBDIR%%/lollypop/widgets_loved.py
 %%PYTHON_SITELIBDIR%%/lollypop/widgets_playlist.py
 %%PYTHON_SITELIBDIR%%/lollypop/widgets_radio.py
 %%PYTHON_SITELIBDIR%%/lollypop/widgets_rating.py
 %%PYTHON_SITELIBDIR%%/lollypop/widgets_track.py
-%%PYTHON_SITELIBDIR%%/lollypop/widgets_web.py
-%%PYTHON_SITELIBDIR%%/lollypop/wikipedia.py
 %%PYTHON_SITELIBDIR%%/lollypop/window.py
 libexec/lollypop-sp
 share/applications/org.gnome.Lollypop.desktop
@@ -138,6 +136,7 @@ share/locale/ka/LC_MESSAGES/lollypop.mo
 share/locale/lt/LC_MESSAGES/lollypop.mo
 share/locale/nb_NO/LC_MESSAGES/lollypop.mo
 share/locale/nl/LC_MESSAGES/lollypop.mo
+share/locale/nl_BE/LC_MESSAGES/lollypop.mo
 share/locale/pl/LC_MESSAGES/lollypop.mo
 share/locale/pt_BR/LC_MESSAGES/lollypop.mo
 share/locale/pt_PT/LC_MESSAGES/lollypop.mo
@@ -152,3 +151,4 @@ share/locale/uk/LC_MESSAGES/lollypop.mo
 share/locale/zh_CN/LC_MESSAGES/lollypop.mo
 %%DATADIR%%/lollypop.gresource
 share/metainfo/org.gnome.Lollypop.appdata.xml
+@dir %%PYTHON_SITELIBDIR%%/lollypop/thirdparty
