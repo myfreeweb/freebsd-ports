@@ -4,23 +4,18 @@
 # adwaita-icon-theme, gnome-themes-standard and mate-themes
 
 PORTNAME=	gtk
-PORTVERSION=	3.22.29
+PORTVERSION=	3.22.30
 CATEGORIES=	x11-toolkits
 MASTER_SITES=	GNOME/sources/gtk+/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
 PKGNAMESUFFIX=	3
 DISTNAME=	gtk+-${PORTVERSION}
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Gimp Toolkit for X11 GUI (current stable version)
 
 LICENSE=	LGPL20
 
-USES=		tar:xz
-
-.if defined(REFERENCE_PORT)
-PORTSCOUT=	ignore:1
-.else
 PORTSCOUT=	limit:1,even
 
 BUILD_DEPENDS+=	at-spi2-atk>=0:accessibility/at-spi2-atk
@@ -38,8 +33,8 @@ USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 USE_GNOME=	atk cairo gdkpixbuf2 introspection:build pango
 #gtk-update-icon-cache
-USES+=		compiler:c11 gettext gmake gnome libtool localbase \
-		pathfix perl5 pkgconfig
+USES=		compiler:c11 gettext gmake gnome libtool localbase \
+		pathfix perl5 pkgconfig tar:xz
 USE_XORG=	xext xrender x11 xinerama xi xrandr xcursor xfixes xdamage \
 		xcomposite
 CONFIGURE_ARGS=	--enable-x11-backend \
@@ -48,7 +43,7 @@ CPPFLAGS+=	-fno-omit-frame-pointer
 INSTALLS_ICONS=	yes
 INSTALL_TARGET=	install-strip
 
-LIBVERSION=	0.2200.29
+LIBVERSION=	0.2200.30
 PLIST_SUB+=	LIBVERSION=${LIBVERSION}
 
 GLIB_SCHEMAS=	org.gtk.Demo.gschema.xml \
@@ -74,7 +69,9 @@ CUPS_CONFIGURE_ENABLE=	cups
 
 CLOUDPRINT_DESC=	Cloud printing support
 CLOUDPRINT_CONFIGURE_ENABLE=	cloudprint
+CLOUDPRINT_USE=		gnome=libxml2
 CLOUDPRINT_LIB_DEPENDS=	librest-0.7.so:devel/librest \
+			libsoup-2.4.so:devel/libsoup \
 			libjson-glib-1.0.so:devel/json-glib
 
 # don't explicitly disable debug, this causes segfaults. ports r437293
@@ -108,5 +105,3 @@ post-install:
 		${STAGEDIR}${PREFIX}/man/man1
 
 .include <bsd.port.mk>
-
-.endif

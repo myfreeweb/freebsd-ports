@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	libsoup
-PORTVERSION=	2.60.3
+PORTVERSION=	2.62.1
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
-DIST_SUBDIR=	gnome2
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	SOAP (Simple Object Access Protocol) implementation in C
@@ -17,13 +17,10 @@ BUILD_DEPENDS=	glib-networking>=2.29.18:net/glib-networking
 LIB_DEPENDS=	libgcrypt.so:security/libgcrypt
 RUN_DEPENDS=	glib-networking>=2.29.18:net/glib-networking
 
-USES=		sqlite tar:xz
 PORTSCOUT=	limitw:1,even
 
-.if !defined(REFERENCE_PORT)
-
-USES+=		gettext gmake gnome libtool localbase pathfix \
-		pkgconfig python:build ssl
+USES=		gettext gmake gnome libtool localbase pathfix \
+		pkgconfig python:3.6+,build sqlite ssl tar:xz
 USE_GNOME=	glib20 intlhack introspection:build \
 		libxml2 referencehack
 USE_LDCONFIG=	yes
@@ -46,7 +43,7 @@ CONFIGURE_ARGS+=--without-gnome
 post-patch:
 	@${REINPLACE_CMD} -e 's|-Wmissing-include-dirs||g' \
 		${WRKSRC}/configure
-	@${REINPLACE_CMD} -e 's|env python|env ${PYTHON_VERSION}|g' \
+	@${REINPLACE_CMD} -e 's|env python3|env ${PYTHON_VERSION}|g' \
 		${WRKSRC}/libsoup/tld-parser.py
 	@${REINPLACE_CMD} -e 's|DATADIRNAME=lib|DATADIRNAME=share|g' \
 		${WRKSRC}/configure
@@ -74,5 +71,3 @@ post-install:
 .endif
 
 .include <bsd.port.mk>
-
-.endif

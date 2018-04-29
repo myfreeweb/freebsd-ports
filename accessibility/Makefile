@@ -7,7 +7,6 @@
     SUBDIR += at-spi2-atk
     SUBDIR += at-spi2-core
     SUBDIR += atk
-    SUBDIR += atk-reference
     SUBDIR += atkmm
     SUBDIR += caribou
     SUBDIR += eflite

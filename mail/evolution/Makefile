@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	evolution
-PORTVERSION=	3.26.4
+PORTVERSION=	3.28.1
 CATEGORIES=	mail gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -30,6 +30,7 @@ LIB_DEPENDS=	libnss3.so:security/nss \
 		libical.so:devel/libical \
 		libsecret-1.so:security/libsecret \
 		libenchant.so:textproc/enchant \
+		libenchant-2.so:textproc/enchant2 \
 		libp11-kit.so:security/p11-kit \
 		libcryptui.so:security/libcryptui \
 		libdbus-1.so:devel/dbus \
@@ -48,6 +49,7 @@ USE_XORG=	x11
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes
 CMAKE_ARGS=	-DENABLE_TEXT_HIGHLIGHT=YES \
+		-DWITH_ENCHANT_VERSION=2 \
 		-DVERSION_COMMENT="FreeBSD GNOME Team"
 
 GLIB_SCHEMAS=	org.gnome.evolution.addressbook.gschema.xml \
