@@ -1,14 +1,18 @@
 # $FreeBSD$
 
-PORTNAME=regoth
-DISTVERSION=	0.4.186
+PORTNAME=		regoth
 DISTVERSIONPREFIX=	nightly-
-CATEGORIES=	games
+DISTVERSION=		0.4.189
+CATEGORIES=		games
 
 MAINTAINER=	greg@unrelenting.technology
 COMMENT=	Reimplementation of zEngine, the Gothic and Gothic II engine
 
 LICENSE=	GPLv3
+
+LIB_DEPENDS=	libsndfile.so:audio/libsndfile
+
+USES=		cmake compiler:c++11-lib openal
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	REGoth-project
@@ -24,20 +28,15 @@ GH_TUPLE=	ataulien:bgfx-cmake:9a9b596:bgfxcmake/lib/bgfx-cmake \
 		glfw:glfw:0f488ac:glfw/lib/glfw \
 		cxong:tinydir:0862ba9:tinydir/lib/tinydir \
 		bulletphysics:bullet3:fb51c3f:bullet3/lib/bullet3 \
-		kcat:openal-soft:9c5307a:openalsoft/lib/openal-soft \
 		frabert:libdmusic:e193ef4:libdmusic/lib/libdmusic \
 		erikd:libsndfile:cf7a818:libsndfile \
 		gocha:sf2cute:fcaf333:sf2cute \
 		REGoth-project:CAB-Installer-Extractor:a311fea:cab/lib/CAB-Installer-Extractor
 
-USES=		cmake compiler:c++11-lib pkgconfig #localbase:ldflags
-CMAKE_ARGS+=	-DREGOTH_BUILD_WITH_SYSTEM_OPENAL:BOOL=YES
+USE_XORG=	sm ice xext x11 xrandr xinerama xcursor
+USE_GL=		gl glu
 LLD_UNSAFE=	yes # OpenAL https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=219089
-
-OPTIONS_DEFINE=	OPENMP
-
-OPENMP_USES=		compiler:openmp
-OPENMP_USES_OFF=	compiler:c++11-lib
+CMAKE_ARGS+=	-DREGOTH_BUILD_WITH_SYSTEM_OPENAL:BOOL=YES
 
 post-extract:
 	${MV} ${WRKSRC_bgfx}/* ${WRKSRC}/lib/bgfx-cmake/bgfx
@@ -51,7 +50,12 @@ post-extract:
 post-patch:
 	${RM} ${WRKSRC}/lib/bgfx-cmake/bx/include/compat/freebsd/dirent.h # the real one is needed by tinydir
 
-#do-install:
-#	TODO
+do-install:
+	${MKDIR} ${STAGEDIR}${DATADIR}/shaders/
+	${INSTALL_PROGRAM} ${WRKSRC}/bin/REGoth ${STAGEDIR}${DATADIR}
+	(cd ${WRKSRC}/bin/shaders/ && ${COPYTREE_SHARE} . ${STAGEDIR}${DATADIR}/shaders/)
+	${CAT} ${FILESDIR}/launcher.sh | ${SED} -e "s|%%DATADIR%%|${DATADIR}|" > \
+		${STAGEDIR}${PREFIX}/bin/REGoth
+	${CHMOD} 755 ${STAGEDIR}${PREFIX}/bin/REGoth
 
 .include <bsd.port.mk>

@@ -56,7 +56,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
-- `games/regoth`: [Gothic game engine reimplementation](https://github.com/REGoth-project/REGoth) **WIP** (builds, TODO install) (NOTE: [doesn't like mesa assertions which are ON in mesa-dev right now](https://bugs.archlinux.org/task/58218))
+- `games/regoth`: [Gothic game engine reimplementation](https://github.com/REGoth-project/REGoth) (NOTE: [doesn't like mesa assertions which are ON in mesa-dev right now](https://bugs.archlinux.org/task/58218)) [227844](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227844)
 - `x11-toolkits/gtk40`: git master, vulkan, skip installing gschemas (fix parallel install w/ gtk3)
 - `multimedia/shotcut`: 18.03.06
 - `math/cvc4`: an SMT solver [227702](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227702)
