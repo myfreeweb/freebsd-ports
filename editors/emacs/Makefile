@@ -3,7 +3,7 @@
 
 PORTNAME=	emacs
 PORTVERSION=	${EMACS_VER}
-PORTREVISION=	3
+PORTREVISION=	4
 PORTEPOCH=	3
 CATEGORIES=	editors ipv6
 MASTER_SITES=	GNU
@@ -26,33 +26,30 @@ canna_LIB_DEPENDS=	libcanna.so:japanese/canna-lib
 nox_CONFLICTS_INSTALL=	emacs emacs-canna
 nox_PKGNAMESUFFIX=	-nox
 
-USES=		cpe gmake makeinfo ncurses pkgconfig tar:xz
-
+USES=		cpe gmake localbase:ldflags makeinfo ncurses pkgconfig tar:xz
 CPE_VENDOR=	gnu
-EMACS_VER=	25.3
-GNU_CONFIGURE=	yes
-INFO_PATH=	${DATADIR_REL}/info
 
+GNU_CONFIGURE=	yes
+CONFIGURE_ARGS=	--localstatedir=/var \
+		--with-gameuser=games:games
+CONFIGURE_ENV=	ac_cv_header_sys_sysinfo_h=no \
+		ac_cv_prog_liblockfile=no
+INFO=		ada-mode auth autotype bovine calc ccmode cl dbus dired-x \
+		ebrowse ede ediff edt efaq eieio eintr elisp emacs emacs-gnutls \
+		emacs-mime epa erc ert eshell eudc eww flymake forms gnus \
+		htmlfontify idlwave ido info mairix-el message mh-e newsticker \
+		nxml-mode octave-mode org pcl-cvs pgg rcirc reftex remember \
+		sasl sc semantic ses sieve smtpmail speedbar srecode todo-mode \
+		tramp url vhdl-mode vip viper widget wisent woman
+INFO_PATH=	${DATADIR_REL}/info
+PLIST_SUB=	EMACS_VER=${EMACS_VER} GNU_HOST=${CONFIGURE_TARGET}
 SUB_FILES=	sources.el
 SUB_LIST=	ARCHLIBDIR=${PREFIX}/libexec/emacs/${EMACS_VER}/${CONFIGURE_TARGET} \
 		EMACS_VER=${EMACS_VER} # sources.el
 
-CONFIGURE_ARGS=	--localstatedir=/var \
-		--with-gameuser=games:games
-CONFIGURE_ENV=	ac_cv_prog_liblockfile=no
-
-PLIST_SUB=	EMACS_VER=${EMACS_VER} GNU_HOST=${CONFIGURE_TARGET}
-
-INFO=	ada-mode auth autotype bovine calc ccmode cl dbus dired-x ebrowse ede \
-	ediff edt efaq eieio eintr elisp emacs emacs-gnutls emacs-mime epa erc \
-	ert eshell eudc eww flymake forms gnus htmlfontify idlwave ido info \
-	mairix-el message mh-e newsticker nxml-mode octave-mode org pcl-cvs pgg \
-	rcirc reftex remember sasl sc semantic ses sieve smtpmail speedbar \
-	srecode todo-mode tramp url vhdl-mode vip viper widget wisent woman
-
-OPTIONS_DEFINE=	ACL DBUS GCONF GNUTLS GSETTINGS LLDB M17N MODULES OTF SCROLLBARS\
-		SOURCES XFT XIM XML XWIDGETS
-OPTIONS_DEFAULT=	ACL DBUS GCONF GIF GNUTLS GSETTINGS GTK3 JPEG KQUEUE  \
+OPTIONS_DEFINE=	ACL DBUS GCONF GNUTLS GSETTINGS LLDB M17N MAILUTILS MODULES OTF \
+		SCROLLBARS SOURCES XFT XIM XML XWIDGETS
+OPTIONS_DEFAULT=	ACL DBUS GCONF GIF GNUTLS GSETTINGS GTK3 JPEG KQUEUE \
 		M17N MAGICK MODULES OSS OTF PNG SCROLLBARS SOURCES SVG \
 		TIFF XFT XIM XML XPM
 OPTIONS_SUB=	YES
@@ -186,6 +183,8 @@ INSTALLS_ICONS=		yes
 USE_XORG=		ice sm x11 xcb xext xfixes xinerama xmu xrandr xt
 USES+=			desktop-file-utils
 .endif
+
+EMACS_VER=	25.3
 
 .include <bsd.port.options.mk>
 

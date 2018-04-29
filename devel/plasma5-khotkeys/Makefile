@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/devel/plasma5-khotkeys/Makefile 13250 2016-11-06 16:34:10Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	khotkeys
 DISTVERSION=	${KDE_PLASMA_VERSION}

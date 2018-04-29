@@ -3,6 +3,7 @@
 PORTNAME=	dragon
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	multimedia kde kde-applications
+PKGNAMESUFFIX=	-player
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE multimedia player with a focus on simplicity

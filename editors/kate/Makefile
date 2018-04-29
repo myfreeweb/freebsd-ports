@@ -2,7 +2,7 @@
 
 PORTNAME=	kate
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-CATEGORIES=	editors kde kde-applications # kde kde-applications-applications
+CATEGORIES=	editors kde kde-applications
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE5 kate

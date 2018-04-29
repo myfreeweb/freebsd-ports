@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/devel/plasma5-kwrited/Makefile 13250 2016-11-06 16:34:10Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kwrited
 DISTVERSION=	${KDE_PLASMA_VERSION}

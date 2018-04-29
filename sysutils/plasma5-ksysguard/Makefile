@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/sysutils/plasma5-ksysguard/Makefile 13724 2017-03-10 19:28:23Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	ksysguard
 DISTVERSION=	${KDE_PLASMA_VERSION}
@@ -14,7 +14,7 @@ USE_KDE=	attica auth codecs completion config configwidgets coreaddons \
 		itemviews jobwidgets kdelibs4support kio libksysguard \
 		newstuff notifications service widgetsaddons windowsystem \
 		xmlgui
-USE_QT5=	core dbus gui network widgets xml \
+USE_QT5=	concurrent core dbus gui network widgets xml \
 		buildtools_build qmake_build
 
 OPTIONS_DEFINE=	INOTIFY

@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/security/plasma5-kwallet-pam/Makefile 13250 2016-11-06 16:34:10Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kwallet-pam
 DISTVERSION=	${KDE_PLASMA_VERSION}

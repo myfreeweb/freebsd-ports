@@ -1,3 +1,5 @@
-Pulse audio mixer control
+Plasma applet for audio volume management using PulseAudio
 
-WWW: git://anongit.kde.org/plasma-pa
+For users of pulseaudio, this provides extended mixer applet.
+
+WWW: https://www.kde.org/plasma-desktop

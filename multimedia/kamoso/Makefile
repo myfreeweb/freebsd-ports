@@ -11,9 +11,11 @@ LICENSE=	GPLv2
 
 USES=		cmake:outsource gettext kde:5 pkgconfig tar:xz
 USE_GNOME=	glib20
+USE_GSTREAMER1=	yes
 USE_KDE=	auth bookmarks codecs completion config configwidgets \
 		coreaddons ecm i18n itemviews jobwidgets kio purpose \
 		service solid widgetsaddons xmlgui
 USE_QT5=	core dbus gui network qml quick widgets xml \
 		buildtools_build qmake_build
+
 .include <bsd.port.mk>

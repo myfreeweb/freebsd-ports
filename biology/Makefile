@@ -81,6 +81,9 @@
     SUBDIR += p5-TrimGalore
     SUBDIR += p5-transdecoder
     SUBDIR += paml
+    SUBDIR += pbbam
+    SUBDIR += pbcopper
+    SUBDIR += pbseqan
     SUBDIR += pear-merger
     SUBDIR += phrap
     SUBDIR += phred
@@ -125,6 +128,7 @@
     SUBDIR += trimadap
     SUBDIR += trimmomatic
     SUBDIR += ugene
+    SUBDIR += unanimity
     SUBDIR += vcftools
     SUBDIR += vcflib
     SUBDIR += velvet

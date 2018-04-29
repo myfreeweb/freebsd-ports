@@ -49,7 +49,6 @@ include/exiv2/xmpsidecar.hpp
 lib/libexiv2.so
 lib/libexiv2.so.26
 lib/libexiv2.so.26.0.0
-lib/libxmp.a
 libdata/pkgconfig/exiv2.lsm
 libdata/pkgconfig/exiv2.pc
 man/man1/exiv2.1.gz

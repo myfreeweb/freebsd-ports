@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/devel/plasma5-plasma-sdk/Makefile 13724 2017-03-10 19:28:23Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	plasma-sdk
 DISTVERSION=	${KDE_PLASMA_VERSION}
@@ -13,7 +13,7 @@ USE_KDE=	archive attica auth codecs completion config configwidgets \
 		jobwidgets kdeclarative kio kirigami2 newstuff package parts \
 		plasma-framework service sonnet texteditor textwidgets \
 		widgetsaddons windowsystem xmlgui
-USE_QT5=	core dbus gui network qml quick webkit widgets x11extras xml \
+USE_QT5=	concurrent core dbus gui network qml quick webkit widgets x11extras xml \
 		buildtools_build qmake_build
 
 .include <bsd.port.mk>

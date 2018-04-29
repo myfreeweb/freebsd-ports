@@ -415,6 +415,7 @@
     SUBDIR += kdegraphics
     SUBDIR += kcolorchooser-kde4
     SUBDIR += kcoloredit
+    SUBDIR += kdegraphics
     SUBDIR += kdegraphics-kde4
     SUBDIR += kdegraphics-mobipocket
     SUBDIR += kdegraphics-mobipocket-kde4
@@ -1055,7 +1056,6 @@
     SUBDIR += sswf
     SUBDIR += stamp
     SUBDIR += structuresynth
-    SUBDIR += sverchok-blender
     SUBDIR += svg2pdf
     SUBDIR += svg2png
     SUBDIR += svgalib

@@ -124,15 +124,12 @@
     SUBDIR += kactivitymanagerd-kde4
     SUBDIR += kb2mb2
     SUBDIR += kbproto
+    SUBDIR += kde-baseapps
     SUBDIR += kde-baseapps-kde4
     SUBDIR += kde-runtime-kde4
     SUBDIR += kde-workspace-kde4
     SUBDIR += kde4
     SUBDIR += kde5
-    SUBDIR += kde-baseapps
-    SUBDIR += kde-baseapps-kde4
-    SUBDIR += kde-runtime-kde4
-    SUBDIR += kde-workspace-kde4
     SUBDIR += kdelibs-kde4
     SUBDIR += keybinder
     SUBDIR += keybinder-gtk3

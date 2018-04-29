@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/x11-themes/plasma5-oxygen/Makefile 13250 2016-11-06 16:34:10Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	oxygen
 DISTVERSION=	${KDE_PLASMA_VERSION}

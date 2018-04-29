@@ -4,4 +4,4 @@ state to match the user's current activity. This includes a daemon, a library
 for interacting with that daemon, and plugins for integration with other
 frameworks.
 
-WWW: https://projects.kde.org/projects/kde/workspace/kactivitymanagerd
+WWW: https://www.kde.org/plasma-desktop

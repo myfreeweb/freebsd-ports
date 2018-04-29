@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/sysutils/plasma5-systemsettings/Makefile 13250 2016-11-06 16:34:10Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	systemsettings
 DISTVERSION=	${KDE_PLASMA_VERSION}
@@ -13,7 +13,7 @@ USE_KDE=	activities activities-stats auth codecs completion config \
 		iconthemes itemviews jobwidgets js kcmutils kdeclarative khtml \
 		kio kirigami2 package parts service sonnet textwidgets \
 		widgetsaddons windowsystem xmlgui
-USE_QT5=	core dbus gui network qml quick widgets xml \
+USE_QT5=	concurrent core dbus gui network qml quick widgets xml \
 		buildtools_build qmake_build
 
 .include <bsd.port.mk>

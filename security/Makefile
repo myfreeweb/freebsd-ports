@@ -861,9 +861,9 @@
     SUBDIR += pkesh
     SUBDIR += pks
     SUBDIR += pktsuckers
+    SUBDIR += plasma5-kscreenlocker
     SUBDIR += plasma5-ksshaskpass
     SUBDIR += plasma5-kwallet-pam
-    SUBDIR += plasma5-kscreenlocker
     SUBDIR += please
     SUBDIR += polarssl13
     SUBDIR += poly1305aes
@@ -1183,7 +1183,7 @@
     SUBDIR += secpanel
     SUBDIR += sectok
     SUBDIR += secure_delete
-    SUBDIR += setaudit 
+    SUBDIR += setaudit
     SUBDIR += sguil
     SUBDIR += sha
     SUBDIR += sha1collisiondetection
@@ -1259,6 +1259,7 @@
     SUBDIR += symbion-sslproxy
     SUBDIR += tclsasl
     SUBDIR += tcpcrypt
+    SUBDIR += teleport
     SUBDIR += testssl.sh
     SUBDIR += tinc
     SUBDIR += tinc-devel

@@ -2,11 +2,11 @@
 
 PORTNAME=	libkvkontakte
 PORTVERSION=	4.12.0
-PORTREVISION=	2
+PORTREVISION=	4
 CATEGORIES=	net kde
 MASTER_SITES=	KDE/stable/${PORTNAME}/${PORTVERSION}/src
-DIST_SUBDIR=	KDE/digikam
 PKGNAMESUFFIX=	-kde4
+DIST_SUBDIR=	KDE/digikam
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE library for accessing vk.com

@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/sysutils/plasma5-kinfocenter/Makefile 13250 2016-11-06 16:34:10Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kinfocenter
 DISTVERSION=	${KDE_PLASMA_VERSION}
@@ -18,7 +18,7 @@ USE_KDE=	auth bookmarks codecs completion config configwidgets \
 		kdelibs4support kio notifications package parts init \
 		itemmodels itemviews service solid sonnet textwidgets \
 		unitconversion wayland wayland widgetsaddons windowsystem xmlgui
-USE_QT5=	core dbus gui network printsupport widgets xml \
+USE_QT5=	concurrent core dbus gui network printsupport widgets xml \
 		buildtools_build qmake_build
 USE_XORG=	ice sm x11 xext
 

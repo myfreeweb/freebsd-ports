@@ -1,4 +1,14 @@
---- decoder_plugins/ffmpeg/ffmpeg.c.orig	2018-04-21 14:06:30 UTC
+ffmpeg.c:996:34: error: use of undeclared identifier 'CODEC_CAP_TRUNCATED'
+        if (data->codec->capabilities & CODEC_CAP_TRUNCATED)
+                                        ^
+ffmpeg.c:997:23: error: use of undeclared identifier 'CODEC_FLAG_TRUNCATED'
+                data->enc->flags |= CODEC_FLAG_TRUNCATED;
+                                    ^
+ffmpeg.c:1028:34: error: use of undeclared identifier 'CODEC_CAP_DELAY'
+        if (data->codec->capabilities & CODEC_CAP_DELAY)
+                                        ^
+
+--- decoder_plugins/ffmpeg/ffmpeg.c.orig	2016-11-16 00:54:37 UTC
 +++ decoder_plugins/ffmpeg/ffmpeg.c
 @@ -993,8 +993,8 @@ static void *ffmpeg_open (const char *file)
  #endif

@@ -14,7 +14,7 @@ OPTIONS_DEFINE=		DRAGON FFMPEG AUDIOCD_KIO KMIX
 OPTIONS_DEFAULT=	${OPTIONS_DEFINE}
 
 DRAGON_DESC=		Simple video player
-DRAGON_RUN_DEPENDS=	dragon>=${KDE_APPLICATIONS_VERSION}:multimedia/dragon
+DRAGON_RUN_DEPENDS=	dragon-player>=${KDE_APPLICATIONS_VERSION}:multimedia/dragon
 
 FFMPEG_DESC=		FFMPEG-based video thumbnailer
 FFMPEG_RUN_DEPENDS=	kdemultimedia-ffmpegthumbs>=${KDE_APPLICATIONS_VERSION}:multimedia/kdemultimedia-ffmpegthumbs

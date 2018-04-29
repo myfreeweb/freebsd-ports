@@ -1,7 +1,7 @@
-# $FreeBSD: branches/plasma5/PORTS/x11/yakuake/Makefile 13769 2017-03-12 19:40:52Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	yakuake
-DISTVERSION=	3.0.4
+DISTVERSION=	3.0.5
 CATEGORIES=	x11 kde
 MASTER_SITES=	KDE/stable/${PORTNAME}/${PORTVERSION}/src
 DIST_SUBDIR=	KDE/${PORTNAME}

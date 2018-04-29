@@ -1,8 +1,7 @@
-# $FreeBSD: branches/plasma5/KDE/sysutils/plasma5-user-manager/Makefile 13601 2017-01-16 23:00:36Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	user-manager
 DISTVERSION=	${KDE_PLASMA_VERSION}
-PORTREVISION=	1
 CATEGORIES=	sysutils kde kde-plasma
 
 MAINTAINER=	kde@FreeBSD.org
@@ -17,7 +16,7 @@ USE_KDE=	auth bookmarks codecs completion config configwidgets \
 		init itemmodels itemviews jobwidgets kcmutils kdelibs4support \
 		kio notifications parts service solid sonnet textwidgets \
 		unitconversion widgetsaddons windowsystem xmlgui
-USE_QT5=	core dbus gui network printsupport widgets xml \
+USE_QT5=	concurrent core dbus gui network printsupport widgets xml \
 		buildtools_build qmake_build
 USE_LDCONFIG=	${QT_PLUGINDIR}
 

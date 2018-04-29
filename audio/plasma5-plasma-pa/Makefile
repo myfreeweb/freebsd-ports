@@ -1,8 +1,7 @@
-# $FreeBSD: branches/plasma5/KDE/audio/plasma5-plasma-pa/Makefile 13948 2017-04-25 15:08:16Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	plasma-pa
 DISTVERSION=	${KDE_PLASMA_VERSION}
-PORTREVISION=	1
 CATEGORIES=	audio kde kde-plasma
 
 MAINTAINER=	kde@FreeBSD.org

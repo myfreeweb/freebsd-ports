@@ -1,4 +1,4 @@
-# Created by: Leo Vandewoestijne <freebsd@dns-lab.com>
+# Created by: Leo Vandewoestijne <freebsd@dns.company>
 # $FreeBSD$
 
 PORTNAME=	dnscrypt-proxy
@@ -8,7 +8,7 @@ CATEGORIES=	dns
 MASTER_SITES=	https://download.dnscrypt.org/dnscrypt-proxy/ \
 		https://download.dnscrypt.org/dnscrypt-proxy/old/
 
-MAINTAINER=	freebsd@dns-lab.com
+MAINTAINER=	freebsd@dns.company
 COMMENT=	Boost privacy and security of DNS
 
 LICENSE=	MIT

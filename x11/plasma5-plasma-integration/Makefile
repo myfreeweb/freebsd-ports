@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/x11/plasma5-plasma-integration/Makefile 13948 2017-04-25 15:08:16Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	plasma-integration
 DISTVERSION=	${KDE_PLASMA_VERSION}
@@ -15,7 +15,7 @@ USE_KDE=	auth bookmarks breeze codecs completion config configwidgets \
 		coreaddons ecm i18n iconthemes itemviews jobwidgets kio \
 		notifications service solid wayland \
 		widgetsaddons windowsystem xmlgui
-USE_QT5=	core dbus gui network qml quick quickcontrols2 widgets \
+USE_QT5=	concurrent core dbus gui network qml quick quickcontrols2 widgets \
 		x11extras xml \
 		buildtools_build qmake_build
 USE_XORG=	xcb xcursor

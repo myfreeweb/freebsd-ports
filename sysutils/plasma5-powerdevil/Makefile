@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/sysutils/plasma5-powerdevil/Makefile 13376 2016-11-11 15:30:28Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	powerdevil
 DISTVERSION=	${KDE_PLASMA_VERSION}

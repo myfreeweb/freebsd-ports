@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/x11/plasma5-kactivitymanagerd/Makefile 13250 2016-11-06 16:34:10Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kactivitymanagerd
 DISTVERSION=	${KDE_PLASMA_VERSION}
@@ -10,7 +10,7 @@ COMMENT=	System service to manage user's activities, track the usage patterns
 USES=		cmake:outsource compiler:c++11-lib gettext kde:5 tar:xz
 USE_KDE=	auth codecs config configwidgets coreaddons dbusaddons ecm \
 		globalaccel i18n kio service widgetsaddons windowsystem xmlgui
-USE_QT5=	core dbus gui sql widgets xml \
+USE_QT5=	concurrent core dbus gui network sql widgets xml \
 		buildtools_build qmake_build
 
 # https://bugs.kde.org/show_bug.cgi?id=305529#c10

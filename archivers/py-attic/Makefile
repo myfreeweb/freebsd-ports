@@ -3,6 +3,7 @@
 
 PORTNAME=	attic
 PORTVERSION=	0.16
+PORTREVISION=	1
 CATEGORIES=	archivers python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
@@ -14,14 +15,18 @@ COMMENT=	Deduplicating backup program
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}msgpack-python>=0.1.10:devel/py-msgpack-python@${FLAVOR}
-RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}msgpack-python>=0.1.10:devel/py-msgpack-python@${FLAVOR}
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}msgpack>=0.1.10:devel/py-msgpack@${FLAVOR}
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}msgpack>=0.1.10:devel/py-msgpack@${FLAVOR}
 
 USES=		python:3.3+ ssl
 USE_PYTHON=	autoplist distutils
 
 STRIP_FILES=	hashindex.so platform_freebsd.so chunker.so crypto.so
 PYDISTUTILS_BUILDPATH=${BUILD_WRKSRC}/build/lib.${OPSYS:tl}-${UNAMER}-${ARCH}-${PYTHON_VER}
+REINPLACE_ARGS=	-i ''
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|msgpack-python|msgpack|' ${WRKSRC}/setup.py
 
 regression-test: build
 	${SETENV} PYTHONPATH="${PYDISTUTILS_BUILDPATH}:${PYTHONPATH}" \

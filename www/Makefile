@@ -76,6 +76,7 @@
     SUBDIR += chems
     SUBDIR += cherokee
     SUBDIR += choqok
+    SUBDIR += choqok-kde4
     SUBDIR += chpasswd
     SUBDIR += choqok-kde4
     SUBDIR += chromium
@@ -890,6 +891,7 @@
     SUBDIR += p5-HTML-FormFu
     SUBDIR += p5-HTML-FormFu-Imager
     SUBDIR += p5-HTML-FormFu-Model-DBIC
+    SUBDIR += p5-HTML-FormFu-MultiForm
     SUBDIR += p5-HTML-FormHandler
     SUBDIR += p5-HTML-FromANSI
     SUBDIR += p5-HTML-FromText
@@ -1472,6 +1474,7 @@
     SUBDIR += pivotx
     SUBDIR += piwigo
     SUBDIR += planet
+    SUBDIR += plasma5-plasma-browser-integration
     SUBDIR += plexwatchweb
     SUBDIR += plone
     SUBDIR += plugger
@@ -2395,6 +2398,7 @@
     SUBDIR += ufdbguard
     SUBDIR += unit
     SUBDIR += unit-go
+    SUBDIR += unit-perl
     SUBDIR += unit-php
     SUBDIR += usermanager
     SUBDIR += uwsgi

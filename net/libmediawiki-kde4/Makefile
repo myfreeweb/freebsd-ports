@@ -2,8 +2,9 @@
 
 PORTNAME=	libmediawiki
 PORTVERSION=	4.12.0
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	net kde
+PKGNAMESUFFIX=	-kde4
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE4 library for accessing MediaWiki sites

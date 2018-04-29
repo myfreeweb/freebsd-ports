@@ -3,10 +3,10 @@
 
 PORTNAME=	choqok
 PORTVERSION=	1.5
-PORTREVISION=	3
+PORTREVISION=	5
 CATEGORIES=	www kde
-MASTER_SITES=	SF/${PORTNAME}/Choqok/
 PKGNAMESUFFIX=	-kde4
+MASTER_SITES=	SF/${PORTNAME}/Choqok/
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE micro-blogging client
@@ -16,12 +16,15 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libqjson.so:devel/qjson@qt4 \
 		libqoauth.so:net/qoauth \
-		libtelepathy-qt4.so:net-im/telepathy-qt@qt4
+		libtelepathy-qt4.so:net-im/telepathy-qt4
 
 USES=		cmake gettext kde:4 tar:xz
 USE_KDE=	attica automoc4 kdelibs
 USE_QT4=	gui imageformats_run network \
 		moc_build qmake_build rcc_build uic_build
 USE_LDCONFIG=	yes
+
+CONFLICTS_INSTALL=	${PORTNAME}-1.6.*
+PORTSCOUT=	limit:^1\.5.*
 
 .include <bsd.port.mk>

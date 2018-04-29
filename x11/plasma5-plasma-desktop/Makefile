@@ -1,8 +1,7 @@
-# $FreeBSD: branches/plasma5/KDE/x11/plasma5-plasma-desktop/Makefile 13779 2017-03-18 09:57:45Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	plasma-desktop
 DISTVERSION=	${KDE_PLASMA_VERSION}
-PORTREVISION=	2
 CATEGORIES=	x11 kde kde-plasma
 
 MAINTAINER=	kde@FreeBSD.org
@@ -17,8 +16,10 @@ LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
 		libxcb-keysyms.so:x11/xcb-util-keysyms \
 		libxkbfile.so:x11/libxkbfile
 RUN_DEPENDS=	iso-codes>=0:misc/iso-codes \
-				xf86-input-evdev>0:x11-drivers/xf86-input-evdev
-BUILD_DEPENDS=	xf86-input-evdev>0:x11-drivers/xf86-input-evdev
+		xf86-input-evdev>0:x11-drivers/xf86-input-evdev \
+		xf86-input-libinput>0:x11-drivers/xf86-input-libinput
+BUILD_DEPENDS=	xf86-input-evdev>0:x11-drivers/xf86-input-evdev \
+		xf86-input-libinput>0:x11-drivers/xf86-input-libinput
 
 USES=		cmake:outsource compiler:c++11-lib cpe desktop-file-utils \
 		gettext kde:5 pkgconfig tar:xz

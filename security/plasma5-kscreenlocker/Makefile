@@ -1,4 +1,4 @@
-# $FreeBSD: branches/plasma5/KDE/security/plasma5-kscreenlocker/Makefile 13948 2017-04-25 15:08:16Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kscreenlocker
 DISTVERSION=	${KDE_PLASMA_VERSION}
@@ -25,7 +25,7 @@ USE_XORG=	ice sm x11 xcb xcursor xext xi
 
 SHEBANG_FILES=	updaters/ksreenlocker_5_3_separate_autologin.pl
 
-# Install a generic console kit based programm to unlock the screen in the event
+# Install a generic console kit based program to unlock the screen in the event
 # of a failure.
 SUB_FILES=	ck-unlock-session
 

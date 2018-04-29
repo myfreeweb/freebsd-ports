@@ -4,7 +4,7 @@ PORTNAME=	kdenlive
 DISTVERSION=	${KDE_APPLICATIONS_VERSION}
 CATEGORIES=	multimedia kde kde-applications
 
-MAINTAINER=	avilla@FreeBSD.org
+MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE professional quality non-linear video editing suite
 
 LICENSE=	GPLv2
@@ -29,7 +29,7 @@ CMAKE_ARGS=	-DFFMPEG_SUFFIX:STRING="${FFMPEG_SUFX}"
 # Keep in sync with multimedia/mlt, possibly.
 FFMPEG_SUFX=	# Currently empty.
 
-OPTIONS_DEFINE=	DVDWIZARD FREI0R LADSPA SCREENCAST V4L XINE # NLS
+OPTIONS_DEFINE=	DVDWIZARD FREI0R LADSPA SCREENCAST V4L XINE
 OPTIONS_DEFAULT=DVDWIZARD FREI0R LADSPA SCREENCAST V4L XINE
 OPTIONS_SUB=	yes
 
@@ -45,15 +45,15 @@ FREI0R_RUN_DEPENDS=	frei0r-plugins>=0:graphics/frei0r-plugins
 
 LADSPA_RUN_DEPENDS=	swhplugins>=0:audio/swhplugins
 
-#NLS_USES=		gettext
-#NLS_CMAKE_OFF=		-DBUILD_po:BOOL=FALSE
-
 SCREENCAST_RUN_DEPENDS=	recordmydesktop:multimedia/recordmydesktop
 
 V4L_LIB_DEPENDS=	libv4l2.so:multimedia/libv4l
 V4L_CMAKE_OFF=		-DWITH_LibV4L2:BOOL=FALSE
 
 XINE_RUN_DEPENDS=	xine:multimedia/xine
+ 
+# Lock at 17.12.3 until multimedia/mlt is at version 6.6.0
+KDE_APPLICATIONS_VERSION=	17.12.3
 
 post-patch:
 	@${REINPLACE_CMD} -e '/^update_xdg_mimetypes/ d' \

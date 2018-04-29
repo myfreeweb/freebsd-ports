@@ -201,8 +201,6 @@
     SUBDIR += gofish
     SUBDIR += gogoc
     SUBDIR += google-cloud-sdk
-    SUBDIR += google-daemon
-    SUBDIR += google-startup-scripts
     SUBDIR += googlecl
     SUBDIR += gopher
     SUBDIR += goreplay
@@ -214,6 +212,7 @@
     SUBDIR += grilo-plugins2
     SUBDIR += grilo2
     SUBDIR += grive2
+    SUBDIR += grpcurl
     SUBDIR += grsync
     SUBDIR += gsk
     SUBDIR += gspoof
@@ -321,6 +320,7 @@
     SUBDIR += kcontacts
     SUBDIR += kdav
     SUBDIR += kdenetwork
+    SUBDIR += kdenetwork-filesharing
     SUBDIR += kdenetwork-kde4
     SUBDIR += kdenetwork-filesharing
     SUBDIR += kdenetwork-filesharing-kde4
@@ -1369,6 +1369,7 @@
     SUBDIR += smm++
     SUBDIR += sngrep
     SUBDIR += sniffit
+    SUBDIR += sniproxy
     SUBDIR += sntop
     SUBDIR += sobby
     SUBDIR += socat

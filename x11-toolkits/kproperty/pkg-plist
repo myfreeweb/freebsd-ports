@@ -80,7 +80,7 @@ lib/libKPropertyWidgets3.so.4
 lib/libKPropertyWidgets3.so.4.1.0
 libdata/pkgconfig/KPropertyCore3.pc
 libdata/pkgconfig/KPropertyWidgets3.pc
-%%DATADIR%%widgets3/icons/kproperty_breeze.rcc
+share/kpropertywidgets3/icons/kproperty_breeze.rcc
 share/locale/ast/LC_MESSAGES/kpropertycore_qt.qm
 share/locale/ast/LC_MESSAGES/kpropertywidgets_qt.qm
 share/locale/ca/LC_MESSAGES/kpropertycore_qt.qm

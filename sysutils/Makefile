@@ -539,10 +539,9 @@
     SUBDIR += k3b-kde4
     SUBDIR += k8temp
     SUBDIR += kbackup
-    SUBDIR += kcm-polkit-kde4
+    SUBDIR += kcm-polkit-kde
     SUBDIR += kcron
     SUBDIR += kcron-kde4
-    SUBDIR += kdebugsettings
     SUBDIR += kdeadmin
     SUBDIR += kdeadmin-kde4
     SUBDIR += kdebugsettings
@@ -1204,6 +1203,7 @@
     SUBDIR += swapd
     SUBDIR += swapexd
     SUBDIR += swapmon
+    SUBDIR += sweeper
     SUBDIR += sweeper-kde4
     SUBDIR += symlinks
     SUBDIR += symon
@@ -1421,6 +1421,7 @@
     SUBDIR += xstow
     SUBDIR += xsysstats
     SUBDIR += xvidcap
+    SUBDIR += yadm
     SUBDIR += yum
     SUBDIR += zap
     SUBDIR += zbackup

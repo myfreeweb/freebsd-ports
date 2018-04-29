@@ -1,11 +1,11 @@
-# $FreeBSD: branches/plasma5/KDE/x11/plasma5-kwayland-integration/Makefile 13647 2017-01-31 12:36:24Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kwayland-integration
 DISTVERSION=	${KDE_PLASMA_VERSION}
 CATEGORIES=	x11 kde kde-plasma
 
 MAINTAINER=	kde@FreeBSD.org
-COMMENT=	integration plugins for the wayland
+COMMENT=	Integration plugins for a Wayland-based desktop
 
 LIB_DEPENDS=	libepoxy.so:graphics/libepoxy \
 		libwayland-client.so:graphics/wayland
