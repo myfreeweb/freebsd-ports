@@ -3,8 +3,9 @@
 
 PORTNAME=	libaccounts-glib
 PORTVERSION=	1.21
-PORTREVISION=	2
+PORTREVISION=	1
 CATEGORIES=	net-im
+DIST_SUBDIR=	KDE/${GL_ACCOUNT}
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Accounts and SSO framework for Linux and POSIX based platforms

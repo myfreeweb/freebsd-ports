@@ -72,6 +72,7 @@
     SUBDIR += kate
     SUBDIR += kate-kde4
     SUBDIR += kate-plugin-pate-kde4
+    SUBDIR += kile
     SUBDIR += kile-kde4
     SUBDIR += kimagemapeditor
     SUBDIR += klat4

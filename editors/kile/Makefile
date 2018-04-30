@@ -1,32 +1,31 @@
-# $FreeBSD: branches/plasma5/PORTS/editors/kile/Makefile 13728 2017-03-10 20:39:23Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	kile
-DISTVERSION=	2.9.60
-PKGNAMESUFFIX=	-kf5
+DISTVERSIONPREFIX=	v
+DISTVERSION=	3.0b1
 CATEGORIES=	editors kde
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	LaTeX source editor for KDE
 
-CONFLICTS_INSTALL=	kile-2.1.*
+LICENSE=	GPLv2+
+LICENSE_FILE=	${WRKSRC}/COPYING
 
-LIB_DEPENDS=	libOkular5Core.so:graphics/okular \
-		libpoppler.so:graphics/poppler \
+LIB_DEPENDS=	libpoppler.so:graphics/poppler \
 		libpoppler-qt5.so:graphics/poppler-qt5
-RUN_DEPENDS=	identify:graphics/ImageMagick
 
-USES=		cmake:outsource gettext-tools kde:5 pkgconfig shared-mime-info
+USES=		cmake:outsource kde:5
 USE_KDE=	auth bookmarks codecs completion config configwidgets \
-		coreaddons crash dbusaddons doctools ecm guiaddons i18n \
-		iconthemes init itemviews jobwidgets js khtml kio parts \
-		service solid sonnet texteditor textwidgets widgetsaddons \
-		windowsystem xmlgui
-USE_QT5=	core dbus gui network script testlib widgets xml \
+		coreaddons crash dbusaddons ecm guiaddons i18n iconthemes \
+		init itemviews jobwidgets js khtml kio parts service solid \
+		sonnet texteditor textwidgets widgetsaddons windowsystem xmlgui \
+		okular
+USE_QT5=	concurrent core dbus gui network script widgets xml \
 		buildtools_build qmake_build
-USE_TEX=	latex
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	KDE
-GH_TAGNAME=	004a23a
+GH_ACCOUNT=	kde
+
+CONFLICTS_INSTALL=	kile-kde4
 
 .include <bsd.port.mk>
