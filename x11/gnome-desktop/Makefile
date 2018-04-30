@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-desktop
-PORTVERSION=	3.26.2
+PORTVERSION=	3.28.1
 CATEGORIES=	x11 gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -15,9 +15,6 @@ LICENSE_COMB=	multi
 LICENSE_FILE_GPLv2+ =	${WRKSRC}/COPYING
 LICENSE_FILE_LGPL20+ =	${WRKSRC}/COPYING.LIB
 
-USES=		tar:xz
-
-.if !defined(REFERENCE_PORT)
 PORTSCOUT=	limitw:1,even
 
 BUILD_DEPENDS=	iso-codes>=0:misc/iso-codes \
@@ -28,10 +25,9 @@ RUN_DEPENDS=	iso-codes>=0:misc/iso-codes \
 		gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas \
 		xkeyboard-config>=0:x11/xkeyboard-config
 
-USES+=		bison gettext gmake gnome libtool localbase pathfix \
-		pkgconfig python:3.4+
-USE_GNOME=	cairo gdkpixbuf2 gtk30 intltool introspection:build \
-		referencehack
+USES=		bison gettext gmake gnome libtool localbase pathfix \
+		pkgconfig python:3.4+ tar:xz
+USE_GNOME=	cairo gdkpixbuf2 gtk30 intltool introspection:build
 USE_XORG=	x11
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
@@ -46,5 +42,3 @@ post-patch:
 		${WRKSRC}/desktop-docs/lgpl/Makefile.in
 
 .include <bsd.port.mk>
-
-.endif

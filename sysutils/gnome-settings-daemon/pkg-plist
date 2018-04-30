@@ -1,4 +1,3 @@
-etc/xdg/autostart/org.gnome.SettingsDaemon.A11yKeyboard.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.A11ySettings.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.Clipboard.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.Color.desktop
@@ -17,10 +16,8 @@ etc/xdg/autostart/org.gnome.SettingsDaemon.Sound.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.Wacom.desktop
 etc/xdg/autostart/org.gnome.SettingsDaemon.XSettings.desktop
 include/gnome-settings-daemon-3.0/gnome-settings-daemon/gsd-enums.h
-lib/gnome-settings-daemon-3.0/libgsd.a
 lib/gnome-settings-daemon-3.0/libgsd.so
 libdata/pkgconfig/gnome-settings-daemon.pc
-libexec/gsd-a11y-keyboard
 libexec/gsd-a11y-settings
 libexec/gsd-clipboard
 libexec/gsd-color
@@ -32,11 +29,11 @@ libexec/gsd-locate-pointer
 libexec/gsd-media-keys
 libexec/gsd-mouse
 libexec/gsd-power
-libexec/gsd-print-notifications
-libexec/gsd-printer
+%%CUPS%%libexec/gsd-print-notifications
+%%CUPS%%libexec/gsd-printer
 libexec/gsd-screensaver-proxy
 libexec/gsd-sharing
-libexec/gsd-smartcard
+%%SMARTCARD%%libexec/gsd-smartcard
 libexec/gsd-sound
 libexec/gsd-test-input-helper
 libexec/gsd-xsettings
@@ -138,4 +135,3 @@ share/locale/zh_CN/LC_MESSAGES/gnome-settings-daemon.mo
 share/locale/zh_HK/LC_MESSAGES/gnome-settings-daemon.mo
 share/locale/zh_TW/LC_MESSAGES/gnome-settings-daemon.mo
 share/locale/zu/LC_MESSAGES/gnome-settings-daemon.mo
-share/polkit-1/actions/org.gnome.settings-daemon.plugins.power.policy

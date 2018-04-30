@@ -11,8 +11,8 @@ include/gnome-desktop-3.0/libgnome-desktop/gnome-wall-clock.h
 include/gnome-desktop-3.0/libgnome-desktop/gnome-xkb-info.h
 lib/girepository-1.0/GnomeDesktop-3.0.typelib
 lib/libgnome-desktop-3.so
-lib/libgnome-desktop-3.so.12
-lib/libgnome-desktop-3.so.12.2.1
+lib/libgnome-desktop-3.so.17
+lib/libgnome-desktop-3.so.17.0.0
 libdata/pkgconfig/gnome-desktop-3.0.pc
 libexec/gnome-rr-debug
 share/gir-1.0/GnomeDesktop-3.0.gir
@@ -21,6 +21,7 @@ share/gtk-doc/html/gnome-desktop3/GnomeDesktopThumbnailFactory.html
 share/gtk-doc/html/gnome-desktop3/GnomeIdleMonitor.html
 share/gtk-doc/html/gnome-desktop3/GnomeWallClock.html
 share/gtk-doc/html/gnome-desktop3/GnomeXkbInfo.html
+share/gtk-doc/html/gnome-desktop3/annotation-glossary.html
 share/gtk-doc/html/gnome-desktop3/background.html
 share/gtk-doc/html/gnome-desktop3/gnome-desktop3-Language-Utilities.html
 share/gtk-doc/html/gnome-desktop3/gnome-desktop3-gnome-bg.html
