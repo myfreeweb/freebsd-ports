@@ -3,6 +3,7 @@ bin/gtkdoc-depscan
 bin/gtkdoc-fixxref
 bin/gtkdoc-mkdb
 bin/gtkdoc-mkhtml
+bin/gtkdoc-mkhtml2
 bin/gtkdoc-mkman
 bin/gtkdoc-mkpdf
 bin/gtkdoc-rebase
@@ -36,6 +37,7 @@ share/aclocal/gtk-doc.m4
 %%DATADIR%%/python/gtkdoc/md_to_db.py
 %%DATADIR%%/python/gtkdoc/mkdb.py
 %%DATADIR%%/python/gtkdoc/mkhtml.py
+%%DATADIR%%/python/gtkdoc/mkhtml2.py
 %%DATADIR%%/python/gtkdoc/mkman.py
 %%DATADIR%%/python/gtkdoc/mkpdf.py
 %%DATADIR%%/python/gtkdoc/rebase.py

@@ -1,7 +1,6 @@
 bin/gnome-system-monitor
 libexec/gnome-system-monitor/gsm-kill
 libexec/gnome-system-monitor/gsm-renice
-share/appdata/gnome-system-monitor.appdata.xml
 share/applications/gnome-system-monitor-kde.desktop
 share/applications/gnome-system-monitor.desktop
 %%DATADIR%%/gsm.gresource
@@ -9,6 +8,7 @@ share/help/C/gnome-system-monitor/commandline.page
 share/help/C/gnome-system-monitor/cpu-check.page
 share/help/C/gnome-system-monitor/cpu-mem-normal.page
 share/help/C/gnome-system-monitor/cpu-multicore.page
+share/help/C/gnome-system-monitor/figures/monitorlogo.png
 share/help/C/gnome-system-monitor/fs-device.page
 share/help/C/gnome-system-monitor/fs-diskusage.page
 share/help/C/gnome-system-monitor/fs-info.page
@@ -34,6 +34,7 @@ share/help/cs/gnome-system-monitor/commandline.page
 share/help/cs/gnome-system-monitor/cpu-check.page
 share/help/cs/gnome-system-monitor/cpu-mem-normal.page
 share/help/cs/gnome-system-monitor/cpu-multicore.page
+share/help/cs/gnome-system-monitor/figures/monitorlogo.png
 share/help/cs/gnome-system-monitor/fs-device.page
 share/help/cs/gnome-system-monitor/fs-diskusage.page
 share/help/cs/gnome-system-monitor/fs-info.page
@@ -59,6 +60,7 @@ share/help/de/gnome-system-monitor/commandline.page
 share/help/de/gnome-system-monitor/cpu-check.page
 share/help/de/gnome-system-monitor/cpu-mem-normal.page
 share/help/de/gnome-system-monitor/cpu-multicore.page
+share/help/de/gnome-system-monitor/figures/monitorlogo.png
 share/help/de/gnome-system-monitor/fs-device.page
 share/help/de/gnome-system-monitor/fs-diskusage.page
 share/help/de/gnome-system-monitor/fs-info.page
@@ -84,6 +86,7 @@ share/help/el/gnome-system-monitor/commandline.page
 share/help/el/gnome-system-monitor/cpu-check.page
 share/help/el/gnome-system-monitor/cpu-mem-normal.page
 share/help/el/gnome-system-monitor/cpu-multicore.page
+share/help/el/gnome-system-monitor/figures/monitorlogo.png
 share/help/el/gnome-system-monitor/fs-device.page
 share/help/el/gnome-system-monitor/fs-diskusage.page
 share/help/el/gnome-system-monitor/fs-info.page
@@ -109,6 +112,7 @@ share/help/es/gnome-system-monitor/commandline.page
 share/help/es/gnome-system-monitor/cpu-check.page
 share/help/es/gnome-system-monitor/cpu-mem-normal.page
 share/help/es/gnome-system-monitor/cpu-multicore.page
+share/help/es/gnome-system-monitor/figures/monitorlogo.png
 share/help/es/gnome-system-monitor/fs-device.page
 share/help/es/gnome-system-monitor/fs-diskusage.page
 share/help/es/gnome-system-monitor/fs-info.page
@@ -134,6 +138,7 @@ share/help/fr/gnome-system-monitor/commandline.page
 share/help/fr/gnome-system-monitor/cpu-check.page
 share/help/fr/gnome-system-monitor/cpu-mem-normal.page
 share/help/fr/gnome-system-monitor/cpu-multicore.page
+share/help/fr/gnome-system-monitor/figures/monitorlogo.png
 share/help/fr/gnome-system-monitor/fs-device.page
 share/help/fr/gnome-system-monitor/fs-diskusage.page
 share/help/fr/gnome-system-monitor/fs-info.page
@@ -159,6 +164,7 @@ share/help/hu/gnome-system-monitor/commandline.page
 share/help/hu/gnome-system-monitor/cpu-check.page
 share/help/hu/gnome-system-monitor/cpu-mem-normal.page
 share/help/hu/gnome-system-monitor/cpu-multicore.page
+share/help/hu/gnome-system-monitor/figures/monitorlogo.png
 share/help/hu/gnome-system-monitor/fs-device.page
 share/help/hu/gnome-system-monitor/fs-diskusage.page
 share/help/hu/gnome-system-monitor/fs-info.page
@@ -184,6 +190,7 @@ share/help/ko/gnome-system-monitor/commandline.page
 share/help/ko/gnome-system-monitor/cpu-check.page
 share/help/ko/gnome-system-monitor/cpu-mem-normal.page
 share/help/ko/gnome-system-monitor/cpu-multicore.page
+share/help/ko/gnome-system-monitor/figures/monitorlogo.png
 share/help/ko/gnome-system-monitor/fs-device.page
 share/help/ko/gnome-system-monitor/fs-diskusage.page
 share/help/ko/gnome-system-monitor/fs-info.page
@@ -209,6 +216,7 @@ share/help/pl/gnome-system-monitor/commandline.page
 share/help/pl/gnome-system-monitor/cpu-check.page
 share/help/pl/gnome-system-monitor/cpu-mem-normal.page
 share/help/pl/gnome-system-monitor/cpu-multicore.page
+share/help/pl/gnome-system-monitor/figures/monitorlogo.png
 share/help/pl/gnome-system-monitor/fs-device.page
 share/help/pl/gnome-system-monitor/fs-diskusage.page
 share/help/pl/gnome-system-monitor/fs-info.page
@@ -234,6 +242,7 @@ share/help/pt/gnome-system-monitor/commandline.page
 share/help/pt/gnome-system-monitor/cpu-check.page
 share/help/pt/gnome-system-monitor/cpu-mem-normal.page
 share/help/pt/gnome-system-monitor/cpu-multicore.page
+share/help/pt/gnome-system-monitor/figures/monitorlogo.png
 share/help/pt/gnome-system-monitor/fs-device.page
 share/help/pt/gnome-system-monitor/fs-diskusage.page
 share/help/pt/gnome-system-monitor/fs-info.page
@@ -259,6 +268,7 @@ share/help/pt_BR/gnome-system-monitor/commandline.page
 share/help/pt_BR/gnome-system-monitor/cpu-check.page
 share/help/pt_BR/gnome-system-monitor/cpu-mem-normal.page
 share/help/pt_BR/gnome-system-monitor/cpu-multicore.page
+share/help/pt_BR/gnome-system-monitor/figures/monitorlogo.png
 share/help/pt_BR/gnome-system-monitor/fs-device.page
 share/help/pt_BR/gnome-system-monitor/fs-diskusage.page
 share/help/pt_BR/gnome-system-monitor/fs-info.page
@@ -284,6 +294,7 @@ share/help/ro/gnome-system-monitor/commandline.page
 share/help/ro/gnome-system-monitor/cpu-check.page
 share/help/ro/gnome-system-monitor/cpu-mem-normal.page
 share/help/ro/gnome-system-monitor/cpu-multicore.page
+share/help/ro/gnome-system-monitor/figures/monitorlogo.png
 share/help/ro/gnome-system-monitor/fs-device.page
 share/help/ro/gnome-system-monitor/fs-diskusage.page
 share/help/ro/gnome-system-monitor/fs-info.page
@@ -305,6 +316,32 @@ share/help/ro/gnome-system-monitor/process-status.page
 share/help/ro/gnome-system-monitor/process-update-speed.page
 share/help/ro/gnome-system-monitor/solaris-mode.page
 share/help/ro/gnome-system-monitor/units.page
+share/help/sv/gnome-system-monitor/commandline.page
+share/help/sv/gnome-system-monitor/cpu-check.page
+share/help/sv/gnome-system-monitor/cpu-mem-normal.page
+share/help/sv/gnome-system-monitor/cpu-multicore.page
+share/help/sv/gnome-system-monitor/figures/monitorlogo.png
+share/help/sv/gnome-system-monitor/fs-device.page
+share/help/sv/gnome-system-monitor/fs-diskusage.page
+share/help/sv/gnome-system-monitor/fs-info.page
+share/help/sv/gnome-system-monitor/fs-showall.page
+share/help/sv/gnome-system-monitor/index.page
+share/help/sv/gnome-system-monitor/legal.xml
+share/help/sv/gnome-system-monitor/mem-check.page
+share/help/sv/gnome-system-monitor/mem-swap.page
+share/help/sv/gnome-system-monitor/memory-map-use.page
+share/help/sv/gnome-system-monitor/net-bits.page
+share/help/sv/gnome-system-monitor/process-explain.page
+share/help/sv/gnome-system-monitor/process-files.page
+share/help/sv/gnome-system-monitor/process-identify-file.page
+share/help/sv/gnome-system-monitor/process-identify-hog.page
+share/help/sv/gnome-system-monitor/process-kill.page
+share/help/sv/gnome-system-monitor/process-many.page
+share/help/sv/gnome-system-monitor/process-priority-change.page
+share/help/sv/gnome-system-monitor/process-status.page
+share/help/sv/gnome-system-monitor/process-update-speed.page
+share/help/sv/gnome-system-monitor/solaris-mode.page
+share/help/sv/gnome-system-monitor/units.page
 share/locale/am/LC_MESSAGES/gnome-system-monitor.mo
 share/locale/an/LC_MESSAGES/gnome-system-monitor.mo
 share/locale/ar/LC_MESSAGES/gnome-system-monitor.mo
@@ -398,4 +435,5 @@ share/locale/vi/LC_MESSAGES/gnome-system-monitor.mo
 share/locale/zh_CN/LC_MESSAGES/gnome-system-monitor.mo
 share/locale/zh_HK/LC_MESSAGES/gnome-system-monitor.mo
 share/locale/zh_TW/LC_MESSAGES/gnome-system-monitor.mo
+share/metainfo/gnome-system-monitor.appdata.xml
 share/polkit-1/actions/org.gnome.gnome-system-monitor.policy

@@ -2,14 +2,14 @@
 # $FreeBSD$
 
 PORTNAME=	gobject
-PORTVERSION=	3.26.1
+PORTVERSION=	3.28.2
 PORTREVISION=	0
 CATEGORIES=	devel python
 MASTER_SITES=	GNOME/sources/pygobject/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
 PKGNAMEPREFIX?=	py
 PKGNAMESUFFIX?=	3-common
 DISTNAME=	pygobject-${PORTVERSION}
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Common files for the Python bindings for GObject

@@ -1,0 +1,18 @@
+--- configure.orig	2018-04-13 19:12:45.000000000 +0200
++++ configure	2018-05-03 20:52:28.856947000 +0200
+@@ -16950,12 +16950,10 @@
+ 	have_systemd=yes
+ fi
+ 
+-if test x$have_systemd = xyes; then
++#xxxx
++if test x$have_systemd = xyes -o -z "$logind_provider"; then
++#if test -z "$logind_provider"; then
+      logind_provider="libsystemd"
+-fi
+-
+-if test -z "$logind_provider"; then :
+-  as_fn_error $? "Could not find either systemd or elogind as logind provider" "$LINENO" 5]
+ fi
+ 
+ MUTTER_NATIVE_BACKEND_MODULES="libdrm $logind_provider libinput >= 1.4 gudev-1.0 gbm >= 10.3"

@@ -1,19 +1,19 @@
 # Created by: Jeremy Messenger <mezz@FreeBSD.org>
 # $FreeBSD$
 
-PORTNAME=	gnome-tweak-tool
-PORTVERSION=	3.26.1
+PORTNAME=	gnome-tweaks
+PORTVERSION=	3.28.1
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 
 MAINTAINER=	gnome@FreeBSD.org
-COMMENT=	Allows to tweak some hidden settings in GTK3 / GNOME3
+COMMENT=	Allows to tweak some hidden settings in GNOME3
 
 LICENSE=	GPLv3
 
 BUILD_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
 RUN_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas \
-		gnome-shell>=3.24:x11/gnome-shell
+		gnome-shell>=3.28:x11/gnome-shell
 
 PORTSCOUT=	limitw:1,even
 
@@ -22,7 +22,7 @@ USES=		gettext gnome localbase meson pkgconfig \
 		python:3.4+ shebangfix tar:xz
 USE_GNOME=	gtk30 pygobject3 nautilus3
 INSTALLS_ICONS=	yes
-SHEBANG_FILES=	gnome-tweak-tool \
+SHEBANG_FILES=	gnome-tweaks \
 		gnome-tweak-tool-lid-inhibitor \
 		meson-postinstall.py
 

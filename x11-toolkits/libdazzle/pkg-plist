@@ -98,6 +98,7 @@ include/libdazzle-1.0/tree/dzl-tree-node.h
 include/libdazzle-1.0/tree/dzl-tree-types.h
 include/libdazzle-1.0/tree/dzl-tree.h
 include/libdazzle-1.0/util/dzl-cairo.h
+include/libdazzle-1.0/util/dzl-cancellable.h
 include/libdazzle-1.0/util/dzl-counter.h
 include/libdazzle-1.0/util/dzl-date-time.h
 include/libdazzle-1.0/util/dzl-dnd.h

@@ -23,7 +23,7 @@ PORTSCOUT=	limitw:1,even
 
 USES=		gettext gnome localbase:ldflags meson pkgconfig python:3.6+,build tar:xz
 USE_GNOME=	gnomedesktop3 gtk30
-USE_XORG=	ice sm x11 xcomposite
+USE_XORG=	ice sm x11 xcomposite xtrans
 USE_GL=		egl gl glesv2
 INSTALLS_ICONS=	yes
 MESON_ARGS=	-Dsystemd=false \

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-online-accounts
-PORTVERSION=	3.26.2
+PORTVERSION=	3.28.0
 CATEGORIES=	net
 MASTER_SITES=	GNOME
 
@@ -26,7 +26,7 @@ PORTSCOUT=	limitw:1,even
 
 USES=		compiler:c++11-lib gettext gmake gnome libtool \
 		localbase pathfix pkgconfig tar:xz
-USE_GNOME=	cairo gtk30 intlhack introspection:build libxml2 libxslt:build
+USE_GNOME=	cairo gtk30 introspection:build libxml2 libxslt:build
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes

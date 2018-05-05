@@ -7,6 +7,8 @@
 %%PYTHON_SITELIBDIR%%/gi/__pycache__/_error.cpython-%%PYTHON_SUFFIX%%.pyc
 %%PYTHON_SITELIBDIR%%/gi/__pycache__/_option.cpython-%%PYTHON_SUFFIX%%.%%PYTHON_PYOEXTENSION%%
 %%PYTHON_SITELIBDIR%%/gi/__pycache__/_option.cpython-%%PYTHON_SUFFIX%%.pyc
+%%PYTHON_SITELIBDIR%%/gi/__pycache__/_ossighelper.cpython-%%PYTHON_SUFFIX%%.%%PYTHON_PYOEXTENSION%%
+%%PYTHON_SITELIBDIR%%/gi/__pycache__/_ossighelper.cpython-%%PYTHON_SUFFIX%%.pyc
 %%PYTHON_SITELIBDIR%%/gi/__pycache__/_propertyhelper.cpython-%%PYTHON_SUFFIX%%.%%PYTHON_PYOEXTENSION%%
 %%PYTHON_SITELIBDIR%%/gi/__pycache__/_propertyhelper.cpython-%%PYTHON_SUFFIX%%.pyc
 %%PYTHON_SITELIBDIR%%/gi/__pycache__/_signalhelper.cpython-%%PYTHON_SUFFIX%%.%%PYTHON_PYOEXTENSION%%
@@ -26,6 +28,7 @@
 %%PYTHON_SITELIBDIR%%/gi/_gi.so
 %%PYTHON_SITELIBDIR%%/gi/_gi_cairo.so
 %%PYTHON_SITELIBDIR%%/gi/_option.py
+%%PYTHON_SITELIBDIR%%/gi/_ossighelper.py
 %%PYTHON_SITELIBDIR%%/gi/_propertyhelper.py
 %%PYTHON_SITELIBDIR%%/gi/_signalhelper.py
 %%PYTHON_SITELIBDIR%%/gi/docstring.py

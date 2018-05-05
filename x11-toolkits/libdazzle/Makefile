@@ -1,9 +1,10 @@
 # $FreeBSD$
 
 PORTNAME=	libdazzle
-PORTVERSION=	3.27.3
+PORTVERSION=	3.28.1
 CATEGORIES=	x11-toolkits
 MASTER_SITES=	GNOME
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Staging and stabilizing for facy Glib and Gtk+ features

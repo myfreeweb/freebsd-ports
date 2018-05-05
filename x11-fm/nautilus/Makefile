@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	nautilus
-PORTVERSION=	3.26.2
+PORTVERSION=	3.28.1
 CATEGORIES=	x11-fm gnome
 MASTER_SITES=	GNOME
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	File manager for the GNOME desktop
@@ -13,34 +13,25 @@ COMMENT=	File manager for the GNOME desktop
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas \
-		appstream-util:devel/appstream-glib
+#BUILD_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas \
+#		appstream-util:devel/appstream-glib
 LIB_DEPENDS=	libgnome-autoar-0.so:archivers/gnome-autoar \
+		libgexiv2.so:graphics/gexiv2 \
 		libtracker-sparql-2.0.so:sysutils/tracker
-RUN_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
+#RUN_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
 
 PORTSCOUT=	limitw:1,even
 
 USES=		desktop-file-utils gettext gnome \
-		localbase meson pkgconfig python:3.4+,build shebangfix tar:xz
-USE_GNOME=	cairo gdkpixbuf2 gnomedesktop3 introspection:build
+		localbase meson pkgconfig python:3.4+,build tar:xz
+#USE_GNOME=	cairo gdkpixbuf2 gnomedesktop3 introspection:build
+USE_GNOME=	cairo gdkpixbuf2 gnomedesktop3
 USE_LDCONFIG=	yes
 USE_XORG=	x11
 MESON_ARGS=	-Denable-packagekit=false \
 		-Denable-selinux=false
-SHEBANG_FILES=	build-aux/meson/postinstall.py
+BINARY_ALIAS=	python3=${PYTHON_VERSION}
 
 GLIB_SCHEMAS=	org.gnome.nautilus.gschema.xml
-
-OPTIONS_SUB=	yes
-OPTIONS_DEFINE=	EXIF XMP
-
-EXIF_DESC=		Exchangeable image file format, metadata
-EXIF_MESON_TRUE=	enable-exif
-EXIF_LIB_DEPENDS=	libexif.so:graphics/libexif
-
-XMP_DESC=		Adobe's Extensible Metadata Platform
-XMP_MESON_TRUE=		enable-xmp
-XMP_LIB_DEPENDS=	libexempi.so:textproc/exempi
 
 .include <bsd.port.mk>

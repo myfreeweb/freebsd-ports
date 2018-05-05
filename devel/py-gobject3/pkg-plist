@@ -12,6 +12,9 @@
 %%PYTHON_SITELIBDIR%%/gi/_option.py
 %%PYTHON_SITELIBDIR%%/gi/_option.pyc
 %%PYTHON_SITELIBDIR%%/gi/_option.%%PYTHON_PYOEXTENSION%%
+%%PYTHON_SITELIBDIR%%/gi/_ossighelper.py
+%%PYTHON_SITELIBDIR%%/gi/_ossighelper.pyc
+%%PYTHON_SITELIBDIR%%/gi/_ossighelper.%%PYTHON_PYOEXTENSION%%
 %%PYTHON_SITELIBDIR%%/gi/_propertyhelper.py
 %%PYTHON_SITELIBDIR%%/gi/_propertyhelper.pyc
 %%PYTHON_SITELIBDIR%%/gi/_propertyhelper.%%PYTHON_PYOEXTENSION%%

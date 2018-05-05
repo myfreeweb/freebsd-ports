@@ -395,6 +395,7 @@ proxydeps_suggest_uses() {
 		${pkg} = "x11-toolkits/gtksourceview" -o \
 		${pkg} = "x11-toolkits/gtksourceview2" -o \
 		${pkg} = "x11-toolkits/gtksourceview3" -o \
+		${pkg} = "x11-toolkits/gtksourceview4" -o \
 		${pkg} = "x11-toolkits/gtksourceviewmm3" -o \
 		${pkg} = "devel/libbonobo" -o \
 		${pkg} = "x11-toolkits/libbonoboui" -o \

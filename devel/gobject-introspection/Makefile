@@ -2,11 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	gobject-introspection
-PORTVERSION=	1.54.1
+PORTVERSION=	1.56.1
 PORTEPOCH=	1
 CATEGORIES=	devel
 MASTER_SITES=	GNOME
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Generate interface introspection data for GObject libraries

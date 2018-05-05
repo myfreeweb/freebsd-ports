@@ -49,6 +49,7 @@
     SUBDIR += gedit-plugins
     SUBDIR += ghex
     SUBDIR += gmanedit
+    SUBDIR += gnome-latex
     SUBDIR += gnotepad+
     SUBDIR += gobby
     SUBDIR += grantlee-editor
@@ -77,7 +78,6 @@
     SUBDIR += kimagemapeditor
     SUBDIR += klat4
     SUBDIR += komodo-edit
-    SUBDIR += latexila
     SUBDIR += lazarus
     SUBDIR += lazarus-lcl-gtk2
     SUBDIR += lazarus-lcl-nogui

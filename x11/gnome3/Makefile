@@ -19,7 +19,7 @@ RUN_DEPENDS?=	dconf-editor:devel/dconf-editor \
 		gnome-mount:sysutils/gnome-mount \
 		gnome-shell>=3.0.0:x11/gnome-shell \
 		gnome-shell-extensions>=3.0.0:x11/gnome-shell-extensions \
-		gnome-tweak-tool:deskutils/gnome-tweak-tool \
+		gnome-tweaks:deskutils/gnome-tweaks \
 		sushi>=0:x11-fm/sushi \
 		nautilus>=3.0.0:x11-fm/nautilus \
 		${LOCALBASE}/share/fonts/bitstream-vera/Vera.ttf:x11-fonts/bitstream-vera \

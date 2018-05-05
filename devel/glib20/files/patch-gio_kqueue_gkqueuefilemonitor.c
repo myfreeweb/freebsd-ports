@@ -1,5 +1,5 @@
---- gio/kqueue/gkqueuefilemonitor.c.orig	2018-04-09 22:53:26.621755000 +0200
-+++ gio/kqueue/gkqueuefilemonitor.c	2018-04-09 22:53:38.088863000 +0200
+--- gio/kqueue/gkqueuefilemonitor.c.orig	2018-04-07 04:10:22.000000000 +0200
++++ gio/kqueue/gkqueuefilemonitor.c	2018-05-03 20:21:55.830634000 +0200
 @@ -22,33 +22,73 @@
  
  #include "config.h"
@@ -398,27 +398,27 @@
 +{
 +  struct kevent ev;
 +
++  /* Remove the event and close the file descriptor to automatically
++   * delete pending events. */
++  if (sub->fd != -1)
++    {
++      EV_SET (&ev, sub->fd, EVFILT_VNODE, EV_DELETE, NOTE_ALL, 0, sub);
++      if (kevent (kq_queue, &ev, 1, NULL, 0, NULL) == -1)
++        {
++          g_warning ("Unable to remove event for %s: %s", sub->filename, g_strerror (errno));
++          return FALSE;
++        }
++      close (sub->fd);
++      sub->fd = -1;
++    }
++
++  _km_remove (sub);
++
 +  if (sub->deps)
 +    {
 +      dl_free (sub->deps);
 +      sub->deps = NULL;
 +    }
-+
-+  _km_remove (sub);
-+
-+  /* Only in the missing list?  We're done! */
-+  if (sub->fd == -1)
-+    return TRUE;
-+
-+  EV_SET (&ev, sub->fd, EVFILT_VNODE, EV_DELETE, NOTE_ALL, 0, sub);
-+  if (kevent (kq_queue, &ev, 1, NULL, 0, NULL) == -1)
-+    {
-+      g_warning ("Unable to remove event for %s: %s", sub->filename, g_strerror (errno));
-+      return FALSE;
-+    }
-+
-+  close (sub->fd);
-+  sub->fd = -1;
 +
 +  return TRUE;
 +}

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	mutter
-PORTVERSION=	3.28.0
+PORTVERSION=	3.28.1
 CATEGORIES=	x11-wm
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -57,18 +57,5 @@ CONFIGURE_ARGS+=	--with-x \
 INSTALL_TARGET=	install-strip
 GLIB_SCHEMAS=	org.gnome.mutter.gschema.xml \
 		org.gnome.mutter.wayland.gschema.xml
-
-post-patch:
-#	@${REINPLACE_CMD} -e 's|-Wcast-align||g' \
-#		${WRKSRC}/configure
-#	@${REINPLACE_CMD} -e 's,-Wempty-body,,' \
-#	-e 's,-Werror=maybe-uninitialized,,' \
-#	-e 's,-Wno-error=maybe-uninitialized,,' \
-#	-e 's,-Werror=redundant-decls,,' \
-#	-e 's,-Wvla,,' \
-#	${WRKSRC}/cogl/configure \
-#	${WRKSRC}/clutter/configure \
-#	${WRKSRC}/cogl/tests/conform/Makefile.in \
-#	${WRKSRC}/cogl/test-fixtures/Makefile.in
 
 .include <bsd.port.mk>

@@ -90,7 +90,7 @@
     SUBDIR += gnome-sound-recorder
     SUBDIR += gnome-system-log
     SUBDIR += gnome-todo
-    SUBDIR += gnome-tweak-tool
+    SUBDIR += gnome-tweaks
     SUBDIR += gnome-utils
     SUBDIR += gnome-weather
     SUBDIR += gnote

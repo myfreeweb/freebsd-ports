@@ -2,7 +2,7 @@
 # $FreeBSD: head/editors/gedit-plugins/Makefile 412346 2016-04-01 14:00:51Z mat $
 
 PORTNAME=	gedit-plugins
-PORTVERSION=	3.22.0
+PORTVERSION=	3.28.1
 CATEGORIES=	editors gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -41,7 +41,8 @@ RUN_DEPENDS+=	py3?-dbus>=0:devel/py-dbus@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}libpeas>=0:devel/py-libpeas@${PY_FLAVOR}
 USE_GNOME+=	vte3
 CONFIGURE_ARGS+=--enable-python
-GLIB_SCHEMAS+=	org.gnome.gedit.plugins.terminal.gschema.xml
+GLIB_SCHEMAS+=	org.gnome.gedit.plugins.terminal.gschema.xml \
+		org.gnome.gedit.plugins.translate.gschema.xml
 
 post-patch:
 	@${REINPLACE_CMD} -e 's| \\t\\r\\n\\f|[:space:]|g' \

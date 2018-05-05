@@ -5,10 +5,10 @@ PORTNAME=	gnome-latex
 PORTVERSION=	3.28.0
 CATEGORIES=	editors
 MASTER_SITES=	GNOME
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
-MAINTAINER=	greg@unrelenting.technology
-COMMENT=	LaTeX editor for the GNOME desktop
+MAINTAINER=	gnome@FreeBSD.org
+COMMENT=	Integrated LaTeX environment
 
 LICENSE=	GPLv3
 
@@ -16,11 +16,13 @@ BUILD_DEPENDS=	valac:lang/vala \
 		itstool:textproc/itstool \
 		gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
 LIB_DEPENDS=	libgee-0.8.so:devel/libgee \
+		libenchant.so:textproc/enchant \
+		libtepl-4.so:x11-toolkits/tepl \
 		libgspell-1.so:textproc/gspell
 
-USES=		compiler:c11 desktop-file-utils gettext-tools gmake pkgconfig tar:xz
+USES=		compiler:c11 desktop-file-utils gettext gmake pkgconfig tar:xz
 GNU_CONFIGURE=	yes
-USE_GNOME=	cairo dconf glib20 gtk30 gtksourceview4 tepl4 intltool intlhack libxml2
+USE_GNOME=	cairo dconf gtksourceview4
 USE_TEX=	latex dvipsk
 INSTALLS_ICONS=	yes
 INSTALL_TARGET=	install-strip

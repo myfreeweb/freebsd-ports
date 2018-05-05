@@ -132,6 +132,7 @@ include/mozjs-52/mozilla/StackWalk.h
 include/mozjs-52/mozilla/StaticAnalysisFunctions.h
 include/mozjs-52/mozilla/TaggedAnonymousMemory.h
 include/mozjs-52/mozilla/TemplateLib.h
+include/mozjs-52/mozilla/TextUtils.h
 include/mozjs-52/mozilla/ThreadLocal.h
 include/mozjs-52/mozilla/TimeStamp.h
 include/mozjs-52/mozilla/ToString.h

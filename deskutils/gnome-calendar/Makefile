@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-calendar
-PORTVERSION=	3.26.3
+PORTVERSION=	3.28.2
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Simple and beatiful calendar application for GNOME
@@ -16,19 +16,20 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 PORTSCOUT=	limitw:1,even
 
 BUILD_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
-LIB_DEPENDS=	libicui18n.so:devel/icu \
-		libical.so:devel/libical \
-		libsecret-1.so:security/libsecret \
+LIB_DEPENDS=	libical.so:devel/libical \
+		libdazzle-1.0.so:x11-toolkits/libdazzle \
 		libsoup-2.4.so:devel/libsoup \
+		libgweather-3.so:net/libgweather \
+		libgeoclue-2.so:net/geoclue \
 		libgoa-1.0.so:net/gnome-online-accounts
 RUN_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
 
 USES=		desktop-file-utils gettext gnome localbase:ldflags meson \
-		pkgconfig python:3.4+,build shebangfix tar:xz
+		pkgconfig python:3.4+,build tar:xz
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
 USE_GNOME=	cairo evolutiondataserver3
-SHEBANG_FILES=	meson_post_install.py
+BINARY_ALIAS=	python3=${PYTHON_VERSION}
 
 GLIB_SCHEMAS=	org.gnome.calendar.enums.xml \
 		org.gnome.calendar.gschema.xml

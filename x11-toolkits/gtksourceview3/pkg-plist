@@ -157,6 +157,7 @@ share/gir-1.0/GtkSource-3.0.gir
 %%DATADIR%%-3.0/language-specs/genie.lang
 %%DATADIR%%-3.0/language-specs/glsl.lang
 %%DATADIR%%-3.0/language-specs/go.lang
+%%DATADIR%%-3.0/language-specs/groovy.lang
 %%DATADIR%%-3.0/language-specs/gtk-doc.lang
 %%DATADIR%%-3.0/language-specs/gtkrc.lang
 %%DATADIR%%-3.0/language-specs/haddock.lang
@@ -232,8 +233,10 @@ share/gir-1.0/GtkSource-3.0.gir
 %%DATADIR%%-3.0/language-specs/systemverilog.lang
 %%DATADIR%%-3.0/language-specs/t2t.lang
 %%DATADIR%%-3.0/language-specs/tcl.lang
+%%DATADIR%%-3.0/language-specs/tera.lang
 %%DATADIR%%-3.0/language-specs/texinfo.lang
 %%DATADIR%%-3.0/language-specs/thrift.lang
+%%DATADIR%%-3.0/language-specs/toml.lang
 %%DATADIR%%-3.0/language-specs/vala.lang
 %%DATADIR%%-3.0/language-specs/vbnet.lang
 %%DATADIR%%-3.0/language-specs/verilog.lang
