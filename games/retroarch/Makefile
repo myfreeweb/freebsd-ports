@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	RetroArch
-PORTVERSION=	1.7.1 # sync with games/libretro-core-info
+PORTVERSION=	1.7.3 # sync with games/libretro-core-info
 DISTVERSIONPREFIX=	v
 CATEGORIES=	games emulators
 
@@ -18,12 +18,13 @@ LIB_DEPENDS=	libxkbcommon.so:x11/libxkbcommon \
 
 BROKEN_powerpc64=	fails to compile: features_cpu.c: undefined reference to __mftb
 
-OPTIONS_DEFINE=	FFMPEG OSS JACK PULSEAUDIO ALSA SDL OPENGL OPENAL PYTHON V4L FREETYPE WAYLAND UDEV
-OPTIONS_DEFAULT=FFMPEG OSS PULSEAUDIO SDL OPENGL OPENAL PYTHON V4L FREETYPE WAYLAND UDEV
+OPTIONS_DEFINE=	FFMPEG OSS JACK PULSEAUDIO ALSA SDL OPENGL OPENAL PYTHON V4L FREETYPE WAYLAND UDEV QT
+OPTIONS_DEFAULT=FFMPEG OSS PULSEAUDIO SDL OPENGL OPENAL PYTHON V4L FREETYPE WAYLAND UDEV QT
 FFMPEG_DESC=	On-the-fly recording of gameplay with libavcodec
 PYTHON_DESC=	Script support in shaders
 WAYLAND_DESC=	Wayland display support
 UDEV_DESC=	udev device hotplug support
+QT_DESC=	Qt based desktop-style GUI
 
 FFMPEG_LIB_DEPENDS=	libavcodec.so:multimedia/ffmpeg
 FFMPEG_CONFIGURE_ENABLE=ffmpeg
@@ -34,7 +35,7 @@ PULSEAUDIO_LIB_DEPENDS=	libpulse.so:audio/pulseaudio
 PULSEAUDIO_CONFIGURE_ENABLE=	pulse
 ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
 ALSA_CONFIGURE_ENABLE=	alsa
-SDL_USE=		SDL=sdl2 image2
+SDL_USE=		SDL=sdl2,image2
 SDL_CONFIGURE_ON=	--disable-sdl --enable-sdl2
 SDL_CONFIGURE_OFF=	--disable-sdl --disable-sdl2
 OPENGL_USE=		GL=gl,egl,gbm
@@ -57,6 +58,9 @@ UDEV_LIB_DEPENDS=	libudev.so:devel/libudev-devd \
 UDEV_CFLAGS=		-I${LOCALBASE}/include/libepoll-shim
 UDEV_LDFLAGS=		-lepoll-shim
 UDEV_CONFIGURE_ENABLE=	udev
+QT_CFLAGS=		-fPIC
+QT_USE=		QT5=core,gui,widgets
+QT_CONFIGURE_ENABLE=	qt
 
 CONFIGURE_ARGS+=--enable-threads
 CONFIGURE_ENV+=	MAN_DIR=${MANPREFIX}/man
