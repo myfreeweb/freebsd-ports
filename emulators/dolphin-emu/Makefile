@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	dolphin-emu
-DISTVERSION=	5.0-7020
-DISTVERSIONSUFFIX=	-geb97f2d5
+DISTVERSION=	5.0-7221
+DISTVERSIONSUFFIX=	-g31efec6
 CATEGORIES=	emulators
 
 MAINTAINER=	martymac@FreeBSD.org
@@ -43,12 +43,12 @@ GH_PROJECT=	dolphin
 USE_GL=		gl glew glu
 USE_GNOME=	atk cairo glib20 gdkpixbuf2 gtk20 pango
 USE_SDL=	sdl2
-USE_WX=		3.0+
+USE_QT5=	widgets gui core
 USE_XORG=	ice sm x11 xext xi xrandr xxf86vm xinerama
 
 CMAKE_ARGS+=	-DTRY_X11:BOOL=ON \
 		-DUSE_UPNP:BOOL=ON \
-		-DDISABLE_WX:BOOL=OFF \
+		-DENABLE_WX:BOOL=OFF \
 		-DUSE_SHARED_GTEST:BOOL=ON \
 		-DENABLE_PCH:BOOL=OFF \
 		-DDISTRIBUTOR:STRING="FreeBSD Ports" \
@@ -58,23 +58,14 @@ CMAKE_ARGS+=	-DTRY_X11:BOOL=ON \
 
 # XXX Bypass git check (and set a dummy -unused- revision)
 CMAKE_ARGS+=	-DDOLPHIN_WC_BRANCH:STRING="stable" \
-		-DDOLPHIN_WC_REVISION:STRING="1"
+	-DDOLPHIN_WC_REVISION:STRING="${DISTVERSION:s/5.0-//}"
 
-OPTIONS_DEFINE=	NLS QT2
+OPTIONS_DEFINE=	NLS
 OPTIONS_SUB=	yes
 
 NLS_USES=	gettext
 NLS_CMAKE_ON=	-DDISABLE_NLS:BOOL=OFF
 NLS_CMAKE_OFF=	-DDISABLE_NLS:BOOL=ON
-
-QT2_DESC=	Enable experimental Qt based UI
-QT2_CMAKE_BOOL=	ENABLE_QT2
-
-.include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MQT2}
-USE_QT5=	widgets gui core
-.endif
 
 .include <bsd.port.pre.mk>
 

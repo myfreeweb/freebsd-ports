@@ -1,6 +1,5 @@
 bin/dolphin-emu
 bin/dolphin-emu-nogui
-%%QT2%%bin/dolphin-emu-qt2
 share/applications/dolphin-emu.desktop
 %%DATADIR%%/sys/GC/dsp_coef.bin
 %%DATADIR%%/sys/GC/dsp_rom.bin
@@ -537,6 +536,7 @@ share/applications/dolphin-emu.desktop
 %%DATADIR%%/sys/GameSettings/R3O.ini
 %%DATADIR%%/sys/GameSettings/R3R.ini
 %%DATADIR%%/sys/GameSettings/R44.ini
+%%DATADIR%%/sys/GameSettings/R4C.ini
 %%DATADIR%%/sys/GameSettings/R4E.ini
 %%DATADIR%%/sys/GameSettings/R4F.ini
 %%DATADIR%%/sys/GameSettings/R4Z.ini
