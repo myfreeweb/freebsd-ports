@@ -14,7 +14,7 @@ COMMENT=	Free and open-source general-purpose video player
 LICENSE=	GPLv2+ LGPL21+
 LICENSE_COMB=	multi
 
-BUILD_DEPENDS=	ffmpeg>=4.0:multimedia/ffmpeg
+BUILD_DEPENDS=	ffmpeg>=4.0,1:multimedia/ffmpeg
 LIB_DEPENDS=	libavcodec.so:multimedia/ffmpeg
 
 USES=		compiler:c11 desktop-file-utils iconv jpeg localbase:ldflags \

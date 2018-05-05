@@ -4,7 +4,11 @@
 PORTNAME=	qTox
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.14.1
+PORTREVISION=	1
 CATEGORIES=	net-im net-p2p
+
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+PATCHFILES=	441931765ffe.patch:-p1
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Qt 5 based Tox client

@@ -1,6 +1,6 @@
---- configure.orig	2017-10-15 15:59:36 UTC
+--- configure.orig	2018-04-20 10:02:55 UTC
 +++ configure
-@@ -3371,12 +3371,7 @@ target_os_default=$(tolower $(uname -s))
+@@ -3516,12 +3516,7 @@ target_os_default=$(tolower $(uname -s))
  host_os=$target_os_default
  
  # machine

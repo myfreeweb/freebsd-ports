@@ -5,7 +5,7 @@ DISTVERSIONPREFIX=	v
 DISTVERSION=	6.6.0
 CATEGORIES?=	multimedia
 
-MAINTAINER=	avilla@FreeBSD.org
+MAINTAINER?=	avilla@FreeBSD.org
 COMMENT?=	Multimedia framework for TV broadcasting
 
 LICENSE?=	GPLv2 GPLv3 LGPL21

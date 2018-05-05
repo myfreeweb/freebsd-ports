@@ -3,7 +3,7 @@
 
 PORTNAME=	guacamole-server
 DISTVERSION=	0.9.14
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	net
 
 MAINTAINER=	ultima@FreeBSD.org
@@ -51,6 +51,7 @@ RDP_DESC=		RDP protocol support
 SP_DESC=		Supported Protocols
 VNC_DESC=		VNC protocol support
 
+GUACENC_BROKEN=		fails to build with ffmpeg 4.0
 GUACENC_CONFIGURE_ENABLE=	guacenc
 GUACENC_CONFIGURE_WITH=		libavcodec libavutil libswscale
 GUACENC_LIB_DEPENDS=	libavcodec.so:multimedia/ffmpeg

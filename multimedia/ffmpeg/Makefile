@@ -24,14 +24,14 @@ USE_PERL5=	build
 SHEBANG_FILES=	doc/texi2pod.pl
 NOPRECIOUSMAKEVARS=	yes # ARCH
 
-PORTSCOUT=	limit:^3\.
+PORTSCOUT=	limit:^4\.
 
-OPTIONS_DEFINE=	ALSA AMR_NB AMR_WB ASS BS2B CACA CDIO CELT CHROMAPRINT DC1394 \
+OPTIONS_DEFINE=	ALSA AMR_NB AMR_WB AOM ASS BEIGNET BS2B CACA CDIO CELT CHROMAPRINT CODEC2 DC1394 \
 		DEBUG DOCS DRM FDK_AAC FLITE FONTCONFIG \
-		FREETYPE FREI0R FRIBIDI GME GSM ICONV ILBC KVAZAAR LADSPA \
-		LAME LIBBLURAY LIBRSVG2 LIBXML2 MODPLUG MYSOFA OPENAL OPENCL OPENCV OPENGL \
+		FREETYPE FREI0R FRIBIDI GME GSM ICONV ILBC JACK KVAZAAR LADSPA \
+		LAME LIBBLURAY LIBRSVG2 LIBXML2 LV2 MODPLUG MYSOFA OPENAL OPENCL OPENCV OPENGL \
 		OPENH264 OPENJPEG OPTIMIZED_CFLAGS OPUS PULSEAUDIO \
-		RUBBERBAND RTCPU SDL SMB SNAPPY SNDIO SOXR SPEEX SSH \
+		RUBBERBAND RTCPU SDL SMB SNAPPY SNDIO SOXR SPEEX SRT SSH \
 		TESSERACT THEORA TWOLAME V4L VAAPI VDPAU VIDSTAB VORBIS \
 		VO_AMRWBENC VPX WAVPACK WEBP X264 X265 XCB XVID \
 		XVIDEO ZIMG ZMQ ZVBI
@@ -40,21 +40,35 @@ OPTIONS_DEFAULT=	FONTCONFIG FREETYPE FREI0R GMP GNUTLS ICONV \
 			OPENCV OPTIMIZED_CFLAGS OPUS RTCPU THEORA V4L VAAPI VDPAU \
 			VORBIS VPX X264 X265 XVID
 
+.if !exists(${.CURDIR:H:H}/multimedia/aom)
+# https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff/c438899a7064
+# https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff/43778a501f1b
+OPTIONS_EXCLUDE+=	AOM
+.endif
+
+.if !exists(${.CURDIR:H:H}/net/srt)
+# https://git.ffmpeg.org/gitweb/ffmpeg.git/commitdiff/a2fc8dbae853
+OPTIONS_EXCLUDE+=	SRT
+.endif
+
 OPTIONS_RADIO=	RTMP SSL
 OPTIONS_RADIO_RTMP=	GCRYPT GMP LIBRTMP
-OPTIONS_RADIO_SSL=	GNUTLS OPENSSL LIBRESSL
+OPTIONS_RADIO_SSL=	GNUTLS OPENSSL
 OPTIONS_GROUP=	LICENSE
 OPTIONS_GROUP_LICENSE=	GPL3 NONFREE
 
-OPTIONS_DEFINE_amd64=	MMX SSE
+OPTIONS_DEFINE_amd64=	BEIGNET MMX SSE
 OPTIONS_DEFINE_armv6=	VFP NEON
-OPTIONS_DEFINE_i386=	MMX SSE
+OPTIONS_DEFINE_i386=	BEIGNET MMX SSE
 OPTIONS_DEFAULT_amd64=	MMX SSE
 OPTIONS_DEFAULT_i386=	MMX SSE
 
 ASS_DESC=	Subtitles rendering via libass
+AOM_DESC=	AV1 video encoding/decoding via libaom
+BEIGNET_DESC=	DRM/VAAPI to OpenCL mapping for i965 + Beignet
 BS2B_DESC=	Bauer Stereophonic-to-Binaural filter
 CHROMAPRINT_DESC=	Audio fingerprinting with chromaprint
+CODEC2_DESC=	Codec 2 audio encoding/decoding via libcodec2
 DC1394_DESC=	IIDC-1394 grabbing using libdc1394
 DRM_DESC=	KMS grabbing using libdrm
 FDK_AAC_DESC=	AAC audio encoding via Fraunhofer FDK
@@ -63,8 +77,8 @@ GME_DESC=	Game Music Emu demuxer
 GPL3_DESC=	Allow (L)GPL version 3 code(cs)
 ILBC_DESC=	Internet Low Bit Rate codec
 KVAZAAR_DESC=	H.265 video codec support via Kvazaar
-LIBRESSL_DESC=	SSL/TLS support via LibreSSL
 LICENSE_DESC=	Licensing options
+LV2_DESC=	LV2 audio filtering
 MYSOFA_DESC=	SOFAlizer binaural filter
 NEON_DESC=	Media Processing Engine instructions
 NONFREE_DESC=	Allow use of nonfree code
@@ -72,6 +86,7 @@ OPENH264_DESC=	H.264 video codec support via OpenH264
 RUBBERBAND_DESC=Time-stretching and pitch-shifting with librubberband
 RTCPU_DESC=	Detect CPU capabilities at runtime
 RTMP_DESC=	RTMP(T)E protocol support
+SRT_DESC=	Haivision SRT protocol via libsrt
 LIBRTMP_DESC=	${RTMP_DESC} via librtmp
 TESSERACT_DESC=	Optical Character Recognition via Tesseract
 VFP_DESC=	Vector Floating Point instructions
@@ -97,9 +112,17 @@ AMR_WB_LIB_DEPENDS=	libopencore-amrwb.so:audio/opencore-amr
 AMR_WB_CONFIGURE_ENABLE=	libopencore-amrwb
 AMR_WB_IMPLIES=		GPL3
 
+# aom
+AOM_LIB_DEPENDS=	libaom.so:multimedia/aom
+AOM_CONFIGURE_ENABLE=	libaom
+
 # ass
 ASS_LIB_DEPENDS=	libass.so:multimedia/libass
 ASS_CONFIGURE_ENABLE=	libass
+
+# beignet
+BEIGNET_BUILD_DEPENDS=	${LOCALBASE}/include/CL/cl_intel.h:lang/beignet
+BEIGNET_IMPLIES=	DRM OPENCL VAAPI
 
 # bs2b
 BS2B_LIB_DEPENDS=	libbs2b.so:audio/libbs2b
@@ -121,6 +144,10 @@ CELT_CONFIGURE_ENABLE=	libcelt
 CHROMAPRINT_BROKEN=		Dependency loop
 CHROMAPRINT_LIB_DEPENDS=	libchromaprint.so:audio/chromaprint
 CHROMAPRINT_CONFIGURE_ENABLE=	chromaprint
+
+# codec2
+CODEC2_LIB_DEPENDS=	libcodec2.so:audio/codec2
+CODEC2_CONFIGURE_ENABLE=	libcodec2
 
 # dc1394
 DC1394_LIB_DEPENDS=	libdc1394.so:multimedia/libdc1394
@@ -192,6 +219,10 @@ ICONV_CONFIGURE_ENABLE=	iconv
 ILBC_LIB_DEPENDS=	libilbc.so:net/libilbc
 ILBC_CONFIGURE_ENABLE=	libilbc
 
+# jack
+JACK_LIB_DEPENDS=	libjack.so:audio/jack
+JACK_CONFIGURE_ENABLE=	libjack
+
 # kvazaar
 KVAZAAR_LIB_DEPENDS=	libkvazaar.so:multimedia/kvazaar
 KVAZAAR_CONFIGURE_ENABLE=	libkvazaar
@@ -209,12 +240,6 @@ LAME_CONFIGURE_ENABLE=	libmp3lame
 LIBBLURAY_LIB_DEPENDS=	libbluray.so:multimedia/libbluray
 LIBBLURAY_CONFIGURE_ENABLE=	libbluray
 
-# libressl
-LIBRESSL_LIB_DEPENDS=	libtls.so:security/libressl
-LIBRESSL_USES=		ssl
-LIBRESSL_CONFIGURE_ENABLE=	libtls
-LIBRESSL_IMPLIES=	NONFREE
-
 # librsvg
 LIBRSVG2_LIB_DEPENDS=	librsvg-2.so:graphics/librsvg2
 LIBRSVG2_CONFIGURE_ENABLE=	librsvg
@@ -222,6 +247,11 @@ LIBRSVG2_CONFIGURE_ENABLE=	librsvg
 # libxml
 LIBXML2_LIB_DEPENDS=	libxml2.so:textproc/libxml2
 LIBXML2_CONFIGURE_ENABLE=	libxml2
+
+# lv2
+LV2_BUILD_DEPENDS=	lv2>0:audio/lv2
+LV2_LIB_DEPENDS=	liblilv-0.so:audio/lilv
+LV2_CONFIGURE_ENABLE=	lv2
 
 # libv4l
 V4L_BUILD_DEPENDS=	v4l_compat>0:multimedia/v4l_compat
@@ -266,9 +296,9 @@ OPENH264_CONFIGURE_ENABLE=	libopenh264
 OPENJPEG_LIB_DEPENDS=	libopenjp2.so:graphics/openjpeg
 OPENJPEG_CONFIGURE_ENABLE=	libopenjpeg
 
-# openssl
+# openssl/libtls
 OPENSSL_USES=		ssl
-OPENSSL_CONFIGURE_ENABLE=	openssl
+OPENSSL_CONFIGURE_ENABLE=	${"${SSL_DEFAULT:Mlibressl*}"!="":?libtls:openssl}
 OPENSSL_IMPLIES=	NONFREE
 
 # optimizations
@@ -325,6 +355,10 @@ SSE_IMPLIES=		MMX
 # ssh
 SSH_LIB_DEPENDS=	libssh.so:security/libssh
 SSH_CONFIGURE_ENABLE=	libssh
+
+# srt
+SRT_LIB_DEPENDS=	libsrt.so:net/srt
+SRT_CONFIGURE_ENABLE=	libsrt
 
 # tesseract
 TESSERACT_LIB_DEPENDS=	libtesseract.so:graphics/tesseract
@@ -418,7 +452,7 @@ LICENSE_FILE_GPLv3=	${WRKSRC}/COPYING.GPLv3
 LICENSE_FILE_LGPL3=	${WRKSRC}/COPYING.LGPLv3
 
 NONFREE_CONFIGURE_ENABLE=nonfree
-NONFREE_VARS=		RESTRICTED="enabling OPENSSL, LIBRESSL or FDK_AAC restricts redistribution"
+NONFREE_VARS=		RESTRICTED="enabling OPENSSL or FDK_AAC restricts redistribution"
 
 INSTALL_TARGET=	install-progs install-doc install-data \
 		install-libs install-headers install-examples
