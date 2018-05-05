@@ -32,6 +32,14 @@
 # OPTIONS_GROUP_${NAME}		- List of OPTIONS grouped as group-choice (for
 #				  the group named as ${NAME} as defined in
 #				  OPTIONS_GROUP)
+# OPTIONS_MULTI_${NAME}_SELECTED	- The selected multiple choice options (for
+#					  the multi named as ${NAME})
+# OPTIONS_GROUP_${NAME}_SELECTED	- The selected choice in grouped options (for
+#					  the group named as ${NAME})
+# OPTIONS_SINGLE_${NAME}_SELECTED	- The selected single choice option (for
+#					  the single named as ${NAME})
+# OPTIONS_RADIO_${NAME}_SELECTED	- The selected radio choice option (for
+#					  the radio named as ${NAME})
 #
 # OPTIONS_EXCLUDE		- List of options unsupported (useful for slave ports)
 # OPTIONS_EXCLUDE_${ARCH}	- List of options unsupported on a given ${ARCH}
@@ -598,5 +606,16 @@ _DESELECTED_OPTIONS+=	${OPTIONS_${otype}_${m}:@opt@${"${PORT_OPTIONS:M${opt}}":?
 .endfor
 SELECTED_OPTIONS=	${_SELECTED_OPTIONS:O:u}
 DESELECTED_OPTIONS=	${_DESELECTED_OPTIONS:O:u}
+
+## Now find all selected options in sections
+.for otype in MULTI GROUP SINGLE RADIO
+.  for section in ${OPTIONS_${otype}}
+.    for opt in ${OPTIONS_${otype}_${section}}
+.      if !empty(PORT_OPTIONS:M${opt})
+OPTIONS_${otype}_${section}_SELECTED+=	${opt}
+.      endif
+.    endfor
+.  endfor
+.endfor
 
 .endif
