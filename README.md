@@ -56,6 +56,8 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `graphics/shaderc`: google's glslang-based thing, needed for vulkan support in mpv. Quite bad for packaging: [#424](https://github.com/google/shaderc/issues/424) [#381](https://github.com/google/shaderc/issues/381) [#392](https://github.com/google/shaderc/issues/392)
+- `multimedia/mpv`: 0.28.2, vulkan
 - `games/regoth`: [Gothic game engine reimplementation](https://github.com/REGoth-project/REGoth) (NOTE: [doesn't like mesa assertions which are ON in mesa-dev right now](https://bugs.archlinux.org/task/58218)) [227844](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227844)
 - `x11-toolkits/gtk40`: git master, vulkan, skip installing gschemas (fix parallel install w/ gtk3)
 - `multimedia/shotcut`: 18.03.06
@@ -91,7 +93,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `audio/libechonest`: qt5 flavor for clementine [226529](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226529)
 - `devel/geany`: GTK3 [226523](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226523)
 - `devel/sdl20`: 2.0.8 [226409](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226409) (TEMPORARILY ROLLED BACK [#4109](https://bugzilla.libsdl.org/show_bug.cgi?id=4109))
-- `multimedia/mpv`: 0.28.2
 - `multimedia/ffmpeg`: 4.0 (because mpv 0.28.x requires it) (might break some things)
 - `sysutils/u-boot-rpi3`: update to 2018.01, with netboot support [225355](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225355)
 - `lang/luajit`: update to 2.1.0-beta3 (works on arm64) [225342](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225342)

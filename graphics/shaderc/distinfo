@@ -1,0 +1,9 @@
+TIMESTAMP = 1525517221
+SHA256 (google-shaderc-20180420-5fd1b25_GH0.tar.gz) = 3c3705c92a41e4b88b792d44f52d7fa7c95655ea6e7a7c92fae687da0246924f
+SIZE (google-shaderc-20180420-5fd1b25_GH0.tar.gz) = 202978
+SHA256 (KhronosGroup-glslang-3bb4c48_GH0.tar.gz) = 1d186e86db87bbddc9fc595619ed227901b3601512b454cd3c320e6790f0a03e
+SIZE (KhronosGroup-glslang-3bb4c48_GH0.tar.gz) = 2315981
+SHA256 (KhronosGroup-SPIRV-Headers-3a4dbdd_GH0.tar.gz) = 8d0ae767e7e2cf8c2260e820d6edd14566f30e8cd9c33cc6b7c9af3b2c36cce8
+SIZE (KhronosGroup-SPIRV-Headers-3a4dbdd_GH0.tar.gz) = 280597
+SHA256 (KhronosGroup-SPIRV-Tools-7a59283_GH0.tar.gz) = 25177f05d3ceeb65bab32b24210c391aa9872780cebcdac904663c7dacda26d0
+SIZE (KhronosGroup-SPIRV-Tools-7a59283_GH0.tar.gz) = 1211011

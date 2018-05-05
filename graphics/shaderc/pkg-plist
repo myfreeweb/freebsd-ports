@@ -1,0 +1,4 @@
+bin/glslc
+include/shaderc/shaderc.h
+include/shaderc/shaderc.hpp
+lib/libshaderc_shared.so

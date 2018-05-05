@@ -3,7 +3,6 @@
 
 PORTNAME=	mpv
 PORTVERSION=	0.28.2
-PORTREVISION=	1
 DISTVERSIONPREFIX=	v
 PORTEPOCH=	1
 CATEGORIES=	multimedia audio
@@ -48,6 +47,10 @@ OPTIONS_GROUP_IN=	CDIO DVDREAD DVDNAV LIBBLURAY V4L YTDL SMB
 OPTIONS_GROUP_VO=	CACA OPENGL VULKAN VAAPI VDPAU WAYLAND X11
 OPTIONS_GROUP_AO=	ALSA JACK PULSEAUDIO SDL SNDIO
 OPTIONS_SUB=		yes
+
+.if !exists(${.CURDIR:H:H}/graphics/vulkan-sdk) || !exists(${.CURDIR:H:H}/graphics/shaderc)
+OPTIONS_EXCLUDE+=	VULKAN
+.endif
 
 ASS_DESC=		ASS/SSA subtitle and OSD rendering
 DVDREAD_DESC=		DVD Playback support
@@ -107,7 +110,8 @@ OPENGL_USE=			GL=egl,gbm,gl
 OPENGL_CONFIGURE_OFF=		--disable-gl
 OPENGL_IMPLIES=			X11
 
-VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-sdk
+VULKAN_LIB_DEPENDS=		libvulkan.so:graphics/vulkan-sdk \
+	libshaderc_shared.so:graphics/shaderc
 VULKAN_CONFIGURE_OFF=		--disable-vulkan
 VULKAN_IMPLIES=			X11
 
