@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=		picard
-DISTVERSION=		2.0.0.dev4-34
-DISTVERSIONSUFFIX=	-gba32f829
+DISTVERSION=		2.0.0dev6
 CATEGORIES=		audio python
 
 MAINTAINER=	jhale@FreeBSD.org
@@ -22,6 +21,7 @@ USES=		gettext pyqt:5 python:3.5+ desktop-file-utils
 USE_PYQT=	core_run gui_run widgets_run network_run xml_run sip
 USE_PYTHON=	distutils
 PYDISTUTILS_INSTALLNOSINGLE=	yes
+MAKE_ENV=	LC_ALL=en_US.UTF-8 # https://github.com/pypa/setuptools/issues/1062
 
 OPTIONS_DEFINE=		ACOUSTID PLUGINS
 OPTIONS_DEFAULT=	PLUGINS
