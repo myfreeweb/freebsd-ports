@@ -53,7 +53,6 @@ SHEBANG_FILES=	tools/make_requests tools/winemaker/winemaker \
 		tools/winedump/function_grep.pl
 
 SUB_FILES=	pkg-message
-PKGMESSAGE=	${WRKDIR}/pkg-message
 
 .if !defined(WINE_WOW64)
 PORTDATA=	l_intl.nls wine.inf
