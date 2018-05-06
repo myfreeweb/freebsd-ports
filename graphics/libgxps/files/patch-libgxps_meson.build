@@ -1,0 +1,11 @@
+--- libgxps/meson.build.orig	2018-05-05 20:05:57.790174000 +0200
++++ libgxps/meson.build	2018-05-05 20:09:00.218397000 +0200
+@@ -99,7 +99,7 @@
+               version: gxps_version,
+               name: 'libgxps',
+               description: 'XPS Documents library',
+-              requires: 'gobject-2.0 >= ' + glib_req + ', gio-2.0 >= ' + glib_req + ', libarchive >= ' + archive_req + ', cairo >= ' + cairo_req)
++              requires: 'gobject-2.0 >= ' + glib_req + ' gio-2.0 >= ' + glib_req + ' libarchive >= ' + archive_req + ' cairo >= ' + cairo_req)
+ 
+ if build_gir
+   gir_extra_args = [

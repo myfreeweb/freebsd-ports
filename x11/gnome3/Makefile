@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome3
-PORTVERSION=	3.26
+PORTVERSION=	3.28
 CATEGORIES?=	x11 gnome
 
 MAINTAINER=	gnome@FreeBSD.org

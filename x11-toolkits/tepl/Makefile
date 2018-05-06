@@ -11,7 +11,7 @@ COMMENT=	Text editor product line
 
 LIB_DEPENDS=	libuchardet.so:textproc/uchardet
 
-USES=		gettext gmake gnome libtool tar:xz
+USES=		gettext gmake gnome libtool pkgconfig tar:xz
 USE_GNOME=	cairo gdkpixbuf2 gtksourceview4 libxml2
 GNU_CONFIGURE=	yes
 INSTALL_TARGET=	install-strip

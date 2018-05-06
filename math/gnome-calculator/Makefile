@@ -13,7 +13,8 @@ COMMENT=	GNOME 3 calculator tool
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BUILD_DEPENDS=	vala:lang/vala
+BUILD_DEPENDS=	vala:lang/vala \
+		itstool:textproc/itstool
 LIB_DEPENDS=	libmpfr.so:math/mpfr \
 		libmpc.so:math/mpc \
 		libsoup-2.4.so:devel/libsoup
