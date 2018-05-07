@@ -1311,6 +1311,7 @@
     SUBDIR += kimwitu
     SUBDIR += kio-extras
     SUBDIR += kore
+    SUBDIR += kronosnet
     SUBDIR += ksql
     SUBDIR += kyra
     SUBDIR += kyua
@@ -6109,7 +6110,6 @@
     SUBDIR += tclxml
     SUBDIR += tdl
     SUBDIR += terminality
-    SUBDIR += tesla
     SUBDIR += tevent
     SUBDIR += tex-kpathsea
     SUBDIR += tex-libtexlua
