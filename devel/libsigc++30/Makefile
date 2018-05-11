@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	libsigc++
-PORTVERSION=	2.99.10
+PORTVERSION=	2.99.11
 CATEGORIES=	devel
 MASTER_SITES=	GNOME
 
@@ -14,6 +14,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 PORTSCOUT=	limit:^3\.
 
+# this port wants c++17 from 12.99.11 and onwards but our framework doesn't support that yet.
 GNU_CONFIGURE=	yes
 INSTALL_TARGET=	install-strip
 USES=		compiler:c++11-lang gmake libtool pathfix perl5 tar:xz

@@ -240,6 +240,7 @@ share/gtk-doc/html/gtksourceview-4.0/up.png
 %%DATADIR%%-4/language-specs/tera.lang
 %%DATADIR%%-4/language-specs/texinfo.lang
 %%DATADIR%%-4/language-specs/thrift.lang
+%%DATADIR%%-4/language-specs/toml.lang
 %%DATADIR%%-4/language-specs/vala.lang
 %%DATADIR%%-4/language-specs/vbnet.lang
 %%DATADIR%%-4/language-specs/verilog.lang

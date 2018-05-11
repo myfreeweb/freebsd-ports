@@ -192,7 +192,6 @@
     SUBDIR += p5-Wx
     SUBDIR += p5-Wx-Perl-ProcessStream
     SUBDIR += pango
-    SUBDIR += pango-reference
     SUBDIR += pangomm
     SUBDIR += pangox-compat
     SUBDIR += pangoxsl

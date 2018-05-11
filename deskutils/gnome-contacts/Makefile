@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-contacts
-PORTVERSION=	3.26.1
+PORTVERSION=	3.28.2
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 
@@ -58,7 +58,7 @@ MANPAGES_BUILD_DEPENDS=	docbook-xml>=0:textproc/docbook-xml \
 			docbook-xsl>=0:textproc/docbook-xsl
 
 CHEESE_DESC=		Cheese webcam support
-CHEESE_MESON_TRUE=	with-cheese
+CHEESE_MESON_YES=	with-cheese
 CHEESE_LIB_DEPENDS=	libcheese-gtk.so:multimedia/cheese
 
 .include <bsd.port.mk>

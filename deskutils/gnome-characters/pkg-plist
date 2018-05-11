@@ -1,7 +1,6 @@
 bin/gnome-characters
 lib/org.gnome.Characters/girepository-1.0/Gc-1.0.typelib
 lib/org.gnome.Characters/libgc.so
-share/appdata/org.gnome.Characters.appdata.xml
 share/applications/org.gnome.Characters.desktop
 share/dbus-1/services/org.gnome.Characters.BackgroundService.service
 share/dbus-1/services/org.gnome.Characters.service
@@ -12,6 +11,7 @@ share/icons/hicolor/256x256/apps/gnome-characters.png
 share/icons/hicolor/32x32/apps/gnome-characters.png
 share/icons/hicolor/48x48/apps/gnome-characters.png
 share/icons/hicolor/symbolic/apps/gnome-characters-symbolic.svg
+share/locale/af/LC_MESSAGES/org.gnome.Characters.mo
 share/locale/ar/LC_MESSAGES/org.gnome.Characters.mo
 share/locale/be/LC_MESSAGES/org.gnome.Characters.mo
 share/locale/ca/LC_MESSAGES/org.gnome.Characters.mo
@@ -64,6 +64,7 @@ share/locale/tr/LC_MESSAGES/org.gnome.Characters.mo
 share/locale/uk/LC_MESSAGES/org.gnome.Characters.mo
 share/locale/zh_CN/LC_MESSAGES/org.gnome.Characters.mo
 share/locale/zh_TW/LC_MESSAGES/org.gnome.Characters.mo
+share/metainfo/org.gnome.Characters.appdata.xml
 share/org.gnome.Characters/gir-1.0/Gc-1.0.gir
 share/org.gnome.Characters/org.gnome.Characters
 share/org.gnome.Characters/org.gnome.Characters.BackgroundService

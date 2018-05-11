@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-characters
-PORTVERSION=	3.26.2
+PORTVERSION=	3.28.2
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -15,19 +15,16 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 PORTSCOUT=	limitw:1,even
 
-BUILD_DEPENDS=	itstool:textproc/itstool
 LIB_DEPENDS=	libgjs.so:lang/gjs \
 		libunistring.so:devel/libunistring \
-		libfontconfig.so:x11-fonts/fontconfig \
-		libfreetype.so:print/freetype2
+		libdbus-1.so:devel/dbus
 
-USES=		gettext gmake gnome iconv:wchar_t libtool localbase pathfix \
-		pkgconfig tar:xz
-USE_GNOME=	cairo gtk30 intlhack introspection
+USES=		gettext gnome iconv:wchar_t localbase:ldflags meson \
+		pkgconfig python:3.6+,build tar:xz
+USE_GNOME=	gtk30 introspection
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
-GNU_CONFIGURE=	yes
-INSTALL_TARGET=	install-strip
+BINARY_ALIAS=	python3=${PYTHON_VERSION}
 
 GLIB_SCHEMAS=	org.gnome.Characters.gschema.xml
 

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-music
-PORTVERSION=	3.26.1
+PORTVERSION=	3.28.2.1
 CATEGORIES=	audio gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -10,28 +10,28 @@ DIST_SUBDIR=	gnome3
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	GNOME music playing application
 
-BUILD_DEPENDS=	itstool:textproc/itstool
+LICENSE=	GPLv2
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+#BUILD_DEPENDS=	itstool:textproc/itstool
+BUILD_DEPENDS=	appstream-util:devel/appstream-glib
 LIB_DEPENDS=	libgrilo-0.3.so:net/grilo \
-		libmediaart-2.0.so:multimedia/libmediaart \
-		libtracker-sparql-2.0.so:sysutils/tracker
+		libtracker-sparql-2.0.so:sysutils/tracker \
+		libmediaart-2.0.so:multimedia/libmediaart
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome libtool localbase pathfix pkgconfig \
+USES=		desktop-file-utils gnome localbase meson pkgconfig \
 		python:3.4+ shebangfix tar:xz
 USE_LDCONFIG=	yes
-USE_GNOME=	cairo gnomedesktop3 gtk30 intltool introspection:build
-GNU_CONFIGURE=	yes
-USE_GSTREAMER1=	ogg mpg123
+#USE_GNOME=	cairo gnomedesktop3 gtk30 introspection:build
+USE_GNOME=	cairo gtk30 introspection pygobject3
+#USE_GSTREAMER1=	ogg mpg123
 INSTALLS_ICONS=	yes
-MAKE_ENV=	XDG_CACHE_HOME=${WRKDIR}
-INSTALL_TARGET=	install-strip
+#MAKE_ENV=	XDG_CACHE_HOME=${WRKDIR}
 SHEBANG_FILES=	gnome-music.in
+BINARY_ALIAS=	python3=${PYTHON_VERSION}
 
 GLIB_SCHEMAS=	org.gnome.Music.gschema.xml
-
-#post-patch:
-#	@${REINPLACE_CMD} -e 's|grilo-0.2|grilo-0.3|g' \
-#		${WRKSRC}/configure
 
 .include <bsd.port.mk>

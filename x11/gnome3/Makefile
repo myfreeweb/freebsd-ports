@@ -40,7 +40,8 @@ USES=		metaport
 .if ${.CURDIR:T}!="gnome3-lite"
 OPTIONS_DEFINE+=DOCS
 
-DOCS_RUN_DEPENDS=	gnome-user-docs>=0:misc/gnome-user-docs
+DOCS_RUN_DEPENDS=	gnome-user-docs>=0:misc/gnome-user-docs \
+			gnome-getting-started-docs>=0:misc/gnome-getting-started-docs
 .endif
 
 .include <bsd.port.options.mk>

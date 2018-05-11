@@ -3,6 +3,7 @@
 
 PORTNAME=	librsvg
 PORTVERSION=	2.40.20
+PORTREVISON=	1
 CATEGORIES=	graphics gnome
 MASTER_SITES=	GNOME
 PKGNAMESUFFIX=	2
@@ -13,6 +14,7 @@ COMMENT=	Library for parsing and rendering SVG vector-graphic files
 
 PORTSCOUT=	limit:^2\.40\.
 
+BUILD_DEPENDS=	valac:lang/vala
 LIB_DEPENDS=	libfreetype.so:print/freetype2 \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libpng.so:graphics/png \
@@ -24,7 +26,7 @@ USE_GNOME=	cairo gnomeprefix libgsf gdkpixbuf2 introspection:build \
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 INSTALL_TARGET=	install-strip
-CONFIGURE_ARGS=	--disable-vala \
+CONFIGURE_ARGS=	--enable-vala \
 		--disable-Bsymbolic
 
 PLIST_SUB+=	PORTVERSION=${PORTVERSION}
