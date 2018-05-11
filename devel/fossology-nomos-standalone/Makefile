@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	fossology
-PORTVERSION=	3.1.0
-PORTREVISION=	1
+PORTVERSION=	3.3.0
 CATEGORIES=	devel
 PKGNAMESUFFIX=	-nomos-standalone
 
@@ -18,6 +17,7 @@ LICENSE_FILE_LGPL21=	${WRKSRC}/COPYING.LGPL
 BUILD_DEPENDS=	gawk:lang/gawk
 
 USE_GITHUB=	yes
+GH_TAGNAME=	660fc06
 
 USES=		gmake gettext pkgconfig
 USE_GNOME=	glib20

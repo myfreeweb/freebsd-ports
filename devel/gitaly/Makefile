@@ -5,7 +5,7 @@ DISTVERSION=	0.91.0
 PORTREVISION=	2
 CATEGORIES=	devel
 
-MAINTAINER=	idefix@fechner.net
+MAINTAINER=	mfechner@FreeBSD.org
 COMMENT=	Smart reverse proxy for GitLab
 
 LICENSE=	MIT
@@ -28,13 +28,12 @@ MY_DEPENDS=	git>=2.16.2:devel/git \
 
 BUILD_DEPENDS=	go>=1.8:lang/go \
 		gem:devel/ruby-gems \
-		rubygem-bundler>0:sysutils/rubygem-bundler \
 		${MY_DEPENDS}
 
 RUN_DEPENDS=	${MY_DEPENDS} \
 		gitlab-shell>=6.0.4:devel/gitlab-shell
 
-USES=	gmake
+USES=		gmake
 USE_RUBY=	yes
 
 USE_GITLAB=	yes

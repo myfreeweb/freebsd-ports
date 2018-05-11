@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	opendht
-DISTVERSION=	1.7.1
+DISTVERSION=	1.7.2
 CATEGORIES=	devel net
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -39,11 +39,5 @@ PROXY_SERVER_LIB_DEPENDS=	libjsoncpp.so:devel/jsoncpp \
 				librestbed.so:www/restbed
 
 PORTDOCS=	*
-
-.include <bsd.port.options.mk>
-
-.if ${OPSYS} == FreeBSD && ${OSVERSION} < 1003506
-BROKEN=		no __cxa_thread_atexit() support in FreeBSD libc < 10.4
-.endif
 
 .include <bsd.port.mk>
