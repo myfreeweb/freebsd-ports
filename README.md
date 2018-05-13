@@ -57,6 +57,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `graphics/hdrmerge`: HDR merge tool (git master qt5)
 - `graphics/shaderc`: google's glslang-based thing, needed for vulkan support in mpv. Quite bad for packaging: [#424](https://github.com/google/shaderc/issues/424) [#381](https://github.com/google/shaderc/issues/381) [#392](https://github.com/google/shaderc/issues/392)
 - `multimedia/mpv`: 0.28.2, vulkan
 - `x11-toolkits/gtk40`: git master, vulkan, skip installing gschemas (fix parallel install w/ gtk3)
