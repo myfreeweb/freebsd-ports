@@ -67,7 +67,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `games/retroarch`: 1.7.1, add WAYLAND option [227345](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227345) (+ UDEV option but we don't have evdev gamepad drivers yet)
 - `textproc/ibus`: add WAYLAND option (not actually used for toolkit based apps; also ibus's UI drawing is still X11 only)
 - `textproc/ibus-uniemoji`: unicode/emoji input method [227269](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227269)
-- `mail/geary`: 0.12.1 / workaround for [Vala/gee array null termination bug](https://bugzilla.gnome.org/show_bug.cgi?id=794731)
+- `mail/geary`: workaround for [Vala/gee array null termination bug](https://bugzilla.gnome.org/show_bug.cgi?id=794731)
 - `graphics/simple-scan`: GNOME scanning app
 - `devel/libgusb`: GObject libusb wrapper (w/ [PR #10](https://github.com/hughsie/libgusb/pull/10))
 - `graphics/colord`: build vapi [227134](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227134)
@@ -76,7 +76,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `emulators/wine-devel`: WoW64 [D14721](https://reviews.freebsd.org/D14721)
 - `editors/gnome-latex`: renamed from `editors/latexila`, updated to 3.28.0 [226938](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226938)
 - `cad/solvespace`: git master (GTK3 HiDPI)
-- `devel/libgee`: 0.20.1
 - `math/nasc`: dual pane text calculator similar to Soulver
 - `graphics/akira`: VERY WIP (nothing works yet) UI design tool
 - `x11/kitty`: GPU accelerated terminal emulator (note: terminfo)
@@ -98,7 +97,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `lang/luajit`: update to 2.1.0-beta3 (works on arm64) [225342](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225342)
 - `multimedia/gnome-twitch`: Twitch livestream player [224980](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224980)
 - `archivers/maxcso`: ISO to CSO compressor for PSP/PS2 emulators [224638](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224638)
-- `devel/gnome-builder`: 3.27 (XXX: crashes)
 - `graphics/mypaint` and `graphics/libmypaint`: git master version, works on Wayland natively
 - `graphics/gimp-app` (& `graphics/gegl3`, `x11/babl`): git gtk3-port-meson version, works on Wayland natively (opening pngs seems to crash the plugin but selecting Proceed in console works and the file gets loaded o_0) (gimp plugin ports are probably screwed!)
 - `graphics/inkscape`: git master version with GTK3, works on Wayland natively

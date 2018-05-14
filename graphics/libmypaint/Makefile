@@ -1,8 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	libmypaint
-DISTVERSION=	1.3.0-84
-DISTVERSIONSUFFIX=	-g040310c
+DISTVERSION=	1.3.0-89
+DISTVERSIONSUFFIX=	-ga67661b
 CATEGORIES=	graphics
 
 MAINTAINER=	kwm@FreeBSD.org
@@ -14,6 +14,10 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 LIB_DEPENDS=	libjson-c.so:devel/json-c
 
 USES=		gmake gnome libtool localbase pkgconfig tar:xz
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	mypaint
+
 USE_GNOME=	glib20 intltool introspection:build
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
