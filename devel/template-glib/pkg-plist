@@ -10,12 +10,12 @@ include/template-glib-1.0/tmpl-template-locator.h
 include/template-glib-1.0/tmpl-template.h
 include/template-glib-1.0/tmpl-version-macros.h
 include/template-glib-1.0/tmpl-version.h
+lib/girepository-1.0/Template-1.0.typelib
 lib/libtemplate_glib-1.0.so
 lib/libtemplate_glib-1.0.so.0
-lib/libtemplate_glib-1.0.so.0.2702.0
+lib/libtemplate_glib-1.0.so.0.2800.0
 libdata/pkgconfig/template-glib-1.0.pc
-%%GIR%%lib/girepository-1.0/Template-1.0.typelib
-%%GIR%%share/gir-1.0/Template-1.0.gir
+share/gir-1.0/Template-1.0.gir
 share/locale/cs/LC_MESSAGES/template-glib.mo
 share/locale/de/LC_MESSAGES/template-glib.mo
 share/locale/el/LC_MESSAGES/template-glib.mo

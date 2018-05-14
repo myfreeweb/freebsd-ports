@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-photos
-PORTVERSION=	3.26.3
+PORTVERSION=	3.28.0
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -29,6 +29,7 @@ LIB_DEPENDS=	libexempi.so:textproc/exempi \
 		libsoup-2.4.so:devel/libsoup \
 		libjson-glib-1.0.so:devel/json-glib \
 		libgoa-1.0.so:net/gnome-online-accounts \
+		libdazzle-1.0.so:x11-toolkits/libdazzle \
 		libpng.so:graphics/png \
 		libgdata.so:devel/libgdata
 RUN_DEPENDS=	geoclue>=0:net/geoclue

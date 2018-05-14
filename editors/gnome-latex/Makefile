@@ -22,7 +22,7 @@ LIB_DEPENDS=	libgee-0.8.so:devel/libgee \
 
 USES=		compiler:c11 desktop-file-utils gettext gmake pkgconfig tar:xz
 GNU_CONFIGURE=	yes
-USE_GNOME=	cairo dconf gtksourceview4
+USE_GNOME=	cairo dconf intltool gtksourceview4
 USE_TEX=	latex dvipsk
 INSTALLS_ICONS=	yes
 INSTALL_TARGET=	install-strip

@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	appstream-glib
-PORTVERSION=	0.7.5
+PORTVERSION=	0.7.8
 CATEGORIES=	devel
 MASTER_SITES=	http://people.freedesktop.org/~hughsient/appstream-glib/releases/
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Library to help with AppStream metadata

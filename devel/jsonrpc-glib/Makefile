@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	jsonrpc-glib
-PORTVERSION=	3.27.1
+PORTVERSION=	3.28.0
 CATEGORIES=	devel
 MASTER_SITES=	GNOME
 
@@ -14,7 +14,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 BUILD_DEPENDS=	valac:lang/vala
 LIB_DEPENDS=	libjson-glib-1.0.so:devel/json-glib
 
-USES=		gnome meson tar:xz
+USES=		gnome meson pkgconfig tar:xz
 USE_GNOME=	glib20 introspection:build
 
 .include <bsd.port.mk>

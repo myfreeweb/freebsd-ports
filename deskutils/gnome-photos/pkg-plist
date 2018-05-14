@@ -1,6 +1,5 @@
 bin/gnome-photos
 libexec/gnome-photos-thumbnailer
-share/appdata/org.gnome.Photos.appdata.xml
 share/applications/org.gnome.Photos.desktop
 share/dbus-1/services/org.gnome.Photos.service
 %%PORTDOCS%%%%DOCSDIR%%/ARTISTS
@@ -222,3 +221,4 @@ share/locale/vi/LC_MESSAGES/gnome-photos.mo
 share/locale/zh_CN/LC_MESSAGES/gnome-photos.mo
 share/locale/zh_HK/LC_MESSAGES/gnome-photos.mo
 share/locale/zh_TW/LC_MESSAGES/gnome-photos.mo
+share/metainfo/org.gnome.Photos.appdata.xml

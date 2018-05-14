@@ -789,7 +789,6 @@
     SUBDIR += glademm
     SUBDIR += glib12
     SUBDIR += glib20
-    SUBDIR += glib20-reference
     SUBDIR += glibmm
     SUBDIR += glibmm-reference
     SUBDIR += global
@@ -6111,6 +6110,7 @@
     SUBDIR += tclvfs
     SUBDIR += tclxml
     SUBDIR += tdl
+    SUBDIR += template-glib
     SUBDIR += terminality
     SUBDIR += tevent
     SUBDIR += tex-kpathsea

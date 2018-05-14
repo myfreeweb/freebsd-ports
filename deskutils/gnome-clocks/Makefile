@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-clocks
-PORTVERSION=	3.26.1
+PORTVERSION=	3.28.0
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Clocks for GNOME 3

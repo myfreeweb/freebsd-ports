@@ -1,6 +1,5 @@
 bin/iagno
 man/man6/iagno.6.gz
-share/appdata/iagno.appdata.xml
 share/applications/iagno.desktop
 share/help/C/iagno/2player.page
 share/help/C/iagno/ai-game.page
@@ -529,3 +528,4 @@ share/locale/xh/LC_MESSAGES/iagno.mo
 share/locale/zh_CN/LC_MESSAGES/iagno.mo
 share/locale/zh_HK/LC_MESSAGES/iagno.mo
 share/locale/zh_TW/LC_MESSAGES/iagno.mo
+share/metainfo/iagno.appdata.xml

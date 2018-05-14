@@ -14,6 +14,7 @@ LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	zenity>=3.0.0:x11/zenity \
+		xkeyboard-config>=0:x11/xkeyboard-config \
 		gsettings-desktop-schemas>=3.4.0:devel/gsettings-desktop-schemas
 LIB_DEPENDS=	libstartup-notification-1.so:x11/startup-notification \
 		libxkbcommon.so:x11/libxkbcommon \
@@ -26,6 +27,7 @@ LIB_DEPENDS=	libstartup-notification-1.so:x11/startup-notification \
 		libfreetype.so:print/freetype2 \
 		libdrm.so:graphics/libdrm
 RUN_DEPENDS=	zenity>=3.0.0:x11/zenity \
+		xkeyboard-config>=0:x11/xkeyboard-config \
 		gsettings-desktop-schemas>=3.4.0:devel/gsettings-desktop-schemas
 
 PORTSCOUT=	limitw:1,even

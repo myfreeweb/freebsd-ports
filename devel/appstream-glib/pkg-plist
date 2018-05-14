@@ -4,6 +4,8 @@ bin/appstream-util
 include/libappstream-builder/appstream-builder.h
 include/libappstream-builder/asb-app.h
 include/libappstream-glib/appstream-glib.h
+include/libappstream-glib/as-agreement-section.h
+include/libappstream-glib/as-agreement.h
 include/libappstream-glib/as-app-builder.h
 include/libappstream-glib/as-app.h
 include/libappstream-glib/as-bundle.h
@@ -68,11 +70,13 @@ share/locale/en_GB/LC_MESSAGES/appstream-glib.mo
 share/locale/es/LC_MESSAGES/appstream-glib.mo
 share/locale/fi/LC_MESSAGES/appstream-glib.mo
 share/locale/fr/LC_MESSAGES/appstream-glib.mo
+share/locale/fur/LC_MESSAGES/appstream-glib.mo
 share/locale/gl/LC_MESSAGES/appstream-glib.mo
 share/locale/hu/LC_MESSAGES/appstream-glib.mo
 share/locale/id/LC_MESSAGES/appstream-glib.mo
 share/locale/it/LC_MESSAGES/appstream-glib.mo
 share/locale/ko/LC_MESSAGES/appstream-glib.mo
+share/locale/lt/LC_MESSAGES/appstream-glib.mo
 share/locale/oc/LC_MESSAGES/appstream-glib.mo
 share/locale/pl/LC_MESSAGES/appstream-glib.mo
 share/locale/pt/LC_MESSAGES/appstream-glib.mo

@@ -2,10 +2,10 @@
 # $FreeBSD: head/irc/polari/Makefile 408881 2016-02-14 18:57:53Z kwm $
 
 PORTNAME=	polari
-PORTVERSION=	3.26.1
+PORTVERSION=	3.28.0
 CATEGORIES=	irc gnome
 MASTER_SITES=	GNOME
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Internet Relay Chat (IRC) client designed for GNOME 3

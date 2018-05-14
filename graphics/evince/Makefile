@@ -33,7 +33,8 @@ USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
 USE_XORG=	ice
 INSTALLS_ICONS=	yes
-CONFIGURE_ARGS=	 --enable-compile-warnings=minimum
+CONFIGURE_ARGS=	--enable-compile-warnings=minimum \
+		--with-systemduserunitdir=no
 INSTALL_TARGET=	install-strip
 
 .if ${SLAVEPORT} == lite
@@ -44,8 +45,7 @@ CONFIGURE_ARGS+=--disable-introspection \
 USE_GNOME+=	libxml2
 .else
 USE_GNOME+=	introspection:build
-CONFIGURE_ARGS+=	--enable-introspection \
-			--with-systemduserunitdir=no
+CONFIGURE_ARGS+=	--enable-introspection
 .endif
 
 GLIB_SCHEMAS=	org.gnome.Evince.gschema.xml

@@ -3,6 +3,7 @@
 
 PORTNAME=	glib
 PORTVERSION=	2.56.1
+PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	devel
 MASTER_SITES=	GNOME
@@ -13,10 +14,7 @@ COMMENT=	Some useful routines of C programming (current stable version)
 
 LICENSE=	LGPL20
 
-USES=		tar:xz
 PORTSCOUT=	limitw:1,even
-
-.if !defined(REFERENCE_PORT)
 
 LIB_DEPENDS+=	libpcre.so:devel/pcre \
 		libffi.so:devel/libffi
@@ -25,8 +23,8 @@ GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 # iconv:wchar_t - our iconv in base doesn't support utf-8 -> wchar_t (boooo)
 # (wchar_t is used by glibmm, rawtherapee triggered this)
-USES+=		compiler:c11 gettext gmake gnome iconv:wchar_t libtool \
-		localbase pathfix perl5 pkgconfig python shebangfix
+USES=		compiler:c11 gettext gmake gnome iconv:wchar_t libtool \
+		localbase pathfix perl5 pkgconfig python shebangfix tar:xz
 USE_PYTHON=	py3kplist
 CONFIGURE_ARGS=	--disable-gtk-doc --with-html-dir=${PREFIX}/share/doc \
 		--disable-man --without-xml-catalog \
@@ -42,7 +40,7 @@ LIBVERSION=	0.5600.1
 PLIST_SUB+=	LIBVERSION=${LIBVERSION}
 
 glib_MAN=	gtester.1 gtester-report.1 glib-gettextize.1
-gio_MAN=	gdbus.1 gsettings.1 gio-querymodules.1 \
+gio_MAN=	gdbus.1 gsettings.1 gio-querymodules.1 gio.1 \
 		glib-compile-schemas.1 gapplication.1 \
 		glib-compile-resources.1 gresource.1 gdbus-codegen.1
 gobject_MAN=	glib-genmarshal.1 glib-mkenums.1 gobject-query.1
@@ -106,5 +104,3 @@ post-install:
 .endfor
 
 .include <bsd.port.post.mk>
-
-.endif

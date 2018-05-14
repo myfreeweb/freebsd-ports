@@ -1,6 +1,5 @@
 bin/gnome-klotski
 man/man6/gnome-klotski.6.gz
-share/appdata/gnome-klotski.appdata.xml
 share/applications/gnome-klotski.desktop
 %%DATADIR%%/gnome-klotski.svg
 share/help/C/gnome-klotski/figures/gnotski_start_window.png
@@ -175,3 +174,4 @@ share/locale/xh/LC_MESSAGES/gnome-klotski.mo
 share/locale/zh_CN/LC_MESSAGES/gnome-klotski.mo
 share/locale/zh_HK/LC_MESSAGES/gnome-klotski.mo
 share/locale/zh_TW/LC_MESSAGES/gnome-klotski.mo
+share/metainfo/gnome-klotski.appdata.xml

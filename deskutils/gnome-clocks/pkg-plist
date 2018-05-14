@@ -1,5 +1,4 @@
 bin/gnome-clocks
-share/appdata/org.gnome.clocks.appdata.xml
 share/applications/org.gnome.clocks.desktop
 share/dbus-1/services/org.gnome.clocks.service
 %%DATADIR%%/images/day.png
@@ -296,3 +295,4 @@ share/locale/vi/LC_MESSAGES/gnome-clocks.mo
 share/locale/zh_CN/LC_MESSAGES/gnome-clocks.mo
 share/locale/zh_HK/LC_MESSAGES/gnome-clocks.mo
 share/locale/zh_TW/LC_MESSAGES/gnome-clocks.mo
+share/metainfo/org.gnome.clocks.appdata.xml

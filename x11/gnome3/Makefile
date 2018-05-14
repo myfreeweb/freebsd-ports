@@ -10,7 +10,7 @@ COMMENT?=	"meta-port" for the GNOME 3 integrated X11 desktop
 
 RUN_DEPENDS?=	dconf-editor:devel/dconf-editor \
 		gnome-session>=3.0.0:x11/gnome-session \
-		gnome-themes-standard>=3.0.0:x11-themes/gnome-themes-standard \
+		gnome-themes-extra>=3.28:x11-themes/gnome-themes-extra \
 		gnome-icon-theme-extras>=3.0.0:misc/gnome-icon-theme-extras \
 		gnome-icon-theme-symbolic>=3.0.0:x11-themes/gnome-icon-theme-symbolic \
 		gnome-keyring>=3.0.0:security/gnome-keyring \

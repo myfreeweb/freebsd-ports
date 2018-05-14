@@ -3,6 +3,7 @@ lib/sushi/girepository-1.0/Sushi-1.0.typelib
 lib/sushi/libsushi-1.0.so
 libexec/sushi-start
 share/dbus-1/services/org.gnome.Sushi.service
+share/locale/af/LC_MESSAGES/sushi.mo
 share/locale/an/LC_MESSAGES/sushi.mo
 share/locale/ar/LC_MESSAGES/sushi.mo
 share/locale/as/LC_MESSAGES/sushi.mo
@@ -45,6 +46,7 @@ share/locale/lv/LC_MESSAGES/sushi.mo
 share/locale/ml/LC_MESSAGES/sushi.mo
 share/locale/mr/LC_MESSAGES/sushi.mo
 share/locale/nb/LC_MESSAGES/sushi.mo
+share/locale/ne/LC_MESSAGES/sushi.mo
 share/locale/nl/LC_MESSAGES/sushi.mo
 share/locale/oc/LC_MESSAGES/sushi.mo
 share/locale/or/LC_MESSAGES/sushi.mo

@@ -31,6 +31,7 @@ share/icons/hicolor/32x32/apps/org.gnome.Todo.png
 share/icons/hicolor/48x48/apps/org.gnome.Todo.png
 share/icons/hicolor/512x512/apps/org.gnome.Todo.png
 share/icons/hicolor/symbolic/apps/org.gnome.Todo-symbolic.svg
+share/locale/af/LC_MESSAGES/gnome-todo.mo
 share/locale/ar/LC_MESSAGES/gnome-todo.mo
 share/locale/be/LC_MESSAGES/gnome-todo.mo
 share/locale/ca/LC_MESSAGES/gnome-todo.mo

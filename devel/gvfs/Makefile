@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	gvfs
-PORTVERSION=	1.30.2
+PORTVERSION=	1.30.4
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	GNOME virtual file system

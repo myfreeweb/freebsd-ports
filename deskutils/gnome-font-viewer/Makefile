@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-font-viewer
-PORTVERSION=	3.26.0
+PORTVERSION=	3.28.0
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	GNOME 3 font viewer utility
