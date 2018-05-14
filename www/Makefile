@@ -1592,6 +1592,7 @@
     SUBDIR += py-django-post_office
     SUBDIR += py-django-profiles
     SUBDIR += py-django-pyscss
+    SUBDIR += py-django-ranged-response
     SUBDIR += py-django-recaptcha
     SUBDIR += py-django-redis
     SUBDIR += py-django-registration
@@ -1604,6 +1605,7 @@
     SUBDIR += py-django-simple-captcha
     SUBDIR += py-django-simple-history
     SUBDIR += py-django-social-auth
+    SUBDIR += py-django-solo
     SUBDIR += py-django-sortedm2m
     SUBDIR += py-django-star-ratings
     SUBDIR += py-django-statici18n
@@ -1655,6 +1657,7 @@
     SUBDIR += py-flask-login
     SUBDIR += py-flask-marshmallow
     SUBDIR += py-flask-migrate
+    SUBDIR += py-flask-moment
     SUBDIR += py-flask-oauthlib
     SUBDIR += py-flask-principal
     SUBDIR += py-flask-restful

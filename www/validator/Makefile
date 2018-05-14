@@ -5,7 +5,7 @@ PORTNAME=	validator
 DISTVERSIONPREFIX=	${PORTNAME}-
 DISTVERSION=	1_3
 DISTVERSIONSUFFIX=	-release
-PORTREVISION=	3
+PORTREVISION=	5
 CATEGORIES=	www
 
 MAINTAINER=	cyberbotx@cyberbotx.com
@@ -17,7 +17,7 @@ LICENSE_TEXT=	See https://www.w3.org/Consortium/Legal/2002/copyright-software-20
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 RUN_DEPENDS=	onsgmls:textproc/opensp \
-		p5-CGI.pm>=0:www/p5-CGI.pm \
+		p5-CGI>=0:www/p5-CGI \
 		p5-Config-General>=0:devel/p5-Config-General \
 		p5-Encode-HanExtra>=0:chinese/p5-Encode-HanExtra \
 		p5-Encode-JIS2K>=0:converters/p5-Encode-JIS2K \
@@ -26,15 +26,16 @@ RUN_DEPENDS=	onsgmls:textproc/opensp \
 		p5-HTML-Template>=0:www/p5-HTML-Template \
 		p5-libwww>=5.817:www/p5-libwww \
 		p5-JSON>=0:converters/p5-JSON \
+		p5-LWP-Protocol-https>=0:www/p5-LWP-Protocol-https \
 		p5-Net-IP>=0:net-mgmt/p5-Net-IP \
 		p5-SGML-Parser-OpenSP>=0:textproc/p5-SGML-Parser-OpenSP \
 		p5-URI>=0:net/p5-URI \
 		p5-XML-LibXML>=0:textproc/p5-XML-LibXML
 
+USES=		perl5 shebangfix
 USE_GITHUB=	yes
 GH_ACCOUNT=	w3c
 GH_PROJECT=	markup-validator
-USES=		perl5 shebangfix
 NO_ARCH=	yes
 NO_BUILD=	yes
 USE_PERL5=	run

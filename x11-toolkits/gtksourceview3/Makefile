@@ -35,6 +35,8 @@ CONFIGURE_ARGS=	--enable-compile-warnings=no \
 INSTALL_TARGET=	install-strip
 
 post-patch:
+	@${REINPLACE_CMD} -e 's|tests testsuite||g' \
+		${WRKSRC}/Makefile.in
 	@${REINPLACE_CMD} -e 's|--warn-all||g' \
 		${WRKSRC}/gtksourceview/Makefile.in
 

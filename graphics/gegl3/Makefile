@@ -2,10 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	gegl
-DISTVERSION=	0.3.29-20180311
-DISTVERSIONSUFFIX=	-g25211a9
-PORTREVISION=	4
+PORTVERSION=	0.3.34
 CATEGORIES=	graphics
+MASTER_SITES=	GIMP
 PKGNAMESUFFIX=	3
 
 MAINTAINER=	gnome@FreeBSD.org
@@ -20,11 +19,8 @@ LIB_DEPENDS=	libbabl-0.1.so:x11/babl \
 		libjson-glib-1.0.so:devel/json-glib \
 		libpng.so:graphics/png
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	GNOME
-
-USES=		cpe gettext autoreconf gmake jpeg libtool localbase pathfix pkgconfig \
-		shebangfix uniquefiles
+USES=		cpe gettext gmake jpeg libtool localbase pathfix pkgconfig \
+		shebangfix uniquefiles tar:bzip2
 USE_GNOME=	glib20 intltool introspection:build
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
@@ -33,7 +29,7 @@ CONFIGURE_ARGS=	--without-vala --disable-docs
 CONFIGURE_ARGS+=--without-mrg --without-lensfun
 INSTALL_TARGET=	install-strip
 
-GEGL_MINOR=	329
+GEGL_MINOR=	334
 GEGL_VER=	0.3
 PLIST_SUB+=	GEGL_MINOR="${GEGL_MINOR}" GEGL_VER=${GEGL_VER}
 

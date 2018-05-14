@@ -9,6 +9,7 @@
     SUBDIR += abby
     SUBDIR += acidrip
     SUBDIR += aegisub
+    SUBDIR += aravis
     SUBDIR += asdcplib
     SUBDIR += assimp
     SUBDIR += atomicparsley
