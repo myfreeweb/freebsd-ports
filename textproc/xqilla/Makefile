@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	xqilla
-PORTVERSION=	2.3.3
+PORTVERSION=	2.3.4
 PORTEPOCH=	1
 CATEGORIES=	textproc
 MASTER_SITES=	SF/${PORTNAME}
@@ -13,8 +13,6 @@ COMMENT=	XQuery and XPath2 library
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
-
-BROKEN=		fails to build
 
 LIB_DEPENDS=	libxerces-c.so:textproc/xerces-c3 \
 		libtidy.so:www/tidy-lib
