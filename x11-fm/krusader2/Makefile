@@ -1,12 +1,10 @@
 # Created by: Heiner <h.eichmann@gmx.de>
-# $FreeBSD: head/x11-fm/krusader2/Makefile 420774 2016-08-24 08:20:31Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	krusader
-DISTVERSION=	2.5.0
+DISTVERSION=	2.7.0
 CATEGORIES=	x11-fm kde
 MASTER_SITES=	KDE/stable/${PORTNAME}/${PORTVERSION}/
-PKGNAMESUFFIX=	-kf5
-DIST_SUBDIR=	KDE/${PORTNAME}
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Twin panel file manager for KDE, like midnight or norton commander
@@ -14,16 +12,15 @@ COMMENT=	Twin panel file manager for KDE, like midnight or norton commander
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-CONFLICTS_INSTALL=	krusader-2.4*
+CONFLICTS_INSTALL=	krusader2-kde4
 
 USES=		cmake:outsource gettext kde:5 tar:xz
-USE_KDE=	activities archive bookmarks codecs completion config \
-		coreaddons doctools ecm emoticons filemetadata \
-		guiaddons i18n iconthemes init itemviews \
-		kio newstuff notifications parts solid \
-		texteditor textwidgets widgetsaddons windowsystem \
-		xmlgui kio-extras_run
-USE_QT5=	buildtools_build concurrent core dbus gui phonon4 \
-		qmake_build widgets
+USE_KDE=	archive auth auth bookmarks codecs completion config \
+		configwidgets coreaddons doctools ecm guiaddons i18n \
+		iconthemes itemviews jobwidgets kio notifications parts \
+		service solid sonnet textwidgets wallet widgetsaddons \
+		windowsystem xmlgui
+USE_QT5=	concurrent core dbus gui network printsupport xml widgets \
+		buildtools_build qmake_build
 
 .include <bsd.port.mk>
