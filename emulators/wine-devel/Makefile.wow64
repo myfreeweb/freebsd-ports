@@ -83,7 +83,7 @@ pre-configure:
 	${CHROOT_CMD} pkg install -y libXrender libXrandr libXinerama libXi libXext libXcursor libXcomposite libX11 \
 		fontconfig libxml2 gnutls freetype2 png libGLU lcms2 jpeg-turbo desktop-file-utils \
 		pkgconf flex bison prelink gmake dialog4ports \
-		glproto dri2proto dri3proto xextproto randrproto mesa-dri mesa-libs
+		glproto dri2proto dri3proto xextproto randrproto mesa-dri mesa-libs gcc6 binutils
 	${CHROOT_MAKE} depends clean-depends WINE_WOW64=wine32 -DBATCH
 
 do-configure:

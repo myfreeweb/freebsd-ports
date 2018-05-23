@@ -73,7 +73,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `graphics/colord`: build vapi [227134](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227134)
 - `editors/abiword`: 3.0.2 [220975](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220975)
 - `sysutils/libcpuid`: git master
-- `emulators/wine-devel`: WoW64 [D14721](https://reviews.freebsd.org/D14721)
+- `emulators/wine-devel`: WoW64 [D14721](https://reviews.freebsd.org/D14721), gallium nine patch (needs d3dadapter in i386 too?)
 - `editors/gnome-latex`: renamed from `editors/latexila`, updated to 3.28.0 [226938](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226938)
 - `cad/solvespace`: git master (GTK3 HiDPI)
 - `math/nasc`: dual pane text calculator similar to Soulver
