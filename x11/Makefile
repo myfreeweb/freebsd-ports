@@ -511,6 +511,7 @@
     SUBDIR += xrsh
     SUBDIR += xrsi
     SUBDIR += xrx
+    SUBDIR += xscope
     SUBDIR += xscreensaver
     SUBDIR += xscreensaver-gnome
     SUBDIR += xscreensaver-gnome-hacks

@@ -3,6 +3,7 @@
 
 PORTNAME=	totem
 PORTVERSION=	3.26.0
+PORTREVISION=	1
 CATEGORIES=	multimedia gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -40,7 +41,7 @@ RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes \
 PORTSCOUT=	limitw:1,even
 
 USES=		desktop-file-utils gettext gnome localbase meson \
-		pkgconfig python:3.4+ shebangfix tar:xz
+		pkgconfig python:3.4+ tar:xz
 USE_GNOME=	cairo gtk30 intlhack introspection libxml2 nautilus3 \
 		pygobject3
 USE_XORG=	x11 xcomposite xdamage xext xfixes xi xproto xrandr xtst ice sm
@@ -48,7 +49,9 @@ USE_GSTREAMER1=	core good bad soup ugly
 INSTALLS_ICONS=	yes
 USE_GL=		egl
 USE_LDCONFIG=	yes
-SHEBANG_FILES=	meson_compile_python.py
+
+BINARY_ALIAS=	pylint-3=pylint-${PYTHON_VER} \
+		python3=${PYTHON_VERSION}
 
 GLIB_SCHEMAS=	org.gnome.totem.enums.xml \
 		org.gnome.totem.gschema.xml \
@@ -71,16 +74,5 @@ pre-everything::
 	@${ECHO_MSG} "===> The default DVD device is ${DEFAULT_DVD_DEVICE}"
 	@${ECHO_MSG} "===> Define WITH_DVD_DEVICE if you want to change the default"
 	@${ECHO_MSG} "===> For example, 'make WITH_DVD_DEVICE=\"/dev/somedevice\"'"
-
-post-patch:
-	@${REINPLACE_CMD} -e "s|'pylint-3'|'pylint-${PYTHON_VER}', 'pylint-3'|g" \
-		${WRKSRC}/meson.build
-	@${REINPLACE_CMD} -e "s|python3|${PYTHON_VERSION}|g" \
-		${WRKSRC}/meson_post_install.py \
-		${WRKSRC}/src/plugins/totem-plugins-engine.c \
-		${WRKSRC}/src/plugins/pythonconsole/pythonconsole.plugin.in \
-		${WRKSRC}/src/plugins/samplepython/samplepython.plugin.in \
-		${WRKSRC}/src/plugins/dbusservice/dbusservice.plugin.in \
-		${WRKSRC}/src/plugins/opensubtitles/opensubtitles.plugin.in
 
 .include <bsd.port.mk>

@@ -6,8 +6,6 @@ lib/gnome-documents/libgd.so
 lib/gnome-documents/libgdprivate-1.0.so
 man/man1/gnome-books.1.gz
 man/man1/gnome-documents.1.gz
-share/appdata/org.gnome.Books.appdata.xml
-share/appdata/org.gnome.Documents.appdata.xml
 share/applications/org.gnome.Books.desktop
 share/applications/org.gnome.Documents.desktop
 share/dbus-1/services/org.gnome.Books.service
@@ -602,3 +600,5 @@ share/locale/xh/LC_MESSAGES/gnome-documents.mo
 share/locale/zh_CN/LC_MESSAGES/gnome-documents.mo
 share/locale/zh_HK/LC_MESSAGES/gnome-documents.mo
 share/locale/zh_TW/LC_MESSAGES/gnome-documents.mo
+share/metainfo/org.gnome.Books.appdata.xml
+share/metainfo/org.gnome.Documents.appdata.xml

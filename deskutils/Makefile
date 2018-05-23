@@ -81,11 +81,11 @@
     SUBDIR += gnome-shell-extension-lockkeys
     SUBDIR += gnome-shell-extension-mediaplayer
     SUBDIR += gnome-shell-extension-openweather
-    SUBDIR += gnome-shell-extension-overlay-icons
     SUBDIR += gnome-shell-extension-panel-osd
     SUBDIR += gnome-shell-extension-recent-items
     SUBDIR += gnome-shell-extension-trash
     SUBDIR += gnome-shell-extension-weather
+    SUBDIR += gnome-shell-extension-windowoverlay-icons
     SUBDIR += gnome-shell-extra-extensions
     SUBDIR += gnome-sound-recorder
     SUBDIR += gnome-system-log

@@ -3,6 +3,7 @@
 
 PORTNAME=	libwacom
 PORTVERSION=	0.23
+PORTREVISION=	1
 CATEGORIES=	x11
 MASTER_SITES=	SF/linuxwacom/${PORTNAME}
 
@@ -26,5 +27,8 @@ CONFIGURE_ENV=	ac_cv_prog_HAVE_DOXYGEN=""
 post-patch:
 	@${REINPLACE_CMD} -e 's/-printf "%P\\n"/-print0 | xargs -0 basename/' \
 		${WRKSRC}/data/Makefile.in
+
+post-patch:
+	@${REINPLACE_CMD} -e 's/-printf "%P\\n"/-print0 | xargs -0 basename/' ${WRKSRC}/data/Makefile.in
 
 .include <bsd.port.mk>

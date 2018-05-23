@@ -19,13 +19,14 @@ lib/tracker-miners-2.0/extract-modules/libextract-pdf.so
 lib/tracker-miners-2.0/extract-modules/libextract-playlist.so
 lib/tracker-miners-2.0/extract-modules/libextract-png.so
 lib/tracker-miners-2.0/extract-modules/libextract-ps.so
+lib/tracker-miners-2.0/extract-modules/libextract-raw.so
 lib/tracker-miners-2.0/extract-modules/libextract-text.so
 lib/tracker-miners-2.0/extract-modules/libextract-tiff.so
 lib/tracker-miners-2.0/extract-modules/libextract-vorbis.so
 lib/tracker-miners-2.0/extract-modules/libextract-xmp.so
 lib/tracker-miners-2.0/extract-modules/libextract-xps.so
-lib/tracker-miners-2.0/libtracker-common.so
 lib/tracker-miners-2.0/libtracker-extract.so
+lib/tracker-miners-2.0/libtracker-miners-common.so
 lib/tracker-miners-2.0/writeback-modules/libwriteback-taglib.so
 lib/tracker-miners-2.0/writeback-modules/libwriteback-xmp.so
 libexec/tracker-extract
@@ -114,6 +115,7 @@ share/locale/zh_TW/LC_MESSAGES/tracker-miners.mo
 %%DATADIR%%/extract-rules/10-pdf.rule
 %%DATADIR%%/extract-rules/10-png.rule
 %%DATADIR%%/extract-rules/10-ps.rule
+%%DATADIR%%/extract-rules/10-raw.rule
 %%GSTREAMER%%%%DATADIR%%/extract-rules/10-svg.rule
 %%DATADIR%%/extract-rules/10-tiff.rule
 %%DATADIR%%/extract-rules/10-vorbis.rule

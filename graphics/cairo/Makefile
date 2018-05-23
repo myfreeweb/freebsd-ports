@@ -2,10 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	cairo
-PORTVERSION=	1.14.12
+PORTVERSION=	1.15.12
 PORTEPOCH=	2
 CATEGORIES=	graphics
-MASTER_SITES=	http://cairographics.org/releases/
+#MASTER_SITES=	http://cairographics.org/releases/
+MASTER_SITES=	http://cairographics.org/snapshots/
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Vector graphics library with cross-device output support
@@ -14,10 +15,6 @@ LICENSE=	LGPL21 MPL11
 LICENSE_COMB=	dual
 LICENSE_FILE_LGPL21=	${WRKSRC}/COPYING-LGPL-2.1
 LICENSE_FILE_MPL11=	${WRKSRC}/COPYING-MPL-1.1
-
-USES=		tar:xz
-
-.if !defined(REFERENCE_PORT)
 
 LIB_DEPENDS=	libfreetype.so:print/freetype2 \
 		libpng.so:graphics/png \
@@ -29,10 +26,9 @@ GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-html-dir=${DOCSDIR} \
 		--disable-directfb \
 		--enable-tee
-USES+=		cpe gnome libtool pathfix pkgconfig
+USES=		cpe gnome libtool pathfix pkgconfig tar:xz
 CPE_VENDOR=	cairographics
 USE_XORG=	pixman
-USE_GNOME=	referencehack
 USE_LDCONFIG=	yes
 INSTALL_TARGET=	install-strip
 
@@ -43,7 +39,7 @@ CONFIGURE_ARGS=	--with-html-dir=${DOCSDIR} \
 		--disable-wgl \
 		--enable-tee
 
-OPTIONS_DEFINE=	OPENGL XCB GLIB X11
+OPTIONS_DEFINE=	OPENGL XCB GLIB X11 DOCS
 OPTIONS_DEFAULT=OPENGL XCB GLIB X11
 OPTIONS_SLAVE=	${ARCH:tu}
 OPTIONS_SUB=	yes
@@ -71,7 +67,7 @@ MIPS_BUILD_DEPENDS=	${LOCALBASE}/include/atomic_ops.h:devel/libatomic_ops
 MIPS_USES=	localbase
 MIPS_CONFIGURE_ENV=	cairo_cv_atomic_primitives="libatomic-ops"
 
-PLIST_SUB+=	LIBVER=2.11400.12
+PLIST_SUB+=	LIBVER=2.11512.0
 
 post-patch:
 	@${REINPLACE_CMD} -e '/strings/s/ - / -a /' \
@@ -87,6 +83,8 @@ post-patch:
 		${WRKSRC}/util/*/Makefile.in \
 		${WRKSRC}/boilerplate/Makefile.in
 
-.include <bsd.port.mk>
+post-patch-DOCS-off:
+	@${REINPLACE_CMD} -e 's|public||g' \
+		${WRKSRC}/doc/Makefile.in
 
-.endif
+.include <bsd.port.mk>

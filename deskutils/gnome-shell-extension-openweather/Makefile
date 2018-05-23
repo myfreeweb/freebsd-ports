@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-shell-extension-openweather
-PORTVERSION=	0.0.0.20160412
+PORTVERSION=	0.0.0.20171126
 CATEGORIES=	deskutils gnome
 DIST_SUBDIR=	gnome3
 
@@ -19,12 +19,10 @@ USE_GNOME=	glib20 intltool
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-CPPFLAGS+=	-I${LOCALBASE}/include
-LDFLAGS+=	-L${LOCALBASE}/lib
 GLIB_SCHEMAS=	org.gnome.shell.extensions.openweather.gschema.xml
 
 GH_ACCOUNT=	jenslody
-GH_TAGNAME=	b5415ec
+GH_TAGNAME=	851d680
 
 PKGMESSAGE=	../gnome-shell-extra-extensions/pkg-message.slaves
 

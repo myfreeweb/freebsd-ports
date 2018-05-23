@@ -1,6 +1,8 @@
 perl json:pp
 webkit2-gtk3 2.20, really really wants libsoup 2.61.90+
 
+tracker ports
+
 Add new USE_GNOME elements to the portshandbook
 
 gnomedesktop2 -> shlib bump
@@ -16,10 +18,24 @@ renamed:
 editors/latexila -> editors/gnome-latex
 latex->tepl etc --> https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226938
 
+moved
 deskutils/gnome-tweak-tool -> gnome-tweaks
-
-copied:
-x11-toolkits/gtksourceview3 -> gtksourceview4
 
 does not work!
 mail/geary
+
+https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=209532
+
+# nvidia <-> settings daemon?
+https://forums.freebsd.org/threads/oh-no-something-has-gone-wrong-gnome3.60383/
+https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227334
+
+============ Commit Message ============
+
+Update GNOME desktop to 3.28.1.
+
+Drop unclear hal dependancy in gdm rc.d script. (1)
+
+PR:		209532 (1)
+Submitted by:	Kevin Zheng <kevinz5000@gmail.com> (1)
+

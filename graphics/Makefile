@@ -84,7 +84,6 @@
     SUBDIR += cadubi
     SUBDIR += caffe
     SUBDIR += cairo
-    SUBDIR += cairo-reference
     SUBDIR += cairomm
     SUBDIR += cal3d
     SUBDIR += camera
@@ -889,6 +888,7 @@
     SUBDIR += py-blockdiagcontrib-cisco
     SUBDIR += py-cairo
     SUBDIR += py-cairocffi
+    SUBDIR += py-cartopy
     SUBDIR += py-chart
     SUBDIR += py-django-easy-thumbnails
     SUBDIR += py-djvulibre

@@ -1,6 +1,7 @@
 bin/js52
 bin/js52-config
 include/mozjs-52/fdlibm.h
+%%JEMALLOC%%include/mozjs-52/jemalloc_types.h
 include/mozjs-52/js-config.h
 include/mozjs-52/js.msg
 include/mozjs-52/js/CallArgs.h
@@ -153,6 +154,8 @@ include/mozjs-52/mozilla/mozalloc.h
 include/mozjs-52/mozilla/mozalloc_abort.h
 include/mozjs-52/mozilla/mozalloc_oom.h
 include/mozjs-52/mozilla/utils.h
+%%JEMALLOC%%include/mozjs-52/mozmemory.h
+%%JEMALLOC%%include/mozjs-52/mozmemory_wrap.h
 lib/libmozjs-52.so
 lib/libmozjs-52.so.1
 libdata/pkgconfig/mozjs-52.pc

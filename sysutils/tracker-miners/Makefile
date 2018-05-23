@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	tracker-miners
-PORTVERSION=	2.0.3
+PORTVERSION=	2.0.4
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 
@@ -12,6 +12,7 @@ COMMENT=	Miners for tracker2
 LICENSE=	LGPL21
 LICENSE_FILE=	${WRKSRC}/COPYING.LGPL
 
+BUILD_DEPENDS=	valac:lang/vala
 LIB_DEPENDS=	libicuuc.so:devel/icu \
 		libupower-glib.so:sysutils/upower \
 		libexempi.so:textproc/exempi \
@@ -26,6 +27,7 @@ LIB_DEPENDS=	libicuuc.so:devel/icu \
 		libvorbisfile.so:audio/libvorbis \
 		libgxps.so:graphics/libgxps \
 		libexif.so:graphics/libexif \
+		libgexiv2.so:graphics/gexiv2 \
 		libtracker-miner-2.0.so:sysutils/tracker
 #		libhal.so:sysutils/hal \
 
@@ -33,7 +35,7 @@ PORTSCOUT=	limitw:1,even
 
 USES=		gettext gnome localbase:ldflags meson \
 		pathfix pkgconfig python:3.4+,build shebangfix sqlite tar:xz
-USE_GNOME=	cairo libgsf libxml2
+USE_GNOME=	cairo intltool libgsf libxml2
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
 GLIB_SCHEMAS=	org.freedesktop.Tracker.Extract.gschema.xml \

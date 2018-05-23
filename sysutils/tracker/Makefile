@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	tracker
-PORTVERSION=	2.0.2
-PORTREVISION=	2
+PORTVERSION=	2.0.3
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 
@@ -38,7 +37,7 @@ GLIB_SCHEMAS=	org.freedesktop.Tracker.DB.gschema.xml \
 		org.freedesktop.Tracker.gschema.xml
 SHEBANG_FILES=	utils/g-ir-merge/g-ir-merge
 
-PLIST_SUB=	LIBVER=0.2.0
+PLIST_SUB=	LIBVER=0.3.0
 
 # force regen of this file, so the correct tracker version is embedded
 # https://bugzilla.gnome.org/show_bug.cgi?id=792691
