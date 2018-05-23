@@ -140,7 +140,7 @@ share/ECM/toolchain/specifydependencies.cmake
 %%PORTDOCS%%%%DOCSDIR%%/html/_static/down.png
 %%PORTDOCS%%%%DOCSDIR%%/html/_static/ecm.css
 %%PORTDOCS%%%%DOCSDIR%%/html/_static/file.png
-%%PORTDOCS%%%%DOCSDIR%%/html/_static/jquery-1.11.1.js
+%%PORTDOCS%%%%DOCSDIR%%/html/_static/jquery-3.1.0.js
 %%PORTDOCS%%%%DOCSDIR%%/html/_static/jquery.js
 %%PORTDOCS%%%%DOCSDIR%%/html/_static/kde-favicon.ico
 %%PORTDOCS%%%%DOCSDIR%%/html/_static/minus.png
