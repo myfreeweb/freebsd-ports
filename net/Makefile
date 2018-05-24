@@ -1268,6 +1268,7 @@
     SUBDIR += rubygem-gitaly-proto094
     SUBDIR += rubygem-gitaly-proto095
     SUBDIR += rubygem-gitaly-proto096
+    SUBDIR += rubygem-gitaly-proto099
     SUBDIR += rubygem-gitlab_omniauth-ldap
     SUBDIR += rubygem-gitlab_omniauth-ldap1
     SUBDIR += rubygem-grpc
@@ -1519,6 +1520,8 @@
     SUBDIR += wakeonlan
     SUBDIR += whois
     SUBDIR += widentd
+    SUBDIR += wireguard
+    SUBDIR += wireguard-go
     SUBDIR += wireshark
     SUBDIR += wireshark-lite
     SUBDIR += wireshark-qt5

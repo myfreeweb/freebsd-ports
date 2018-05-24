@@ -4451,6 +4451,7 @@
     SUBDIR += py-docopt
     SUBDIR += py-dogpile.cache
     SUBDIR += py-doit
+    SUBDIR += py-dtfabric
     SUBDIR += py-durus
     SUBDIR += py-dynrules
     SUBDIR += py-easyprocess
@@ -4918,6 +4919,7 @@
     SUBDIR += py-rcsparse
     SUBDIR += py-rebulk
     SUBDIR += py-rednose
+    SUBDIR += py-rekall-efilter
     SUBDIR += py-repoze.lru
     SUBDIR += py-repoze.sphinx.autointerface
     SUBDIR += py-repoze.tm2
@@ -5474,6 +5476,7 @@
     SUBDIR += rubygem-deprecated
     SUBDIR += rubygem-deprecated2
     SUBDIR += rubygem-descendants_tracker
+    SUBDIR += rubygem-device_detector
     SUBDIR += rubygem-devise
     SUBDIR += rubygem-devise-rails5
     SUBDIR += rubygem-devise-rails50
@@ -5898,6 +5901,7 @@
     SUBDIR += rubygem-stella
     SUBDIR += rubygem-stemmer
     SUBDIR += rubygem-stomp
+    SUBDIR += rubygem-stoplight
     SUBDIR += rubygem-storable
     SUBDIR += rubygem-stream
     SUBDIR += rubygem-streetaddress
