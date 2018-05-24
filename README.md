@@ -66,7 +66,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `emulators/mesen`: a NES emulator [227351](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227351)
 - `games/retroarch`: 1.7.1, add WAYLAND option [227345](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227345) (+ UDEV option but we don't have evdev gamepad drivers yet)
 - `textproc/ibus`: add WAYLAND option (not actually used for toolkit based apps; also ibus's UI drawing is still X11 only)
-- `textproc/ibus-uniemoji`: unicode/emoji input method [227269](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227269)
 - `mail/geary`: workaround for [Vala/gee array null termination bug](https://bugzilla.gnome.org/show_bug.cgi?id=794731)
 - `graphics/simple-scan`: GNOME scanning app
 - `devel/libgusb`: GObject libusb wrapper (w/ [PR #10](https://github.com/hughsie/libgusb/pull/10))
