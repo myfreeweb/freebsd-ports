@@ -79,11 +79,8 @@
     SUBDIR += klat4
     SUBDIR += komodo-edit
     SUBDIR += lazarus
-    SUBDIR += lazarus-lcl-gtk2
-    SUBDIR += lazarus-lcl-nogui
-    SUBDIR += lazarus-lcl-qt
-    SUBDIR += lazarus-lcl-qt5
-    SUBDIR += lazarus-lcl-units
+    SUBDIR += lazarus-qt4
+    SUBDIR += lazarus-qt5
     SUBDIR += le
     SUBDIR += leafpad
     SUBDIR += led

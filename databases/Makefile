@@ -902,6 +902,7 @@
     SUBDIR += redigo
     SUBDIR += redis
     SUBDIR += redis-devel
+    SUBDIR += redis_exporter
     SUBDIR += redisdesktopmanager
     SUBDIR += retcl
     SUBDIR += riak
