@@ -74,7 +74,7 @@ lib/libGLESv2.so.2
 lib/libGLESv2.so.2.0.0
 lib/libMesaOpenCL.so
 lib/libMesaOpenCL.so.1
-lib/libMesaOpenCL.so.1.0
+lib/libMesaOpenCL.so.1.0.0
 lib/libOSMesa.so
 lib/libOSMesa.so.8
 lib/libOSMesa.so.8.0.0

@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=		mesa-dev
-DISTVERSION=		18.1.0-20180323
+DISTVERSION=		18.1.0-20180527
 CATEGORIES=		graphics
 
 MAINTAINER=	greg@unrelenting.technology
@@ -18,11 +18,11 @@ USE_XORG=	dri2proto dri3proto glproto presentproto x11 xdamage xext \
 USE_GITHUB=	yes
 GH_ACCOUNT=	myfreeweb
 GH_PROJECT=	mesa
-GH_TAGNAME=	136da7c
+GH_TAGNAME=	56e6c2a8cf
 
-MESA_LLVM_VER?=	50
+MESA_LLVM_VER?=	60
 
-BUILD_DEPENDS=	llvm${MESA_LLVM_VER}>=3.9.0_4:devel/llvm${MESA_LLVM_VER} \
+BUILD_DEPENDS=	llvm${MESA_LLVM_VER}>=5.0.0:devel/llvm${MESA_LLVM_VER} \
 		${PYTHON_PKGNAMEPREFIX}mako>0:textproc/py-mako@${PY_FLAVOR} \
 		wayland-protocols>=1.8:graphics/wayland-protocols \
 		libclc>=0.3.0:devel/libclc \
@@ -37,7 +37,7 @@ LIB_DEPENDS=	libexpat.so:textproc/expat2 \
 		libwayland-client.so:graphics/wayland \
 		libwayland-server.so:graphics/wayland
 
-RUN_DEPENDS=	llvm${MESA_LLVM_VER}>=3.9.0_4:devel/llvm${MESA_LLVM_VER} \
+RUN_DEPENDS=	llvm${MESA_LLVM_VER}>=5.0.0:devel/llvm${MESA_LLVM_VER} \
 		libclc>=0.3.0:devel/libclc \
 		opencl>=0:devel/opencl
 
