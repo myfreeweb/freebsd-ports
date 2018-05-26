@@ -52,7 +52,7 @@
     SUBDIR += gnome-latex
     SUBDIR += gnotepad+
     SUBDIR += gobby
-    SUBDIR += grantlee-editor
+    SUBDIR += gomate
     SUBDIR += gwrite
     SUBDIR += heme
     SUBDIR += hexcurse

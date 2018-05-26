@@ -2,6 +2,7 @@
 
 PORTNAME=	test-framework-hunit
 PORTVERSION=	0.3.0.2
+PORTREVISION=	2
 CATEGORIES=	devel haskell
 
 MAINTAINER=	haskell@FreeBSD.org

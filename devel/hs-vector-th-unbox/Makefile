@@ -2,6 +2,7 @@
 
 PORTNAME=	vector-th-unbox
 PORTVERSION=	0.2.1.6
+PORTREVISION=	2
 CATEGORIES=	devel haskell
 
 MAINTAINER=	haskell@FreeBSD.org

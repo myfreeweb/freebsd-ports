@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	colour
-PORTVERSION=	2.3.3
+PORTVERSION=	2.3.4
 CATEGORIES=	devel haskell
 
 MAINTAINER=	haskell@FreeBSD.org

@@ -350,7 +350,6 @@
     SUBDIR += hiptext
     SUBDIR += hobbes-icons-xpm
     SUBDIR += hppsmtools
-    SUBDIR += hs-HGL
     SUBDIR += hs-JuicyPixels
     SUBDIR += hs-cairo
     SUBDIR += hs-dia-base

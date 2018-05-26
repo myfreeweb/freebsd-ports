@@ -2,6 +2,7 @@
 
 PORTNAME=	svgcairo
 PORTVERSION=	0.13.1.1
+PORTREVISION=	2
 CATEGORIES=	graphics haskell
 
 MAINTAINER=	haskell@FreeBSD.org
@@ -10,7 +11,7 @@ COMMENT=	Binding to the libsvg-cairo library
 LICENSE=	BSD3CLAUSE
 
 USES=		pkgconfig
-USE_CABAL=	cairo glib mtl text
+USE_CABAL=	cairo glib mtl
 USE_GNOME=	librsvg2
 
 .include "${.CURDIR}/../../lang/ghc/bsd.cabal.mk"

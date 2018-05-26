@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	lifted-async
-PORTVERSION=	0.9.3
+PORTVERSION=	0.10.0.1
 CATEGORIES=	devel haskell
 
 MAINTAINER=	haskell@FreeBSD.org

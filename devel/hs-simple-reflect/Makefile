@@ -1,8 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	simple-reflect
-PORTVERSION=	0.3.2
-PORTREVISION=	3
+PORTVERSION=	0.3.3
 CATEGORIES=	devel haskell
 
 MAINTAINER=	haskell@FreeBSD.org

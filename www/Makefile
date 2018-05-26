@@ -1522,6 +1522,7 @@
     SUBDIR += py-boto3
     SUBDIR += py-bottle
     SUBDIR += py-bottle-cork
+    SUBDIR += py-branca
     SUBDIR += py-buku
     SUBDIR += py-cachecontrol
     SUBDIR += py-caldav
@@ -1675,6 +1676,7 @@
     SUBDIR += py-flask-wtf
     SUBDIR += py-flexget
     SUBDIR += py-flup6
+    SUBDIR += py-folium
     SUBDIR += py-formalchemy
     SUBDIR += py-formencode
     SUBDIR += py-frappe-bench

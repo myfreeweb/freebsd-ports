@@ -2,6 +2,7 @@
 
 PORTNAME=	timezone-series
 PORTVERSION=	0.1.8
+PORTREVISION=	2
 CATEGORIES=	devel haskell
 
 MAINTAINER=	haskell@FreeBSD.org

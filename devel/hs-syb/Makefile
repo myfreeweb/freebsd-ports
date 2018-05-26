@@ -2,6 +2,7 @@
 
 PORTNAME=	syb
 PORTVERSION=	0.7
+PORTREVISION=	2
 CATEGORIES=	devel haskell
 
 MAINTAINER=	haskell@FreeBSD.org
