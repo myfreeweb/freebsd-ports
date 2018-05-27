@@ -17,7 +17,8 @@ LICENSE_FILE_GPLv2+ =	${WRKSRC}/license.txt
 
 BROKEN_FreeBSD_10=	libc++ does not support C++17 features e.g., weak_from_this
 
-BUILD_DEPENDS=	boost-libs>=1.66:devel/boost-libs
+BUILD_DEPENDS=	boost-libs>=1.66:devel/boost-libs \
+		gmake:devel/gmake
 
 # backend_x64/hostloc.h:93:8: fatal error: no type named 'Reg64' in namespace 'Xbyak'
 ONLY_FOR_ARCHS=	amd64
