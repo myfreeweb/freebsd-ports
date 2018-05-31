@@ -24,7 +24,6 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 - `graphics/vulkan-sdk`: [Vulkan SDK](https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers) (headers, ICD loader, validation layers) [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
 - `graphics/libdrm`: 2.4.91
 - `x11/xcb-proto` and `x11/libxcb`: 1.13 [226502](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226502)
-- `devel/libclc`: update git snapshot
 
 NOTE: ANV (Intel Vulkan) requires running the apps as root and might not work for complex applications.
 RADV (Radeon Vulkan) with the `amdgpu` KMS/DRM driver works very well!
@@ -81,7 +80,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `graphics/akira`: VERY WIP (nothing works yet) UI design tool
 - `x11/kitty`: GPU accelerated terminal emulator (note: terminfo)
 - `security/gonepass`: 1Password vault reader [226706](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226706)
-- `multimedia/gaupol`: 1.3.1 [226704](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226704)
 - `deskutils/mat`: Metadata Anonymization Toolkit (GTK3) [226702](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226702)
 - `databases/sequeler`: GTK3 SQL client
 - `databases/libgda5`: [unicode fix](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=870741) for build w/ new glib [226693](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226693)
