@@ -2,7 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	gaupol
-DISTVERSION=	1.3.1
+DISTVERSION=	1.4-3
+DISTVERSIONSUFFIX=	-g6116d42b
 CATEGORIES=	multimedia python
 
 MAINTAINER=	greg@unrelenting.technology
@@ -15,10 +16,9 @@ RUN_DEPENDS=	iso-codes>=0:misc/iso-codes \
 		${PYTHON_PKGNAMEPREFIX}chardet>=0:textproc/py-chardet@${FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}enchant>=1.5.1:textproc/py-enchant@${FLAVOR}
 
+USES=		desktop-file-utils python:3.2+
 USE_GITHUB=	yes
 GH_ACCOUNT=	otsaloma
-
-USES=		desktop-file-utils python:3.2+
 USE_GNOME=	gtk30 pygobject3 intltool
 USE_PYTHON=	distutils autoplist py3kplist
 INSTALLS_ICONS=	yes

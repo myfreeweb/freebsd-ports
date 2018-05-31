@@ -665,6 +665,7 @@
     SUBDIR += fpp
     SUBDIR += frama-c
     SUBDIR += frink
+    SUBDIR += fsmtrie
     SUBDIR += fstrm
     SUBDIR += ftjam
     SUBDIR += ftnchek
@@ -1262,6 +1263,7 @@
     SUBDIR += kaptain
     SUBDIR += kcachegrind
     SUBDIR += kcachegrind-kde4
+    SUBDIR += kcov
     SUBDIR += kdbg
     SUBDIR += kde-dev-scripts
     SUBDIR += kde-dev-scripts-kde4
@@ -4823,6 +4825,7 @@
     SUBDIR += py-pyface
     SUBDIR += py-pyfcm
     SUBDIR += py-pyflakes
+    SUBDIR += py-pyformance
     SUBDIR += py-pygdbmi
     SUBDIR += py-pygit2
     SUBDIR += py-pygithub
@@ -5321,6 +5324,7 @@
     SUBDIR += renpy
     SUBDIR += renpy6
     SUBDIR += replay
+    SUBDIR += replxx
     SUBDIR += rhtvision
     SUBDIR += riscv64-binutils
     SUBDIR += riscv64-gcc
