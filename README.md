@@ -57,6 +57,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `net/qt5-network`: LibreSSL compat [228344](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=228344)
 - `emulators/yuzu`: experimental Switch emulator [228487](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=228487)
 - `graphics/hdrmerge`: HDR merge tool (git master qt5)
 - `graphics/shaderc`: google's glslang-based thing, needed for vulkan support in mpv. Quite bad for packaging: [#424](https://github.com/google/shaderc/issues/424) [#381](https://github.com/google/shaderc/issues/381) [#392](https://github.com/google/shaderc/issues/392)
