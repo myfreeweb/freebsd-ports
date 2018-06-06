@@ -116,6 +116,7 @@
     SUBDIR += appstream-glib
     SUBDIR += apr1
     SUBDIR += apr2
+    SUBDIR += arachne-pnr
     SUBDIR += arcanist
     SUBDIR += arduino
     SUBDIR += arduino-avrdude
@@ -1206,6 +1207,7 @@
     SUBDIR += hwloc
     SUBDIR += hyperscan
     SUBDIR += ice
+    SUBDIR += icestorm
     SUBDIR += icmake
     SUBDIR += icu
     SUBDIR += icu-le-hb
@@ -1325,6 +1327,9 @@
     SUBDIR += kyra
     SUBDIR += kyua
     SUBDIR += lasi
+    SUBDIR += lattice-ice40-examples-hx1k
+    SUBDIR += lattice-ice40-examples-hx8k
+    SUBDIR += lattice-ice40-tools
     SUBDIR += lcov
     SUBDIR += leaktracer
     SUBDIR += leatherman
@@ -2666,6 +2671,7 @@
     SUBDIR += p5-Glib2
     SUBDIR += p5-Gnome2-GConf
     SUBDIR += p5-Goo-Canvas
+    SUBDIR += p5-Goo-Canvas2
     SUBDIR += p5-Google-Checkout
     SUBDIR += p5-Google-ProtocolBuffers
     SUBDIR += p5-Gravatar-URL
@@ -4389,6 +4395,7 @@
     SUBDIR += py-click-plugins
     SUBDIR += py-click-threading
     SUBDIR += py-cliff
+    SUBDIR += py-cligj
     SUBDIR += py-clint
     SUBDIR += py-clonedigger
     SUBDIR += py-cloudpickle
@@ -4685,9 +4692,11 @@
     SUBDIR += py-monotonic
     SUBDIR += py-more-itertools
     SUBDIR += py-mox
+    SUBDIR += py-mox3
     SUBDIR += py-msgpack
     SUBDIR += py-multi_key_dict
     SUBDIR += py-multipledispatch
+    SUBDIR += py-munch
     SUBDIR += py-mwlib
     SUBDIR += py-mwlib.ext
     SUBDIR += py-mwlib.rl
@@ -4728,6 +4737,7 @@
     SUBDIR += py-ordereddict
     SUBDIR += py-os-brick
     SUBDIR += py-os-client-config
+    SUBDIR += py-os-service-types
     SUBDIR += py-os-vif
     SUBDIR += py-os-win
     SUBDIR += py-osc-lib
@@ -4782,6 +4792,7 @@
     SUBDIR += py-plan
     SUBDIR += py-plex
     SUBDIR += py-pluggy
+    SUBDIR += py-pluginbase
     SUBDIR += py-ply
     SUBDIR += py-podcastparser
     SUBDIR += py-polib
@@ -4886,6 +4897,7 @@
     SUBDIR += py-python-pcre
     SUBDIR += py-python-socketio
     SUBDIR += py-python-statsd
+    SUBDIR += py-python-subunit
     SUBDIR += py-python2-pythondialog
     SUBDIR += py-pythonbrew
     SUBDIR += py-pytimeparse
@@ -6083,6 +6095,7 @@
     SUBDIR += statcvs
     SUBDIR += statik
     SUBDIR += statsvn
+    SUBDIR += stdx-allocator
     SUBDIR += stfl
     SUBDIR += stlfilt
     SUBDIR += stlink
@@ -6237,6 +6250,7 @@
     SUBDIR += yaml2argdata
     SUBDIR += yasm
     SUBDIR += yasm-devel
+    SUBDIR += yosys
     SUBDIR += youcompleteme
     SUBDIR += z80-asm
     SUBDIR += z80asm

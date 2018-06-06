@@ -2254,6 +2254,8 @@
     SUBDIR += sogo2-activesync
     SUBDIR += sogo3
     SUBDIR += sogo3-activesync
+    SUBDIR += sogo4
+    SUBDIR += sogo4-activesync
     SUBDIR += spawn-fcgi
     SUBDIR += spdylay
     SUBDIR += spreadlogd

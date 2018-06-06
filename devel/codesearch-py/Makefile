@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	codesearch-py
-PORTVERSION=	0.1
-PORTREVISION=	3
+DISTVERSION=	g20180606
+PORTEPOCH=	1
 CATEGORIES=	devel python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -18,9 +18,17 @@ USE_PYTHON=	autoplist concurrent distutils
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	chromium
-GH_TAGNAME=	df9f4df
+GH_TAGNAME=	dccfe33
 
 NO_ARCH=	yes
+
+PORTDOCS=	changes_since_kythe_migration.md
+
+OPTIONS_DEFINE=	DOCS
+
+post-install-DOCS-on:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${PORTDOCS:S,^,${WRKSRC}/doc/,} ${STAGEDIR}${DOCSDIR}
 
 do-test:
 	@cd ${WRKSRC} && ${PYTHON_CMD} -m unittest discover -v
