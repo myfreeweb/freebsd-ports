@@ -11,3 +11,6 @@ share/icons/hicolor/48x48/apps/org.gnome.Fractal.png
 share/icons/hicolor/512x512/apps/org.gnome.Fractal.png
 share/icons/hicolor/64x64/apps/org.gnome.Fractal.png
 share/icons/hicolor/symbolic/apps/org.gnome.Fractal-symbolic.svg
+share/locale/es/LC_MESSAGES/fractal.mo
+share/locale/fr/LC_MESSAGES/fractal.mo
+share/locale/pl/LC_MESSAGES/fractal.mo
