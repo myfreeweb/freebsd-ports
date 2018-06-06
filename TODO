@@ -20,6 +20,7 @@ latex->tepl etc --> https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226938
 
 moved
 deskutils/gnome-tweak-tool -> gnome-tweaks
+deskutils/gnome-shell-extension-overlay-icons -> deskutils/gnome-shell-extension-windowoverlay-icons
 
 does not work!
 mail/geary

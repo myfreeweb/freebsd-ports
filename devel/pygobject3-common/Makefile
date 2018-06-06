@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gobject
-PORTVERSION=	3.28.2
+PORTVERSION=	3.28.3
 PORTREVISION=	0
 CATEGORIES=	devel python
 MASTER_SITES=	GNOME/sources/pygobject/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}

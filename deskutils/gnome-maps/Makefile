@@ -16,19 +16,17 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 BUILD_DEPENDS=	geoclue>=0:net/geoclue
 LIB_DEPENDS=	libgeocode-glib.so:net/geocode-glib \
 		libgee-0.8.so:devel/libgee \
-		libgfbgraph-0.2.so:net/gfbgraph \
+		libcogl.so:graphics/cogl \
+		libclutter-1.0.so:graphics/clutter \
 		libchamplain-0.12.so:graphics/libchamplain \
 		libsoup-2.4.so:devel/libsoup \
 		librest-0.7.so:devel/librest \
 		libjson-glib-1.0.so:devel/json-glib \
 		libfolks.so:net-im/folks \
+		libgfbgraph-0.2.so:net/gfbgraph \
 		libgjs.so:lang/gjs \
 		libsoup-2.4.so:devel/libsoup \
-		librest-0.7.so:devel/librest \
-		libjson-glib-1.0.so:devel/json-glib \
-		libclutter-1.0.so:graphics/clutter \
-		libclutter-gtk-1.0.so:graphics/clutter-gtk3 \
-		libcogl.so:graphics/cogl
+		librest-0.7.so:devel/librest
 RUN_DEPENDS=	geoclue>=0:net/geoclue
 
 PORTSCOUT=	limitw:1,even

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-latex
-PORTVERSION=	3.28.0
+PORTVERSION=	3.28.1
 CATEGORIES=	editors
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome
@@ -16,7 +16,7 @@ BUILD_DEPENDS=	valac:lang/vala \
 		itstool:textproc/itstool \
 		gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
 LIB_DEPENDS=	libgee-0.8.so:devel/libgee \
-		libenchant.so:textproc/enchant \
+		libenchant-2.so:textproc/enchant2 \
 		libtepl-4.so:x11-toolkits/tepl \
 		libgspell-1.so:textproc/gspell
 

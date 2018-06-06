@@ -402,6 +402,7 @@
     SUBDIR += pspresent
     SUBDIR += ptsort
     SUBDIR += pubs
+    SUBDIR += py-PyUserInput
     SUBDIR += py-YABT
     SUBDIR += py-cinder
     SUBDIR += py-colorbrewer
