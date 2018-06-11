@@ -57,6 +57,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
+- `x11-toolkits/wxgtk31`: GTK3 flavor [228904](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=228904)
 - `net/qt5-network`: LibreSSL compat [228344](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=228344)
 - `emulators/yuzu`: experimental Switch emulator [228487](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=228487)
 - `graphics/hdrmerge`: HDR merge tool (git master qt5)

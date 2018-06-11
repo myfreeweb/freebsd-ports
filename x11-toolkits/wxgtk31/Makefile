@@ -4,13 +4,16 @@ PORTNAME=	wx
 DISTVERSIONPREFIX=	v
 DISTVERSION=	3.1.1
 CATEGORIES=	x11-toolkits
-PKGNAMESUFFIX=	31-gtk2
+PKGNAMESUFFIX=	31-${FLAVOR}
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	GUI toolkit (wxWidgets) with GTK+ bindings
 
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/docs/gpl.txt
+
+FLAVORS=	gtk2 gtk3
+FLAVOR?=	${FLAVORS:[1]}
 
 LIB_DEPENDS=	libexpat.so:textproc/expat2 \
 		libfontconfig.so:x11-fonts/fontconfig \
@@ -29,7 +32,7 @@ GH_PROJECT=	wxWidgets
 GNU_CONFIGURE=	yes
 USE_XORG=	x11 sm xxf86vm xtst
 USE_GL=		gl glu
-USE_GNOME=	cairo gdkpixbuf2 gtk20
+USE_GNOME=	cairo gdkpixbuf2
 USE_LDCONFIG=	yes
 USE_CXXSTD=	c++11
 CONFIGURE_ARGS=	--with-libpng=sys \
@@ -38,7 +41,6 @@ CONFIGURE_ARGS=	--with-libpng=sys \
 		--with-zlib=sys \
 		--with-expat=sys \
 		--with-opengl \
-		--with-gtk \
 		--without-gnomevfs \
 		--disable-epollloop \
 		--disable-joystick \
@@ -51,6 +53,7 @@ CONFIGURE_ARGS=	--with-libpng=sys \
 		--enable-compat30
 CONFIGURE_ENV=	X11BASE="${LOCALBASE}" \
 		ac_cv_header_sys_inotify_h=no
+PLIST_SUB=	FLAVOR="${FLAVOR}"
 
 OPTIONS_DEFINE=		GSTREAMER MSPACK NLS WEBKIT
 OPTIONS_DEFAULT=	GSTREAMER MSPACK WEBKIT
@@ -66,7 +69,18 @@ MSPACK_CONFIGURE_WITH=		libmspack
 MSPACK_LIB_DEPENDS=		libmspack.so:archivers/libmspack
 
 WEBKIT_CONFIGURE_ENABLE=	webview
-WEBKIT_LIB_DEPENDS=		libwebkitgtk-1.0.so:www/webkit-gtk2
+
+.if ${FLAVOR} == gtk2
+CONFIGURE_ARGS+=	--with-gtk=2
+USE_GNOME+=		gtk20
+PLIST_SUB+=		GTK2="" GTK3="@comment "
+WEBKIT_LIB_DEPENDS=	libwebkitgtk-1.0.so:www/webkit-gtk2
+.else
+CONFIGURE_ARGS+=	--with-gtk=3
+USE_GNOME+=		gtk30
+PLIST_SUB+=		GTK2="@comment " GTK3=""
+WEBKIT_LIB_DEPENDS=	libwebkit2gtk-4.0.so:www/webkit2-gtk3
+.endif
 
 .include <bsd.port.pre.mk>
 
