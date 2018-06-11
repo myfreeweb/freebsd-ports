@@ -20,7 +20,7 @@ LIB_DEPENDS=	libgnutls.so:security/gnutls \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		compiler:c++0x gettext gmake gnome gperf libtool localbase \
+USES=		compiler:c++11-lang gettext gmake gnome gperf libtool localbase \
 		pathfix pkgconfig tar:xz
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
@@ -31,5 +31,11 @@ CONFIGURE_ARGS=	--enable-introspection \
 INSTALL_TARGET=	install-strip
 
 PLIST_SUB=	VERSION=2.91
+
+.include <bsd.port.options.mk>
+
+.if ${OSVERSION} <= 110000
+EXTRA_PATCHES=	${FILESDIR}/extra-src_app_app.cc
+.endif
 
 .include <bsd.port.mk>

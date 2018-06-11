@@ -29,18 +29,6 @@ CMAKE_ARGS+=	-DGOBJECT_INTROSPECTION=true \
 		-DICAL_GLIB_VAPI=true \
 		-DICAL_BUILD_DOCS=false
 
-# -DGOBJECT_INTROSPECTION=[true|false]
-#  Set to build GObject introspection "typelib" files
-#  Requires GObject Introspection development package v0.6.7 or higher
-#  Default=false (do not generate the introspection files)
-# 
-# -DICAL_GLIB_VAPI=[true|false]
-#  Set to build Vala "vapi" files
-#  Requires Vala package
-#  Default=false (build the libical-glib interface)
-#
-# -DICAL_GLIB=[true|false]
-
 .include <bsd.port.pre.mk>
 
 .if ${ARCH} == "amd64" || ${ARCH} == "ia64"

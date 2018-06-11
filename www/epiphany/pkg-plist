@@ -381,6 +381,7 @@ share/icons/hicolor/32x32/apps/org.gnome.Epiphany.png
 share/icons/hicolor/48x48/apps/org.gnome.Epiphany.png
 share/icons/hicolor/512x512/apps/org.gnome.Epiphany.png
 share/icons/hicolor/symbolic/apps/org.gnome.Epiphany-symbolic.svg
+share/locale/af/LC_MESSAGES/epiphany.mo
 share/locale/am/LC_MESSAGES/epiphany.mo
 share/locale/an/LC_MESSAGES/epiphany.mo
 share/locale/ar/LC_MESSAGES/epiphany.mo

@@ -29,4 +29,12 @@ USE_GNOME=	gnomeprefix libxslt
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-xml-catalog=${LOCALBASE}/share/xml/catalog.ports
 
+post-install:
+	${PYTHON_CMD} ${PYTHON_LIBDIR}/compileall.py \
+		-f -d ${DATADIR}/python/gtkdoc \
+		${STAGEDIR}${DATADIR}/python/gtkdoc
+	${PYTHON_CMD} -O ${PYTHON_LIBDIR}/compileall.py \
+		-f -d ${DATADIR}/python/gtkdoc \
+		${STAGEDIR}${DATADIR}/python/gtkdoc
+
 .include <bsd.port.mk>
