@@ -12,6 +12,7 @@ COMMENT=	Runs arbitrary commands when files change
 # This software has code under BSD2CLAUSE license.
 # All the code used in FreeBSD is under ISCL license.
 LICENSE=	ISCL
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
 WRKSRC=		${WRKDIR}/eradman-entr-332fd96a324a
 

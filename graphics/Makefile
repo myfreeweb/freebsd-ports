@@ -538,8 +538,13 @@
     SUBDIR += libkdcraw-kde4
     SUBDIR += libkexiv2
     SUBDIR += libkexiv2-kde4
+<<<<<<< HEAD
     SUBDIR += libkface
     SUBDIR += libkface-kde4
+||||||| merged common ancestors
+    SUBDIR += libkface
+=======
+>>>>>>> origin/master
     SUBDIR += libkipi
     SUBDIR += libkipi-kde4
     SUBDIR += libkipiplugins
@@ -939,6 +944,7 @@
     SUBDIR += py-pygooglechart
     SUBDIR += py-pygraphviz
     SUBDIR += py-pyproj
+    SUBDIR += py-pyqtgraph
     SUBDIR += py-qt4-svg
     SUBDIR += py-qt5-svg
     SUBDIR += py-sane

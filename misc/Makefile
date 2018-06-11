@@ -308,6 +308,7 @@
     SUBDIR += ondir
     SUBDIR += opencyc
     SUBDIR += openr2
+    SUBDIR += orange3
     SUBDIR += orville-write
     SUBDIR += osinfo-db
     SUBDIR += ossp-uuid
@@ -424,6 +425,7 @@
     SUBDIR += py-qt4-demo
     SUBDIR += py-qt4-doc
     SUBDIR += py-qt5-demo
+    SUBDIR += py-serverfiles
     SUBDIR += py-socli
     SUBDIR += py-spdx
     SUBDIR += py-spdx-lookup

@@ -152,7 +152,6 @@
     SUBDIR += clblas
     SUBDIR += clblast
     SUBDIR += clfft
-    SUBDIR += clipper
     SUBDIR += cln
     SUBDIR += cloog
     SUBDIR += clp
@@ -692,6 +691,7 @@
     SUBDIR += py-pandas
     SUBDIR += py-pandas-datareader
     SUBDIR += py-patsy
+    SUBDIR += py-petsc4py
     SUBDIR += py-piranha
     SUBDIR += py-plastex
     SUBDIR += py-probstat
@@ -763,7 +763,6 @@
     SUBDIR += sc-im
     SUBDIR += scalapack
     SUBDIR += scilab
-    SUBDIR += scilab-toolbox-sivp
     SUBDIR += scilab-toolbox-swt
     SUBDIR += sdpa
     SUBDIR += sdpara
