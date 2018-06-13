@@ -55,6 +55,7 @@
     SUBDIR += ibus-chewing
     SUBDIR += ibus-libpinyin
     SUBDIR += ibus-pinyin
+    SUBDIR += ibus-table-chinese
     SUBDIR += jis2gb
     SUBDIR += kcfonts
     SUBDIR += kde-l10n-zh_CN
@@ -106,7 +107,6 @@
     SUBDIR += tintin++
     SUBDIR += ttf2pt1
     SUBDIR += ttfm
-    SUBDIR += unrar
     SUBDIR += ve
     SUBDIR += wenju
     SUBDIR += wordpress-zh_CN

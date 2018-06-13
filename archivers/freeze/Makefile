@@ -9,7 +9,7 @@ MASTER_SITES=	ftp://ftp.warwick.ac.uk/pub/compression/ \
 		http://www.rebootking.de/distfiles/ \
 		http://ngsoftwareltd.com/freebsd/distfiles/
 
-MAINTAINER=	gabor@FreeBSD.org
+MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Compression program - often used in QNX
 
 LICENSE=	NONE
