@@ -22,9 +22,11 @@
     SUBDIR += R-cran-snow
     SUBDIR += R-cran-som
     SUBDIR += R-cran-udunits2
+    SUBDIR += abinit
     SUBDIR += afni
     SUBDIR += aircraft-datcom
     SUBDIR += antioch
+    SUBDIR += atompaw
     SUBDIR += avogadro
     SUBDIR += bddsolve
     SUBDIR += bft
@@ -216,6 +218,7 @@
     SUBDIR += silo
     SUBDIR += simlib
     SUBDIR += simsmith
+    SUBDIR += spglib
     SUBDIR += step
     SUBDIR += step-kde4
     SUBDIR += svmlight

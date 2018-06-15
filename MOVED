@@ -6748,7 +6748,6 @@ russian/prawda||2014-09-01|Not staged
 russian/pscyr||2014-09-01|Not staged
 russian/tac+ia||2014-09-01|Not staged
 science/2dhf||2014-09-01|Not staged
-science/abinit||2014-09-01|Not staged
 science/dtiquery||2014-09-01|Not staged
 science/elmer-hutiter||2014-09-01|Not staged
 science/elmerpost||2014-09-01|Not staged
@@ -9250,7 +9249,6 @@ chinese/libgooglepinyin||2017-04-30|Has expired: Unfetchable for more than six m
 chinese/p5-cconv||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 chinese/fcitx-googlepinyin||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 chinese/php-cconv||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
-chinese/ibus-table-chinese||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 databases/jdbm2||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 databases/akonadi-googledata||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
 lang/ofc||2017-04-30|Has expired: Unfetchable for more than six months (google code has gone away)
@@ -10453,3 +10451,12 @@ graphics/libkface||2018-06-09|Has expired: No longer maintained upstream
 math/scilab-toolbox-sivp||2018-06-09|Has expired: Cannot build with newer opencv
 math/clipper|graphics/polyclipping|2018-06-11|Duplicate port
 chinese/unrar|archivers/unrar|2018-06-13|Has expired: Use archivers/unrar instead
+devel/automake-wrapper|devel/automake|2018-06-14|No longer needed
+net/samba45|net/samba46|2018-06-14|Has expired: yes
+textproc/py-elasticsearch-dsl-py||2018-06-15|Has expired: ElasticSearch 1.x End of Life
+textproc/py-elasticsearch2-dsl-py||2018-06-15|Has expired: Needs Python ElasticSearch 2.x
+textproc/elasticsearch2-plugin-marvel||2018-06-15|Removed, depends on expired textproc/elasticsearch2
+textproc/elasticsearch2-plugin-sql||2018-06-15|Removed, depends on expired textproc/elasticsearch2
+textproc/elasticsearch2-plugin-hq||2018-06-15|Removed, depends on expired textproc/elasticsearch2
+textproc/elasticsearch2-plugin-migration||2018-06-15|Removed, depends on expired textproc/elasticsearch2
+textproc/elasticsearch2||2018-06-15|Has expired: Elastic 2.4 EoL is 2018-02-28
