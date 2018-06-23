@@ -106,6 +106,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
 - `devel/libunwind`: fix on aarch64 [229057](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=229057)
+- `math/cln`: unbreak on aarch64 [229262](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=229262)
 
 ### Ports framework
 
