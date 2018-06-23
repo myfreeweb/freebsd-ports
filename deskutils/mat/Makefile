@@ -11,17 +11,17 @@ COMMENT=	Metadata Anonymization Toolkit
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}python-distutils-extra>0:devel/py-python-distutils-extra@${FLAVOR}
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}python-distutils-extra>0:devel/py-python-distutils-extra@${FLAVOR} \
+		intltool-update:textproc/intltool
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}mutagen>=0:audio/py-mutagen@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}pdfrw>=0:textproc/py-pdfrw@${PY_FLAVOR} \
 		srm:security/srm
 
+USES=		gettext python:2.7
 USE_GITLAB=	yes
 GL_SITE=	https://0xacab.org
 GL_ACCOUNT=	mat
 GL_COMMIT=	4b9a65758da4bb27724ac1f94162810a29cb3877
-
-USES=		python:2.7
 USE_PYTHON=	distutils autoplist
 USE_GNOME=	gtk30 pygobject3
 INSTALLS_ICONS=	yes

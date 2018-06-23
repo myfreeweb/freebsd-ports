@@ -3361,6 +3361,7 @@
     SUBDIR += p5-Shell-Source
     SUBDIR += p5-ShipIt
     SUBDIR += p5-ShipIt-Step-Manifest
+    SUBDIR += p5-Signal-Mask
     SUBDIR += p5-Slurp
     SUBDIR += p5-Smart-Comments
     SUBDIR += p5-Sort-Array
@@ -3691,6 +3692,7 @@
     SUBDIR += p5-Time-Interval
     SUBDIR += p5-Time-Local
     SUBDIR += p5-Time-Mock
+    SUBDIR += p5-Time-Moment
     SUBDIR += p5-Time-Object
     SUBDIR += p5-Time-Out
     SUBDIR += p5-Time-ParseDate

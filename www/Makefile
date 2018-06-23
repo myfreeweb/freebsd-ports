@@ -363,7 +363,6 @@
     SUBDIR += libresonic-standalone
     SUBDIR += libsocialweb
     SUBDIR += libwww
-    SUBDIR += libxul
     SUBDIR += lightsquid
     SUBDIR += lighttpd
     SUBDIR += lighttpd-mod_h264_streaming
@@ -533,7 +532,6 @@
     SUBDIR += nostromo
     SUBDIR += novnc
     SUBDIR += novnc-websockify
-    SUBDIR += npapi-vlc
     SUBDIR += npapi-xine
     SUBDIR += npc
     SUBDIR += npm

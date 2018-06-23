@@ -10,3 +10,6 @@ to get it running, you just have to:
  * copy (or link) %%ETCDIR%%/netdiscologs.conf
    to %%PREFIX%%/etc/newsyslog.conf.d/ to take care
    of logs rotation
+
+Always use "su - netdisco" before running netdisco-do or netdisco-deploy
+ (because of locallib use)
