@@ -2,7 +2,7 @@
 # $FreeBSD: head/deskutils/bijiben/Makefile 441071 2017-05-17 09:45:20Z kwm $
 
 PORTNAME=	bijiben
-PORTVERSION=	3.28.1
+PORTVERSION=	3.28.3
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome

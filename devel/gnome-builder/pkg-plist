@@ -201,6 +201,7 @@ include/gnome-builder/libide/terminal/ide-terminal.h
 include/gnome-builder/libide/testing/ide-test-manager.h
 include/gnome-builder/libide/testing/ide-test-provider.h
 include/gnome-builder/libide/testing/ide-test.h
+include/gnome-builder/libide/threading/ide-task.h
 include/gnome-builder/libide/threading/ide-thread-pool.h
 include/gnome-builder/libide/transfers/ide-pkcon-transfer.h
 include/gnome-builder/libide/transfers/ide-transfer-button.h
@@ -391,6 +392,7 @@ share/locale/oc/LC_MESSAGES/gnome-builder.mo
 share/locale/pl/LC_MESSAGES/gnome-builder.mo
 share/locale/pt/LC_MESSAGES/gnome-builder.mo
 share/locale/pt_BR/LC_MESSAGES/gnome-builder.mo
+share/locale/ro/LC_MESSAGES/gnome-builder.mo
 share/locale/ru/LC_MESSAGES/gnome-builder.mo
 share/locale/sk/LC_MESSAGES/gnome-builder.mo
 share/locale/sl/LC_MESSAGES/gnome-builder.mo

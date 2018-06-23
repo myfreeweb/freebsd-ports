@@ -1,22 +1,27 @@
-# $FreeBSD: branches/plasma5/KDE/games/libkdegames-kde4/Makefile 13743 2017-03-10 23:32:54Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	libkdegames
-DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-CATEGORIES=	games kde kde-applications
-PKGNAMESUFFIX=	kde4
+PORTVERSION=	${KDE4_VERSION}
+PORTREVISION=	5
+CATEGORIES=	games kde kde-kde4
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Libraries used by KDE 4 games
 
-LIB_DEPENDS=	libsndfile.so:audio/libsndfile
-
-USES=		cmake:outsource kde:4 openal tar:xz
+USES=		cmake:outsource kde:4 tar:xz
 USE_KDE=	kdelibs automoc4
-USE_QT4=	corelib dbus declarative gui network phonon svg xml \
-		moc_build qmake_build rcc_build uic_build
+USE_QT4=	network phonon xml moc_build qmake_build rcc_build uic_build
 USE_LDCONFIG=	yes
 
-# Override KDE4 versions to fetch the last one
-KDE_APPLICATIONS_VERSION=	14.12.3
+OPTIONS_DEFINE=		LOWLATENCY
+OPTIONS_DEFAULT=	LOWLATENCY
+
+LOWLATENCY_DESC=	Use OpenAL and libsndfile for lower latency
+LOWLATENCY_LIB_DEPENDS=	libsndfile.so:audio/libsndfile
+LOWLATENCY_USES=	openal
+LOWLATENCY_CMAKE_ON=	-DWITH_OpenAL=on \
+			-DWITH_SndFile=on
+LOWLATENCY_CMAKE_OFF=	-DWITH_OpenAL=off \
+			-DWITH_SndFile=off
 
 .include <bsd.port.mk>

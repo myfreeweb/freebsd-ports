@@ -2,7 +2,7 @@
 
 PORTNAME=	cvc4
 PORTVERSION=	1.5
-CATEGORIES=	math
+CATEGORIES=	math java
 MASTER_SITES=	https://cvc4.cs.stanford.edu/downloads/builds/src/
 
 MAINTAINER=	greg@unrelenting.technology
@@ -14,8 +14,6 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 LIB_DEPENDS=	libantlr3c.so:devel/libantlr3c \
 		libboost_system.so:devel/boost-libs
 BUILD_DEPENDS=	gexpr:sysutils/coreutils \
-		gsed:textproc/gsed \
-		gawk:lang/gawk \
 		bash:shells/bash \
 		antlr3:devel/antlr3
 

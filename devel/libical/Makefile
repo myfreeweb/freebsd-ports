@@ -14,9 +14,9 @@ LICENSE_COMB=	dual
 
 LIB_DEPENDS=	libicuuc.so:devel/icu
 
-USES=		cmake compiler:c++11-lib pathfix perl5
+CFLAGS_amd64=	-fPIC
 
-USES=		cmake gnome pathfix perl5 pkgconfig
+USES=		cmake compiler:c++11-lib gnome pathfix perl5 pkgconfig
 USE_PERL5=	build
 USE_LDCONFIG=	yes
 
@@ -29,10 +29,4 @@ CMAKE_ARGS+=	-DGOBJECT_INTROSPECTION=true \
 		-DICAL_GLIB_VAPI=true \
 		-DICAL_BUILD_DOCS=false
 
-.include <bsd.port.pre.mk>
-
-.if ${ARCH} == "amd64" || ${ARCH} == "ia64"
-CFLAGS+=	-fPIC
-.endif
-
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

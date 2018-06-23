@@ -225,8 +225,10 @@ share/icons/hicolor/256x256/apps/org.gnome.bijiben.png
 share/icons/hicolor/32x32/apps/org.gnome.bijiben.png
 share/icons/hicolor/48x48/apps/org.gnome.bijiben.png
 share/icons/hicolor/scalable/apps/org.gnome.bijiben-symbolic.svg
+share/locale/af/LC_MESSAGES/bijiben.mo
 share/locale/ar/LC_MESSAGES/bijiben.mo
 share/locale/as/LC_MESSAGES/bijiben.mo
+share/locale/be/LC_MESSAGES/bijiben.mo
 share/locale/bs/LC_MESSAGES/bijiben.mo
 share/locale/ca/LC_MESSAGES/bijiben.mo
 share/locale/ca@valencia/LC_MESSAGES/bijiben.mo

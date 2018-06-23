@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	evolution-ews
-PORTVERSION=	3.28.2
+PORTVERSION=	3.28.3
 CATEGORIES=	mail gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -15,6 +15,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	evolution>=3.0.0:mail/evolution
 LIB_DEPENDS=	libsoup-2.4.so:devel/libsoup \
+		libfribidi.so:converters/fribidi \
 		libicuuc.so:devel/icu \
 		libmspack.so:archivers/libmspack \
 		libsecret-1.so:security/libsecret \

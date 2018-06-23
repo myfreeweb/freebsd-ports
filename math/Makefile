@@ -76,6 +76,7 @@
     SUBDIR += R-cran-numDeriv
     SUBDIR += R-cran-outliers
     SUBDIR += R-cran-pbkrtest
+    SUBDIR += R-cran-pls
     SUBDIR += R-cran-prodlim
     SUBDIR += R-cran-psych
     SUBDIR += R-cran-quadprog
@@ -165,6 +166,7 @@
     SUBDIR += crlibm
     SUBDIR += cryptominisat
     SUBDIR += cvc3
+    SUBDIR += cvc4
     SUBDIR += diehard
     SUBDIR += dieharder
     SUBDIR += djbfft
@@ -691,10 +693,12 @@
     SUBDIR += py-pandas
     SUBDIR += py-pandas-datareader
     SUBDIR += py-patsy
+    SUBDIR += py-permutation
     SUBDIR += py-petsc4py
     SUBDIR += py-piranha
     SUBDIR += py-plastex
     SUBDIR += py-probstat
+    SUBDIR += py-pyFFTW
     SUBDIR += py-pyasp
     SUBDIR += py-pybloom
     SUBDIR += py-pycosat
@@ -716,6 +720,7 @@
     SUBDIR += py-seaborn
     SUBDIR += py-secp256k1
     SUBDIR += py-simhash
+    SUBDIR += py-spectral
     SUBDIR += py-statsmodels
     SUBDIR += py-svgmath
     SUBDIR += py-sym

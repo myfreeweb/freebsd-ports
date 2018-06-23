@@ -766,6 +766,7 @@
     SUBDIR += ori
     SUBDIR += osinfo-db-tools
     SUBDIR += osquery
+    SUBDIR += p5-App-RunCron
     SUBDIR += p5-BSD-Jail-Object
     SUBDIR += p5-BSD-Process
     SUBDIR += p5-BSD-Sysctl
@@ -1205,6 +1206,7 @@
     SUBDIR += spinner
     SUBDIR += spiped
     SUBDIR += squashfs-tools
+    SUBDIR += ssd_report
     SUBDIR += sshsudo
     SUBDIR += ssid
     SUBDIR += ssync
@@ -1306,12 +1308,14 @@
     SUBDIR += u-boot-olinuxino-lime
     SUBDIR += u-boot-orangepi-one
     SUBDIR += u-boot-orangepi-pc
+    SUBDIR += u-boot-orangepi-pc-plus
     SUBDIR += u-boot-orangepi-pc2
     SUBDIR += u-boot-orangepi-plus-2e
     SUBDIR += u-boot-orangepi-zero
     SUBDIR += u-boot-pandaboard
     SUBDIR += u-boot-pcduino3
     SUBDIR += u-boot-pine64
+    SUBDIR += u-boot-riotboard
     SUBDIR += u-boot-rpi
     SUBDIR += u-boot-rpi2
     SUBDIR += u-boot-rpi3

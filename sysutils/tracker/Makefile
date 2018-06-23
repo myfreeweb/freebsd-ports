@@ -20,7 +20,7 @@ LIB_DEPENDS=	libuuid.so:misc/e2fsprogs-libuuid \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome libtool localbase \
+USES=		compiler:c++11-lib gettext gmake gnome libtool localbase \
 		pathfix pkgconfig python:3.4+,build shebangfix sqlite tar:xz
 USE_GNOME=	glib20 intltool introspection:build libxml2 
 USE_LDCONFIG=	yes

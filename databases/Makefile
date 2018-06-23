@@ -272,6 +272,8 @@
     SUBDIR += p5-CDB_File
     SUBDIR += p5-CDB_File-Generator
     SUBDIR += p5-CGI-Session-Driver-memcached
+    SUBDIR += p5-CHI-Driver-Memcached
+    SUBDIR += p5-CHI-Driver-Redis
     SUBDIR += p5-Cache-BDB
     SUBDIR += p5-Cache-Memcached
     SUBDIR += p5-Cache-Memcached-Fast
@@ -471,6 +473,7 @@
     SUBDIR += p5-Protocol-CassandraCQL
     SUBDIR += p5-RRD-Simple
     SUBDIR += p5-Redis
+    SUBDIR += p5-Redis-Fast
     SUBDIR += p5-Redis-hiredis
     SUBDIR += p5-RedisDB
     SUBDIR += p5-RedisDB-Parser
@@ -491,6 +494,7 @@
     SUBDIR += p5-SQL-Statement
     SUBDIR += p5-SQL-Translator
     SUBDIR += p5-SQLite-Work
+    SUBDIR += p5-Scope-Container-DBI
     SUBDIR += p5-Search-InvertedIndex
     SUBDIR += p5-Search-Namazu
     SUBDIR += p5-Search-Xapian10

@@ -404,6 +404,9 @@
     SUBDIR += ptsort
     SUBDIR += pubs
     SUBDIR += py-PyUserInput
+    SUBDIR += py-QSpectrumAnalyzer
+    SUBDIR += py-SimpleSoapy
+    SUBDIR += py-SoapySDR
     SUBDIR += py-YABT
     SUBDIR += py-cinder
     SUBDIR += py-colorbrewer
@@ -411,6 +414,7 @@
     SUBDIR += py-emoji
     SUBDIR += py-fuzzy
     SUBDIR += py-glance
+    SUBDIR += py-orange3-associate
     SUBDIR += py-orange3-datafusion
     SUBDIR += py-orange3-educational
     SUBDIR += py-orange3-network
@@ -431,6 +435,7 @@
     SUBDIR += py-qt5-demo
     SUBDIR += py-scikit-fusion
     SUBDIR += py-serverfiles
+    SUBDIR += py-soapy_power
     SUBDIR += py-socli
     SUBDIR += py-spdx
     SUBDIR += py-spdx-lookup
@@ -485,6 +490,7 @@
     SUBDIR += sloccount
     SUBDIR += sls
     SUBDIR += smssend
+    SUBDIR += soapysdr
     SUBDIR += solarized
     SUBDIR += spamcalc
     SUBDIR += sshbuddy
@@ -522,6 +528,7 @@
     SUBDIR += unicode-emoji
     SUBDIR += upclient
     SUBDIR += urbit
+    SUBDIR += urh
     SUBDIR += us-zipcodes
     SUBDIR += usbids
     SUBDIR += usbrh-libusb

@@ -22,7 +22,7 @@ NO_ARCH=	yes
 .if ${PYTHON_REL} < 3000
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}futures>0:devel/py-futures@${FLAVOR}
 .if ${PYTHON_REL} < 3300
-TEST_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}mock>0:devel/py-mock@${FLAVOR}
+TEST_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}mock>0:devel/py-mock@${PY_FLAVOR}
 .endif
 .endif
 

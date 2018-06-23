@@ -11,7 +11,7 @@ COMMENT=	Elegant music player for MPD
 
 LICENSE=	GPLv3
 
-RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}mpd2:audio/py-mpd2@${FLAVOR}
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}mpd2:audio/py-mpd2@${PY_FLAVOR}
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	multani

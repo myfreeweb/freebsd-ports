@@ -2,9 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	libkcompactdisc
-DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PKGNAMESUFFIX=	-kde4
-CATEGORIES=	audio kde kde-applications
+PORTVERSION=	${KDE4_VERSION}
+PORTREVISION=	6
+CATEGORIES=	audio kde kde-kde4
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE library for interfacing with audio CDs
@@ -17,10 +17,6 @@ USE_LDCONFIG=	yes
 OPTIONS_DEFINE=	ALSA
 
 ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
-
-# Override KDE4 versions to fetch the last one
-KDE_APPLICATIONS_BRANCH=	stable
-KDE_APPLICATIONS_VERSION=       16.08.3
 
 post-patch-ALSA-off:
 	${REINPLACE_CMD} -e '/find_package(Alsa)/d' \

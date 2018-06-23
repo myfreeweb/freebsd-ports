@@ -138,6 +138,8 @@ share/devhelp/books/vala-%%VERSION%%/vala-%%VERSION%%.devhelp2
 %%DATADIR%%-%%VERSION%%/vapi/graphene-1.0.deps
 %%DATADIR%%-%%VERSION%%/vapi/graphene-1.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gsl.vapi
+%%DATADIR%%-%%VERSION%%/vapi/gst-editing-services-1.0.deps
+%%DATADIR%%-%%VERSION%%/vapi/gst-editing-services-1.0.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gstreamer-0.10.deps
 %%DATADIR%%-%%VERSION%%/vapi/gstreamer-0.10.vapi
 %%DATADIR%%-%%VERSION%%/vapi/gstreamer-1.0.vapi

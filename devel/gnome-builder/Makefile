@@ -1,7 +1,7 @@
 # $FreeBSD: head/devel/gnome-builder/Makefile 430235 2017-01-01 03:45:12Z sunpoet $
 
 PORTNAME=	gnome-builder
-PORTVERSION=	3.28.1
+PORTVERSION=	3.28.3
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -18,7 +18,7 @@ LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libjsonrpc-glib-1.0.so:devel/jsonrpc-glib \
 		libtemplate_glib-1.0.so:devel/template-glib \
 		libdazzle-1.0.so:x11-toolkits/libdazzle \
-		libenchant.so:textproc/enchant \
+		libenchant-2.so:textproc/enchant2 \
 		libgspell-1.so:textproc/gspell \
 		libwebkit2gtk-4.0.so:www/webkit2-gtk3 \
 		libdevhelp-3.so:devel/devhelp \
@@ -33,7 +33,7 @@ PORTDOCS=	*
 
 CONFLICTS_BUILD=	gnome-builder-3.16.*
 
-USES=		compiler:c++11-lang cpe desktop-file-utils meson pkgconfig python:3.6+,build tar:xz
+USES=		compiler:c++11-lang cpe desktop-file-utils gettext meson pkgconfig python:3.6+,build tar:xz
 #USES=		compiler:c++11-lang cpe desktop-file-utils gmake libtool localbase pathfix pkgconfig tar:xz
 # gettext? python:3.4+ ?
 #USE_GNOME=	cairo gtk30 gtksourceview3 vte3 pygobject3 libxml2

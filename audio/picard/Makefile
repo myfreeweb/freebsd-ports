@@ -11,8 +11,8 @@ COMMENT=	Next generation MusicBrainz Tagger
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING.txt
 
-RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}discid>=0.5.2:audio/py-discid@${FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}mutagen>=1.37:audio/py-mutagen@${FLAVOR}
+RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}discid>=0.5.2:audio/py-discid@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}mutagen>=1.37:audio/py-mutagen@${PY_FLAVOR}
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	metabrainz

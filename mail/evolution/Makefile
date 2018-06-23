@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	evolution
-PORTVERSION=	3.28.2
+PORTVERSION=	3.28.3
 CATEGORIES=	mail gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
@@ -31,6 +31,7 @@ LIB_DEPENDS=	libnss3.so:security/nss \
 		libsecret-1.so:security/libsecret \
 		libenchant.so:textproc/enchant \
 		libenchant-2.so:textproc/enchant2 \
+		libfribidi.so:converters/fribidi \
 		libp11-kit.so:security/p11-kit \
 		libcryptui.so:security/libcryptui \
 		libdbus-1.so:devel/dbus \

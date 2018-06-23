@@ -22,7 +22,7 @@ LIB_DEPENDS=	libgee-0.8.so:devel/libgee \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome pkgconfig tar:xz
+USES=		compiler:c++11-lang gettext gmake gnome pkgconfig tar:xz
 USE_GNOME=	cairo gtk30
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes

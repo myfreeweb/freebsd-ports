@@ -18,6 +18,7 @@ BUILD_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas \
 		vala:lang/vala
 LIB_DEPENDS=	libuuid.so:misc/e2fsprogs-libuuid \
 		libgnutls.so:security/gnutls \
+		libfribidi.so:converters/fribidi \
 		libpcre2-8.so:devel/pcre2
 RUN_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
 

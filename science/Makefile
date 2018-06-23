@@ -48,6 +48,7 @@
     SUBDIR += crf++
     SUBDIR += dcl
     SUBDIR += devisor
+    SUBDIR += dft_tools
     SUBDIR += dkh
     SUBDIR += dlib-cpp
     SUBDIR += dlpoly-classic
@@ -165,6 +166,9 @@
     SUBDIR += py-MDAnalysis
     SUBDIR += py-MDAnalysisTests
     SUBDIR += py-OpenFermion
+    SUBDIR += py-PyQuante
+    SUBDIR += py-SimpleSpectral
+    SUBDIR += py-abipy
     SUBDIR += py-cdo
     SUBDIR += py-coards
     SUBDIR += py-dlib
@@ -181,6 +185,7 @@
     SUBDIR += py-pupynere
     SUBDIR += py-pyaixi
     SUBDIR += py-pydicom
+    SUBDIR += py-pymatgen
     SUBDIR += py-pymol
     SUBDIR += py-pyosf
     SUBDIR += py-pysal
@@ -194,6 +199,7 @@
     SUBDIR += py-scimath
     SUBDIR += py-scipy
     SUBDIR += py-scoria
+    SUBDIR += py-spglib
     SUBDIR += py-tensorflow
     SUBDIR += py-veusz
     SUBDIR += py-ws2300
@@ -224,6 +230,7 @@
     SUBDIR += svmlight
     SUBDIR += szip
     SUBDIR += tfel
+    SUBDIR += triqs
     SUBDIR += udunits
     SUBDIR += v_sim
     SUBDIR += vmd
