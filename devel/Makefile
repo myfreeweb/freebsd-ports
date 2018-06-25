@@ -4951,6 +4951,7 @@
     SUBDIR += py-qt5-test
     SUBDIR += py-qtconsole
     SUBDIR += py-ramlfications
+    SUBDIR += py-ratelimiter
     SUBDIR += py-rauth
     SUBDIR += py-raven
     SUBDIR += py-rcsparse
@@ -4966,6 +4967,7 @@
     SUBDIR += py-repoze.who-friendlyform
     SUBDIR += py-repoze.who-testutil
     SUBDIR += py-repoze.xmliter
+    SUBDIR += py-represent
     SUBDIR += py-requestsexceptions
     SUBDIR += py-resolver
     SUBDIR += py-resourcepackage
