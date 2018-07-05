@@ -107,7 +107,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
 - `devel/libunwind`: fix on aarch64 [229057](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=229057)
 - `math/cln`: unbreak on aarch64 (well still broken actually) [229262](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=229262)
-- `x11-fm/nautilus`: icon fix [#12](https://github.com/freebsd/freebsd-ports-gnome/pull/12)
+- `devel/binaryen`: wasm toolchain [229542](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=229542)
 
 ### Ports framework
 
