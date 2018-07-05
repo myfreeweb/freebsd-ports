@@ -7,6 +7,8 @@ include/clc/async/gentype.inc
 include/clc/async/prefetch.h
 include/clc/async/prefetch.inc
 include/clc/async/wait_group_events.h
+include/clc/atom_decl_int32.inc
+include/clc/atom_decl_int64.inc
 include/clc/atomic/atomic_add.h
 include/clc/atomic/atomic_and.h
 include/clc/atomic/atomic_cmpxchg.h
@@ -234,6 +236,7 @@ include/clc/math/sqrt.h
 include/clc/math/tan.h
 include/clc/math/tanh.h
 include/clc/math/tanpi.h
+include/clc/math/ternary_decl.inc
 include/clc/math/ternary_intrin.inc
 include/clc/math/tgamma.h
 include/clc/math/trunc.h
