@@ -29,6 +29,7 @@
     SUBDIR += cartotheque
     SUBDIR += cdcat
     SUBDIR += charmtimetracker
+    SUBDIR += chart
     SUBDIR += clipit
     SUBDIR += conduit
     SUBDIR += conkyemail

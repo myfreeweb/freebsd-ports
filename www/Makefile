@@ -28,6 +28,7 @@
     SUBDIR += apache-mode.el
     SUBDIR += apache24
     SUBDIR += apercu
+    SUBDIR += archiva
     SUBDIR += aria2
     SUBDIR += aria2fe
     SUBDIR += asql
@@ -201,7 +202,7 @@
     SUBDIR += getleft
     SUBDIR += gist
     SUBDIR += gitea
-    SUBDIR += gitlab
+    SUBDIR += gitlab-ce
     SUBDIR += gitlab-pages
     SUBDIR += gitlab-workhorse
     SUBDIR += glassfish
@@ -398,6 +399,7 @@
     SUBDIR += mediawiki127
     SUBDIR += mediawiki129
     SUBDIR += mediawiki130
+    SUBDIR += mediawiki131
     SUBDIR += mergelog
     SUBDIR += mgstat
     SUBDIR += mhonarc
@@ -2084,7 +2086,6 @@
     SUBDIR += rubygem-kaminari-rails50
     SUBDIR += rubygem-kensa
     SUBDIR += rubygem-kubeclient
-    SUBDIR += rubygem-kubeclient22
     SUBDIR += rubygem-layout_yullio_generator
     SUBDIR += rubygem-less
     SUBDIR += rubygem-lighthouse-api

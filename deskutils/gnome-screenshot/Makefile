@@ -28,4 +28,12 @@ SHEBANG_FILES=	build-aux/postinstall.py
 
 GLIB_SCHEMAS=	org.gnome.gnome-screenshot.gschema.xml
 
+OPTIONS_DEFINE=	INTEL_FIX
+OPTIONS_SUB=	yes
+
+# Workaround garbled screenshot when 3D hardware acceleration is enabled
+# via x11-drivers/xf86-video-intel port
+INTEL_FIX_DESC=		Don't try to use the gnome-shell interface
+INTEL_FIX_EXTRA_PATCHES+=	${FILESDIR}/extra-patch-intel
+
 .include <bsd.port.mk>
