@@ -1,17 +1,20 @@
-# $FreeBSD: branches/plasma5/KDE/net-im/ktp-filetransfer-handler/Makefile 13957 2017-04-26 14:25:40Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	ktp-filetransfer-handler
-DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-CATEGORIES=	net-im kde kde-applications
+PORTVERSION=	${KTP_VERSION}
+PORTREVISION=	3
+CATEGORIES=	net-im kde
+MASTER_SITES=	KDE/${KTP_BRANCH}/kde-telepathy/${PORTVERSION}/src
+PKGNAMESUFFIX=	-kde4
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE instant messaging file transfer handler
 
-LIB_DEPENDS=	libtelepathy-qt5.so:net-im/telepathy-qt5 \
-		libKTpCommonInternals.so:net-im/ktp-common-internals
+LIB_DEPENDS=	libtelepathy-qt4.so:net-im/telepathy-qt4 \
+		libktpcommoninternalsprivate.so:net-im/ktp-common-internals-kde4
 
-USES=		cmake:outsource gettext kde:5 tar:xz
-USE_KDE=	config coreaddons ecm i18n kio
-USE_QT5=	buildtools_build core dbus qmake_build widgets
+USES=		cmake gettext kde:4 qt:4 tar:bzip2
+USE_KDE=	kdelibs automoc4
+USE_QT=		corelib moc_build qmake_build rcc_build uic_build
 
 .include <bsd.port.mk>

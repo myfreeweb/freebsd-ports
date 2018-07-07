@@ -27,6 +27,8 @@ mail/geary
 
 https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=209532
 
+gnome-initial-setup
+
 # nvidia <-> settings daemon?
 https://forums.freebsd.org/threads/oh-no-something-has-gone-wrong-gnome3.60383/
 https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227334

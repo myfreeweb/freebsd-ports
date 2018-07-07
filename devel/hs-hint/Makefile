@@ -3,6 +3,7 @@
 
 PORTNAME=	hint
 PORTVERSION=	0.7.0
+PORTREVISION=	2
 CATEGORIES=	devel haskell
 
 MAINTAINER=	haskell@FreeBSD.org

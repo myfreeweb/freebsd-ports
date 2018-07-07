@@ -1,26 +1,23 @@
-# $FreeBSD: branches/plasma5/KDE/net-im/ktp-accounts-kcm/Makefile 13957 2017-04-26 14:25:40Z tcberner $
+# $FreeBSD$
 
 PORTNAME=	ktp-accounts-kcm
-DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-CATEGORIES=	net-im kde kde-applications
+PORTVERSION=	${KTP_VERSION}
+PORTREVISION=	3
+CATEGORIES=	net-im kde
+MASTER_SITES=	KDE/${KTP_BRANCH}/kde-telepathy/${PORTVERSION}/src
+PKGNAMESUFFIX=	-kde4
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE instant messaging account management module
 
-LIB_DEPENDS=	libtelepathy-qt5.so:net-im/telepathy-qt5 \
-		libtelepathy-logger-qt.so:net-im/telepathy-logger-qt5 \
-		libKTpCommonInternals.so:net-im/ktp-common-internals \
-		libKF5AkonadiPrivate.so:databases/akonadi \
-		libsignon-qt5.so:sysutils/signon-qt5
+LIB_DEPENDS=	libtelepathy-qt4.so:net-im/telepathy-qt4 \
+		libtelepathy-logger-qt4.so:net-im/telepathy-logger-qt4 \
+		libktpcommoninternalsprivate.so:net-im/ktp-common-internals-kde4
+RUN_DEPENDS=	${KDE_PREFIX}/bin/ktp-contactlist:net-im/ktp-contact-list-kde4
 
-RUN_DEPENDS=	${KDE_PREFIX}/bin/ktp-contactlist:net-im/ktp-contact-list  \
-		${QT_PLUGINDIR}/kaccounts/ui/owncloud_plugin_kaccounts.so:net-im/kaccounts-providers
-
-USES=		cmake:outsource gettext kde:5 pkgconfig tar:xz
-USE_GNOME=	intltool
-USE_KDE=	config coreaddons ecm iconthemes kcmutils kio notifications \
-		notifyconfig texteditor wallet widgetsaddons windowsystem
-USE_QT5=	buildtools_build core qmake_build qml sql
+USES=		cmake gettext kde:4 qt:4 tar:bzip2
+USE_KDE=	kdelibs automoc4
+USE_QT=		corelib moc_build qmake_build rcc_build uic_build
 USE_LDCONFIG=	yes
 
 OPTIONS_DEFINE=	HAZE IRC JABBER SALUT

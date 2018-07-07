@@ -16,6 +16,7 @@ LICENSE=	LGPL21
 BUILD_DEPENDS=	vapigen:lang/vala \
 		bash:shells/bash
 LIB_DEPENDS=	libgnutls.so:security/gnutls \
+		libfribidi.so:converters/fribidi \
 		libpcre2-8.so:devel/pcre2
 
 PORTSCOUT=	limitw:1,even

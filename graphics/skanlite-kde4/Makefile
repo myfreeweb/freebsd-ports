@@ -1,9 +1,11 @@
 # $FreeBSD$
 
 PORTNAME=	skanlite
-DISTVERSION=	2.0.1
+PORTVERSION=	1.1
+PORTREVISION=	7
 CATEGORIES=	graphics kde
-MASTER_SITES=	KDE/stable/${PORTNAME}/${PORTVERSION:R}
+MASTER_SITES=	KDE/stable/${PORTNAME}/${PORTVERSION}/src
+PKGNAMESUFFIX=	-kde4
 DIST_SUBDIR=	KDE/extragear
 
 MAINTAINER=	kde@FreeBSD.org
@@ -12,14 +14,11 @@ COMMENT=	Simple image scanning application for KDE4
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/src/COPYING
 
-LIB_DEPENDS=	libKF5Sane.so:graphics/libksane \
-		libpng16.so:graphics/png
+LIB_DEPENDS=	libksane.so:graphics/libksane-kde4
 
-USES=		cmake:outsource gettext kde:5 tar:xz
-USE_KDE=	auth codecs completion config configwidgets coreaddons ecm \
-		i18n jobwidgets kio service widgetsaddons xmlgui
-USE_QT5=	core dbus gui network widgets xml \
-		buildtools_build qmake_build
+USES=		cmake:outsource gettext kde:4 qt:4 tar:xz
+USE_KDE=	kdelibs automoc4
+USE_QT=		qmake_build moc_build rcc_build uic_build
 
 CONFLICTS_INSTALL=	skanlite
 

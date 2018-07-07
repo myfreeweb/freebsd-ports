@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	tracker-miners
-PORTVERSION=	2.0.4
+PORTVERSION=	2.0.5
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 
@@ -24,6 +24,7 @@ LIB_DEPENDS=	libicuuc.so:devel/icu \
 		libpng16.so:graphics/png \
 		libtag.so:audio/taglib \
 		libtiff.so:graphics/tiff \
+		libgif.so:graphics/giflib \
 		libvorbisfile.so:audio/libvorbis \
 		libgxps.so:graphics/libgxps \
 		libexif.so:graphics/libexif \
@@ -33,7 +34,7 @@ LIB_DEPENDS=	libicuuc.so:devel/icu \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gnome localbase:ldflags meson \
+USES=		gettext gnome jpeg localbase:ldflags meson \
 		pathfix pkgconfig python:3.4+,build shebangfix sqlite tar:xz
 USE_GNOME=	cairo intltool libgsf libxml2
 USE_LDCONFIG=	yes

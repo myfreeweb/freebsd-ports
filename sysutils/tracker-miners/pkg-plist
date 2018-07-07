@@ -8,9 +8,11 @@ lib/tracker-miners-2.0/extract-modules/libextract-dummy.so
 lib/tracker-miners-2.0/extract-modules/libextract-dvi.so
 lib/tracker-miners-2.0/extract-modules/libextract-epub.so
 lib/tracker-miners-2.0/extract-modules/libextract-flac.so
+lib/tracker-miners-2.0/extract-modules/libextract-gif.so
 %%GSTREAMER%%lib/tracker-miners-2.0/extract-modules/libextract-gstreamer.so
 lib/tracker-miners-2.0/extract-modules/libextract-html.so
 lib/tracker-miners-2.0/extract-modules/libextract-icon.so
+lib/tracker-miners-2.0/extract-modules/libextract-jpeg.so
 lib/tracker-miners-2.0/extract-modules/libextract-mp3.so
 lib/tracker-miners-2.0/extract-modules/libextract-msoffice-xml.so
 lib/tracker-miners-2.0/extract-modules/libextract-msoffice.so
@@ -66,6 +68,7 @@ share/locale/fur/LC_MESSAGES/tracker-miners.mo
 share/locale/gl/LC_MESSAGES/tracker-miners.mo
 share/locale/he/LC_MESSAGES/tracker-miners.mo
 share/locale/hu/LC_MESSAGES/tracker-miners.mo
+share/locale/hr/LC_MESSAGES/tracker-miners.mo
 share/locale/id/LC_MESSAGES/tracker-miners.mo
 share/locale/it/LC_MESSAGES/tracker-miners.mo
 share/locale/ja/LC_MESSAGES/tracker-miners.mo
@@ -107,8 +110,10 @@ share/locale/zh_TW/LC_MESSAGES/tracker-miners.mo
 %%DATADIR%%/extract-rules/10-ebooks.rule
 %%DATADIR%%/extract-rules/10-epub.rule
 %%DATADIR%%/extract-rules/10-flac.rule
+%%DATADIR%%/extract-rules/10-gif.rule
 %%DATADIR%%/extract-rules/10-html.rule
 %%DATADIR%%/extract-rules/10-ico.rule
+%%DATADIR%%/extract-rules/10-jpeg.rule
 %%DATADIR%%/extract-rules/10-mp3.rule
 %%DATADIR%%/extract-rules/10-msoffice.rule
 %%DATADIR%%/extract-rules/10-oasis.rule

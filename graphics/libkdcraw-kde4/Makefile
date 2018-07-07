@@ -2,9 +2,9 @@
 # $FreeBSD$
 
 PORTNAME=	libkdcraw
-DISTVERSION=	${KDE_APPLICATIONS_VERSION}
-PKGNAMESUFFIX=	-kde4
-CATEGORIES=	graphics kde kde-applications
+PORTVERSION=	${KDE4_VERSION}
+PORTREVISION=	7
+CATEGORIES=	graphics kde kde-kde4
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	LibRaw interface for KDE
@@ -16,16 +16,14 @@ LIB_DEPENDS=	liblcms.so:graphics/lcms \
 CMAKE_ARGS+=	-DWITH_OpenMP:BOOL=False \
 		-DENABLE_RAWSPEED=True
 
-USES=		cmake:outsource jpeg kde:4 pathfix pkgconfig tar:xz
+USES=		cmake:outsource jpeg kde:4 pkgconfig qt:4 tar:xz
 USE_KDE=	automoc4 kdelibs
-USE_QT4=	corelib gui moc_build qmake_build rcc_build uic_build
+USE_QT=		corelib gui moc_build qmake_build rcc_build uic_build
 USE_LDCONFIG=	yes
 
-# Override KDE4 versions to fetch the last one
-KDE_APPLICATIONS_VERSION=	15.08.3
-
 pre-configure:
-	${REINPLACE_CMD} -e 's/${PORTNAME}.pc\([^.]\)/${PORTNAME}-kde4.pc\1/g' \
-		${WRKSRC}/libkdcraw/CMakeLists.txt
+	${REINPLACE_CMD} -e '/pkgconfig/ s/$${LIB_INSTALL_DIR}/libdata/' \
+		-e 's/${PORTNAME}.pc\([^.]\)/${PORTNAME}-kde4.pc\1/g' \
+		${WRKSRC}/CMakeLists.txt
 
 .include <bsd.port.mk>

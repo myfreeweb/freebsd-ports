@@ -1500,6 +1500,7 @@
     SUBDIR += py-WebError
     SUBDIR += py-WebFlash
     SUBDIR += py-WebTest
+    SUBDIR += py-aioh2
     SUBDIR += py-aiohttp
     SUBDIR += py-aiohttp-wsgi
     SUBDIR += py-albatross
@@ -1808,6 +1809,7 @@
     SUBDIR += py-poster
     SUBDIR += py-praw
     SUBDIR += py-prewikka
+    SUBDIR += py-priority
     SUBDIR += py-puppetboard
     SUBDIR += py-puppetboard02
     SUBDIR += py-py-restclient

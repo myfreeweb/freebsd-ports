@@ -4339,6 +4339,7 @@
     SUBDIR += py-async_generator
     SUBDIR += py-async_timeout
     SUBDIR += py-asyncio
+    SUBDIR += py-asynctest
     SUBDIR += py-atomiclong
     SUBDIR += py-atomicwrites
     SUBDIR += py-atpublic
@@ -4358,7 +4359,6 @@
     SUBDIR += py-bcdoc
     SUBDIR += py-bidict
     SUBDIR += py-billiard
-    SUBDIR += py-binplist
     SUBDIR += py-biplist
     SUBDIR += py-bison
     SUBDIR += py-bitarray
@@ -4884,6 +4884,7 @@
     SUBDIR += py-pyte
     SUBDIR += py-pytemplate
     SUBDIR += py-pytest
+    SUBDIR += py-pytest-aiohttp
     SUBDIR += py-pytest-asyncio
     SUBDIR += py-pytest-cache
     SUBDIR += py-pytest-capturelog
@@ -5111,6 +5112,7 @@
     SUBDIR += py-usb
     SUBDIR += py-user_agents
     SUBDIR += py-utils
+    SUBDIR += py-uvloop
     SUBDIR += py-validators
     SUBDIR += py-validictory
     SUBDIR += py-vcrpy
@@ -6039,6 +6041,7 @@
     SUBDIR += sabre
     SUBDIR += safe-iop
     SUBDIR += samurai
+    SUBDIR += sasm
     SUBDIR += sbt
     SUBDIR += scalatest
     SUBDIR += scandoc
