@@ -1,9 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=		crystal
-DISTVERSIONPREFIX=	v
-DISTVERSION=		0.24.1
-PORTREVISION=		2
+DISTVERSION=		0.25.0
 CATEGORIES=		lang
 MASTER_SITES=		https://unrelentingtech.s3.dualstack.eu-west-1.amazonaws.com/crystal/:bootstrap
 DISTFILES=		${BOOTSTRAP_PATH}:bootstrap
@@ -25,7 +23,7 @@ LIB_DEPENDS=	libgc-threaded.so:devel/boehm-gc-threaded \
 BUILD_DEPENDS=	${LOCALBASE}/bin/llvm-config${LLVM_VERSION}:devel/llvm${LLVM_VERSION}
 
 USES=		compiler gmake pkgconfig
-LLVM_VERSION=	50
+LLVM_VERSION=	60
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	crystal-lang
@@ -46,9 +44,9 @@ OPTIONS_SUB=		yes
 .include <bsd.port.options.mk>
 
 .if ${OSVERSION} >= 1200000
-BOOTSTRAP_PATH=	crystal-0.24.1-freebsd12.0-2
+BOOTSTRAP_PATH=	crystal-0.25.0-freebsd12.0
 .else
-BOOTSTRAP_PATH=	crystal-0.24.1-freebsd11.1-2
+BOOTSTRAP_PATH=	crystal-0.25.0-freebsd11.2
 .endif
 .if ${OSVERSION} < 1100000
 IGNORE=		not supported on 10.x or older
@@ -61,9 +59,6 @@ post-extract:
 	${MKDIR} ${WRKSRC}/.build
 	${CP} ${DISTDIR}/${DIST_SUBDIR}/${BOOTSTRAP_PATH} ${WRKSRC}/.build/crystal
 	${CHMOD} +x ${WRKSRC}/.build/crystal
-
-post-patch:
-	${LN} -s x86_64-portbld-freebsd ${WRKSRC}/src/lib_c/x86_64-unknown-freebsd
 
 do-build-DOCS-on:
 	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} docs \
