@@ -355,9 +355,9 @@ lib/crystal/json/lexer.cr
 lib/crystal/json/lexer/io_based.cr
 lib/crystal/json/lexer/string_based.cr
 lib/crystal/json/mapping.cr
-lib/crystal/json/next/serialization.cr
 lib/crystal/json/parser.cr
 lib/crystal/json/pull_parser.cr
+lib/crystal/json/serialization.cr
 lib/crystal/json/to_json.cr
 lib/crystal/json/token.cr
 lib/crystal/kernel.cr
@@ -886,7 +886,6 @@ lib/crystal/yaml/enums.cr
 lib/crystal/yaml/from_yaml.cr
 lib/crystal/yaml/lib_yaml.cr
 lib/crystal/yaml/mapping.cr
-lib/crystal/yaml/next/serialization.cr
 lib/crystal/yaml/nodes.cr
 lib/crystal/yaml/nodes/builder.cr
 lib/crystal/yaml/nodes/nodes.cr
@@ -897,6 +896,7 @@ lib/crystal/yaml/pull_parser.cr
 lib/crystal/yaml/schema/core.cr
 lib/crystal/yaml/schema/core/parser.cr
 lib/crystal/yaml/schema/fail_safe.cr
+lib/crystal/yaml/serialization.cr
 lib/crystal/yaml/to_yaml.cr
 lib/crystal/zip/checksum_reader.cr
 lib/crystal/zip/checksum_writer.cr
