@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	yuzu
-PORTVERSION=	s20180525
+PORTVERSION=	s20180709
 PORTREVISION?=	0
 CATEGORIES=	emulators
 
@@ -20,14 +20,13 @@ BROKEN_FreeBSD_10=	libc++ does not support C++17 features e.g., weak_from_this
 BUILD_DEPENDS=	boost-libs>=1.66:devel/boost-libs \
 		gmake:devel/gmake
 
-# backend_x64/hostloc.h:93:8: fatal error: no type named 'Reg64' in namespace 'Xbyak'
 ONLY_FOR_ARCHS=	amd64
 ONLY_FOR_ARCHS_REASON=	https://github.com/MerryMage/dynarmic/issues/35
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	yuzu-emu
-GH_TAGNAME=	e3a92b0
-GH_TUPLE=	MerryMage:dynarmic:990a569:dynarmic/externals/dynarmic \
+GH_TAGNAME=	639346bcf
+GH_TUPLE=	MerryMage:dynarmic:f7d11baa1:dynarmic/externals/dynarmic \
 		benhoyt:inih:r40:inih/externals/inih/inih \
 		catchorg:Catch2:v2.1.1:catch/externals/catch \
 		fmtlib:fmt:4.0.0-510-g5859e58:fmt/externals/fmt \
