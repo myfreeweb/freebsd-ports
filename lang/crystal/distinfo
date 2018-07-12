@@ -1,4 +1,6 @@
-TIMESTAMP = 1531133882
+TIMESTAMP = 1531356074
+SHA256 (crystal/crystal-0.25.1-freebsd12.0-aarch64) = fa670991f5db0a25561208c99a8c6fc9aefdc971fd3d3ddda5af928084acf72c
+SIZE (crystal/crystal-0.25.1-freebsd12.0-aarch64) = 9244872
 SHA256 (crystal/crystal-0.25.0-freebsd12.0) = 16099e4a4a28578c38a68885b20b20604554f8471d760867808a5e4572517eed
 SIZE (crystal/crystal-0.25.0-freebsd12.0) = 10026328
 SHA256 (crystal/crystal-0.25.0-freebsd11.2) = 54a4b6a701f6b2dedc9cbbde660455eca00fed51567c5fd7acc761f694fdd0ef

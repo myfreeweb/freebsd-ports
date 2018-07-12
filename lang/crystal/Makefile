@@ -13,7 +13,7 @@ COMMENT=	Language with Ruby-like syntax and static type checking
 
 LICENSE=	APACHE20
 
-ONLY_FOR_ARCHS=	amd64
+ONLY_FOR_ARCHS=	aarch64 amd64
 ONLY_FOR_ARCHS_REASON=	requires prebuilt bootstrap compiler
 
 LIB_DEPENDS=	libgc-threaded.so:devel/boehm-gc-threaded \
@@ -44,9 +44,18 @@ OPTIONS_SUB=		yes
 .include <bsd.port.options.mk>
 
 .if ${OSVERSION} >= 1200000
+. if ${ARCH} == amd64
 BOOTSTRAP_PATH=	crystal-0.25.0-freebsd12.0
+. elif ${ARCH} == aarch64
+BOOTSTRAP_PATH=	crystal-0.25.1-freebsd12.0-aarch64
+LLVM_VERSION=	50
+. endif
 .else
+. if ${ARCH} == amd64
 BOOTSTRAP_PATH=	crystal-0.25.0-freebsd11.2
+. elif ${ARCH} == aarch64
+IGNORE=		prebuilt bootstrap for aarch64 only exists for 12-CURRENT
+. endif
 .endif
 .if ${OSVERSION} < 1100000
 IGNORE=		not supported on 10.x or older
@@ -59,6 +68,7 @@ post-extract:
 	${MKDIR} ${WRKSRC}/.build
 	${CP} ${DISTDIR}/${DIST_SUBDIR}/${BOOTSTRAP_PATH} ${WRKSRC}/.build/crystal
 	${CHMOD} +x ${WRKSRC}/.build/crystal
+	${LN} -s x86_64-portbld-freebsd ${WRKSRC}/src/lib_c/aarch64-portbld-freebsd
 
 do-build-DOCS-on:
 	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_ARGS} docs \

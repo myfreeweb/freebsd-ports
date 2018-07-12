@@ -425,6 +425,7 @@ lib/crystal/lib_c/aarch64-linux-musl/c/sys/wait.cr
 lib/crystal/lib_c/aarch64-linux-musl/c/termios.cr
 lib/crystal/lib_c/aarch64-linux-musl/c/time.cr
 lib/crystal/lib_c/aarch64-linux-musl/c/unistd.cr
+lib/crystal/lib_c/aarch64-portbld-freebsd
 lib/crystal/lib_c/amd64-unknown-openbsd/c/arpa/inet.cr
 lib/crystal/lib_c/amd64-unknown-openbsd/c/dirent.cr
 lib/crystal/lib_c/amd64-unknown-openbsd/c/dlfcn.cr
