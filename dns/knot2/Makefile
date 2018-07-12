@@ -70,6 +70,7 @@ post-install:
 	${MV} ${STAGEDIR}${ETCDIR}/knot.sample.conf \
 		${STAGEDIR}${ETCDIR}/knot.conf.sample
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+	@${MKDIR} ${STAGEDIR}/var/run/knot ${STAGEDIR}/var/db/knot
 	${INSTALL_DATA} ${PORTDOCS:S,^,${WRKSRC}/,} ${STAGEDIR}${DOCSDIR}/
 
 .include <bsd.port.mk>
