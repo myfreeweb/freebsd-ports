@@ -1,5 +1,4 @@
 bin/asm2wasm
-bin/s2wasm
 bin/wasm-as
 bin/wasm-ctor-eval
 bin/wasm-dis
@@ -12,5 +11,4 @@ bin/wasm-shell
 bin/wasm2asm
 include/binaryen-c.h
 lib/libbinaryen.so
-%%DATADIR%%/binaryen.js
 %%DATADIR%%/wasm.js
