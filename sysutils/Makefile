@@ -620,7 +620,6 @@
     SUBDIR += log_analysis
     SUBDIR += logrotate
     SUBDIR += logstalgia
-    SUBDIR += logstash
     SUBDIR += logstash-forwarder
     SUBDIR += logstash5
     SUBDIR += logstash6
@@ -841,7 +840,6 @@
     SUBDIR += p5-Unix-Processors
     SUBDIR += p5-Unix-Syslog
     SUBDIR += p5-User
-    SUBDIR += p5-ZConf-Cron
     SUBDIR += p5-arclog
     SUBDIR += p5-reslog
     SUBDIR += packer
@@ -1038,6 +1036,7 @@
     SUBDIR += realsync
     SUBDIR += recoverdm
     SUBDIR += reed
+    SUBDIR += reggae
     SUBDIR += rej
     SUBDIR += relaxconf
     SUBDIR += rename

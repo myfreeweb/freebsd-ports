@@ -2,16 +2,16 @@
 # $FreeBSD$
 
 PORTNAME=	wine
-DISTVERSION=	3.11
+DISTVERSION=	3.12
 PORTEPOCH=	1
 CATEGORIES=	emulators
-MASTER_SITES=	http://mirrors.ibiblio.org/wine/source/3.x/:DEFAULT \
-		SF/${PORTNAME}/Source:DEFAULT
-PKGNAMESUFFIX=	-devel
+MASTER_SITES=	SF/${PORTNAME}/Source \
+		http://mirrors.ibiblio.org/wine/source/3.x/
+PKGNAMESUFFIX?=	-devel
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
 
-MAINTAINER=	gerald@FreeBSD.org
-COMMENT=	Microsoft Windows compatibility environment
+MAINTAINER?=	gerald@FreeBSD.org
+COMMENT?=	Microsoft Windows compatibility environment
 
 LICENSE=	LGPL21 LGPL3
 LICENSE_COMB=	dual
@@ -27,8 +27,6 @@ CONFLICTS_INSTALL=	wine-[0-9]* wine-staging-[0-9]* i386-wine-[0-9]* \
 			i386-wine-staging-[0-9]* i386-wine-devel-[0-9]*
 
 LLD_UNSAFE=	yes
-CPPFLAGS+=	-I${LOCALBASE}/include
-LDFLAGS+=	-L${LOCALBASE}/lib
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=--verbose --disable-tests \
 		--disable-kerberos \
@@ -45,7 +43,7 @@ CONFIGURE_ARGS=--verbose --disable-tests \
 		--without-udev
 CONFIGURE_ENV=	CPPBIN="${CPP}" FLEX="${LOCALBASE}/bin/flex"
 WINELIBDIR=	${PREFIX}/lib
-USES=		bison compiler:c11 desktop-file-utils gmake shebangfix tar:xz
+USES=		bison compiler:c11 desktop-file-utils gmake localbase shebangfix tar:xz
 .if !defined(WINE_WOW64)
 USE_LDCONFIG=	${WINELIBDIR} ${WINELIBDIR}/wine
 .endif

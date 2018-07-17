@@ -33,7 +33,7 @@ RUN_DEPENDS?=	dconf-editor:devel/dconf-editor \
 		${LOCALBASE}/share/sounds/freedesktop/index.theme:audio/freedesktop-sound-theme \
 		ekiga:net-im/ekiga
 
-CONFLICTS?=	gnome-lite-[0-9]*
+CONFLICTS?=	gnome3-lite-[0-9]*
 
 USES=		metaport
 
@@ -46,7 +46,7 @@ DOCS_RUN_DEPENDS=	gnome-user-docs>=0:misc/gnome-user-docs \
 
 .include <bsd.port.options.mk>
 
-.if ${.CURDIR:T}!="gnome-lite"
+.if ${.CURDIR:T}!="gnome3-lite"
 RUN_DEPENDS+=	epiphany>=3.0.0:www/epiphany \
 		gucharmap>=3.0.0:deskutils/gucharmap \
 		gnome-characters>=3.0.0:deskutils/gnome-characters \
@@ -72,6 +72,6 @@ RUN_DEPENDS+=	epiphany>=3.0.0:www/epiphany \
 		evolution>=3.0.0:mail/evolution \
 		cheese>=3.0.0:multimedia/cheese
 
-.endif # !gnome-lite section
+.endif # !gnome3-lite section
 
 .include <bsd.port.mk>

@@ -21,7 +21,6 @@ LIB_DEPENDS=	libgnome-games-support-1.so:games/libgnome-games-support \
 PORTSCOUT=	limitw:1,even
 
 USES=		gettext gnome localbase meson pkgconfig python:3.6+,build tar:xz
-#USE_GNOME=	cairo gtk30 intlhack librsvg2 libxml2:build
 USE_GNOME=	gtk30 librsvg2
 INSTALLS_ICONS=	yes
 

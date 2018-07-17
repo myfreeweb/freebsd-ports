@@ -37,8 +37,17 @@ https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227334
 
 Update GNOME desktop to 3.28.1.
 
-Drop unclear hal dependancy in gdm rc.d script. (1)
+* Drop unclear hal dependancy in the gdm rc.d script. (1)
+* Drop all -reference ports update recent ports to install the file instead.
+  Leave the USE_GNOME reference option for now, so the old ports that use
+  it don't have to be updated.
 
 PR:		209532 (1)
 Submitted by:	Kevin Zheng <kevinz5000@gmail.com> (1)
+
+# extra:
+meson update 0.47.1
+make USE_GNOME required USES=gnome
+poppler
+pitivi
 

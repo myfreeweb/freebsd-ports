@@ -376,7 +376,6 @@
     SUBDIR += kf5-kcodecs
     SUBDIR += kf5-sonnet
     SUBDIR += kf5-syntax-highlighting
-    SUBDIR += kibana46
     SUBDIR += kibana5
     SUBDIR += kibana5-search-guard
     SUBDIR += kibana6
@@ -948,7 +947,6 @@
     SUBDIR += p5-Text-SimpleTemplate
     SUBDIR += p5-Text-Soundex
     SUBDIR += p5-Text-SpellChecker
-    SUBDIR += p5-Text-SpellChecker-GUI
     SUBDIR += p5-Text-Striphigh
     SUBDIR += p5-Text-Table
     SUBDIR += p5-Text-Table-Manifold
@@ -1762,6 +1760,7 @@
     SUBDIR += uim-kde4
     SUBDIR += uim-m17nlib
     SUBDIR += uim-qt4
+    SUBDIR += uim-qt5
     SUBDIR += uml2svg
     SUBDIR += uncle
     SUBDIR += uncrustify

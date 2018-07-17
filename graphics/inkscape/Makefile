@@ -24,12 +24,13 @@ LIB_DEPENDS=	libpopt.so:devel/popt \
 		libgsl.so:math/gsl \
 		libgtkspell.so:textproc/gtkspell \
 		liblcms2.so:graphics/lcms2 \
+		libfribidi.so:converters/fribidi \
+		libaspell.so:textproc/aspell \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
 		libpotrace.so:graphics/libpotrace \
 		libpng.so:graphics/png \
 		libMagick++-6.so:graphics/ImageMagick
-#aspell?
 
 USE_GNOME=	gtkmm30 libxml2 libxslt
 USES=		compiler:c++11-lib cmake cpe desktop-file-utils gnome \

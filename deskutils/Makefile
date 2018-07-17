@@ -204,9 +204,6 @@
     SUBDIR += p5-Data-ICal
     SUBDIR += p5-Data-ICal-DateTime
     SUBDIR += p5-Goo
-    SUBDIR += p5-ZConf-BGSet
-    SUBDIR += p5-ZConf-Runner
-    SUBDIR += p5-ZConf-Runner-GUI-GTK
     SUBDIR += pal
     SUBDIR += parcellite
     SUBDIR += phpcollab

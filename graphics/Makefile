@@ -136,6 +136,7 @@
     SUBDIR += derelict-gl3
     SUBDIR += devil
     SUBDIR += dia
+    SUBDIR += diff-pdf
     SUBDIR += diffpdf
     SUBDIR += digikam
     SUBDIR += digikam-kde4
@@ -146,9 +147,11 @@
     SUBDIR += djview4
     SUBDIR += djview4-qt4
     SUBDIR += djvulibre
+    SUBDIR += djvusmooth
     SUBDIR += dmtx-utils
     SUBDIR += drawpile
     SUBDIR += driconf
+    SUBDIR += drm-devel-kmod
     SUBDIR += drm-next-kmod
     SUBDIR += drm-stable-kmod
     SUBDIR += dspdfviewer
@@ -770,9 +773,7 @@
     SUBDIR += p5-Image-Sane
     SUBDIR += p5-Image-Scale
     SUBDIR += p5-Image-Size
-    SUBDIR += p5-Image-Size-FillFullSelect
     SUBDIR += p5-Imager
-    SUBDIR += p5-Imager-AverageGray
     SUBDIR += p5-Imager-Graph
     SUBDIR += p5-Imager-Plot
     SUBDIR += p5-Imager-QRCode
@@ -880,7 +881,6 @@
     SUBDIR += prison
     SUBDIR += processing
     SUBDIR += proj
-    SUBDIR += projectm-libvisual
     SUBDIR += pstoedit
     SUBDIR += pstoepsi
     SUBDIR += ptex
@@ -956,6 +956,8 @@
     SUBDIR += py-sorl-thumbnail
     SUBDIR += py-soya3d
     SUBDIR += py-stltools
+    SUBDIR += py-svgwrite
+    SUBDIR += py-termtosvg
     SUBDIR += py-toyplot
     SUBDIR += py-traitsui
     SUBDIR += py-wand

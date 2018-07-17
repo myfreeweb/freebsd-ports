@@ -36,8 +36,8 @@ lib/totem/plugins/pythonconsole/pythonconsole.plugin
 lib/totem/plugins/pythonconsole/pythonconsole.py
 lib/totem/plugins/recent/librecent.so
 lib/totem/plugins/recent/recent.plugin
-lib/totem/plugins/rotation/librotation.so
-lib/totem/plugins/rotation/rotation.plugin
+%%VALA%%lib/totem/plugins/rotation/librotation.so
+%%VALA%%lib/totem/plugins/rotation/rotation.plugin
 lib/totem/plugins/save-file/libsave-file.so
 lib/totem/plugins/save-file/save-file.plugin
 lib/totem/plugins/screensaver/libscreensaver.so
@@ -52,8 +52,8 @@ lib/totem/plugins/variable-rate/libvariable-rate.so
 lib/totem/plugins/variable-rate/variable-rate.plugin
 lib/totem/plugins/vimeo/libvimeo.so
 lib/totem/plugins/vimeo/vimeo.plugin
-lib/totem/plugins/zeitgeist-dp/libtotem-zeitgeist-dp-plugin.so
-lib/totem/plugins/zeitgeist-dp/zeitgeist-dp.plugin
+%%VALA%%lib/totem/plugins/zeitgeist-dp/libtotem-zeitgeist-dp-plugin.so
+%%VALA%%lib/totem/plugins/zeitgeist-dp/zeitgeist-dp.plugin
 libdata/pkgconfig/totem.pc
 libexec/totem-gallery-thumbnailer
 man/man1/totem-video-thumbnailer.1.gz

@@ -201,6 +201,7 @@
     SUBDIR += bhyve-vm-goagent
     SUBDIR += bicyclerepair
     SUBDIR += bin86
+    SUBDIR += binaryen
     SUBDIR += bingrep
     SUBDIR += binutils
     SUBDIR += bison
@@ -3772,7 +3773,6 @@
     SUBDIR += p5-Xporter
     SUBDIR += p5-YAML-AppConfig
     SUBDIR += p5-Yada-Yada-Yada
-    SUBDIR += p5-ZConf-GUI
     SUBDIR += p5-ZML
     SUBDIR += p5-accessors
     SUBDIR += p5-accessors-fast
@@ -4782,6 +4782,7 @@
     SUBDIR += py-oslo.vmware
     SUBDIR += py-oslotest
     SUBDIR += py-osprofiler
+    SUBDIR += py-ovs
     SUBDIR += py-p4python
     SUBDIR += py-packaging
     SUBDIR += py-palm
@@ -4959,6 +4960,7 @@
     SUBDIR += py-qt5-qscintilla2
     SUBDIR += py-qt5-test
     SUBDIR += py-qtconsole
+    SUBDIR += py-qutip
     SUBDIR += py-ramlfications
     SUBDIR += py-ratelimiter
     SUBDIR += py-rauth
@@ -5875,6 +5877,7 @@
     SUBDIR += rubygem-ruby-enum
     SUBDIR += rubygem-ruby-filemagic
     SUBDIR += rubygem-ruby-fogbugz
+    SUBDIR += rubygem-ruby-fogbugz021
     SUBDIR += rubygem-ruby-libvirt
     SUBDIR += rubygem-ruby-macho
     SUBDIR += rubygem-ruby-ole

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	zabbix2
-PORTVERSION=	2.0.20
+PORTVERSION=	2.0.21
 PORTREVISION?=	0
 CATEGORIES=	net-mgmt
 MASTER_SITES=	SF/zabbix/ZABBIX%20Latest%20Stable/${PORTVERSION}
@@ -13,6 +13,9 @@ MAINTAINER=	pg@pakhom.spb.ru
 COMMENT=	Enterprise-class open source distributed monitoring (${PKGNAMESUFFIX:S/^-//})
 
 LICENSE=	GPLv2
+
+DEPRECATED=	End of Life was August, 2017
+EXPIRATION_DATE=	2018-10-09
 
 LIB_DEPENDS=	libnetsnmp.so:net-mgmt/net-snmp \
 		libpkg.so:ports-mgmt/pkg
@@ -125,7 +128,11 @@ JAVAGW_USE=	JAVA=yes
 post-patch:
 	@${GREP} -rl "/etc/zabbix" ${WRKSRC} \
 	  | ${XARGS} ${REINPLACE_CMD} -e 's#/etc/zabbix#${ETCDIR}#g'
-	@${REINPLACE_CMD} -e 's#/usr/sbin/fping#${LOCALBASE}/sbin/fping#g' ${WRKSRC}/conf/zabbix_*.conf
+	@${REINPLACE_CMD} -e 's#/usr/sbin/fping#${LOCALBASE}/sbin/fping#g' \
+		${WRKSRC}/conf/zabbix_*.conf \
+		${WRKSRC}/src/zabbix_proxy/proxy.c \
+		${WRKSRC}/src/zabbix_server/server.c
+
 
 .if ${ZABBIX_BUILD} != "agent"
 .for d in mysql oracle postgresql sqlite3
