@@ -762,6 +762,7 @@
     SUBDIR += odo
     SUBDIR += ods2
     SUBDIR += ohmu
+    SUBDIR += omnibackup
     SUBDIR += open
     SUBDIR += openhpi
     SUBDIR += openipmi

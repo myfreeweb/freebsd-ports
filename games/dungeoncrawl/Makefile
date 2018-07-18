@@ -15,6 +15,8 @@ WRKSRC_SUBDIR=	source
 CXXFLAGS+=	-std=c++98 -fsigned-char
 
 USES=		ncurses tar:tbz2
+USE_CXXSTD=	gnu++98
+CXXFLAGS+=	-fsigned-char
 MAKEFILE=	makefile.bsd
 
 PORTDOCS=	buglist.txt crawl.txt
