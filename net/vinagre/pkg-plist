@@ -1,7 +1,6 @@
 bin/vinagre
 man/man1/vinagre.1.gz
 share/GConf/gsettings/org.gnome.Vinagre.convert
-share/appdata/vinagre.appdata.xml
 share/applications/vinagre-file.desktop
 share/applications/vinagre.desktop
 %%TELEPATHY%%share/dbus-1/services/org.freedesktop.Telepathy.Client.Vinagre.service
@@ -323,6 +322,7 @@ share/locale/vi/LC_MESSAGES/vinagre.mo
 share/locale/zh_CN/LC_MESSAGES/vinagre.mo
 share/locale/zh_HK/LC_MESSAGES/vinagre.mo
 share/locale/zh_TW/LC_MESSAGES/vinagre.mo
+share/metainfo/vinagre.appdata.xml
 share/mime/packages/vinagre-mime.xml
 %%TELEPATHY%%share/telepathy/clients/Vinagre.client
 %%DATADIR%%/vinagre-ui.xml

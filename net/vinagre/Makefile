@@ -18,6 +18,7 @@ BUILD_DEPENDS=	appstream-glib>=0:devel/appstream-glib \
 		gnome-autogen.sh:devel/gnome-common \
 		yelp-tools>=0:textproc/yelp-tools
 LIB_DEPENDS=	libgtk-vnc-2.0.so:net/gtk-vnc \
+		libfribidi.so:converters/fribidi \
 		libgdbm.so:databases/gdbm \
 		libsecret-1.so:security/libsecret \
 		libdbus-1.so:devel/dbus \
@@ -28,7 +29,7 @@ RUN_DEPENDS=	gnome-icon-theme>=0:misc/gnome-icon-theme
 
 PORTSCOUT=	limitw:1,even
 
-USES=		desktop-file-utils gettext gmake gnome localbase \
+USES=		autoreconf desktop-file-utils gettext gmake gnome localbase \
 		pathfix pkgconfig shared-mime-info tar:xz
 USE_GNOME=	cairo gtk30 intlhack libxml2 vte3
 USE_XORG=	x11
