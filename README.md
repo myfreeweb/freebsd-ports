@@ -57,7 +57,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Misc
 
-- `x11-toolkits/wxgtk31`: GTK3 flavor [228904](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=228904)
 - `net/qt5-network`: LibreSSL compat [228344](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=228344)
 - `emulators/yuzu`: experimental Switch emulator [228487](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=228487)
 - `graphics/hdrmerge`: HDR merge tool (git master qt5)
@@ -65,7 +64,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `multimedia/mpv`: 0.28.2, vulkan
 - `x11-toolkits/gtk40`: git master, vulkan, skip installing gschemas (fix parallel install w/ gtk3)
 - `multimedia/shotcut`: 18.03.06
-- `math/cvc4`: an SMT solver [227702](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227702)
 - `emulators/mesen`: a NES emulator [227351](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227351)
 - `games/retroarch`: 1.7.1, add WAYLAND option [227345](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227345) (+ UDEV option but we don't have evdev gamepad drivers yet)
 - `textproc/ibus`: add WAYLAND option (not actually used for toolkit based apps; also ibus's UI drawing is still X11 only)
@@ -105,9 +103,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `www/firefox`: (no extra updates here currently) See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
-- `devel/libunwind`: fix on aarch64 [229057](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=229057)
-- `math/cln`: unbreak on aarch64 (well still broken actually) [229262](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=229262)
-- `devel/binaryen`: wasm toolchain [229542](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=229542)
+- `deskutils/lookbook`: icon browser [229873](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=229873)
 
 ### Ports framework
 
