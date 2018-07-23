@@ -14,7 +14,10 @@ COMMENT=	Some useful routines of C programming (current stable version)
 
 LICENSE=	LGPL20
 
+USES=		tar:xz
 PORTSCOUT=	limitw:1,even
+
+.if !defined(REFERENCE_PORT)
 
 LIB_DEPENDS+=	libpcre.so:devel/pcre \
 		libffi.so:devel/libffi
@@ -23,8 +26,8 @@ GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 # iconv:wchar_t - our iconv in base doesn't support utf-8 -> wchar_t (boooo)
 # (wchar_t is used by glibmm, rawtherapee triggered this)
-USES=		compiler:c11 gettext gmake gnome iconv:wchar_t libtool \
-		localbase pathfix perl5 pkgconfig python shebangfix tar:xz
+USES+=		compiler:c11 gettext gmake gnome iconv:wchar_t libtool \
+		localbase pathfix perl5 pkgconfig python shebangfix
 USE_PYTHON=	py3kplist
 CONFIGURE_ARGS=	--disable-gtk-doc --with-html-dir=${PREFIX}/share/doc \
 		--disable-man --without-xml-catalog \
@@ -104,3 +107,5 @@ post-install:
 .endfor
 
 .include <bsd.port.post.mk>
+
+.endif

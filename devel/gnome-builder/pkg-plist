@@ -256,10 +256,6 @@ lib/gnome-builder/plugins/go_langserver_plugin.py
 lib/gnome-builder/plugins/html-preview.plugin
 lib/gnome-builder/plugins/html_preview.gresource
 lib/gnome-builder/plugins/html_preview.py
-lib/gnome-builder/plugins/jedi.plugin
-lib/gnome-builder/plugins/jedi_plugin.py
-lib/gnome-builder/plugins/jhbuild.plugin
-lib/gnome-builder/plugins/jhbuild_plugin.py
 lib/gnome-builder/plugins/libvala-pack-plugin.so
 lib/gnome-builder/plugins/make.plugin
 lib/gnome-builder/plugins/make_plugin.gresource
