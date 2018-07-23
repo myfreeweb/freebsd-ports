@@ -38,6 +38,7 @@ bin/lollypop-cli
 %%PYTHON_SITELIBDIR%%/lollypop/locales/__init__.py
 %%PYTHON_SITELIBDIR%%/lollypop/locales/zh_cn.py
 %%PYTHON_SITELIBDIR%%/lollypop/localized.py
+%%PYTHON_SITELIBDIR%%/lollypop/logger.py
 %%PYTHON_SITELIBDIR%%/lollypop/miniplayer.py
 %%PYTHON_SITELIBDIR%%/lollypop/mpris.py
 %%PYTHON_SITELIBDIR%%/lollypop/notification.py
@@ -45,7 +46,6 @@ bin/lollypop-cli
 %%PYTHON_SITELIBDIR%%/lollypop/player.py
 %%PYTHON_SITELIBDIR%%/lollypop/player_base.py
 %%PYTHON_SITELIBDIR%%/lollypop/player_bin.py
-%%PYTHON_SITELIBDIR%%/lollypop/player_externals.py
 %%PYTHON_SITELIBDIR%%/lollypop/player_linear.py
 %%PYTHON_SITELIBDIR%%/lollypop/player_playlist.py
 %%PYTHON_SITELIBDIR%%/lollypop/player_plugins.py
@@ -56,7 +56,6 @@ bin/lollypop-cli
 %%PYTHON_SITELIBDIR%%/lollypop/pop_album.py
 %%PYTHON_SITELIBDIR%%/lollypop/pop_albums.py
 %%PYTHON_SITELIBDIR%%/lollypop/pop_artwork.py
-%%PYTHON_SITELIBDIR%%/lollypop/pop_externals.py
 %%PYTHON_SITELIBDIR%%/lollypop/pop_information.py
 %%PYTHON_SITELIBDIR%%/lollypop/pop_lastfm.py
 %%PYTHON_SITELIBDIR%%/lollypop/pop_menu.py
@@ -80,7 +79,6 @@ bin/lollypop-cli
 %%PYTHON_SITELIBDIR%%/lollypop/toolbar_info.py
 %%PYTHON_SITELIBDIR%%/lollypop/toolbar_playback.py
 %%PYTHON_SITELIBDIR%%/lollypop/toolbar_title.py
-%%PYTHON_SITELIBDIR%%/lollypop/touch_helper.py
 %%PYTHON_SITELIBDIR%%/lollypop/utils.py
 %%PYTHON_SITELIBDIR%%/lollypop/view.py
 %%PYTHON_SITELIBDIR%%/lollypop/view_albums_box.py

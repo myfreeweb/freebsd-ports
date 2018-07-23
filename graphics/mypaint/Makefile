@@ -9,8 +9,10 @@ CATEGORIES=	graphics
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Fast painting/scribbling program
 
-LICENSE=	GPLv2+
+LICENSE=	GPLv2+ ISCL
+LICENSE_COMB=	multi
 LICENSE_FILE_GPLv2+ =	${WRKSRC}/COPYING
+LICENSE_FILE_ISCL=	${WRKSRC}/brushlib/COPYING
 
 BUILD_DEPENDS=	swig3.0:devel/swig30 \
 		${PYNUMPY}

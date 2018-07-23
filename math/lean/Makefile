@@ -1,0 +1,24 @@
+# $FreeBSD$
+
+PORTNAME=	lean
+DISTVERSIONPREFIX=	v
+DISTVERSION=	3.4.1
+CATEGORIES=	math
+PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
+
+MAINTAINER=	yuri@FreeBSD.org
+COMMENT=	Theorem prover
+
+LICENSE=	APACHE20
+LICENSE_FILE=	${WRKSRC}/../LICENSE
+
+LIB_DEPENDS=	libgmp.so:math/gmp
+
+USES=		cmake:outsource
+USE_GITHUB=	yes
+GH_ACCOUNT=	leanprover
+USE_LDCONFIG=	yes
+
+WRKSRC_SUBDIR=	src
+
+.include <bsd.port.mk>

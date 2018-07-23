@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gitlab-ce
-PORTVERSION=	11.0.3
-PORTREVISION=	1
+PORTVERSION=	11.0.4
 CATEGORIES=	www devel
 
 MAINTAINER=	mfechner@FreeBSD.org
@@ -214,13 +213,19 @@ USE_RC_SUBR=	gitlab
 USE_GITLAB=	yes
 GL_ACCOUNT=	gitlab-org
 # Find the here: https://gitlab.com/gitlab-org/gitlab-ce/tags
-GL_COMMIT=	aa6207551b023ecba0dba332c6358e1007f4b0eb
+GL_COMMIT=	edb037cbc85225261e8ede5455be4aad771ba3bb
 
 USERS=	git
 GROUPS=	git
 
 NO_ARCH=	yes
 NO_BUILD=	yes
+
+post-patch:
+	${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|" ${WRKSRC}/config/gitlab.yml.example \
+		${WRKSRC}/config/unicorn.rb.example \
+		${WRKSRC}/lib/support/nginx/gitlab \
+		${WRKSRC}/lib/support/nginx/gitlab-ssl
 
 post-patch-MYSQL-on:
 	${CP} ${WRKSRC}/config/database.yml.mysql ${WRKSRC}/config/database.yml.sample

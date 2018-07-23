@@ -129,6 +129,7 @@
     SUBDIR += bulk_extractor
     SUBDIR += burp
     SUBDIR += busybox
+    SUBDIR += bvm
     SUBDIR += byobu
     SUBDIR += catfish
     SUBDIR += cbsd
@@ -636,6 +637,8 @@
     SUBDIR += lttng-ust
     SUBDIR += luckybackup
     SUBDIR += lxinput
+    SUBDIR += lxqt-policykit
+    SUBDIR += lxqt-qtplugin
     SUBDIR += lxsplit
     SUBDIR += lxtask
     SUBDIR += lxterminal
@@ -1316,6 +1319,7 @@
     SUBDIR += u-boot-orangepi-pc-plus
     SUBDIR += u-boot-orangepi-pc2
     SUBDIR += u-boot-orangepi-plus-2e
+    SUBDIR += u-boot-orangepi-r1
     SUBDIR += u-boot-orangepi-zero
     SUBDIR += u-boot-pandaboard
     SUBDIR += u-boot-pcduino3

@@ -1162,7 +1162,7 @@
     SUBDIR += xv
     SUBDIR += xv-m17n
     SUBDIR += xwpick
-    SUBDIR += yafray
+    SUBDIR += yafaray
     SUBDIR += yagf
     SUBDIR += yed
     SUBDIR += yukon

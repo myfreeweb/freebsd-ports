@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	cvc4
-PORTVERSION=	1.6
+DISTVERSION=	1.6
 CATEGORIES=	math java
 MASTER_SITES=	https://cvc4.cs.stanford.edu/downloads/builds/src/
 
@@ -16,7 +16,7 @@ LIB_DEPENDS=	libantlr3c.so:devel/libantlr3c \
 BUILD_DEPENDS=	bash:shells/bash \
 		antlr3:devel/antlr3
 
-USES=		compiler:c++11-lang python:3.5+,build pkgconfig autoreconf gmake libtool shebangfix localbase
+USES=		autoreconf gmake python:3.5+,build libtool localbase pkgconfig shebangfix
 USE_JAVA=	yes
 JAVA_BUILD=	yes
 
@@ -70,5 +70,11 @@ DEBUG_INSTALL_TARGET_OFF=	install-strip
 LICENSE=		GPLv3
 CONFIGURE_ARGS+=	--enable-gpl
 .endif
+
+# use the fixed compiler version from ports to prevent failures on FreeBSD_10
+LLVM_VERSION=	60
+BUILD_DEPENDS+=	clang${LLVM_VERSION}:devel/llvm${LLVM_VERSION}
+CC=	clang${LLVM_VERSION}
+CXX=	clang++${LLVM_VERSION}
 
 .include <bsd.port.mk>

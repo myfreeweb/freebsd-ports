@@ -5253,7 +5253,6 @@ devel/hs-DeepArrow||2013-12-22|Has expired: Broken for more than 6 months
 converters/py-svglib||2013-12-22|Has expired: Broken for more than 6 months
 converters/p5-Unicode-Lite||2013-12-22|Has expired: Broken for more than 6 months
 mail/squirrelmail-calendar_sql_backend-plugin||2013-12-22|Has expired: Broken for more than 6 months
-finance/quantlib||2013-12-22|Has expired: Broken for more than 6 months
 games/xkobo||2013-12-22|Has expired: Broken for more than 6 months
 games/quake3-rq3||2013-12-22|Has expired: Broken for more than 6 months
 math/fbm||2013-12-22|Has expired: No new release since 2004, new supported upstream
@@ -10533,6 +10532,9 @@ net-im/mastodon||2018-07-16|Has expired: Breaks too frequently
 x11-fm/p5-PerlFM||2018-07-16|Has expired: Unmaintained
 astro/p5-ZConf-Weather||2018-07-16|Has expired: Unmaintained
 sysutils/p5-ZConf-Cron||2018-07-16|Has expired: Unmaintained
+x11-fonts/hasklig|x11-fonts/Hasklig|2018-07-16|Name correctly after upstream
 misc/artikulate-kde4||2018-07-17|Has expired: broken for more than three years
 vietnamese/kde4-l10||2018-07-17|Has expired: broken for more than three years
 graphics/projectm-libvisual|graphics/libprojectm|2018-07-17|Code of projectm-libvisual was merged into graphics/libprojectm
+graphics/yafray|graphics/yafaray|2018-07-20|Project renamed
+lang/spec.alpha||2018-07-21|Unused in the ports tree

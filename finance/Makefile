@@ -100,6 +100,7 @@
     SUBDIR += py-vatnumber
     SUBDIR += py-ystockquote
     SUBDIR += qhacc
+    SUBDIR += quantlib
     SUBDIR += quickfix
     SUBDIR += rubygem-money
     SUBDIR += sabernetdcs-client

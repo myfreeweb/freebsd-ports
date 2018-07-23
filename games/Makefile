@@ -734,6 +734,7 @@
     SUBDIR += oolite
     SUBDIR += oonsoo
     SUBDIR += open-adventure
+    SUBDIR += openage
     SUBDIR += openalchemist
     SUBDIR += openarena
     SUBDIR += openarena-data
