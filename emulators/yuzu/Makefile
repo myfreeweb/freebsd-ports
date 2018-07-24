@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	yuzu
-PORTVERSION=	s20180709
+PORTVERSION=	s20180724
 PORTREVISION?=	0
 CATEGORIES=	emulators
 
@@ -25,14 +25,14 @@ ONLY_FOR_ARCHS_REASON=	https://github.com/MerryMage/dynarmic/issues/35
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	yuzu-emu
-GH_TAGNAME=	639346bcf
-GH_TUPLE=	MerryMage:dynarmic:f7d11baa1:dynarmic/externals/dynarmic \
+GH_TAGNAME=	316c994f
+GH_TUPLE=	MerryMage:dynarmic:fc6b73bd:dynarmic/externals/dynarmic \
 		benhoyt:inih:r40:inih/externals/inih/inih \
-		catchorg:Catch2:v2.1.1:catch/externals/catch \
-		fmtlib:fmt:4.0.0-510-g5859e58:fmt/externals/fmt \
+		catchorg:Catch2:v2.2.3:catch/externals/catch \
+		fmtlib:fmt:5.1.0:fmt/externals/fmt \
 		lz4:lz4:v1.8.2:lz4/externals/lz4 \
 		yuzu-emu:unicorn:73f4573:unicorn/externals/unicorn \
-		herumi:xbyak:v5.601:xbyak/externals/xbyak
+		herumi:xbyak:v5.65:xbyak/externals/xbyak
 
 USES=		cmake:outsource compiler:c++14-lang iconv localbase:ldflags
 USE_SDL=	sdl2
@@ -48,8 +48,8 @@ OPTIONS_EXCLUDE:=	${OPTIONS_MULTI_GUI}
 SDL_CMAKE_BOOL=	ENABLE_SDL2
 SDL_PLIST_FILES=bin/${PORTNAME}-cmd
 
-QT5_USES=	desktop-file-utils shared-mime-info
-QT5_USE=	QT5=qmake_build,buildtools_build,concurrent_build,core,gui,multimedia,opengl,widgets
+USE_QT=	qmake_build buildtools_build concurrent_build core gui multimedia opengl widgets
+QT5_USES=	qt:5 desktop-file-utils shared-mime-info
 QT5_CMAKE_BOOL=	ENABLE_QT
 QT5_PLIST_FILES=bin/${PORTNAME} \
 		share/applications/${PORTNAME}.desktop \
