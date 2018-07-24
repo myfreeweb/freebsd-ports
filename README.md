@@ -22,8 +22,6 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 - `graphics/mesa-dri` and `graphics/mesa-libs`:
 	- enabled VK_KHR_wayland_surface [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540)
 - `graphics/vulkan-sdk`: [Vulkan SDK](https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers) (headers, ICD loader, validation layers) [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
-- `graphics/libdrm`: 2.4.91
-- `x11/xcb-proto` and `x11/libxcb`: 1.13 [226502](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226502)
 
 NOTE: ANV (Intel Vulkan) requires running the apps as root and might not work for complex applications.
 RADV (Radeon Vulkan) with the `amdgpu` KMS/DRM driver works very well!
@@ -80,7 +78,7 @@ How to use Weston:
 - `x11-toolkits/gtk40`: git master, vulkan, skip installing gschemas (fix parallel install w/ gtk3)
 - `multimedia/shotcut`: 18.03.06
 - `emulators/mesen`: a NES emulator [227351](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227351)
-- `games/retroarch`: 1.7.1, add WAYLAND option [227345](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227345) (+ UDEV option but we don't have evdev gamepad drivers yet)
+- `games/retroarch`: 1.7.3, add WAYLAND option [227345](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227345) (+ UDEV option but we don't have evdev gamepad drivers yet)
 - `textproc/ibus`: add WAYLAND option (not actually used for toolkit based apps; also ibus's UI drawing is still X11 only)
 - `mail/geary`: workaround for [Vala/gee array null termination bug](https://bugzilla.gnome.org/show_bug.cgi?id=794731)
 - `graphics/simple-scan`: GNOME scanning app
@@ -95,7 +93,6 @@ How to use Weston:
 - `graphics/akira`: VERY WIP (nothing works yet) UI design tool
 - `x11/kitty`: GPU accelerated terminal emulator (note: terminfo)
 - `security/gonepass`: 1Password vault reader [226706](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226706)
-- `deskutils/mat`: Metadata Anonymization Toolkit (GTK3) [226702](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226702)
 - `databases/sequeler`: GTK3 SQL client
 - `databases/libgda5`: [unicode fix](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=870741) for build w/ new glib [226693](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226693)
 - `audio/picard`: update to git master (Qt5)
