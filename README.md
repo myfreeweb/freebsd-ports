@@ -50,6 +50,8 @@ It has a bit of extra crap beyond FreeBSD support (fractional HiDPI scaling, exp
 
 How to use Weston:
 
+- Install Mesa with full Wayland support (`WAYLAND` option, or `mesa-dev` from here)
+- Install `wayland-protocols` and `wayland` (newest, i.e. from here)
 - Install libinput from here (because it has [a permission fix](https://github.com/myfreeweb/freebsd-ports-dank/blob/master/x11/libinput/files/patch-src_evdev.c.reopen) so you don't have to give yourself access to `/dev/tty*`, `/dev/input/*`, `/dev/dri/*`, `/dev/drm/*`)
 - Install Weston from my fork
 - Add yourself to the `weston-launch` group
@@ -103,7 +105,6 @@ How to use Weston:
 - `audio/libechonest`: qt5 flavor for clementine [226529](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226529)
 - `devel/geany`: GTK3 [226523](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226523)
 - `devel/sdl20`: 2.0.8 [226409](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226409) (TEMPORARILY ROLLED BACK [#4109](https://bugzilla.libsdl.org/show_bug.cgi?id=4109))
-- `sysutils/u-boot-rpi3`: update to 2018.01, with netboot support [225355](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225355)
 - `lang/luajit`: update to 2.1.0-beta3 (works on arm64) [225342](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=225342)
 - `multimedia/gnome-twitch`: Twitch livestream player [224980](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224980)
 - `archivers/maxcso`: ISO to CSO compressor for PSP/PS2 emulators [224638](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=224638)
