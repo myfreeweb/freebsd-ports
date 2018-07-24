@@ -26,8 +26,6 @@ BROKEN_powerpc64=	fails to build: jit.c: 'JIT_LOCAL4' undeclared (first use in t
 BROKEN_FreeBSD_10_i386=	segfaults during build
 BROKEN_FreeBSD_11_i386=	segfaults during build
 BROKEN_FreeBSD_12_i386=	segfaults during build
-NOT_FOR_ARCHS=		aarch64 armv6 armv7 sparc64
-NOT_FOR_ARCHS_REASON=	not yet ported to this arch
 
 MAKE_JOBS_UNSAFE=yes
 
@@ -44,13 +42,10 @@ USE_LDCONFIG=	yes
 REINPLACE_ARGS=	-i ""
 USE_GNOME=	cairo pango
 
-OPTIONS_DEFINE=	FUTURES
-OPTIONS_DEFAULT=FUTURES
-
-OPTIONS_DEFINE_amd64=	JIT
-OPTIONS_DEFINE_i386=	JIT
-OPTIONS_DEFAULT_amd64=	JIT
-OPTIONS_DEFAULT_i386=	JIT
+OPTIONS_DEFINE_amd64=	JIT FUTURES
+OPTIONS_DEFINE_i386=	JIT FUTURES
+OPTIONS_DEFAULT_amd64=	JIT FUTURES
+OPTIONS_DEFAULT_i386=	JIT FUTURES
 
 FUTURES_DESC=	Enable futures
 JIT_DESC=	Enable JIT compiler
