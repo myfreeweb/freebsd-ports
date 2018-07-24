@@ -66,6 +66,10 @@ _USES_POST+=	gnome
 IGNORE=	USES=gnome takes no arguments
 .endif
 
+# glib-mkenums often fails with C locale
+# https://gitlab.gnome.org/GNOME/glib/issues/1430
+USE_LOCALE?=	en_US.UTF-8
+
 # non-version specific components
 _USE_GNOME_ALL= esound intlhack intltool introspection \
 		referencehack gnomemimedata \
