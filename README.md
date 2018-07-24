@@ -45,6 +45,21 @@ Tested on an AMD Polaris (RX 480) GPU.
 	- fix terminal handling without 'keyboard' driver [220562](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220562)
 - `x11-toolkits/efl`: 1.20.7 and Wayland support [226220](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226220)
 
+#### Weston
+
+A port for Weston is developed in [D10599](https://reviews.freebsd.org/D10599), but I use Weston directly from [my fork](https://github.com/myfreeweb/weston/commits/master).
+It has a bit of extra crap beyond FreeBSD support (fractional HiDPI scaling, experimental bugfixes, static linking support for the [Rust bindings](https://github.com/myfreeweb/weston-rs) that are the basis of [a future desktop environment](https://github.com/myfreeweb/dankshell)), and it's master, not a release.
+
+How to use Weston:
+
+- Install libinput from here (because it has [a permission fix](https://github.com/myfreeweb/freebsd-ports-dank/blob/master/x11/libinput/files/patch-src_evdev.c.reopen) so you don't have to give yourself access to `/dev/tty*`, `/dev/input/*`, `/dev/dri/*`, `/dev/drm/*`)
+- Install Weston from my fork
+- Add yourself to the `weston-launch` group
+- Make sure the `weston-launch` binary is suid and owned by root
+- Make sure you have an `XDG_RUNTIME_DIR` in the environment
+- Put your favorite keyboard settings into the environment e.g. `export XKB_DEFAULT_LAYOUT=us XKB_DEFAULT_VARIANT=colemak XKB_DEFAULT_MODEL=pc101 XKB_DEFAULT_RULES=evdev XKB_DEFAULT_OPTIONS="ctrl:nocaps,ctrl:lctrl_meta,compose:ralt,grp:alt_space_toggle"`
+- Run `weston-launch`!
+
 ### Games
 
 - `games/cataclysm-dda`: update to git master and fix everything [226418](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226418)
