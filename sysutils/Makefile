@@ -396,6 +396,7 @@
     SUBDIR += fusefs-ntfs-compression
     SUBDIR += fusefs-pod
     SUBDIR += fusefs-rar2fs
+    SUBDIR += fusefs-s3backer
     SUBDIR += fusefs-s3fs
     SUBDIR += fusefs-simple-mtpfs
     SUBDIR += fusefs-smbnetfs
@@ -1293,6 +1294,7 @@
     SUBDIR += ttyd
     SUBDIR += ttyload
     SUBDIR += tuptime
+    SUBDIR += turbostat
     SUBDIR += tw_cli
     SUBDIR += twmn
     SUBDIR += tzdialog
@@ -1427,7 +1429,8 @@
     SUBDIR += xe
     SUBDIR += xe-guest-utilities
     SUBDIR += xen-guest-tools
-    SUBDIR += xen-tools
+    SUBDIR += xen-tools411
+    SUBDIR += xen-tools47
     SUBDIR += xfburn
     SUBDIR += xfce4-battery-plugin
     SUBDIR += xfce4-bsdcpufreq-plugin

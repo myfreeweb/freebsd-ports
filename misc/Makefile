@@ -155,7 +155,6 @@
     SUBDIR += gkrellweather2
     SUBDIR += gkx86info2
     SUBDIR += gnome-devel-docs
-    SUBDIR += gnome-getting-started-docs
     SUBDIR += gnome-icon-theme
     SUBDIR += gnome-icon-theme-extras
     SUBDIR += gnome-mime-data
@@ -187,6 +186,7 @@
     SUBDIR += inplace
     SUBDIR += ipa_conv
     SUBDIR += ipbt
+    SUBDIR += ironscanner
     SUBDIR += iselect
     SUBDIR += iso-codes
     SUBDIR += jargon
@@ -242,7 +242,6 @@
     SUBDIR += kdeedu-kde4
     SUBDIR += kdeutils
     SUBDIR += kdeutils-kde4
-    SUBDIR += kf5-purpose
     SUBDIR += kenny
     SUBDIR += kf5-purpose
     SUBDIR += kgeography
@@ -253,10 +252,6 @@
     SUBDIR += ktouch
     SUBDIR += ktouch-kde4
     SUBDIR += kwordquiz
-    SUBDIR += kgeography-kde4
-    SUBDIR += klettres-kde4
-    SUBDIR += krecipes-kde4
-    SUBDIR += ktouch-kde4
     SUBDIR += kwordquiz-kde4
     SUBDIR += latex-mk
     SUBDIR += lazyread
@@ -307,6 +302,10 @@
     SUBDIR += nut
     SUBDIR += ondir
     SUBDIR += opencyc
+    SUBDIR += openhab2
+    SUBDIR += openhab2-addons
+    SUBDIR += openhmd
+    SUBDIR += openmvg
     SUBDIR += openr2
     SUBDIR += orange3
     SUBDIR += orville-write
@@ -414,6 +413,7 @@
     SUBDIR += py-emoji
     SUBDIR += py-fuzzy
     SUBDIR += py-glance
+    SUBDIR += py-kartograph
     SUBDIR += py-orange3-associate
     SUBDIR += py-orange3-datafusion
     SUBDIR += py-orange3-educational
@@ -427,6 +427,7 @@
     SUBDIR += py-progressbar2
     SUBDIR += py-progressbar231
     SUBDIR += py-pyfiglet
+    SUBDIR += py-pykml
     SUBDIR += py-pyprind
     SUBDIR += py-python-geohash
     SUBDIR += py-python-utils
@@ -439,6 +440,7 @@
     SUBDIR += py-socli
     SUBDIR += py-spdx
     SUBDIR += py-spdx-lookup
+    SUBDIR += py-spdx-tools
     SUBDIR += py-tqdm
     SUBDIR += py-yolk
     SUBDIR += pylize

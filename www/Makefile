@@ -1880,6 +1880,7 @@
     SUBDIR += py-txrequests
     SUBDIR += py-uliweb
     SUBDIR += py-unit
+    SUBDIR += py-url
     SUBDIR += py-urlgrabber
     SUBDIR += py-urlobject
     SUBDIR += py-user_agent

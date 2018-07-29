@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	picard-plugins
-PORTVERSION=	2.0.20180318
+PORTVERSION=	2.0.20180707
 CATEGORIES=	audio python
 
 MAINTAINER=	jhale@FreeBSD.org
@@ -11,12 +11,13 @@ LICENSE=	GPLv2+ GPLv3+ MIT WTFPL
 LICENSE_COMB=	multi
 
 USES=		python:3.5+
+USE_PYTHON=	noflavors
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	metabrainz
-GH_TAGNAME=	1182e33
+GH_TAGNAME=	975b968
 
-PORTSCOUT=	limit:^1\.
+PORTSCOUT=	limit:^2\.
 
 NO_ARCH=	yes
 SUB_FILES=	pkg-message
@@ -41,29 +42,31 @@ MP3_RUN_DEPENDS=	mp3gain:audio/mp3gain
 VORBIS_RUN_DEPENDS=	vorbisgain:audio/vorbisgain
 WAVPACK_RUN_DEPENDS=	wvgain:audio/wavpack
 
+post-patch:
+# The plugins lastfm, lastfmplus, and no_release have not been ported
+# upstream to the 2.x version of Picard and do no load
+	@(cd ${WRKSRC}/plugins; ${RM} -r lastfm lastfmplus no_release)
+
 do-build:
-	${PYTHON_CMD} -m compileall ${WRKSRC}/plugins
-	${PYTHON_CMD} -O -m compileall ${WRKSRC}/plugins
-
-
-do-install:
 # Plugins that include a separate UI (those with an __init__.py) must
 # be installed into their own subdirectories under PLUGINSDIR. Plugins
 # written as a single .py file must be installed directly in PLUGINSDIR.
-	@${MKDIR} ${STAGEDIR}${PLUGINSDIR}/__pycache__
+# We copy them into the correct hierarchy and compile them here.
+	@${MKDIR} ${WRKSRC}/build
 	@(cd ${WRKSRC}/plugins; \
 	   for dir in *; \
 	   do \
 	      if [ -f $${dir}/__init__.py ]; \
-	         then ${COPYTREE_SHARE} $${dir} ${STAGEDIR}${PLUGINSDIR} "! -name *\.orig"; \
-	         else \
-	             [ -d $${dir}/__pycache__ ] && \
-	                 ${INSTALL_DATA} $${dir}/__pycache__/* ${STAGEDIR}${PLUGINSDIR}/__pycache__/; \
-	             ${MV} $${dir}/__pycache__ ${STAGEDIR}${PLUGINSDIR}/_temp__pycache__; \
-	             ${INSTALL_DATA} $${dir}/* ${STAGEDIR}${PLUGINSDIR}; \
-	             ${MV} ${STAGEDIR}${PLUGINSDIR}/_temp__pycache__ $${dir}/__pycache__; \
+		 then ${CP} -R $${dir} ${WRKSRC}/build; \
+		 else ${CP} -R $${dir}/* ${WRKSRC}/build; \
 	      fi; \
 	   done;)
+	${PYTHON_CMD} -m compileall ${WRKSRC}/build
+	${PYTHON_CMD} -O -m compileall ${WRKSRC}/build
+
+do-install:
+	@${MKDIR} ${STAGEDIR}${PLUGINSDIR}
+	(cd ${WRKSRC}/build; ${COPYTREE_SHARE} . ${STAGEDIR}${PLUGINSDIR})
 
 post-install-BPM-off:
 	@${RM} -r ${STAGEDIR}${PLUGINSDIR}/bpm

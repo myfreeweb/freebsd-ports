@@ -595,6 +595,7 @@
     SUBDIR += p5-Set-Window
     SUBDIR += p5-Statistics-Basic
     SUBDIR += p5-Statistics-Benford
+    SUBDIR += p5-Statistics-CaseResampling
     SUBDIR += p5-Statistics-ChiSquare
     SUBDIR += p5-Statistics-Contingency
     SUBDIR += p5-Statistics-Descriptive
@@ -736,6 +737,7 @@
     SUBDIR += py-uncertainties
     SUBDIR += py-viper
     SUBDIR += py-yt
+    SUBDIR += py-z3
     SUBDIR += qalculate
     SUBDIR += qd
     SUBDIR += qhull

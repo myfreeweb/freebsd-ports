@@ -1057,6 +1057,7 @@
     SUBDIR += hs-haskell-lexer
     SUBDIR += hs-haskell-src
     SUBDIR += hs-haskell-src-exts
+    SUBDIR += hs-haskell-src-exts-util
     SUBDIR += hs-haskell-src-meta
     SUBDIR += hs-hasktags
     SUBDIR += hs-hex
@@ -1209,6 +1210,9 @@
     SUBDIR += hub
     SUBDIR += hwloc
     SUBDIR += hyperscan
+    SUBDIR += i386-binutils
+    SUBDIR += i386-gcc
+    SUBDIR += i386-xtoolchain-gcc
     SUBDIR += ice
     SUBDIR += icestorm
     SUBDIR += icmake
@@ -3841,6 +3845,7 @@
     SUBDIR += p5-version
     SUBDIR += p65
     SUBDIR += p8-platform
+    SUBDIR += packr
     SUBDIR += paexec
     SUBDIR += pam_wrapper
     SUBDIR += papi
@@ -4358,14 +4363,17 @@
     SUBDIR += py-backports
     SUBDIR += py-backports.csv
     SUBDIR += py-backports.functools_lru_cache
+    SUBDIR += py-backports.os
     SUBDIR += py-backports.shutil_get_terminal_size
     SUBDIR += py-backports.tempfile
     SUBDIR += py-backports.weakref
     SUBDIR += py-backports_abc
+    SUBDIR += py-banal
     SUBDIR += py-bandit
     SUBDIR += py-bcdoc
     SUBDIR += py-bidict
     SUBDIR += py-billiard
+    SUBDIR += py-binaryornot
     SUBDIR += py-biplist
     SUBDIR += py-bison
     SUBDIR += py-bitarray
@@ -4375,6 +4383,7 @@
     SUBDIR += py-blinker
     SUBDIR += py-blist
     SUBDIR += py-bluelet
+    SUBDIR += py-boolean.py
     SUBDIR += py-boto
     SUBDIR += py-botocore
     SUBDIR += py-bsd
@@ -4603,6 +4612,7 @@
     SUBDIR += py-iniparse
     SUBDIR += py-initgroups
     SUBDIR += py-instant
+    SUBDIR += py-intbitset
     SUBDIR += py-interface
     SUBDIR += py-intervaltree
     SUBDIR += py-invoke
@@ -4667,7 +4677,6 @@
     SUBDIR += py-lazr.delegates
     SUBDIR += py-lazy
     SUBDIR += py-lazy-object-proxy
-    SUBDIR += py-levenshtein
     SUBDIR += py-liblarch
     SUBDIR += py-libpeas
     SUBDIR += py-libplist
@@ -4789,6 +4798,7 @@
     SUBDIR += py-palm
     SUBDIR += py-parallax
     SUBDIR += py-parsedatetime
+    SUBDIR += py-patch
     SUBDIR += py-path.py
     SUBDIR += py-pathlib
     SUBDIR += py-pathlib2
@@ -4875,6 +4885,7 @@
     SUBDIR += py-pylru
     SUBDIR += py-pylru-cache
     SUBDIR += py-pymarc
+    SUBDIR += py-pymaven-patch
     SUBDIR += py-pympler
     SUBDIR += py-pymtbl
     SUBDIR += py-pyopencl
@@ -5007,6 +5018,7 @@
     SUBDIR += py-sanetime
     SUBDIR += py-sarge
     SUBDIR += py-schema
+    SUBDIR += py-schematics-patched
     SUBDIR += py-scripttest
     SUBDIR += py-sdl2
     SUBDIR += py-selection
@@ -5165,6 +5177,7 @@
     SUBDIR += py-yappi
     SUBDIR += py-yapps2
     SUBDIR += py-ydbf
+    SUBDIR += py-yg.lockfile
     SUBDIR += py-yum-metadata-parser
     SUBDIR += py-yunomi
     SUBDIR += py-z3c.autoinclude

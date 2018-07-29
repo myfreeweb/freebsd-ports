@@ -97,6 +97,7 @@
     SUBDIR += gigabase
     SUBDIR += gnats4
     SUBDIR += gnatsweb4
+    SUBDIR += go-carbon
     SUBDIR += gomdb
     SUBDIR += gosqlite3
     SUBDIR += gqlplus
@@ -127,7 +128,7 @@
     SUBDIR += jlog
     SUBDIR += jrobin
     SUBDIR += jrrd
-    SUBDIR += kbibtex-kde4
+    SUBDIR += kbibtex
     SUBDIR += kdb
     SUBDIR += kexi
     SUBDIR += kyotocabinet
@@ -204,6 +205,7 @@
     SUBDIR += mongodb34
     SUBDIR += mongodb34-tools
     SUBDIR += mongodb36
+    SUBDIR += mongodb36-tools
     SUBDIR += mroonga
     SUBDIR += mrtg-mysql-load
     SUBDIR += mtools-mongodb
@@ -588,9 +590,8 @@
     SUBDIR += pg_qualstats
     SUBDIR += pg_reorg
     SUBDIR += pg_repack
-    SUBDIR += pg_rman
+    SUBDIR += pg_similarity
     SUBDIR += pg_stat_kcache
-    SUBDIR += pg_statsinfo
     SUBDIR += pgaccess
     SUBDIR += pgadmin3
     SUBDIR += pgagent
@@ -709,7 +710,6 @@
     SUBDIR += postgresql-plv8js
     SUBDIR += postgresql-relay
     SUBDIR += postgresql-repmgr
-    SUBDIR += postgresql-repmgr2
     SUBDIR += postgresql-tds_fdw
     SUBDIR += postgresql-zhparser
     SUBDIR += postgresql10-client
@@ -720,14 +720,6 @@
     SUBDIR += postgresql10-plpython
     SUBDIR += postgresql10-pltcl
     SUBDIR += postgresql10-server
-    SUBDIR += postgresql92-client
-    SUBDIR += postgresql92-contrib
-    SUBDIR += postgresql92-docs
-    SUBDIR += postgresql92-pgtcl
-    SUBDIR += postgresql92-plperl
-    SUBDIR += postgresql92-plpython
-    SUBDIR += postgresql92-pltcl
-    SUBDIR += postgresql92-server
     SUBDIR += postgresql93-client
     SUBDIR += postgresql93-contrib
     SUBDIR += postgresql93-docs
@@ -1020,7 +1012,6 @@
     SUBDIR += rubygem-tarantool
     SUBDIR += sfcgal
     SUBDIR += sharedance
-    SUBDIR += sink
     SUBDIR += skytools
     SUBDIR += slony1v2
     SUBDIR += soci
