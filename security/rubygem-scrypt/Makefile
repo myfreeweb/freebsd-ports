@@ -14,7 +14,6 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 RUN_DEPENDS=	rubygem-ffi-compiler>=1.0:devel/rubygem-ffi-compiler
 
-NO_ARCH=	yes
 USE_RUBY=	yes
 USES=		gem
 
