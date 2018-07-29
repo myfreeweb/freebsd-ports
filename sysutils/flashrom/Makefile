@@ -12,8 +12,6 @@ COMMENT=	Utility for reading, writing, verifying, and erasing flash ROM chips
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-ONLY_FOR_ARCHS=	amd64 i386
-
 LIB_DEPENDS=	libpci.so:devel/libpci
 
 USES=		gmake tar:bzip2
@@ -24,8 +22,12 @@ PLIST_FILES=	bin/flashrom \
 		man/man8/flashrom.8.gz
 PORTDOCS=	*
 
-OPTIONS_DEFINE=		BUSPIRATE DMIDECODE DOCS FTDI
-OPTIONS_DEFAULT=	DMIDECODE FTDI
+OPTIONS_DEFINE=		BUSPIRATE DOCS FTDI
+OPTIONS_DEFINE_amd64=	DMIDECODE
+OPTIONS_DEFINE_i386=	DMIDECODE
+OPTIONS_DEFAULT=	FTDI
+OPTIONS_DEFAULT_amd64=	DMIDECODE
+OPTIONS_DEFAULT_i386=	DMIDECODE
 
 BUSPIRATE_DESC=		Enable buspirate support (broken)
 DMIDECODE_DESC=		Use dmidecode to gather DMI information
