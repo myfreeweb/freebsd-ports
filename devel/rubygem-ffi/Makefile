@@ -18,7 +18,7 @@ USE_RUBY=	yes
 USES=		gem
 
 post-patch:
-	${LN} -s x86_64-freebsd ${WRKSRC}/lib/ffi/platform/aarch64-freebsd
-	${LN} -s i386-freebsd ${WRKSRC}/lib/ffi/platform/arm-freebsd
+	@${LN} -s i386-freebsd ${WRKSRC}/lib/ffi/platform/arm-freebsd
+	@${LN} -s x86_64-freebsd ${WRKSRC}/lib/ffi/platform/aarch64-freebsd
 
 .include <bsd.port.mk>

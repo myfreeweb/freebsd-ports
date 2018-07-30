@@ -1,9 +1,8 @@
 # $FreeBSD$
 
-
 PORTNAME=	homerun
 PORTVERSION=	0.2.3
-PORTREVISION=	4
+PORTREVISION=	6
 CATEGORIES=	deskutils
 MASTER_SITES=	KDE/unstable/${PORTNAME}/src/
 
