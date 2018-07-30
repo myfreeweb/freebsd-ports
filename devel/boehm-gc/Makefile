@@ -31,6 +31,8 @@ TEST_TARGET=	check
 CONFIGURE_ARGS=	--enable-cplusplus
 MAKE_JOBS_UNSAFE=	yes
 
+# NOTE: do not --disable-static, static is useful for e.g. lang/crystal
+
 WRKSRC=		${WRKDIR}/${DISTNAME:C/[a-z]$//}
 
 OPTIONS_DEFINE=	DEBUG
