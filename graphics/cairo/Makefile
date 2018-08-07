@@ -47,7 +47,7 @@ OPTIONS_SUB=	yes
 X11_USE=	xorg=x11,xext,xrender
 X11_CONFIGURE_ENABLE=xlib
 
-OPENGL_USE=	gl=gl,egl xorg=glproto:both,dri2proto:both
+OPENGL_USE=	gl=gl,egl xorg=xorgproto:both
 OPENGL_CONFIGURE_ENABLE=gl egl
 OPENGL_IMPLIES=	X11
 

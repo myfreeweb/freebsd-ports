@@ -998,6 +998,7 @@
     SUBDIR += rawstudio
     SUBDIR += rawtherapee
     SUBDIR += rayshade
+    SUBDIR += reactphysics3d
     SUBDIR += reallyslick
     SUBDIR += recoverjpeg
     SUBDIR += renrot

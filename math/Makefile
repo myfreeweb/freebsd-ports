@@ -737,7 +737,7 @@
     SUBDIR += py-uncertainties
     SUBDIR += py-viper
     SUBDIR += py-yt
-    SUBDIR += py-z3
+    SUBDIR += py-z3-solver
     SUBDIR += qalculate
     SUBDIR += qd
     SUBDIR += qhull
@@ -843,6 +843,7 @@
     SUBDIR += yacas
     SUBDIR += yices
     SUBDIR += z3
+    SUBDIR += zegrapher
     SUBDIR += zimpl
 
 .include <bsd.port.subdir.mk>

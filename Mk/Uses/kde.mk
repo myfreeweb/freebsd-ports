@@ -803,7 +803,7 @@ kdepim-apps-libs_PORT=	deskutils/kdepim-apps-libs
 kdepim-apps-libs_LIB=	libKF5SendLater.so
 
 kdepim-runtime5_PORT=	deskutils/kdepim-runtime
-kdepim-runtime5_LIB=	libakonadi-filestore.so.5
+kdepim-runtime5_PATH=	${KDE_PREFIX}/lib/sasl2/libkdexoauth2.so
 
 kdepim5_PORT=		deskutils/kdepim
 kdepim5_PATH=		${KDE_PREFIX}/bin/akonadiconsole

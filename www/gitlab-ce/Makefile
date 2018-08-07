@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gitlab-ce
-PORTVERSION=	11.1.2
-PORTREVISION=	1
+PORTVERSION=	11.1.4
 CATEGORIES=	www devel
 
 MAINTAINER=	mfechner@FreeBSD.org
@@ -41,7 +40,7 @@ RUN_DEPENDS=	git>=2.16.2:devel/git \
 	rubygem-grape-path-helpers>=1.0:devel/rubygem-grape-path-helpers \
 	rubygem-faraday>=0.12.0:www/rubygem-faraday \
 	rubygem-devise>=4.4:devel/rubygem-devise \
-	rubygem-doorkeeper>=4.3:security/rubygem-doorkeeper \
+	rubygem-doorkeeper43>=4.3:security/rubygem-doorkeeper43 \
 	rubygem-doorkeeper-openid_connect>=1.5:security/rubygem-doorkeeper-openid_connect \
 	rubygem-omniauth>=1.8:security/rubygem-omniauth \
 	rubygem-omniauth-auth0>=2.0.0:net/rubygem-omniauth-auth0 \
@@ -69,7 +68,7 @@ RUN_DEPENDS=	git>=2.16.2:devel/git \
 	rubygem-validates_hostname>=1.0.6:dns/rubygem-validates_hostname \
 	rubygem-browser>=2.2:www/rubygem-browser \
 	rubygem-gpgme>=2.0.13:security/rubygem-gpgme \
-	rubygem-gitlab_omniauth-ldap>=2.0.4:net/rubygem-gitlab_omniauth-ldap \
+	rubygem-gitlab_omniauth-ldap20>=2.0.4:net/rubygem-gitlab_omniauth-ldap20 \
 	rubygem-net-ldap>=0.16.0:net/rubygem-net-ldap \
 	rubygem-gitlab-gollum-lib>=4.2.0:www/rubygem-gitlab-gollum-lib \
 	rubygem-gitlab-gollum-rugged_adapter>=0.4.4:www/rubygem-gitlab-gollum-rugged_adapter \
@@ -214,7 +213,7 @@ USE_RC_SUBR=	gitlab
 USE_GITLAB=	yes
 GL_ACCOUNT=	gitlab-org
 # Find the here: https://gitlab.com/gitlab-org/gitlab-ce/tags
-GL_COMMIT=	35936b0b6282db026128d21abe8f3490c1d376f2
+GL_COMMIT=	63daf37ad326bb4c4e74ebee8b8e2be7878b298f
 
 USERS=	git
 GROUPS=	git

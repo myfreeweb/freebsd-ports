@@ -188,6 +188,7 @@
     SUBDIR += b2
     SUBDIR += babeltrace
     SUBDIR += bam
+    SUBDIR += bashdb
     SUBDIR += bats-core
     SUBDIR += bazel
     SUBDIR += bazel-clang38
@@ -195,6 +196,7 @@
     SUBDIR += bbfreeze-loader
     SUBDIR += bcc
     SUBDIR += bcpp
+    SUBDIR += bcunit
     SUBDIR += bear
     SUBDIR += bennugd-core
     SUBDIR += bennugd-modules
@@ -923,6 +925,7 @@
     SUBDIR += hs-ConfigFile
     SUBDIR += hs-EdisonAPI
     SUBDIR += hs-EdisonCore
+    SUBDIR += hs-GenericPretty
     SUBDIR += hs-Glob
     SUBDIR += hs-HUnit
     SUBDIR += hs-IfElse
@@ -1033,6 +1036,7 @@
     SUBDIR += hs-filemanip
     SUBDIR += hs-filestore
     SUBDIR += hs-fmlist
+    SUBDIR += hs-fortran-src
     SUBDIR += hs-foundation
     SUBDIR += hs-free
     SUBDIR += hs-fsnotify
@@ -1605,6 +1609,7 @@
     SUBDIR += libtsm
     SUBDIR += libtuntap
     SUBDIR += libublio
+    SUBDIR += libubox
     SUBDIR += libudev-devd
     SUBDIR += libukcprog
     SUBDIR += libunicode
@@ -4405,6 +4410,7 @@
     SUBDIR += py-capstone
     SUBDIR += py-castellan
     SUBDIR += py-cbor
+    SUBDIR += py-cbor2
     SUBDIR += py-cclib
     SUBDIR += py-cdg
     SUBDIR += py-celery
@@ -4415,6 +4421,7 @@
     SUBDIR += py-characteristic
     SUBDIR += py-check-manifest
     SUBDIR += py-cheetah
+    SUBDIR += py-cheetah3
     SUBDIR += py-ciphon
     SUBDIR += py-circuits
     SUBDIR += py-cjson
@@ -5643,7 +5650,6 @@
     SUBDIR += rubygem-graf
     SUBDIR += rubygem-grape
     SUBDIR += rubygem-grape-entity
-    SUBDIR += rubygem-grape-entity060
     SUBDIR += rubygem-grape-path-helpers
     SUBDIR += rubygem-grape-route-helpers
     SUBDIR += rubygem-grape-swagger
@@ -5683,6 +5689,7 @@
     SUBDIR += rubygem-iobuffer
     SUBDIR += rubygem-iso8601
     SUBDIR += rubygem-jammit
+    SUBDIR += rubygem-jaro_winkler
     SUBDIR += rubygem-jasmine-core
     SUBDIR += rubygem-jbuilder
     SUBDIR += rubygem-jbuilder-rails5
