@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	vkquake
-DISTVERSION=	0.97.2
+DISTVERSION=	1.00.0
 CATEGORIES=	games
 
 MAINTAINER=	greg@unrelenting.technology
@@ -12,7 +12,7 @@ LICENSE_FILE=	${WRKSRC}/../LICENSE.txt
 
 LIB_DEPENDS=	libSDL2.so:devel/sdl20 \
 		libX11-xcb.so:x11/libX11 \
-		libvulkan.so:graphics/vulkan-sdk
+		libvulkan.so:graphics/vulkan-loader
 
 WRKSRC_SUBDIR=	Quake
 
