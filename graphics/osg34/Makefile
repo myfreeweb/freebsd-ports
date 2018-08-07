@@ -2,13 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	osg
-PORTVERSION=	3.5.1
-PORTREVISION=	4
+PORTVERSION=	3.4.1
+PKGNAMESUFFIX=	34
+DISTVERSIONPREFIX=	OpenSceneGraph-
+PORTREVISION=	1
 CATEGORIES=	graphics
-MASTER_SITES=	http://trac.openscenegraph.org/downloads/developer_releases/ \
-		http://mirror.amdmi3.ru/distfiles/
-PKGNAMESUFFIX=	-devel
-DISTNAME=	OpenSceneGraph-${PORTVERSION}
 
 MAINTAINER=	amdmi3@FreeBSD.org
 COMMENT=	C++ OpenGL scene graph library for real-time rendering
@@ -21,19 +19,23 @@ LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 LIB_DEPENDS=	libpng.so:graphics/png \
 		libtiff.so:graphics/tiff
 
-CONFLICTS=	osg-[0-9]*
+USE_GITHUB=	yes
+GH_ACCOUNT=	openscenegraph
+GH_PROJECT=	OpenSceneGraph
 
-USES=		alias cmake:outsource jpeg pkgconfig zip
+CONFLICTS=	osg-[0-9]* osg-devel-[0-9]*
+
+USES=		alias cmake:outsource jpeg pkgconfig
 USE_GL=		gl glu
 USE_XORG=	x11
 USE_LDCONFIG=	yes
 
 PLIST_SUB=	OSG_VERSION=${PORTVERSION} \
-		OSG_SHLIBVER=141 \
+		OSG_SHLIBVER=131 \
 		OPENTHREADS_VERSION=3.3.0 \
 		OPENTHREADS_SHLIBVER=20
 
-PORTSCOUT=	limitw:1,odd
+PORTSCOUT=	limitw:1,even
 
 OPTIONS_DEFINE=	CURL FFMPEG FREETYPE GDAL GIF GSTREAMER GTA INVENTOR \
 		JASPER LIBLAS LUA NVTT OPENEXR PDF SDL \
@@ -103,7 +105,7 @@ QT4_USE=		qt=corelib,gui,moc_build,opengl,qmake_build,rcc_build,uic_build
 QT4_CMAKE_ON=		-DDESIRED_QT_VERSION=4
 QT4_VARS=		FORCE_REQUIRE+=Qt4
 QT4_VARS_OFF=		FORCE_IGNORE+=Qt4
-QT5_USES=		qt:5
+QT5_USE=		qt:5
 QT5_USE=		qt=buildtools_build,core,gui,opengl,qmake_build,webkit
 QT5_CMAKE_ON=		-DDESIRED_QT_VERSION=5
 QT5_VARS=		FORCE_REQUIRE+="Qt5Widgets Qt5WebKitWidgets"
@@ -145,8 +147,8 @@ PLIST_SUB+=		QT="@comment "
 post-patch:
 	@${FIND} ${WRKSRC}/CMakeModules -type f -print0 | ${XARGS} -0 \
 		${REINPLACE_CMD} -e 's|/usr/local|${LOCALBASE}|g'
-	@${REINPLACE_CMD} -e '/FIND_LIBRARY.*DL_LIBRARY/ d; \
-		s|-pedantic||' ${WRKSRC}/CMakeLists.txt
+	@${REINPLACE_CMD} -e '/FIND_LIBRARY.*DL_LIBRARY/ d' \
+		${WRKSRC}/CMakeLists.txt
 .for p in ${FORCE_REQUIRE}
 	@${REINPLACE_CMD} -e '/FIND_PACKAGE.*${p}/ s|)$$| REQUIRED&|' \
 		${WRKSRC}/CMakeLists.txt

@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	osg
-PORTVERSION=	3.4.1
+PORTVERSION=	3.6.2
 DISTVERSIONPREFIX=	OpenSceneGraph-
 PORTREVISION=	1
 CATEGORIES=	graphics
@@ -22,7 +22,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	openscenegraph
 GH_PROJECT=	OpenSceneGraph
 
-CONFLICTS=	osg-devel-[0-9]*
+CONFLICTS=	osg34-[0-9]* osg-devel-[0-9]*
 
 USES=		alias cmake:outsource jpeg pkgconfig
 USE_GL=		gl glu
@@ -30,9 +30,9 @@ USE_XORG=	x11
 USE_LDCONFIG=	yes
 
 PLIST_SUB=	OSG_VERSION=${PORTVERSION} \
-		OSG_SHLIBVER=131 \
-		OPENTHREADS_VERSION=3.3.0 \
-		OPENTHREADS_SHLIBVER=20
+		OSG_SHLIBVER=157 \
+		OPENTHREADS_VERSION=3.3.1 \
+		OPENTHREADS_SHLIBVER=21
 
 PORTSCOUT=	limitw:1,even
 

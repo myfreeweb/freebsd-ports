@@ -1,5 +1,5 @@
---- src/OpenThreads/pthreads/PThread.cpp.orig	2011-06-24 00:09:26.000000000 +0400
-+++ src/OpenThreads/pthreads/PThread.cpp	2012-03-05 05:57:02.886704932 +0400
+--- src/OpenThreads/pthreads/PThread.cpp.orig	2018-06-29 12:56:35.000000000 +0300
++++ src/OpenThreads/pthreads/PThread.cpp	2018-07-12 22:10:15.672946000 +0300
 @@ -21,6 +21,7 @@
  #include <sys/types.h>
  #include <unistd.h>
@@ -7,31 +7,13 @@
 +#include <pthread_np.h>
  #include <limits.h>
  
- #if defined __linux || defined __sun || defined __APPLE__ || ANDROID
-@@ -136,7 +137,7 @@
- #if defined(__sgi)
-             pthread_setrunon_np( pd->cpunum );
- #elif defined(HAVE_PTHREAD_SETAFFINITY_NP) || defined(HAVE_THREE_PARAM_SCHED_SETAFFINITY) || defined(HAVE_TWO_PARAM_SCHED_SETAFFINITY)
--            cpu_set_t cpumask;
-+            cpuset_t cpumask;
-             CPU_ZERO( &cpumask );
-             CPU_SET( pd->cpunum, &cpumask );
- 
-@@ -569,7 +570,7 @@
- 
-     if (pd->isRunning && Thread::CurrentThread()==this)
-     {
--        cpu_set_t cpumask;
-+        cpuset_t cpumask;
-         CPU_ZERO( &cpumask );
-         CPU_SET( pd->cpunum, &cpumask );
- #if defined(HAVE_PTHREAD_SETAFFINITY_NP)
-@@ -1031,7 +1032,7 @@
-     else
-     {
- #if defined(HAVE_PTHREAD_SETAFFINITY_NP) || defined(HAVE_THREE_PARAM_SCHED_SETAFFINITY) || defined(HAVE_TWO_PARAM_SCHED_SETAFFINITY)
--        cpu_set_t cpumask;
-+        cpuset_t cpumask;
-         CPU_ZERO( &cpumask );
-         CPU_SET( cpunum, &cpumask );
- #if defined(HAVE_PTHREAD_SETAFFINITY_NP)
+ #if defined __linux__ || defined __sun || defined __APPLE__ || ANDROID
+@@ -113,7 +114,7 @@
+ static void setAffinity(const Affinity& affinity)
+ {
+     //std::cout<<"setProcessAffinity : "<< affinity.activeCPUs.size() <<std::endl;
+-    cpu_set_t cpumask;
++    cpuset_t cpumask;
+     CPU_ZERO( &cpumask );
+     unsigned int numprocessors = OpenThreads::GetNumberOfProcessors();
+     if (affinity)

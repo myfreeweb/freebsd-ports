@@ -1,0 +1,15 @@
+--- src/osgViewer/CMakeLists.txt.orig	2018-07-12 22:49:36.402831000 +0300
++++ src/osgViewer/CMakeLists.txt	2018-07-12 22:51:29.430404000 +0300
+@@ -214,12 +214,6 @@
+             ENDIF()
+         ENDIF()
+ 
+-        IF(OSGVIEWER_USE_XINERAMA)
+-            ADD_DEFINITIONS(-DOSGVIEWER_USE_XINERAMA)
+-            SET(LIB_PRIVATE_HEADERS ${LIB_PRIVATE_HEADERS} ${XINERAMA_INCLUDE_DIRS} )
+-            SET(LIB_EXTRA_LIBS -lXinerama ${LIB_EXTRA_LIBS})
+-        ENDIF()
+-
+         # X11 on Apple requires X11 library plus OpenGL linking hack on Leopard
+         IF(APPLE)
+             # hack for finding the iphone opengl es lib

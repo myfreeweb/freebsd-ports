@@ -115,6 +115,7 @@ How to use Weston:
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
 - `deskutils/lookbook`: icon browser [229873](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=229873)
+- `graphics/osg`: update to 3.6 [230442](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=230442)
 
 ### Ports framework
 

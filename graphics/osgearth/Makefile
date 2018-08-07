@@ -14,7 +14,7 @@ LICENSE=	LGPL3
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
 BUILD_DEPENDS=	minizip:archivers/minizip
-LIB_DEPENDS=	libosg.so:graphics/osg \
+LIB_DEPENDS=	libosg.so:graphics/osg34 \
 		libgdal.so:graphics/gdal \
 		libcurl.so:ftp/curl
 

@@ -1,15 +1,5 @@
 --- CMakeLists.txt.orig	2017-08-28 16:50:49 UTC
 +++ CMakeLists.txt
-@@ -252,6 +252,9 @@ ENDIF()
- 
- INCLUDE_DIRECTORIES(
-     ${OpenSceneGraph_SOURCE_DIR}/include
-+)
-+
-+INCLUDE_DIRECTORIES(SYSTEM
-     ${OPENGL_INCLUDE_DIR}
- )
- 
 @@ -846,7 +849,7 @@ ENDIF()
  
  IF(UNIX AND NOT WIN32 AND NOT APPLE)
