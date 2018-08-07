@@ -17,6 +17,7 @@ USE_LDCONFIG=	yes
 MAKE_ARGS=	CC=${CC}
 
 PLIST_SUB+=	VERSION=${DISTVERSION} LIBVERSION=${DISTVERSION:C/-.*//}
+
 BROKEN_powerpc64=	Not ported to powerpc64 upstream
 
 .include <bsd.port.options.mk>
@@ -28,6 +29,6 @@ USE_GCC=yes
 post-install:
 	${LN} -sf ${PORTNAME}-${DISTVERSION} \
 		${STAGEDIR}${PREFIX}/bin/${PORTNAME}
-	@${INSTALL_MAN} ${WRKSRC}/etc/luajit.1 ${STAGEDIR}${MAN1PREFIX}/man/man1
+	${INSTALL_MAN} ${WRKSRC}/etc/luajit.1 ${STAGEDIR}${MAN1PREFIX}/man/man1
 
 .include <bsd.port.mk>

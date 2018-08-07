@@ -3,7 +3,7 @@
 
 PORTNAME=	love
 PORTVERSION=	0.10.2
-PORTREVISION=	4
+PORTREVISION=	5
 CATEGORIES=	devel games
 MASTER_SITES=	https://bitbucket.org/rude/love/downloads/ \
 		http://mirror.amdmi3.ru/distfiles/
@@ -44,6 +44,10 @@ LUAJIT_USES_OFF=	lua
 LUAJIT_CONFIGURE_OFF=	--with-lua=lua \
 			--with-luaversion="${LUA_VER}"
 LUAJIT_CONFIGURE_ENV_OFF=LUA_EXECUTABLE="${LUA_CMD}"
+
+post-patch-LUAJIT-on:
+	@${REINPLACE_CMD} -e 's|luaL_reg|luaL_Reg|' \
+		${WRKSRC}/src/libraries/luasocket/libluasocket/*
 
 post-patch-LUAJIT-off:
 	@${REINPLACE_CMD} -e 's|$${with_lua}$${with_luaversion}|$${with_lua}-$${with_luaversion}|g' \
