@@ -21,7 +21,7 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 	- to install and keep pkg happy without rebuilding everything, just `pkg add -f` over existing `mesa-libs/dri`
 - `graphics/mesa-dri` and `graphics/mesa-libs`:
 	- enabled VK_KHR_wayland_surface [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540)
-- `graphics/vulkan-sdk`: [Vulkan SDK](https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers) (headers, ICD loader, validation layers) [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
+- `graphics/vulkan-loader` `devel/vulkan-headers` `devel/vulkan-validation-layers` `devel/vulkan-tools`: [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
 
 NOTE: ANV (Intel Vulkan) requires running the apps as root and might not work for complex applications.
 RADV (Radeon Vulkan) with the `amdgpu` KMS/DRM driver works very well!

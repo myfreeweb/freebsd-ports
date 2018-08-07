@@ -48,7 +48,7 @@ LDFLAGS+=	-Wl,--as-needed # GLU
 
 OPTIONS_DEFINE=	ALSA EVDEV GDB LLVM PULSEAUDIO VULKAN
 OPTIONS_DEFAULT=ALSA LLVM VULKAN
-.if !exists(${.CURDIR:H:H}/graphics/vulkan-sdk)
+.if !exists(${.CURDIR:H:H}/graphics/vulkan-loader)
 OPTIONS_EXCLUDE=VULKAN # XXX ports/222175
 .endif
 
@@ -70,7 +70,7 @@ PULSEAUDIO_LIB_DEPENDS=	libpulse-simple.so:audio/pulseaudio
 PULSEAUDIO_CMAKE_BOOL=	USE_PULSE
 
 VULKAN_DESC=		Vulkan renderer
-VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-sdk
+VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-loader
 VULKAN_CMAKE_BOOL=	USE_VULKAN
 
 post-patch:

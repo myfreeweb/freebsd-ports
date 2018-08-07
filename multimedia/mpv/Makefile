@@ -49,7 +49,7 @@ OPTIONS_GROUP_VO=	CACA OPENGL VULKAN VAAPI VDPAU WAYLAND X11
 OPTIONS_GROUP_AO=	ALSA JACK PULSEAUDIO SDL SNDIO
 OPTIONS_SUB=		yes
 
-.if !exists(${.CURDIR:H:H}/graphics/vulkan-sdk) || !exists(${.CURDIR:H:H}/graphics/shaderc)
+.if !exists(${.CURDIR:H:H}/graphics/vulkan-loader) || !exists(${.CURDIR:H:H}/graphics/shaderc)
 OPTIONS_EXCLUDE+=	VULKAN
 .endif
 
@@ -111,7 +111,7 @@ OPENGL_USE=			GL=egl,gbm,gl
 OPENGL_CONFIGURE_OFF=		--disable-gl
 OPENGL_IMPLIES=			X11
 
-VULKAN_LIB_DEPENDS=		libvulkan.so:graphics/vulkan-sdk \
+VULKAN_LIB_DEPENDS=		libvulkan.so:graphics/vulkan-loader \
 	libshaderc_shared.so:graphics/shaderc
 VULKAN_CONFIGURE_OFF=		--disable-vulkan
 VULKAN_IMPLIES=			X11
