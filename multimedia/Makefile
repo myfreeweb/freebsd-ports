@@ -4,6 +4,7 @@
     COMMENT = Multimedia software
 
     SUBDIR += 2mandvd
+    SUBDIR += Bento4
     SUBDIR += QtAV
     SUBDIR += ab25
     SUBDIR += abby
@@ -46,7 +47,6 @@
     SUBDIR += dirac
     SUBDIR += dragon
     SUBDIR += dragon-kde4
-    SUBDIR += dtv
     SUBDIR += dtv-scan-tables
     SUBDIR += dumpmpeg
     SUBDIR += dv2jpg
@@ -171,9 +171,8 @@
     SUBDIR += kamoso
     SUBDIR += kdemultimedia
     SUBDIR += kdemultimedia-ffmpegthumbs
-    SUBDIR += kdemultimedia-kde4
-    SUBDIR += kdemultimedia-ffmpegthumbs
     SUBDIR += kdemultimedia-ffmpegthumbs-kde4
+    SUBDIR += kdemultimedia-kde4
     SUBDIR += kdemultimedia-mplayerthumbs-kde4
     SUBDIR += kdenlive
     SUBDIR += kdenlive-kde4
@@ -320,7 +319,6 @@
     SUBDIR += photofilmstrip
     SUBDIR += php-pHash
     SUBDIR += pitivi
-    SUBDIR += plasma5-plasma-mediacenter
     SUBDIR += playd
     SUBDIR += plexmediaserver
     SUBDIR += plexmediaserver-plexpass
@@ -332,6 +330,7 @@
     SUBDIR += ptx-kmod
     SUBDIR += pwcbsd
     SUBDIR += pwcview
+    SUBDIR += py-PySceneDetect
     SUBDIR += py-cec
     SUBDIR += py-enzyme
     SUBDIR += py-flvlib
@@ -348,7 +347,6 @@
     SUBDIR += py-openlp
     SUBDIR += py-periscope
     SUBDIR += py-pretty_midi
-    SUBDIR += py-PySceneDetect
     SUBDIR += py-qt4-multimedia
     SUBDIR += py-qt4-phonon
     SUBDIR += py-qt5-multimedia

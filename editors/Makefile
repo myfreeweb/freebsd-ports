@@ -68,7 +68,6 @@
     SUBDIR += jed
     SUBDIR += jedit
     SUBDIR += joe
-    SUBDIR += joe2
     SUBDIR += jove
     SUBDIR += jucipp
     SUBDIR += jupp

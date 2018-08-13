@@ -1,3 +1,5 @@
+The `-mtune=native` flag is not supported on aarch64, remove it.
+
 --- CMakeLists.txt.orig	2018-07-11 20:29:53 UTC
 +++ CMakeLists.txt
 @@ -182,11 +182,11 @@ if (NOT MSVC)

@@ -1,6 +1,6 @@
---- src/avro/refcount.h.orig	2018-08-09 12:31:39 UTC
+--- src/avro/refcount.h.orig	2017-04-17 23:56:17 UTC
 +++ src/avro/refcount.h
-@@ -118,7 +118,7 @@ avro_refcount_dec(volatile int *refcount)
+@@ -118,7 +118,7 @@ avro_refcount_dec(volatile int *refcount
   * GCC intrinsics
   */
  

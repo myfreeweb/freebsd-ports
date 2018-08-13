@@ -43,8 +43,8 @@
     SUBDIR += axis2
     SUBDIR += bacula-web
     SUBDIR += baikal
-    SUBDIR += bareos16-webui
     SUBDIR += bareos-webui
+    SUBDIR += bareos16-webui
     SUBDIR += bigbluebutton
     SUBDIR += bins
     SUBDIR += bkmrkconv
@@ -1638,10 +1638,10 @@
     SUBDIR += py-django_polymorphic
     SUBDIR += py-djangocms-admin-style
     SUBDIR += py-djangorestframework
-    SUBDIR += py-djangorestframework36
     SUBDIR += py-djangorestframework-csv
     SUBDIR += py-djangorestframework-filters
     SUBDIR += py-djangorestframework-xml
+    SUBDIR += py-djangorestframework36
     SUBDIR += py-djangotoolbox
     SUBDIR += py-dojango
     SUBDIR += py-drf-yasg
@@ -1896,6 +1896,7 @@
     SUBDIR += py-websocket-client
     SUBDIR += py-webunit
     SUBDIR += py-werkzeug
+    SUBDIR += py-wfuzz
     SUBDIR += py-wikipedia
     SUBDIR += py-wikitools
     SUBDIR += py-ws4py
@@ -2266,8 +2267,8 @@
     SUBDIR += spreadlogd
     SUBDIR += sqstat
     SUBDIR += squid
-    SUBDIR += squid3
     SUBDIR += squid-devel
+    SUBDIR += squid3
     SUBDIR += squid_radius_auth
     SUBDIR += squidanalyzer
     SUBDIR += squidclamav
@@ -2481,6 +2482,7 @@
     SUBDIR += wsdlpull
     SUBDIR += wsmake
     SUBDIR += wt
+    SUBDIR += wuzz
     SUBDIR += www6to4
     SUBDIR += wwwoffle
     SUBDIR += xapian-omega
