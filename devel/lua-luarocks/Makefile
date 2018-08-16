@@ -1,10 +1,9 @@
 # $FreeBSD$
 
 PORTNAME=	luarocks
-PORTVERSION=	2.4.4
-DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+DISTVERSION=	3.0.1
 CATEGORIES=	devel
+MASTER_SITES=	https://${PORTNAME}.github.io/${PORTNAME}/releases/
 PKGNAMEPREFIX=	${LUA_PKGNAMEPREFIX}
 
 MAINTAINER=	jbeich@FreeBSD.org
@@ -16,17 +15,14 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 RUN_DEPENDS=	zip:archivers/zip \
 		curl:ftp/curl
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	keplerproject
-
+USES=		gmake uniquefiles
 NO_ARCH=	yes
 HAS_CONFIGURE=	yes
 CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		--with-lua-include=${LUA_INCDIR} \
-		--lua-version=${LUA_VER} \
-		--with-downloader=curl \
-		--versioned-rocks-dir
-ALL_TARGET=	build
+		--lua-version=${LUA_VER}
+UNIQUE_SUFFIX=	-${LUA_VER}
+UNIQUE_SUFFIX_FILES=	bin/${PORTNAME} bin/${PORTNAME}-admin
 
 OPTIONS_DEFINE=	LUAJIT
 LUAJIT_DESC=		Use LuaJIT instead of Lua
@@ -35,18 +31,21 @@ LUAJIT_RUN_DEPENDS=	luajit:lang/luajit
 LUAJIT_CONFIGURE_ON=	--lua-suffix=jit
 LUAJIT_PLIST_SUB=	LUA_VER=${LUA_VER} \
 			LUA_MODSHAREDIR=share/lua/${LUA_VER}
-LUAJIT_VARS=		LUA_INCDIR=${LOCALBASE}/include/luajit-2.1 \
+LUAJIT_VARS=		LUA_INCDIR=${LOCALBASE}/include/luajit-2.0 \
 			LUA_VER=5.1 LUA_PKGNAMEPREFIX=lua51-
 LUAJIT_USES_OFF=	lua
 
 post-patch:
-# Don't install unprefixed binaries to avoid package conflict with
-# luarocks built against different lang/lua* versions
-	@${REINPLACE_CMD} '/ln -/d' ${WRKSRC}/Makefile.install.inc
+# /usr/local is a mix of site-local data and packages installs.
+# If PREFIX/LOCALBASE changes look for dependencies there as well.
+.if defined(PREFIX) && ${PREFIX} != "/usr/local" && ${PREFIX} != "/usr"
+	@${REINPLACE_CMD} '/external_deps_dirs/s,{ ,&"${PREFIX}"\, ,' \
+		${WRKSRC}/src/luarocks/core/cfg.lua
+.endif
 
-post-build:
-# NO_ARCH requires https://bugs.archlinux.org/task/40388
-	@${REINPLACE_CMD} -e '/LUAROCKS_UNAME_M/d' \
-		${WRKSRC}/src/luarocks/site_config.lua
+post-install:
+# Let @sample manage default config
+	${MV} ${STAGEDIR}${ETCDIR}/config-${LUA_VER}.lua \
+		${STAGEDIR}${ETCDIR}/config-${LUA_VER}.lua.sample
 
 .include <bsd.port.mk>
