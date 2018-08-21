@@ -71,7 +71,6 @@
     SUBDIR += linux_base-c7
     SUBDIR += lisaem
     SUBDIR += loemu
-    SUBDIR += m2000
     SUBDIR += mame
     SUBDIR += mastergear
     SUBDIR += mednafen

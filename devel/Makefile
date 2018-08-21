@@ -147,7 +147,6 @@
     SUBDIR += arpc
     SUBDIR += art
     SUBDIR += artifactory
-    SUBDIR += as31
     SUBDIR += asl
     SUBDIR += asmutils
     SUBDIR += asmx
@@ -197,17 +196,16 @@
     SUBDIR += bcpp
     SUBDIR += bcunit
     SUBDIR += bear
+    SUBDIR += benchmark
     SUBDIR += bennugd-core
     SUBDIR += bennugd-modules
     SUBDIR += bglibs
-    SUBDIR += bhyve-vm-goagent
     SUBDIR += bicyclerepair
     SUBDIR += bin86
     SUBDIR += binaryen
     SUBDIR += bingrep
     SUBDIR += binutils
     SUBDIR += bison
-    SUBDIR += bisoncpp
     SUBDIR += blame
     SUBDIR += blitz
     SUBDIR += bmake
@@ -287,8 +285,6 @@
     SUBDIR += check
     SUBDIR += checkbashisms
     SUBDIR += checkheaders
-    SUBDIR += cheritrace-devel
-    SUBDIR += cherivis-devel
     SUBDIR += chromium-gn
     SUBDIR += chrpath
     SUBDIR += chruby
@@ -673,6 +669,7 @@
     SUBDIR += frama-c
     SUBDIR += frink
     SUBDIR += fsmtrie
+    SUBDIR += fstrcmp
     SUBDIR += fstrm
     SUBDIR += ftjam
     SUBDIR += ftnchek
@@ -695,7 +692,6 @@
     SUBDIR += gconfmm26
     SUBDIR += gcvs
     SUBDIR += gdb
-    SUBDIR += gdbmods
     SUBDIR += gdcm
     SUBDIR += geany
     SUBDIR += geany-plugin-addons
@@ -797,6 +793,7 @@
     SUBDIR += glademm
     SUBDIR += glib12
     SUBDIR += glib20
+    SUBDIR += glib20-reference
     SUBDIR += glibmm
     SUBDIR += glibmm-reference
     SUBDIR += global
@@ -1254,7 +1251,6 @@
     SUBDIR += jam
     SUBDIR += jansson
     SUBDIR += java-findbugs
-    SUBDIR += javolution
     SUBDIR += jclassinfo
     SUBDIR += jcmdline
     SUBDIR += jech-dht
@@ -1333,8 +1329,6 @@
     SUBDIR += kf5-kunitconversion
     SUBDIR += kf5-solid
     SUBDIR += kf5-threadweaver
-    SUBDIR += kickassembler
-    SUBDIR += kio-extras
     SUBDIR += kimwitu
     SUBDIR += kio-extras
     SUBDIR += kodi-platform
@@ -1488,7 +1482,7 @@
     SUBDIR += libk8055
     SUBDIR += libkgapi-kde4
     SUBDIR += libklel
-    SUBDIR += libkolab-kde4
+    SUBDIR += libkolab
     SUBDIR += liblangtag
     SUBDIR += liblas
     SUBDIR += liblas12
@@ -1591,6 +1585,7 @@
     SUBDIR += libsmraw
     SUBDIR += libsoup
     SUBDIR += libsoup-gnome
+    SUBDIR += libsoup-reference
     SUBDIR += libspark2012
     SUBDIR += libspice-server
     SUBDIR += libstatgrab
@@ -4196,6 +4191,7 @@
     SUBDIR += poxml
     SUBDIR += poxml-kde4
     SUBDIR += ppl
+    SUBDIR += pprof
     SUBDIR += pragmarcs
     SUBDIR += premake
     SUBDIR += premake4
@@ -4415,6 +4411,7 @@
     SUBDIR += py-cclib
     SUBDIR += py-cdg
     SUBDIR += py-celery
+    SUBDIR += py-cerberus
     SUBDIR += py-certsrv
     SUBDIR += py-cffi
     SUBDIR += py-cfgparse
@@ -4430,6 +4427,7 @@
     SUBDIR += py-cli-helpers
     SUBDIR += py-cliapp
     SUBDIR += py-click
+    SUBDIR += py-click-completion
     SUBDIR += py-click-log
     SUBDIR += py-click-plugins
     SUBDIR += py-click-threading
@@ -5049,6 +5047,7 @@
     SUBDIR += py-setuptools_scm
     SUBDIR += py-sh
     SUBDIR += py-shapely
+    SUBDIR += py-shellingham
     SUBDIR += py-should_dsl
     SUBDIR += py-simpleeval
     SUBDIR += py-simplegeneric
@@ -5418,7 +5417,6 @@
     SUBDIR += ruby-gems
     SUBDIR += ruby-korundum-kde4
     SUBDIR += ruby-krossruby-kde4
-    SUBDIR += ruby-ncurses
     SUBDIR += ruby-qtruby-kde4
     SUBDIR += ruby-rbprof
     SUBDIR += ruby-sdl
@@ -6087,6 +6085,7 @@
     SUBDIR += rudeconfig
     SUBDIR += rudiments
     SUBDIR += runsnakerun
+    SUBDIR += rust-cbindgen
     SUBDIR += rvi
     SUBDIR += rvm
     SUBDIR += sabre
@@ -6216,7 +6215,6 @@
     SUBDIR += tclvfs
     SUBDIR += tclxml
     SUBDIR += tdl
-    SUBDIR += template-glib
     SUBDIR += terminality
     SUBDIR += tevent
     SUBDIR += tex-kpathsea
@@ -6299,6 +6297,7 @@
     SUBDIR += xdg-utils
     SUBDIR += xdgpaths
     SUBDIR += xeus
+    SUBDIR += xeus-cling
     SUBDIR += xfce4-dev-tools
     SUBDIR += xfce4-vala
     SUBDIR += xmake
@@ -6330,6 +6329,7 @@
     SUBDIR += z80-asm
     SUBDIR += z80asm
     SUBDIR += z80ex
+    SUBDIR += zanata-cli
     SUBDIR += zapcc
     SUBDIR += zeal
     SUBDIR += zookeeper

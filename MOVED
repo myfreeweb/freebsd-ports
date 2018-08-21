@@ -10433,3 +10433,58 @@ lang/clang33|devel/llvm60|2018-08-13|Obsolete and unmaintained
 devel/llvm34|devel/llvm60|2018-08-13|Obsolete and unmaintained
 lang/clang34|devel/llvm60|2018-08-13|Obsolete and unmaintained
 databases/mongodb|databases/mongodb34|2018-08-15|Has expired: End of Life October 2016
+net/traceroute||2018-08-16|Has expired: Upstream gone
+net/e169-stats||2018-08-16|Has expired: unknown license
+net/l4ip||2018-08-16|Has expired: unknown license
+net/dhcprelay||2018-08-16|Has expired: unknown license
+emulators/m2000||2018-08-16|Has expired: unknown license
+textproc/ant-xinclude-task||2018-08-16|Has expired: unknown license
+textproc/bomstrip||2018-08-16|Has expired: unknown license
+x11-fonts/ecofont||2018-08-16|Has expired: unknown license
+mail/roundcube-groupvice||2018-08-16|Has expired: unknown license
+security/pft||2018-08-16|Has expired: unknown license
+devel/kickassembler||2018-08-16|Has expired: unknown license
+devel/gdbmods||2018-08-16|Has expired: unknown license
+devel/as31||2018-08-16|Has expired: unknown license
+databases/dbf2mysql||2018-08-16|Has expired: unknown license
+misc/xpns||2018-08-16|Has expired: unknown license
+misc/amfm||2018-08-16|Has expired: unknown license
+games/smashbattle||2018-08-16|Has expired: unknown license
+games/syobon||2018-08-16|Has expired: unknown license
+games/optimax||2018-08-16|Has expired: unknown license
+games/xgospel||2018-08-16|Has expired: unknown license
+biology/blat||2018-08-16|Has expired: unknown license
+x11-clocks/swisswatch||2018-08-16|Has expired: unknown license
+palm/ppmtoTbmp||2018-08-16|Has expired: unknown license
+dns/ghtool||2018-08-16|Has expired: unknown license
+x11-themes/beastie||2018-08-16|Has expired: unknown license
+converters/uudx||2018-08-16|Has expired: unknown license
+sysutils/areca-cli||2018-08-16|Has expired: unknown license
+net-im/tox12|net-im/tox|2018-08-18|Unused
+www/moodle32|www/moodle33|2018-08-19|Has expired: Deprecated by upstream
+archivers/opkg|archivers/opkg-openwrt|2018-08-20|Better naming
+net/openmq||2018-08-21|Has expired: Broken for more than 5 months
+net/coda6_server||2018-08-21|Has expired: Broken for more than 5 months
+net/ceph-devel||2018-08-21|Has expired: Broken for more than 5 months
+java/jgrapht||2018-08-21|Has expired: Broken for more than 5 months
+mail/mutt14||2018-08-21|Has expired: mutt 1.4.x has been out of support for 10+ years use mail/mutt
+www/pydio||2018-08-21|Has expired: Broken for more than 5 months
+security/fastd-devel||2018-08-21|Has expired: Broken for more than 5 months
+security/fastd||2018-08-21|Has expired: Broken for more than 5 months
+devel/bhyve-vm-goagent||2018-08-21|Has expired: Broken for more than 5 months
+devel/cherivis-devel||2018-08-21|Has expired: Depends on broken and expiring cheritrace-devel
+devel/cheritrace-devel||2018-08-21|Has expired: Broken for more than 5 months
+devel/javolution||2018-08-21|Has expired: Broken for more than 5 months
+devel/bisoncpp||2018-08-21|Has expired: Depends on broken and expiring libbobcat
+databases/php5-pdo_cassandra||2018-08-21|Has expired: Broken for more than 5 months
+games/crafty-open-large||2018-08-21|Has expired: Broken for more than 5 months
+games/crafty-open-enormous||2018-08-21|Has expired: Broken for more than 5 months
+games/crafty-open-medium||2018-08-21|Has expired: Broken for more than 5 months
+math/jakarta-commons-math||2018-08-21|Has expired: Broken for more than 5 months
+math/hfst||2018-08-21|Has expired: Broken for more than 5 months
+math/octave-forge-communications||2018-08-21|Has expired: Broken for more than 5 months
+lang/v8-devel||2018-08-21|Has expired: Broken for more than 5 months
+sysutils/rubygem-fluentd010||2018-08-21|Has expired: Broken for more than 5 months
+mail/mutt14-lite||2018-08-21|Remove expired slave port
+net/coda6_client||2018-08-21|Remove expired slave port
+net/openmq-client|2018-08-21|Remove expired slave port

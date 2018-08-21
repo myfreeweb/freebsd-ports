@@ -499,7 +499,6 @@
     SUBDIR += mongoose
     SUBDIR += mongrel2
     SUBDIR += moodle31
-    SUBDIR += moodle32
     SUBDIR += moodle33
     SUBDIR += moodle34
     SUBDIR += moodle35
@@ -1908,7 +1907,6 @@
     SUBDIR += py-zope.app.wsgi
     SUBDIR += pyblosxom
     SUBDIR += pycarddav
-    SUBDIR += pydio
     SUBDIR += pyjamas
     SUBDIR += qdecoder
     SUBDIR += qhttpengine

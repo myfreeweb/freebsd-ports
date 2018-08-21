@@ -34,7 +34,6 @@
     SUBDIR += am-aspell
     SUBDIR += amberfish
     SUBDIR += ansifilter
-    SUBDIR += ant-xinclude-task
     SUBDIR += antiword
     SUBDIR += apache-poi
     SUBDIR += apache-solr
@@ -65,7 +64,6 @@
     SUBDIR += bibtool
     SUBDIR += bibutils
     SUBDIR += bn-aspell
-    SUBDIR += bomstrip
     SUBDIR += br-aspell
     SUBDIR += bsddiff
     SUBDIR += bsdgrep
@@ -1384,6 +1382,7 @@
     SUBDIR += py-qt5-xml
     SUBDIR += py-qt5-xmlpatterns
     SUBDIR += py-rdflib
+    SUBDIR += py-recommonmark
     SUBDIR += py-regex
     SUBDIR += py-reno
     SUBDIR += py-reverend
