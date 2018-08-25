@@ -62,13 +62,14 @@ INSTALL_TARGET=		install
 
 BROWSER_PLUGINS_DIR?=	${LOCALBASE}/lib/browser_plugins/symlinks/webkit-gtk3
 
-OPTIONS_DEFINE=		DEBUG GEOIP NPAPI WAYLAND
+OPTIONS_DEFINE=		DEBUG GEOIP NPAPI MSE WAYLAND
 OPTIONS_DEFAULT=	GEOIP
 OPTIONS_DEFAULT_i386=	NPAPI
 OPTIONS_DEFAULT_amd64=	NPAPI
 OPTIONS_SUB=		yes
 
 NPAPI_DESC=		Support gtk2 (NPAPI) based plugins (like flash)
+MSE_DESC=		Support Media Source Extensions
 
 # Building WebKit with debugging symbols requires ar and ld with
 # support for thin archives.  Also see
@@ -91,6 +92,8 @@ GEOIP_RUN_DEPENDS=	geoclue>=2.4.3:net/geoclue
 
 NPAPI_CMAKE_BOOL=	ENABLE_PLUGIN_PROCESS_GTK2
 NPAPI_USE=		GNOME=gtk20
+
+MSE_CMAKE_BOOL=	ENABLE_MEDIA_SOURCE
 
 WAYLAND_CMAKE_BOOL=	ENABLE_WAYLAND_TARGET
 WAYLAND_LIB_DEPENDS=	libwayland-egl.so:graphics/wayland
