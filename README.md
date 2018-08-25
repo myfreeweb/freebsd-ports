@@ -116,6 +116,8 @@ How to use Weston:
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
 - `deskutils/lookbook`: icon browser [229873](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=229873)
 - `graphics/osg`: update to 3.6 [230442](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=230442)
+- `www/epiphany`: use MSE if available
+- `www/webkit2-gtk3`: option to enable MSE (note: broken with VP9 for now, youtube crashes)
 
 ### Ports framework
 
