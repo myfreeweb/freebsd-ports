@@ -56,6 +56,10 @@ OPTIONS_DEFINE=		DYNAMIC PROFILE DOCS
 OPTIONS_SUB=		yes
 
 OPTIONS_DEFAULT=	PROFILE DYNAMIC
+# ghci segfaults on arm when dynamic linking is used
+OPTIONS_EXCLUDE_armv6=	DYNAMIC
+OPTIONS_EXCLUDE_armv7=	DYNAMIC
+OPTIONS_EXCLUDE_aarch64=	DYNAMIC
 
 BOOT_DESC=		Use installed GHC for bootstrapping
 BOOTH_DESC=		Use installed HsColour for bootstrapping
@@ -97,20 +101,20 @@ DISTFILES+=		ghc-${BOOT_GHC_VERSION}-boot-${ARCH}-freebsd${EXTRACT_SUFX}:boot
 # CONFIGURE_TARGET must to be the same as the llvm triple
 CONFIGURE_TARGET=	${ARCH}-unknown-freebsd${"${ARCH:Maarch64}" != "":?:-gnueabihf}
 EXTRA_PATCHES+=		${PATCHDIR}/extra-patch-aclocal.m4
-BUILD_DEPENDS+=		${LOCALBASE}/bin/ld.gold:devel/binutils \
+BUILD_DEPENDS+=		ld.gold:devel/binutils \
 			llc50:devel/llvm50
-RUN_DEPENDS+=		${LOCALBASE}/bin/ld.gold:devel/binutils \
+RUN_DEPENDS+=		ld.gold:devel/binutils \
 			llc50:devel/llvm50
 USE_GCC=		yes
 CONFIGURE_ENV+=		OPT=opt50 LLC=llc50
 
-.if ${OSVERSION} < 1200064
-IGNORE=	lang/ghc requires at least __FreeBSD_version 1200064
-.endif
+.  if ${OSVERSION} < 1200064
+IGNORE=	lang/ghc on ARM requires at least __FreeBSD_version 1200064
+.  endif
 
-.ifdef QEMU_EMULATING
-IGNORE=	qemu-user-static is too buggy to build lang/ghc, it builds fine on a real hardware
-.endif
+.  ifdef QEMU_EMULATING
+IGNORE=	qemu-user-static isn't able to build lang/ghc, but it builds fine on a real hardware
+.  endif
 .endif
 
 # Turn off for a while, see PR 228727
@@ -179,6 +183,7 @@ CONFIGURE_ENV+=	PATH=${SLAVES_PREFIX}/bin:${PATH}
 .endif # MDOCS
 
 post-extract:
+# don't use the "wrap" trick on arches that use post-ino64 bootstrap binaries (arm*)
 .if empty(PORT_OPTIONS:MBOOT) && ${OPSYS} == FreeBSD && ${OSVERSION} >= 1200031 && \
     ${ARCH} != aarch64 && ${ARCH} != armv6 && ${ARCH} != armv7
 	@${REINPLACE_CMD} -e 's|@SettingsCCompilerLinkFlags@|& -Wl,--wrap=readdir_r,--wrap=stat,--wrap=lstat,--wrap=fstat,--wrap=mknod|' ${BOOT_DIR}/settings.in
@@ -215,7 +220,7 @@ post-patch:
 		${WRKSRC}/libraries/Cabal/Cabal/Distribution/Simple/Program/Builtin.hs
 # we must use binutils:ld on arm
 .if ${ARCH} == aarch64 || ${ARCH} == armv6 || ${ARCH} == armv7
-	@${REINPLACE_CMD} -e 's|LD_NO_GOLD=ld|LD_NO_GOLD=${PREFIX}/bin/ld|' \
+	@${REINPLACE_CMD} -e 's|LD_NO_GOLD=ld|LD_NO_GOLD=${LOCALBASE}/bin/ld|' \
 		${WRKSRC}/aclocal.m4
 .endif
 

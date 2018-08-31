@@ -70,16 +70,16 @@ KDE_PLASMA_VERSION?=		5.12.5
 KDE_PLASMA_BRANCH?=		stable
 
 # Current KDE frameworks.
-KDE_FRAMEWORKS_VERSION?=	5.48.0
+KDE_FRAMEWORKS_VERSION?=	5.49.0
 KDE_FRAMEWORKS_BRANCH?= 	stable
 
 # Current KDE applications.
-KDE_APPLICATIONS_VERSION?=	18.04.3
-KDE_APPLICATIONS_SHLIB_VER?=	5.8.3
+KDE_APPLICATIONS_VERSION?=	18.08.0
+KDE_APPLICATIONS_SHLIB_VER?=	5.9.0
 KDE_APPLICATIONS_BRANCH?=	stable
 # Upstream moves old software to Attic/. Specify the newest applications release there.
 # Only the major version is used for the comparison.
-_KDE_APPLICATIONS_ATTIC_VERSION=	16.12.3
+_KDE_APPLICATIONS_ATTIC_VERSION=	17.08.3
 
 # Extended KDE universe applications.
 CALLIGRA_VERSION?=		2.9.11
@@ -196,8 +196,7 @@ CMAKE_ARGS+=	-DKDE_INSTALL_MANDIR:PATH="${KDE_PREFIX}/man" \
 # Prefix and include directory.
 PLIST_SUB+=		KDE_PREFIX="${KDE_PREFIX}"
 # KDE Applications version.
-PLIST_SUB+=		KDE_APPLICATIONS_VERSION="${KDE_APPLICATIONS_VERSION}" \
-			KDE_APPLICATIONS_VERSION_SHORT="${KDE_APPLICATIONS_VERSION:R:R}"
+PLIST_SUB+=		KDE_APPLICATIONS_VERSION="${KDE_APPLICATIONS_VERSION}"
 # For KDE4 applications provide KDE4 version numbers.
 .  if ${_KDE_VERSION:M*4*}
 PLIST_SUB+=		KDE4_VERSION="${KDE4_VERSION}" \
@@ -231,7 +230,7 @@ _USE_KDE_BOTH=		akonadi attica libkcddb libkcompactdisc libkdcraw libkdegames \
 
 _USE_KDE4_ALL=		baloo baloo-widgets baseapps kactivities kdelibs \
 			kfilemetadata korundum \
-			libkonq nepomuk-core nepomuk-widgets \
+			libkonq  nepomuk-core nepomuk-widgets \
 			oxygen-icons5 perlkde perlqt pimlibs pykde4 \
 			pykdeuic4 qtruby runtime smokegen smokekde smokeqt \
 			workspace
@@ -251,7 +250,7 @@ _USE_FRAMEWORKS_TIER1=	apidox archive attica5 breeze-icons codecs config \
 			threadweaver wayland widgetsaddons windowsystem
 # NOT LISTED TIER1: modemmanagerqt networkmanagerqt (not applicable)
 
-_USE_FRAMEWORKS_TIER2=	activities-stats auth completion crash doctools \
+_USE_FRAMEWORKS_TIER2=	auth completion crash doctools \
 			filemetadata kimageformats jobwidgets notifications \
 			package pty unitconversion
 
@@ -297,7 +296,7 @@ _USE_KDEPIM5_ALL=	akonadicontacts akonadiimportwizard akonadimime akonadinotes \
 			contacts eventviews gapi grantleetheme \
 			gravatar identitymanagement imap \
 			incidenceeditor kdepim-addons kdepim-apps-libs \
-			kdepim-runtime5 kdepim5 kontactinterface kpimdav \
+			kdepim-runtime5 kitinerary kontactinterface kpimdav kpkpass \
 			ksmtp ldap libkdepim libkleo libksieve mailcommon \
 			mailimporter mailtransport mbox messagelib \
 			mime pimcommon pimtextedit syndication tnef \
@@ -317,7 +316,7 @@ baseapps_PORT=		x11/kde-baseapps-kde4
 baseapps_PATH=		${KDE_PREFIX}/bin/kfmclient
 baseapps_TYPE=		run
 
-kactivities_PORT=	x11/kactivities-kde4
+kactivities_PORT=	x11/kactivities
 kactivities_LIB=	libkactivities.so
 
 kdelibs_PORT=		x11/kdelibs-kde4
@@ -797,16 +796,16 @@ incidenceeditor_PORT=	net/incidenceeditor
 incidenceeditor_LIB=	libKF5IncidenceEditor.so
 
 kdepim-addons_PORT=	deskutils/kdepim-addons
-kdepim-addons_PATH=	${KDE_PREFIX}/lib/akonadi/contact/editorpageplugins/cryptopageplugin.so
+kdepim-addons_PATH=	${KDE_PREFIX}/lib/contacteditor/editorpageplugins/cryptopageplugin.so
 
 kdepim-apps-libs_PORT=	deskutils/kdepim-apps-libs
 kdepim-apps-libs_LIB=	libKF5SendLater.so
 
 kdepim-runtime5_PORT=	deskutils/kdepim-runtime
-kdepim-runtime5_PATH=	${KDE_PREFIX}/lib/sasl2/libkdexoauth2.so
+kdepim-runtime5_PATH=	${KDE_PREFIX}/bin/gidmigrator
 
-kdepim5_PORT=		deskutils/kdepim
-kdepim5_PATH=		${KDE_PREFIX}/bin/akonadiconsole
+kitinerary_PORT=	net/kitinerary
+kitinerary_LIB=		libKPimItinerary.so
 
 kontactinterface_PORT=	net/kontactinterface
 kontactinterface_LIB=	libKF5KontactInterface.so
@@ -814,8 +813,11 @@ kontactinterface_LIB=	libKF5KontactInterface.so
 kpimdav_PORT=		net/kdav
 kpimdav_LIB=		libKPimKDAV.so
 
-ksmtp_PORT=			net/ksmtp
-ksmtp_LIB=			libKPimSMTP.so
+kpkpass_PORT=		security/kpkpass
+kpkpass_LIB=		libKPimPkPass.so
+
+ksmtp_PORT=		net/ksmtp
+ksmtp_LIB=		libKPimSMTP.so
 
 ldap_PORT=		net/kldap
 ldap_LIB=		libKF5Ldap.so
@@ -911,8 +913,6 @@ baloo4_LIB=		libbaloocore.so
 
 baloo-widgets4_PORT=	sysutils/baloo-widgets-kde4
 baloo-widgets4_LIB=	libbaloowidgets.so
-baloo-widgets5_PORT=	sysutils/baloo-widgets
-baloo-widgets5_LIB=	libKF5BalooWidgets.so
 
 
 kate4_PORT=		editors/kate-kde4
@@ -922,13 +922,9 @@ kate5_PATH=		${QT_PLUGINDIR}/ktexteditor/katebacktracebrowserplugin.so
 
 libkcddb4_PORT=		audio/libkcddb-kde4
 libkcddb4_LIB=		libkcddb.so
-libkcddb5_PORT=		audio/libkcddb
-libkcddb5_LIB=		libKF5Cddb.so
 
 libkcompactdisc4_PORT=	audio/libkcompactdisc-kde4
 libkcompactdisc4_LIB=	libkcompactdisc.so
-libkcompactdisc5_PORT=	audio/libkcompactdisc
-libkcompactdisc5_LIB=	libKF5CompactDisc.so
 
 libkdcraw4_PORT=	graphics/libkdcraw-kde4
 libkdcraw4_LIB=		libkdcraw.so
@@ -960,11 +956,6 @@ libksane4_LIB=		libksane.so
 libksane5_PORT=		graphics/libksane
 libksane5_LIB=		libKF5Sane.so
 
-libkface4_PORT=		graphics/libkface-kde4
-libkface4_LIB=		libkface.so
-libkface5_PORT=		graphics/libkface
-libkface5_LIB=		libKF5KFace.so
-
 marble4_PORT=		astro/marble-kde4
 marble4_LIB=		libmarblewidget.so
 marble5_PORT=		astro/marble
@@ -974,6 +965,7 @@ okular4_PORT=		graphics/okular-kde4
 okular4_LIB=		libokularcore.so
 okular5_PORT=		graphics/okular
 okular5_LIB=		libOkular5Core.so
+# ====================== end of multiversion components ========================
 
 # ====================== select the proper multiversion component ==============
 .  for comp in ${_USE_KDE_BOTH}

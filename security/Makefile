@@ -292,6 +292,7 @@
     SUBDIR += jbrofuzz
     SUBDIR += john
     SUBDIR += kbfs
+    SUBDIR += kbfsd
     SUBDIR += kc
     SUBDIR += kc24
     SUBDIR += kdbx-viewer
@@ -314,6 +315,7 @@
     SUBDIR += knock
     SUBDIR += knocker
     SUBDIR += kpcli
+    SUBDIR += kpkpass
     SUBDIR += kqoauth
     SUBDIR += kr
     SUBDIR += krb5
@@ -398,6 +400,8 @@
     SUBDIR += logcheck
     SUBDIR += luasec
     SUBDIR += luasec-51
+    SUBDIR += lxqt-openssh-askpass
+    SUBDIR += lxqt-sudo
     SUBDIR += lynis
     SUBDIR += mac-robber
     SUBDIR += maia

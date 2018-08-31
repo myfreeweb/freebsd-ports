@@ -1,20 +1,17 @@
 # $FreeBSD$
 
 PORTNAME=	kpkpass
-DISTVERSION=	0.0.1.20180318
-CATEGORIES=	security kde kde
+DISTVERSION=	${KDE_APPLICATIONS_VERSION}
+CATEGORIES=	security kde kde-applications
+
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Library to deal with Apple Wallet pass files
-DIST_SUBDIR=	KDE
 
-USES=		cmake:outsource compiler:c++11-lib gettext kde:5 \
-		shared-mime-info
+USES=		cmake:outsource gettext kde:5 qt:5 shared-mime-info tar:xz
 USE_KDE=	archive ecm
-USE_QT5=	core gui testlib \
+USE_QT=		core gui testlib \
 		buildtools_build qmake_build
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	kde
-GH_TAGNAME=	add657
+DESCR=		${.CURDIR:H:H}/deskutils/kdepim/pkg-descr
 
 .include <bsd.port.mk>
