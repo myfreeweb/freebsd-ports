@@ -11,13 +11,13 @@ COMMENT=	Tools and demos for the Vulkan graphics API
 LICENSE=	APACHE20
 
 BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:devel/vulkan-headers \
-	glslangValidator:devel/glslang
+		glslangValidator:devel/glslang
 LIB_DEPENDS=	libvulkan.so:graphics/vulkan-loader \
 		libX11-xcb.so:x11/libX11 \
 		libXrandr.so:x11/libXrandr \
 		libxcb.so:x11/libxcb
 
-USES=	cmake:outsource compiler:c++11-lib python:3.4+,build pkgconfig
+USES=		cmake:outsource compiler:c++11-lib python:3.4+,build pkgconfig
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	KhronosGroup

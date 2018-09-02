@@ -12,8 +12,7 @@ LICENSE=	APACHE20
 
 BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:devel/vulkan-headers
 
-USES=	cmake:outsource compiler:c++11-lib python:3.4+,build pkgconfig
-
+USES=		cmake:outsource compiler:c++11-lib python:3.4+,build pkgconfig
 USE_LDCONFIG=	yes
 
 USE_GITHUB=	yes
@@ -24,8 +23,8 @@ CMAKE_ARGS+=	-DBUILD_TESTS:BOOL=OFF \
 		-DCMAKE_SKIP_RPATH:BOOL=ON \
 		-DBUILD_WSI_MIR_SUPPORT:BOOL=OFF
 
-OPTIONS_DEFINE=		XLIB XCB WAYLAND
-OPTIONS_DEFAULT=	XLIB XCB WAYLAND
+OPTIONS_DEFINE=	XLIB XCB WAYLAND
+OPTIONS_DEFAULT=XLIB XCB WAYLAND
 
 XLIB_DESC=	Build Xlib WSI (Window System Integration) support
 XCB_DESC=	Build XCB WSI (Window System Integration) support
