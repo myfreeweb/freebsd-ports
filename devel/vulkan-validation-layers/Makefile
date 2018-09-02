@@ -16,6 +16,7 @@ BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:devel/vulkan-headers \
 		${LOCALBASE}/include/SPIRV/spirv.hpp:devel/glslang
 
 USES=		cmake:outsource compiler:c++11-lib pkgconfig python:3.4+,build
+USE_LDCONFIG=	yes
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	KhronosGroup
