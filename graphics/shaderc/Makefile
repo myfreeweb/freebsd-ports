@@ -9,7 +9,7 @@ COMMENT=	GLSL/HLSL to SPIR-V shader compiler
 
 LICENSE=	APACHE20
 
-USES=		cmake:outsource compiler:c++11-lib pkgconfig
+USES=		cmake:outsource compiler:c++11-lib pkgconfig python:build
 USE_LDCONFIG=	yes
 
 USE_GITHUB=	yes
@@ -21,6 +21,7 @@ GH_TUPLE=	KhronosGroup:glslang:3bb4c48:glslang/third_party/glslang \
 		KhronosGroup:SPIRV-Tools:7a59283:tools/third_party/spirv-tools
 
 CMAKE_ON=	SHADERC_SKIP_TESTS
+CMAKE_ARGS+=	-DPYTHON_EXE=${PYTHON_CMD}
 CFLAGS+=	-Wno-ignored-attributes
 
 .include <bsd.port.mk>
