@@ -17,7 +17,7 @@ LIB_DEPENDS=	libvulkan.so:graphics/vulkan-loader \
 		libXrandr.so:x11/libXrandr \
 		libxcb.so:x11/libxcb
 
-USES=		cmake:outsource compiler:c++11-lib python:3.4+,build pkgconfig
+USES=		cmake:outsource compiler:c++11-lib pkgconfig python:3.4+,build
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	KhronosGroup
