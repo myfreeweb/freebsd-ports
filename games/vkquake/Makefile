@@ -25,7 +25,7 @@ GH_PROJECT=	vkQuake
 
 INSTALLS_ICONS=	yes
 
-MAKE_ENV=	prefix=${LOCALBASE} bindir=${LOCALBASE}/bin
+MAKE_ENV=	prefix=${PREFIX} bindir=${PREFIX}/bin
 ALL_TARGET=	# empty
 
 .include	"${.CURDIR}/../quake-data/Makefile.include"
