@@ -10,6 +10,7 @@ COMMENT=	Quake 1 port using Vulkan instead of OpenGL, based on QuakeSpasm
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/../LICENSE.txt
 
+BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:devel/vulkan-headers
 LIB_DEPENDS=	libSDL2.so:devel/sdl20 \
 		libX11-xcb.so:x11/libX11 \
 		libvulkan.so:graphics/vulkan-loader
