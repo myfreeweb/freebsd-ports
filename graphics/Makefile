@@ -1072,6 +1072,7 @@
     SUBDIR += seom
     SUBDIR += separate
     SUBDIR += seq2gif
+    SUBDIR += shaderc
     SUBDIR += shared-color-profiles
     SUBDIR += sharpconstruct
     SUBDIR += shotwell
@@ -1134,6 +1135,7 @@
     SUBDIR += visprint
     SUBDIR += volpack
     SUBDIR += vp
+    SUBDIR += vulkan-loader
     SUBDIR += waffle
     SUBDIR += waifu2x-converter-cpp
     SUBDIR += wayland
