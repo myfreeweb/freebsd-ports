@@ -49,6 +49,7 @@
     SUBDIR += colt
     SUBDIR += coot
     SUBDIR += crf++
+    SUBDIR += dalton
     SUBDIR += datawarrior
     SUBDIR += dcl
     SUBDIR += devisor
@@ -254,6 +255,7 @@
     SUBDIR += step-kde4
     SUBDIR += svmlight
     SUBDIR += szip
+    SUBDIR += teem
     SUBDIR += tfel
     SUBDIR += triqs
     SUBDIR += udunits
