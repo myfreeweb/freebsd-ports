@@ -18,7 +18,7 @@ GH_ACCOUNT=	KhronosGroup
 GH_PROJECT=	SPIRV-Tools
 GH_TUPLE=	KhronosGroup:SPIRV-Headers:ff684ff:headers/external/spirv-headers
 
-CMAKE_ARGS+=	-DSPIRV_SKIP_TESTS:BOOL=ON \
-		-DSPIRV_WERROR:BOOL=OFF
+CMAKE_ON=	SPIRV_SKIP_TESTS
+CMAKE_OFF=	SPIRV_WERROR
 
 .include <bsd.port.mk>
