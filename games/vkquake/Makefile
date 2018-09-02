@@ -17,7 +17,7 @@ LIB_DEPENDS=	libSDL2.so:devel/sdl20 \
 
 WRKSRC_SUBDIR=	Quake
 
-USES=		gmake pkgconfig desktop-file-utils
+USES=		desktop-file-utils gmake pkgconfig
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	Novum
