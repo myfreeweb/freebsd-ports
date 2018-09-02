@@ -20,7 +20,7 @@ GH_TUPLE=	KhronosGroup:glslang:3bb4c48:glslang/third_party/glslang \
 		KhronosGroup:SPIRV-Headers:3a4dbdd:headers \
 		KhronosGroup:SPIRV-Tools:7a59283:tools/third_party/spirv-tools
 
-CMAKE_ARGS+=	-DSHADERC_SKIP_TESTS:BOOL=ON
+CMAKE_ON=	SHADERC_SKIP_TESTS
 CFLAGS+=	-Wno-ignored-attributes
 
 post-extract:
