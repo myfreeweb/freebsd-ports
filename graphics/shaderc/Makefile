@@ -9,8 +9,7 @@ COMMENT=	GLSL/HLSL to SPIR-V shader compiler
 
 LICENSE=	APACHE20
 
-USES=	cmake:outsource compiler:c++11-lib pkgconfig
-
+USES=		cmake:outsource compiler:c++11-lib pkgconfig
 USE_LDCONFIG=	yes
 
 USE_GITHUB=	yes
