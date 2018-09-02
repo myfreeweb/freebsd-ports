@@ -38,4 +38,10 @@ XCB_LIB_DEPENDS=	libX11-xcb.so:x11/libX11 \
 WAYLAND_CMAKE_BOOL=	BUILD_WSI_WAYLAND_SUPPORT
 WAYLAND_LIB_DEPENDS=	libwayland-egl.so:graphics/wayland
 
+post-patch:
+# Non-x86 targets use C code, so don't abort without GNU as (e.g., on aarch64)
+.if !exists(/usr/bin/as) && ${MACHINE_ARCH} != i386 && ${MACHINE_ARCH} != amd64
+	@${REINPLACE_CMD} 's/-ATT//' ${WRKSRC}/loader/CMakeLists.txt
+.endif
+
 .include <bsd.port.mk>
