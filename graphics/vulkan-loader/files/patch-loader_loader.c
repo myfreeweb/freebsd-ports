@@ -14,7 +14,7 @@
  
  static inline char *loader_secure_getenv(const char *name, const struct loader_instance *inst) {
 -#if defined(__APPLE__)
-+#if defined(__APPLE__) || defined(__FreeBSD__)
++#if !defined(__linux__)
      // Apple does not appear to have a secure getenv implementation.
      // The main difference between secure getenv and getenv is that secure getenv
      // returns NULL if the process is being run with elevated privileges by a normal user.
