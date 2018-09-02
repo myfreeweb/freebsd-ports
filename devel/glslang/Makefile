@@ -15,7 +15,6 @@ USES=		cmake:outsource compiler:c++11-lang
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	KhronosGroup
-GH_PROJECT=	glslang
 
 post-extract:
 	${SED} '/^$$/,$$d' ${WRKSRC}/${PORTNAME}/Include/Types.h \
