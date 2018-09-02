@@ -1,6 +1,6 @@
---- loader/loader.c.orig	2018-08-04 01:10:42.000000000 +0300
-+++ loader/loader.c	2018-08-07 21:03:04.814975000 +0300
-@@ -215,7 +215,7 @@
+--- loader/loader.c.orig	2018-08-03 22:10:42 UTC
++++ loader/loader.c
+@@ -215,7 +215,7 @@ void *loader_device_heap_realloc(const struct loader_d
  }
  
  // Environment variables
@@ -9,7 +9,7 @@
  
  static inline char *loader_getenv(const char *name, const struct loader_instance *inst) {
      // No allocation of memory necessary for Linux, but we should at least touch
-@@ -225,7 +225,7 @@
+@@ -225,7 +225,7 @@ static inline char *loader_getenv(const char *name, co
  }
  
  static inline char *loader_secure_getenv(const char *name, const struct loader_instance *inst) {

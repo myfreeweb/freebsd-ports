@@ -1,6 +1,6 @@
---- CMakeLists.txt.orig	2018-08-04 01:10:42.000000000 +0300
-+++ CMakeLists.txt	2018-08-07 21:00:06.045029000 +0300
-@@ -57,9 +57,9 @@
+--- CMakeLists.txt.orig	2018-08-03 22:10:42 UTC
++++ CMakeLists.txt
+@@ -57,9 +57,9 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
  # "Helper" targets that don't have interesting source code should set their FOLDER property to this
  set(LOADER_HELPER_FOLDER "Helper Targets")
  
@@ -12,7 +12,7 @@
          CACHE
              STRING
              "Search path to use when XDG_CONFIG_DIRS is unset or empty or the current process is SUID/SGID. Default is freedesktop compliant."
-@@ -72,7 +72,7 @@
+@@ -72,7 +72,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux" OR CMAKE_SYSTEM_
          )
  endif()
  
@@ -21,7 +21,7 @@
      include(FindPkgConfig)
      option(BUILD_WSI_XCB_SUPPORT "Build XCB WSI support" ON)
      option(BUILD_WSI_XLIB_SUPPORT "Build Xlib WSI support" ON)
-@@ -81,10 +81,12 @@
+@@ -81,10 +81,12 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
  
      if(BUILD_WSI_XCB_SUPPORT)
          find_package(XCB REQUIRED)
