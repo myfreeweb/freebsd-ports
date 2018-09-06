@@ -801,6 +801,7 @@
     SUBDIR += global
     SUBDIR += glog
     SUBDIR += glrparser
+    SUBDIR += glslang
     SUBDIR += glui
     SUBDIR += gmake
     SUBDIR += gnatcoll
@@ -1885,8 +1886,6 @@
     SUBDIR += omniORB-4.1
     SUBDIR += omnisharp-server
     SUBDIR += oniguruma
-    SUBDIR += onscripter
-    SUBDIR += onscripter-1byte
     SUBDIR += oozie
     SUBDIR += open-beagle
     SUBDIR += open-usp-tukubai
@@ -4184,7 +4183,6 @@
     SUBDIR += pmd
     SUBDIR += poco
     SUBDIR += poco-ssl
-    SUBDIR += ponscripter-sekai
     SUBDIR += popt
     SUBDIR += poslib
     SUBDIR += powerpc64-binutils
@@ -5299,6 +5297,7 @@
     SUBDIR += pydbus-common
     SUBDIR += pygobject3-common
     SUBDIR += pylint
+    SUBDIR += pylint1
     SUBDIR += pymacs
     SUBDIR += pyobfuscate
     SUBDIR += pypersrc
@@ -5400,8 +5399,6 @@
     SUBDIR += regexxer
     SUBDIR += relx
     SUBDIR += remake
-    SUBDIR += renpy
-    SUBDIR += renpy6
     SUBDIR += replay
     SUBDIR += replxx
     SUBDIR += resolv_wrapper
@@ -5410,7 +5407,6 @@
     SUBDIR += riscv64-gcc
     SUBDIR += riscv64-xtoolchain-gcc
     SUBDIR += rlog
-    SUBDIR += rlvm
     SUBDIR += rlwrap
     SUBDIR += roboctl
     SUBDIR += robodoc
@@ -5579,6 +5575,7 @@
     SUBDIR += rubygem-ditz
     SUBDIR += rubygem-diva
     SUBDIR += rubygem-docile
+    SUBDIR += rubygem-dry-inflector
     SUBDIR += rubygem-drydock
     SUBDIR += rubygem-dynflow
     SUBDIR += rubygem-edavis10-object_daddy
@@ -5810,6 +5807,7 @@
     SUBDIR += rubygem-omniauth_crowd22
     SUBDIR += rubygem-open3_backport
     SUBDIR += rubygem-open4
+    SUBDIR += rubygem-optimist
     SUBDIR += rubygem-orm_adapter
     SUBDIR += rubygem-os
     SUBDIR += rubygem-p4ruby
@@ -6168,6 +6166,7 @@
     SUBDIR += spdlog
     SUBDIR += spice-protocol
     SUBDIR += spin
+    SUBDIR += spirv-tools
     SUBDIR += splint
     SUBDIR += srecord
     SUBDIR += st
@@ -6291,6 +6290,9 @@
     SUBDIR += violet
     SUBDIR += visualparadigm
     SUBDIR += vstr
+    SUBDIR += vulkan-headers
+    SUBDIR += vulkan-tools
+    SUBDIR += vulkan-validation-layers
     SUBDIR += vxlog
     SUBDIR += wand-libconfig
     SUBDIR += wandio

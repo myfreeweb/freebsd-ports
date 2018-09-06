@@ -342,6 +342,7 @@
     SUBDIR += mingw32-libgmp
     SUBDIR += minisat
     SUBDIR += miracl
+    SUBDIR += mkl-dnn
     SUBDIR += mlpack
     SUBDIR += moo
     SUBDIR += mosesdecoder
@@ -668,6 +669,7 @@
     SUBDIR += py-bitvector
     SUBDIR += py-bottleneck
     SUBDIR += py-cdecimal
+    SUBDIR += py-chaospy
     SUBDIR += py-colormath
     SUBDIR += py-cryptominisat
     SUBDIR += py-cvxopt

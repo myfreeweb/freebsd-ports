@@ -566,6 +566,7 @@
     SUBDIR += openldap24-client
     SUBDIR += openldap24-sasl-client
     SUBDIR += openldap24-server
+    SUBDIR += openmdns
     SUBDIR += openmpi
     SUBDIR += openmpi2
     SUBDIR += openmpi3
@@ -1273,6 +1274,7 @@
     SUBDIR += rubygem-gitlab_omniauth-ldap
     SUBDIR += rubygem-gitlab_omniauth-ldap20
     SUBDIR += rubygem-grpc
+    SUBDIR += rubygem-hangouts-chat
     SUBDIR += rubygem-http_parser.rb
     SUBDIR += rubygem-httpauth
     SUBDIR += rubygem-ipaddress
