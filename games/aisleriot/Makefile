@@ -11,6 +11,7 @@ MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Collection of patience games written in guile scheme
 
 BUILD_DEPENDS=	itstool:textproc/itstool \
+		appstream-builder:devel/appstream-glib \
 		bash:shells/bash
 LIB_DEPENDS=	libguile-2.0.so:lang/guile2 \
 		libcanberra.so:audio/libcanberra \
@@ -34,5 +35,4 @@ GCONF_SCHEMAS=	aisleriot.schemas
 GLIB_SCHEMAS=	org.gnome.Patience.WindowState.gschema.xml
 
 INSTALLS_ICONS=	yes
-
 .include <bsd.port.mk>

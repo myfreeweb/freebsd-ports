@@ -1424,6 +1424,7 @@
     SUBDIR += py-trans
     SUBDIR += py-transifex-client
     SUBDIR += py-translationstring
+    SUBDIR += py-transpopy
     SUBDIR += py-tvgrab
     SUBDIR += py-ucl
     SUBDIR += py-whoosh
@@ -1832,6 +1833,7 @@
     SUBDIR += xmlcharent
     SUBDIR += xmldiff
     SUBDIR += xmlenc
+    SUBDIR += xmlf90
     SUBDIR += xmlformat
     SUBDIR += xmlgen
     SUBDIR += xmlindent

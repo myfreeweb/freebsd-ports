@@ -2,11 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	fasttracker2
-DISTVERSION=	0.1-b91
+DISTVERSION=	0.1-b93
 CATEGORIES=	audio
 MASTER_SITES=	https://16-bits.org/ \
 		LOCAL/ehaupt
-DISTNAME=	ft2clone-b91-code
+DISTNAME=	ft2clone-${PORTVERSION:C/.*b/b/}-code
 
 MAINTAINER=	ehaupt@FreeBSD.org
 COMMENT=	Fasttracker II clone
@@ -22,7 +22,14 @@ USE_SDL=	sdl2
 
 WRKSRC=		${WRKDIR}/ft2-clone-code
 
-PLIST_FILES=	bin/fasttracker2
+DESKTOP_ENTRIES="FastTracker II" \
+		"${COMMENT}" \
+		"${PREFIX}/share/pixmaps/ft2-clone.ico" \
+		"fasttracker2" \
+		"" \
+		false
+
+PLIST_FILES=	bin/fasttracker2 share/pixmaps/ft2-clone.ico
 
 OPTIONS_DEFINE=	ALSA
 OPTIONS_DEFAULT=ALSA
@@ -33,12 +40,17 @@ ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
 ALSA_CFLAGS+=	-D__LINUX_ALSA__
 ALSA_LDFLAGS+=	-lasound
 
+CFLAGS_i386+=	-msse2
+
 do-build:
 	${CC} ${CFLAGS} ${LDFLAGS} \
 		${WRKSRC}/src/rtmidi/*.cpp ${WRKSRC}/src/gfxdata/*.c ${WRKSRC}/src/*.c \
 		-o ${WRKSRC}/${PORTNAME}
 
 do-install:
+	@${MKDIR} ${STAGEDIR}${PREFIX}/share/pixmaps
 	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin
+	${INSTALL_DATA} ${WRKSRC}/src/gfxdata/icon/ft2-clone.ico \
+		${STAGEDIR}${PREFIX}/share/pixmaps
 
 .include <bsd.port.mk>
