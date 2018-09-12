@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	fractal
-DISTVERSION=	0.1.30
+DISTVERSION=	3.30.0
 CATEGORIES=	net-im
 MASTER_SITES=	https://gitlab.gnome.org/World/fractal/uploads/${GL_HASH}/
 
@@ -9,21 +9,29 @@ MAINTAINER=	greg@unrelenting.technology
 COMMENT=	GTK+ Matrix IM client
 
 LICENSE=	GPLv3+
+LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
+# gmake for the backtrace-sys crate
+BUILD_DEPENDS=	cargo:lang/rust \
+		gmake:devel/gmake
 LIB_DEPENDS=	libdbus-1.so:devel/dbus \
-		libgspell-1.so:textproc/gspell \
-		libgmp.so:math/gmp
-BUILD_DEPENDS=	cargo:lang/rust
+		libgmp.so:math/gmp \
+		libgspell-1.so:textproc/gspell
 
-GL_HASH=	307ea6fe16f617750490a359b727aebb
+GL_HASH=	cc46d6b9702ce5d0b1f3073f516a58c3
 
-USES=		ssl gettext meson shebangfix tar:xz
+USES=		gettext gnome meson pkgconfig python:3.5+,build ssl tar:xz
 USE_GNOME=	gtk30 cairo
-INSTALLS_ICONS=	yes
-SHEBANG_FILES=	${WRKSRC}/scripts/*.sh
-MAKE_ENV+=	GETTEXT_BIN_DIR=${PREFIX}/bin \
-		GETTEXT_LIB_DIR=${PREFIX}/lib \
-		GETTEXT_INCLUDE_DIR=${PREFIX}/include
+
+BINARY_ALIAS=		python3=${PYTHON_CMD}
+GLIB_SCHEMAS=		org.gnome.Fractal.gschema.xml
+INSTALLS_ICONS=		yes
+WITHOUT_FBSD10_FIX=	yes # changes libbacktrace conf script's checksum
+
+# for the gettext-sys crate
+MAKE_ENV+=	GETTEXT_BIN_DIR=${LOCALBASE}/bin \
+		GETTEXT_LIB_DIR=${LOCALBASE}/lib \
+		GETTEXT_INCLUDE_DIR=${LOCALBASE}/include
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/fractal
