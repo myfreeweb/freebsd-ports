@@ -11,14 +11,18 @@ DISTNAME=	LuaJIT-${DISTVERSION}
 MAINTAINER=	osa@FreeBSD.org
 COMMENT=	Just-In-Time Compiler for Lua
 
+LICENSE=	MIT PD
+LICENSE_COMB=	multi
+LICENSE_FILE=	${WRKSRC}/COPYRIGHT
+
+BROKEN_powerpc64=	not ported to powerpc64 upstream
+
 WRKSRC=		${WRKDIR}/LuaJIT-${DISTVERSION}
 USES=		gmake
 USE_LDCONFIG=	yes
 MAKE_ARGS=	CC=${CC}
 
 PLIST_SUB+=	VERSION=${DISTVERSION} LIBVERSION=${DISTVERSION:C/-.*//}
-
-BROKEN_powerpc64=	Not ported to powerpc64 upstream
 
 .include <bsd.port.options.mk>
 

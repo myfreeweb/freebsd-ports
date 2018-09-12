@@ -19,10 +19,10 @@ USES=		gmake python
 .include <bsd.port.options.mk>
 
 .if ${ARCH} == "amd64"
-PLIST_SUB=	ARCH=amd64
+PLIST_SUB+=	ARCH=amd64
 .endif
 .if ${ARCH} == "i386"
-PLIST_SUB=	ARCH=386
+PLIST_SUB+=	ARCH=386
 .endif
 
 do-install:

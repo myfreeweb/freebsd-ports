@@ -77,4 +77,6 @@ MESON_ARGS+=	-Dwith_jedi=false
 #		${PYTHON_PKGNAMEPREFIX}lxml>0:devel/py-lxml@${PY_FLAVOR} \
 #		${PYTHON_PKGNAMEPREFIX}jedi>0:devel/py-jedi@${PY_FLAVOR}
 
+OPTIONS_DEFINE=	DOCS
+
 .include <bsd.port.mk>

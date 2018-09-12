@@ -13,7 +13,7 @@ LICENSE=	GPLv2
 
 LIB_DEPENDS=	libtomcrypt.so:security/libtomcrypt
 
-OPTIONS_DEFINE=	X11
+OPTIONS_DEFINE=	DOCS X11
 OPTIONS_SUB=	yes
 
 X11_CONFIGURE_WITH=	gtk

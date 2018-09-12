@@ -21,4 +21,6 @@ USE_GNOME=	cairo glib20 introspection:build
 
 MESON_ARGS=	-Denable-test=false
 
+OPTIONS_DEFINE=	DOCS
+
 .include <bsd.port.mk>
