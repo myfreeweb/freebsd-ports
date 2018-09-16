@@ -5,7 +5,7 @@
 # when gnome is ported to gtk4
 
 PORTNAME=	gtk
-DISTVERSION=	3.93.0-20180424
+DISTVERSION=	3.94.0-20180909
 PORTREVISION?=	0
 CATEGORIES=	x11-toolkits
 #MASTER_SITES=	GNOME/sources/gtk+/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
@@ -39,7 +39,7 @@ RUN_DEPENDS+=	hicolor-icon-theme>=0:misc/hicolor-icon-theme \
 USE_GITLAB=	yes
 GL_SITE=	https://gitlab.gnome.org
 GL_ACCOUNT=	GNOME
-GL_COMMIT=	2210b9a30254b4e1c648a4c7cf3333bab34b00c9
+GL_COMMIT=	005f932d13dafd01c9fcf7565be1a4fb9280228c
 
 USE_PERL5=	build
 USE_LDCONFIG=	yes
@@ -51,7 +51,7 @@ MESON_ARGS=	-Dwin32-backend=false \
 		-Dquartz-backend=false
 #INSTALLS_ICONS=	yes
 
-LIBVERSION=	0.9300.0
+LIBVERSION=	0.9400.0
 PLIST_SUB+=	LIBVERSION=${LIBVERSION}
 
 # GLIB_SCHEMAS=	org.gtk.Demo.gschema.xml \
@@ -100,7 +100,7 @@ X11_USE=		XORG=x11,xcomposite,xcursor,xdamage,xext,xfixes,xi,xinerama,xrandr
 
 VULKAN_DESC=		Vulkan GSK backend
 VULKAN_MESON_YES=	vulkan
-VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-sdk
+VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-loader
 
 DEBUG_DESC=	Debug related
 OPTIONS_GROUP=	DEBUG

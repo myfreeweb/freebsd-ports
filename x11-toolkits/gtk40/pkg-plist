@@ -12,6 +12,7 @@ include/gtk-4.0/gdk/gdk-autocleanup.h
 include/gtk-4.0/gdk/gdk.h
 include/gtk-4.0/gdk/gdkapplaunchcontext.h
 include/gtk-4.0/gdk/gdkcairo.h
+include/gtk-4.0/gdk/gdkcairocontext.h
 include/gtk-4.0/gdk/gdkclipboard.h
 include/gtk-4.0/gdk/gdkconfig.h
 include/gtk-4.0/gdk/gdkcontentdeserializer.h
@@ -25,9 +26,9 @@ include/gtk-4.0/gdk/gdkdevicepad.h
 include/gtk-4.0/gdk/gdkdevicetool.h
 include/gtk-4.0/gdk/gdkdisplay.h
 include/gtk-4.0/gdk/gdkdisplaymanager.h
-include/gtk-4.0/gdk/gdkdnd.h
+include/gtk-4.0/gdk/gdkdrag.h
 include/gtk-4.0/gdk/gdkdrawcontext.h
-include/gtk-4.0/gdk/gdkdrawingcontext.h
+include/gtk-4.0/gdk/gdkdrop.h
 include/gtk-4.0/gdk/gdkenumtypes.h
 include/gtk-4.0/gdk/gdkevents.h
 include/gtk-4.0/gdk/gdkframeclock.h
@@ -76,6 +77,7 @@ include/gtk-4.0/gdk/gdkvulkancontext.h
 %%X11%%include/gtk-4.0/gdk/x11/gdkx11selection.h
 %%X11%%include/gtk-4.0/gdk/x11/gdkx11surface.h
 %%X11%%include/gtk-4.0/gdk/x11/gdkx11utils.h
+include/gtk-4.0/gsk/gsk-autocleanup.h
 include/gtk-4.0/gsk/gsk.h
 include/gtk-4.0/gsk/gskenums.h
 include/gtk-4.0/gsk/gskenumtypes.h
@@ -269,6 +271,7 @@ include/gtk-4.0/gtk/gtkpadcontroller.h
 include/gtk-4.0/gtk/gtkpagesetup.h
 include/gtk-4.0/gtk/gtkpaned.h
 include/gtk-4.0/gtk/gtkpapersize.h
+include/gtk-4.0/gtk/gtkpicture.h
 include/gtk-4.0/gtk/gtkpopover.h
 include/gtk-4.0/gtk/gtkpopovermenu.h
 include/gtk-4.0/gtk/gtkprintcontext.h
@@ -369,9 +372,9 @@ libdata/pkgconfig/gtk+-4.0.pc
 libdata/pkgconfig/gtk+-unix-print-4.0.pc
 %%WAYLAND%%libdata/pkgconfig/gtk+-wayland-4.0.pc
 %%X11%%libdata/pkgconfig/gtk+-x11-4.0.pc
-share/applications/gtk4-demo.desktop
-share/applications/gtk4-icon-browser.desktop
-share/applications/gtk4-widget-factory.desktop
+share/applications/org.gtk.Demo.desktop
+share/applications/org.gtk.IconBrowser.desktop
+share/applications/org.gtk.WidgetFactory.desktop
 @comment share/gettext/its/gtkbuilder.its
 @comment share/gettext/its/gtkbuilder.loc
 share/gir-1.0/Gdk-4.0.gir
@@ -633,3 +636,5 @@ share/locale/zh_HK/LC_MESSAGES/gtk40-properties.mo
 share/locale/zh_HK/LC_MESSAGES/gtk40.mo
 share/locale/zh_TW/LC_MESSAGES/gtk40-properties.mo
 share/locale/zh_TW/LC_MESSAGES/gtk40.mo
+share/metainfo/org.gtk.Demo.appdata.xml
+share/metainfo/org.gtk.WidgetFactory.appdata.xml
