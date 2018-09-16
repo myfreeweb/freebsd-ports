@@ -53,7 +53,6 @@
     SUBDIR += bluefish
     SUBDIR += boa
     SUBDIR += bolt
-    SUBDIR += bookmarkbridge
     SUBDIR += bozohttpd
     SUBDIR += buku
     SUBDIR += butterfly
@@ -261,7 +260,6 @@
     SUBDIR += hs-css-text
     SUBDIR += hs-fastcgi
     SUBDIR += hs-gitit
-    SUBDIR += hs-hS3
     SUBDIR += hs-happstack
     SUBDIR += hs-happstack-server
     SUBDIR += hs-heist
@@ -1581,7 +1579,6 @@
     SUBDIR += py-django-jsonfield
     SUBDIR += py-django-jsonfield2
     SUBDIR += py-django-ldapdb
-    SUBDIR += py-django-livesettings
     SUBDIR += py-django-markdownx
     SUBDIR += py-django-markwhat
     SUBDIR += py-django-mezzanine

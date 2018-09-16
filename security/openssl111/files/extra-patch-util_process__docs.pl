@@ -1,4 +1,4 @@
---- util/process_docs.pl.orig	2018-01-13 13:57:15 UTC
+--- util/process_docs.pl.orig	2018-09-11 12:48:25 UTC
 +++ util/process_docs.pl
 @@ -43,7 +43,7 @@ GetOptions(\%options,
            );
@@ -13,8 +13,8 @@
          my $suffix = { man  => ".$podinfo{section}".($options{suffix} // ""),
                         html => ".html" } -> {$options{type}};
          my $generate = { man  => "pod2man --name=$name --section=$podinfo{section} --center=OpenSSL --release=$config{version} \"$podpath\"",
--                         html => "pod2html \"--podroot=$options{sourcedir}\" --htmldir=$updir --podpath=man1:man3:man5:man7 \"--infile=$podpath\" \"--title=$podname\""
-+                         html => "pod2html \"--podroot=$options{sourcedir}\" --htmldir=$updir --podpath=man1:man5:man7 \"--infile=$podpath\" \"--title=$podname\""
+-                         html => "pod2html \"--podroot=$options{sourcedir}\" --htmldir=$updir --podpath=man1:man3:man5:man7 \"--infile=$podpath\" \"--title=$podname\" --quiet"
++                         html => "pod2html \"--podroot=$options{sourcedir}\" --htmldir=$updir --podpath=man1:man5:man7 \"--infile=$podpath\" \"--title=$podname\" --quiet"
                           } -> {$options{type}};
          my $output_dir = catdir($options{destdir}, "man$podinfo{section}");
          my $output_file = $podname . $suffix;

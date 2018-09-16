@@ -191,6 +191,7 @@
     SUBDIR += p5-Tk-ToolBar
     SUBDIR += p5-Tk-WaitBox
     SUBDIR += p5-Wx
+    SUBDIR += p5-Wx-GLCanvas
     SUBDIR += p5-Wx-Perl-ProcessStream
     SUBDIR += pango
     SUBDIR += pangomm

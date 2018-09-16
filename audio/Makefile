@@ -181,7 +181,6 @@
     SUBDIR += festvox-rab16
     SUBDIR += festvox-rab8
     SUBDIR += festvox-russian
-    SUBDIR += firefly
     SUBDIR += flac
     SUBDIR += flac123
     SUBDIR += flacon
@@ -786,6 +785,7 @@
     SUBDIR += soundtouch
     SUBDIR += soundtracker
     SUBDIR += sox
+    SUBDIR += spc2it
     SUBDIR += specimen
     SUBDIR += spectrogram
     SUBDIR += speex
