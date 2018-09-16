@@ -12,7 +12,7 @@ CONFLICTS_INSTALL=	mesa-dri mesa-libs libosmesa clover
 USES=		compiler:c++11-lib bison gettext-tools meson \
 		localbase pathfix pkgconfig python:2.7,build shebangfix
 USE_LDCONFIG=	yes
-USE_XORG=	dri2proto dri3proto glproto presentproto x11 xdamage xext \
+USE_XORG=	xorgproto x11 xdamage xext \
 		xfixes xshmfence xv xvmc xxf86vm xcb
 
 USE_GITHUB=	yes
