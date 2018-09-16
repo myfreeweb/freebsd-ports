@@ -53,12 +53,6 @@ MESON_ARGS=	-Dglx-tls="false"\
 		-Dgallium-nine="true" \
 		-Dosmesa="gallium"
 
-OPTIONS_DEFINE=	TEXTURE
-OPTIONS_DEFAULT=TEXTURE
-
-TEXTURE_DESC=		Enable texture-float support (patent encumbered)
-TEXTURE_MESON_TRUE=	texture-float
-
 .include <bsd.port.options.mk>
 
 .if ${ARCH} == amd64 || ${ARCH} == i386

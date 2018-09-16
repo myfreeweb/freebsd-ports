@@ -89,6 +89,8 @@ lib/libglapi.so.0.0.0
 lib/libvulkan_intel.so
 lib/libvulkan_radeon.so
 lib/libxatracker.so
+lib/libxatracker.so.2
+lib/libxatracker.so.2.4.0
 lib/vdpau/libvdpau_nouveau.so
 lib/vdpau/libvdpau_nouveau.so.1
 lib/vdpau/libvdpau_nouveau.so.1.0
