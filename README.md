@@ -147,14 +147,6 @@ options 	VIMAGE
 
 (the important part is the `EVDEV_SUPPORT`, which is still disabled by default for some reason!)
 
-## Recommended /etc/make.conf
-
-```
-DEFAULT_VERSIONS+=ssl=libressl
-CPUTYPE?=znver1 # Replace with your CPU
-RUST_PORT=lang/rust-nightly
-```
-
 ## Other FreeBSD desktop resources
 
 - [kb/FreeBSDDesktop](https://unrelenting.technology/kb/FreeBSDDesktop)
