@@ -120,6 +120,7 @@ How to use Weston:
 - `graphics/rawtherapee`: disable mmap (to make performance over NFS not terrible), enable LTO
 - `*/gstreamer1*`: update to 1.14.2 [231406](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231406)
 - `multimedia/pitivi`: update to 0.999
+- `textproc/pict`: pairwise test gen tool [231407](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231407)
 
 ### Ports framework
 
