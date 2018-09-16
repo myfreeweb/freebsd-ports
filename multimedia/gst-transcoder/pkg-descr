@@ -1,0 +1,3 @@
+A transcoding API plugin for GStreamer 1.x, used by Pitivi.
+
+WWW: https://github.com/pitivi/gst-transcoder

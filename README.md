@@ -119,6 +119,7 @@ How to use Weston:
 - `www/epiphany`: use MSE if available
 - `www/webkit2-gtk3`: option to enable MSE (note: broken with VP9 for now, youtube crashes)
 - `graphics/rawtherapee`: disable mmap (to make performance over NFS not terrible), enable LTO
+- `multimedia/pitivi`: update to 0.999
 
 ### Ports framework
 
