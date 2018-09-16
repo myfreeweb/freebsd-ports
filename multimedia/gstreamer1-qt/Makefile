@@ -2,7 +2,6 @@
 
 PORTNAME=	gstreamer1
 PORTVERSION=	1.2.0
-PORTREVISION=	13
 CATEGORIES=	multimedia
 MASTER_SITES=	http://gstreamer.freedesktop.org/src/qt-gstreamer/
 PKGNAMESUFFIX=	-${FLAVOR}
@@ -19,7 +18,7 @@ FLAVOR?=	${FLAVORS:[1]}
 
 CONFLICTS_INSTALL=	gstreamer${PKGNAMESUFFIX}-*
 
-USES=		bison cmake:outsource pathfix pkgconfig tar:xz
+USES=		gl gnome bison cmake:outsource pathfix pkgconfig tar:xz
 USE_GSTREAMER1=	yes
 
 USE_GL=		gl
