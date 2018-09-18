@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gstreamer1-vaapi
-PORTVERSION=	1.14.2
+PORTVERSION=	1.14.3
 CATEGORIES=	multimedia
 MASTER_SITES=	https://gstreamer.freedesktop.org/src/gstreamer-vaapi/
 DISTNAME=	gstreamer-vaapi-${PORTVERSION}
@@ -29,7 +29,8 @@ OPTIONS_DEFINE=	DRM WAYLAND
 DRM_DESC=	Raw KMS/DRM backend
 
 DRM_CONFIGURE_ENABLE=	drm
-DRM_LIB_DEPENDS=	libudev.so:devel/libudev-devd
+DRM_LIB_DEPENDS=	libudev.so:devel/libudev-devd \
+	libdrm.so:graphics/libdrm
 
 WAYLAND_CONFIGURE_ENABLE=	wayland
 WAYLAND_LIB_DEPENDS=	libva-wayland.so:multimedia/libva \
