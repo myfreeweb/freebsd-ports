@@ -1,5 +1,4 @@
 etc/OpenCL/vendors/mesa.icd
-etc/drirc
 include/EGL/egl.h
 include/EGL/eglext.h
 include/EGL/eglextchromium.h
@@ -116,5 +115,6 @@ libdata/pkgconfig/glesv1_cm.pc
 libdata/pkgconfig/glesv2.pc
 libdata/pkgconfig/osmesa.pc
 libdata/pkgconfig/xatracker.pc
+share/drirc.d/00-mesa-defaults.conf
 share/vulkan/icd.d/intel_icd.x86_64.json
 share/vulkan/icd.d/radeon_icd.x86_64.json
