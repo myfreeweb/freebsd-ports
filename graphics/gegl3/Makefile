@@ -132,8 +132,8 @@ PLIST_SUB+=	PANGOCAIRO="@comment "
 
 post-patch:
 	${REINPLACE_CMD} -e "s/lua >/lua-${LUA_VER} >/g" \
-		-e 's|\(lua\)\(5\.\d\)|\1-\2|g ; s|x86_64|amd64|g' \
-		${WRKSRC}/configure.ac
+		-e 's|\(lua\)\(5\.1\)|\1-\2|g ; s|x86_64|amd64|g' \
+		${WRKSRC}/configure
 
 post-patch-EXAMPLES-off:
 	${REINPLACE_CMD} -e 's|tools examples|tools|g' \

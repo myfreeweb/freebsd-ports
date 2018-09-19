@@ -60,6 +60,7 @@
     SUBDIR += kcfonts
     SUBDIR += kde-l10n-zh_CN
     SUBDIR += kde-l10n-zh_TW
+    SUBDIR += libcangjie
     SUBDIR += libchewing
     SUBDIR += libpinyin
     SUBDIR += libreoffice-zh_CN
@@ -93,6 +94,7 @@
     SUBDIR += php-opencc
     SUBDIR += phpbb-tw
     SUBDIR += phpbb3-tw
+    SUBDIR += pycangjie
     SUBDIR += pyzy
     SUBDIR += qe
     SUBDIR += qt4-codecs-cn

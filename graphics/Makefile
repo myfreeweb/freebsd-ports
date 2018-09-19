@@ -43,6 +43,7 @@
     SUBDIR += aeskulap
     SUBDIR += agave
     SUBDIR += agg
+    SUBDIR += akira
     SUBDIR += alembic
     SUBDIR += alpng
     SUBDIR += amide
@@ -97,6 +98,7 @@
     SUBDIR += chbg
     SUBDIR += cimg
     SUBDIR += cinepaint
+    SUBDIR += cloudcompare
     SUBDIR += clutter
     SUBDIR += clutter-gtk
     SUBDIR += clutter-gtk3
@@ -238,6 +240,7 @@
     SUBDIR += gdtclft
     SUBDIR += geeqie
     SUBDIR += gegl
+    SUBDIR += gegl3
     SUBDIR += generic_image_decoder
     SUBDIR += geoapi
     SUBDIR += geomorph
@@ -338,6 +341,7 @@
     SUBDIR += gstreamer1-plugins-openjpeg
     SUBDIR += gstreamer1-plugins-png
     SUBDIR += gstreamer1-plugins-rsvg
+    SUBDIR += gstreamer1-plugins-vulkan
     SUBDIR += gstreamer1-plugins-webp
     SUBDIR += gstreamer1-plugins-zbar
     SUBDIR += gthumb
@@ -351,6 +355,7 @@
     SUBDIR += gwenview-kde4
     SUBDIR += gx
     SUBDIR += hdr_tools
+    SUBDIR += hdrmerge
     SUBDIR += hiptext
     SUBDIR += hobbes-icons-xpm
     SUBDIR += hppsmtools
@@ -414,10 +419,8 @@
     SUBDIR += kamera-kde4
     SUBDIR += kcolorchooser
     SUBDIR += kcolorchooser-kde4
-    SUBDIR += kcoloredit-kde4
-    SUBDIR += kdegraphics
-    SUBDIR += kcolorchooser-kde4
     SUBDIR += kcoloredit
+    SUBDIR += kcoloredit-kde4
     SUBDIR += kdegraphics
     SUBDIR += kdegraphics-kde4
     SUBDIR += kdegraphics-mobipocket
@@ -431,7 +434,8 @@
     SUBDIR += kf5-kimageformats
     SUBDIR += kf5-kplotting
     SUBDIR += kf5-prison
-    SUBDIR += kgraphviewer-kde4
+    SUBDIR += kgraphviewer
+    SUBDIR += kiconedit
     SUBDIR += kiconedit-kde4
     SUBDIR += kimagemapeditor
     SUBDIR += kipi-plugin-acquireimages-kde4
@@ -458,6 +462,7 @@
     SUBDIR += kipi-plugin-kioexport-kde4
     SUBDIR += kipi-plugin-kmlexport-kde4
     SUBDIR += kipi-plugin-kopete-kde4
+    SUBDIR += kipi-plugin-mediawiki
     SUBDIR += kipi-plugin-mediawiki-kde4
     SUBDIR += kipi-plugin-metadataedit-kde4
     SUBDIR += kipi-plugin-panorama-kde4
@@ -472,6 +477,7 @@
     SUBDIR += kipi-plugin-smug-kde4
     SUBDIR += kipi-plugin-timeadjust-kde4
     SUBDIR += kipi-plugin-videoslideshow-kde4
+    SUBDIR += kipi-plugin-vkontakte
     SUBDIR += kipi-plugin-vkontakte-kde4
     SUBDIR += kipi-plugin-yandexfotki-kde4
     SUBDIR += kipi-plugins-kde4
@@ -483,11 +489,14 @@
     SUBDIR += kolourpaint-kde4
     SUBDIR += kphotoalbum
     SUBDIR += kphotoalbum-kde4
+    SUBDIR += kpovmodeler
     SUBDIR += kpovmodeler-kde4
+    SUBDIR += kqtquickcharts
     SUBDIR += kqtquickcharts-kde4
     SUBDIR += krita
     SUBDIR += ksaneplugin
     SUBDIR += ksaneplugin-kde4
+    SUBDIR += ksnapshot
     SUBDIR += ksnapshot-kde4
     SUBDIR += kudu
     SUBDIR += l2p
@@ -543,21 +552,14 @@
     SUBDIR += libkdcraw-kde4
     SUBDIR += libkexiv2
     SUBDIR += libkexiv2-kde4
-<<<<<<< HEAD
-    SUBDIR += libkface
     SUBDIR += libkface-kde4
-||||||| merged common ancestors
-    SUBDIR += libkface
-=======
->>>>>>> origin/master
     SUBDIR += libkipi
     SUBDIR += libkipi-kde4
-    SUBDIR += libkipiplugins
     SUBDIR += libkipiplugins-kde4
     SUBDIR += libksane
     SUBDIR += libksane-kde4
-    SUBDIR += libkscreen-kde4
     SUBDIR += libkscreen
+    SUBDIR += libkscreen-kde4
     SUBDIR += liblqr-1
     SUBDIR += liblug
     SUBDIR += libmng
@@ -635,6 +637,7 @@
     SUBDIR += mapyrus
     SUBDIR += megapov
     SUBDIR += mesa-demos
+    SUBDIR += mesa-dev
     SUBDIR += mesa-dri
     SUBDIR += mesa-libs
     SUBDIR += meshviewer
@@ -690,6 +693,7 @@
     SUBDIR += openjpeg15
     SUBDIR += openjump
     SUBDIR += opennurbs
+    SUBDIR += openorienteering-mapper
     SUBDIR += openrm
     SUBDIR += openshadinglanguage
     SUBDIR += opensubdiv
@@ -697,6 +701,7 @@
     SUBDIR += optipng
     SUBDIR += osg
     SUBDIR += osg-devel
+    SUBDIR += osg34
     SUBDIR += osgearth
     SUBDIR += oyranos
     SUBDIR += p5-Acme-Steganography-Image-Png
@@ -1081,6 +1086,7 @@
     SUBDIR += showimage
     SUBDIR += silgraphite
     SUBDIR += simage
+    SUBDIR += simple-scan
     SUBDIR += simpleviewer
     SUBDIR += sk1libs
     SUBDIR += skanlite
@@ -1134,6 +1140,7 @@
     SUBDIR += viewnior
     SUBDIR += vigra
     SUBDIR += vips
+    SUBDIR += virglrenderer
     SUBDIR += visprint
     SUBDIR += volpack
     SUBDIR += vp

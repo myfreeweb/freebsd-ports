@@ -55,6 +55,7 @@
     SUBDIR += higan
     SUBDIR += hugo
     SUBDIR += i386-wine
+    SUBDIR += i386-wine-devel
     SUBDIR += ia64sim
     SUBDIR += ines
     SUBDIR += javatari
@@ -74,6 +75,7 @@
     SUBDIR += mame
     SUBDIR += mastergear
     SUBDIR += mednafen
+    SUBDIR += mesen
     SUBDIR += mess
     SUBDIR += mgba
     SUBDIR += mtools
@@ -179,6 +181,8 @@
     SUBDIR += xzx
     SUBDIR += yabause
     SUBDIR += yape
+    SUBDIR += yuzu
+    SUBDIR += yuzu-qt5
     SUBDIR += zsnes
 
 .include <bsd.port.subdir.mk>

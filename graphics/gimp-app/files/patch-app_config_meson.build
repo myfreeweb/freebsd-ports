@@ -1,6 +1,6 @@
---- app/config/meson.build.orig	2018-03-11 14:45:06 UTC
-+++ app/config/meson.build
-@@ -44,7 +44,7 @@ test('app-config',
+--- app/config/meson.build.orig	2018-02-16 17:37:21.000000000 +0100
++++ app/config/meson.build	2018-09-25 16:34:03.323118000 +0200
+@@ -44,16 +44,9 @@
      include_directories: [ rootInclude, rootAppInclude, ],
  
      dependencies: [
@@ -8,4 +8,27 @@
 +      execinfo, gegl, gio, gio_specific,
      ],
      link_with: [
-       libgimpbase,
+-      libgimpbase,
+-      libgimpconfig,
+-      libgimpcolor,
+-      libgimpmath,
+-      libgimpmodule,
+-      libgimpthumb,
+-
+       libappcore,
+       libappconfig,
+       libappfile,
+@@ -68,6 +61,13 @@
+       libapptext,
+       libappvectors,
+       libappxcf,
++
++      libgimpbase,
++      libgimpconfig,
++      libgimpcolor,
++      libgimpmath,
++      libgimpmodule,
++      libgimpthumb,
+     ],
+     install: false,
+   ),

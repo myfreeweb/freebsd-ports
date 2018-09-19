@@ -28,7 +28,4 @@ post-patch:
 	@${REINPLACE_CMD} -e 's/-printf "%P\\n"/-print0 | xargs -0 basename/' \
 		${WRKSRC}/data/Makefile.in
 
-post-patch:
-	@${REINPLACE_CMD} -e 's/-printf "%P\\n"/-print0 | xargs -0 basename/' ${WRKSRC}/data/Makefile.in
-
 .include <bsd.port.mk>

@@ -1,0 +1,11 @@
+--- src/intel/vulkan/meson.build.orig	2018-10-02 18:17:29.540940000 +0200
++++ src/intel/vulkan/meson.build	2018-10-02 18:18:03.086093000 +0200
+@@ -96,7 +96,7 @@
+   _gen = g[0]
+   libanv_gen_libs += static_library(
+     'anv_gen@0@'.format(_gen),
+-    [anv_gen_files, g[1], anv_entrypoints[0], anv_extensions_h],
++    [anv_gen_files, g[1], anv_entrypoints[0], anv_extensions_h, gen_xml_pack],
+     include_directories : [
+       inc_common, inc_compiler, inc_drm_uapi, inc_intel, inc_vulkan_util,
+       inc_vulkan_wsi,

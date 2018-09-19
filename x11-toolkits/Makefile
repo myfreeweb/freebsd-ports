@@ -128,6 +128,7 @@
     SUBDIR += movingmotif
     SUBDIR += mowitz
     SUBDIR += mygui
+    SUBDIR += mygui-devel
     SUBDIR += mygui-dummy
     SUBDIR += mygui-ogre
     SUBDIR += mygui-opengl
@@ -270,6 +271,7 @@
     SUBDIR += swt
     SUBDIR += swt-devel
     SUBDIR += tepl
+    SUBDIR += tepl4
     SUBDIR += termit
     SUBDIR += tile
     SUBDIR += tix

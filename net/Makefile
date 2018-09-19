@@ -329,10 +329,13 @@
     SUBDIR += kf5-syndication
     SUBDIR += kget
     SUBDIR += kget-kde4
+    SUBDIR += kholidays
     SUBDIR += kidentitymanagement
     SUBDIR += kimap
+    SUBDIR += kimap2
     SUBDIR += kio-gdrive
     SUBDIR += kio-upnp-ms
+    SUBDIR += kio-upnp-ms-kde4
     SUBDIR += kippo
     SUBDIR += kissd
     SUBDIR += kitinerary
@@ -378,6 +381,7 @@
     SUBDIR += libgweather
     SUBDIR += libilbc
     SUBDIR += libkfbapi
+    SUBDIR += libkfbapi-kde4
     SUBDIR += libkgapi
     SUBDIR += libksieve
     SUBDIR += libkvkontakte
@@ -830,7 +834,6 @@
     SUBDIR += p5-OAI-Harvester
     SUBDIR += p5-OurNet-BBS
     SUBDIR += p5-OurNet-BBSAgent
-    SUBDIR += p5-Parse-Netstat
     SUBDIR += p5-POE-Component-Client-Ident
     SUBDIR += p5-POE-Component-Client-Keepalive
     SUBDIR += p5-POE-Component-Client-Ping
@@ -848,6 +851,7 @@
     SUBDIR += p5-POSIX-Socket
     SUBDIR += p5-POSIX-getpeername
     SUBDIR += p5-Parallel-Pvm
+    SUBDIR += p5-Parse-Netstat
     SUBDIR += p5-Phone-Info
     SUBDIR += p5-PlRPC
     SUBDIR += p5-Queue-Beanstalk
@@ -1061,7 +1065,6 @@
     SUBDIR += py-impacket
     SUBDIR += py-ipaddress
     SUBDIR += py-iplib
-    SUBDIR += py-iptools
     SUBDIR += py-kafka-python
     SUBDIR += py-kombu
     SUBDIR += py-ldap
@@ -1189,6 +1192,7 @@
     SUBDIR += radreport
     SUBDIR += radsecproxy
     SUBDIR += radvd
+    SUBDIR += raggle
     SUBDIR += rclone
     SUBDIR += rdapper
     SUBDIR += rdesktop
@@ -1386,6 +1390,7 @@
     SUBDIR += skstream
     SUBDIR += sl2tps
     SUBDIR += slurm
+    SUBDIR += smb4k
     SUBDIR += smb4k-kde4
     SUBDIR += smbldap-tools
     SUBDIR += smcroute

@@ -303,6 +303,7 @@
     SUBDIR += gstreamer1-plugins-mpg123
     SUBDIR += gstreamer1-plugins-musepack
     SUBDIR += gstreamer1-plugins-ogg
+    SUBDIR += gstreamer1-plugins-openmpt
     SUBDIR += gstreamer1-plugins-opus
     SUBDIR += gstreamer1-plugins-pulse
     SUBDIR += gstreamer1-plugins-shout2
@@ -730,6 +731,9 @@
     SUBDIR += rhvoice
     SUBDIR += rhvoice-dictionary
     SUBDIR += rhythmbox
+    SUBDIR += rhythmbox-plugin-alternative-toolbar
+    SUBDIR += rhythmbox-plugin-coverart-browser
+    SUBDIR += rhythmbox-plugin-coverart-search-providers
     SUBDIR += rio500
     SUBDIR += rioutil
     SUBDIR += ripit
@@ -769,6 +773,7 @@
     SUBDIR += sidplay
     SUBDIR += sidplay2
     SUBDIR += sidplayer
+    SUBDIR += simon
     SUBDIR += simon-kde4
     SUBDIR += simplemod
     SUBDIR += siren

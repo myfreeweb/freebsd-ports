@@ -57,8 +57,8 @@ include/gegl-%%GEGL_VER%%/operation/gegl-operation-area-filter.h
 include/gegl-%%GEGL_VER%%/operation/gegl-operation-composer.h
 include/gegl-%%GEGL_VER%%/operation/gegl-operation-composer3.h
 include/gegl-%%GEGL_VER%%/operation/gegl-operation-context.h
-include/gegl-%%GEGL_VER%%/operation/gegl-operation-filter.h
 include/gegl-%%GEGL_VER%%/operation/gegl-operation-handlers.h
+include/gegl-%%GEGL_VER%%/operation/gegl-operation-filter.h
 include/gegl-%%GEGL_VER%%/operation/gegl-operation-meta-json.h
 include/gegl-%%GEGL_VER%%/operation/gegl-operation-meta.h
 include/gegl-%%GEGL_VER%%/operation/gegl-operation-point-composer.h
@@ -148,8 +148,8 @@ share/locale/lv/LC_MESSAGES/gegl-%%GEGL_VER%%.mo
 share/locale/nb/LC_MESSAGES/gegl-%%GEGL_VER%%.mo
 share/locale/oc/LC_MESSAGES/gegl-%%GEGL_VER%%.mo
 share/locale/pl/LC_MESSAGES/gegl-%%GEGL_VER%%.mo
-share/locale/pt/LC_MESSAGES/gegl-%%GEGL_VER%%.mo
 share/locale/pt_BR/LC_MESSAGES/gegl-%%GEGL_VER%%.mo
+share/locale/pt/LC_MESSAGES/gegl-%%GEGL_VER%%.mo
 share/locale/ru/LC_MESSAGES/gegl-%%GEGL_VER%%.mo
 share/locale/sk/LC_MESSAGES/gegl-%%GEGL_VER%%.mo
 share/locale/sl/LC_MESSAGES/gegl-%%GEGL_VER%%.mo

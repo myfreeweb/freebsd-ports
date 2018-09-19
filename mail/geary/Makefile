@@ -28,7 +28,7 @@ LIB_DEPENDS=	libgmime-2.6.so:mail/gmime26 \
 		libenchant.so:textproc/enchant
 
 USES=		cmake:outsource compiler:c11 desktop-file-utils gettext libtool \
-		localbase:ldflags pkgconfig shebangfix sqlite tar:xz
+		localbase:ldflags pkgconfig shebangfix sqlite tar:xz gnome
 USE_GNOME=	cairo gnomedocutils gnomeprefix gtk30 intlhack introspection
 SHEBANG_FILES=	desktop/geary-attach
 USE_LDCONFIG=	yes

@@ -171,6 +171,7 @@
     SUBDIR += coq
     SUBDIR += crlibm
     SUBDIR += cryptominisat
+    SUBDIR += cryptominisat4
     SUBDIR += cvc3
     SUBDIR += cvc4
     SUBDIR += deal.ii
@@ -296,7 +297,7 @@
     SUBDIR += kktdirect
     SUBDIR += kmplot
     SUBDIR += kmplot-kde4
-    SUBDIR += labplot-kde4
+    SUBDIR += labplot
     SUBDIR += lambda
     SUBDIR += lapack
     SUBDIR += lapack++
@@ -364,6 +365,7 @@
     SUBDIR += mumps-mpich
     SUBDIR += muparser
     SUBDIR += nanoflann
+    SUBDIR += nasc
     SUBDIR += naturalmath
     SUBDIR += nauty
     SUBDIR += ndiff

@@ -47,4 +47,6 @@ INSTALL_TARGET=	install-strip
 
 GLIB_SCHEMAS=	org.gnome.photos.gschema.xml
 
+OPTIONS_DEFINE=	DOCS
+
 .include <bsd.port.mk>

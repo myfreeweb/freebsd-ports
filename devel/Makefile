@@ -153,6 +153,7 @@
     SUBDIR += asmx
     SUBDIR += astah-community
     SUBDIR += astyle
+    SUBDIR += asynqt
     SUBDIR += atf
     SUBDIR += atlas
     SUBDIR += atlas-devel
@@ -604,6 +605,7 @@
     SUBDIR += etcd33
     SUBDIR += etl
     SUBDIR += euca2ools
+    SUBDIR += evdev-proto
     SUBDIR += evemu
     SUBDIR += eventxx
     SUBDIR += evolution-gconf-tools
@@ -1278,6 +1280,7 @@
     SUBDIR += kapptemplate
     SUBDIR += kapptemplate-kde4
     SUBDIR += kaptain
+    SUBDIR += kasync
     SUBDIR += kcachegrind
     SUBDIR += kcachegrind-kde4
     SUBDIR += kcov
@@ -1299,6 +1302,9 @@
     SUBDIR += kdev-python
     SUBDIR += kdevelop
     SUBDIR += kdevelop-kde4
+    SUBDIR += kdevelop-kde4-pg-qt
+    SUBDIR += kdevelop-kde4-php
+    SUBDIR += kdevelop-kde4-php-docs
     SUBDIR += kdevelop-pg-qt
     SUBDIR += kdevelop-pg-qt-kde4
     SUBDIR += kdevelop-php-docs-kde4
@@ -1470,6 +1476,7 @@
     SUBDIR += libgta
     SUBDIR += libgtop
     SUBDIR += libgudev
+    SUBDIR += libgusb
     SUBDIR += libgutenfetch
     SUBDIR += libhash
     SUBDIR += libhid
@@ -1487,6 +1494,7 @@
     SUBDIR += libkgapi-kde4
     SUBDIR += libklel
     SUBDIR += libkolab
+    SUBDIR += libkolab-kde4
     SUBDIR += liblangtag
     SUBDIR += liblas
     SUBDIR += liblas12
@@ -1577,6 +1585,7 @@
     SUBDIR += libshhopt
     SUBDIR += libsigc++12
     SUBDIR += libsigc++20
+    SUBDIR += libsigc++30
     SUBDIR += libsigrok
     SUBDIR += libsigrokdecode
     SUBDIR += libsigscan
@@ -1719,7 +1728,6 @@
     SUBDIR += lua-gettext
     SUBDIR += lua-lgi
     SUBDIR += lua-lpeg
-    SUBDIR += lua-luacheck
     SUBDIR += lua-luarocks
     SUBDIR += lua-lunit
     SUBDIR += lua-posix
@@ -3196,6 +3204,7 @@
     SUBDIR += p5-Parse-Method-Signatures
     SUBDIR += p5-Parse-PMFile
     SUBDIR += p5-Parse-PerlConfig
+    SUBDIR += p5-Parse-Pidl
     SUBDIR += p5-Parse-PlainConfig
     SUBDIR += p5-Parse-RecDescent
     SUBDIR += p5-Parse-Win32Registry
@@ -3826,8 +3835,9 @@
     SUBDIR += p5-namespace-sweep
     SUBDIR += p5-orz
     SUBDIR += p5-parent
+    SUBDIR += p5-perlkde
     SUBDIR += p5-perlkde-kde4
-    SUBDIR += p5-perlqt-kde4
+    SUBDIR += p5-perlqt
     SUBDIR += p5-pip
     SUBDIR += p5-prefork
     SUBDIR += p5-relative
@@ -4635,7 +4645,6 @@
     SUBDIR += py-icalendar
     SUBDIR += py-ice
     SUBDIR += py-ice37
-    SUBDIR += py-imgkit
     SUBDIR += py-incremental
     SUBDIR += py-inflect
     SUBDIR += py-inflection
@@ -4706,7 +4715,7 @@
     SUBDIR += py-kjbuckets
     SUBDIR += py-knack
     SUBDIR += py-kqueue
-    SUBDIR += py-krosspython-kde4
+    SUBDIR += py-krosspython
     SUBDIR += py-lazr.config
     SUBDIR += py-lazr.delegates
     SUBDIR += py-lazy
@@ -4924,7 +4933,8 @@
     SUBDIR += py-pyicu
     SUBDIR += py-pyinotify
     SUBDIR += py-pyinstaller
-    SUBDIR += py-pykde4-kde4
+    SUBDIR += py-pykde4
+    SUBDIR += py-pykdeuic4
     SUBDIR += py-pykdeuic4-kde4
     SUBDIR += py-pyke
     SUBDIR += py-pylibsrtp
@@ -4993,6 +5003,7 @@
     SUBDIR += py-pytrie
     SUBDIR += py-pytvmaze
     SUBDIR += py-pytz
+    SUBDIR += py-pyudev
     SUBDIR += py-pyutil
     SUBDIR += py-pyvalid
     SUBDIR += py-pyvisa
@@ -5457,9 +5468,12 @@
     SUBDIR += ruby-bsearch
     SUBDIR += ruby-build
     SUBDIR += ruby-gems
+    SUBDIR += ruby-korundum
     SUBDIR += ruby-korundum-kde4
+    SUBDIR += ruby-krossruby
     SUBDIR += ruby-krossruby-kde4
-    SUBDIR += ruby-qtruby-kde4
+    SUBDIR += ruby-ncurses
+    SUBDIR += ruby-qtruby
     SUBDIR += ruby-rbprof
     SUBDIR += ruby-sdl
     SUBDIR += ruby-setup.rb
@@ -5868,6 +5882,7 @@
     SUBDIR += rubygem-peek-rblineprof
     SUBDIR += rubygem-peek-redis
     SUBDIR += rubygem-peek-sidekiq
+    SUBDIR += rubygem-piston
     SUBDIR += rubygem-pkg-config
     SUBDIR += rubygem-platform
     SUBDIR += rubygem-pleaserun
@@ -6184,9 +6199,10 @@
     SUBDIR += smack
     SUBDIR += smake
     SUBDIR += smc
-    SUBDIR += smokegen-kde4
+    SUBDIR += smokegen
+    SUBDIR += smokekde
     SUBDIR += smokekde-kde4
-    SUBDIR += smokeqt-kde4
+    SUBDIR += smokeqt
     SUBDIR += smv
     SUBDIR += soapui
     SUBDIR += socket_wrapper

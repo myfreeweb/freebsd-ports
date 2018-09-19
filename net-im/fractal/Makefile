@@ -17,7 +17,8 @@ BUILD_DEPENDS=	cargo:lang/rust \
 		gmake:devel/gmake
 LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		libgmp.so:math/gmp \
-		libgspell-1.so:textproc/gspell
+		libgspell-1.so:textproc/gspell \
+		libgtksourceview-3.0.so:x11-toolkits/gtksourceview3
 
 USES=		gettext gnome meson pkgconfig python:3.5+,build ssl tar:xz
 USE_GNOME=	cairo gtk30 gtksourceview3
