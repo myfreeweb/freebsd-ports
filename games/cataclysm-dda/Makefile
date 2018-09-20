@@ -4,7 +4,6 @@
 PORTNAME=		cataclysm-dda
 DISTVERSION=		0.C-26605
 DISTVERSIONSUFFIX=	-g2009bc2950
-PORTREVISION=		2
 PORTEPOCH=		1
 CATEGORIES=		games
 
@@ -14,7 +13,7 @@ COMMENT=	Roguelike set in a post-apocalyptic world
 LICENSE=	CC-BY-SA-3.0
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-USES=		alias compiler:c++11-lib gmake shebangfix
+USES=		alias compiler:c++14-lang gmake shebangfix
 SHEBANG_FILES=	lang/*.sh gfx/make_iso.py
 bash_CMD=	/bin/sh
 python_CMD=	${LOCALBASE}/bin/python2.7

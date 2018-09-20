@@ -3,13 +3,16 @@
 
 PORTNAME=	lockdown
 PORTVERSION=	2.0.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	security
 MASTER_SITES=	http://lockdown.trunet.dk/ \
 		http://lockdown.loproc.dk/
 
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Hardening script for FreeBSD
+FORBIDDEN=	Renders system unbootable
+DEPRECATED=	Renders system unbootable
+EXPIRATION_DATE=	2018-09-30
 
 USE_LDCONFIG=	yes
 
