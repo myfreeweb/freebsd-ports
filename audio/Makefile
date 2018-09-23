@@ -726,6 +726,7 @@
     SUBDIR += rexima
     SUBDIR += rezound
     SUBDIR += rhvoice
+    SUBDIR += rhvoice-dictionary
     SUBDIR += rhythmbox
     SUBDIR += rio500
     SUBDIR += rioutil
