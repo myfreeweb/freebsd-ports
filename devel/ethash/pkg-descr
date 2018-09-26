@@ -1,0 +1,4 @@
+C/C++ implementation of Ethash, the Proof of Work algorithm used in the
+Ethereum cryptocurrency.
+
+WWW: https://github.com/chfast/ethash

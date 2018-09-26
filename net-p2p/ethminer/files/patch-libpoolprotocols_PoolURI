@@ -1,0 +1,530 @@
+Backport of https://github.com/ethereum-mining/ethminer/pull/1464
+--- libpoolprotocols/PoolURI.h.orig	2018-07-23 09:12:07 UTC
++++ libpoolprotocols/PoolURI.h
+@@ -1,37 +1,85 @@
++/*
++    This file is part of cpp-ethereum.
++
++    cpp-ethereum is free software: you can redistribute it and/or modify
++    it under the terms of the GNU General Public License as published by
++    the Free Software Foundation, either version 3 of the License, or
++    (at your option) any later version.
++
++    cpp-ethereum is distributed in the hope that it will be useful,
++    but WITHOUT ANY WARRANTY; without even the implied warranty of
++    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++    GNU General Public License for more details.
++
++    You should have received a copy of the GNU General Public License
++    along with cpp-ethereum.  If not, see <http://www.gnu.org/licenses/>.
++*/
++
+ #pragma once
+ 
+ #include <string>
+-#include <network/uri.hpp>
+ 
+ // A simple URI parser specifically for mining pool endpoints
+ namespace dev
+ {
++enum class SecureLevel
++{
++    NONE = 0,
++    TLS12,
++    TLS
++};
++enum class ProtocolFamily
++{
++    GETWORK = 0,
++    STRATUM
++};
+ 
+-enum class SecureLevel {NONE = 0, TLS12, TLS};
+-enum class ProtocolFamily {GETWORK = 0, STRATUM};
+-
+ class URI
+ {
+ public:
+-	URI() {};
+-	URI(const std::string uri);
++    URI();
++    URI(const std::string uri);
+ 
+-	std::string	Scheme() const;
+-	std::string	Host() const;
+-	std::string	Path() const;
+-	unsigned short	Port() const;
+-	std::string	User() const;
+-	std::string	Pass() const;
+-	SecureLevel	SecLevel() const;
+-	ProtocolFamily	Family() const;
+-	unsigned	Version() const;
++    std::string Scheme() const { return m_scheme; }
++    std::string Host() const { return m_host; }
++    std::string Path() const { return m_path; }
++    unsigned short Port() const { return m_port; }
++    std::string User() const { return m_username; }
++    std::string Pass() const { return m_password; }
++    SecureLevel SecLevel() const;
++    ProtocolFamily Family() const;
++    unsigned Version() const;
++    std::string String() const { return m_uri; }
++    bool Valid() const { return m_valid; }
+ 
+-	bool		KnownScheme();
++    bool KnownScheme();
+ 
+-	static std::string KnownSchemes(ProtocolFamily family);
++    static std::string KnownSchemes(ProtocolFamily family);
+ 
++    void SetStratumMode(unsigned mode, bool confirmed)
++    {
++        m_stratumMode = mode;
++        m_stratumModeConfirmed = confirmed;
++    }
++    void SetStratumMode(unsigned mode) { m_stratumMode = mode; }
++    unsigned StratumMode() { return m_stratumMode; }
++    bool StratumModeConfirmed() { return m_stratumModeConfirmed; }
++    bool IsUnrecoverable() { return m_unrecoverable; }
++    void MarkUnrecoverable() { m_unrecoverable = true; }
++
+ private:
+-	network::uri m_uri;
++    bool m_stratumModeConfirmed = false;
++    unsigned m_stratumMode = 999;  // Initial value 999 means not tested yet
++    bool m_unrecoverable = false;
++    std::string m_scheme;
++    std::string m_host;
++    unsigned short m_port;
++    std::string m_path;
++    std::string m_query;
++    std::string m_fragment;
++    std::string m_username;
++    std::string m_password;
++    std::string m_uri;
++    bool m_valid;
+ };
+-
+-}
++}  // namespace dev
+--- libpoolprotocols/PoolURI.cpp.orig	2018-07-23 09:12:07 UTC
++++ libpoolprotocols/PoolURI.cpp
+@@ -1,161 +1,292 @@
+-#include <map>
+-#include <boost/optional/optional_io.hpp>
+-#include <boost/algorithm/string.hpp>
+-#include <network/uri/detail/decode.hpp>
+-#include <libpoolprotocols/PoolURI.h>
++/*
++    This file is part of cpp-ethereum.
+ 
++    cpp-ethereum is free software: you can redistribute it and/or modify
++    it under the terms of the GNU General Public License as published by
++    the Free Software Foundation, either version 3 of the License, or
++    (at your option) any later version.
++
++    cpp-ethereum is distributed in the hope that it will be useful,
++    but WITHOUT ANY WARRANTY; without even the implied warranty of
++    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++    GNU General Public License for more details.
++
++    You should have received a copy of the GNU General Public License
++    along with cpp-ethereum.  If not, see <http://www.gnu.org/licenses/>.
++*/
++
++#include <algorithm>
+ #include <iostream>
++#include <map>
++#include <sstream>
+ 
++#include <string.h>
++
++#include <libpoolprotocols/PoolURI.h>
++
+ using namespace dev;
+ 
+-typedef struct {
+-	ProtocolFamily family;
+-	SecureLevel secure;
+-	unsigned version;
++typedef struct
++{
++    ProtocolFamily family;
++    SecureLevel secure;
++    unsigned version;
+ } SchemeAttributes;
+ 
+ static std::map<std::string, SchemeAttributes> s_schemes = {
+-	{"stratum+tcp",	  {ProtocolFamily::STRATUM, SecureLevel::NONE,  0}},
+-	{"stratum1+tcp",  {ProtocolFamily::STRATUM, SecureLevel::NONE,  1}},
+-	{"stratum2+tcp",  {ProtocolFamily::STRATUM, SecureLevel::NONE,  2}},
+-	{"stratum+tls",	  {ProtocolFamily::STRATUM, SecureLevel::TLS,   0}},
+-	{"stratum1+tls",  {ProtocolFamily::STRATUM, SecureLevel::TLS,   1}},
+-	{"stratum2+tls",  {ProtocolFamily::STRATUM, SecureLevel::TLS,   2}},
+-	{"stratum+tls12", {ProtocolFamily::STRATUM, SecureLevel::TLS12, 0}},
+-	{"stratum1+tls12",{ProtocolFamily::STRATUM, SecureLevel::TLS12, 1}},
+-	{"stratum2+tls12",{ProtocolFamily::STRATUM, SecureLevel::TLS12, 2}},
+-	{"stratum+ssl",	  {ProtocolFamily::STRATUM, SecureLevel::TLS12, 0}},
+-	{"stratum1+ssl",  {ProtocolFamily::STRATUM, SecureLevel::TLS12, 1}},
+-	{"stratum2+ssl",  {ProtocolFamily::STRATUM, SecureLevel::TLS12, 2}},
+-	{"http",		  {ProtocolFamily::GETWORK, SecureLevel::NONE,  0}}
+-};
++    {"stratum+tcp", {ProtocolFamily::STRATUM, SecureLevel::NONE, 0}},
++    {"stratum1+tcp", {ProtocolFamily::STRATUM, SecureLevel::NONE, 1}},
++    {"stratum2+tcp", {ProtocolFamily::STRATUM, SecureLevel::NONE, 2}},
++    {"stratum+tls", {ProtocolFamily::STRATUM, SecureLevel::TLS, 0}},
++    {"stratum1+tls", {ProtocolFamily::STRATUM, SecureLevel::TLS, 1}},
++    {"stratum2+tls", {ProtocolFamily::STRATUM, SecureLevel::TLS, 2}},
++    {"stratum+tls12", {ProtocolFamily::STRATUM, SecureLevel::TLS12, 0}},
++    {"stratum1+tls12", {ProtocolFamily::STRATUM, SecureLevel::TLS12, 1}},
++    {"stratum2+tls12", {ProtocolFamily::STRATUM, SecureLevel::TLS12, 2}},
++    {"stratum+ssl", {ProtocolFamily::STRATUM, SecureLevel::TLS12, 0}},
++    {"stratum1+ssl", {ProtocolFamily::STRATUM, SecureLevel::TLS12, 1}},
++    {"stratum2+ssl", {ProtocolFamily::STRATUM, SecureLevel::TLS12, 2}},
++    {"http", {ProtocolFamily::GETWORK, SecureLevel::NONE, 0}}};
+ 
+-URI::URI(const std::string uri)
++// Check whether the character is permitted in scheme string
++static bool is_scheme_char(int c)
+ {
+-	std::string u = uri;
+-	if (u.find("://") == std::string::npos)
+-		u = std::string("unspecified://") + u;
+-	m_uri = network::uri(u);
++    return isalpha(c) || isdigit(c) || ('+' == c) || ('-' == c) || ('.' == c);
+ }
+ 
+-bool URI::KnownScheme()
+-{
+-	if (!m_uri.scheme())
+-		return false;
+-	std::string s(*m_uri.scheme());
+-	boost::trim(s);
+-	return s_schemes.find(s) != s_schemes.end();
+-}
++URI::URI() : URI("") {}
+ 
+-ProtocolFamily URI::Family() const
++URI::URI(const std::string uri)
+ {
+-	if (!m_uri.scheme())
+-		return ProtocolFamily::STRATUM;
+-	std::string s(*m_uri.scheme());
+-	s = network::detail::decode(s);
+-	boost::trim(s);
+-	return s_schemes[s].family;
+-}
++    const char* tmpstr;
++    const char* curstr;
++    unsigned len;
++    bool userpass_flag;
++    bool ipv6_flag;
+ 
+-unsigned URI::Version() const
+-{
+-	if (!m_uri.scheme())
+-		return 0;
+-	std::string s(*m_uri.scheme());
+-	s = network::detail::decode(s);
+-	boost::trim(s);
+-	return s_schemes[s].version;
+-}
++    m_valid = true;
++    m_path.clear();
++    m_query.clear();
++    m_fragment.clear();
++    m_username.clear();
++    m_password.clear();
++    m_port = 0;
+ 
+-SecureLevel URI::SecLevel() const
+-{
+-	if (!m_uri.scheme())
+-		return SecureLevel::NONE;
+-	std::string s(*m_uri.scheme());
+-	s = network::detail::decode(s);
+-	boost::trim(s);
+-	return s_schemes[s].secure;
+-}
++    m_uri = uri;
++    curstr = m_uri.c_str();
+ 
+-std::string URI::KnownSchemes(ProtocolFamily family)
+-{
+-	std::string schemes;
+-	for(const auto&s : s_schemes)
+-		if (s.second.family == family)
+-			schemes += s.first + " ";
+-	boost::trim(schemes);
+-	return schemes;
+-}
++    // <scheme>:<scheme-specific-part>
++    // <scheme> := [a-z\+\-\.]+
++    //             upper case = lower case for resiliency
++    // Read scheme
++    tmpstr = strchr(curstr, ':');
++    if (nullptr == tmpstr)
++    {
++        // Not found
++        m_valid = false;
++        return;
++    }
++    // Get the scheme length
++    len = tmpstr - curstr;
++    // Check character restrictions
++    for (unsigned i = 0; i < len; i++)
++    {
++        if (!is_scheme_char(curstr[i]))
++        {
++            // Invalid
++            m_valid = false;
++            return;
++        }
++    }
++    // Copy the scheme to the string
++    // all lowecase
++    m_scheme.append(curstr, len);
++    std::transform(m_scheme.begin(), m_scheme.end(), m_scheme.begin(), ::tolower);
+ 
+-std::string URI::Scheme() const
+-{
+-	if (!m_uri.scheme())
+-		return "";
+-	std::string s(*m_uri.scheme());
+-	s = network::detail::decode(s);
+-	boost::trim(s);
+-	return s;
++    // Skip ':'
++    tmpstr++;
++    curstr = tmpstr;
++
++    // //<user>:<password>@<host>:<port>/<url-path>
++    // Any ":", "@" and "/" must be encoded.
++    // Eat "//"
++    for (unsigned i = 0; i < 2; i++)
++    {
++        if ('/' != *curstr)
++        {
++            m_valid = false;
++            return;
++        }
++        curstr++;
++    }
++
++    // Check if the user (and password) are specified.
++    userpass_flag = false;
++    tmpstr = curstr;
++    while ('\0' != *tmpstr)
++    {
++        if ('@' == *tmpstr)
++        {
++            // Username and password are specified
++            userpass_flag = true;
++            break;
++        }
++        else if ('/' == *tmpstr)
++        {
++            // End of <host>:<port> specification
++            userpass_flag = false;
++            break;
++        }
++        tmpstr++;
++    }
++
++    // User and password specification
++    tmpstr = curstr;
++    if (userpass_flag)
++    {
++        // Read username
++        while (('\0' != *tmpstr) && (':' != *tmpstr) && ('@' != *tmpstr))
++            tmpstr++;
++        len = tmpstr - curstr;
++        m_username.append(curstr, len);
++        // Proceed current pointer
++        curstr = tmpstr;
++        if (':' == *curstr)
++        {
++            // Skip ':'
++            curstr++;
++            // Read password
++            tmpstr = curstr;
++            while (('\0' != *tmpstr) && ('@' != *tmpstr))
++                tmpstr++;
++            len = tmpstr - curstr;
++            m_password.append(curstr, len);
++            curstr = tmpstr;
++        }
++        // Skip '@'
++        if ('@' != *curstr)
++        {
++            m_valid = false;
++            return;
++        }
++        curstr++;
++    }
++
++    ipv6_flag = '[' == *curstr;
++    // Proceed on by delimiters with reading host
++    tmpstr = curstr;
++    while ('\0' != *tmpstr)
++    {
++        if (ipv6_flag && ']' == *tmpstr)
++        {
++            // End of IPv6 address.
++            tmpstr++;
++            break;
++        }
++        else if (!ipv6_flag && ((':' == *tmpstr) || ('/' == *tmpstr)))
++            // Port number is specified.
++            break;
++        tmpstr++;
++    }
++    len = tmpstr - curstr;
++    m_host.append(curstr, len);
++    curstr = tmpstr;
++
++    // Is port number specified?
++    if (':' == *curstr)
++    {
++        curstr++;
++        // Read port number
++        tmpstr = curstr;
++        while (('\0' != *tmpstr) && ('/' != *tmpstr))
++            tmpstr++;
++        len = tmpstr - curstr;
++        std::string tempstr;
++        tempstr.append(curstr, len);
++        std::stringstream ss(tempstr);
++        ss >> m_port;
++        if (ss.fail())
++        {
++            m_valid = false;
++            return;
++        }
++        curstr = tmpstr;
++    }
++
++    // End of the string
++    if ('\0' == *curstr)
++        return;
++
++    // Skip '/'
++    if ('/' != *curstr)
++    {
++        m_valid = false;
++        return;
++    }
++    curstr++;
++
++    // Parse path
++    tmpstr = curstr;
++    while (('\0' != *tmpstr) && ('#' != *tmpstr) && ('?' != *tmpstr))
++        tmpstr++;
++    len = tmpstr - curstr;
++    m_path.append(curstr, len);
++    curstr = tmpstr;
++
++    // Is query specified?
++    if ('?' == *curstr)
++    {
++        // Skip '?'
++        curstr++;
++        // Read query
++        tmpstr = curstr;
++        while (('\0' != *tmpstr) && ('#' != *tmpstr))
++            tmpstr++;
++        len = tmpstr - curstr;
++        m_query.append(curstr, len);
++        curstr = tmpstr;
++    }
++
++    // Is fragment specified?
++    if ('#' == *curstr)
++    {
++        // Skip '#'
++        curstr++;
++        // Read fragment
++        tmpstr = curstr;
++        while ('\0' != *tmpstr)
++            tmpstr++;
++        len = tmpstr - curstr;
++        m_fragment.append(curstr, len);
++    }
+ }
+ 
+-std::string URI::Host() const
++bool URI::KnownScheme()
+ {
+-	if (!m_uri.host())
+-		return "";
+-	std::string s(*m_uri.host());
+-	s = network::detail::decode(s);
+-	boost::trim(s);
+-	return s;
++    return s_schemes.find(m_scheme) != s_schemes.end();
+ }
+ 
+-std::string URI::Path() const
++ProtocolFamily URI::Family() const
+ {
+-	if (!m_uri.path())
+-		return "";
+-	std::string s(*m_uri.path());
+-	s = network::detail::decode(s);
+-	boost::trim(s);
+-	return s;
++    return s_schemes[m_scheme].family;
+ }
+ 
+-unsigned short URI::Port() const
++unsigned URI::Version() const
+ {
+-	if (!m_uri.port())
+-		return 0;
+-	std::string s(*m_uri.port());
+-	s = network::detail::decode(s);
+-	boost::trim(s);
+-	try {
+-		return (unsigned short)std::stoul(s.c_str());
+-	}
+-	catch (...)
+-	{
+-		return 0;
+-	}
++    return s_schemes[m_scheme].version;
+ }
+ 
+-std::string URI::User() const
++SecureLevel URI::SecLevel() const
+ {
+-	if (!m_uri.user_info())
+-		return "";
+-	std::string s(*m_uri.user_info());
+-	s = network::detail::decode(s);
+-	boost::trim(s);
+-	size_t f = s.find(":");
+-	if (f == std::string::npos)
+-		return s;
+-	return s.substr(0, f);
++    return s_schemes[m_scheme].secure;
+ }
+ 
+-std::string URI::Pass() const
++std::string URI::KnownSchemes(ProtocolFamily family)
+ {
+-	if (!m_uri.user_info())
+-		return "";
+-	std::string s(*m_uri.user_info());
+-	s = network::detail::decode(s);
+-	boost::trim(s);
+-	size_t f = s.find(":");
+-	if (f == std::string::npos)
+-		return "";
+-	return s.substr(f + 1);
++    std::string schemes;
++    for (const auto& s : s_schemes)
++        if (s.second.family == family)
++            schemes += s.first + " ";
++    return schemes;
+ }
+ 

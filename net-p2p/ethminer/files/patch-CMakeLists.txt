@@ -1,0 +1,20 @@
+--- CMakeLists.txt.orig	2018-09-25 11:44:56 UTC
++++ CMakeLists.txt
+@@ -46,16 +46,13 @@ function(configureProject)
+ endfunction()
+ 
+ hunter_add_package(Boost COMPONENTS system)
+-find_package(Boost CONFIG REQUIRED COMPONENTS system)
++find_package(Boost CONFIG REQUIRED COMPONENTS system filesystem)
+ 
+ hunter_add_package(jsoncpp)
+ find_package(jsoncpp CONFIG REQUIRED)
+ 
+ hunter_add_package(libjson-rpc-cpp)
+ find_package(libjson-rpc-cpp CONFIG REQUIRED)
+-
+-hunter_add_package(CppNetlibUri)
+-find_package(CppNetlibUri CONFIG REQUIRED)
+ 
+ hunter_add_package(ethash)
+ find_package(ethash CONFIG REQUIRED)

@@ -1,0 +1,14 @@
+--- libapicore/CMakeLists.txt.orig	2018-07-23 09:12:07 UTC
++++ libapicore/CMakeLists.txt
+@@ -3,9 +3,8 @@ set(SOURCES
+ 	httpServer.cpp httpServer.h
+ )
+ 
+-hunter_add_package(mongoose)
+-find_package(mongoose CONFIG REQUIRED)
++add_subdirectory(mongoose)
+ 
+ add_library(apicore ${SOURCES})
+-target_link_libraries(apicore PRIVATE ethcore devcore ethminer-buildinfo mongoose::mongoose)
++target_link_libraries(apicore PRIVATE ethcore devcore ethminer-buildinfo mongoose Boost::filesystem)
+ target_include_directories(apicore PRIVATE ..)

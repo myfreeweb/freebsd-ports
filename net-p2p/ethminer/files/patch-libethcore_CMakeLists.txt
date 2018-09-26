@@ -1,0 +1,11 @@
+--- libethcore/CMakeLists.txt.orig	2018-09-25 10:28:06 UTC
++++ libethcore/CMakeLists.txt
+@@ -9,7 +9,7 @@ set(SOURCES
+ include_directories(BEFORE ..)
+ 
+ add_library(ethcore ${SOURCES})
+-target_link_libraries(ethcore PUBLIC devcore ethash::ethash PRIVATE hwmon)
++target_link_libraries(ethcore PUBLIC devcore ethash::ethash jsoncpp_lib_static PRIVATE hwmon)
+ 
+ if(ETHASHCL)
+ 	target_link_libraries(ethcore PRIVATE ethash-cl)

@@ -1,0 +1,9 @@
+TIMESTAMP = 1537876082
+SHA256 (ethereum-mining-ethminer-v0.15.0_GH0.tar.gz) = e967cb53006c19fd1db3eba8f0a4d018cb4242f4638cb369ddf9ee0ee812efd7
+SIZE (ethereum-mining-ethminer-v0.15.0_GH0.tar.gz) = 167925
+SHA256 (ethereum-cable-69a5abc_GH0.tar.gz) = f586a0a9197c236e59984087e29b2cf83346b1c8ec90bbe6e5e63899b81931f8
+SIZE (ethereum-cable-69a5abc_GH0.tar.gz) = 15668
+SHA256 (hunter-packages-disabled-mode-5f88a3d_GH0.tar.gz) = 59cf06fab25c53c5f2def2e08c43947211d6a3c6af530cc6159c377bbc81760e
+SIZE (hunter-packages-disabled-mode-5f88a3d_GH0.tar.gz) = 1495
+SHA256 (hunter-packages-mongoose-10dff70_GH0.tar.gz) = 17d69e2177d0f67f8ea5ebe637782f270fba53c31e447ef589aebba8c0124a88
+SIZE (hunter-packages-mongoose-10dff70_GH0.tar.gz) = 2392853

@@ -1,0 +1,15 @@
+--- ethminer/CMakeLists.txt.orig	2018-07-23 09:12:07 UTC
++++ ethminer/CMakeLists.txt
+@@ -18,10 +18,8 @@ target_link_libraries(ethminer PRIVATE ethcore poolpro
+ if(ETHDBUS)
+ 	find_package(PkgConfig)
+ 	set( ENV{PKG_CONFIG_PATH} "$ENV{PKG_CONFIG_PATH}:/usr/lib/x86_64-linux-gnu/pkgconfig" )
+-	pkg_check_modules(DBUS dbus-1)
+-	include_directories(${DBUS_INCLUDE_DIRS})
+-	link_directories(${DBUS_LIBRARY_DIRS})
+-	target_link_libraries(${EXECUTABLE} ${DBUS_LIBRARIES})
++	pkg_check_modules(DBUS REQUIRED IMPORTED_TARGET dbus-1)
++	target_link_libraries(${EXECUTABLE} PRIVATE PkgConfig::DBUS)
+ endif()
+ 
+ if(APICORE)

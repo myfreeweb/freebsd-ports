@@ -1,0 +1,11 @@
+include/ethash/ethash.h
+include/ethash/ethash.hpp
+include/ethash/hash_types.h
+include/ethash/hash_types.hpp
+include/ethash/keccak.h
+include/ethash/keccak.hpp
+lib/cmake/ethash/ethashConfig.cmake
+lib/cmake/ethash/ethashConfigVersion.cmake
+lib/cmake/ethash/ethashTargets-%%CMAKE_BUILD_TYPE%%.cmake
+lib/cmake/ethash/ethashTargets.cmake
+lib/libethash.a

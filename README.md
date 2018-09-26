@@ -120,6 +120,7 @@ How to use Weston:
 - `textproc/pict`: pairwise test gen tool [231407](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231407)
 - `lang/maude`: update to 2.7.1 [231443](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231443)
 - `net/libjson-rpc-cpp`: jsonrpc lib [231735](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231735)
+- `net-p2p/ethminer` (& `devel/ethash` `devel/cli11`): OpenCL miner - previous version since latest broke Clover support; even this one only works in test/benchmark mode for me currently
 
 ### Ports framework
 

@@ -1,0 +1,15 @@
+--- libpoolprotocols/CMakeLists.txt.orig	2018-09-25 12:03:44 UTC
++++ libpoolprotocols/CMakeLists.txt
+@@ -10,6 +10,11 @@ set(SOURCES
+ hunter_add_package(OpenSSL)
+ find_package(OpenSSL REQUIRED)
+ 
++if(ETHDBUS)
++	find_package(PkgConfig)
++	pkg_check_modules(DBUS REQUIRED IMPORTED_TARGET dbus-1)
++endif()
++
+ add_library(poolprotocols ${SOURCES})
+-target_link_libraries(poolprotocols PRIVATE devcore ethminer-buildinfo ethash::ethash libjson-rpc-cpp::client Boost::system jsoncpp_lib_static OpenSSL::SSL OpenSSL::Crypto network-uri)
++target_link_libraries(poolprotocols PRIVATE devcore ethminer-buildinfo ethash::ethash libjson-rpc-cpp::client Boost::system jsoncpp_lib_static PkgConfig::DBUS OpenSSL::SSL OpenSSL::Crypto)
+ target_include_directories(poolprotocols PRIVATE ..)
