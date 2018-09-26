@@ -119,6 +119,7 @@ How to use Weston:
 - `multimedia/pitivi`: update to 0.999
 - `textproc/pict`: pairwise test gen tool [231407](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231407)
 - `lang/maude`: update to 2.7.1 [231443](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231443)
+- `net/libjson-rpc-cpp`: jsonrpc lib [231735](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231735)
 
 ### Ports framework
 
