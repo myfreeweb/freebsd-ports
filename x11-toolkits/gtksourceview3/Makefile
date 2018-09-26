@@ -15,6 +15,8 @@ COMMENT=	Text widget that adds syntax highlighting to the GtkTextView widget
 LICENSE=	LGPL21
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+BROKEN_powerpc64=	fails to compile: gtksourcetag.h:43: redefinition of typedef 'GtkSourceTag'
+
 USES=		tar:xz
 
 PORTSCOUT=	limitw:1,even
