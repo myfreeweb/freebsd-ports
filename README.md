@@ -92,8 +92,6 @@ How to use Weston:
 - `graphics/akira`: VERY WIP (nothing works yet) UI design tool
 - `x11/kitty`: GPU accelerated terminal emulator (note: terminfo)
 - `security/gonepass`: 1Password vault reader [226706](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226706)
-- `databases/sequeler`: GTK3 SQL client
-- `databases/libgda5`: [unicode fix](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=870741) for build w/ new glib [226693](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226693)
 - `net-im/fractal`: GTK Matrix client [226683](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226683)
 - `audio/sonata`: update to git master (GTK3)
 - `audio/clementine-player`: git qt5 branch
