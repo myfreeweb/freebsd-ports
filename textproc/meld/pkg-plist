@@ -169,7 +169,6 @@ bin/meld
 man/man1/meld.1.gz
 share/appdata/meld.appdata.xml
 share/applications/meld.desktop
-%%PORTDOCS%%%%DOCSDIR%%/NEWS
 share/help/C/meld/command-line.page
 share/help/C/meld/file-changes.page
 share/help/C/meld/file-filters.page

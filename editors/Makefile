@@ -262,7 +262,6 @@
     SUBDIR += xmlcopyeditor
     SUBDIR += xvile
     SUBDIR += yudit
-    SUBDIR += yui
     SUBDIR += yzis
     SUBDIR += zile
     SUBDIR += zoinks

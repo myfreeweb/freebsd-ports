@@ -3,6 +3,7 @@
 
 PORTNAME=	vte
 PORTVERSION=	0.52.2
+PORTREVISION=	1
 CATEGORIES=	x11-toolkits gnome
 MASTER_SITES=	GNOME
 PKGNAMESUFFIX=	3
@@ -35,7 +36,7 @@ PLIST_SUB=	VERSION=2.91
 
 .include <bsd.port.options.mk>
 
-.if ${OSVERSION} <= 110000
+.if ${OSVERSION} <= 1100000
 EXTRA_PATCHES=	${FILESDIR}/extra-src_app_app.cc
 .endif
 

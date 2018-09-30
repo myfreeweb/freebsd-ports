@@ -1,6 +1,6 @@
---- pango/meson.build.orig	2018-05-08 14:42:03.361788000 +0200
-+++ pango/meson.build	2018-05-08 14:43:14.034291000 +0200
-@@ -236,59 +236,61 @@
+--- pango/meson.build.orig	2018-07-17 19:43:45.000000000 -0400
++++ pango/meson.build	2018-09-03 14:20:00.192740000 -0400
+@@ -239,59 +239,62 @@
  endif
  
  # Xft
@@ -27,7 +27,7 @@
 +      'pangoxft-render.c',
 +    ]
  
--  install_headers(pangoxft_headers, subdir: pango_api_path)
+   install_headers(pangoxft_headers, subdir: pango_api_path)
 +    install_headers(pangoxft_headers, subdir: pango_api_path)
  
 -  libpangoxft = library(
@@ -106,6 +106,6 @@
 +      sources: pangoxft_dep_sources,
 +    )
 +  endif
- endif
- 
- # Win32
+ else
+   # For usage as a subproject
+   libpangoxft_dep = dependency('', required: false)

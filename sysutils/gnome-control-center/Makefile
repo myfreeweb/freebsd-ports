@@ -42,7 +42,6 @@ PORTSCOUT=	limitw:1,even
 
 USES=		compiler:c++11-lib gettext gnome localbase:ldflags meson \
 		pkgconfig python:3.6+,build samba:lib tar:xz
-# ssl
 USE_GNOME=	cairo gnomedesktop3 libxml2
 USE_XORG=	x11 xi
 #USE_GSTREAMER1=	yes

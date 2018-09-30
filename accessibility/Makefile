@@ -22,7 +22,6 @@
     SUBDIR += kmouth-kde4
     SUBDIR += linux-c6-atk
     SUBDIR += linux-c7-atk
-    SUBDIR += mousetweaks
     SUBDIR += orca
     SUBDIR += py-atspi
     SUBDIR += py-papi

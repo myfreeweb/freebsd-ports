@@ -60,9 +60,6 @@ GLIB_SCHEMAS=	org.gnome.evolution.addressbook.gschema.xml \
 		org.gnome.evolution.gschema.xml \
 		org.gnome.evolution.importer.gschema.xml \
 		org.gnome.evolution.mail.gschema.xml \
-		org.gnome.evolution.shell.gschema.xml \
-		org.gnome.evolution.bogofilter.gschema.xml \
-		org.gnome.evolution.spamassassin.gschema.xml \
 		org.gnome.evolution.plugin.attachment-reminder.gschema.xml \
 		org.gnome.evolution.plugin.autocontacts.gschema.xml \
 		org.gnome.evolution.plugin.email-custom-header.gschema.xml \

@@ -1,4 +1,4 @@
-# $FreeBSD: head/devel/gnome-builder/Makefile 430235 2017-01-01 03:45:12Z sunpoet $
+# $FreeBSD$
 
 PORTNAME=	gnome-builder
 PORTVERSION=	3.28.3
@@ -6,7 +6,7 @@ CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome3
 
-MAINTAINER=	rm@FreeBSD.org
+MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	IDE for writing software for GNOME
 
 LICENSE=	GPLv3
@@ -31,7 +31,7 @@ PORTDOCS=	*
 
 CONFLICTS_BUILD=	gnome-builder-3.16.*
 
-USES=		compiler:c++11-lang cpe desktop-file-utils gettext meson pkgconfig python:3.6+,build tar:xz
+USES=		compiler:c++11-lang cpe desktop-file-utils gettext gnome meson pkgconfig python:3.6+,build tar:xz
 USE_GNOME=	cairo gtksourceview3 introspection libxml2 vte3
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
@@ -61,7 +61,7 @@ GLIB_SCHEMAS=	org.gnome.builder.build.gschema.xml \
 		org.gnome.builder.workbench.gschema.xml
 
 OPTIONS_SUB=	YES
-OPTIONS_DEFINE=	CLANG
+OPTIONS_DEFINE=	CLANG DOCS
 OPTIONS_DEFAULT=	CLANG
 
 # track the latest llvm/clang version, the config script picks the newest available
@@ -77,6 +77,9 @@ MESON_ARGS+=	-Dwith_jedi=false
 #		${PYTHON_PKGNAMEPREFIX}lxml>0:devel/py-lxml@${PY_FLAVOR} \
 #		${PYTHON_PKGNAMEPREFIX}jedi>0:devel/py-jedi@${PY_FLAVOR}
 
-OPTIONS_DEFINE=	DOCS
+# 11.1 and older has issues with vala generated code.
+post-patch:
+	${REINPLACE_CMD} -e '/-Werror=return-type/d' \
+		${WRKSRC}/meson.build
 
 .include <bsd.port.mk>

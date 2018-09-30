@@ -46,7 +46,7 @@ USE_GNOME=	cairo gnomedesktop3 intlhack libwnck3 libxml2 libxslt
 USE_XORG=	x11
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes
-MESON_ARGS=	-Ddistributor_name="FreeBSD GNOME Project" \
+MESON_ARGS=	-Ddistributor_name="GNOME Web by the FreeBSD GNOME Project" \
 		-Dunit_tests=false
 GLIB_SCHEMAS=	org.gnome.Epiphany.enums.xml \
 		org.gnome.epiphany.gschema.xml

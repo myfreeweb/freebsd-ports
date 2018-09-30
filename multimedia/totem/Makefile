@@ -14,7 +14,7 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes \
-		pylint-${PYTHON_VER}:devel/pylint@${PY_FLAVOR} \
+		pylint:devel/pylint \
 		appstream-glib>=0:devel/appstream-glib \
 		itstool:textproc/itstool \
 		grilo-plugins>=0:net/grilo-plugins
@@ -46,8 +46,7 @@ INSTALLS_ICONS=	yes
 USE_GL=		egl
 USE_LDCONFIG=	yes
 
-BINARY_ALIAS=	pylint-3=pylint-${PYTHON_VER} \
-		python3=${PYTHON_VERSION}
+BINARY_ALIAS=	python3=${PYTHON_VERSION}
 
 GLIB_SCHEMAS=	org.gnome.totem.enums.xml \
 		org.gnome.totem.gschema.xml \
@@ -60,7 +59,7 @@ MAKE_JOBS_UNSAFE=yes
 
 .include <bsd.port.options.mk>
 
-.if ${ARCH} == i386
+.if ${ARCH} == i386 || ${OSVERSION} <= 1100000
 MESON_ARGS=	-Denable-vala=no
 PLIST_SUB+=	VALA="@comment "
 .else

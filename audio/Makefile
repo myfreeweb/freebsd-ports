@@ -440,6 +440,7 @@
     SUBDIR += liboggz
     SUBDIR += libopenmpt
     SUBDIR += libopenspc
+    SUBDIR += libopusenc
     SUBDIR += libsamplerate
     SUBDIR += libshairport
     SUBDIR += libshout

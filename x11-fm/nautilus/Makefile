@@ -3,7 +3,6 @@
 
 PORTNAME=	nautilus
 PORTVERSION=	3.28.1
-PORTREVISION=	1
 CATEGORIES=	x11-fm gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome
@@ -14,12 +13,9 @@ COMMENT=	File manager for the GNOME desktop
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-#BUILD_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas \
-#		appstream-util:devel/appstream-glib
 LIB_DEPENDS=	libgnome-autoar-0.so:archivers/gnome-autoar \
 		libgexiv2.so:graphics/gexiv2 \
 		libtracker-sparql-2.0.so:sysutils/tracker
-#RUN_DEPENDS=	gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
 
 PORTSCOUT=	limitw:1,even
 

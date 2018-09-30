@@ -16,9 +16,10 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libclutter-1.0.so:graphics/clutter \
 		libcogl-path.so:graphics/cogl \
+		libfribidi.so:converters/fribidi \
 		libjson-glib-1.0.so:devel/json-glib
 
-USES=		gettext-runtime gmake gnome libtool localbase pathfix \
+USES=		gettext-runtime gl gmake gnome libtool localbase pathfix \
 		pkgconfig tar:xz
 USE_GNOME=	atk cairo gdkpixbuf2 gnomeprefix introspection:build pango
 GNU_CONFIGURE=	yes

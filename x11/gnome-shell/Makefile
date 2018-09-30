@@ -34,21 +34,18 @@ LIB_DEPENDS=	libstartup-notification-1.so:x11/startup-notification \
 		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
 		libp11-kit.so:security/p11-kit \
 		libgjs.so:lang/gjs
-RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}dbus>=0:devel/py-dbus@${PY_FLAVOR} \
-		nss>=0:security/nss \
-		gnome-control-center:sysutils/gnome-control-center \
-		ca_root_nss>=0:security/ca_root_nss \
-		gkbd-keyboard-display:x11/libgnomekbd
+RUN_DEPENDS=	gnome-control-center:sysutils/gnome-control-center
 
 PORTSCOUT=	limitw:1,even
 
-USES=		compiler:c11 cpe gettext gnome libtool localbase meson \
-		pathfix pkgconfig python:3.4+ shebangfix tar:xz webplugin:native
+USES=		compiler:c11 cpe gettext gl gnome libtool localbase meson \
+		pathfix perl5 pkgconfig python:3.4+ shebangfix tar:xz webplugin:native
 USE_GNOME=	cairo evolutiondataserver3 gdkpixbuf2 introspection \
 		libxslt:build libxml2
 USE_XORG=	x11 xcomposite xdamage xext xfixes xi xrandr xtst
 USE_GL=		egl gbm
 USE_GSTREAMER1=	yes
+USE_PERL5=	build
 USE_LDCONFIG=	yes
 SHEBANG_FILES=	src/gnome-shell-perf-tool.in \
 		src/gnome-shell-extension-tool.in
@@ -68,5 +65,8 @@ post-patch:
 		${WRKSRC}/meson.build
 	@${REINPLACE_CMD} -e 's|applications.menu|gnome-applications.menu|g' \
 		${WRKSRC}/src/shell-app-system.c
+
+pre-build:
+	@cd ${BUILD_WRKSRC} && ninja src/st/st-scroll-view-fade-generated.c
 
 .include <bsd.port.mk>

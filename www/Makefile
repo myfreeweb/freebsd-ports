@@ -1620,6 +1620,7 @@
     SUBDIR += py-django-tables2
     SUBDIR += py-django-tagging
     SUBDIR += py-django-taggit
+    SUBDIR += py-django-taggit-serializer
     SUBDIR += py-django-tastypie
     SUBDIR += py-django-templatetag-sugar
     SUBDIR += py-django-timezone-field
@@ -2444,7 +2445,6 @@
     SUBDIR += w3mir
     SUBDIR += waccess
     SUBDIR += wadcomblog
-    SUBDIR += waterfox
     SUBDIR += web2ldap
     SUBDIR += webalizer
     SUBDIR += webbrowser

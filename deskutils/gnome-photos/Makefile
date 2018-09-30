@@ -16,6 +16,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 BUILD_DEPENDS=	geoclue>=0:net/geoclue \
 		itstool:textproc/itstool
 LIB_DEPENDS=	libexempi.so:textproc/exempi \
+		libfribidi.so:converters/fribidi \
 		libgfbgraph-0.2.so:net/gfbgraph \
 		libgegl-0.3.so:graphics/gegl3 \
 		libgrilo-0.3.so:net/grilo \

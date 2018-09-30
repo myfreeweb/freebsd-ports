@@ -2,12 +2,6 @@ bin/gnome-photos
 libexec/gnome-photos-thumbnailer
 share/applications/org.gnome.Photos.desktop
 share/dbus-1/services/org.gnome.Photos.service
-%%PORTDOCS%%%%DOCSDIR%%/ARTISTS
-%%PORTDOCS%%%%DOCSDIR%%/AUTHORS
-%%PORTDOCS%%%%DOCSDIR%%/COPYING
-%%PORTDOCS%%%%DOCSDIR%%/ChangeLog
-%%PORTDOCS%%%%DOCSDIR%%/NEWS
-%%PORTDOCS%%%%DOCSDIR%%/README
 share/gnome-shell/search-providers/org.gnome.Photos.search-provider.ini
 share/help/C/gnome-photos/favorites-set.page
 share/help/C/gnome-photos/favorites.page
