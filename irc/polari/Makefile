@@ -2,7 +2,7 @@
 # $FreeBSD: head/irc/polari/Makefile 408881 2016-02-14 18:57:53Z kwm $
 
 PORTNAME=	polari
-PORTVERSION=	3.28.0
+PORTVERSION=	3.28.1
 CATEGORIES=	irc gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome
