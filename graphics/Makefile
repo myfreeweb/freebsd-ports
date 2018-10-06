@@ -152,6 +152,7 @@
     SUBDIR += drawpile
     SUBDIR += driconf
     SUBDIR += drm-devel-kmod
+    SUBDIR += drm-kmod
     SUBDIR += drm-legacy-kmod
     SUBDIR += drm-next-kmod
     SUBDIR += drm-stable-kmod

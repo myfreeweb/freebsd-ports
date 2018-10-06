@@ -16,11 +16,13 @@ BUILD_DEPENDS=	valac:lang/vala \
 		itstool:textproc/itstool \
 		gsettings-desktop-schemas>=0:devel/gsettings-desktop-schemas
 LIB_DEPENDS=	libgee-0.8.so:devel/libgee \
+		libfribidi.so:converters/fribidi \
 		libenchant-2.so:textproc/enchant2 \
 		libtepl-4.so:x11-toolkits/tepl \
 		libgspell-1.so:textproc/gspell
 
-USES=		compiler:c11 desktop-file-utils gettext gmake pkgconfig tar:xz
+USES=		compiler:c11 desktop-file-utils gettext gmake gnome \
+		pkgconfig tar:xz
 GNU_CONFIGURE=	yes
 USE_GNOME=	cairo dconf intltool gtksourceview4
 USE_TEX=	latex dvipsk

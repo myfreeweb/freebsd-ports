@@ -78,8 +78,7 @@
     SUBDIR += kb
     SUBDIR += kermit
     SUBDIR += klog
-    SUBDIR += kremotecontrol
-    SUBDIR += kvasd
+    SUBDIR += kremotecontrol-kde4
     SUBDIR += libbtbb
     SUBDIR += libconcord
     SUBDIR += libfap
@@ -196,9 +195,7 @@
     SUBDIR += usbmuxd
     SUBDIR += viewfax
     SUBDIR += vrflash
-    SUBDIR += wsjt
     SUBDIR += wsjtx
-    SUBDIR += wspr
     SUBDIR += wwl
     SUBDIR += wy60
     SUBDIR += xastir

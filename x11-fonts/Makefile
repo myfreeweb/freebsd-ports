@@ -168,6 +168,8 @@
     SUBDIR += profont
     SUBDIR += proggy_fonts
     SUBDIR += proggy_fonts-ttf
+    SUBDIR += psftools
+    SUBDIR += py-QtAwesome
     SUBDIR += py-bdflib
     SUBDIR += roboto-fonts-ttf
     SUBDIR += sgifonts

@@ -19,7 +19,6 @@
     SUBDIR += bigyear
     SUBDIR += bijiben
     SUBDIR += bitcollider
-    SUBDIR += blogilo
     SUBDIR += cairo-dock
     SUBDIR += cairo-dock-plugins
     SUBDIR += caja-extensions
@@ -99,9 +98,9 @@
     SUBDIR += gnustep-wrapper
     SUBDIR += go-for-it
     SUBDIR += gourmet
+    SUBDIR += gpicker
     SUBDIR += grantlee-editor
     SUBDIR += grantleetheme
-    SUBDIR += gpicker
     SUBDIR += griffith
     SUBDIR += growl-for-linux
     SUBDIR += gruler
@@ -134,10 +133,9 @@
     SUBDIR += kcharselect
     SUBDIR += kcharselect-kde4
     SUBDIR += kchmviewer
-    SUBDIR += kdeconnect
-    SUBDIR += kdeconnect-kde-kf5
+    SUBDIR += kdeconnect-kde
+    SUBDIR += kdeconnect-kde-kde4
     SUBDIR += kdepim
-    SUBDIR += kdepim4
     SUBDIR += kdepim-addons
     SUBDIR += kdepim-apps-libs
     SUBDIR += kdepim-kde4
