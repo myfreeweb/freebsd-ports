@@ -1,0 +1,20 @@
+--- unittests/CMakeLists.txt.orig	2018-10-06 15:09:25 UTC
++++ unittests/CMakeLists.txt
+@@ -37,6 +37,9 @@ set(mull_unittests_sources
+   ConfigParserTestFixture.h
+ )
+ 
++find_package(PkgConfig)
++pkg_check_modules(SQLITE3 sqlite3)
++
+ add_executable(MullUnitTests ${mull_unittests_sources})
+ target_link_libraries(MullUnitTests
+   mull
+@@ -46,6 +49,7 @@ target_include_directories(MullUnitTests PUBLIC
+   ${CMAKE_CURRENT_SOURCE_DIR}
+   ${MULL_SOURCE_DIR}/googletest/include
+   ${MULL_INCLUDE_DIRS}
++  ${SQLITE3_INCLUDE_DIRS}
+ )
+ set_target_properties(MullUnitTests PROPERTIES
+   COMPILE_FLAGS ${MULL_CXX_FLAGS}
