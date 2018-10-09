@@ -16,8 +16,7 @@ BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes
 LIB_DEPENDS=	libpng.so:graphics/png \
 		libtiff.so:graphics/tiff \
 		liblcms2.so:graphics/lcms2 \
-		libgegl-0.3.so:graphics/gegl3 \
-		libgegl-npd-0.3.so:graphics/gegl3 \
+		libgegl-0.4.so:graphics/gegl \
 		libmypaint-2.0.so:graphics/libmypaint \
 		libbabl-0.1.so:x11/babl \
 		libwebp.so:graphics/webp \

@@ -20,6 +20,9 @@ LIB_DEPENDS=	libjson-c.so:devel/json-c \
 		libpng16.so:graphics/png
 RUN_DEPENDS=	${PYNUMPY}
 
+# XXX Embed RPATH via USES=fortran for py-numpy to load libgcc_s.so from ports
+USES=		desktop-file-utils fortran gettext gnome localbase \
+		pkgconfig python:2.7 scons tar:xz
 BINARY_ALIAS=	swig=swig3.0
 USE_GNOME=	gtk30 pygobject3 cairo librsvg2:run
 CFLAGS+=	${CFLAGS_${CHOSEN_COMPILER_TYPE}}
@@ -29,30 +32,22 @@ MAKE_ARGS=	prefix=${PREFIX} \
 		use_sharedlib=True \
 		python_binary="${PYTHON_CMD}" \
 		python_config="${PYTHON_CMD}-config"
-# XXX Embed RPATH via USES=fortran for py-numpy to load libgcc_s.so from ports
-USES=		desktop-file-utils fortran compiler gettext localbase \
-		pkgconfig python:2.7 scons tar:xz
 INSTALL_TARGET=	${STAGEDIR} --install-sandbox=${STAGEDIR}
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
-
 USE_GITHUB=	yes
 GH_PROJECT=	mypaint
 
-.include <bsd.port.pre.mk>
+OPTIONS_DEFINE=		GEGL OPENMP
+OPTIONS_DEFAULT=	OPENMP
+OPTIONS_SUB=		yes
 
-.if ${ARCH} == amd64 && ${CHOSEN_COMPILER_TYPE} == clang
-# Enable OpenMP support with Clang 6.0.
-LLVM_VER=	60
-BUILD_DEPENDS+=	clang${LLVM_VER}:devel/llvm${LLVM_VER}
+GEGL_DESC=		Graph based image processing framework support
+GEGL_LIB_DEPENDS=	libgegl-0.4.so:graphics/gegl
+GEGL_MAKE_ARGS=		enable_gegl=True
 
-CPP=		clang-cpp${LLVM_VER}
-CC=		clang${LLVM_VER}
-CXX=		clang++${LLVM_VER}
+OPENMP_USES=		compiler:openmp
+OPENMP_USES_OFF=	compiler # XXX ports/199603
+OPENMP_MAKE_ARGS_OFF=	enable_openmp=False
 
-# Depend on devel/openmp instead of the full LLVM at runtime. Required
-# for a consistent libomp experience.
-LIB_DEPENDS+=	libomp.so.0:devel/openmp
-.endif
-
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
