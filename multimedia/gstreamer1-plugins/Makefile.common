@@ -477,6 +477,9 @@ gst_vulkan_CONFIGURE_ARGS=	--enable-wayland
 # webp
 gst_webp_LIB_DEPENDS=	libwebp.so:graphics/webp
 
+# webrtcdsp
+gst_webrtcdsp_LIB_DEPENDS=	libwebrtc_audio_processing.so:audio/webrtc-audio-processing
+
 # X ximage and xvimage sinks aka output
 .if ${DIST} == base
 gst_x_USE_XORG=		x11 xv xext

@@ -30,7 +30,8 @@ OPTIONS_DEFINE=	NLS GEGL
 OPTIONS_DEFAULT=GEGL
 
 NLS_USES=	gettext
-NLS_CONFIGURE_ENABLE=	nls
+NLS_USE=	GNOME=intltool
+NLS_CONFIGURE_ENABLE=	nls i18n
 
 GEGL_DESC=		Graph based image processing framework support
 GEGL_LIB_DEPENDS=	libgegl-0.3.so:graphics/gegl3 \

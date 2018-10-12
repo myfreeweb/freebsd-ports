@@ -1014,6 +1014,7 @@
     SUBDIR += py-ptyprocess
     SUBDIR += py-pytsk
     SUBDIR += py-pywatchman
+    SUBDIR += py-pyznap
     SUBDIR += py-queuelib
     SUBDIR += py-ranger
     SUBDIR += py-salt
