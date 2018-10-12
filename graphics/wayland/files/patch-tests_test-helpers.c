@@ -1,4 +1,4 @@
---- tests/test-helpers.c.orig	2018-04-09 17:19:26 UTC
+--- tests/test-helpers.c.orig	2018-08-24 18:04:36 UTC
 +++ tests/test-helpers.c
 @@ -25,6 +25,12 @@
  

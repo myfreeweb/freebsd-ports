@@ -88,12 +88,6 @@ WAYLAND_USE=		GL=egl
 # don't explicitly disable debug, this causes segfaults. ports r437293
 DEBUG_CONFIGURE_ON=	--enable-debug=yes
 
-WAYLAND_BUILD_DEPENDS=		wayland-protocols>=0:graphics/wayland-protocols
-WAYLAND_CONFIGURE_ENABLE=	wayland-backend
-WAYLAND_LIB_DEPENDS=		libwayland-egl.so:graphics/wayland \
-				libxkbcommon.so:x11/libxkbcommon
-WAYLAND_RUN_DEPENDS=		wayland-protocols>=0:graphics/wayland-protocols
-
 post-patch:
 	@${REINPLACE_CMD} -e 's|[{]libdir[}]/locale|{datadir}/locale|g' \
 		${WRKSRC}/configure
@@ -104,12 +98,6 @@ pre-configure:
 		${ECHO_MSG} "${PKGNAME}: Needs cairo with X11 support enabled."; \
 		${FALSE}; \
 	fi
-.if ${PORT_OPTIONS:MWAYLAND}
-	@if ! pkg-config --exists wayland-egl; then \
-		${ECHO_MSG} "${PKGNAME}: Needs mesa-libs with wayland support enabled."; \
-		${FALSE}; \
-	fi
-.endif
 
 pre-build:
 	@${RM} -r ${WRKSRC}/docs/gtk.info*

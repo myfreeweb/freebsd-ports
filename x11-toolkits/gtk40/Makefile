@@ -89,7 +89,7 @@ WAYLAND_DESC=		Wayland GDK backend (support Wayland applications)
 WAYLAND_MESON_TRUE=	wayland-backend
 WAYLAND_BUILD_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols \
 			v4l_compat>=0:multimedia/v4l_compat
-WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland \
+WAYLAND_LIB_DEPENDS=	libwayland-egl.so:graphics/wayland \
 			libxkbcommon.so:x11/libxkbcommon
 WAYLAND_RUN_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols
 WAYLAND_USE=		GL=egl
@@ -124,12 +124,6 @@ pre-configure:
 		${ECHO_MSG} "${PKGNAME}: Needs cairo with X11 support enabled."; \
 		${FALSE}; \
 	fi
-.if ${PORT_OPTIONS:MWAYLAND}
-	@if ! pkg-config --exists wayland-egl; then \
-		${ECHO_MSG} "${PKGNAME}: Needs mesa-libs build with wayland support enabled."; \
-		${FALSE}; \
-	fi
-.endif
 
 #post-install:
 #	@${MKDIR} ${STAGEDIR}${PREFIX}/lib/gtk-4.0/modules
