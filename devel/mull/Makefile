@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	mull
-PORTVERSION=	g20181001
+PORTVERSION=	g20181014
 CATEGORIES=	devel
 
 MAINTAINER=	greg@unrelenting.technology
@@ -16,7 +16,7 @@ LIB_DEPENDS=	libclang.so:devel/llvm${LLVM_VERSION}
 USES=		compiler:c++11-lang cmake:outsource pkgconfig sqlite:3
 USE_GITHUB=	yes
 GH_ACCOUNT=	mull-project
-GH_TAGNAME=	ac74f0e7b08652037f5e893d06d2aaa38e91ac02
+GH_TAGNAME=	c6edda7fd6a61317bdd924f9acacff69bf9400af
 
 LLVM_VERSION?=	60
 CMAKE_ARGS=	-DLLVMROOT=${LOCALBASE}/llvm${LLVM_VERSION}
