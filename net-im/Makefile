@@ -41,6 +41,7 @@
     SUBDIR += kaccounts-integration
     SUBDIR += kaccounts-providers
     SUBDIR += kde-telepathy
+    SUBDIR += kde-telepathy-kde4
     SUBDIR += kmess-kde4
     SUBDIR += kopete
     SUBDIR += kopete-kde4

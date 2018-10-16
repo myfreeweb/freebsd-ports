@@ -11,9 +11,11 @@ COMMENT=	Brush library from the MyPaint project
 LICENSE=	ISCL
 LICENSE_FILE=	${WRKSRC}/COPYING
 
+BUILD_DEPENDS=	${LOCALBASE}/bin/automake:devel/automake
+
 LIB_DEPENDS=	libjson-c.so:devel/json-c
 
-USES=		compiler:c11 gmake gnome libtool localbase pkgconfig tar:xz
+USES=		compiler:c11 gmake gnome libtool:build localbase pkgconfig tar:xz python:2.7,build
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	mypaint
@@ -24,6 +26,8 @@ USE_LDCONFIG=	yes
 INSTALL_TARGET=	install-strip
 
 TEST_TARGET=	check
+
+BINARY_ALIAS=	python2=${PYTHON_CMD}
 
 OPTIONS_SUB=	yes
 OPTIONS_DEFINE=	NLS GEGL
@@ -40,6 +44,6 @@ GEGL_LIB_DEPENDS=	libgegl-0.3.so:graphics/gegl3 \
 GEGL_CONFIGURE_ENABLE=	gegl
 
 pre-configure:
-	@(cd ${WRKSRC} && ./autogen.sh --noconfig)
+	@(cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ./autogen.sh --noconfig)
 
 .include <bsd.port.mk>

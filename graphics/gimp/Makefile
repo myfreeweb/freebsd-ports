@@ -10,12 +10,12 @@ CATEGORIES=	graphics gnome
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	The "meta-port" for The Gimp
 
-RUN_DEPENDS=	gimp-2.10:graphics/gimp-app
+RUN_DEPENDS=	gimp-2.99:graphics/gimp-app
 
 USES+=	metaport
 
-OPTIONS_DEFINE=	PYTHON PRINT HELP
-OPTIONS_DEFAULT=PYTHON PRINT HELP
+OPTIONS_DEFINE=	HELP
+OPTIONS_DEFAULT= HELP
 PYTHON_DESC=	Python-fu support
 PRINT_DESC=	Gutenprint (gimp-print) plugin
 HELP_DESC=	Gimp-Help (50+MB distfile)

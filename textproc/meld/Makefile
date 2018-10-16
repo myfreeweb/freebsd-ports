@@ -25,6 +25,8 @@ PYDISTUTILS_INSTALL_TARGET=	--no-update-icon-cache --no-compile-schemas install
 INSTALLS_ICONS=	yes
 NO_ARCH=	yes
 
+OPTIONS_DEFINE=	DOCS
+
 PLIST_SUB=	PORTVER=${PORTVERSION}
 
 .include <bsd.port.pre.mk>

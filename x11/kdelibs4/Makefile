@@ -81,7 +81,7 @@ UPNP_DESC=	UPnP backend for Solid (WARNING: Unstable)
 UPNP_LIB_DEPENDS=	libHUpnp.so:net/hupnp
 UPNP_CMAKE_ON=	-DHUPNP_ENABLED:BOOL=On
 
-OPENEXR_LIB_DEPENDS=	libIlmImf.so:graphics/OpenEXR
+OPENEXR_LIB_DEPENDS=	libIlmImf.so:graphics/openexr
 OPENEXR_CMAKE_BOOL_OFF=	CMAKE_DISABLE_FIND_PACKAGE_OpenEXR
 
 post-patch:

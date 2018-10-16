@@ -34,11 +34,14 @@ MAKE_ARGS+=	GUTENPRINT_LIBS='`$$(PKG_CONFIG) --libs gutenprint`'
 USE_GNOME+=	cairo gdkpixbuf2
 LIB_DEPENDS+=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
-		libgimp-2.0.so:graphics/gimp-app
+		libgimp-3.0.so:graphics/gimp-app \
+		libgegl-0.3.so:graphics/gegl3
+MAKE_ARGS+=	GIMP2_CFLAGS="$$(pkgconf --cflags gimp-3.0) $$(pkgconf --cflags gtk+-2.0)" \
+		GIMP2_LIBS="$$(pkgconf --libs gimp-3.0) $$(pkgconf --libs gtk+-2.0)"
 CONFIGURE_ARGS+=--enable-libgutenprintui2 --with-gimp2
 BUILD_WRKSRC=	${WRKSRC}/src/gimp2
 INSTALL_WRKSRC=	${WRKSRC}/src/gimp2
-USE_GNOME+=	gtk20
+USE_GNOME+=	glib20 gtk20
 .endif
 .endif
 

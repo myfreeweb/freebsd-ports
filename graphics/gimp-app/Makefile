@@ -12,7 +12,10 @@ COMMENT=	GNU Image Manipulation Program
 LICENSE=	GPLv3 LGPL3
 LICENSE_COMB=	multi
 
-BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes
+BUILD_DEPENDS+=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes \
+		glib-networking>=2.29.18:net/glib-networking \
+		appstream-util:devel/appstream-glib \
+		gtkdoc-scan:textproc/gtk-doc
 LIB_DEPENDS=	libpng.so:graphics/png \
 		libtiff.so:graphics/tiff \
 		liblcms2.so:graphics/lcms2 \
@@ -25,8 +28,10 @@ LIB_DEPENDS=	libpng.so:graphics/png \
 		libdbus-glib-1.so:devel/dbus-glib \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libharfbuzz.so:print/harfbuzz \
-		libfreetype.so:print/freetype2
-RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes
+		libfreetype.so:print/freetype2 \
+		libgudev-1.0.so:devel/libgudev
+RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes \
+		glib-networking>=2.29.18:net/glib-networking
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	GNOME
@@ -40,10 +45,10 @@ USE_GNOME+=	cairo gtk30 librsvg2 intlhack
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
 MESON_ARGS=	-Dsysconfdir=${PREFIX}/etc \
-						-Dwith-python=false \
-						-Dwith-alsa=false \
-						-Dwith-linux-input=false \
-						-Dwith-xvfb-run=false
+		-Dwith-python=false \
+		-Dwith-alsa=false \
+		-Dwith-linux-input=false \
+		-Dwith-xvfb-run=false
 CPE_PRODUCT=	gimp
 CPE_VENDOR=	gnu
 
@@ -69,7 +74,7 @@ GIMP_LIBS=	`${PKG_CONFIG} --libs gimp-2.0`
 GIMP_THUMB_LIBS=`${PKG_CONFIG} --libs gimpthumb-2.0`
 GIMP_UI_LIBS=	`${PKG_CONFIG} --libs gimpui-2.0`
 
-LIB_DEPENDS+=	libgimp-2.0.so:graphics/gimp-app
+LIB_DEPENDS+=	libgimp-3.0.so:graphics/gimp-app
 
 .else
 
@@ -95,9 +100,11 @@ POPPLER_MESON_OFF=	-Dwith-poppler=false
 WMF_LIB_DEPENDS=	libwmf.so:graphics/libwmf
 WMF_MESON_OFF=	-Dwith-wmf=false
 
-OPENEXR_LIB_DEPENDS=	libIlmImf.so:graphics/OpenEXR
+OPENEXR_LIB_DEPENDS=	libIlmImf.so:graphics/openexr
 OPENEXR_MESON_OFF=	-Dwith-openexr=false
 
 .endif
+
+SHEBANG_REGEX=	.*\.pl$$|.*mkenums$$
 
 .include <bsd.port.mk>

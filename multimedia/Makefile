@@ -89,10 +89,12 @@
     SUBDIR += gnome-mplayer
     SUBDIR += gnome-mpv
     SUBDIR += gnome-subtitles
+    SUBDIR += gnome-twitch
     SUBDIR += gpac-libgpac
     SUBDIR += gpac-mp4box
     SUBDIR += gpodder
     SUBDIR += grake
+    SUBDIR += gst-transcoder
     SUBDIR += gst123
     SUBDIR += gstreamer
     SUBDIR += gstreamer-ffmpeg
@@ -126,6 +128,7 @@
     SUBDIR += gstreamer1-libav
     SUBDIR += gstreamer1-plugins
     SUBDIR += gstreamer1-plugins-all
+    SUBDIR += gstreamer1-plugins-aom
     SUBDIR += gstreamer1-plugins-assrender
     SUBDIR += gstreamer1-plugins-bad
     SUBDIR += gstreamer1-plugins-core
@@ -144,7 +147,6 @@
     SUBDIR += gstreamer1-plugins-openh264
     SUBDIR += gstreamer1-plugins-resindvd
     SUBDIR += gstreamer1-plugins-rtmp
-    SUBDIR += gstreamer1-plugins-schroedinger
     SUBDIR += gstreamer1-plugins-smoothstreaming
     SUBDIR += gstreamer1-plugins-theora
     SUBDIR += gstreamer1-plugins-ttml
@@ -179,6 +181,7 @@
     SUBDIR += kdenlive-kde4
     SUBDIR += kf5-kmediaplayer
     SUBDIR += kissdx
+    SUBDIR += kmplayer
     SUBDIR += kmplayer-kde4
     SUBDIR += kodi
     SUBDIR += kodi-addon-pvr-hts
@@ -321,6 +324,7 @@
     SUBDIR += photofilmstrip
     SUBDIR += php-pHash
     SUBDIR += pitivi
+    SUBDIR += plasma5-plasma-mediacenter
     SUBDIR += playd
     SUBDIR += plexmediaserver
     SUBDIR += plexmediaserver-plexpass

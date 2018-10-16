@@ -80,7 +80,6 @@
     SUBDIR += choqok
     SUBDIR += choqok-kde4
     SUBDIR += chpasswd
-    SUBDIR += choqok-kde4
     SUBDIR += chromium
     SUBDIR += ckeditor
     SUBDIR += cl-lml
@@ -170,6 +169,7 @@
     SUBDIR += firefox-esr
     SUBDIR += firefox-esr-i18n
     SUBDIR += firefox-i18n
+    SUBDIR += firefox-nightly-wayland
     SUBDIR += flashplayer
     SUBDIR += flat-frog
     SUBDIR += flickcurl
@@ -338,6 +338,7 @@
     SUBDIR += kannel
     SUBDIR += kannel-sqlbox
     SUBDIR += kcgi
+    SUBDIR += kdewebdev-kde4
     SUBDIR += kdewebdev4
     SUBDIR += kf5-kdewebkit
     SUBDIR += kf5-khtml
@@ -481,6 +482,7 @@
     SUBDIR += mod_scgi
     SUBDIR += mod_security
     SUBDIR += mod_security-devel
+    SUBDIR += mod_security3
     SUBDIR += mod_setenvifplus
     SUBDIR += mod_tidy
     SUBDIR += mod_tsa
@@ -1818,6 +1820,7 @@
     SUBDIR += py-priority
     SUBDIR += py-puppetboard
     SUBDIR += py-puppetboard02
+    SUBDIR += py-puppetboard03
     SUBDIR += py-py-restclient
     SUBDIR += py-pySmartDL
     SUBDIR += py-pyjwt
@@ -2288,6 +2291,7 @@
     SUBDIR += swish++
     SUBDIR += swish-e
     SUBDIR += sws
+    SUBDIR += sxweb
     SUBDIR += syndigator
     SUBDIR += tclhttpd
     SUBDIR += tclwebtest
@@ -2478,6 +2482,7 @@
     SUBDIR += webtrees
     SUBDIR += wgetpaste
     SUBDIR += wikicalc
+    SUBDIR += woff2
     SUBDIR += woof
     SUBDIR += wordpress
     SUBDIR += wsdlpull

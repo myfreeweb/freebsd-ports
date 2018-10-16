@@ -23,6 +23,7 @@
     SUBDIR += abuse_sdl
     SUBDIR += ace-of-penguins
     SUBDIR += acm
+    SUBDIR += adgali
     SUBDIR += adom
     SUBDIR += adonthell
     SUBDIR += adonthell-wastesedge
@@ -148,6 +149,7 @@
     SUBDIR += cardpics
     SUBDIR += castlevox
     SUBDIR += cataclysm-dda
+    SUBDIR += cataclysm-dda-sdl
     SUBDIR += catesc
     SUBDIR += cave9
     SUBDIR += cavezofphear
@@ -469,11 +471,11 @@
     SUBDIR += jvgs
     SUBDIR += jzip
     SUBDIR += kajaani-kombat
+    SUBDIR += kajongg
     SUBDIR += kajongg-kde4
     SUBDIR += kanagram
     SUBDIR += kanagram-kde4
     SUBDIR += kapman
-    SUBDIR += kanagram-kde4
     SUBDIR += kapman-kde4
     SUBDIR += kardsgt
     SUBDIR += kartofel
@@ -487,10 +489,6 @@
     SUBDIR += kbounce
     SUBDIR += kbounce-kde4
     SUBDIR += kbreakout
-    SUBDIR += katomic-kde4
-    SUBDIR += kblackbox-kde4
-    SUBDIR += kblocks-kde4
-    SUBDIR += kbounce-kde4
     SUBDIR += kbreakout-kde4
     SUBDIR += kcheckers
     SUBDIR += kdegames
@@ -520,7 +518,6 @@
     SUBDIR += klines
     SUBDIR += klines-kde4
     SUBDIR += klondike
-    SUBDIR += klondike-kde4
     SUBDIR += kmahjongg
     SUBDIR += kmahjongg-kde4
     SUBDIR += kmines
@@ -578,11 +575,13 @@
     SUBDIR += libkdegames
     SUBDIR += libkdegames-kde4
     SUBDIR += libkmahjongg
-    SUBDIR += libkdegames-kde4
     SUBDIR += libkmahjongg-kde4
     SUBDIR += liblcf
     SUBDIR += libmaitretarot
     SUBDIR += libmt_client
+    SUBDIR += libretro-core-info
+    SUBDIR += libretro-shaders-glsl
+    SUBDIR += libretro-shaders-slang
     SUBDIR += libshhcards
     SUBDIR += lightsoff
     SUBDIR += lightyears
@@ -908,12 +907,14 @@
     SUBDIR += redeclipse
     SUBDIR += redeclipse-data
     SUBDIR += redorblack
+    SUBDIR += regoth
     SUBDIR += reminiscence
     SUBDIR += renpy
     SUBDIR += renpy6
     SUBDIR += rescue
     SUBDIR += residualvm
     SUBDIR += retroarch
+    SUBDIR += retroarch-assets
     SUBDIR += rezerwar
     SUBDIR += rfksay
     SUBDIR += ri-li
@@ -1094,6 +1095,7 @@
     SUBDIR += vamos
     SUBDIR += vavoom
     SUBDIR += vavoom-extras
+    SUBDIR += vcmi
     SUBDIR += vectoroids
     SUBDIR += vegastrike
     SUBDIR += vegastrike-data

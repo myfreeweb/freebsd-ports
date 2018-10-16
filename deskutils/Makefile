@@ -19,6 +19,7 @@
     SUBDIR += bigyear
     SUBDIR += bijiben
     SUBDIR += bitcollider
+    SUBDIR += blogilo
     SUBDIR += cairo-dock
     SUBDIR += cairo-dock-plugins
     SUBDIR += caja-extensions
@@ -135,16 +136,20 @@
     SUBDIR += kchmviewer
     SUBDIR += kdeconnect-kde
     SUBDIR += kdeconnect-kde-kde4
+    SUBDIR += kdeconnect-kde-kf5
     SUBDIR += kdepim
     SUBDIR += kdepim-addons
     SUBDIR += kdepim-apps-libs
     SUBDIR += kdepim-kde4
     SUBDIR += kdepim-runtime
     SUBDIR += kdepim-runtime-kde4
+    SUBDIR += kdepim4
     SUBDIR += kdepimlibs-kde4
+    SUBDIR += kdepimlibs4
     SUBDIR += kdeplasma-addons-kde4
     SUBDIR += keditbookmarks
     SUBDIR += kfind
+    SUBDIR += kjots
     SUBDIR += kmail
     SUBDIR += kmail-account-wizard
     SUBDIR += knotes
@@ -153,6 +158,7 @@
     SUBDIR += kruler
     SUBDIR += kruler-kde4
     SUBDIR += ksshaskpass
+    SUBDIR += kube
     SUBDIR += latte-dock
     SUBDIR += launchy
     SUBDIR += libkdepim
@@ -264,6 +270,7 @@
     SUBDIR += strigidaemon
     SUBDIR += strigiutils
     SUBDIR += sugarcrm
+    SUBDIR += superkaramba
     SUBDIR += superkaramba-kde4
     SUBDIR += surrealtodo
     SUBDIR += synapse

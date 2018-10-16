@@ -129,6 +129,7 @@
     SUBDIR += jrobin
     SUBDIR += jrrd
     SUBDIR += kbibtex
+    SUBDIR += kbibtex-kde4
     SUBDIR += kdb
     SUBDIR += kexi
     SUBDIR += kyotocabinet
@@ -594,6 +595,7 @@
     SUBDIR += pg_repack
     SUBDIR += pg_similarity
     SUBDIR += pg_stat_kcache
+    SUBDIR += pg_statsinfo
     SUBDIR += pgaccess
     SUBDIR += pgadmin3
     SUBDIR += pgagent
@@ -723,6 +725,7 @@
     SUBDIR += postgresql-plv8js
     SUBDIR += postgresql-relay
     SUBDIR += postgresql-repmgr
+    SUBDIR += postgresql-repmgr2
     SUBDIR += postgresql-tds_fdw
     SUBDIR += postgresql-zhparser
     SUBDIR += postgresql10-client
@@ -733,6 +736,14 @@
     SUBDIR += postgresql10-plpython
     SUBDIR += postgresql10-pltcl
     SUBDIR += postgresql10-server
+    SUBDIR += postgresql92-client
+    SUBDIR += postgresql92-contrib
+    SUBDIR += postgresql92-docs
+    SUBDIR += postgresql92-pgtcl
+    SUBDIR += postgresql92-plperl
+    SUBDIR += postgresql92-plpython
+    SUBDIR += postgresql92-pltcl
+    SUBDIR += postgresql92-server
     SUBDIR += postgresql93-client
     SUBDIR += postgresql93-contrib
     SUBDIR += postgresql93-docs
@@ -1018,6 +1029,7 @@
     SUBDIR += rubygem-redis-actionpack
     SUBDIR += rubygem-redis-actionpack-rails5
     SUBDIR += rubygem-redis-actionpack-rails50
+    SUBDIR += rubygem-redis-actionpack4
     SUBDIR += rubygem-redis-namespace
     SUBDIR += rubygem-redis3
     SUBDIR += rubygem-seed-fu
@@ -1029,6 +1041,7 @@
     SUBDIR += sequeler
     SUBDIR += sfcgal
     SUBDIR += sharedance
+    SUBDIR += sink
     SUBDIR += skytools
     SUBDIR += slony1v2
     SUBDIR += soci

@@ -8,6 +8,8 @@ COMMENT=	GStreamer GL graphics plugin
 GST_PLUGIN=	gl
 DIST=		base
 
+BUILD_DEPENDS=	${LOCALBASE}/include/linux/input.h:devel/evdev-proto
+
 GL_GST_DIRS=	gst-libs/gst/allocators gst-libs/gst/video
 PLIST=		${.CURDIR}/pkg-plist
 
