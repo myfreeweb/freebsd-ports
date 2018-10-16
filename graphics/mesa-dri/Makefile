@@ -3,6 +3,7 @@
 
 PORTNAME=	mesa-dri
 PORTVERSION=	${MESAVERSION}
+PORTREVISION=	1
 CATEGORIES=	graphics
 
 COMMENT=	OpenGL hardware acceleration drivers for DRI2+
@@ -80,7 +81,7 @@ LDFLAGS+=		-B${LOCALBASE}/bin
 
 # enables VK_KHR_wayland_surface in Vulkan drivers
 .if ${PORT_OPTIONS:MWAYLAND}
-CONFIGURE_ARGS+=	--with-platforms=x11,drm,wayland
+CONFIGURE_ARGS+=	--with-platforms=x11,surfaceless,drm,wayland
 . if empty(VULKAN_DRIVERS)
 IGNORE=	option WAYLAND is only valid on platforms with Vulkan
 . endif

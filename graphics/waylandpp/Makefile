@@ -2,6 +2,7 @@
 
 PORTNAME=	waylandpp
 DISTVERSION=	0.2.3
+PORTREVISION=	1
 CATEGORIES=	graphics
 
 MAINTAINER=	tobik@FreeBSD.org
