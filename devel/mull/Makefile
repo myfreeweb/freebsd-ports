@@ -10,8 +10,7 @@ COMMENT=	LLVM-based mutation testing system
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	llvm-config${LLVM_VERSION}:devel/llvm${LLVM_VERSION}
-LIB_DEPENDS=	libclang.so:devel/llvm${LLVM_VERSION}
+LIB_DEPENDS=	libLLVM-${LLVM_VERSION:C/([1-9])([0-9])/\1.\2/}.so:devel/llvm${LLVM_VERSION}
 
 USES=		compiler:c++11-lang cmake:outsource pkgconfig sqlite:3
 USE_GITHUB=	yes
