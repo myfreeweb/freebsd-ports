@@ -294,6 +294,7 @@
     SUBDIR += mime-support
     SUBDIR += mirmon
     SUBDIR += mmv
+    SUBDIR += molequeue
     SUBDIR += morse
     SUBDIR += mtail
     SUBDIR += mtx
