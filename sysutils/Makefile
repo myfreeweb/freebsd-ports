@@ -781,6 +781,7 @@
     SUBDIR += nrg2iso
     SUBDIR += nut
     SUBDIR += nvclock
+    SUBDIR += nvme-cli
     SUBDIR += nvramtool
     SUBDIR += oak
     SUBDIR += obliterate
@@ -1284,6 +1285,7 @@
     SUBDIR += syslog-ng314
     SUBDIR += syslog-ng315
     SUBDIR += syslog-ng317
+    SUBDIR += syslog-ng318
     SUBDIR += syslog-ng36
     SUBDIR += syslog-ng37
     SUBDIR += syslog-ng39
