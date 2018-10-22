@@ -74,6 +74,9 @@ CLOUDPRINT_LIB_DEPENDS=	librest-0.7.so:devel/librest \
 			libsoup-2.4.so:devel/libsoup \
 			libjson-glib-1.0.so:devel/json-glib
 
+# don't explicitly disable debug, this causes segfaults. See ports r437293
+DEBUG_CONFIGURE_ON=	--enable-debug=yes
+
 WAYLAND_DESC=		GDK Wayland backend
 WAYLAND_CONFIGURE_ENABLE=	wayland-backend
 WAYLAND_BUILD_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols \
@@ -82,11 +85,6 @@ WAYLAND_LIB_DEPENDS=	libwayland-egl.so:graphics/wayland \
 			libxkbcommon.so:x11/libxkbcommon
 WAYLAND_RUN_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols
 WAYLAND_USE=		GL=egl
-
-.include <bsd.port.options.mk>
-
-# don't explicitly disable debug, this causes segfaults. ports r437293
-DEBUG_CONFIGURE_ON=	--enable-debug=yes
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|[{]libdir[}]/locale|{datadir}/locale|g' \
