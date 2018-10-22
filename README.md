@@ -19,9 +19,6 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 - `graphics/drm-next-kmod`: hack workaround patch for ioctl auth issues [kms-drm#33](https://github.com/FreeBSDDesktop/kms-drm/issues/33)
 - `graphics/mesa-dev`: alternative mesa port! Development version ([little fork](https://github.com/myfreeweb/mesa) with my BSD patches), everything built together, using Meson! Always includes GL, GLES, Vulkan (RADV, ANV), Gallium Nine, OpenCL (Clover), VAAPI, VDPAU.
 	- to install and keep pkg happy without rebuilding everything, just `pkg add -f` over existing `mesa-libs/dri`
-- `graphics/mesa-dri` and `graphics/mesa-libs`:
-	- enabled VK_KHR_wayland_surface [221540](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221540)
-- `graphics/vulkan-loader` `devel/vulkan-headers` `devel/vulkan-validation-layers` `devel/vulkan-tools`: [222175](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222175)
 
 NOTE: ANV (Intel Vulkan) requires running the apps as root and might not work for complex applications.
 RADV (Radeon Vulkan) with the `amdgpu` KMS/DRM driver works very well!
@@ -29,8 +26,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 ### Desktop stack
 
-- `graphics/wayland-protocols`: 1.13, required by weston git [226408](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226408)
-- `graphics/wayland`: 1.15 [227423](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227423)
 - `devel/sdl20`: Wayland and udev options added [223018](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223018)
 - `devel/libevdev` / `devel/evdev-proto` / `devel/py-evdev`: 1.5.9 and stuff [217248](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=217248)
 - `devel/libepoll-shim`: update version [223530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223530)
@@ -41,7 +36,6 @@ Tested on an AMD Polaris (RX 480) GPU.
 - `x11-servers/xorg-server`:
 	- add `UDEV` option to support evdev devices autodetection [222609](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222609)
 	- fix terminal handling without 'keyboard' driver [220562](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220562)
-- `x11-toolkits/efl`: 1.20.7 and Wayland support [226220](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226220)
 
 #### Weston
 
@@ -92,7 +86,6 @@ How to use Weston:
 - `graphics/akira`: VERY WIP (nothing works yet) UI design tool
 - `x11/kitty`: GPU accelerated terminal emulator (note: terminfo)
 - `security/gonepass`: 1Password vault reader [226706](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226706)
-- `net-im/fractal`: GTK Matrix client [226683](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226683)
 - `audio/sonata`: update to git master (GTK3)
 - `audio/clementine-player`: git qt5 branch
 - `audio/liblastfm`: qt5 flavor for clementine [D14667](https://reviews.freebsd.org/D14667)
