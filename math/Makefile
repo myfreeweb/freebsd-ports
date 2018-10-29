@@ -181,6 +181,7 @@
     SUBDIR += dieharder
     SUBDIR += djbfft
     SUBDIR += drgeo
+    SUBDIR += dsdp
     SUBDIR += dynare
     SUBDIR += e
     SUBDIR += ecos

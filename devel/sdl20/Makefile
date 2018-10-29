@@ -56,9 +56,9 @@ OPTIONS_DEFINE=		ALSA ASM DLOPEN ESOUND JACK NAS OSS SAMPLERATE	\
 			PULSEAUDIO SNDIO PTHREADS SDL_ATOMIC SDL_AUDIO	\
 			SDL_CPUINFO SDL_EVENTS SDL_FILE SDL_HAPTIC	\
 			SDL_JOYSTICK SDL_LOADSO SDL_POWER SDL_RENDER	\
-			SDL_THREADS SDL_TIMERS SDL_VIDEO VIDEO_KMSDRM	\
-			VIDEO_OPENGL VIDEO_X11 VIDEO_OPENGLES2		\
-			VIDEO_WAYLAND UDEV
+			SDL_THREADS SDL_TIMERS SDL_VIDEO UDEV		\
+			VIDEO_KMSDRM VIDEO_OPENGL VIDEO_OPENGLES2	\
+			VIDEO_WAYLAND VIDEO_X11
 OPTIONS_DEFAULT=	ASM DLOPEN OSS PTHREADS SDL_ATOMIC SDL_AUDIO	\
 			SDL_CPUINFO SDL_EVENTS SDL_FILE SDL_HAPTIC	\
 			SDL_JOYSTICK SDL_LOADSO SDL_POWER SDL_RENDER	\
@@ -73,7 +73,6 @@ NAS_DESC=		Audio output via the Network Audio System
 OSS_DESC=		Audio output via the Open Sound System
 PULSEAUDIO_DESC=	Audio output via the PulseAudio sound server
 PTHREADS_DESC=		Use POSIX threads for multi-threading
-UDEV_DESC=		Use udev for input device detection
 SAMPLERATE_DESC=	Audio rate conversion via libsamplerate
 SDL_ATOMIC_DESC=	Enable the SDL Atomic subsystem
 SDL_AUDIO_DESC=		Enable the SDL Audio subsystem
@@ -88,18 +87,18 @@ SDL_RENDER_DESC=	Enable the SDL Render subsystem
 SDL_THREADS_DESC=	Enable the SDL Threads subsystem
 SDL_TIMERS_DESC=	Enable the SDL Timers subsystem
 SDL_VIDEO_DESC=		Enable the SDL Video subsystem
+UDEV_DESC=		Use udev for input device detection
 VIDEO_KMSDRM_DESC=	KMSDRM display support
 VIDEO_OPENGL_DESC=	OpenGL rendering support
+VIDEO_OPENGLES2_DESC=	OpenGL ES 2.x rendering support
+VIDEO_WAYLAND_DESC=	Wayland display support
 VIDEO_X11_DESC=		X11 display support
-VIDEO_OPENGLES2_DESC=		OpenGL ES 2.x rendering support
-VIDEO_WAYLAND_DESC=		Wayland display support
 
 ASM_CONFIGURE_ENABLE=		assembly
 DLOPEN_CONFIGURE_ENABLE=	sdl-dlopen
 PTHREADS_CONFIGURE_ENABLE=	pthreads pthread-sem
 SAMPLERATE_CONFIGURE_ENABLE=	libsamplerate libsamplerate-shared
 SAMPLERATE_LIB_DEPENDS=		libsamplerate.so:audio/libsamplerate
-UDEV_CONFIGURE_ENABLE=		libudev
 SDL_ATOMIC_CONFIGURE_ENABLE=	atomic gcc-atomics
 SDL_AUDIO_CONFIGURE_ENABLE=	audio
 SDL_CPUINFO_CONFIGURE_ENABLE=	cpuinfo
@@ -113,8 +112,8 @@ SDL_RENDER_CONFIGURE_ENABLE=	render
 SDL_THREADS_CONFIGURE_ENABLE=	threads
 SDL_TIMERS_CONFIGURE_ENABLE=	timers
 SDL_VIDEO_CONFIGURE_ENABLE=	video
-
-UDEV_LIB_DEPENDS=	libudev.so:devel/libudev-devd
+UDEV_CONFIGURE_ENABLE=		libudev
+UDEV_LIB_DEPENDS=		libudev.so:devel/libudev-devd
 
 .include <bsd.port.options.mk>
 
@@ -239,7 +238,7 @@ IGNORE=	option VIDEO_OPENGLES2 requires SDL_VIDEO
 .endif
 CONFIGURE_ARGS+=	--enable-video-opengles \
 			--enable-video-opengles2
-USE_GL+=		glesv2
+USE_GL+=		egl glesv2
 .else
 CONFIGURE_ARGS+=	--disable-video-opengles \
 			--disable-video-opengles2
@@ -254,11 +253,10 @@ IGNORE=	option VIDEO_WAYLAND requires VIDEO_OPENGLES2
 .endif
 CONFIGURE_ARGS+=	--enable-video-wayland \
 			--enable-wayland-shared
+BUILD_DEPENDS+=		wayland-protocols>0:graphics/wayland-protocols \
+			${LOCALBASE}/include/linux/input.h:multimedia/v4l_compat
 LIB_DEPENDS+=		libwayland-egl.so:graphics/wayland \
 			libxkbcommon.so:x11/libxkbcommon
-BUILD_DEPENDS+=	wayland-protocols>=1.7:graphics/wayland-protocols \
-			wayland-scanner:graphics/wayland \
-			gsed:textproc/gsed
 .else
 CONFIGURE_ARGS+=	--disable-video-wayland \
 			--disable-wayland-shared

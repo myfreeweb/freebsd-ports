@@ -105,6 +105,7 @@
     SUBDIR += py-vatnumber
     SUBDIR += py-ystockquote
     SUBDIR += qhacc
+    SUBDIR += qtbitcointrader
     SUBDIR += quantlib
     SUBDIR += quickfix
     SUBDIR += rubygem-money

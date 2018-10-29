@@ -2,7 +2,6 @@
 
 PORTNAME=	discover
 DISTVERSION=	${KDE_PLASMA_VERSION}
-PORTREVISION=	1
 CATEGORIES=	sysutils kde kde-plasma
 
 MAINTAINER=	kde@FreeBSD.org
@@ -22,4 +21,3 @@ USE_QT=		concurrent core dbus gui network qml quick svg testlib widgets xml \
 		buildtools_build qmake_build
 
 .include <bsd.port.mk>
-

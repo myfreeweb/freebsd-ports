@@ -15,7 +15,7 @@ LICENSE=	MIT PD
 LICENSE_COMB=	multi
 LICENSE_FILE=	${WRKSRC}/COPYRIGHT
 
-BROKEN_powerpc64=	not ported to powerpc64 upstream
+IGNORE_powerpc64=	fails to compile: lj_arch.h:346:2: No support for PowerPC 64 bit mode
 
 WRKSRC=		${WRKDIR}/LuaJIT-${DISTVERSION}
 USES=		gmake

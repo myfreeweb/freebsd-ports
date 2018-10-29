@@ -60,6 +60,7 @@
     SUBDIR += cryptoballot
     SUBDIR += cs
     SUBDIR += cstream
+    SUBDIR += ctm
     SUBDIR += dahdi
     SUBDIR += dahdi-kmod
     SUBDIR += dahdi-kmod26
@@ -235,8 +236,11 @@
     SUBDIR += kde-l10n-ug
     SUBDIR += kde-l10n-wa
     SUBDIR += kde-thumbnailer-chm
+    SUBDIR += kde-thumbnailer-chm-kde4
     SUBDIR += kde-thumbnailer-epub
+    SUBDIR += kde-thumbnailer-epub-kde4
     SUBDIR += kde-thumbnailer-fb2
+    SUBDIR += kde-thumbnailer-fb2-kde4
     SUBDIR += kde4-l10n
     SUBDIR += kde4-xdg-env
     SUBDIR += kdeedu
@@ -255,6 +259,7 @@
     SUBDIR += ktouch-kde4
     SUBDIR += kwordquiz
     SUBDIR += kwordquiz-kde4
+    SUBDIR += lastools
     SUBDIR += latex-mk
     SUBDIR += lazyread
     SUBDIR += lc
