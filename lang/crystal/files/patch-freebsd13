@@ -1,0 +1,116 @@
+--- src/compiler/crystal/semantic/flags.cr.orig
++++ src/compiler/crystal/semantic/flags.cr
+@@ -29,6 +29,7 @@ class Crystal::Program
+     set = flags_name.map(&.downcase).to_set
+     set.add "darwin" if set.any?(&.starts_with?("macosx")) || set.any?(&.starts_with?("darwin"))
+     set.add "freebsd" if set.any?(&.starts_with?("freebsd"))
++    set.add "freebsd11" if set.any?(&.starts_with?("freebsd11"))
+     set.add "openbsd" if set.any?(&.starts_with?("openbsd"))
+     set.add "unix" if set.any? { |flag| %w(cygnus darwin freebsd linux openbsd).includes?(flag) }
+     set.add "win32" if set.any?(&.starts_with?("windows")) && set.any? { |flag| %w(gnu msvc).includes?(flag) }
+--- src/lib_c/x86_64-portbld-freebsd/c/dirent.cr.orig
++++ src/lib_c/x86_64-portbld-freebsd/c/dirent.cr
+@@ -4,20 +4,20 @@ lib LibC
+   type DIR = Void
+ 
+   struct Dirent
+-    {% if flag?(:"freebsd12.0") %}
++    {% if flag?(:freebsd11) %}
++      d_fileno : UInt
++    {% else %}
+       d_fileno : ULong
+       d_off : ULong
+-    {% else %}
+-      d_fileno : UInt
+     {% end %}
+     d_reclen : UShort
+     d_type : UChar
+-    {% if flag?(:"freebsd12.0") %}
++    {% if flag?(:freebsd11) %}
++      d_namlen : UChar
++    {% else %}
+       d_pad0 : UChar
+       d_namlen : UShort
+       d_pad1 : UShort
+-    {% else %}
+-      d_namlen : UChar
+     {% end %}
+     d_name : StaticArray(Char, 256)
+   end
+--- src/lib_c/x86_64-portbld-freebsd/c/sys/stat.cr.orig
++++ src/lib_c/x86_64-portbld-freebsd/c/sys/stat.cr
+@@ -31,39 +31,39 @@ lib LibC
+   struct Stat
+     st_dev : DevT
+     st_ino : InoT
+-    {% if flag?(:"freebsd12.0") %}
+-      st_nlink : NlinkT
++    {% if flag?(:freebsd11) %}
+       st_mode : ModeT
+-      st_pad0 : UShort
++      st_nlink : NlinkT
+     {% else %}
+-      st_mode : ModeT
+       st_nlink : NlinkT
++      st_mode : ModeT
++      st_pad0 : UShort
+     {% end %}
+     st_uid : UidT
+     st_gid : GidT
+-    {% if flag?(:"freebsd12.0") %}
++    {% if !flag?(:freebsd11) %}
+       st_pad1 : UInt
+     {% end %}
+     st_rdev : DevT
+     st_atim : Timespec
+     st_mtim : Timespec
+     st_ctim : Timespec
+-    {% if flag?(:"freebsd12.0") %}
++    {% if !flag?(:freebsd11) %}
+       st_birthtim : Timespec
+     {% end %}
+     st_size : OffT
+     st_blocks : BlkcntT
+     st_blksize : BlksizeT
+     st_flags : FflagsT
+-    {% if flag?("freebsd12.0") %}
+-      st_gen : ULong
+-      st_spare : StaticArray(ULong, 10)
+-    {% else %}
++    {% if flag?(:freebsd11) %}
+       st_gen : UInt
+       st_lspare : Int
+       st_birthtim : Timespec
+       __reserved_17 : UInt
+       __reserved_18 : UInt
++    {% else %}
++      st_gen : ULong
++      st_spare : StaticArray(ULong, 10)
+     {% end %}
+   end
+ 
+--- src/lib_c/x86_64-portbld-freebsd/c/sys/types.cr.orig
++++ src/lib_c/x86_64-portbld-freebsd/c/sys/types.cr
+@@ -9,16 +9,16 @@ lib LibC
+   alias DevT = UInt
+   alias GidT = UInt
+   alias IdT = Long
+-  {% if flag?(:"freebsd12.0") %}
+-    alias InoT = ULong
+-  {% else %}
++  {% if flag?(:freebsd11) %}
+     alias InoT = UInt
++  {% else %}
++    alias InoT = ULong
+   {% end %}
+   alias ModeT = UShort
+-  {% if flag?(:"freebsd12.0") %}
+-    alias NlinkT = ULong
+-  {% else %}
++  {% if flag?(:freebsd11) %}
+     alias NlinkT = UShort
++  {% else %}
++    alias NlinkT = ULong
+   {% end %}
+   alias OffT = Long
+   alias PidT = Int
