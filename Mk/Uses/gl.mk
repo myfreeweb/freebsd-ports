@@ -12,14 +12,16 @@
 # 
 # MAINTAINER:	x11@FreeBSD.org
 
+MESA_LIBS_PORT?=graphics/mesa-libs
+
 .if !defined(_INCLUDE_USES_GL_MK)
 _INCLUDE_USES_GL_MK=yes
 
-_GL_egl_LIB_DEPENDS=		libEGL.so:graphics/mesa-libs
-_GL_gbm_LIB_DEPENDS=		libgbm.so:graphics/mesa-libs
-_GL_gl_LIB_DEPENDS=		libGL.so:graphics/mesa-libs
+_GL_egl_LIB_DEPENDS=		libEGL.so:${MESA_LIBS_PORT}
+_GL_gbm_LIB_DEPENDS=		libgbm.so:${MESA_LIBS_PORT}
+_GL_gl_LIB_DEPENDS=		libGL.so:${MESA_LIBS_PORT}
 _GL_gl_USE_XORG=		xorgproto
-_GL_glesv2_LIB_DEPENDS=		libGLESv2.so:graphics/mesa-libs
+_GL_glesv2_LIB_DEPENDS=		libGLESv2.so:${MESA_LIBS_PORT}
 _GL_glew_LIB_DEPENDS=		libGLEW.so:graphics/glew
 _GL_glu_LIB_DEPENDS=		libGLU.so:graphics/libGLU
 _GL_glu_USE_XORG=		xorgproto
