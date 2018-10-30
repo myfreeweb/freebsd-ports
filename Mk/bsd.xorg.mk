@@ -93,7 +93,8 @@ USES+=	pathfix
 CONFIGURE_ARGS+=	--with-xkb-path=${LOCALBASE}/share/X11/xkb \
 					--with-fontrootdir=${LOCALBASE}/share/fonts
 
-LIB_PC_DEPENDS+=	${LOCALBASE}/libdata/pkgconfig/dri.pc:graphics/mesa-dri
+MESA_DRI_PORT?=	graphics/mesa-dri
+LIB_PC_DEPENDS+=	${LOCALBASE}/libdata/pkgconfig/dri.pc:${MESA_DRI_PORT}
 USE_XORG+=	fontutil:build
 . endif
 
