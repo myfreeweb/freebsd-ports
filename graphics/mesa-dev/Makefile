@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=		mesa-dev
-DISTVERSION=		18.3.0-20180916
+DISTVERSION=		18.3.0-20181030
 CATEGORIES=		graphics
 
 MAINTAINER=	greg@unrelenting.technology
@@ -20,9 +20,9 @@ USE_XORG=	xorgproto x11 xdamage xext \
 USE_GITHUB=	yes
 GH_ACCOUNT=	myfreeweb
 GH_PROJECT=	mesa
-GH_TAGNAME=	a46775fb6e
+GH_TAGNAME=	bc26e3c29b
 
-MESA_LLVM_VER?=	60
+MESA_LLVM_VER?=	70
 
 BUILD_DEPENDS=	llvm${MESA_LLVM_VER}>=5.0.0:devel/llvm${MESA_LLVM_VER} \
 		${PYTHON_PKGNAMEPREFIX}mako>0:textproc/py-mako@${PY_FLAVOR} \
@@ -34,10 +34,11 @@ BUILD_DEPENDS=	llvm${MESA_LLVM_VER}>=5.0.0:devel/llvm${MESA_LLVM_VER} \
 LIB_DEPENDS=	libexpat.so:textproc/expat2 \
 		libdrm.so:graphics/libdrm \
 		libOpenCL.so:devel/ocl-icd \
-		libva.so:multimedia/libva \
 		libvdpau.so:multimedia/libvdpau \
 		libwayland-client.so:graphics/wayland \
 		libwayland-server.so:graphics/wayland
+
+.include <bsd.port.options.mk>
 
 .if ${OPSYS} == DragonFly
 LIB_DEPENDS+=  libelf.so:devel/libelf
@@ -56,10 +57,12 @@ USE_BINUTILS=		yes
 LDFLAGS+=		-B${LOCALBASE}/bin
 .endif
 
+# libva is a circular dep
 MESON_ARGS=	-Dglx-tls="false"\
 		-Dgallium-opencl="icd" \
 		-Dgallium-omx="disabled" \
 		-Dgallium-nine="true" \
+		-Dgallium-va="false" \
 		-Dosmesa="gallium"
 
 .include <bsd.port.options.mk>
