@@ -12,10 +12,10 @@ COMMENT=	GStreamer editing services
 
 PORTSCOUT=	limitw:1,even
 
-USES=		compiler:c11 gmake gnome libtool pathfix python:2.7 pkgconfig tar:xz
+USES=		compiler:c11 gmake gnome libtool pathfix python:3.6+ pkgconfig tar:xz
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-USE_GNOME=	glib20 introspection:build libxml2 pygobject3
+USE_GNOME=	glib20 introspection:build libxml2 pygobject3:build
 USE_GSTREAMER1=	good
 INSTALL_TARGET=	install-strip
 
