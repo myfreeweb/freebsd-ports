@@ -39,4 +39,10 @@ CMAKE_ARGS=	-DNO_FATAL_WARNINGS:BOOL=ON \
 
 GLIB_SCHEMAS=	org.gnome.Geary.gschema.xml
 
+post-patch:
+	${RM} ${WRKSRC}/bindings/metadata/Soup-2.4.metadata \
+		${WRKSRC}/bindings/metadata/WebKit2-4.0.metadata \
+		${WRKSRC}/bindings/metadata/WebKit2WebExtension-4.0.metadata \
+		${WRKSRC}/bindings/vapi/javascriptcore-4.0.vapi
+
 .include <bsd.port.mk>
