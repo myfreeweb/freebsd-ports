@@ -21,6 +21,7 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 	- to install and keep pkg happy without rebuilding everything, just `pkg add -f` over existing `mesa-libs/dri`
 	- but if you want to do it properly, define `MESA_DRI_PORT=graphics/mesa-dev` and `MESA_LIBS_PORT=graphics/mesa-dev` in `make.conf` and rebuild dependent ports
 		- [synth](https://github.com/jrmarino/synth) is the recommended port upgrade tool, it does try to fetch binary packages when a rebuild is not necessary
+- `graphics/libdrm`: 2.4.96 [231607](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231607)
 
 NOTE: ANV (Intel Vulkan) requires running the apps as root and might not work for complex applications.
 RADV (Radeon Vulkan) with the `amdgpu` KMS/DRM driver works very well!
