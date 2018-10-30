@@ -191,9 +191,10 @@ CONFIGURE_ARGS+=	--disable-sndio --disable-sndio-shared
 .if !${PORT_OPTIONS:MSDL_VIDEO}
 IGNORE=	option VIDEO_KMSDRM requires SDL_VIDEO
 .endif
+MESA_LIBS_PORT?=	graphics/mesa-libs
 CONFIGURE_ARGS+=	--enable-video-kmsdrm --enable-kmsdrm-shared
 BUILD_DEPENDS+=		${LOCALBASE}/libdata/pkgconfig/libdrm.pc:graphics/libdrm \
-			${LOCALBASE}/libdata/pkgconfig/gbm.pc:graphics/mesa-libs
+			${LOCALBASE}/libdata/pkgconfig/gbm.pc:${MESA_LIBS_PORT}
 .else
 CONFIGURE_ARGS+=	--disable-video-kmsdrm --disable-video-kmsdrm
 .endif
