@@ -16,7 +16,7 @@ BUILD_DEPENDS=	itstool:textproc/itstool
 
 NO_ARCH=	yes
 USES=		gettext gmake gnome perl5 pkgconfig python tar:xz
-USE_GNOME=	gtk30 intlhack introspection:build libxml2:build libwnck3
+USE_GNOME=	gtk30 pygobject3 intlhack introspection:build libxml2:build libwnck3
 USE_PYTHON=	py3kplist
 GNU_CONFIGURE=	yes
 USE_PERL5=	build
