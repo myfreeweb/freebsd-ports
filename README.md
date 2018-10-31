@@ -115,6 +115,7 @@ How to use Weston:
 - `net/libjson-rpc-cpp`: jsonrpc lib [231735](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231735)
 - `net-p2p/ethminer` (& `devel/ethash` `devel/cli11`): OpenCL miner - previous version since latest broke Clover support; even this one only works in test/benchmark mode for me currently
 - `devel/mull`: mutation test framework
+- `graphics/imlib2-webp`: [232871](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=232871)
 
 ### Ports framework
 
