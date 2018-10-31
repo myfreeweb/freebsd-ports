@@ -116,6 +116,7 @@ How to use Weston:
 - `net-p2p/ethminer` (& `devel/ethash` `devel/cli11`): OpenCL miner - previous version since latest broke Clover support; even this one only works in test/benchmark mode for me currently
 - `devel/mull`: mutation test framework
 - `graphics/imlib2-webp`: [232871](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=232871)
+- `graphics/webp-pixbuf-loader`: [232872](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=232872)
 
 ### Ports framework
 

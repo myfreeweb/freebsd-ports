@@ -1157,6 +1157,7 @@
     SUBDIR += wayland-protocols
     SUBDIR += waylandpp
     SUBDIR += webp
+    SUBDIR += webp-pixbuf-loader
     SUBDIR += wings
     SUBDIR += wmicons
     SUBDIR += wxsvg
