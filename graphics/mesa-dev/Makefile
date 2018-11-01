@@ -2,7 +2,7 @@
 
 PORTNAME=		mesa-dev
 DISTVERSION=		18.3.0-20181030
-CATEGORIES=		graphics
+CATEGORIES?=		graphics
 
 MAINTAINER=	greg@unrelenting.technology
 COMMENT=	Development version of the Mesa graphics stack
