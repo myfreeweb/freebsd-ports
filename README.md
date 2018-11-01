@@ -69,7 +69,6 @@ How to use Weston:
 - `emulators/yuzu`: experimental Switch emulator [228487](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=228487)
 - `graphics/hdrmerge`: HDR merge tool (git master qt5)
 - `graphics/shaderc`: google's glslang-based thing, needed for vulkan support in mpv. Quite bad for packaging: [#424](https://github.com/google/shaderc/issues/424) [#381](https://github.com/google/shaderc/issues/381) [#392](https://github.com/google/shaderc/issues/392)
-- `multimedia/mpv`: 0.28.2, vulkan
 - `x11-toolkits/gtk40`: git master, vulkan, skip installing gschemas (fix parallel install w/ gtk3)
 - `multimedia/shotcut`: 18.03.06
 - `emulators/mesen`: a NES emulator [227351](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227351)
@@ -82,7 +81,6 @@ How to use Weston:
 - `editors/abiword`: 3.0.2 [220975](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=220975)
 - `sysutils/libcpuid`: git master
 - `emulators/wine-devel`: WoW64 [D14721](https://reviews.freebsd.org/D14721), gallium nine patch (needs d3dadapter in i386 too?)
-- `editors/gnome-latex`: renamed from `editors/latexila`, updated to 3.28.0 [226938](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226938)
 - `cad/solvespace`: git master (GTK3 HiDPI)
 - `math/nasc`: dual pane text calculator similar to Soulver
 - `graphics/akira`: VERY WIP (nothing works yet) UI design tool
