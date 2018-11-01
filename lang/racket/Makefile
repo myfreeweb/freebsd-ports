@@ -22,7 +22,7 @@ LIB_DEPENDS=	libffi.so:devel/libffi		\
 		libcairo.so:graphics/cairo	\
 		libpng.so:graphics/png
 
-BROKEN_powerpc64=	fails to build: jit.c: 'JIT_LOCAL4' undeclared (first use in this function)
+IGNORE_powerpc64=	./lightning/lightning.h:81:2: GNU lightning does not support the current target
 BROKEN_FreeBSD_10_i386=	segfaults during build
 BROKEN_FreeBSD_11_i386=	segfaults during build
 BROKEN_FreeBSD_12_i386=	segfaults during build
