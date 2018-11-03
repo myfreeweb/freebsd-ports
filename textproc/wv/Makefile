@@ -13,6 +13,7 @@ COMMENT=	Library and executables to access Microsoft Word files
 LIB_DEPENDS=	libwmf.so:graphics/libwmf
 
 LIB_DEPENDS=	libfreetype.so:print/freetype2 \
+		libgsf-1.so:devel/libgsf \
 		libpng.so:graphics/png \
 		libwmf.so:graphics/libwmf
 
