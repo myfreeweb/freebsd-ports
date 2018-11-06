@@ -58,6 +58,10 @@ PLIST_SUB+=	BITS=64
 ARCH=		x86_64
 .endif
 
+.if (${ARCH} == aarch64)
+EXTRA_PATCHES+=	${FILESDIR}/extra-patch-skip-gnu-qsort
+.endif
+
 post-configure:
 .if ${ARCH} != i386
 	@${REINPLACE_CMD} -e '/^CMFLAGS=/s/$$/ -fPIC/' \
