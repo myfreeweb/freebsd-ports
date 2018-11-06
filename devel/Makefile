@@ -1767,7 +1767,6 @@
     SUBDIR += mcpp
     SUBDIR += mdb
     SUBDIR += mdds
-    SUBDIR += memleax
     SUBDIR += menhir
     SUBDIR += mercator
     SUBDIR += mercurial
@@ -3837,7 +3836,6 @@
     SUBDIR += p5-namespace-sweep
     SUBDIR += p5-orz
     SUBDIR += p5-parent
-    SUBDIR += p5-perlkde
     SUBDIR += p5-perlkde-kde4
     SUBDIR += p5-perlqt-kde4
     SUBDIR += p5-pip
@@ -5474,9 +5472,7 @@
     SUBDIR += ruby-bsearch
     SUBDIR += ruby-build
     SUBDIR += ruby-gems
-    SUBDIR += ruby-korundum
     SUBDIR += ruby-korundum-kde4
-    SUBDIR += ruby-krossruby
     SUBDIR += ruby-krossruby-kde4
     SUBDIR += ruby-qtruby-kde4
     SUBDIR += ruby-rbprof
@@ -5887,7 +5883,6 @@
     SUBDIR += rubygem-peek-rails4
     SUBDIR += rubygem-peek-rblineprof
     SUBDIR += rubygem-peek-redis
-    SUBDIR += rubygem-peek-sidekiq
     SUBDIR += rubygem-piston
     SUBDIR += rubygem-pkg-config
     SUBDIR += rubygem-platform
@@ -6021,7 +6016,6 @@
     SUBDIR += rubygem-sidekiq-bulk-rails5
     SUBDIR += rubygem-sidekiq-cron
     SUBDIR += rubygem-sidekiq-cron0
-    SUBDIR += rubygem-sidekiq-limit_fetch
     SUBDIR += rubygem-sidekiq-scheduler
     SUBDIR += rubygem-sidekiq-unique-jobs
     SUBDIR += rubygem-sidetiq
