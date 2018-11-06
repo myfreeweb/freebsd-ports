@@ -22,11 +22,7 @@ EXTRACT_AFTER_ARGS=	.
 
 PLIST_FILES=	sbin/${PORTNAME}
 
-.include <bsd.port.pre.mk>
-
-.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1100030
 BUILD_FLAGS=	-DBYTESWAP_IP_FLAGS -DBYTESWAP_IP_LEN
-.endif
 
 do-build:
 	${CC} ${BUILD_FLAGS} -o ${WRKSRC}/${PORTNAME} -lm \
@@ -35,4 +31,4 @@ do-build:
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/sbin
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

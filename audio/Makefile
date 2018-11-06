@@ -337,8 +337,8 @@
     SUBDIR += hs-libmpd
     SUBDIR += hts_engine-API
     SUBDIR += hydrogen
+    SUBDIR += icecast
     SUBDIR += icecast-kh
-    SUBDIR += icecast2
     SUBDIR += icegenerator
     SUBDIR += ices
     SUBDIR += id3ed
@@ -501,6 +501,7 @@
     SUBDIR += logitechmediaserver-trackstat
     SUBDIR += lollypop
     SUBDIR += lpac
+    SUBDIR += lsp-plugins-lv2
     SUBDIR += lua51-mpd
     SUBDIR += luppp
     SUBDIR += lv2
