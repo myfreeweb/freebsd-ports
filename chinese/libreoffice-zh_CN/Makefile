@@ -1,5 +1,4 @@
-# $FreeBSD$
-PORTREVISION=	1
+# $FreeBSD: head/chinese/libreoffice-zh_CN/Makefile 397662 2015-09-23 21:06:12Z jkim $
 
 CATEGORIES=	chinese
 LO_I18N=	zh_CN

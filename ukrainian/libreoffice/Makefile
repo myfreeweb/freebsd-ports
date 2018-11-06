@@ -1,5 +1,4 @@
-# $FreeBSD$
-PORTREVISION=	1
+# $FreeBSD: head/ukrainian/libreoffice/Makefile 397662 2015-09-23 21:06:12Z jkim $
 
 CATEGORIES=	ukrainian
 LO_I18N=	uk

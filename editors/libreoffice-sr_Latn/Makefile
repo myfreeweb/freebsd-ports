@@ -1,5 +1,4 @@
-# $FreeBSD$
-PORTREVISION=	1
+# $FreeBSD: head/editors/libreoffice-sr_Latn/Makefile 397662 2015-09-23 21:06:12Z jkim $
 
 LO_I18N=	sr_Latn
 

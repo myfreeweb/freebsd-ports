@@ -98,7 +98,7 @@ How to use Weston:
 - `graphics/mypaint` and `graphics/libmypaint`: git master version, works on Wayland natively
 - `graphics/gimp-app` (& `graphics/gegl3`, `x11/babl`): git gtk3-port-meson version, works on Wayland natively (opening pngs seems to crash the plugin but selecting Proceed in console works and the file gets loaded o_0) (gimp plugin ports are probably screwed!)
 - `graphics/inkscape`: git master version with GTK3, works on Wayland natively
-- `editors/libreoffice`: GTK3 by default, works on Wayland natively
+- `editors/libreoffice`: update to 6.1.2 [lwhsu/freebsd-ports-libreoffice](https://github.com/lwhsu/freebsd-ports-libreoffice), GTK3 by default
 - `www/firefox`: (no extra updates here currently) See [FirefoxSettings](https://unrelenting.technology/kb/FirefoxSettings) for, well, settings (force enable GPU acceleration!)
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)

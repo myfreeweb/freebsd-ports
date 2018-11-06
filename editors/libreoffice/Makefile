@@ -1,8 +1,7 @@
-# $FreeBSD$
+# $FreeBSD: head/editors/libreoffice/Makefile 475920 2018-07-30 22:43:32Z jbeich $
 
 .include "${.CURDIR}/Makefile.common"
 
-PORTREVISION=	6
 MASTER_SITES=	https://download.documentfoundation.org/libreoffice/src/${PORTVERSION}/ \
 		https://dev-www.libreoffice.org/src/:src \
 		https://dev-www.libreoffice.org/extern/:ext
@@ -26,7 +25,8 @@ BUILD_DEPENDS=	p5-Archive-Zip>=0:archivers/p5-Archive-Zip \
 		vigra-config:graphics/vigra \
 		${LOCALBASE}/include/glm/glm.hpp:math/glm \
 		bash:shells/bash \
-		gsed:textproc/gsed
+		gsed:textproc/gsed \
+		${PYTHON_PKGNAMEPREFIX}lxml>0:devel/py-lxml@${PY_FLAVOR}
 LIB_DEPENDS=	libapr-1.so:devel/apr1 \
 		libboost_date_time.so:devel/boost-libs \
 		libicutu.so:devel/icu \
@@ -67,6 +67,7 @@ LIB_DEPENDS=	libapr-1.so:devel/apr1 \
 		libepubgen-0.1.so:textproc/libepubgen \
 		libexttextcat-2.0.so:textproc/libexttextcat \
 		libmwaw-0.3.so:textproc/libmwaw03 \
+		libnumbertext-1.0.so:textproc/libnumbertext \
 		libodfgen-0.1.so:textproc/libodfgen01 \
 		libqxp-0.0.so:textproc/libqxp \
 		librevenge-0.0.so:textproc/librevenge \
@@ -96,7 +97,7 @@ NOT_FOR_ARCHS=		aarch64 armv6 armv7
 NOT_FOR_ARCHS_REASON=	Unsupported host_cpu
 
 .if defined(PRERELEASE)
-MASTER_SITES+=	http://dev-builds.libreoffice.org/pre-releases/src/
+MASTER_SITES+=	https://dev-builds.libreoffice.org/pre-releases/src/
 .endif
 
 INSTALL_TARGET=	distro-pack-install
@@ -114,7 +115,7 @@ USES=		autoreconf:build bison compiler:c++14-lang cpe gmake jpeg \
 
 OPTIONS_DEFINE=	CUPS DOCS GNOME GTK2 GTK3 JAVA KDE4 MMEDIA PGSQL SDK SYSTRAY \
 		TEST WEBDAV
-OPTIONS_DEFAULT=	CUPS GTK3 MMEDIA
+OPTIONS_DEFAULT=	CUPS GTK2 MMEDIA
 
 GTK2_DESC=	GTK+ 2 GUI toolkit support
 GTK3_DESC=	GTK+ 3 GUI toolkit support (experimental)
@@ -132,7 +133,7 @@ CUPS_LIB_DEPENDS=	libcups.so:print/cups
 DOCS_CONFIGURE_WITH=	help
 
 GNOME_CONFIGURE_ENABLE=	dbus dconf
-GNOME_IMPLIES=	GTK3
+GNOME_IMPLIES=	GTK2
 GNOME_LIB_DEPENDS=	libdbus-glib-1.so:devel/dbus-glib
 GNOME_USE=	GNOME=dconf
 

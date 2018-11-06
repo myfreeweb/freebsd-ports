@@ -1,5 +1,4 @@
-# $FreeBSD$
-PORTREVISION=	1
+# $FreeBSD: head/editors/libreoffice-sid/Makefile 430266 2017-01-01 17:54:02Z jkim $
 
 LO_I18N=	sid
 LO_HAS_HELPPACK=	yes

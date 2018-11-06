@@ -1,10 +1,10 @@
-# $FreeBSD$
+# $FreeBSD: head/editors/libreoffice/Makefile.i18n 464758 2018-03-17 06:31:11Z lwhsu $
 
 .include "${.CURDIR}/../../editors/libreoffice/Makefile.common"
 
-MASTER_SITES=	http://download.documentfoundation.org/libreoffice/${MASTER_SITE_SUBDIR}/
+MASTER_SITES=	https://download.documentfoundation.org/libreoffice/${MASTER_SITE_SUBDIR}/
 .if defined(PRERELEASE)
-MASTER_SITES+=	http://dev-builds.libreoffice.org/pre-releases/deb/x86/
+MASTER_SITES+=	https://dev-builds.libreoffice.org/pre-releases/deb/x86/
 MASTER_SITE_SUBDIR=	testing/${PORTVERSION}/deb/x86
 LO_I18N_FILE=	LibreOffice_${LOVERSION}_Linux_x86_deb
 .else

@@ -1,0 +1,9 @@
+bin/spellout
+include/libnumbertext/Numbertext.hxx
+include/libnumbertext/Soros.hxx
+include/libnumbertext/numbertext-version.h
+lib/libnumbertext-1.0.a
+lib/libnumbertext-1.0.so
+lib/libnumbertext-1.0.so.0
+lib/libnumbertext-1.0.so.0.0.0
+libdata/pkgconfig/libnumbertext.pc

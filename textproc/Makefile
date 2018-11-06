@@ -432,6 +432,7 @@
     SUBDIR += libmrss
     SUBDIR += libmrss-php
     SUBDIR += libmwaw03
+    SUBDIR += libnumbertext
     SUBDIR += libnxml
     SUBDIR += libodfgen01
     SUBDIR += libparsifal
