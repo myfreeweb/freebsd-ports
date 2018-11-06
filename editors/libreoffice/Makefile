@@ -115,7 +115,7 @@ USES=		autoreconf:build bison compiler:c++14-lang cpe gmake jpeg \
 
 OPTIONS_DEFINE=	CUPS DOCS GNOME GTK2 GTK3 JAVA KDE4 MMEDIA PGSQL SDK SYSTRAY \
 		TEST WEBDAV
-OPTIONS_DEFAULT=	CUPS GTK2 MMEDIA
+OPTIONS_DEFAULT=	CUPS GTK3 MMEDIA
 
 GTK2_DESC=	GTK+ 2 GUI toolkit support
 GTK3_DESC=	GTK+ 3 GUI toolkit support (experimental)
