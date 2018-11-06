@@ -32,6 +32,7 @@ Tested on an AMD Polaris (RX 480) GPU.
 
 - `devel/libevdev` / `devel/evdev-proto` / `devel/py-evdev`: 1.5.9 and stuff [217248](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=217248)
 - `devel/libepoll-shim`: update version [223530](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223530)
+- `devel/libudev-devd`: patch: fall back to trying all fds when procstat fails [#6](https://github.com/FreeBSDDesktop/libudev-devd/pull/6)
 - `x11/libinput`: [222905](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222905)
 	- update to 1.10.4
 	- fix [touchpad dropping out](https://blog.grem.de/pages/t470s.html)
