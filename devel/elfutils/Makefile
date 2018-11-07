@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	elfutils
-PORTVERSION=	0.172
-PORTREVISION=	1
+PORTVERSION=	0.174
 CATEGORIES=	devel
 MASTER_SITES=	https://sourceware.org/elfutils/ftp/${PORTVERSION}/
 
@@ -34,7 +33,7 @@ NLS_USES_OFF=	gettext  # used anyway
 NLS_CONFIGURE_ENABLE=	nls
 
 USES=		autoreconf gmake libtool tar:bzip2
-USE_GCC=	yes
+USE_GCC=	7
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 

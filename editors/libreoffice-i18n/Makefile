@@ -1,8 +1,8 @@
-# $FreeBSD: head/editors/libreoffice-i18n/Makefile 464758 2018-03-17 06:31:11Z lwhsu $
+# $FreeBSD$
 
 .include "${.CURDIR}/../../editors/libreoffice/Makefile.common"
 
-PORTREVISION=	0
+PORTREVISION=	1
 PKGNAMESUFFIX=	-i18n
 
 COMMENT=	Localized interface for libreoffice
