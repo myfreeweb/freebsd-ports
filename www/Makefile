@@ -2421,6 +2421,7 @@
     SUBDIR += twill
     SUBDIR += twms
     SUBDIR += typo3-8
+    SUBDIR += typo3-9
     SUBDIR += uchiwa
     SUBDIR += udmsearch
     SUBDIR += ufdbguard
