@@ -1,9 +1,13 @@
-Elisa is a music player designed to be simple and nice to use.
+Elisa is a music player developed by the KDE community that strives 
+to be simple and nice to use. We also recognize that we need a flexible 
+product to account for the different workflows and use-cases of our users.
 
-Elisa allows to browse music by album, artist or all tracks. The music
-is indexed using either a private indexer or an indexer using Baloo.
-The private one can be configured to scan music on chosen paths. The
-Baloo one is much faster because Baloo is providing all needed data
-from its own database. You can build and play your own playlist.
+We focus on a very good integration with the Plasma desktop of the 
+KDE community without compromising the support for other platforms 
+(other Linux desktop environments, Windows and Android).
 
-WWW: https://phabricator.kde.org/project/board/193/
+We are creating a reliable product that is a joy to use and respects 
+our users privacy. As such, we will prefer to support online services 
+where users are in control of their data.
+
+WWW: https://userbase.kde.org/Elisa

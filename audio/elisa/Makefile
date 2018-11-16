@@ -1,22 +1,24 @@
 # $FreeBSD$
 
 PORTNAME=	elisa
-DISTVERSION=	0.0.81
-CATEGORIES=	audio
-MASTER_SITES=	KDE/unstable/${PORTNAME}/${DISTVERSION}
+PORTVERSION=	0.3.0
+CATEGORIES=	audio kde
+MASTER_SITES=	KDE/stable/${PORTNAME}/${PORTVERSION}
 
-MAINTAINER=	kde@FreeBSD.org
-COMMENT=	Elisa is a music player designed to be simple and nice to use
+MAINTAINER=	adridg@FreeBSD.org
+COMMENT=	Audio player with QML and KDE Plasma integration
 
-LICENSE=	LGPL3
+LICENSE=	LGPL3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-USES=		cmake:outsource kde:5 tar:xz
-USE_QT5=	dbus core gui multimedia quick quickcontrols2 xml \
-		buildtools_build qmake_build linguisttools_build
-USE_KDE=	baloo config coreaddons doctools filemetadata i18n \
-		kcmutils kdeclarative package \
-		xmlgui \
-		ecm_build
+USES=		cmake compiler:c++14-lang desktop-file-utils gettext kde:5 \
+		pkgconfig qt:5 tar:xz
+USE_QT=		buildtools_build qmake_build testlib_build \
+		concurrent core dbus declarative gui multimedia network \
+		quickcontrols2 sql svg widgets xml
+USE_KDE=	auth baloo5 bookmarks codecs completion config configwidgets \
+		coreaddons crash dbusaddons filemetadata i18n itemviews \
+		jobwidgets kcmutils kdeclarative kio package service solid \
+		widgetsaddons xmlgui
 
 .include <bsd.port.mk>

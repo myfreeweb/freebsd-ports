@@ -27,8 +27,8 @@ LIB_DEPENDS=	libgmime-2.6.so:mail/gmime26 \
 		libsoup-2.4.so:devel/libsoup \
 		libenchant.so:textproc/enchant
 
-USES=		cmake:outsource compiler:c11 desktop-file-utils gettext libtool \
-		localbase:ldflags pkgconfig shebangfix sqlite tar:xz gnome
+USES=		cmake:outsource compiler:c11 desktop-file-utils gettext gnome libtool \
+		localbase:ldflags pkgconfig shebangfix sqlite tar:xz
 USE_GNOME=	cairo gnomedocutils gnomeprefix gtk30 intlhack introspection
 SHEBANG_FILES=	desktop/geary-attach
 USE_LDCONFIG=	yes
@@ -38,11 +38,5 @@ CMAKE_ARGS=	-DNO_FATAL_WARNINGS:BOOL=ON \
 		-DISO_CODE_3166_XML:STRING=${LOCALBASE}/share/xml/iso-codes/iso_3166.xml
 
 GLIB_SCHEMAS=	org.gnome.Geary.gschema.xml
-
-post-patch:
-	${RM} ${WRKSRC}/bindings/metadata/Soup-2.4.metadata \
-		${WRKSRC}/bindings/metadata/WebKit2-4.0.metadata \
-		${WRKSRC}/bindings/metadata/WebKit2WebExtension-4.0.metadata \
-		${WRKSRC}/bindings/vapi/javascriptcore-4.0.vapi
 
 .include <bsd.port.mk>
