@@ -14,10 +14,10 @@ LIB_DEPENDS=	libuv.so:devel/libuv \
 		liblz4.so:archivers/liblz4 \
 		libzopfli.so:archivers/zopfli
 
+USES=		gmake pkgconfig compiler:c++11-lang
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	unknownbrackets
-
-USES=		gmake pkgconfig compiler:c++11-lang
 
 PLIST_FILES=	bin/${PORTNAME}
 
