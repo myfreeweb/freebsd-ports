@@ -120,6 +120,7 @@ How to use Weston:
 - `devel/evemu`: update
 - `devel/libsysinfo`: pkgconfig file [233446](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=233446)
 - `audio/cadence`: python/deps fixes [233449](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=233449)
+- `audio/jack`: jack2
 
 ### Ports framework
 
