@@ -20,14 +20,14 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	falkTX
 GH_PROJECT=	Cadence
 USE_QT=		core gui widgets buildtools_build
-USE_PYQT=	core_run gui_run network_run widgets_run sip xml_build
+USE_PYQT=	core_run gui_run network_run widgets_run sip xml_run dbussupport_run
 
 CXXFLAGS+=	-DJACKBRIDGE_PROPER_CPP11_SUPPORT=yes
 
 post-patch:
-	@${REINPLACE_CMD} 's|exec $$PYTHON |exec ${PYTHON_CMD} |' ${WRKSRC}/data/cadence
 	@cd ${WRKSRC}/data && ${REINPLACE_CMD} ' \
 		s|#!/bin/bash|#!/bin/sh| ; \
+		s|exec $$PYTHON |exec ${PYTHON_CMD} | ; \
 		s|ps -f -u |ps -U |' \
 		cadence cadence-aloop-daemon cadence-jacksettings cadence-logs \
 		cadence-pulse2jack cadence-pulse2loopback cadence-render \
