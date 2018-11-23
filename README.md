@@ -118,6 +118,7 @@ How to use Weston:
 - `graphics/webp-pixbuf-loader`: [232872](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=232872)
 - `accessibility/redshift-wlr`: fork of redshift with wlr-gamma-control based Wayland backend
 - `devel/evemu`: update
+- `devel/libsysinfo`: pkgconfig file [233446](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=233446)
 
 ### Ports framework
 
