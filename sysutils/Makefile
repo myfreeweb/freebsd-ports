@@ -252,6 +252,7 @@
     SUBDIR += devstat
     SUBDIR += dfc
     SUBDIR += di
+    SUBDIR += digdag
     SUBDIR += dim
     SUBDIR += dirdiff
     SUBDIR += direnv

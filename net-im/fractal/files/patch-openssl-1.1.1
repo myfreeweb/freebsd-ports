@@ -26,13 +26,13 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +        }
          _ => panic!("Unable to detect OpenSSL version"),
      }
-
+ 
 --- vendor/openssl/src/dh.rs.orig	2018-09-04 07:45:22 UTC
 +++ vendor/openssl/src/dh.rs
 @@ -39,7 +39,7 @@ impl Dh {
      from_pem!(Dh, ffi::PEM_read_bio_DHparams);
      from_der!(Dh, ffi::d2i_DHparams);
-
+ 
 -    /// Requires the `v102` or `v110` features and OpenSSL 1.0.2 or OpenSSL 1.1.0.
 +    /// Requires OpenSSL 1.0.2, 1.1.0, or 1.1.1 and the corresponding Cargo feature.
      #[cfg(any(all(feature = "v102", ossl102), all(feature = "v110", ossl110)))]
@@ -41,7 +41,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 @@ -48,7 +48,7 @@ impl Dh {
          }
      }
-
+ 
 -    /// Requires the `v102` or `v110` features and OpenSSL 1.0.2 or OpenSSL 1.1.0.
 +    /// Requires OpenSSL 1.0.2, 1.1.0, or 1.1.1 and the corresponding Cargo feature.
      #[cfg(any(all(feature = "v102", ossl102), all(feature = "v110", ossl110)))]
@@ -50,7 +50,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 @@ -57,7 +57,7 @@ impl Dh {
          }
      }
-
+ 
 -    /// Requires the `v102` or `v110` features and OpenSSL 1.0.2 or OpenSSL 1.1.0.
 +    /// Requires OpenSSL 1.0.2, 1.1.0, or 1.1.1 and the corresponding Cargo feature.
      #[cfg(any(all(feature = "v102", ossl102), all(feature = "v110", ossl110)))]
@@ -60,7 +60,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +++ vendor/openssl/src/pkcs5.rs
 @@ -59,9 +59,9 @@ pub fn bytes_to_key(
          ))?;
-
+ 
          let mut key = vec![0; len as usize];
 -        let iv_ptr = iv.as_mut().map(|v| v.as_mut_ptr()).unwrap_or(
 -            ptr::null_mut(),
@@ -68,11 +68,11 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +        let iv_ptr = iv.as_mut()
 +            .map(|v| v.as_mut_ptr())
 +            .unwrap_or(ptr::null_mut());
-
+ 
          cvt(ffi::EVP_BytesToKey(
              cipher,
 @@ -107,7 +107,7 @@ pub fn pbkdf2_hmac(
-
+ 
  /// Derives a key from a password and salt using the scrypt algorithm.
  ///
 -/// Requires the `v110` feature and OpenSSL 1.1.0.
@@ -106,7 +106,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +                0x16_u8, 0x91_u8, 0xc2_u8, 0x25_u8, 0x44_u8, 0xb6_u8, 0x05_u8,
 +            ][..]
          );
-
+ 
          super::pbkdf2_hmac(
 @@ -180,24 +165,9 @@ mod tests {
          assert_eq!(
@@ -135,7 +135,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +            ][..]
          );
      }
-
+ 
 @@ -211,72 +181,15 @@ mod tests {
          assert_eq!(
              &buf[..],
@@ -215,7 +215,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 -                [..]
 +            ][..]
          );
-
+ 
          super::pbkdf2_hmac(
 @@ -289,72 +202,15 @@ mod tests {
          assert_eq!(
@@ -296,7 +296,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 -                [..]
 +            ][..]
          );
-
+ 
          super::pbkdf2_hmac(
 @@ -367,72 +223,15 @@ mod tests {
          assert_eq!(
@@ -378,10 +378,10 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +            ][..]
          );
      }
-
+ 
 @@ -441,93 +240,19 @@ mod tests {
          let salt = [16_u8, 34_u8, 19_u8, 23_u8, 141_u8, 4_u8, 207_u8, 221_u8];
-
+ 
          let data = [
 -            143_u8,
 -            210_u8,
@@ -419,7 +419,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +            56_u8, 198_u8, 145_u8, 192_u8, 64_u8, 2_u8, 245_u8, 167_u8, 220_u8, 55_u8, 119_u8,
 +            233_u8, 136_u8, 139_u8, 27_u8, 71_u8, 242_u8, 119_u8, 175_u8, 65_u8, 207_u8,
          ];
-
+ 
 -
 -
          let expected_key = vec![
@@ -479,10 +479,10 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +            4_u8, 223_u8, 153_u8, 219_u8, 28_u8, 142_u8, 234_u8, 68_u8, 227_u8, 69_u8, 98_u8,
 +            107_u8, 208_u8, 14_u8, 236_u8, 60_u8,
          ];
-
+ 
          assert_eq!(
 @@ -552,8 +277,9 @@ mod tests {
-
+ 
          let pass = "pleaseletmein";
          let salt = "SodiumChloride";
 -        let expected = "7023bdcb3afd7348461c06cd81fd38ebfda8fbba904f8e3ea9b543f6545da1f2d5432955613\
@@ -490,13 +490,13 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +        let expected =
 +            "7023bdcb3afd7348461c06cd81fd38ebfda8fbba904f8e3ea9b543f6545da1f2d5432955613\
 +             f0fcf62d49705242a9af9e61e85dc0d651e40dfcf017b45575887";
-
+ 
          let mut actual = [0; 64];
          super::scrypt(
 --- vendor/openssl/src/ssl/connector.rs.orig	2018-09-04 07:45:22 UTC
 +++ vendor/openssl/src/ssl/connector.rs
 @@ -3,6 +3,8 @@ use std::ops::{Deref, DerefMut};
-
+ 
  use dh::Dh;
  use error::ErrorStack;
 +#[cfg(ossl111)]
@@ -536,7 +536,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 @@ -211,14 +211,20 @@ bitflags! {
          /// Disables the use of TLSv1.2.
          const SSL_OP_NO_TLSV1_2 = ffi::SSL_OP_NO_TLSv1_2;
-
+ 
 +        /// Disables the use of TLSv1.3.
 +        ///
 +        /// Requires the `v111` feature and OpenSSL 1.1.1.
@@ -549,13 +549,13 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +        /// Requires OpenSSL 1.0.2, 1.1.0, or 1.1.1 and the corresponding Cargo feature.
          #[cfg(any(all(feature = "v102", ossl102), all(feature = "v110", ossl110)))]
          const SSL_OP_NO_DTLSV1 = ffi::SSL_OP_NO_DTLSv1;
-
+ 
          /// Disables the use of DTLSv1.2.
 -        /// Requires the `v102` or `v110` features and OpenSSL 1.0.2 or OpenSSL 1.1.0.
 +        /// Requires OpenSSL 1.0.2, 1.1.0, or 1.1.1 and the corresponding Cargo feature.
          #[cfg(any(all(feature = "v102", ossl102), all(feature = "v110", ossl110)))]
          const SSL_OP_NO_DTLSV1_2 = ffi::SSL_OP_NO_DTLSv1_2;
-
+ 
 @@ -226,7 +232,7 @@ bitflags! {
          ///
          /// This can be used as a mask when whitelisting protocol versions.
@@ -566,7 +566,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
          /// # Examples
          ///
 @@ -573,7 +579,7 @@ impl SslContextBuilder {
-
+ 
      /// Sets a custom certificate store for verifying peer certificates.
      ///
 -    /// Requires the `v102` feature and OpenSSL 1.0.2, or the `v110` feature and OpenSSL 1.1.0.
@@ -582,7 +582,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 -                as c_int)?;
 +            cvt(ffi::SSL_CTX_set0_verify_cert_store(self.as_ptr(), ptr) as c_int)?;
              mem::forget(cert_store);
-
+ 
              Ok(())
 @@ -613,8 +618,8 @@ impl SslContextBuilder {
      /// [`SSL_CTX_set_mode`]: https://www.openssl.org/docs/man1.0.2/ssl/SSL_CTX_set_mode.html
@@ -594,7 +594,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +            SslMode { bits }
          }
      }
-
+ 
 @@ -657,11 +662,7 @@ impl SslContextBuilder {
      ///
      /// This corresponds to `SSL_CTX_set_tmp_ecdh`.
@@ -606,7 +606,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 -        }
 +        unsafe { cvt(ffi::SSL_CTX_set_tmp_ecdh(self.as_ptr(), key.as_ptr()) as c_int).map(|_| ()) }
      }
-
+ 
      /// Sets the callback which will generate parameters to be used during ephemeral elliptic curve
 @@ -901,8 +902,8 @@ impl SslContextBuilder {
      ///
@@ -617,7 +617,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +        let bits = unsafe { compat::SSL_CTX_set_options(self.as_ptr(), option.bits()) };
 +        SslOption { bits }
      }
-
+ 
      /// Returns the options used by the context.
 @@ -911,8 +912,8 @@ impl SslContextBuilder {
      ///
@@ -628,7 +628,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +        let bits = unsafe { compat::SSL_CTX_get_options(self.as_ptr()) };
 +        SslOption { bits }
      }
-
+ 
      /// Clears the options used by the context, returning the old set.
 @@ -921,8 +922,8 @@ impl SslContextBuilder {
      ///
@@ -639,7 +639,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +        let bits = unsafe { compat::SSL_CTX_clear_options(self.as_ptr(), option.bits()) };
 +        SslOption { bits }
      }
-
+ 
      /// Set the protocols to be used during Next Protocol Negotiation (the protocols
 @@ -968,7 +969,7 @@ impl SslContextBuilder {
      ///
@@ -660,7 +660,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +            cvt(ffi::SSL_CTX_set_tlsext_status_cb(self.as_ptr(), Some(f)) as c_int).map(|_| ())
          }
      }
-
+ 
 @@ -1185,7 +1184,7 @@ impl SslContext {
  impl SslContextRef {
      /// Returns the certificate associated with this `SslContext`, if present.
@@ -671,7 +671,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
      /// This corresponds to [`SSL_CTX_get0_certificate`].
      ///
 @@ -1204,7 +1203,7 @@ impl SslContextRef {
-
+ 
      /// Returns the private key associated with this `SslContext`, if present.
      ///
 -    /// Requires the `v102` or `v110` features and OpenSSL 1.0.2 or OpenSSL 1.1.0.
@@ -689,7 +689,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
      /// This corresponds to [`SSL_get0_alpn_selected`].
      ///
 @@ -1889,7 +1888,7 @@ impl SslRef {
-
+ 
      /// Returns a mutable reference to the X509 verification configuration.
      ///
 -    /// Requires the `v102` or `v110` features and OpenSSL 1.0.2 or 1.1.0.
@@ -700,16 +700,16 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 --- vendor/openssl/src/ssl/tests/mod.rs.orig	2018-09-04 07:45:22 UTC
 +++ vendor/openssl/src/ssl/tests/mod.rs
 @@ -1084,7 +1084,7 @@ fn connector_no_hostname_can_disable_verify() {
-
+ 
  #[test]
  fn connector_client_server_mozilla_intermediate() {
 -    let listener = TcpListener::bind("127.0.0.1:0").unwrap();
 +    let listener = TcpListener::bind("127.0.0.1:1234").unwrap();
      let port = listener.local_addr().unwrap().port();
-
+ 
      let t = thread::spawn(move || {
 @@ -1231,6 +1231,13 @@ fn tmp_dh_callback() {
-
+ 
      let stream = TcpStream::connect(("127.0.0.1", port)).unwrap();
      let mut ctx = SslContext::builder(SslMethod::tls()).unwrap();
 +    // TLS 1.3 has no DH suites, and openssl isn't happy if the max version has no suites :(
@@ -723,7 +723,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
      let ssl = Ssl::new(&ctx.build()).unwrap();
      ssl.connect(stream).unwrap();
 @@ -1298,6 +1305,13 @@ fn tmp_dh_callback_ssl() {
-
+ 
      let stream = TcpStream::connect(("127.0.0.1", port)).unwrap();
      let mut ctx = SslContext::builder(SslMethod::tls()).unwrap();
 +    // TLS 1.3 has no DH suites, and openssl isn't happy if the max version has no suites :(
@@ -741,14 +741,14 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 @@ -137,13 +137,13 @@ impl Cipher {
          unsafe { Cipher(ffi::EVP_rc4()) }
      }
-
+ 
 -    /// Requires the `v110` feature and OpenSSL 1.1.0.
 +    /// Requires OpenSSL 1.1.0 or 1.1.1 and the corresponding Cargo feature.
      #[cfg(all(ossl110, feature = "v110"))]
      pub fn chacha20() -> Cipher {
          unsafe { Cipher(ffi::EVP_chacha20()) }
      }
-
+ 
 -    /// Requires the `v110` feature and OpenSSL 1.1.0.
 +    /// Requires OpenSSL 1.1.0 or 1.1.1 and the corresponding Cargo feature.
      #[cfg(all(ossl110, feature = "v110"))]
@@ -766,14 +766,14 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +            }
          }
      }
-
+ 
 @@ -590,7 +594,7 @@ pub fn decrypt_aead(
  }
-
+ 
  #[cfg(ossl110)]
 -use ffi::{EVP_CIPHER_iv_length, EVP_CIPHER_block_size, EVP_CIPHER_key_length};
 +use ffi::{EVP_CIPHER_block_size, EVP_CIPHER_iv_length, EVP_CIPHER_key_length};
-
+ 
  #[cfg(ossl10x)]
  #[allow(bad_style)]
 @@ -623,74 +627,17 @@ mod tests {
@@ -941,7 +941,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
          let mut cr = super::Crypter::new(
              super::Cipher::aes_256_cbc(),
 @@ -864,7 +754,6 @@ mod tests {
-
+ 
      #[test]
      fn test_rc4() {
 -
@@ -949,7 +949,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
          let ct = "A68686B04D686AA107BD8D4CAB191A3EEC0A6294BC78B60F65C25CB47BD7BB3A48EFC4D26BE4";
          let key = "97CD440324DA5FD1F7955C1C13B6B466";
 @@ -890,7 +779,6 @@ mod tests {
-
+ 
      #[test]
      fn test_aes128_ctr() {
 -
@@ -957,7 +957,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
                    E5FBC1191A0A52EFF69F2445DF4F9B17AD2B417BE66C3710";
          let ct = "874D6191B620E3261BEF6864990DB6CE9806F66B7970FDFF8617187BB9FFFDFF5AE4DF3EDBD5D35E\
 @@ -915,7 +803,6 @@ mod tests {
-
+ 
      #[test]
      fn test_aes128_cfb128() {
 -
@@ -965,7 +965,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
          let ct = "3b3fd92eb72dad20333449f8e83cfb4a";
          let key = "2b7e151628aed2a6abf7158809cf4f3c";
 @@ -926,7 +813,6 @@ mod tests {
-
+ 
      #[test]
      fn test_aes128_cfb8() {
 -
@@ -973,7 +973,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
          let ct = "3b79424c9c0dd436bace9e0ed4586a4f32b9";
          let key = "2b7e151628aed2a6abf7158809cf4f3c";
 @@ -937,7 +823,6 @@ mod tests {
-
+ 
      #[test]
      fn test_aes256_cfb1() {
 -
@@ -981,7 +981,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
          let ct = "9029";
          let key = "603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4";
 @@ -948,7 +833,6 @@ mod tests {
-
+ 
      #[test]
      fn test_aes256_cfb128() {
 -
@@ -989,7 +989,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
          let ct = "dc7e84bfda79164b7ecd8486985d3860";
          let key = "603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4";
 @@ -959,7 +843,6 @@ mod tests {
-
+ 
      #[test]
      fn test_aes256_cfb8() {
 -
@@ -997,7 +997,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
          let ct = "dc1f1a8520a64db55fcc8ac554844e889700";
          let key = "603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4";
 @@ -982,7 +865,6 @@ mod tests {
-
+ 
      #[test]
      fn test_bf_ecb() {
 -
@@ -1005,7 +1005,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
          let ct = "B1B8CC0B250F09A0";
          let key = "0131D9619DC1376E";
 @@ -993,7 +875,6 @@ mod tests {
-
+ 
      #[test]
      fn test_bf_cfb64() {
 -
@@ -1013,7 +1013,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
          let ct = "E73214A2822139CAF26ECF6D2EB9E76E3DA3DE04D1517200519D57A6C3";
          let key = "0123456789ABCDEFF0E1D2C3B4A59687";
 @@ -1004,7 +885,6 @@ mod tests {
-
+ 
      #[test]
      fn test_bf_ofb() {
 -
@@ -1021,7 +1021,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
          let ct = "E73214A2822139CA62B343CC5B65587310DD908D0C241B2263C2CF80DA";
          let key = "0123456789ABCDEFF0E1D2C3B4A59687";
 @@ -1015,7 +895,6 @@ mod tests {
-
+ 
      #[test]
      fn test_des_cbc() {
 -
@@ -1029,7 +1029,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
          let ct = "6f2867cfefda048a4046ef7e556c7132";
          let key = "7cb66337f3d3c0fe";
 @@ -1026,7 +905,6 @@ mod tests {
-
+ 
      #[test]
      fn test_des_ecb() {
 -
@@ -1050,7 +1050,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +        let ct =
 +            "76b8e0ada0f13d90405d6ae55386bd28bdd219b8a08ded1aa836efcc8b770dc7da41597c5157488d7\
 +             724e03fb8d84a376a43b8f41518a11cc387b669b2ee6586";
-
+ 
          cipher_test(Cipher::chacha20(), pt, ct, key, iv);
      }
 @@ -1094,12 +974,14 @@ mod tests {
@@ -1072,7 +1072,7 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
 +             2fafb69da92728b1a71de0a9e060b2905d6a5b67ecd3b3692ddbd7f2d778b8c9803aee328091b58fa\
 +             b324e4fad675945585808b4831d7bc3ff4def08e4b7a9de576d26586cec64b6116";
          let tag = "1ae10b594f09e26a7e902ecbd0600691";
-
+ 
          let mut actual_tag = [0; 16];
 --- vendor/openssl/src/verify.rs.orig	2018-09-04 07:45:22 UTC
 +++ vendor/openssl/src/verify.rs
@@ -1092,5 +1092,5 @@ https://github.com/sfackler/rust-openssl/commit/276577553501
  //!
 -//! Requires the `v102` or `v110` features and OpenSSL 1.0.2 or 1.1.0.
 +//! Requires OpenSSL 1.0.2, 1.1.0, or 1.1.1 and the corresponding Cargo feature.
-
+ 
  pub use verify::*;
