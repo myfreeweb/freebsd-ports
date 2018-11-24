@@ -21,7 +21,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	falkTX
 GH_PROJECT=	Cadence
 USE_QT=		core gui widgets buildtools_build
-USE_PYQT=	core_run gui_run network_run widgets_run sip xml dbussupport_run
+USE_PYQT=	core_run gui_run network_run widgets_run sip xml dbussupport
 
 CXXFLAGS+=	-DJACKBRIDGE_PROPER_CPP11_SUPPORT=yes
 # Give the Makefile the proper versioned binaries of PyQt
