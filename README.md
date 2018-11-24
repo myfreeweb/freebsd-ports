@@ -105,9 +105,7 @@ How to use Weston:
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
 - `graphics/osg`: update to 3.6 [230442](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=230442)
 - `www/epiphany`: use MSE if available
-- `www/webkit2-gtk3`: option to enable MSE (note: broken with VP9 for now, youtube crashes)
 - `graphics/rawtherapee`: disable mmap (to make performance over NFS not terrible), enable LTO
-- `*/gstreamer1*`: update to 1.14.3 [231406](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231406)
 - `multimedia/pitivi`: update to 0.999
 - `textproc/pict`: pairwise test gen tool [231407](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231407)
 - `lang/maude`: update to 2.7.1 [231443](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231443)
@@ -119,7 +117,6 @@ How to use Weston:
 - `accessibility/redshift-wlr`: fork of redshift with wlr-gamma-control based Wayland backend
 - `devel/evemu`: update
 - `devel/libsysinfo`: pkgconfig file [233446](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=233446)
-- `audio/cadence`: python/deps fixes [233449](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=233449)
 - `audio/jack`: jack2
 
 ### Ports framework
