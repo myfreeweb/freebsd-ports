@@ -15,18 +15,19 @@ LICENSE=	LGPL3
 
 ALL_TARGET=	java
 LDFLAGS+=	-s
-USES=		compiler gmake
+USES=		compiler:c++11-lang gmake
 USE_JAVA=	yes
 USE_LDCONFIG=	yes
 MAKE_ARGS+=	JAVA_HOME=${JAVA_HOME}
 
-WRKSRC=		${WRKDIR}/astyle/build/${COMPILER_TYPE}
+WRKSRC=		${WRKDIR}/astyle/build/${CHOSEN_COMPILER_TYPE}
 
 PLIST_FILES=	lib/jni/libastylej${PKGNAMESUFFIX}.so lib/jni/libastylej${PKGNAMESUFFIX}.so.${PORTVERSION}
 
 post-patch:
 	${REINPLACE_CMD} -e 's,\(JAVAINCS.*=.*\),\1 -I$(JAVA_HOME)/include/freebsd,' \
 		-e '176 s,libastylej\.so,libastylej${PKGNAMESUFFIX}\.so,2' \
+		-e 's/CXX = g++/CXX ?= g++/' \
 		${WRKSRC}/Makefile
 
 do-install:

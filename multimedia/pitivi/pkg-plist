@@ -20,6 +20,7 @@ lib/pitivi/python/pitivi/__pycache__/transitions.cpython-%%PYTHON_SUFFIX%%.pyc
 lib/pitivi/python/pitivi/application.py
 lib/pitivi/python/pitivi/autoaligner.py
 lib/pitivi/python/pitivi/check.py
+lib/pitivi/python/pitivi/check.py.orig
 lib/pitivi/python/pitivi/clipproperties.py
 lib/pitivi/python/pitivi/configure.py
 lib/pitivi/python/pitivi/configure.py.in

@@ -129,7 +129,6 @@
     SUBDIR += libsvm-python
     SUBDIR += libxc
     SUBDIR += liggghts
-    SUBDIR += linsmith
     SUBDIR += lm
     SUBDIR += luscus
     SUBDIR += madness
@@ -238,6 +237,7 @@
     SUBDIR += py-pupynere
     SUBDIR += py-pyaixi
     SUBDIR += py-pydicom
+    SUBDIR += py-pygeodesy
     SUBDIR += py-pymatgen
     SUBDIR += py-pymol
     SUBDIR += py-pyosf
@@ -306,5 +306,6 @@
     SUBDIR += xdrawchem
     SUBDIR += xfce4-equake-plugin
     SUBDIR += xmakemol
+    SUBDIR += yoda
 
 .include <bsd.port.subdir.mk>

@@ -3,6 +3,7 @@
 
     COMMENT = Mathematics
 
+    SUBDIR += 4ti2
     SUBDIR += GiNaC
     SUBDIR += PDL
     SUBDIR += R
@@ -133,6 +134,7 @@
     SUBDIR += aspcud
     SUBDIR += asymptote
     SUBDIR += atlas
+    SUBDIR += barvinok
     SUBDIR += biggles
     SUBDIR += blacs
     SUBDIR += blas
@@ -167,7 +169,11 @@
     SUBDIR += clrng
     SUBDIR += cminpack
     SUBDIR += cmlib
+    SUBDIR += coin-or-data-netlib
+    SUBDIR += coin-or-data-sample
+    SUBDIR += coin-or-data-stochastic
     SUBDIR += coinmp
+    SUBDIR += coinutils
     SUBDIR += concorde
     SUBDIR += convertall
     SUBDIR += coq
@@ -211,10 +217,12 @@
     SUBDIR += fityk
     SUBDIR += flann
     SUBDIR += flint2
+    SUBDIR += flintqs
     SUBDIR += form
     SUBDIR += fpc-fftw
     SUBDIR += fpc-gmp
     SUBDIR += fpc-numlib
+    SUBDIR += fplll
     SUBDIR += fricas
     SUBDIR += fxt
     SUBDIR += g2o
@@ -222,9 +230,9 @@
     SUBDIR += gambit
     SUBDIR += gap
     SUBDIR += gau2grid
-    SUBDIR += gdcalc
     SUBDIR += geg
     SUBDIR += geogebra
+    SUBDIR += geogram
     SUBDIR += geonext
     SUBDIR += gexpr
     SUBDIR += ggobi
@@ -305,6 +313,7 @@
     SUBDIR += kmplot
     SUBDIR += kmplot-kde4
     SUBDIR += labplot
+    SUBDIR += latte-integrale
     SUBDIR += lambda
     SUBDIR += lapack
     SUBDIR += lapack++
@@ -313,6 +322,7 @@
     SUBDIR += laspack
     SUBDIR += ldouble
     SUBDIR += lean
+    SUBDIR += lemon
     SUBDIR += levmar
     SUBDIR += libRmath
     SUBDIR += libccd
@@ -332,10 +342,12 @@
     SUBDIR += libxls
     SUBDIR += libxlsxwriter
     SUBDIR += libxsmm
+    SUBDIR += lidia
     SUBDIR += linpack
     SUBDIR += lll_spect
     SUBDIR += lp_solve
     SUBDIR += lrng
+    SUBDIR += lrslib
     SUBDIR += ltl
     SUBDIR += ltl2ba
     SUBDIR += lybniz
@@ -487,6 +499,7 @@
     SUBDIR += openmesh
     SUBDIR += opensolaris-libm
     SUBDIR += orpie
+    SUBDIR += osi
     SUBDIR += osqp
     SUBDIR += p5-AI-DecisionTree
     SUBDIR += p5-AI-Genetic
@@ -654,8 +667,6 @@
     SUBDIR += petiga
     SUBDIR += php56-bcmath
     SUBDIR += php56-gmp
-    SUBDIR += php70-bcmath
-    SUBDIR += php70-gmp
     SUBDIR += php71-bcmath
     SUBDIR += php71-gmp
     SUBDIR += php72-bcmath
@@ -670,6 +681,7 @@
     SUBDIR += ploticus-nox11
     SUBDIR += plplot
     SUBDIR += plplot-ada
+    SUBDIR += polylib
     SUBDIR += primegen
     SUBDIR += primme
     SUBDIR += prng
@@ -700,6 +712,7 @@
     SUBDIR += py-cvxopt
     SUBDIR += py-cvxpy
     SUBDIR += py-cyipopt
+    SUBDIR += py-deap
     SUBDIR += py-ecos
     SUBDIR += py-fastcluster
     SUBDIR += py-fastdtw
@@ -780,6 +793,7 @@
     SUBDIR += py-theano
     SUBDIR += py-ufl
     SUBDIR += py-uncertainties
+    SUBDIR += py-vincenty
     SUBDIR += py-viper
     SUBDIR += py-yt
     SUBDIR += py-z3-solver
@@ -787,10 +801,12 @@
     SUBDIR += qd
     SUBDIR += qhull
     SUBDIR += qhull5
+    SUBDIR += qposases
     SUBDIR += qrupdate
     SUBDIR += qtiplot
     SUBDIR += qtiplot-doc
     SUBDIR += qtoctave
+    SUBDIR += qwtplot3d
     SUBDIR += qwtplot3d-qt4
     SUBDIR += randlib
     SUBDIR += rapid
@@ -858,6 +874,7 @@
     SUBDIR += tmv
     SUBDIR += tomsfastmath
     SUBDIR += topaz
+    SUBDIR += topcom
     SUBDIR += triangle
     SUBDIR += trlan
     SUBDIR += truthtable
@@ -866,9 +883,8 @@
     SUBDIR += units
     SUBDIR += unuran
     SUBDIR += viennacl
+    SUBDIR += visualpolylib
     SUBDIR += vowpal_wabbit
-    SUBDIR += vtk5
-    SUBDIR += vtk5-data
     SUBDIR += vtk6
     SUBDIR += vtk8
     SUBDIR += wcalc

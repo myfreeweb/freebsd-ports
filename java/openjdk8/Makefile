@@ -34,7 +34,8 @@ PATCHFILES=	patch-8u05-b13.xz \
 		patch-8u152-b16.xz \
 		patch-8u162-b12.xz \
 		patch-8u172-b11.xz \
-		patch-8u181-b13.xz
+		patch-8u181-b13.xz \
+		patch-8u192-b26.xz
 
 MAINTAINER=	java@FreeBSD.org
 COMMENT?=	Java Development Kit ${JDK_MAJOR_VERSION}
@@ -206,8 +207,8 @@ INSTALLDIR=	${PREFIX}/${PKGBASE}
 NOPRECIOUSMAKEVARS=	yes
 
 JDK_MAJOR_VERSION=	8
-JDK_UPDATE_VERSION=	181
-JDK_BUILD_NUMBER=	13
+JDK_UPDATE_VERSION=	192
+JDK_BUILD_NUMBER=	26
 DIST_BUILD_NUMBER=	132
 JTREG_VERSION=		4.1
 JTREG_BUILD_NUMBER=	b08
@@ -361,6 +362,7 @@ CONFIGURE_ENV+=	LIBCXX="-lc++"
 
 # GCC is broken with PCH: https://lists.freebsd.org/pipermail/svn-src-all/2015-March/101722.html
 .if ${COMPILER_TYPE} == gcc
+CONFIGURE_ARGS+=	--with-toolchain-type=gcc
 .if ${ARCH} == "powerpc64"
 MAKE_ARGS+=	USE_PRECOMPILED_HEADER=1
 .else

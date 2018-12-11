@@ -11,16 +11,14 @@ COMMENT=	Simple and powerful Qt-based text editor
 
 LICENSE=	GPLv3
 
-BROKEN_powerpc64=	fails to link: spellchecker.o:(.text+0xd2c): undefined reference to Hunspell::remove(std::string const&)
-
-USES=		gl pkgconfig:build qmake
+USES=		compiler:c++11-lang gl pkgconfig:build qmake
 
 OPTIONS_SINGLE=	TOOLKITS
 OPTIONS_SINGLE_TOOLKITS=	QT4 QT5
 OPTIONS_DEFINE=		DOCS
 OPTIONS_GROUP=		SPELL
 OPTIONS_GROUP_SPELL=	ASPELL HUNSPELL
-OPTIONS_DEFAULT=	QT4 ASPELL HUNSPELL
+OPTIONS_DEFAULT=	QT5 ASPELL HUNSPELL
 
 USE_GL=		gl
 USE_LOCALE=	en_US.UTF-8
@@ -46,6 +44,13 @@ ASPELL_QMAKE_OFF=	CONFIG+=noaspell
 
 HUNSPELL_LIB_DEPENDS=	libhunspell-1.6.so:textproc/hunspell
 HUNSPELL_QMAKE_OFF=	CONFIG+=nohunspell
+
+.include <bsd.port.options.mk>
+
+.if ${PORT_OPTIONS:MQT4}
+DEPRECATED=		Qt4 has been EOL since december 2015
+EXPIRATION_DATE=	2019-03-15
+.endif
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/bin/tea ${STAGEDIR}${PREFIX}/bin

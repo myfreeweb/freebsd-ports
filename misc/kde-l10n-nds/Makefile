@@ -1,13 +1,18 @@
+# Created by: Martin Wilke <miwi@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	kde-l10n
-DISTVERSION=	${KDE_APPLICATIONS_VERSION}
+PORTVERSION=	${KDE4_VERSION}
+PORTREVISION=	3
 CATEGORIES=	misc kde
 
 MAINTAINER=	kde@FreeBSD.org
-COMMENT=	Low German localized messages and documentation for KDE
+COMMENT=	Low German localized messages and documentation for KDE SC 4
 
-KDE_L10N=	nds
+DEPRECATED=		KDE4 is EOL upstream
+EXPIRATION_DATE=	2018-12-31
 
-.include "${.CURDIR:H:H}/misc/kde-l10n/files/bsd.l10n.mk"
+KDE4_L10N=	nds
+
+.include "${.CURDIR}/../kde4-l10n/files/bsd.l10n.mk"
 .include <bsd.port.mk>

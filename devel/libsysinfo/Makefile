@@ -11,10 +11,11 @@ COMMENT=	GNU libc's sysinfo port for FreeBSD
 
 LICENSE=	BSD3CLAUSE
 
+USES=		uidfix
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	bsdimp
 
-USES=		uidfix
 USE_LDCONFIG=	yes
 
 LDFLAGS+=	-lkvm

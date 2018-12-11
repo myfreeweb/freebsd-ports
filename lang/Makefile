@@ -28,6 +28,7 @@
     SUBDIR += cdent
     SUBDIR += ceylon
     SUBDIR += cfortran
+    SUBDIR += chaiscript
     SUBDIR += chez-scheme
     SUBDIR += chibi-scheme
     SUBDIR += chicken
@@ -112,6 +113,7 @@
     SUBDIR += gforth
     SUBDIR += ghc
     SUBDIR += ghc843
+    SUBDIR += ghc862
     SUBDIR += gjs
     SUBDIR += gnat_util
     SUBDIR += gnatcross-aarch64
@@ -128,6 +130,7 @@
     SUBDIR += go
     SUBDIR += go14
     SUBDIR += gprolog
+    SUBDIR += gravity
     SUBDIR += groovy
     SUBDIR += gscheme
     SUBDIR += guile
@@ -274,8 +277,6 @@
     SUBDIR += php-mode.el
     SUBDIR += php56
     SUBDIR += php56-extensions
-    SUBDIR += php70
-    SUBDIR += php70-extensions
     SUBDIR += php71
     SUBDIR += php71-extensions
     SUBDIR += php72

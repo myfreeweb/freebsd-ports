@@ -10,7 +10,10 @@ PKGNAMEPREFIX=	qt4-
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Qt 4 documentation browser
 
-USES=		qmake:no_env qt-dist:4
+DEPRECATED=		Qt4 has been EOL since december 2015
+EXPIRATION_DATE=	2019-03-15
+
+USES=		compiler:c++11-lang qmake:no_env qt-dist:4
 USE_QT=		moc_build rcc_build uic_build \
 		corelib gui help network sql webkit xml \
 		doc_run sql-sqlite3_run

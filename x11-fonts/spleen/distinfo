@@ -1,3 +1,5 @@
-TIMESTAMP = 1539063520
-SHA256 (spleen-1.0.1.tar.gz) = 23d50863bf0d671e7ac63e4e88451eb18d65d6905259f730861914a02bcb726e
-SIZE (spleen-1.0.1.tar.gz) = 45519
+TIMESTAMP = 1543783491
+SHA256 (spleen-1.0.3.tar.gz) = f63ef1dd84e27545b0a42389d0bd4e58393aab211a5d2ce936ebaa97be0672cb
+SIZE (spleen-1.0.3.tar.gz) = 45934
+SHA256 (spleen-1.0.3/spleen-32x64.fnt.gz) = 53100baaaee1b68c0c7ac41f1b42fbb77d7d964e8309b9ed3de41b5ff69afbb8
+SIZE (spleen-1.0.3/spleen-32x64.fnt.gz) = 3481

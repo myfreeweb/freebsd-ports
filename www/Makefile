@@ -170,7 +170,6 @@
     SUBDIR += firefox-esr
     SUBDIR += firefox-esr-i18n
     SUBDIR += firefox-i18n
-    SUBDIR += firefox-nightly-wayland
     SUBDIR += flashplayer
     SUBDIR += flat-frog
     SUBDIR += flickcurl
@@ -247,6 +246,7 @@
     SUBDIR += havp
     SUBDIR += helma
     SUBDIR += hiawatha
+    SUBDIR += hiawatha-monitor
     SUBDIR += horde-ansel
     SUBDIR += horde-base
     SUBDIR += horde-passwd
@@ -338,13 +338,10 @@
     SUBDIR += kannel-sqlbox
     SUBDIR += kcgi
     SUBDIR += kdewebdev-kde4
-    SUBDIR += kdewebdev4
     SUBDIR += kf5-kdewebkit
     SUBDIR += kf5-khtml
     SUBDIR += kf5-kjs
     SUBDIR += kf5-kjsembed
-    SUBDIR += klinkstatus
-    SUBDIR += kmozillahelper
     SUBDIR += kohana
     SUBDIR += kpartsplugin
     SUBDIR += kplaylist
@@ -480,7 +477,6 @@
     SUBDIR += mod_rpaf2
     SUBDIR += mod_scgi
     SUBDIR += mod_security
-    SUBDIR += mod_security-devel
     SUBDIR += mod_security3
     SUBDIR += mod_setenvifplus
     SUBDIR += mod_tidy
@@ -502,6 +498,7 @@
     SUBDIR += moodle33
     SUBDIR += moodle34
     SUBDIR += moodle35
+    SUBDIR += moodle36
     SUBDIR += mozplugger
     SUBDIR += multisort
     SUBDIR += multiwatch
@@ -2295,7 +2292,6 @@
     SUBDIR += swiggle
     SUBDIR += swish-e
     SUBDIR += sws
-    SUBDIR += sxweb
     SUBDIR += syndigator
     SUBDIR += tclhttpd
     SUBDIR += tclwebtest
@@ -2486,7 +2482,6 @@
     SUBDIR += webtrees
     SUBDIR += wgetpaste
     SUBDIR += wikicalc
-    SUBDIR += woff2
     SUBDIR += woof
     SUBDIR += wordpress
     SUBDIR += wsdlpull

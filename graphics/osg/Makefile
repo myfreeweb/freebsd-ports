@@ -28,12 +28,8 @@ USES=		alias cmake:outsource compiler:c++11-lang jpeg pkgconfig
 USE_GL=		gl glu
 USE_XORG=	x11
 USE_LDCONFIG=	yes
-CXXFLAGS_mips=	-Wno-narrowing
-CXXFLAGS_mips64=	-Wno-narrowing
-CXXFLAGS_powerpc64=	-Wno-narrowing
-CXXFLAGS_powerpc=	-Wno-narrowing
-CXXFLAGS_powerpcspe=	-Wno-narrowing
-CXXFLAGS_sparc64=	-Wno-narrowing
+# needed to ensure build on gcc-based archs; harmless otherwise
+CXXFLAGS+=	-Wno-narrowing
 
 PLIST_SUB=	OSG_VERSION=${PORTVERSION} \
 		OSG_SHLIBVER=157 \
@@ -147,6 +143,11 @@ PLIST_SUB+=		QT=""
 .else
 CMAKE_ARGS+=		-DOSG_USE_QT:BOOL=OFF
 PLIST_SUB+=		QT="@comment "
+.endif
+
+.if ${PORT_OPTIONS:MQT4}
+DEPRECATED=		Qt4 has been EOL since december 2015
+EXPIRATION_DATE=	2019-03-15
 .endif
 
 post-patch:

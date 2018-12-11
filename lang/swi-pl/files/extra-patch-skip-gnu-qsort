@@ -3,7 +3,7 @@
 @@ -8796,52 +8796,6 @@ if test "x$ac_cv_func_qsort_r" = xyes; then
  $as_echo "$as_me: checking \"GNU style qsort_r()\"..." >&6;}
    qsort_r_gnu=no
-
+ 
 -  if test "$cross_compiling" = yes; then :
 -  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 -$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}

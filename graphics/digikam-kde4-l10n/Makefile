@@ -9,6 +9,9 @@ PKGNAMESUFFIX=	-kde4-l10n
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	l10n for digiKam, showFoto, and Kipi-plugins
 
+DEPRECATED=		KDE4 is EOL upstream
+EXPIRATION_DATE=	2018-12-31
+
 CONFLICTS_INSTALL=	digikam-2.* kipi-plugins-2.* libkgeomap-2.*
 
 USES=		gettext-tools

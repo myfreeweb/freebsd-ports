@@ -11,6 +11,9 @@ COMMENT=	Realtime sound processor
 
 LICENSE=	GPLv2
 
+DEPRECATED=		Qt4 has been EOL since december 2015
+EXPIRATION_DATE=	2018-12-31
+
 LIB_DEPENDS=	libjack.so:audio/jack
 
 USE_GITHUB=	yes

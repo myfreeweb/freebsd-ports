@@ -2,6 +2,7 @@
 
 PORTNAME=	cliqz
 DISTVERSION=	1.23.3
+PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	https://s3.amazonaws.com/cdn.cliqz.com/browser-f/APT/:amazon \
 		http://repository.cliqz.com/dist/${CLIQZ_CHANNEL}/${DISTVERSION}/${CLIQZ_LAST_BUILD_ID}/:cliqz
@@ -50,7 +51,8 @@ BUILD_DEPENDS=	autoconf-2.13:devel/autoconf213 \
 		yasm:devel/yasm \
 		zip:archivers/zip
 
-USES=		tar:xz gmake pkgconfig gnome python desktop-file-utils
+USES=		tar:xz gmake pkgconfig gnome python desktop-file-utils \
+		compiler:c11
 
 USE_GNOME=	gconf2 gtk20 gtk30 cairo gdkpixbuf2
 
@@ -83,6 +85,9 @@ post-extract:
 		${DISTDIR}/${DIST_SUBDIR}/https-everywhere@cliqz.com.xpi \
 		${DISTDIR}/${DIST_SUBDIR}/gdprtool@cliqz.com.xpi \
 		${WRKSRC}/obj/dist/bin/browser/features
+
+.include <bsd.port.pre.mk>
+
 post-patch:
 	@${CP} ${MOZ_DESKTOP} ${CLIQZ_DESKTOP}
 	@${REINPLACE_CMD} -e 's/@MOZ_APP_DISPLAYNAME@/Cliqz Internet/g' \
@@ -90,6 +95,12 @@ post-patch:
 		-e '/Icon=${PORTNAME}/ s/${PORTNAME}/${CLIQZ_ICON}/' \
 		-e '/StartupWMClass/d' \
 		${CLIQZ_DESKTOP}
+.if ${ARCH} == "i386"
+	# This prevents linker exhausting memory in i386 builds
+	@${ECHO_CMD} 'export LDFLAGS="-Wl,--no-keep-memory -Wl,--as-needed"' >> \
+		${WRKSRC}/mozilla-release/browser/config/cliqz.mozconfig
+.endif
+
 do-build:
 	(cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ./magic_build_and_package.sh)
 
@@ -106,4 +117,4 @@ post-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/pixmaps
 	@${CP} ${CLIQZ_ICON_SRC} ${STAGEDIR}${PREFIX}/share/pixmaps/${CLIQZ_ICON}
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>

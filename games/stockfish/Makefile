@@ -23,7 +23,7 @@ USES=		compiler:c++11-lang gmake zip
 
 WRKSRC=		${WRKDIR}/${DISTNAME}/src
 MYARCH=		${ARCH}
-MYCC=		${COMPILER_TYPE}
+MYCC=		${CHOSEN_COMPILER_TYPE}
 TGTBLD=		build
 
 PLIST_FILES=	bin/stockfish

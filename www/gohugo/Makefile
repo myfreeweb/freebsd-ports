@@ -2,7 +2,7 @@
 
 PORTNAME=	hugo
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.50
+DISTVERSION=	0.52
 CATEGORIES=	www
 PKGNAMEPREFIX=	go
 DIST_SUBDIR=	${PKGNAMEPREFIX}${PORTNAME}
@@ -18,22 +18,24 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	gohugoio
 GH_SUBDIR=	src/github.com/${GH_ACCOUNT_DEFAULT}/${PORTNAME}
 GH_TUPLE=	BurntSushi:locker:a6e239e:locker/src/github.com/BurntSushi/locker \
-		BurntSushi:toml:a368813:toml/src/github.com/BurntSushi/toml \
+		BurntSushi:toml:a368813:BurntSushi_toml/src/github.com/BurntSushi/toml \
 		PuerkitoBio:purell:v1.1.0:purell/src/github.com/PuerkitoBio/purell \
 		PuerkitoBio:urlesc:de5bf2a:urlesc/src/github.com/PuerkitoBio/urlesc \
 		alecthomas:assert:405dbfe:assert/src/github.com/alecthomas/assert \
-		alecthomas:chroma:v0.5.0:chroma/src/github.com/alecthomas/chroma \
+		alecthomas:chroma:v0.6.0:chroma/src/github.com/alecthomas/chroma \
 		alecthomas:colour:60882d9:colour/src/github.com/alecthomas/colour \
 		alecthomas:repr:117648c:repr/src/github.com/alecthomas/repr \
 		bep:debounce:v1.1.0:debounce/src/github.com/bep/debounce \
 		bep:gitmap:v1.0.0:gitmap/src/github.com/bep/gitmap \
-		bep:go-tocss:v0.5.0:go_tocss/src/github.com/bep/go-tocss \
+		bep:go-tocss:v0.6.0:go_tocss/src/github.com/bep/go-tocss \
 		chaseadamsio:goorgeous:v1.1.0:goorgeous/src/github.com/chaseadamsio/goorgeous \
+		cheekybits:is:68e9c06:cheekybits_is/src/github.com/cheekybits/is \
 		cpuguy83:go-md2man:v1.0.8:go_md2man/src/github.com/cpuguy83/go-md2man \
 		danwakefield:fnmatch:cbb64ac:fnmatch/src/github.com/danwakefield/fnmatch \
 		davecgh:go-spew:v1.1.1:go_spew/src/github.com/davecgh/go-spew \
 		disintegration:imaging:v1.5.0:imaging/src/github.com/disintegration/imaging \
 		dlclark:regexp2:v1.1.6:regexp2/src/github.com/dlclark/regexp2 \
+		dustin:go-humanize:v1.0.0:go_humanize/src/github.com/dustin/go-humanize \
 		eknkc:amber:cdade1c:amber/src/github.com/eknkc/amber \
 		fortytw2:leaktest:v1.2.0:leaktest/src/github.com/fortytw2/leaktest \
 		fsnotify:fsnotify:v1.4.7:fsnotify/src/github.com/fsnotify/fsnotify \
@@ -47,11 +49,12 @@ GH_TUPLE=	BurntSushi:locker:a6e239e:locker/src/github.com/BurntSushi/locker \
 		jdkato:prose:v1.1.0:prose/src/github.com/jdkato/prose \
 		kr:pretty:v0.1.0:pretty/src/github.com/kr/pretty \
 		kr:pty:v1.1.1:pty/src/github.com/kr/pty \
-		kr:text:v0.1.0:text/src/github.com/kr/text \
+		kr:text:v0.1.0:kr_text/src/github.com/kr/text \
 		kyokomi:emoji:v1.5.1:emoji/src/github.com/kyokomi/emoji \
-		magefile:mage:v1.4.0:mage/src/github.com/magefile/mage \
+		magefile:mage:v1.4.0:magefile_mage/src/github.com/magefile/mage \
 		magiconair:properties:v1.8.0:properties/src/github.com/magiconair/properties \
 		markbates:inflect:a12c3ae:inflect/src/github.com/markbates/inflect \
+		matryer:try:9ac251b:try/src/github.com/matryer/try \
 		mattn:go-isatty:v0.0.4:go_isatty/src/github.com/mattn/go-isatty \
 		mattn:go-runewidth:v0.0.3:go_runewidth/src/github.com/mattn/go-runewidth \
 		miekg:mmark:v1.3.6:mmark/src/github.com/miekg/mmark \
@@ -66,7 +69,7 @@ GH_TUPLE=	BurntSushi:locker:a6e239e:locker/src/github.com/BurntSushi/locker \
 		pmezard:go-difflib:v1.0.0:go_difflib/src/github.com/pmezard/go-difflib \
 		russross:blackfriday:46c73eb:blackfriday/src/github.com/russross/blackfriday \
 		sanity-io:litter:v1.1.0:litter/src/github.com/sanity-io/litter \
-		sergi:go-diff:v1.0.0:go_diff/src/github.com/sergi/go-diff \
+		sergi:go-diff:v1.0.0:sergi_go_diff/src/github.com/sergi/go-diff \
 		shurcooL:sanitized_anchor_name:86672fc:sanitized_anchor_name/src/github.com/shurcooL/sanitized_anchor_name \
 		spf13:afero:v1.1.2:afero/src/github.com/spf13/afero \
 		spf13:cast:v1.3.0:cast/src/github.com/spf13/cast \
@@ -74,23 +77,23 @@ GH_TUPLE=	BurntSushi:locker:a6e239e:locker/src/github.com/BurntSushi/locker \
 		spf13:fsync:12a01e6:fsync/src/github.com/spf13/fsync \
 		spf13:jwalterweatherman:94f6ae3:jwalterweatherman/src/github.com/spf13/jwalterweatherman \
 		spf13:nitro:24d7ef3:nitro/src/github.com/spf13/nitro \
-		spf13:pflag:v1.0.2:pflag/src/github.com/spf13/pflag \
+		spf13:pflag:v1.0.3:pflag/src/github.com/spf13/pflag \
 		spf13:viper:v1.2.0:viper/src/github.com/spf13/viper \
-		stretchr:testify:f2347ac:testify/src/github.com/stretchr/testify \
-		tdewolff:minify:v2.3.6:minify/src/github.com/tdewolff/minify \
-		tdewolff:parse:fced451:parse/src/github.com/tdewolff/parse \
-		tdewolff:test:v1.0.0:test/src/github.com/tdewolff/test \
-		wellington:go-libsass:615eaa4:go_libsass/src/github.com/wellington/go-libsass \
+		stretchr:testify:04af852:testify/src/github.com/stretchr/testify \
+		tdewolff:minify:v2.3.7:minify/src/github.com/tdewolff/minify \
+		tdewolff:parse:v2.3.5:parse/src/github.com/tdewolff/parse \
+		tdewolff:test:v1.0.0:tdewolff_test/src/github.com/tdewolff/test \
+		wellington:go-libsass:c636442:go_libsass/src/github.com/wellington/go-libsass \
 		yosssi:ace:v0.0.5:ace/src/github.com/yosssi/ace \
 		golang:image:c73c2af:image/src/golang.org/x/image \
 		golang:net:161cd47:net/src/golang.org/x/net \
-		golang:sync:1d60e46:sync/src/golang.org/x/sync \
-		golang:sys:d0be072:sys/src/golang.org/x/sys \
-		golang:text:v0.3.0:text/src/golang.org/x/text \
-		go-check:check:788fd78:check/src/gopkg.in/check.v1 \
-		go-yaml:yaml:v2.2.1:yaml/src/gopkg.in/yaml.v2
+		golang:sync:1d60e46:golang_sync/src/golang.org/x/sync \
+		golang:sys:9b800f9:sys/src/golang.org/x/sys \
+		golang:text:v0.3.0:golang_text/src/golang.org/x/text \
+		go-check:check:788fd78:go_check_check/src/gopkg.in/check.v1 \
+		go-yaml:yaml:v2.2.1:go_yaml_yaml/src/gopkg.in/yaml.v2
 
-COMMIT_ID=	f5be59920461366d4481cf7536b2d2bd42a2c75e
+COMMIT_ID=	9433cf5a92176b4a8005ddb5f4d524c0dc8c5c43
 
 OPTIONS_DEFINE=		MANPAGES EXTENDED
 

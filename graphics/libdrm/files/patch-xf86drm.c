@@ -1,4 +1,4 @@
---- xf86drm.c.orig	2018-10-18 18:33:47 UTC
+--- xf86drm.c.orig	2018-11-26 18:52:00 UTC
 +++ xf86drm.c
 @@ -46,6 +46,9 @@
  #include <signal.h>
@@ -309,7 +309,14 @@
  }
  
  static bool drmNodeIsDRM(int maj, int min)
-@@ -2783,7 +2798,20 @@ static bool drmNodeIsDRM(int maj, int min)
+@@ -2777,13 +2792,26 @@ static bool drmNodeIsDRM(int maj, int min)
+              maj, min);
+     return stat(path, &sbuf) == 0;
+ #else
+-    return maj == DRM_MAJOR;
++    return !DRM_MAJOR || maj == DRM_MAJOR;
+ #endif
+ }
  
  drm_public int drmGetNodeTypeFromFd(int fd)
  {
@@ -611,7 +618,7 @@
      int node_type, subsystem_type;
      unsigned int maj, min;
  
-@@ -3736,14 +3840,14 @@ process_device(drmDevicePtr *device, const char *d_nam
+@@ -3736,7 +3840,7 @@ process_device(drmDevicePtr *device, const char *d_nam
      if (node_type < 0)
          return -1;
  
@@ -620,14 +627,6 @@
      if (stat(node, &sbuf))
          return -1;
  
-     maj = major(sbuf.st_rdev);
-     min = minor(sbuf.st_rdev);
- 
--    if (!drmNodeIsDRM(maj, min) || !S_ISCHR(sbuf.st_mode))
-+    if (DRM_MAJOR && maj != DRM_MAJOR || !S_ISCHR(sbuf.st_mode))
-         return -1;
- 
-     subsystem_type = drmParseSubsystemType(maj, min);
 @@ -3784,7 +3888,7 @@ static void drmFoldDuplicatedDevices(drmDevicePtr loca
                  local_devices[i]->available_nodes |= local_devices[j]->available_nodes;
                  node_type = log2(local_devices[j]->available_nodes);
@@ -688,15 +687,6 @@
        return -errno;
      if (stat(node, &sbuf))
          return -EINVAL;
-@@ -3923,7 +4017,7 @@ drm_public int drmGetDevice2(int fd, uint32_t flags, d
-     maj = major(sbuf.st_rdev);
-     min = minor(sbuf.st_rdev);
- 
--    if (!drmNodeIsDRM(maj, min) || !S_ISCHR(sbuf.st_mode))
-+    if ((DRM_MAJOR && maj != DRM_MAJOR) || !S_ISCHR(sbuf.st_mode))
-         return -EINVAL;
- 
-     subsystem_type = drmParseSubsystemType(maj, min);
 @@ -3989,7 +4083,7 @@ drm_public int drmGetDevice(int fd, drmDevicePtr *devi
  /**
   * Get drm devices on the system

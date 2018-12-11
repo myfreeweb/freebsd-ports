@@ -10,6 +10,9 @@ MASTER_SITES=	BERLIOS http://soft.proindependent.com/src/
 MAINTAINER=	makc@FreeBSD.org
 COMMENT=	Data analysis and scientific plotting
 
+DEPRECATED=		Qt4 has been EOL since december 2015
+EXPIRATION_DATE=	2019-03-15
+
 LIB_DEPENDS=	libgsl.so:math/gsl \
 		libmuparser.so:math/muparser \
 		libpng.so:graphics/png
@@ -17,7 +20,7 @@ LIB_DEPENDS=	libgsl.so:math/gsl \
 #		qwt.5:x11-toolkits/qwt5 \
 #		qwtplot3d-qt4:math/qwtplot3d-qt4
 
-USES=		dos2unix gmake qmake qt:4 tar:bzip2
+USES=		compiler:c++11-lang dos2unix gmake qmake qt:4 tar:bzip2
 USE_QT=		gui opengl svg qt3support network assistantclient \
 		moc_build rcc_build
 USE_GL=		glu

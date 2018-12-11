@@ -333,7 +333,6 @@
     SUBDIR += gbrainy
     SUBDIR += gcompris
     SUBDIR += gcompris-qt
-    SUBDIR += gdado
     SUBDIR += gemdropx
     SUBDIR += gemrb
     SUBDIR += genact
@@ -370,10 +369,6 @@
     SUBDIR += gnome-sudoku
     SUBDIR += gnome-taquin
     SUBDIR += gnome-tetravex
-    SUBDIR += gnomeattacks
-    SUBDIR += gnomebreakout
-    SUBDIR += gnomekiss
-    SUBDIR += gnono
     SUBDIR += gnubg
     SUBDIR += gnubik
     SUBDIR += gnuchess
@@ -397,12 +392,10 @@
     SUBDIR += granatier-kde4
     SUBDIR += greed
     SUBDIR += gretools
-    SUBDIR += grhino
     SUBDIR += griels-quest
     SUBDIR += gru
     SUBDIR += grubik
     SUBDIR += gshisen
-    SUBDIR += gtetrinet
     SUBDIR += gti
     SUBDIR += gtkatlantic
     SUBDIR += gtkballs
@@ -410,8 +403,6 @@
     SUBDIR += gtklife
     SUBDIR += gtkpool
     SUBDIR += gtkradiant
-    SUBDIR += gtktetcolor
-    SUBDIR += gturing
     SUBDIR += gtypist
     SUBDIR += gunfudeadlands
     SUBDIR += gzdoom
@@ -665,7 +656,6 @@
     SUBDIR += mkgichessclub
     SUBDIR += mkhexgrid
     SUBDIR += moagg
-    SUBDIR += monkeybubble
     SUBDIR += monster-masher
     SUBDIR += monsterz
     SUBDIR += moon-buggy
@@ -1025,7 +1015,6 @@
     SUBDIR += tbe
     SUBDIR += tecnoballz
     SUBDIR += teeworlds
-    SUBDIR += teg
     SUBDIR += tenebrae
     SUBDIR += tesseract
     SUBDIR += tesseract-data
