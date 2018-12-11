@@ -26,7 +26,7 @@ include/gtk-4.0/gdk/gdkdevicepad.h
 include/gtk-4.0/gdk/gdkdevicetool.h
 include/gtk-4.0/gdk/gdkdisplay.h
 include/gtk-4.0/gdk/gdkdisplaymanager.h
-include/gtk-4.0/gdk/gdkdrag.h
+include/gtk-4.0/gdk/gdkdnd.h
 include/gtk-4.0/gdk/gdkdrawcontext.h
 include/gtk-4.0/gdk/gdkdrop.h
 include/gtk-4.0/gdk/gdkenumtypes.h
@@ -361,10 +361,10 @@ lib/girepository-1.0/Gdk-4.0.typelib
 %%X11%%lib/girepository-1.0/GdkX11-4.0.typelib
 lib/girepository-1.0/Gsk-4.0.typelib
 lib/girepository-1.0/Gtk-4.0.typelib
-lib/gtk-4.0/%%GTK4_VERSION%%/media/libmedia-gstreamer.so
-%%CLOUDPRINT%%lib/gtk-4.0/%%GTK4_VERSION%%/printbackends/libprintbackend-cloudprint.so
-%%CUPS%%lib/gtk-4.0/%%GTK4_VERSION%%/printbackends/libprintbackend-cups.so
-lib/gtk-4.0/%%GTK4_VERSION%%/printbackends/libprintbackend-file.so
+%%GSTREAMER%%lib/gtk-4.0/4.0.0/media/libmedia-gstreamer.so
+%%CUPS%%lib/gtk-4.0/4.0.0/printbackends/libprintbackend-cups.so
+lib/gtk-4.0/4.0.0/printbackends/libprintbackend-file.so
+lib/gtk-4.0/4.0.0/printbackends/libprintbackend-lpr.so
 lib/libgtk-4.so
 lib/libgtk-4.so.%%LIBVERSION%%
 libdata/pkgconfig/gtk+-4.0.pc
@@ -372,9 +372,7 @@ libdata/pkgconfig/gtk+-4.0.pc
 libdata/pkgconfig/gtk+-unix-print-4.0.pc
 %%WAYLAND%%libdata/pkgconfig/gtk+-wayland-4.0.pc
 %%X11%%libdata/pkgconfig/gtk+-x11-4.0.pc
-share/applications/org.gtk.Demo.desktop
-share/applications/org.gtk.IconBrowser.desktop
-share/applications/org.gtk.WidgetFactory.desktop
+@comment see misc/gtk-gettext port
 @comment share/gettext/its/gtkbuilder.its
 @comment share/gettext/its/gtkbuilder.loc
 share/gir-1.0/Gdk-4.0.gir
@@ -382,30 +380,6 @@ share/gir-1.0/Gdk-4.0.gir
 share/gir-1.0/Gsk-4.0.gir
 share/gir-1.0/Gtk-4.0.gir
 %%DATADIR%%-4.0/gtkbuilder.rng
-share/icons/hicolor/16x16/apps/gtk4-demo-symbolic.symbolic.png
-share/icons/hicolor/16x16/apps/gtk4-demo.png
-share/icons/hicolor/16x16/apps/gtk4-widget-factory-symbolic.symbolic.png
-share/icons/hicolor/16x16/apps/gtk4-widget-factory.png
-share/icons/hicolor/22x22/apps/gtk4-demo-symbolic.symbolic.png
-share/icons/hicolor/22x22/apps/gtk4-demo.png
-share/icons/hicolor/22x22/apps/gtk4-widget-factory-symbolic.symbolic.png
-share/icons/hicolor/22x22/apps/gtk4-widget-factory.png
-share/icons/hicolor/24x24/apps/gtk4-demo-symbolic.symbolic.png
-share/icons/hicolor/24x24/apps/gtk4-demo.png
-share/icons/hicolor/24x24/apps/gtk4-widget-factory-symbolic.symbolic.png
-share/icons/hicolor/24x24/apps/gtk4-widget-factory.png
-share/icons/hicolor/256x256/apps/gtk4-demo-symbolic.symbolic.png
-share/icons/hicolor/256x256/apps/gtk4-demo.png
-share/icons/hicolor/256x256/apps/gtk4-widget-factory-symbolic.symbolic.png
-share/icons/hicolor/256x256/apps/gtk4-widget-factory.png
-share/icons/hicolor/32x32/apps/gtk4-demo-symbolic.symbolic.png
-share/icons/hicolor/32x32/apps/gtk4-demo.png
-share/icons/hicolor/32x32/apps/gtk4-widget-factory-symbolic.symbolic.png
-share/icons/hicolor/32x32/apps/gtk4-widget-factory.png
-share/icons/hicolor/48x48/apps/gtk4-demo-symbolic.symbolic.png
-share/icons/hicolor/48x48/apps/gtk4-demo.png
-share/icons/hicolor/48x48/apps/gtk4-widget-factory-symbolic.symbolic.png
-share/icons/hicolor/48x48/apps/gtk4-widget-factory.png
 share/locale/af/LC_MESSAGES/gtk40-properties.mo
 share/locale/af/LC_MESSAGES/gtk40.mo
 share/locale/am/LC_MESSAGES/gtk40-properties.mo
@@ -636,5 +610,3 @@ share/locale/zh_HK/LC_MESSAGES/gtk40-properties.mo
 share/locale/zh_HK/LC_MESSAGES/gtk40.mo
 share/locale/zh_TW/LC_MESSAGES/gtk40-properties.mo
 share/locale/zh_TW/LC_MESSAGES/gtk40.mo
-share/metainfo/org.gtk.Demo.appdata.xml
-share/metainfo/org.gtk.WidgetFactory.appdata.xml

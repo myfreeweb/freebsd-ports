@@ -1,0 +1,13 @@
+--- modules/printbackends/meson.build.orig	2018-06-26 13:48:16.000000000 +0200
++++ modules/printbackends/meson.build	2018-11-16 22:27:24.466624000 +0100
+@@ -73,9 +73,7 @@
+ endif
+ 
+ # Automatic fall-back to the lpr backend
+-if not print_backends.contains('cups')
+-  print_backends += ['lpr']
+-endif
++print_backends += ['lpr']
+ 
+ printbackends_subdir = 'gtk-4.0/@0@/printbackends'.format(gtk_binary_version)
+ printbackends_install_dir = join_paths(get_option('libdir'), printbackends_subdir)

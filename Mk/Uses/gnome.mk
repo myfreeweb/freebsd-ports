@@ -93,17 +93,19 @@ _USE_GNOME_ALL+= atk cairo \
 
 # GNOME 3 components
 _USE_GNOME_ALL+=dconf evolutiondataserver3 gnomecontrolcenter3 gnomedesktop3 \
-		gnomemenus3 gsound gtk30 gtkhtml4 gtksourceview3 gtksourceview4 \
-		libgda5 libgda5-ui libwnck3 metacity nautilus3 \
+		gnomemenus3 gsound gtk30 gtkhtml4 gtksourceview3 \
+		gtksourceview4 libgda5 \
+		libgda5-ui libwnck3 metacity nautilus3 \
 		pygobject3 vte3
 
+# GTK/GNOME 4 components
 _USE_GNOME_ALL+=gtk40
 
 # C++ bindings
 _USE_GNOME_ALL+=atkmm cairomm gconfmm26 glibmm gtkmm20 gtkmm24 \
 		gtkmm30 gtksourceviewmm3 libgdamm5 \
 		libgtksourceviewmm libxml++26 libsigc++12 libsigc++20 \
-		pangomm
+		libsigc++30 pangomm
 
 # glib-mkenums often fails with C locale
 # https://gitlab.gnome.org/GNOME/glib/issues/1430
@@ -170,6 +172,8 @@ libsigc++12_LIB_DEPENDS=	libsigc-1.2.so:devel/libsigc++12
 
 libsigc++20_LIB_DEPENDS=	libsigc-2.0.so:devel/libsigc++20
 
+libsigc++30_LIB_DEPENDS=	libsigc-3.0.so:devel/libsigc++30
+
 pangomm_LIB_DEPENDS=	libpangomm-1.4.so:x11-toolkits/pangomm
 pangomm_USE_GNOME_IMPL=	pango glibmm cairomm
 
@@ -230,10 +234,9 @@ gtk30_LIB_DEPENDS=	libgtk-3.so:x11-toolkits/gtk30
 gtk30_USE_GNOME_IMPL=	atk pango
 GTK3_VERSION=		3.0.0
 
+gtk40_BUILD_DEPENDS=	gtk4>=0:x11-toolkits/gtk40
 gtk40_LIB_DEPENDS=	libgtk-4.so:x11-toolkits/gtk40
-gtk40_DEPECT=		${LOCALBASE}/libdata/pkgconfig/gtk+-4.0.pc
-gtk40_USE_GNOME_IMPL=	atk cairo glib20 pango
-GTK4_VERSION=		4.0.0
+gtk40_RUN_DEPENDS=	gtk4>=0:x11-toolkits/gtk40
 
 libidl_LIB_DEPENDS=	libIDL-2.so:devel/libIDL
 libidl_USE_GNOME_IMPL=	glib20
@@ -434,8 +437,7 @@ _USE_GNOME+=	${${component}_USE_GNOME_IMPL} ${component}
 # Setup the GTK+ API version for pixbuf loaders, input method modules,
 # and theme engines.
 PLIST_SUB+=			GTK2_VERSION="${GTK2_VERSION}" \
-				GTK3_VERSION="${GTK3_VERSION}" \
-				GTK4_VERSION="${GTK4_VERSION}"
+				GTK3_VERSION="${GTK3_VERSION}"
 
 # Set USE_CSTD for all ports that depend on glib12
 .if defined(_USE_GNOME) && !empty(_USE_GNOME:Mglib12)

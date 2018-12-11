@@ -68,7 +68,6 @@ share/devhelp/books/libsigc++-%%API_VERSION%%/libsigc++-%%API_VERSION%%.devhelp2
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1pointer__functor.html
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1pointer__functor_3_01T__return_07T__args_8_8_8_08_4-members.html
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1pointer__functor_3_01T__return_07T__args_8_8_8_08_4.html
-%%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1signal.html
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1signal_3_01T__return_07T__arg_8_8_8_08_4-members.html
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1signal_3_01T__return_07T__arg_8_8_8_08_4.html
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1signal_3_01T__return_07T__arg_8_8_8_08_4_1_1accumulated-members.html
@@ -78,7 +77,6 @@ share/devhelp/books/libsigc++-%%API_VERSION%%/libsigc++-%%API_VERSION%%.devhelp2
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1signal__with__accumulator-members.html
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1signal__with__accumulator.html
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1signal__with__accumulator__inherit__graph.png
-%%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1slot.html
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1slot_3_01T__return_07T__arg_8_8_8_08_4-members.html
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1slot_3_01T__return_07T__arg_8_8_8_08_4.html
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/classsigc_1_1slot_3_01T__return_07T__arg_8_8_8_08_4__inherit__graph.png
@@ -97,6 +95,7 @@ share/devhelp/books/libsigc++-%%API_VERSION%%/libsigc++-%%API_VERSION%%.devhelp2
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/doxygen-extra.css
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/doxygen.css
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/doxygen.png
+%%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/dynsections.js
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/folderclosed.png
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/folderopen.png
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/functions.html
@@ -145,8 +144,6 @@ share/devhelp/books/libsigc++-%%API_VERSION%%/libsigc++-%%API_VERSION%%.devhelp2
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/inherit_graph_3.png
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/inherit_graph_30.png
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/inherit_graph_31.png
-%%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/inherit_graph_32.png
-%%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/inherit_graph_33.png
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/inherit_graph_4.png
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/inherit_graph_5.png
 %%PORTDOCS%%%%DOCSDIR%%-%%API_VERSION%%/reference/html/inherit_graph_6.png
