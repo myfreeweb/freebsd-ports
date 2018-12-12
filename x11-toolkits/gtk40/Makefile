@@ -77,7 +77,7 @@ CUPS_LIB_DEPENDS=	libcups.so:print/cups
 CUPS_MESON_ON=		-Dprint-backends=cups,file
 CUPS_MESON_OFF=		-Dprint-backends=file
 
-MESON_ARGS+=-Dcloudpriders=false
+MESON_ARGS+=-Dcloudproviders=false
 #CLOUDPROVIDERS_DESC=		Cloudproviders suport
 #CLOUDPROVIDERS_MESON_TRUE=	cloudproviders
 #CLOUDPROVIDERS_LIB_DEPENDS=	librest-0.7.so:devel/librest \
@@ -85,15 +85,13 @@ MESON_ARGS+=-Dcloudpriders=false
 
 GSTREAMER_MESON_ON=	-Dmedia=gstreamer
 GSTREAMER_MESON_OFF=	-Dmedia=none
-GSTREAMER_USE=		gstreamer=bad
+GSTREAMER_USE=		gstreamer1=bad
 
 WAYLAND_DESC=		Wayland GDK backend (support Wayland applications)
 WAYLAND_MESON_TRUE=	wayland-backend
-#WAYLAND_BUILD_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols \
-#			v4l_compat>=0:multimedia/v4l_compat
+WAYLAND_BUILD_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols
 WAYLAND_LIB_DEPENDS=	libwayland-egl.so:graphics/wayland \
 			libxkbcommon.so:x11/libxkbcommon
-#WAYLAND_RUN_DEPENDS=	wayland-protocols>=0:graphics/wayland-protocols
 WAYLAND_USE=		GL=egl
 
 X11_DESC=		X11 GDK backend (support X.org applications)
@@ -103,6 +101,7 @@ X11_USE=		XORG=x11,xcomposite,xcursor,xdamage,xext,xfixes,xi,xinerama,xrandr
 
 VULKAN_DESC=		Vulkan GSK backend
 VULKAN_MESON_YES=	vulkan
+VULKAN_BUILD_DEPENDS=	${LOCALBASE}/include/vulkan/vulkan.h:devel/vulkan-headers
 VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-loader
 
 DEBUG_DESC=	Debug related

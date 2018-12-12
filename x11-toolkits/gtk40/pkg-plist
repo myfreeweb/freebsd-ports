@@ -1,13 +1,13 @@
 %%BROADWAY%%bin/gtk4-broadwayd
 bin/gtk4-builder-tool
-bin/gtk4-demo
-bin/gtk4-demo-application
+%%DEMOS%%bin/gtk4-demo
+%%DEMOS%%bin/gtk4-demo-application
 bin/gtk4-encode-symbolic-svg
-bin/gtk4-icon-browser
+%%DEMOS%%bin/gtk4-icon-browser
 bin/gtk4-launch
 bin/gtk4-query-settings
 bin/gtk4-update-icon-cache
-bin/gtk4-widget-factory
+%%DEMOS%%bin/gtk4-widget-factory
 include/gtk-4.0/gdk/gdk-autocleanup.h
 include/gtk-4.0/gdk/gdk.h
 include/gtk-4.0/gdk/gdkapplaunchcontext.h
@@ -373,6 +373,9 @@ libdata/pkgconfig/gtk+-unix-print-4.0.pc
 %%WAYLAND%%libdata/pkgconfig/gtk+-wayland-4.0.pc
 %%X11%%libdata/pkgconfig/gtk+-x11-4.0.pc
 @comment see misc/gtk-gettext port
+%%DEMOS%%share/applications/gtk4-demo.desktop
+%%DEMOS%%share/applications/gtk4-icon-browser.desktop
+%%DEMOS%%share/applications/gtk4-widget-factory.desktop
 @comment share/gettext/its/gtkbuilder.its
 @comment share/gettext/its/gtkbuilder.loc
 share/gir-1.0/Gdk-4.0.gir
@@ -380,6 +383,28 @@ share/gir-1.0/Gdk-4.0.gir
 share/gir-1.0/Gsk-4.0.gir
 share/gir-1.0/Gtk-4.0.gir
 %%DATADIR%%-4.0/gtkbuilder.rng
+%%DEMOS%%share/icons/hicolor/16x16/apps/gtk4-demo-symbolic.symbolic.png
+%%DEMOS%%share/icons/hicolor/16x16/apps/gtk4-demo.png
+%%DEMOS%%share/icons/hicolor/16x16/apps/gtk4-widget-factory-symbolic.symbolic.png
+%%DEMOS%%share/icons/hicolor/16x16/apps/gtk4-widget-factory.png
+%%DEMOS%%share/icons/hicolor/22x22/apps/gtk4-demo-symbolic.symbolic.png
+%%DEMOS%%share/icons/hicolor/22x22/apps/gtk4-demo.png
+%%DEMOS%%share/icons/hicolor/22x22/apps/gtk4-widget-factory-symbolic.symbolic.png
+%%DEMOS%%share/icons/hicolor/22x22/apps/gtk4-widget-factory.png
+%%DEMOS%%share/icons/hicolor/24x24/apps/gtk4-demo-symbolic.symbolic.png
+%%DEMOS%%share/icons/hicolor/24x24/apps/gtk4-demo.png
+%%DEMOS%%share/icons/hicolor/256x256/apps/gtk4-demo-symbolic.symbolic.png
+%%DEMOS%%share/icons/hicolor/256x256/apps/gtk4-demo.png
+%%DEMOS%%share/icons/hicolor/256x256/apps/gtk4-widget-factory-symbolic.symbolic.png
+%%DEMOS%%share/icons/hicolor/256x256/apps/gtk4-widget-factory.png
+%%DEMOS%%share/icons/hicolor/32x32/apps/gtk4-demo-symbolic.symbolic.png
+%%DEMOS%%share/icons/hicolor/32x32/apps/gtk4-demo.png
+%%DEMOS%%share/icons/hicolor/32x32/apps/gtk4-widget-factory-symbolic.symbolic.png
+%%DEMOS%%share/icons/hicolor/32x32/apps/gtk4-widget-factory.png
+%%DEMOS%%share/icons/hicolor/48x48/apps/gtk4-demo-symbolic.symbolic.png
+%%DEMOS%%share/icons/hicolor/48x48/apps/gtk4-demo.png
+%%DEMOS%%share/icons/hicolor/48x48/apps/gtk4-widget-factory-symbolic.symbolic.png
+%%DEMOS%%share/icons/hicolor/48x48/apps/gtk4-widget-factory.png
 share/locale/af/LC_MESSAGES/gtk40-properties.mo
 share/locale/af/LC_MESSAGES/gtk40.mo
 share/locale/am/LC_MESSAGES/gtk40-properties.mo
