@@ -237,7 +237,6 @@
     SUBDIR += gtkhtml4
     SUBDIR += guacamole-client
     SUBDIR += guile-www
-    SUBDIR += gurlchecker
     SUBDIR += h2o
     SUBDIR += h2o-devel
     SUBDIR += habari
@@ -463,7 +462,6 @@
     SUBDIR += mod_pagespeed
     SUBDIR += mod_perl2
     SUBDIR += mod_php56
-    SUBDIR += mod_php70
     SUBDIR += mod_php71
     SUBDIR += mod_php72
     SUBDIR += mod_php73
@@ -1458,9 +1456,6 @@
     SUBDIR += php56-opcache
     SUBDIR += php56-session
     SUBDIR += php56-tidy
-    SUBDIR += php70-opcache
-    SUBDIR += php70-session
-    SUBDIR += php70-tidy
     SUBDIR += php71-opcache
     SUBDIR += php71-session
     SUBDIR += php71-tidy
@@ -2055,7 +2050,6 @@
     SUBDIR += rubygem-http
     SUBDIR += rubygem-http-cookie
     SUBDIR += rubygem-http-form_data
-    SUBDIR += rubygem-http-form_data1
     SUBDIR += rubygem-http_router
     SUBDIR += rubygem-httparty
     SUBDIR += rubygem-httpclient
@@ -2206,7 +2200,6 @@
     SUBDIR += rubygem-tinyatom
     SUBDIR += rubygem-tinymce-rails
     SUBDIR += rubygem-toml-rb
-    SUBDIR += rubygem-toml-rb03
     SUBDIR += rubygem-toml-rb10
     SUBDIR += rubygem-totoridipjp
     SUBDIR += rubygem-tumblr_client
