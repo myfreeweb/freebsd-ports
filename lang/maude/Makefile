@@ -21,6 +21,9 @@ LIB_DEPENDS=	libbdd.so:science/buddy \
 		libsigsegv.so:devel/libsigsegv
 
 USES=		alias autoreconf bison ncurses
+
+WRKSRC=		${WRKDIR}/maude-${PORTVERSION}
+
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${NCURSESINC} -I${LOCALBASE}/include
 LDFLAGS+=	-L${NCURSESLIB} -L${LOCALBASE}/lib

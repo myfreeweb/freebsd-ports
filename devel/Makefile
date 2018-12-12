@@ -4974,6 +4974,7 @@
     SUBDIR += py-pyrepl
     SUBDIR += py-pyrfc3339
     SUBDIR += py-pyro
+    SUBDIR += py-pyrsistent
     SUBDIR += py-pyshapelib
     SUBDIR += py-pyshp
     SUBDIR += py-pysparklines

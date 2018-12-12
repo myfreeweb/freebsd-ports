@@ -384,6 +384,7 @@
     SUBDIR += libgrss
     SUBDIR += libgweather
     SUBDIR += libilbc
+    SUBDIR += libjson-rpc-cpp 
     SUBDIR += libkfbapi
     SUBDIR += libkfbapi-kde4
     SUBDIR += libkgapi

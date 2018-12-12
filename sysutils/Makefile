@@ -7,8 +7,6 @@
     SUBDIR += 44bsd-more
     SUBDIR += 915resolution
     SUBDIR += DTraceToolkit
-    SUBDIR += GammaRay
-    SUBDIR += KDocker
     SUBDIR += LPRng
     SUBDIR += LPRngTool
     SUBDIR += UEFITool
@@ -85,7 +83,6 @@
     SUBDIR += bacula9-client-static
     SUBDIR += bacula9-docs
     SUBDIR += bacula9-server
-    SUBDIR += baloo
     SUBDIR += baloo-kde4
     SUBDIR += baloo-widgets
     SUBDIR += baloo-widgets-kde4
@@ -560,7 +557,6 @@
     SUBDIR += k8temp
     SUBDIR += kbackup
     SUBDIR += kcm-polkit-kde
-    SUBDIR += kcm-polkit-kde4
     SUBDIR += kcron
     SUBDIR += kcron-kde4
     SUBDIR += kdeadmin
@@ -572,11 +568,8 @@
     SUBDIR += kdirstat
     SUBDIR += keyboard-daemon
     SUBDIR += kf5-baloo
-    SUBDIR += kf5-bluez-qt
     SUBDIR += kf5-kwallet
-    SUBDIR += kfilemetadata
     SUBDIR += kfilemetadata-kde4
-    SUBDIR += kfilereplace
     SUBDIR += kfloppy
     SUBDIR += kfloppy-kde4
     SUBDIR += khelpcenter
@@ -586,13 +579,11 @@
     SUBDIR += knutclient-kde4
     SUBDIR += kops
     SUBDIR += krename
-    SUBDIR += kshutdown
     SUBDIR += kshutdown-kde4
     SUBDIR += ksysguardd-kde4
     SUBDIR += ksystemlog
     SUBDIR += ksystemlog-kde4
     SUBDIR += kubectl
-    SUBDIR += kuser
     SUBDIR += kuser-kde4
     SUBDIR += lava
     SUBDIR += lbl-cf
@@ -763,9 +754,7 @@
     SUBDIR += ncdu
     SUBDIR += ndmpd
     SUBDIR += neofetch
-    SUBDIR += nepomuk-core
     SUBDIR += nepomuk-core-kde4
-    SUBDIR += nepomuk-widgets
     SUBDIR += nepomuk-widgets-kde4
     SUBDIR += nfcutils
     SUBDIR += nfsping
@@ -925,7 +914,7 @@
     SUBDIR += pick
     SUBDIR += pidof
     SUBDIR += pipemeter
-    SUBDIR += plasma5-bluedevil
+    SUBDIR += plasma-pass
     SUBDIR += plasma5-discover
     SUBDIR += plasma5-drkonqi
     SUBDIR += plasma5-kde-cli-tools
@@ -942,11 +931,9 @@
     SUBDIR += policykit
     SUBDIR += policykit-gnome
     SUBDIR += policykit-qt
-    SUBDIR += policykit-qt-kde4
     SUBDIR += polkit
     SUBDIR += polkit-gnome
     SUBDIR += polkit-kde
-    SUBDIR += polkit-kde-kde4
     SUBDIR += polkit-qt
     SUBDIR += pot
     SUBDIR += potnet
@@ -1103,13 +1090,13 @@
     SUBDIR += rubygem-capistrano-ext
     SUBDIR += rubygem-capistrano-harrow
     SUBDIR += rubygem-chef
+    SUBDIR += rubygem-chef12
     SUBDIR += rubygem-chef-api
     SUBDIR += rubygem-chef-config
     SUBDIR += rubygem-chef-config12
     SUBDIR += rubygem-chef-dk
     SUBDIR += rubygem-chef-zero
     SUBDIR += rubygem-chef-zero5
-    SUBDIR += rubygem-chef12
     SUBDIR += rubygem-facter
     SUBDIR += rubygem-fluent-mixin-plaintextformatter
     SUBDIR += rubygem-fluent-plugin-config-expander
@@ -1369,9 +1356,9 @@
     SUBDIR += u-boot-pinebook
     SUBDIR += u-boot-riotboard
     SUBDIR += u-boot-rpi
-    SUBDIR += u-boot-rpi-0-w
     SUBDIR += u-boot-rpi2
     SUBDIR += u-boot-rpi3
+    SUBDIR += u-boot-rpi-0-w
     SUBDIR += u-boot-sinovoip-bpi-m3
     SUBDIR += u-boot-sopine
     SUBDIR += u-boot-tools
@@ -1494,7 +1481,6 @@
     SUBDIR += xmbmon
     SUBDIR += xorriso
     SUBDIR += xosview
-    SUBDIR += xsettings-kde
     SUBDIR += xstow
     SUBDIR += xsysstats
     SUBDIR += xvidcap

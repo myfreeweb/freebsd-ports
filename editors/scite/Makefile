@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	scite
-PORTVERSION=	3.7.5
+DISTVERSION=	4.0.2
 PORTREVISION=	1
 CATEGORIES=	editors gnome
 MASTER_SITES=	SF/scintilla/SciTE/${PORTVERSION}
@@ -23,7 +23,7 @@ OPTIONS_DEFINE=	DOCS
 
 WRKSRC=		${WRKDIR}/${PORTNAME}/gtk
 
-USES=		compiler:c++11-lib desktop-file-utils gmake pkgconfig tar:tgz
+USES=		compiler:c++14-lang desktop-file-utils gmake pkgconfig tar:tgz
 USE_GNOME=	cairo gdkpixbuf2 gtk20
 MAKEFILE=	makefile
 

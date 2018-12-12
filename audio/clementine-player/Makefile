@@ -16,7 +16,6 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 BUILD_DEPENDS=	${LOCALBASE}/include/boost/shared_ptr.hpp:devel/boost-libs
 LIB_DEPENDS=	libtag.so:audio/taglib \
 		libchromaprint.so:audio/chromaprint \
-		libimobiledevice.so:comms/libimobiledevice \
 		libprotobuf.so:devel/protobuf \
 		libqca-qt5.so:devel/qca@qt5 \
 		libqjson-qt5.so:devel/qjson@qt5 \
@@ -170,7 +169,8 @@ GOOGLE_DRIVE_CMAKE_OFF=	-DENABLE_GOOGLE_DRIVE=OFF
 
 GPOD_LIB_DEPENDS=	libgpod.so:audio/libgpod \
 			libplist.so:devel/libplist \
-			libusbmuxd.so:comms/libusbmuxd
+			libusbmuxd.so:comms/libusbmuxd \
+			libimobiledevice.so:comms/libimobiledevice
 GPOD_CMAKE_ON=		-DENABLE_LIBGPOD=ON
 GPOD_CMAKE_OFF=		-DENABLE_LIBGPOD=OFF
 
