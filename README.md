@@ -22,7 +22,6 @@ This fork of the FreeBSD Ports Collection merges the [KDE](https://github.com/fr
 	- but if you want to do it properly, define `MESA_DRI_PORT=graphics/mesa-dev` and `MESA_LIBS_PORT=graphics/mesa-dev` in `make.conf` and rebuild dependent ports
 		- [synth](https://github.com/jrmarino/synth) is the recommended port upgrade tool, it does try to fetch binary packages when a rebuild is not necessary
 	- `multimedia/libva-mesa-dev-driver` is the VAAPI part (rebuilds some of the same gallium code as mesa-dev, ccache recommended for faster builds)
-- `graphics/libdrm`: 2.4.96 [231607](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231607)
 
 NOTE: ANV (Intel Vulkan) requires running the apps as root and might not work for complex applications.
 RADV (Radeon Vulkan) with the `amdgpu` KMS/DRM driver works very well!
@@ -71,8 +70,7 @@ How to use Weston:
 - `emulators/yuzu`: experimental Switch emulator [228487](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=228487)
 - `graphics/hdrmerge`: HDR merge tool (git master qt5)
 - `graphics/shaderc`: google's glslang-based thing, needed for vulkan support in mpv. Quite bad for packaging: [#424](https://github.com/google/shaderc/issues/424) [#381](https://github.com/google/shaderc/issues/381) [#392](https://github.com/google/shaderc/issues/392)
-- `x11-toolkits/gtk40`: git master, vulkan, skip installing gschemas (fix parallel install w/ gtk3)
-- `multimedia/shotcut`: 18.03.06
+- `x11-toolkits/gtk40`: wayland/vulkan/etc [#27](https://github.com/freebsd/freebsd-ports-gnome/pull/27)
 - `emulators/mesen`: a NES emulator [227351](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227351)
 - `games/retroarch`: 1.7.3, add WAYLAND option [227345](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227345) (+ UDEV option but we don't have evdev gamepad drivers yet)
 - `textproc/ibus`: add WAYLAND option (not actually used for toolkit based apps; also ibus's UI drawing is still X11 only)
@@ -104,19 +102,13 @@ How to use Weston:
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
 - `graphics/osg`: update to 3.6 [230442](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=230442)
-- `www/epiphany`: use MSE if available
 - `graphics/rawtherapee`: disable mmap (to make performance over NFS not terrible), enable LTO
-- `multimedia/pitivi`: update to 0.999
 - `textproc/pict`: pairwise test gen tool [231407](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231407)
-- `lang/maude`: update to 2.7.1 [231443](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231443)
 - `net/libjson-rpc-cpp`: jsonrpc lib [231735](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231735)
 - `net-p2p/ethminer` (& `devel/ethash` `devel/cli11`): OpenCL miner - previous version since latest broke Clover support; even this one only works in test/benchmark mode for me currently
 - `devel/mull`: mutation test framework
-- `graphics/imlib2-webp`: [232871](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=232871)
-- `graphics/webp-pixbuf-loader`: [232872](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=232872)
 - `accessibility/redshift-wlr`: fork of redshift with wlr-gamma-control based Wayland backend
 - `devel/evemu`: update
-- `devel/libsysinfo`: pkgconfig file [233446](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=233446)
 - `audio/jack`: jack2
 
 ### Ports framework
@@ -128,21 +120,6 @@ How to use Weston:
 - [222375](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222375) linsysfs(5): Add support for recent libdrm [LANDED!](https://github.com/freebsd/freebsd/commit/09ad0b962f3029e47b3f430948933b6fe066ccdf)
 - [222504](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222504) Add support for 32-bit compatibility IOCTLs in the LinuxKPI [LANDED!](https://github.com/freebsd/freebsd/commit/10ef676c4bbe7379de1f3687444e4311a7d872e2)
 - [222646](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=222646) ukbd(4): support Consumer Control based multimedia keys
-
-## Recommended kernel config
-
-`/usr/src/sys/amd64/conf/DESKTOP`:
-
-```
-include GENERIC-NODEBUG
-ident   DESKTOP
-device		evdev
-options		EVDEV_SUPPORT
-options 	KDTRACE_HOOKS
-options 	VIMAGE
-```
-
-(the important part is the `EVDEV_SUPPORT`, which is still disabled by default for some reason!)
 
 ## Other FreeBSD desktop resources
 
