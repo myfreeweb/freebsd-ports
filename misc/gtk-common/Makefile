@@ -14,18 +14,15 @@ DIST_SUBDIR=	gnome
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Common gettext files shared between gtk+ versions
 
-USES=		gettext gnome meson python:3.4+,build tar:xz
-USE_GNOME=	gdkpixbuf2 glib20
+USES=		tar:xz
 
-MESON_ARGS=	-Dprint-backends=file \
-		-Dintrospection=false
+NO_CONFIGURE=	yes
+NO_BUILD=	yes
 
 GLIB_SCHEMAS=   org.gtk.Settings.ColorChooser.gschema.xml \
                 org.gtk.Settings.Debug.gschema.xml \
                 org.gtk.Settings.EmojiChooser.gschema.xml \
                 org.gtk.Settings.FileChooser.gschema.xml
-
-BINARY_ALIAS=	python3=${PYTHON_VERSION}
 
 PLIST_FILES=	bin/gtk-update-icon-cache \
 		share/gettext/its/gtkbuilder.its \
