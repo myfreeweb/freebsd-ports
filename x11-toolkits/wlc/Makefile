@@ -1,10 +1,9 @@
 # $FreeBSD$
 
 PORTNAME=	wlc
-PORTVERSION=	0.0.10
+PORTVERSION=	0.0.8
 PORTREVISION=	1
 CATEGORIES=	x11-toolkits wayland
-DISTVERSIONPREFIX=	v
 
 MAINTAINER=	x11@FreeBSD.org
 COMMENT=	Wayland compositor library
@@ -28,16 +27,15 @@ RUN_DEPENDS=	xkeyboard-config>=0:x11/xkeyboard-config
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	cloudef
-GH_TUPLE=	cloudef:chck:0400fb5:chck
+GH_TAGNAME=	fa780ce
+GH_TUPLE=	cloudef:chck:3f27d2a:chck
 
-USES=		cmake:outsource gnome localbase pkgconfig pathfix
+USES=		cmake gnome localbase pkgconfig pathfix
 USE_XORG=	pixman x11 xcb xcursor xfixes
 USE_GL=		egl gbm glesv2
 USE_GNOME=	cairo
 
 USE_LDCONFIG=	yes
-
-CMAKE_ARGS+=	-DCMAKE_BUILD_TYPE=Upstream
 
 post-extract:
 	@${RM} -r ${WRKSRC}/lib/chck

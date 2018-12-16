@@ -5,5 +5,5 @@ include/wlc/wlc-wayland.h
 include/wlc/wlc.h
 lib/libwlc.so
 lib/libwlc.so.0
-lib/libwlc.so.0.0.9
+lib/libwlc.so.0.0.5
 libdata/pkgconfig/wlc.pc

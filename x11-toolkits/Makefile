@@ -270,7 +270,6 @@
     SUBDIR += swt
     SUBDIR += swt-devel
     SUBDIR += tepl
-    SUBDIR += tepl4
     SUBDIR += termit
     SUBDIR += tile
     SUBDIR += tix
