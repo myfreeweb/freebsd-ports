@@ -186,6 +186,9 @@
     SUBDIR += avro-c
     SUBDIR += avro-cpp
     SUBDIR += awless
+    SUBDIR += aws-c-commons
+    SUBDIR += aws-c-event-stream
+    SUBDIR += aws-checksums
     SUBDIR += aws-sdk-cpp
     SUBDIR += aws-sdk-php
     SUBDIR += awscli
@@ -435,7 +438,6 @@
     SUBDIR += dbus-tcl
     SUBDIR += dcd-client
     SUBDIR += dcd-server
-    SUBDIR += dcmtk
     SUBDIR += dconf
     SUBDIR += dconf-editor
     SUBDIR += ddd
@@ -1235,6 +1237,7 @@
     SUBDIR += ignition-plugin
     SUBDIR += ignition-tools
     SUBDIR += ignition-transport
+    SUBDIR += ikos
     SUBDIR += imake
     SUBDIR += inastemp
     SUBDIR += include-what-you-use

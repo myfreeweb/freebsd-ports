@@ -31,7 +31,8 @@ LIB_DEPENDS=	libepoxy.so:graphics/libepoxy \
 		libfreetype.so:print/freetype2 \
 		libharfbuzz.so:print/harfbuzz
 #RUN_DEPENDS+=	hicolor-icon-theme>=0:misc/hicolor-icon-theme \
-BUILD_DEPENDS=	iso-codes>=0:misc/iso-codes
+RUN_DEPENDS=	iso-codes>=0:misc/iso-codes \
+		gtk-common>=${PORTVERSION}:misc/gtk-common
 #		adwaita-icon-theme>=0:x11-themes/adwaita-icon-theme \
 #		at-spi2-atk>=0:accessibility/at-spi2-atk
 

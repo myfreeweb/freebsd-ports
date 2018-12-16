@@ -179,6 +179,7 @@
     SUBDIR += skype-devel
     SUBDIR += skype4
     SUBDIR += slack-term
+    SUBDIR += ssh-chat
     SUBDIR += talkatu
     SUBDIR += teamwords
     SUBDIR += telegram

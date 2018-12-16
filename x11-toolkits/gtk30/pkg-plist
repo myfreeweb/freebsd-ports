@@ -468,12 +468,17 @@ share/aclocal/gtk-3.0.m4
 share/applications/gtk3-demo.desktop
 share/applications/gtk3-icon-browser.desktop
 share/applications/gtk3-widget-factory.desktop
-@comment see misc/gtk-gettext port
+@comment see misc/gtk-common port
 @comment share/gettext/its/gtkbuilder.its
 @comment share/gettext/its/gtkbuilder.loc
 share/gir-1.0/Gdk-3.0.gir
 share/gir-1.0/GdkX11-3.0.gir
 share/gir-1.0/Gtk-3.0.gir
+@comment see misc/gtk-common
+@comment share/glib-2.0/schemas/org.gtk.Settings.ColorChooser.gschema.xml
+@comment share/glib-2.0/schemas/org.gtk.Settings.Debug.gschema.xml
+@comment share/glib-2.0/schemas/org.gtk.Settings.EmojiChooser.gschema.xml
+@comment share/glib-2.0/schemas/org.gtk.Settings.FileChooser.gschema.xml
 %%DATADIR%%-3.0/gtkbuilder.rng
 %%DATADIR%%-doc/html/gail-libgail-util3/gail-libgail-util3-GailMisc.html
 %%DATADIR%%-doc/html/gail-libgail-util3/gail-libgail-util3-GailTextUtil.html

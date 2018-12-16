@@ -122,6 +122,7 @@
     SUBDIR += darktable
     SUBDIR += dataplot
     SUBDIR += dc20pack
+    SUBDIR += dcmtk
     SUBDIR += dcp2icc
     SUBDIR += dcraw
     SUBDIR += dcraw-m
@@ -1001,6 +1002,7 @@
     SUBDIR += qt5-svg
     SUBDIR += qt5-wayland
     SUBDIR += qtawesome
+    SUBDIR += qtpbfimageplugin
     SUBDIR += quat
     SUBDIR += quat-gui
     SUBDIR += quesa
