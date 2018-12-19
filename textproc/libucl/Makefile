@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	libucl
-PORTVERSION=	0.8.0
+PORTVERSION=	0.8.1
 CATEGORIES=	textproc devel
 
 MAINTAINER=	koobs@FreeBSD.org
@@ -13,6 +13,19 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 BROKEN_mips=		fails to link: undefined reference to '__sync_add_and_fetch_4'
 BROKEN_mips64=		fails to link: undefined reference to '__sync_add_and_fetch_4'
+
+USES=		autoreconf gmake libtool pathfix pkgconfig
+USE_GITHUB=	yes
+USE_LDCONFIG=	yes
+
+GNU_CONFIGURE=	yes
+
+GH_ACCOUNT=	vstakhov
+
+CONFLICTS_INSTALL=	ucl
+
+INSTALL_TARGET=	install-strip
+TEST_TARGET=	check
 
 OPTIONS_DEFINE=		LUA REGEX SIGNATURES URLS UTILS
 OPTIONS_DEFAULT=	REGEX UTILS
@@ -38,18 +51,5 @@ SIGNATURES_USES=		ssl
 URLS_CONFIGURE_ENABLE=	urls
 
 UTILS_CONFIGURE_ENABLE=	utils
-
-USES=		autoreconf gmake libtool pathfix pkgconfig
-USE_GITHUB=	yes
-USE_LDCONFIG=	yes
-
-GNU_CONFIGURE=	yes
-
-GH_ACCOUNT=	vstakhov
-
-CONFLICTS_INSTALL=	ucl
-
-INSTALL_TARGET=	install-strip
-TEST_TARGET=	check
 
 .include <bsd.port.mk>
