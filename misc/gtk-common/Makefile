@@ -14,11 +14,24 @@ DIST_SUBDIR=	gnome
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Common gettext files shared between gtk+ versions
 
-USES=		gettext gnome meson python:3.4+,build tar:xz
-USE_GNOME=	gdkpixbuf2 glib20
+# most of these are build time only stuff... Fix bsd.gnome.mk!
+LIB_DEPENDS=	libepoxy.so:graphics/libepoxy \
+		libatk-bridge-2.0.so:accessibility/at-spi2-atk \
+		libgraphene-1.0.so:graphics/graphene
+
+USES=		gettext gnome meson pkgconfig python:3.4+,build tar:xz
+USE_GNOME=	atk cairo gdkpixbuf2 glib20 pango
 
 MESON_ARGS=	-Dprint-backends=file \
+		-Dwayland-backend=false \
+		-Dmedia=none \
 		-Dintrospection=false
+#		-Dx11-backend=false \
+#X11_MESON_TRUE=         x11-backend
+#X11_MESON_YES=          xinerama
+#X11_USE=                
+USE_XORG=		x11 xcomposite xcursor xdamage xext xfixes xi xinerama xrandr
+
 
 GLIB_SCHEMAS=   org.gtk.Settings.ColorChooser.gschema.xml \
                 org.gtk.Settings.Debug.gschema.xml \

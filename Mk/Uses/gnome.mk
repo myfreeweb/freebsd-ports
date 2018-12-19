@@ -222,8 +222,8 @@ pangox-compat_USE_GNOME_IMPL=	glib20 pango
 gdkpixbuf2_LIB_DEPENDS=	libgdk_pixbuf-2.0.so:graphics/gdk-pixbuf2
 gdkpixbuf2_USE_GNOME_IMPL=glib20
 
-gtk-update-icon-cache_BUILD_DEPENDS=	gtk-update-icon-cache:graphics/gtk-update-icon-cache
-gtk-update-icon-cache_RUN_DEPENDS=	gtk-update-icon-cache:graphics/gtk-update-icon-cache
+gtk-update-icon-cache_BUILD_DEPENDS=	gtk-update-icon-cache:misc/gtk-common
+gtk-update-icon-cache_RUN_DEPENDS=	gtk-update-icon-cache:misc/gtk-common
 gtk-update-icon-cache_USE_GNOME_IMPL=	atk pango gdkpixbuf2
 
 gtk20_LIB_DEPENDS=	libgtk-x11-2.0.so:x11-toolkits/gtk20
