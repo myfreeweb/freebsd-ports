@@ -235,7 +235,6 @@
     SUBDIR += libva-intel-driver
     SUBDIR += libva-intel-hybrid-driver
     SUBDIR += libva-intel-media-driver
-    SUBDIR += libva-mesa-dev-driver
     SUBDIR += libva-utils
     SUBDIR += libva-vdpau-driver
     SUBDIR += libvdpau
