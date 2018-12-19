@@ -3,7 +3,7 @@
 
 PORTNAME?=	svxlink
 PORTVERSION=	15.11
-PORTREVISION=	4
+PORTREVISION=	5
 CATEGORIES=	comms hamradio
 
 MAINTAINER=	hamradio@FreeBSD.org

@@ -1,6 +1,6 @@
---- test/test-libevdev-init.c.orig	2016-08-17 00:37:01 UTC
+--- test/test-libevdev-init.c.orig	2018-03-08 05:27:35 UTC
 +++ test/test-libevdev-init.c
-@@ -490,7 +490,7 @@ START_TEST(test_set_clock_id)
+@@ -577,7 +577,7 @@ START_TEST(test_set_clock_id)
  	rc = libevdev_set_clock_id(dev, CLOCK_MONOTONIC);
  	ck_assert_int_eq(rc, 0);
  

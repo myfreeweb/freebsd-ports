@@ -1,13 +1,13 @@
 # $FreeBSD$
 
 PORTNAME=	evdev-proto
-PORTVERSION=	4.16
+PORTVERSION=	4.19
 CATEGORIES=	devel
 MASTER_SITES=	https://github.com/torvalds/linux/raw/v${PORTVERSION}/include/uapi/linux/
 DISTNAME=	input.h input-event-codes.h uinput.h
 EXTRACT_SUFX=	# empty
 
-MAINTAINER=	wulf@FreeBSD.org
+MAINTAINER=	x11@FreeBSD.org
 COMMENT=	Input event device header files
 
 LICENSE=	GPLv2

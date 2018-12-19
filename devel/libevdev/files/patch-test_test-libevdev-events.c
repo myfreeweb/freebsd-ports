@@ -1,4 +1,4 @@
---- test/test-libevdev-events.c.orig	2016-08-17 00:56:04 UTC
+--- test/test-libevdev-events.c.orig	2017-05-04 00:37:30 UTC
 +++ test/test-libevdev-events.c
 @@ -1057,7 +1057,7 @@ START_TEST(test_syn_delta_late_sync)
  	} while (rc >= 0);

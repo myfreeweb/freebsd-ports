@@ -65,6 +65,7 @@
     SUBDIR += dkh
     SUBDIR += dlib-cpp
     SUBDIR += dlpoly-classic
+    SUBDIR += drawxtl
     SUBDIR += eccodes
     SUBDIR += elk
     SUBDIR += epte
@@ -94,6 +95,7 @@
     SUBDIR += gtamsanalyzer
     SUBDIR += gwyddion
     SUBDIR += h5utils
+    SUBDIR += h5z-zfp
     SUBDIR += harminv
     SUBDIR += hdf
     SUBDIR += hdf5
@@ -204,6 +206,8 @@
     SUBDIR += psychopy
     SUBDIR += pulseview
     SUBDIR += py-DendroPy
+    SUBDIR += py-GPy
+    SUBDIR += py-GPyOpt
     SUBDIR += py-PyFR
     SUBDIR += py-lifelines
     SUBDIR += py-MDAnalysis
@@ -232,6 +236,7 @@
     SUBDIR += py-obspy
     SUBDIR += py-openpiv
     SUBDIR += py-paida
+    SUBDIR += py-paramz
     SUBDIR += py-phono3py
     SUBDIR += py-phonopy
     SUBDIR += py-pupynere

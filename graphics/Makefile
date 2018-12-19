@@ -778,6 +778,7 @@
     SUBDIR += p5-Image-Math-Constrain
     SUBDIR += p5-Image-MetaData-GQview
     SUBDIR += p5-Image-MetaData-JPEG
+    SUBDIR += p5-Image-OCR-Tesseract
     SUBDIR += p5-Image-ObjectDetect
     SUBDIR += p5-Image-PBMlib
     SUBDIR += p5-Image-PNG-Libpng
@@ -968,7 +969,6 @@
     SUBDIR += py-sane
     SUBDIR += py-scikit-image
     SUBDIR += py-seqdiag
-    SUBDIR += py-sk1
     SUBDIR += py-sorl-thumbnail
     SUBDIR += py-soya3d
     SUBDIR += py-stltools
@@ -1088,6 +1088,7 @@
     SUBDIR += simage
     SUBDIR += simple-scan
     SUBDIR += simpleviewer
+    SUBDIR += sk1
     SUBDIR += sk1libs
     SUBDIR += skanlite
     SUBDIR += skanlite-kde4

@@ -1,6 +1,6 @@
---- libevdev/libevdev-uinput.c.orig	2016-08-17 00:37:01 UTC
+--- libevdev/libevdev-uinput.c.orig	2017-05-04 00:37:30 UTC
 +++ libevdev/libevdev-uinput.c
-@@ -182,6 +182,7 @@ libevdev_uinput_get_fd(const struct libe
+@@ -182,6 +182,7 @@ libevdev_uinput_get_fd(const struct libevdev_uinput *u
  	return uinput_dev->fd;
  }
  
@@ -21,7 +21,7 @@
  	struct dirent **namelist;
  	int ndev, i;
  	int rc;
-@@ -290,6 +293,16 @@ fetch_syspath_and_devnode(struct libevde
+@@ -290,6 +293,16 @@ fetch_syspath_and_devnode(struct libevdev_uinput *uinp
  	free(namelist);
  
  	return uinput_dev->devnode ? 0 : -1;
