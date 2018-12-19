@@ -111,6 +111,7 @@ How to use Weston:
 - `devel/evemu`: update
 - `audio/jack`: jack2
 - `textproc/libucl`: 0.8.1 [233383](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=233383)
+- `devel/llvm70`, `devel/llvm60`, `devel/ccls`: disable assertions [233506](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=233506)
 
 ### Ports framework
 
