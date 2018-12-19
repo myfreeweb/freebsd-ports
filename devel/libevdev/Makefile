@@ -30,13 +30,13 @@ TEST_TARGET=	check
 TEST_WRKSRC=	${WRKSRC}/test
 .endif
 
-.include <bsd.port.pre.mk>
-
+# XXX - is that about like test tests?
+#.include <bsd.port.pre.mk>
 # Do not allow clang optimize out calloc return value.
 # Otherwise queue (over)allocation test fails
-.if ${COMPILER_TYPE} == clang
-CPPFLAGS+=	-fno-builtin
-.endif
+#.if ${COMPILER_TYPE} == clang
+#CPPFLAGS+=	-fno-builtin
+#.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e '/input\.h/s,top_srcdir,LOCALBASE,g' \
@@ -48,4 +48,5 @@ post-patch:
 		${WRKSRC}/tools/touchpad-edge-detector.c \
 		${WRKSRC}/tools/libevdev-tweak-device.c
 
-.include <bsd.port.post.mk>
+#.include <bsd.port.post.mk>
+.include <bsd.port.mk>
