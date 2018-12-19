@@ -102,7 +102,7 @@ How to use Weston:
 - `java/jamvm`: update to 2.0.0 [192305](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=192305)
 - `audio/rhythmbox-plugin-{alternative-toolbar,coverart-browser,coverart-search-providers}`: Some nice Rhythmbox plugins [223137](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=223137)
 - `graphics/osg`: update to 3.6 [230442](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=230442)
-- `graphics/rawtherapee`: disable mmap (to make performance over NFS not terrible), enable LTO
+- `graphics/rawtherapee`: update to 5.5 and fix idle cpu usage [234153](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=234153), disable mmap (to make performance over NFS not terrible), enable LTO
 - `textproc/pict`: pairwise test gen tool [231407](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231407)
 - `net/libjson-rpc-cpp`: jsonrpc lib [231735](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=231735)
 - `net-p2p/ethminer` (& `devel/ethash` `devel/cli11`): OpenCL miner - previous version since latest broke Clover support; even this one only works in test/benchmark mode for me currently
