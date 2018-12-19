@@ -1,0 +1,6 @@
+include/va/va_backend_glx.h
+include/va/va_glx.h
+lib/libva-glx.so
+lib/libva-glx.so.2
+lib/libva-glx.so.2.300.0
+libdata/pkgconfig/libva-glx.pc

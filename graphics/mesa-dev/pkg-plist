@@ -41,12 +41,15 @@ lib/dri/i915_dri.so
 lib/dri/i965_dri.so
 lib/dri/kms_swrast_dri.so
 lib/dri/nouveau_dri.so
+lib/dri/nouveau_drv_video.so
 lib/dri/nouveau_vieux_dri.so
 lib/dri/r200_dri.so
 lib/dri/r300_dri.so
 lib/dri/r600_dri.so
+lib/dri/r600_drv_video.so
 lib/dri/radeon_dri.so
 lib/dri/radeonsi_dri.so
+lib/dri/radeonsi_drv_video.so
 lib/dri/swrast_dri.so
 lib/dri/virtio_gpu_dri.so
 lib/dri/vmwgfx_dri.so
@@ -86,7 +89,7 @@ lib/libvulkan_intel.so
 lib/libvulkan_radeon.so
 lib/libxatracker.so
 lib/libxatracker.so.2
-lib/libxatracker.so.2.4.0
+lib/libxatracker.so.2.5.0
 lib/vdpau/libvdpau_nouveau.so
 lib/vdpau/libvdpau_nouveau.so.1
 lib/vdpau/libvdpau_nouveau.so.1.0

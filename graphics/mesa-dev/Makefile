@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=		mesa-dev
-DISTVERSION=		18.3.0-20181030
+DISTVERSION=		18.3.2-20181216
 CATEGORIES?=		graphics
 
 MAINTAINER=	greg@unrelenting.technology
@@ -17,10 +17,11 @@ USE_LDCONFIG=	yes
 USE_XORG=	xorgproto x11 xdamage xext \
 		xfixes xshmfence xv xvmc xxf86vm xcb
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	myfreeweb
-GH_PROJECT=	mesa
-GH_TAGNAME=	bc26e3c29b
+USE_GITLAB=	yes
+GL_SITE=	https://gitlab.freedesktop.org
+GL_ACCOUNT=myfreeweb
+GL_PROJECT=	mesa
+GL_COMMIT=	6c7cbb71f8da7f17c6c634631c84743cc40148e9
 
 MESA_LLVM_VER?=	70
 
@@ -34,6 +35,7 @@ BUILD_DEPENDS=	llvm${MESA_LLVM_VER}>=5.0.0:devel/llvm${MESA_LLVM_VER} \
 LIB_DEPENDS=	libexpat.so:textproc/expat2 \
 		libdrm.so:graphics/libdrm \
 		libOpenCL.so:devel/ocl-icd \
+		libva.so:multimedia/libva \
 		libvdpau.so:multimedia/libvdpau \
 		libwayland-client.so:graphics/wayland \
 		libwayland-server.so:graphics/wayland
@@ -62,7 +64,7 @@ MESON_ARGS=	-Dglx-tls="false"\
 		-Dgallium-opencl="icd" \
 		-Dgallium-omx="disabled" \
 		-Dgallium-nine="true" \
-		-Dgallium-va="false" \
+		-Dgallium-va="true" \
 		-Dosmesa="gallium"
 
 .include <bsd.port.options.mk>

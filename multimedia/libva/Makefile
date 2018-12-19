@@ -2,7 +2,7 @@
 
 PORTNAME=	libva
 PORTVERSION=	2.3.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	multimedia
 
 MAINTAINER=	madpilot@FreeBSD.org
@@ -15,13 +15,8 @@ BUILD_DEPENDS=	${LOCALBASE}/include/linux/videodev2.h:multimedia/v4l_compat
 RUN_DEPENDS=	${LOCALBASE}/include/linux/videodev2.h:multimedia/v4l_compat
 LIB_DEPENDS=	libdrm.so:graphics/libdrm
 
-USES=		autoreconf gmake libtool localbase pkgconfig tar:bzip2
-USE_XORG=	xorgproto pciaccess x11 xext xfixes
-USE_GL=		gl
-GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--program-prefix=va
+USES=		meson localbase pkgconfig
 USE_LDCONFIG=	yes
-INSTALL_TARGET=	install-strip
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	intel
@@ -30,22 +25,26 @@ LDFLAGS+=	-lpthread
 # prevent types conflict: videodev2.h vs. drm.h
 CFLAGS+=	-DHAVE_LINUX_INTEGER_TYPES
 
-OPTIONS_DEFINE=	DEBUG WAYLAND
-OPTIONS_DEFAULT=WAYLAND
-WAYLAND_DESC=	Support wayland protocol
+OPTIONS_DEFINE?=	DEBUG X11 WAYLAND
+OPTIONS_DEFAULT=X11 WAYLAND
+WAYLAND_DESC=	Support Wayland protocol
 OPTIONS_SUB=	yes
 
-DEBUG_CFLAGS=		-D_DEBUG
-DEBUG_CFLAGS_OFF=	-DNDEBUG
+X11_MESON_YES=	with_x11
+X11_USE=	xorg=xorgproto,pciaccess,x11,xext,xfixes
 
-WAYLAND_CONFIGURE_ENABLE=	wayland
+WAYLAND_MESON_YES=	with_wayland
 WAYLAND_LIB_DEPENDS=	libwayland-client.so:graphics/wayland
 
-post-patch:	.SILENT
-	${REINPLACE_CMD} -e 's|$${libdir}/\(pkgconfig\)|${PREFIX}/libdata/\1|' \
-		${WRKSRC}/configure.ac
-	${REINPLACE_CMD} '/^export VA_HEADER_/d' \
-		${WRKSRC}/doc/Makefile.am
-	${REINPLACE_CMD} 's/-ldl//' ${WRKSRC}/va/Makefile.am
+.include <bsd.port.options.mk>
+
+.if defined(LIBVA_SLAVE) && ${LIBVA_SLAVE} == "glx"
+USES+=	gl
+LIB_DEPENDS+=	libva-x11.so:multimedia/libva
+MESON_ARGS+=	-Dwith_wayland=no \
+		-Dwith_x11=yes
+.else
+MESON_ARGS+=	-Dwith_glx=no
+.endif
 
 .include <bsd.port.mk>
