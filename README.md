@@ -63,6 +63,7 @@ How to use Weston:
 - `games/freeminer`: update, luajit 2.1 fix [226537](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226537)
 - `games/minetest`: luajit 2.1 fix, clang fixes [226541](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=226541)
 - `games/regoth`: [Gothic game engine reimplementation](https://github.com/REGoth-project/REGoth) (NOTE: [doesn't like mesa assertions which are ON in mesa-dev right now](https://bugs.archlinux.org/task/58218)) [227844](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=227844)
+- `games/dose-response`: [234269](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=234269)
 
 ### Misc
 
