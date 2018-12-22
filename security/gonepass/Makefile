@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	gonepass
-DISTVERSION=	g20180318
+DISTVERSION=	g20181221
 CATEGORIES=	security
 
 MAINTAINER=	greg@unrelenting.technology
@@ -10,12 +10,13 @@ COMMENT=	GTK+ 1Password reader
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
+USES=		cmake ssl pkgconfig
 USE_GITHUB=	yes
 GH_ACCOUNT=	jbreams
-GH_TAGNAME=	6f0bc22
-
-USES=		cmake ssl pkgconfig
+GH_TAGNAME=	3da5cfa120
 USE_GNOME=	gtk30 gtkmm30
+
+INSTALLS_ICONS=	yes
 
 PLIST_FILES=	bin/gonepass \
 		share/applications/gonepass.desktop \
