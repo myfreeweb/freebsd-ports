@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	mesen
-DISTVERSION=	0.9.5
+DISTVERSION=	0.9.7
 CATEGORIES=	emulators
 
 MAINTAINER=	greg@unrelenting.technology
@@ -9,10 +9,12 @@ COMMENT=	Cross-platform Nintendo Entertainment System (NES/Famicom) emulator
 
 LICENSE=	GPLv3
 
-# ARM/MIPS only supported on Android
+# ARM/MIPS are only supported on Android
 ONLY_FOR_ARCHS=	amd64 i386
 
-LIB_DEPENDS=	libevdev.so:devel/libevdev
+BUILD_DEPENDS=	zip:archivers/zip
+LIB_DEPENDS=	libevdev.so:devel/libevdev \
+		libgdiplus.so:x11-toolkits/libgdiplus
 
 USES=		compiler:c++14-lang gmake pkgconfig
 USE_GITHUB=	yes
@@ -35,7 +37,7 @@ MONO_ALL_TARGET=	ui
 MONO_BUILD_DEPENDS=	mono:lang/mono
 MONO_RUN_DEPENDS=	mono:lang/mono
 MONO_DESKTOP_ENTRIES=	"Mesen" "NES/Famicom Emulator" \
-			"mesen" "mesen" "emulator;Nintendo;NES;Famicom;" false
+			"${PORTNAME}" "${PORTNAME}" "emulator;Nintendo;NES;Famicom;" false
 
 LIBRETRO_ALL_TARGET=	libretro
 
