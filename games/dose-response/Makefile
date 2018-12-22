@@ -13,11 +13,11 @@ LICENSE_FILE=	${WRKSRC}/COPYING.txt
 
 LIB_DEPENDS+=	libSDL2.so:devel/sdl20
 
-USES=		cargo
+USES=		cargo gnome
 USE_GITHUB=	yes
 GH_ACCOUNT=	tryjumping
 
-CARGO_FEATURES+=sdl2/use-pkgconfig
+CARGO_FEATURES+=prod sdl2/use-pkgconfig
 
 CARGO_CRATES=	adler32-1.0.3 \
 		andrew-0.1.4 \
@@ -176,12 +176,20 @@ INSTALLS_ICONS=		yes
 DESKTOP_ENTRIES="Dose Response" "${COMMENT}" "${PORTNAME}" \
 	"${PORTNAME}" "Games;" false
 
+OPTIONS_DEFINE=	DOCS
+
 post-install:
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/dose-response
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 .for size in 16 32 48 64 256
 	@${MKDIR} ${STAGEDIR}${LOCALBASE}/share/icons/hicolor/${size}x${size}/apps
 	${INSTALL_DATA} ${WRKSRC}/assets/icon_${size}x${size}.png \
 		${STAGEDIR}${LOCALBASE}/share/icons/hicolor/${size}x${size}/apps/${PORTNAME}.png
+.endfor
+
+post-install-DOCS-on:
+	@${MKDIR} ${STAGEDIR}${DOCSDIR}
+.for f in ${PORTDOCS}
+	${INSTALL_DATA} ${WRKSRC}/${f} ${STAGEDIR}${DOCSDIR}
 .endfor
 
 .include <bsd.port.mk>
