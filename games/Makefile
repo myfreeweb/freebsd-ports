@@ -225,6 +225,7 @@
     SUBDIR += doomlegacy
     SUBDIR += doomsday
     SUBDIR += dopewars
+    SUBDIR += dose-response
     SUBDIR += drcreep
     SUBDIR += drm
     SUBDIR += duckmaze
