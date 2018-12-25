@@ -4,7 +4,7 @@
 PORTNAME=	ninja
 PORTVERSION=	1.8.2
 DISTVERSIONPREFIX=	v
-PORTEPOCH=	2
+PORTEPOCH=	3
 CATEGORIES=	devel
 
 MAINTAINER=	gblach@FreeBSD.org
@@ -22,7 +22,11 @@ USES=		python
 PLIST_FILES=	bin/ninja
 PORTDOCS=	HACKING.md README manual.asciidoc
 
-OPTIONS_DEFINE=	DOCS
+OPTIONS_DEFINE=		DOCS BASH ZSH
+OPTIONS_DEFAULT=	BASH ZSH
+
+BASH_PLIST_FILES=	share/bash-completion/completions/ninja
+ZSH_PLIST_FILES=	share/zsh/site-functions/_ninja
 
 post-patch:
 	@${REINPLACE_CMD} "s/'-g', //" ${WRKSRC}/configure.py
@@ -37,6 +41,16 @@ do-install:
 	(cd ${WRKSRC} && \
 	    ${INSTALL_DATA} HACKING.md README doc/manual.asciidoc \
 	    ${STAGEDIR}${DOCSDIR})
+
+do-install-BASH-on:
+	@${MKDIR} ${STAGEDIR}${PREFIX}/share/bash-completion/completions/
+	${INSTALL_DATA} ${WRKSRC}/misc/bash-completion \
+		${STAGEDIR}${PREFIX}/share/bash-completion/completions/ninja
+
+do-install-ZSH-on:
+	@${MKDIR} ${STAGEDIR}${PREFIX}/share/zsh/site-functions
+	${INSTALL_DATA} ${WRKSRC}/misc/zsh-completion \
+		${STAGEDIR}${PREFIX}/share/zsh/site-functions/_ninja
 
 do-test: build
 	cd ${WRKSRC} && ./ninja ninja_test && ./ninja_test
