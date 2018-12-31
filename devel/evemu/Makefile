@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	evemu
-PORTVERSION=	2.6.0
-PORTREVISION=	3
+PORTVERSION=	2.7.0
 CATEGORIES=	devel
 MASTER_SITES=	http://www.freedesktop.org/software/${PORTNAME}/
 

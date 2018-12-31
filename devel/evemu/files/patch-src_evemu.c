@@ -1,6 +1,6 @@
---- src/evemu.c.orig	2016-11-08 09:43:24 UTC
+--- src/evemu.c.orig	2017-06-02 08:02:09 UTC
 +++ src/evemu.c
-@@ -456,16 +456,13 @@ int evemu_write(const struct evemu_devic
+@@ -456,15 +456,12 @@ int evemu_write(const struct evemu_device *dev, FILE *
  static int parse_name(struct evemu_device *dev, const char *line)
  {
  	int matched;
@@ -12,10 +12,9 @@
  		if (strlen(evemu_get_name(dev)) == 0)
  			evemu_set_name(dev, devname);
  	}
- 
+-
 -	if (devname != NULL)
 -		free(devname);
--
+
  	if (matched <= 0)
  		error(FATAL, "Expected device name, but got: %s", line);
- 
