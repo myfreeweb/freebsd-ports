@@ -175,6 +175,7 @@
     SUBDIR += xhomer
     SUBDIR += xsystem35
     SUBDIR += xzx
+    SUBDIR += yuzu
     SUBDIR += zsnes
 
 .include <bsd.port.subdir.mk>

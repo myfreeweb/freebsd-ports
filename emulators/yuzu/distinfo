@@ -1,0 +1,17 @@
+TIMESTAMP = 1532456599
+SHA256 (yuzu-emu-yuzu-s20180724-316c994f_GH0.tar.gz) = 98555f5fef7b670ca84984ade309694a0234a52f4d4b227ef414e9199d8f54f9
+SIZE (yuzu-emu-yuzu-s20180724-316c994f_GH0.tar.gz) = 936540
+SHA256 (MerryMage-dynarmic-fc6b73bd_GH0.tar.gz) = 3cc19aa64df5582aafcb0f4ec56a17a901eb24075b33c5f0ab104922678162cc
+SIZE (MerryMage-dynarmic-fc6b73bd_GH0.tar.gz) = 1399326
+SHA256 (benhoyt-inih-r40_GH0.tar.gz) = 0a7d8600c523ccd2d01a5bec2ef3a6482ada49794e67cf694d2bec796cb2c340
+SIZE (benhoyt-inih-r40_GH0.tar.gz) = 11436
+SHA256 (catchorg-Catch2-v2.2.3_GH0.tar.gz) = 45e5e12cc5a98e098b0960d70c0d99b7168b711e85fb947dcd4d68ec3f8b8826
+SIZE (catchorg-Catch2-v2.2.3_GH0.tar.gz) = 503700
+SHA256 (fmtlib-fmt-5.1.0_GH0.tar.gz) = 73d4cab4fa8a3482643d8703de4d9522d7a56981c938eca42d929106ff474b44
+SIZE (fmtlib-fmt-5.1.0_GH0.tar.gz) = 641502
+SHA256 (lz4-lz4-v1.8.2_GH0.tar.gz) = 0963fbe9ee90acd1d15e9f09e826eaaf8ea0312e854803caf2db0a6dd40f4464
+SIZE (lz4-lz4-v1.8.2_GH0.tar.gz) = 320742
+SHA256 (yuzu-emu-unicorn-73f4573_GH0.tar.gz) = 23fe9a3f1d4618fad8b03eca85658c03d6430dd10faecff50fd7baeb894293fe
+SIZE (yuzu-emu-unicorn-73f4573_GH0.tar.gz) = 3295450
+SHA256 (herumi-xbyak-v5.65_GH0.tar.gz) = b88b29ab2bd1addfa5de005b81cf77d6b4397954c75ff54c724e9b6b39a24fd6
+SIZE (herumi-xbyak-v5.65_GH0.tar.gz) = 212313
