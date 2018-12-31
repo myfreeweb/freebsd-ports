@@ -22,6 +22,7 @@
     SUBDIR += py-speech-dispatcher
     SUBDIR += qt5-speech
     SUBDIR += redshift
+    SUBDIR += redshift-wlr
     SUBDIR += rubygem-atk
     SUBDIR += sct
     SUBDIR += sctd
