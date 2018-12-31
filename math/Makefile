@@ -457,6 +457,7 @@
     SUBDIR += muparser
     SUBDIR += muparserx
     SUBDIR += nanoflann
+    SUBDIR += nasc
     SUBDIR += nauty
     SUBDIR += ndiff
     SUBDIR += newmat

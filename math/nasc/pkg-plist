@@ -1,0 +1,17 @@
+bin/nasc
+lib/libqalculatenasc.so
+share/applications/com.github.parnold-x.nasc.desktop
+share/icons/hicolor/128x128/apps/com.github.parnold-x.nasc.svg
+share/icons/hicolor/16x16/apps/com.github.parnold-x.nasc.svg
+share/icons/hicolor/24x24/apps/com.github.parnold-x.nasc.svg
+share/icons/hicolor/32x32/apps/com.github.parnold-x.nasc.svg
+share/icons/hicolor/48x48/apps/com.github.parnold-x.nasc.svg
+share/icons/hicolor/64x64/apps/com.github.parnold-x.nasc.svg
+share/metainfo/com.github.parnold-x.nasc.appdata.xml
+share/qalculate/styles/def.lang
+share/qalculate/styles/language.dtd
+share/qalculate/styles/language.rng
+share/qalculate/styles/language2.rng
+share/qalculate/styles/nasc.lang
+share/qalculate/styles/nasc.xml
+share/qalculate/styles/styles.rng

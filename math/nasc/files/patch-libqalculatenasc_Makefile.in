@@ -1,0 +1,32 @@
+--- libqalculatenasc/Makefile.in.orig	2017-09-28 09:09:25 UTC
++++ libqalculatenasc/Makefile.in
+@@ -1,8 +1,6 @@
+-CC = g++
+-LIBTOOL = ./libtool
++CC? = c++
+ DEBUG = -g
+ CFLAGS = -std=c++11 -fPIC -O3 -c $(DEBUG)
+-LFLAGS = --tag=CXX --mode=link g++ -shared
+
+ BINDIR=@exedir@
+ MANDIR=@mandir@
+@@ -10,16 +8,16 @@ LIBDIR=@libdir@
+ INCDIR=@prefix@/include/
+
+ libqalculatenasc.so : QalculateNasc.o
+-	$(LIBTOOL) $(LFLAGS) QalculateNasc.o -o libqalculatenasc.so -lqalculate
++	$(CC) -shared QalculateNasc.o -o libqalculatenasc.so `pkg-config --libs libqalculate`
+
+ QalculateNasc.o : QalculateNasc.h QalculateNasc.cc
+-	$(CC) $(CFLAGS) QalculateNasc.cc
++	$(CC) $(CFLAGS) QalculateNasc.cc `pkg-config --cflags libqalculate`
+
+ all: libqalculatenasc.so
+
+ clean:
+	\rm -f QalculateNasc.o libqalculatenasc.so
+
+-install:
++install: libqalculatenasc.so
+	install libqalculatenasc.so $(LIBDIR)
+	install QalculateNasc.h $(LIBDIR)
