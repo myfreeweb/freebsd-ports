@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	abiword
-PORTVERSION=	3.0.1
-PORTREVISION=	14
+PORTVERSION=	3.0.2
 CATEGORIES=	editors
 MASTER_SITES=	http://www.abisource.com/downloads/abiword/${PORTVERSION}/source/
 DIST_SUBDIR=	AbiWord
@@ -19,14 +18,24 @@ LIB_DEPENDS=	libboost_system.so:devel/boost-libs \
 		libpng.so:graphics/png \
 		libwv.so:textproc/wv \
 		libfribidi.so:converters/fribidi \
-		libgoffice-0.10.so:devel/goffice010
+		libgoffice-0.10.so:devel/goffice010 \
+		libdbus-1.so:devel/dbus \
+		libgpg-error.so:security/libgpg-error \
+		libraptor2.so:textproc/raptor2 \
+		librasqal.so:textproc/rasqal \
+		libfontconfig.so:x11-fonts/fontconfig \
+		libicalss.so:devel/libical \
+		libfreetype.so:print/freetype2 \
+		librdf.so:textproc/redland \
+		libwmf.so:graphics/libwmf
 RUN_DEPENDS=	${LOCALBASE}/share/fonts/dejavu/DejaVuSerif.ttf:x11-fonts/dejavu
 
-USES=		compiler:c++11-lang desktop-file-utils gmake gnome iconv jpeg \
-		libtool pathfix pkgconfig
-USE_GNOME=	libxml2 gtk30 librsvg2 libxslt
+USES=		desktop-file-utils gmake iconv jpeg libtool pathfix pkgconfig
+USE_GNOME=	cairo libxml2 gtk30 librsvg2 libxslt
+USE_XORG+=	x11
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
+CXXFLAGS+=	-std=c++98
 LDFLAGS+=	-L${LOCALBASE}/lib
 CONFIGURE_ARGS=	--without-gnomevfs --enable-plugins="${ABIWORD_PLUGINS}" \
 		--enable-shared="yes" --enable-static="no"
@@ -36,7 +45,7 @@ INSTALL_TARGET=	install-strip
 
 PLIST_SUB+=	ABIVERSION=3.0
 
-OPTIONS_DEFINE=	CLIPART DEBUG MATHVIEW NLS PSION \
+OPTIONS_DEFINE=	CLIPART DEBUG MATHVIEW NLS OTS PSION \
 		TEMPLATES WP
 OPTIONS_DEFAULT=CLIPART COLSERVICE COLSUGAR COLTCP SPELLCHECK TEMPLATES
 OPTIONS_SUB=	yes
@@ -57,6 +66,7 @@ COLXMPP_DESC=		Collaborate with the Jabber/XMPP backend
 DICT_DESC=		Spelling and grammar checking
 GRAMMAR_DESC=		Grammar checking plugin
 MATHVIEW_DESC=		MathML render plugin
+OTS_DESC=		Text Summarizer plugin
 PSION_DESC=		Psion 5(MX) files convertion plugin
 SPELLCHECK_DESC=	Spell checking support
 TEMPLATES_DESC=		Include additional templates
@@ -110,6 +120,8 @@ MATHVIEW_LIB_DEPENDS=		libmathview.so:x11-toolkits/gtkmathview
 NLS_USES=			gettext
 NLS_CONFIGURE_ENABLE=		nls
 
+OTS_LIB_DEPENDS=		libots-1.so:textproc/ots
+
 PSION_LIB_DEPENDS=		libpsiconv.so:converters/psiconv
 
 SPELLCHECK_LIB_DEPENDS=		libenchant.so:textproc/enchant
@@ -137,6 +149,10 @@ ABIWORD_PLUGINS+=	grammar
 
 .if ${PORT_OPTIONS:MMATHVIEW}
 ABIWORD_PLUGINS+=	mathview
+.endif
+
+.if ${PORT_OPTIONS:MOTS}
+ABIWORD_PLUGINS+=	ots
 .endif
 
 .if ${PORT_OPTIONS:MPSION}
