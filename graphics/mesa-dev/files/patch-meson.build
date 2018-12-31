@@ -1,0 +1,11 @@
+--- meson.build.orig	2019-08-09 21:16:16 UTC
++++ meson.build
+@@ -1298,7 +1298,7 @@ endif
+ if (with_amd_vk or with_gallium_radeonsi or with_gallium_opencl or
+     (with_gallium_r600 and with_llvm))
+   dep_elf = dependency('libelf', required : false)
+-  if not dep_elf.found()
++  if not dep_elf.found() or host_machine.system() == 'freebsd'
+     dep_elf = cc.find_library('elf')
+   endif
+ else
