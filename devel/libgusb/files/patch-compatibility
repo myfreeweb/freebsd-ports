@@ -1,0 +1,356 @@
+From 039aa01c99676b873c1f5b33437846c1d4679525 Mon Sep 17 00:00:00 2001
+From: Ting-Wei Lan <lantw@src.gnome.org>
+Date: Tue, 19 Dec 2017 02:32:09 +0800
+Subject: [PATCH 1/4] Lower version requirement on FreeBSD
+
+FreeBSD is not a supported platform of libusb. The native USB access
+library on FreeBSD is libusb20, which provides both the non-portable
+FreeBSD-specific API and wrapper functions that are mostly compatible
+with libusb 1.0 API. It is an integral part of FreeBSD and the version
+included in the oldest supported FreeBSD release reports 1.0.9 in its
+libusb-1.0.pc.
+---
+ meson.build | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index 0c7ba1b..aabb4ba 100644
+--- meson.build.orig
++++ meson.build
+@@ -89,8 +89,14 @@ add_global_link_arguments(
+   language: 'c'
+ )
+
++if host_machine.system() == 'freebsd'
++  libusb_version = '>= 1.0.9'
++else
++  libusb_version = '>= 1.0.19'
++endif
++
+ libgio = dependency('gio-2.0', version : '>= 2.44.0')
+-libusb = dependency('libusb-1.0', version : '>= 1.0.19')
++libusb = dependency('libusb-1.0', version : libusb_version)
+
+ gnome = import('gnome')
+
+
+From 04b640e047dde1297bd5d4d073b47193214e4b82 Mon Sep 17 00:00:00 2001
+From: Ting-Wei Lan <lantw@src.gnome.org>
+Date: Tue, 19 Dec 2017 02:52:37 +0800
+Subject: [PATCH 2/4] Avoid using libusb_has_capability on FreeBSD
+
+FreeBSD doesn't implement this function, so we simply assume hotplug
+support is always available on FreeBSD.
+---
+ gusb/gusb-context.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/gusb/gusb-context.c b/gusb/gusb-context.c
+index 4882c43..d583bc6 100644
+--- gusb/gusb-context.c.orig
++++ gusb/gusb-context.c
+@@ -456,6 +456,7 @@ g_usb_context_rescan (GUsbContext *context)
+	libusb_free_device_list (dev_list, 1);
+ }
+
++#ifndef __FreeBSD__
+ static gboolean
+ g_usb_context_rescan_cb (gpointer user_data)
+ {
+@@ -463,6 +464,7 @@ g_usb_context_rescan_cb (gpointer user_data)
+	g_usb_context_rescan (context);
+	return TRUE;
+ }
++#endif
+
+
+ /**
+@@ -528,12 +530,14 @@ g_usb_context_enumerate (GUsbContext *context)
+		return;
+
+	g_usb_context_rescan (context);
++#ifndef __FreeBSD__
+	if (!libusb_has_capability (LIBUSB_CAP_HAS_HOTPLUG)) {
+		g_debug ("platform does not do hotplug, using polling");
+		priv->hotplug_poll_id = g_timeout_add_seconds (1,
+							       g_usb_context_rescan_cb,
+							       context);
+	}
++#endif
+	priv->done_enumerate = TRUE;
+ }
+
+@@ -624,7 +628,9 @@ g_usb_context_initable_init (GInitable     *initable,
+	                                   context);
+
+	/* watch for add/remove */
++#ifndef __FreeBSD__
+	if (libusb_has_capability (LIBUSB_CAP_HAS_HOTPLUG)) {
++#endif
+		rc = libusb_hotplug_register_callback (priv->ctx,
+		                                       LIBUSB_HOTPLUG_EVENT_DEVICE_ARRIVED |
+		                                       LIBUSB_HOTPLUG_EVENT_DEVICE_LEFT,
+@@ -639,7 +645,9 @@ g_usb_context_initable_init (GInitable     *initable,
+			g_warning ("Error creating a hotplug callback: %s",
+			           g_usb_strerror (rc));
+		}
++#ifndef __FreeBSD__
+	}
++#endif
+
+	return TRUE;
+ }
+
+From d7b05d146d2209f0e3590c01d370eb1d4c0c51d9 Mon Sep 17 00:00:00 2001
+From: Ting-Wei Lan <lantw@src.gnome.org>
+Date: Tue, 19 Dec 2017 02:57:07 +0800
+Subject: [PATCH 3/4] Simplify platform ID building and provide fallback for
+ libusb_get_parent
+
+FreeBSD doesn't have libusb_get_parent. Fortunately, we can find the
+parent device manually using the bus number and port numbers. However,
+calling libusb_get_port_numbers on FreeBSD requires calling libusb_open
+because it needs an open file descriptor to do ioctls.
+
+To avoid making system calls every time we need to know the parent
+device, g_usb_device_initable_init calls libusb_get_port_numbers and
+store the list of port numbers in GUsbDevice itself. When we need the
+parent device, we can call g_usb_context_get_devices to get the list of
+all devices and check the bus number and port numbers. It is still
+slower than storing a parent pointer in the object itself, which is what
+libusb on Linux currently does, but I think the number of USB devices is
+usually small so the performance impact can be ignored.
+
+This change also simplifies the process of platform ID building. Since
+getting the parent requires the list of all devices on FreeBSD, we are
+no longer able to call it during the initialization of GUsbDevice.
+Therefore, we simply construct the platform ID from tne bus number and
+port numbers, which is the same as what the code intended to do.
+
+Note that this commit does change the value of platform ID. It is
+actually a bug fix because the condition 'str->len == 0' in
+g_usb_device_build_platform_id_cb could not be true and the port number,
+which is always zero because it is unavailable on root hubs, is used
+instead of the bus number. This means the platform ID was always started
+with 'usb:00' and it was not unique on the same host.
+---
+ gusb/gusb-device.c | 95 +++++++++++++++++++++++++++++++++++++++++-------------
+ 1 file changed, 73 insertions(+), 22 deletions(-)
+
+diff --git a/gusb/gusb-device.c b/gusb/gusb-device.c
+index d6477e6..192b71c 100644
+--- gusb/gusb-device.c.orig
++++ gusb/gusb-device.c
+@@ -51,6 +51,7 @@ struct _GUsbDevicePrivate
+	GUsbContext		*context;
+	libusb_device		*device;
+	libusb_device_handle	*handle;
++	GArray                  *port_numbers;
+	struct libusb_device_descriptor desc;
+ };
+
+@@ -97,6 +98,7 @@ g_usb_device_dispose (GObject *object)
+	GUsbDevice *device = G_USB_DEVICE (object);
+	GUsbDevicePrivate *priv = device->priv;
+
++	g_clear_pointer (&priv->port_numbers, g_array_unref);
+	g_clear_pointer (&priv->device, libusb_unref_device);
+	g_clear_object (&priv->context);
+
+@@ -215,30 +217,20 @@ g_usb_device_init (GUsbDevice *device)
+	device->priv = g_usb_device_get_instance_private (device);
+ }
+
+-static void
+-g_usb_device_build_platform_id_cb (GString *str, libusb_device *dev)
+-{
+-	libusb_device *parent;
+-	parent = libusb_get_parent (dev);
+-	if (parent != NULL)
+-		g_usb_device_build_platform_id_cb (str, parent);
+-	if (str->len == 0) {
+-		g_string_append_printf (str, "%02x:",
+-					libusb_get_bus_number (dev));
+-	}
+-	g_string_append_printf (str, "%02x:",
+-				libusb_get_port_number (dev));
+-}
+-
+ static gchar *
+-g_usb_device_build_platform_id (struct libusb_device *dev)
++g_usb_device_build_platform_id (GUsbDevice *device)
+ {
++	GUsbDevicePrivate *priv = device->priv;
+	GString *platform_id;
++	guint i;
+
+	/* build a topology of the device */
+-	platform_id = g_string_new ("usb:");
+-	g_usb_device_build_platform_id_cb (platform_id, dev);
+-	g_string_truncate (platform_id, platform_id->len - 1);
++	platform_id = g_string_new ("usb");
++	g_string_append_printf (platform_id, ":%02x",
++				libusb_get_bus_number (priv->device));
++	for (i = 0; i < priv->port_numbers->len; i++)
++		g_string_append_printf (platform_id, ":%02x",
++					g_array_index (priv->port_numbers, guint8, i));
+	return g_string_free (platform_id, FALSE);
+ }
+
+@@ -269,8 +261,32 @@ g_usb_device_initable_init (GInitable     *initable,
+		return FALSE;
+	}
+
++	/* Store port number values to ease parent device finding on FreeBSD.
++	 * FreeBSD's libusb requires a device to be opened before calling
++	 * libusb_get_port_numbers because it needs the fd to call ioctl. */
++#define PORT_NUMBER_MAX 64
++	priv->port_numbers = g_array_new (FALSE, FALSE, sizeof (guint8));
++#ifdef __FreeBSD__
++	g_return_val_if_fail (priv->handle == NULL, FALSE);
++	if (libusb_open (priv->device, &priv->handle) == LIBUSB_SUCCESS) {
++#endif
++		guint8 ports[PORT_NUMBER_MAX];
++		gint port_count;
++		port_count = libusb_get_port_numbers (priv->device, ports,
++						      PORT_NUMBER_MAX);
++		if (port_count > 0) {
++			g_array_set_size (priv->port_numbers, port_count);
++			memcpy (priv->port_numbers->data, ports, port_count);
++		}
++#ifdef __FreeBSD__
++		libusb_close (priv->handle);
++		priv->handle = NULL;
++	}
++#endif
++#undef PORT_NUMBER_MAX
++
+	/* this does not change on plug->unplug->plug */
+-	priv->platform_id = g_usb_device_build_platform_id (priv->device);
++	priv->platform_id = g_usb_device_build_platform_id (device);
+
+	return TRUE;
+ }
+@@ -1567,6 +1583,41 @@ g_usb_device_get_platform_id (GUsbDevice *device)
+	return device->priv->platform_id;
+ }
+
++static libusb_device *
++g_usb_device_get_parent_libusb_device (GUsbDevice *device)
++{
++#ifdef __FreeBSD__
++	GPtrArray *devices = NULL;
++	GUsbDevice *device_tmp;
++	gboolean found = FALSE;
++	guint i;
++
++	if (device->priv->port_numbers->len == 0)
++		return NULL;
++
++	devices = g_usb_context_get_devices (device->priv->context);
++	for (i = 0; devices->len; i++) {
++		device_tmp = g_ptr_array_index (devices, i);
++		if (g_usb_device_get_bus (device) ==
++		    g_usb_device_get_bus (device_tmp) &&
++		    device->priv->port_numbers->len - 1 ==
++		    device_tmp->priv->port_numbers->len &&
++		    memcmp (device->priv->port_numbers->data,
++			    device_tmp->priv->port_numbers->data,
++			    device_tmp->priv->port_numbers->len) == 0) {
++			found = TRUE;
++			break;
++		}
++	}
++
++	g_ptr_array_unref (devices);
++
++	return found ? device_tmp->priv->device : NULL;
++#else
++	return libusb_get_parent (device->priv->device);
++#endif
++}
++
+ /**
+  * g_usb_device_get_parent:
+  * @device: a #GUsbDevice instance
+@@ -1583,7 +1634,7 @@ g_usb_device_get_parent (GUsbDevice *device)
+	GUsbDevicePrivate *priv = device->priv;
+	libusb_device *parent;
+
+-	parent = libusb_get_parent (priv->device);
++	parent = g_usb_device_get_parent_libusb_device (device);
+	if (parent == NULL)
+		return NULL;
+
+@@ -1617,7 +1668,7 @@ g_usb_device_get_children (GUsbDevice *device)
+	devices = g_usb_context_get_devices (priv->context);
+	for (i = 0; i < devices->len; i++) {
+		device_tmp = g_ptr_array_index (devices, i);
+-		if (priv->device == libusb_get_parent (device_tmp->priv->device))
++		if (priv->device == g_usb_device_get_parent_libusb_device (device_tmp))
+			g_ptr_array_add (children, g_object_ref (device_tmp));
+	}
+
+
+From 36a792f8f420a15d537e994a14e361d1016db318 Mon Sep 17 00:00:00 2001
+From: Ting-Wei Lan <lantw@src.gnome.org>
+Date: Tue, 19 Dec 2017 13:52:13 +0800
+Subject: [PATCH 4/4] Root hubs on FreeBSD have vid and pid set to zero
+
+This doesn't really make the test work on FreeBSD. You still have to
+comment out g_object_unref calls or it will hang in g_usb_context_dispose.
+
+The first problem is that libusb_handle_events never returns. It polls
+on an internal pipe called 'ctrl_pipe' with default timeout -1. It can
+only be unblocked by opening or closing a device, or doing some data
+transfer works. Even if we replace libusb_handle_events with the new
+libusb_handle_events_timeout_completed function, it can still hang for
+several seconds, depending on the timeout we specify.
+
+The second problem is that libusb_exit can block for up to 4 seconds.
+When libusb_hotplug_register_callback is called, it starts a thread
+which sleep 4 seconds before doing any work. libusb_exit waits for the
+thread and there is no way to interrupt the sleep.
+---
+ gusb/gusb-self-test.c | 21 +++++++++++++++++----
+ 1 file changed, 17 insertions(+), 4 deletions(-)
+
+diff --git a/gusb/gusb-self-test.c b/gusb/gusb-self-test.c
+index 7556dd1..21a972e 100644
+--- gusb/gusb-self-test.c.orig
++++ gusb/gusb-self-test.c
+@@ -46,8 +46,15 @@ gusb_device_func (void)
+	g_assert_cmpint (array->len, >, 0);
+	device = G_USB_DEVICE (g_ptr_array_index (array, 0));
+
+-	g_assert_cmpint (g_usb_device_get_vid (device), >, 0x0000);
+-	g_assert_cmpint (g_usb_device_get_pid (device), >, 0x0000);
++	/* Root hubs on FreeBSD have vid and pid set to zero */
++#ifdef __FreeBSD__
++	if (g_usb_device_get_parent (device) != NULL) {
++#endif
++		g_assert_cmpint (g_usb_device_get_vid (device), >, 0x0000);
++		g_assert_cmpint (g_usb_device_get_pid (device), >, 0x0000);
++#ifdef __FreeBSD__
++	}
++#endif
+
+	g_ptr_array_unref (array);
+ }
+@@ -102,8 +109,14 @@ gusb_context_func (void)
+	for (i = 0; i < array->len; i++) {
+		device = G_USB_DEVICE (g_ptr_array_index (array, i));
+
+-		g_assert_cmpint (g_usb_device_get_vid (device), >, 0x0000);
+-		g_assert_cmpint (g_usb_device_get_pid (device), >, 0x0000);
++#ifdef __FreeBSD__
++		if (g_usb_device_get_parent (device) != NULL) {
++#endif
++			g_assert_cmpint (g_usb_device_get_vid (device), >, 0x0000);
++			g_assert_cmpint (g_usb_device_get_pid (device), >, 0x0000);
++#ifdef __FreeBSD__
++		}
++#endif
+
+		/* Needed for g_usb_device_get_string_descriptor below,
+		   not error checked to allow running basic tests without
