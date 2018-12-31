@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	libinput
-PORTVERSION=	1.12.1
+PORTVERSION=	1.12.4
 CATEGORIES=	x11
 MASTER_SITES=	http://freedesktop.org/software/${PORTNAME}/
 
@@ -26,12 +26,12 @@ DEBUG_GUI_DESC=	Build the GUI event viewer
 LIBWACOM_DESC=	Libwacom support
 
 DEBUG_GUI_USES=		gnome
-DEBUG_GUI_USE=		GNOME=gtk30,glib20,cairo
+DEBUG_GUI_USE=		GNOME=gtk30,glib20,cairo,gdkpixbuf2
 DEBUG_GUI_MESON_TRUE=	debug-gui
 LIBWACOM_LIB_DEPENDS=	libwacom.so:x11/libwacom
 LIBWACOM_MESON_TRUE=	libwacom
 
-USES=			localbase meson pkgconfig python:3.4+,run shebangfix tar:xz
+USES=			localbase meson pkgconfig python:3.5+,run shebangfix tar:xz
 USE_LDCONFIG=		yes
 
 MESON_ARGS+=	-Ddocumentation=false -Dtests=false
