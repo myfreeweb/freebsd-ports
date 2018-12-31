@@ -1,0 +1,13 @@
+You need data files from Heroes of Might and Magic III. You can find them in
+any of the following:
+* one or two CD's or CD images
+* gog.com installer
+* directory with installed game
+
+Run the script using options appropriate to your input files:
+
+vcmibuilder --cd1 /path/to/iso/or/cd --cd2 /path/to/second/cd
+vcmibuilder --gog /path/to/gog.com/installer
+vcmibuilder --data /path/to/h3/data
+
+You should use only one of these commands.
