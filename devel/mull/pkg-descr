@@ -1,0 +1,7 @@
+Mull is a mutation testing system built on top of LLVM.
+
+Mutation testing is a technique for evaluating quality of software tests, which
+works by running the test suite on generated modified versions of the program
+called "mutants" and checking whether the tests still pass.
+
+WWW: https://github.com/mull-project/mull
