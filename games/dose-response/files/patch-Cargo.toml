@@ -1,0 +1,39 @@
+- glium backend adds a lot of duplicate (old versions) dependencies
+- do not use bundled SDL2
+
+--- Cargo.toml.orig	2018-12-22 11:33:58 UTC
++++ Cargo.toml
+@@ -23,7 +23,6 @@ bitflags = "1.0"
+ clap = { version = "2.20.1", optional = true }
+ chrono = { version = "0.4.0", optional = true }
+ gl = { version = "0.10", optional = true }
+-glium = { version = "0.22", optional = true }
+ glutin = { version = "0.19.0", optional = true }
+ image = { version = "0.20", optional = true }
+ line_drawing = "0.7"
+@@ -31,7 +30,7 @@ log = "0.4.1"
+ num-rational = { version = "0.2.1", default-features = false, features = ["serde"] }
+ rand = { version = "0.6", features = ["serde1"] }
+ rand_isaac = "0.1.0"
+-sdl2 = { version = "0.31.0", features = ["bundled"], optional = true }
++sdl2 = { version = "0.31.0", features = [], optional = true }
+ serde = "1.0"
+ serde_derive = "1.0"
+ serde_json = "1.0"
+@@ -50,7 +49,7 @@ winres = "0.1"
+
+ [features]
+ default = ["dev"]
+-prod = ["cli", "fullscreen", "glium-backend", "sdl-backend"]
++prod = ["cli", "fullscreen", "sdl-backend"]
+ dev = ["prod", "cheating", "replay", "glutin-backend", "stats", "verifications"]
+ recording = ["prod", "replay"]
+ # TODO: add a "trailer" feature for the gameplay (not UI) changes under "recording"?
+@@ -59,7 +58,6 @@ recording = ["prod", "replay"]
+ cheating = []
+ cli = ["clap", "simplelog"]
+ fullscreen = []
+-glium-backend = ["glium", "image"]
+ glutin-backend = ["glutin", "gl", "image"]
+ remote = ["zmq"]
+ replay = ["chrono"]
