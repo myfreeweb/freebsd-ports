@@ -1,5 +1,11 @@
-TIMESTAMP = 1508253424
-SHA256 (solvespace-solvespace-v2.3_GH0.tar.gz) = 0fdd4ccf81ac0b0efbb6373ae66260aaf6b8f434952c5c44739362093f59fcd7
-SIZE (solvespace-solvespace-v2.3_GH0.tar.gz) = 2115940
-SHA256 (solvespace-libdxfrw-8f95895_GH0.tar.gz) = d39a07d00b9590be5f2ac7e468cb97077e029498d0e2e5ccfc8d5bbc9e494ba4
-SIZE (solvespace-libdxfrw-8f95895_GH0.tar.gz) = 691378
+TIMESTAMP = 1595351475
+SHA256 (solvespace-solvespace-v2.1.rc1-739-g188b2e2_GH0.tar.gz) = e8ff2fb258360b5e2925245fed37cdb445bd5e00be2bfc447af7e49aa782e685
+SIZE (solvespace-solvespace-v2.1.rc1-739-g188b2e2_GH0.tar.gz) = 2707891
+SHA256 (solvespace-libdxfrw-03fa5f30f_GH0.tar.gz) = 72dc9b73cdc7ff61e6316fbe3693b10cd0f9f110aed79a5a1205461b31ceef8d
+SIZE (solvespace-libdxfrw-03fa5f30f_GH0.tar.gz) = 691576
+SHA256 (q3k-q3d-880db1d3_GH0.tar.gz) = d30ef12adc56fc31f6c3fe912bc58c81f397d377fb12f830fcd6872841246280
+SIZE (q3k-q3d-880db1d3_GH0.tar.gz) = 3263
+SHA256 (microsoft-mimalloc-07c6e60a_GH0.tar.gz) = ce87e323710b87332c7ba71812b101a11abf26594f10977f94e760b7359649a9
+SIZE (microsoft-mimalloc-07c6e60a_GH0.tar.gz) = 645095
+SHA256 (google-flatbuffers-f73d205b_GH0.tar.gz) = 93ddc9a8b5ad01b0c9493d05ea2bc9bf4a1b31324afdc81b84c5f39a39887372
+SIZE (google-flatbuffers-f73d205b_GH0.tar.gz) = 1144505
