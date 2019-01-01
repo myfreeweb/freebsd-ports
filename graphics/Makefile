@@ -335,6 +335,7 @@
     SUBDIR += guilib
     SUBDIR += gwenview
     SUBDIR += hdr_tools
+    SUBDIR += hdrmerge
     SUBDIR += hiptext
     SUBDIR += hobbes-icons-xpm
     SUBDIR += hppsmtools

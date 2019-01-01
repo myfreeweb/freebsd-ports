@@ -1,0 +1,23 @@
+xdg-desktop-menu seems to hang on grepping, install these manually
+
+--- CMakeLists.txt.orig	2018-05-13 15:28:25 UTC
++++ CMakeLists.txt
+@@ -333,18 +333,10 @@ else()
+     endif()
+     message(STATUS "Install binary to: " ${CMAKE_INSTALL_BINDIR})
+     install(TARGETS hdrmerge DESTINATION ${CMAKE_INSTALL_BINDIR})
+-    find_program(XDG-DESKTOP-MENU_EXECUTABLE xdg-desktop-menu)
+-    find_program(XDG-ICON-RESOURCE_EXECUTABLE xdg-icon-resource)
+-    if(XDG-DESKTOP-MENU_EXECUTABLE AND XDG-ICON-RESOURCE_EXECUTABLE)
+         configure_file(
+             "${PROJECT_SOURCE_DIR}/data/hdrmerge.desktop"
+             "${PROJECT_BINARY_DIR}/hdrmerge.desktop"
+         )
+-        install(CODE "
+-            execute_process(COMMAND \"${XDG-ICON-RESOURCE_EXECUTABLE}\" install --novendor --size 128 \"${PROJECT_SOURCE_DIR}/data/images/icon.png\" hdrmerge-icon)
+-            execute_process(COMMAND \"${XDG-DESKTOP-MENU_EXECUTABLE}\" install --novendor \"${PROJECT_BINARY_DIR}/hdrmerge.desktop\")"
+-        )
+-    endif()
+ endif()
+
+ if(Boost_FOUND)
