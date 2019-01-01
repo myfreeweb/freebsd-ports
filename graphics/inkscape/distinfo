@@ -1,3 +1,5 @@
-TIMESTAMP = 1557601550
-SHA256 (inkscape-0.92.4.tar.bz2) = 57ec2da8177b36614a513e2822efd73af721e690f7ddc6bd0a5fbb1525b4515e
-SIZE (inkscape-0.92.4.tar.bz2) = 31929728
+TIMESTAMP = 1555163755
+SHA256 (inkscape-1.0alpha.tar.bz2) = 96c40badc61453ff7cf49099c09d3cc3ceff60991f9f0c0b1f0a603e63caf212
+SIZE (inkscape-1.0alpha.tar.bz2) = 30428442
+SHA256 (inkscape-extensions-962aaed9c92965739493da981f6e80062b572358_GL0.tar.gz) = 3f90c6391031a6a46cde2b6e82ff13e38a00725c4bba4a743a950fe41f745c16
+SIZE (inkscape-extensions-962aaed9c92965739493da981f6e80062b572358_GL0.tar.gz) = 980024
