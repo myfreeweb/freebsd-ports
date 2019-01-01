@@ -2,14 +2,13 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-calculator
-PORTVERSION=	3.28.2
-PORTREVISION=	2
+PORTVERSION=	3.32.2
 CATEGORIES=	math gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
-COMMENT=	GNOME 3 calculator tool
+COMMENT=	GNOME calculator tool
 
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
@@ -24,7 +23,9 @@ PORTSCOUT=	limitw:1,even
 
 USES=		compiler:c11 gettext gnome localbase:ldflags meson \
 		pkgconfig python:3.6+,build tar:xz
-USE_GNOME=	gtksourceview3 libxml2
+USE_GNOME=	gtksourceview4 libxml2
+
+INSTALLS_ICONS=	yes
 BINARY_ALIAS=	python3=${PYTHON_VERSION}
 
 GLIB_SCHEMAS=	org.gnome.calculator.gschema.xml
