@@ -1,0 +1,13 @@
+--- CMakeLists.txt.orig	2019-01-01 19:45:04 UTC
++++ CMakeLists.txt
+@@ -121,10 +121,6 @@ endfunction(glslang_set_link_args)
+ # We depend on these for later projects, so they should come first.
+ add_subdirectory(External)
+
+-if(NOT TARGET SPIRV-Tools-opt)
+-    set(ENABLE_OPT OFF)
+-endif()
+-
+ if(ENABLE_OPT)
+     message(STATUS "optimizer enabled")
+     add_definitions(-DENABLE_OPT=1)
