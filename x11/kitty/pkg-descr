@@ -1,0 +1,14 @@
+A terminal emulator that uses OpenGL for offloading rendering to the GPU
+and threaded rendering to minimize input latency.
+
+- Supports all modern terminal features, tiling multiple terminal windows.
+- Can be controlled from scripts or the shell prompt, even over SSH.
+- Has a framework for kittens, small terminal programs that can be used to
+extend kitty’s functionality. For example, Unicode input and URL hints.
+- Supports startup sessions which allow you to specify the window/tab
+layout, working directories and programs to run on startup.
+- Allows you to open the scrollback buffer in a separate window using
+arbitrary programs of your choice. This is useful for browsing the
+history comfortably in a pager or editor.
+
+WWW: https://github.com/kovidgoyal/kitty
