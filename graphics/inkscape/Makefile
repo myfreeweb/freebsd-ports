@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	inkscape
-PORTVERSION=	0.92.4
-PORTREVISION=	11
+DISTVERSION=	1.0alpha
 CATEGORIES=	graphics gnome
-MASTER_SITES=	https://media.inkscape.org/dl/resources/file/
+MASTER_SITES=	https://inkscape.org/gallery/item/13331/
+DISTFILES=	${PORTNAME}-${DISTVERSION}${EXTRACT_SUFX}
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Full featured open source SVG editor
@@ -14,39 +14,45 @@ LICENSE=	GPLv2+ GPLv3+ LGPL21 MPL11
 LICENSE_COMB=	multi
 LICENSE_FILE_GPLv2+ =	${WRKSRC}/GPL2.txt
 LICENSE_FILE_GPLv3+ =	${WRKSRC}/GPL3.txt
-LICENSE_FILE_LGPL21=	${WRKSRC}/LGPL2.1.txt
 
 BUILD_DEPENDS=	${LOCALBASE}/include/boost/concept_check.hpp:devel/boost-libs
 LIB_DEPENDS=	libpopt.so:devel/popt \
 		libgc.so:devel/boehm-gc \
+		libgdl-3.so:x11-toolkits/gdl \
 		libgsl.so:math/gsl \
-		libgtkspell.so:textproc/gtkspell \
+		libgtkspell3-3.so:textproc/gtkspell3 \
 		liblcms2.so:graphics/lcms2 \
 		libfribidi.so:converters/fribidi \
 		libaspell.so:textproc/aspell \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
+		libharfbuzz.so:print/harfbuzz \
 		libpotrace.so:graphics/libpotrace \
 		libpng.so:graphics/png \
-		libMagick++-6.so:graphics/ImageMagick6
-RUN_DEPENDS=	${PYNUMPY} \
-		${PYTHON_PKGNAMEPREFIX}lxml>0:devel/py-lxml@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}scour>0:textproc/py-scour@${PY_FLAVOR}
+		libMagick++-6.so:graphics/ImageMagick6 \
+		libsoup-2.4.so:devel/libsoup \
+		libenchant-2.so:textproc/enchant2 \
+		libyaml.so:textproc/libyaml
 
 USES=		compiler:c++11-lib cmake cpe desktop-file-utils gnome \
 		iconv:wchar_t jpeg pathfix pkgconfig python:2.7 \
 		shebangfix tar:bzip2 xorg
-USE_GNOME=	gtkmm24 libxml2 libxslt
-USE_XORG=	x11
-INSTALLS_ICONS=	yes
-CMAKE_ARGS+=	-DWITH_GNOME_VFS:BOOL=NO
+USE_GNOME=	gtkmm30 gvfs libxml2 libxslt
+USE_XORG=	x11 sm ice xext # XXX
 
-SHEBANG_FILES=	cxxtest/cxxtestgen.pl share/extensions/*.p[lm] \
-		share/extensions/*.py share/extensions/genpofiles.sh \
-		fix-roff-punct
+INSTALLS_ICONS=	yes
+
+USE_GITLAB=	nodefault
+GL_TUPLE=	${PORTNAME}:extensions:962aaed9c92965739493da981f6e80062b572358:extensions/share/extensions
+
+python_CMD?=	${LOCALBASE}/bin/python2
+SHEBANG_FILES=	share/extensions/*.py share/extensions/genpofiles.sh \
+								share/templates/create_defaults.pl man/fix-roff-punct
 
 OPTIONS_DEFINE=	POPPLER VISIO CDR DBUS WPG
-OPTIONS_DEFAULT=POPPLER VISIO CDR WPG
+OPTIONS_DEFAULT=POPPLER VISIO CDR WPG GM
+OPTIONS_SINGLE=		IMAGICK
+OPTIONS_SINGLE_IMAGICK=	IMAGICK6 GM
 OPTIONS_SUB=	yes
 
 CDR_DESC=		Support for CorelDRAW diagrams
@@ -77,6 +83,13 @@ WPG_DESC=		Support for WordPerfect graphics
 WPG_CMAKE_BOOL=		WITH_LIBWPG
 WPG_LIB_DEPENDS=	libwpg-0.3.so:graphics/libwpg03
 
+IMAGICK_DESC=		Raster image format library
+IMAGICK6_DESC=	Use ImageMagick6
+IMAGICK6_LIB_DEPENDS=	libMagick++-6.so:graphics/ImageMagick6
+GM_DESC=	Use GraphicsMagick
+GM_LIB_DEPENDS=		libGraphicsMagick.so:graphics/GraphicsMagick
+GM_CMAKE_OFF=	WITH_IMAGE_MAGICK
+
 # temporary until the build works for the !NLS case
 USES+=			gettext
 #NLS_CMAKE_BOOL=		WITH_NLS
@@ -85,14 +98,10 @@ USES+=			gettext
 post-patch:
 	@${REINPLACE_CMD} -e 's|COMMAND python|COMMAND ${PYTHON_VERSION}|g' \
 		${WRKSRC}/share/*/CMakeLists.txt
-	# Third entry in the table of interpreters is basename of executable
-	@${REINPLACE_CMD} -e 's|python|${PYTHON_VERSION}|3' \
-		${WRKSRC}/src/extension/implementation/script.cpp
-	# Obtained from Arch Linux
-	@${REINPLACE_CMD} -e 's|gTrue|true|g' -e 's|gFalse|false|g' -e 's|GBool|bool|g' \
-		${WRKSRC}/src/extension/internal/pdfinput/pdf-parser.*
-	# Fix with poppler 0.73
-	@${REINPLACE_CMD} -E '/#include "goo\/gtypes.h"/d' \
-		${WRKSRC}/src/extension/internal/pdfinput/pdf-parser.h
+	@${REINPLACE_CMD} -e 's|web-set-att|web_set_att|g' \
+		${WRKSRC}/po/*
+	@${REINPLACE_CMD} -e 's|web-transmit-att|web_transmit_att|g' \
+		${WRKSRC}/po/*
+	@${TOUCH} ${WRKSRC}/share/extensions/gcodetools_check_for_updates.inx.h
 
 .include <bsd.port.mk>
