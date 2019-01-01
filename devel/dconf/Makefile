@@ -2,11 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	dconf
-PORTVERSION=	0.28.0
+PORTVERSION=	0.32.0
 CATEGORIES=	devel gnome
 MASTER_SITES=	GNOME
 DISTNAME=	dconf-${PORTVERSION}
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Configuration database system for GNOME
@@ -25,17 +25,8 @@ USE_GNOME=	glib20 libxslt:build
 USE_LDCONFIG=	yes
 BINARY_ALIAS=	python3=${PYTHON_VERSION}
 
-MESON_ARGS=	-Denable-man=true
-
-post-patch:
-	@${REINPLACE_CMD} -e 's|/etc/|${PREFIX}/etc/|g' \
-		-e 's|"/etc"|"${PREFIX}/etc"|g' \
-		${WRKSRC}/docs/dconf-overview.xml \
-		${WRKSRC}/engine/dconf-engine.c \
-		${WRKSRC}/engine/dconf-engine-profile.c \
-		${WRKSRC}/engine/dconf-engine-source-system.c \
-		${WRKSRC}/bin/dconf-update.vala \
-		${WRKSRC}/tests/engine.c
+MESON_ARGS=	-Dman=true \
+		-Dbash_completion=false
 
 post-install:
 	@${MKDIR} ${STAGEDIR}${PREFIX}/etc/dconf/db
