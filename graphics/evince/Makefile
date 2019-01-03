@@ -2,14 +2,13 @@
 # $FreeBSD$
 
 PORTNAME=	evince
-PORTVERSION=	3.28.5
-PORTREVISION=	9
+PORTVERSION=	3.32.0
 CATEGORIES=	graphics print gnome
 MASTER_SITES=	GNOME
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
-COMMENT?=	GNOME 3 multi-format document viewer
+COMMENT?=	GNOME multi-format document viewer
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
@@ -56,8 +55,8 @@ GLIB_SCHEMAS=	org.gnome.Evince.gschema.xml
 PLIST_SUB=	VERSION=3.0
 
 OPTIONS_SUB=	yes
-OPTIONS_DEFINE=	COMICS DBUS DJVU DVI KEYRING NAUTILUS T1LIB XPS
-OPTIONS_DEFAULT=COMICS DBUS DJVU KEYRING NAUTILUS XPS
+OPTIONS_DEFINE=	COMICS DBUS DJVU DVI KEYRING NAUTILUS GSPELL T1LIB XPS
+OPTIONS_DEFAULT=COMICS DBUS DJVU KEYRING NAUTILUS GSPELL XPS
 
 COMICS_DESC=			Comic book archives support
 COMICS_CONFIGURE_ENABLE=	comics
@@ -72,6 +71,11 @@ DBUS_LIB_DEPENDS=	libdbus-1.so:devel/dbus
 DVI_DESC=		DVI viewer support
 DVI_USE=		tex=latex,kpathsea
 DVI_CONFIGURE_ENABLE=	dvi
+
+GSPELL_DESC=		Spell checking via gspell
+GSPELL_CONFIGURE_WITH=	gspell
+GSPELL_LIB_DEPENDS=	libenchant-2.so:textproc/enchant2 \
+			libgspell-1.so:textproc/gspell
 
 KEYRING_DESC=			Keyring support
 KEYRING_LIB_DEPENDS=		libsecret-1.so:security/libsecret
