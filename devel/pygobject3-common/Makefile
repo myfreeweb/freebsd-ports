@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	gobject
-PORTVERSION=	3.28.3
+PORTVERSION=	3.32.2
 PORTREVISION=	0
 CATEGORIES=	devel python
 MASTER_SITES=	GNOME/sources/pygobject/${PORTVERSION:C/^([0-9]+\.[0-9]+).*/\1/}
@@ -12,16 +12,14 @@ DISTNAME=	pygobject-${PORTVERSION}
 DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
-COMMENT=	Common files for the Python bindings for GObject
+COMMENT?=	Common files for the Python bindings for GObject
 
 LICENSE=	LGPL21
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 SLAVE_PORT?=	no
 
-USES=		gmake libtool pathfix pkgconfig tar:xz
-GNU_CONFIGURE=	yes
-INSTALL_TARGET=	install-strip
+USES=		meson pkgconfig tar:xz
 
 # this port doesn't work with py-gobject < 2.28.6_2, clungle below
 CONFLICTS=	py*-gtk-0* py*-gobject-2.*.[0-6] py*-gobject-2.*.[7-9] \
@@ -31,7 +29,10 @@ PLIST_SUB=	ARCH=${ARCH} UNAME_R=${UNAME_R} VERSION=${PORTVERSION} \
 		OPSYS=${OPSYS:tl} UNAME_M=${UNAME_M}
 
 # Override PYTHON_VERSION from DEPENDS_ARGS
-MAKE_ARGS=	PYTHON_VERSION=${PYTHON_VER}
+# ????
+#MAKE_ARGS=	PYTHON_VERSION=${PYTHON_VER}
+
+BINARY_ALIAS=	python3=${PYTHON_CMD}
 
 .if ${SLAVE_PORT} == no
 PORTSCOUT?=	limitw:1,even
@@ -45,7 +46,7 @@ do-install:
 	@${MKDIR} ${STAGEDIR}${PREFIX}/include/pygobject-3.0/
 	${INSTALL_DATA} ${WRKSRC}/gi/pygobject.h \
 		${STAGEDIR}${PREFIX}/include/pygobject-3.0/pygobject.h
-	${INSTALL_DATA} ${WRKSRC}/pygobject-3.0.pc \
+	${INSTALL_DATA} ${WRKSRC}/_build/pygobject-3.0.pc \
 		${STAGEDIR}${PREFIX}/libdata/pkgconfig/pygobject-3.0.pc
 .else
 PORTSCOUT=	ignore:1
@@ -58,6 +59,7 @@ RUN_DEPENDS+=	pygobject3-common>=0:devel/pygobject3-common
 .if ${SLAVE_PORT} == python
 USES+=		python
 USE_PYTHON=	flavors py3kplist
+MESON_ARGS+=	-Dpython=${PYTHON_VERSION}
 BUILD_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}cairo>=0:graphics/py-cairo@${PY_FLAVOR}
 RUN_DEPENDS+=	${PYTHON_PKGNAMEPREFIX}cairo>=0:graphics/py-cairo@${PY_FLAVOR}
 .endif
