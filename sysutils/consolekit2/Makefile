@@ -16,11 +16,14 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libdbus-1.so:devel/dbus \
-		libpolkit-gobject-1.so:sysutils/polkit
+		libpolkit-gobject-1.so:sysutils/polkit \
+		libdrm.so:graphics/libdrm \
+		libevdev.so:devel/libevdev \
+		libudev.so:devel/libudev-devd
 
 WRKSRC=		${WRKDIR}/ConsoleKit2-${PORTVERSION}
 USES=		gettext gmake gnome libtool localbase pathfix pkgconfig \
-		tar:bzip2 xorg
+		tar:bzip2
 USE_CSTD=	gnu99
 USE_XORG=	x11
 USE_GNOME=	glib20 libxslt introspection:build
@@ -32,12 +35,12 @@ CONFIGURE_ARGS=	--with-pid-file=/var/run/${PORTNAME}.pid \
 		--localstatedir=/var \
 		--enable-polkit \
 		--enable-introspection \
+		--enable-libdrm \
+		--enable-libevdev \
+		--enable-libudev \
 		--without-html-dir \
 		--disable-udev-acl \
 		--disable-libcgmanager \
-		--disable-libdrm \
-		--disable-libevdev \
-		--disable-libudev \
 		--without-systemdsystemunitdir
 INSTALL_TARGET=	install-strip
 
