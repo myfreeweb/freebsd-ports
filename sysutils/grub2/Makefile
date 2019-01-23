@@ -2,8 +2,8 @@
 # $FreeBSD$
 
 PORTNAME=	grub2
-PORTVERSION=	2.00
-PORTREVISION=	14
+PORTVERSION=	2.02
+PORTREVISION=	15
 CATEGORIES=	sysutils
 MASTER_SITES=	GNU/grub
 DISTNAME=	grub-${PORTVERSION}
@@ -24,8 +24,10 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/flex:textproc/flex \
 		help2man:misc/help2man
 RUN_DEPENDS=	gsed:textproc/gsed
 
-USES=		autoreconf bison cpe gettext gmake tar:xz
-USE_GCC=	7	# Fails to build with GCC 8, cf. PR 232961, or clang
+WRKSRC=		${WRKDIR}/grub-${PORTVERSION}
+
+USES=		autoreconf:build bison cpe gettext gmake tar:xz
+USE_GCC=	yes
 
 GNU_CONFIGURE=	yes
 INFO=		grub grub-dev
@@ -35,7 +37,7 @@ SSP_UNSAFE=	yes
 CPE_PRODUCT=	grub
 CPE_VENDOR=	gnu
 
-CONFIGURE_ARGS=	--disable-werror --localedir=${PREFIX}/share/locale
+CONFIGURE_ARGS=	--disable-werror --localedir=${PREFIX}/share/locale --disable-efiemu
 CONFIGURE_ENV=	CPP="${CC} -E" \
 		LEX=${LOCALBASE}/bin/flex
 
@@ -65,6 +67,10 @@ post-patch:
 	@${REINPLACE_CMD} -e '/[^auU]sed/ s,sed,gsed,g' ${WRKSRC}/util/grub.d/*.in \
 		${WRKSRC}/util/*.in ${WRKSRC}/util/i386/efi/grub-dumpdevtree \
 		${WRKSRC}/util/bash-completion.d/grub-completion.bash.in
+
+pre-configure:
+	@${REINPLACE_CMD} -e 's|\\${PYTHON}|${PYTHON_CMD}|g' ${WRKSRC}/autogen.sh
+	cd ${WRKSRC} && ./autogen.sh
 
 post-configure:
 	@${LN} -sfh /usr/include/machine /usr/include/sys /usr/include/x86 \
