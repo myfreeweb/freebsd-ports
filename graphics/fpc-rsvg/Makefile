@@ -17,6 +17,6 @@ OPTIONS_DEFINE=	LIBRSVG2
 LIBRSVG2_DESC=	Install librsvg2 library
 OPTIONS_DEFAULT=	LIBRSVG2
 
-LIBRSVG2_LIB_DEPENDS=	librsvg-2.so:graphics/librsvg2
+LIBRSVG2_LIB_DEPENDS=	librsvg-2.so:graphics/librsvg2-rust
 
 .include "${MASTERDIR}/Makefile"

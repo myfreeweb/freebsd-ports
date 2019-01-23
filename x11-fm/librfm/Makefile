@@ -16,7 +16,7 @@ BUILD_DEPENDS=	gawk:lang/gawk
 LIB_DEPENDS=	libtubo.so:x11-fm/libtubo \
 		libdbh.so:databases/dbh \
 		libzip.so:archivers/libzip \
-		librsvg-2.so:graphics/librsvg2 \
+		librsvg-2.so:graphics/librsvg2-rust \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2
 

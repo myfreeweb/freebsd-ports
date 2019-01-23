@@ -284,7 +284,7 @@ LIBBLURAY_LIB_DEPENDS=	libbluray.so:multimedia/libbluray
 LIBBLURAY_CONFIGURE_ENABLE=	libbluray
 
 # librsvg
-LIBRSVG2_LIB_DEPENDS=	librsvg-2.so:graphics/librsvg2
+LIBRSVG2_LIB_DEPENDS=	librsvg-2.so:graphics/librsvg2-rust
 LIBRSVG2_CONFIGURE_ENABLE=	librsvg
 
 # libxml

@@ -68,7 +68,7 @@ PLIST_SUB+=	CORE="@comment " GUI="" GUICORE="@comment "
 
 .if ${PORT_OPTIONS:MGUI}
 BUILD_DEPENDS+=	${LOCALBASE}/lib/ocaml/site-lib/lablgtk2/lablrsvg.cma:x11-toolkits/ocaml-lablgtk2
-LIB_DEPENDS+=	librsvg-2.so:graphics/librsvg2
+LIB_DEPENDS+=	librsvg-2.so:graphics/librsvg2-rust
 
 CONFIGURE_ARGS+=--enable-gui=newgui2
 # we don't need lablgtk as RUN dependency, but we need gtk+glib

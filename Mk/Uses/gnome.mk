@@ -271,7 +271,7 @@ vte_USE_GNOME_IMPL=	gtk20
 vte3_LIB_DEPENDS=	libvte-2.91.so:x11-toolkits/vte3
 vte3_USE_GNOME_IMPL=	gtk30
 
-librsvg2_LIB_DEPENDS=	librsvg-2.so:graphics/librsvg2
+librsvg2_LIB_DEPENDS=	librsvg-2.so:graphics/librsvg2-rust
 librsvg2_USE_GNOME_IMPL=libgsf gdkpixbuf2 pango
 
 nautilus3_LIB_DEPENDS=	libnautilus-extension.so:x11-fm/nautilus

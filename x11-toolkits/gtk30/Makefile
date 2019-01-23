@@ -27,12 +27,11 @@ LIB_DEPENDS=	libepoxy.so:graphics/libepoxy \
 RUN_DEPENDS+=	hicolor-icon-theme>=0:misc/hicolor-icon-theme \
 		adwaita-icon-theme>=0:x11-themes/adwaita-icon-theme \
 		at-spi2-atk>=0:accessibility/at-spi2-atk \
-		librsvg2>=0:graphics/librsvg2
 
 USE_PERL5=	build
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-USE_GNOME=	atk cairo gdkpixbuf2 introspection:build pango
+USE_GNOME=	atk cairo gdkpixbuf2 introspection:build pango librsvg2
 USES=		compiler:c11 gettext gmake gnome libtool localbase \
 		pathfix perl5 pkgconfig tar:xz
 USE_XORG=	xext xrender x11 xinerama xi xrandr xcursor xfixes xdamage \
