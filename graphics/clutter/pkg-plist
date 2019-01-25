@@ -135,6 +135,7 @@ include/clutter-1.0/clutter/egl/clutter-egl-headers.h
 include/clutter-1.0/clutter/egl/clutter-egl.h
 include/clutter-1.0/clutter/glx/clutter-glx-texture-pixmap.h
 include/clutter-1.0/clutter/glx/clutter-glx.h
+include/clutter-1.0/clutter/wayland/clutter-wayland.h
 include/clutter-1.0/clutter/x11/clutter-x11-texture-pixmap.h
 include/clutter-1.0/clutter/x11/clutter-x11.h
 lib/girepository-1.0/Cally-1.0.typelib
@@ -150,6 +151,7 @@ libdata/pkgconfig/clutter-1.0.pc
 libdata/pkgconfig/clutter-cogl-1.0.pc
 libdata/pkgconfig/clutter-egl-1.0.pc
 libdata/pkgconfig/clutter-glx-1.0.pc
+libdata/pkgconfig/clutter-wayland-1.0.pc
 libdata/pkgconfig/clutter-x11-1.0.pc
 share/gir-1.0/Cally-1.0.gir
 share/gir-1.0/Clutter-1.0.gir
