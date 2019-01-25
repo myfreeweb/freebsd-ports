@@ -67,6 +67,8 @@ include/cogl/cogl/cogl-types.h
 include/cogl/cogl/cogl-vector.h
 include/cogl/cogl/cogl-version.h
 include/cogl/cogl/cogl-vertex-buffer.h
+include/cogl/cogl/cogl-wayland-client.h
+include/cogl/cogl/cogl-wayland-renderer.h
 include/cogl/cogl/cogl-xlib-renderer.h
 include/cogl/cogl/cogl-xlib.h
 include/cogl/cogl/cogl.h
