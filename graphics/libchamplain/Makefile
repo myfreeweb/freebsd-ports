@@ -15,11 +15,13 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 LIB_DEPENDS=	libcogl.so:graphics/cogl \
 		libclutter-1.0.so:graphics/clutter \
 		libclutter-gtk-1.0.so:graphics/clutter-gtk3 \
+		libwayland-egl.so:graphics/wayland \
+		libxkbcommon.so:x11/libxkbcommon \
 		libjson-glib-1.0.so:devel/json-glib \
 		libsoup-2.4.so:devel/libsoup
 
 USES=		gettext-runtime gl gmake gnome libtool localbase pathfix \
-		pkgconfig sqlite tar:xz xorg
+		pkgconfig sqlite tar:xz
 USE_GNOME=	cairo gdkpixbuf2 gtk30 introspection:build
 USE_GL=		egl
 USE_XORG=	x11 xcomposite xdamage xext xfixes xi xrandr
