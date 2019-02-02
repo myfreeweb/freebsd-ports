@@ -419,7 +419,7 @@
          return DRM_BUS_VIRTIO;
  
      return -EINVAL;
--#elif defined(__OpenBSD__)
+-#elif defined(__OpenBSD__) || defined(__DragonFly__)
 +#elif defined(__OpenBSD__) || defined(__FreeBSD__) || defined(__FreeBSD_kernel__) || defined(__DragonFly__)
      return DRM_BUS_PCI;
  #else
