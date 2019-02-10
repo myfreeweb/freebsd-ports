@@ -1,10 +1,10 @@
 # $FreeBSD$
 
 PORTNAME=	jsonrpc-glib
-PORTVERSION=	3.28.1
-PORTREVISION=	1
+PORTVERSION=	3.32.0
 CATEGORIES=	devel
 MASTER_SITES=	GNOME
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Library to communicate using the JSON-RPC 2.0 specification
