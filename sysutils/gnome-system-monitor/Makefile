@@ -2,14 +2,13 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-system-monitor
-PORTVERSION=	3.28.2
-PORTREVISION=	2
+PORTVERSION=	3.32.1
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
-COMMENT=	GNOME 3 system monitor program
+COMMENT=	GNOME system monitor program
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
@@ -19,13 +18,14 @@ LIB_DEPENDS=	libgtop-2.0.so:devel/libgtop
 
 PORTSCOUT=	limitw:1,even
 
-USES=		alias compiler:c++11-lang gettext gmake localbase pathfix pkgconfig tar:xz
+USES=		alias compiler:c++11-lang gettext gnome localbase \
+		meson pkgconfig python:3.5+,build tar:xz
 USE_CXXSTD=	c++11
 USE_GNOME=	gtkmm30 intlhack librsvg2 libxml2
-USE_GNOME+=	glib20
-GNU_CONFIGURE=	yes
 INSTALL_TARGET=	install-strip
-CONFIGURE_ARGS=	--disable-systemd
+MESON_ARGS=	-Dsystemd=false
+
+BINARY_ALIAS=	python3=${PYTHON_VERSION}
 
 GLIB_SCHEMAS=	org.gnome.gnome-system-monitor.enums.xml \
 		org.gnome.gnome-system-monitor.gschema.xml

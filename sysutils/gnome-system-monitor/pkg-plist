@@ -342,6 +342,8 @@ share/help/sv/gnome-system-monitor/process-status.page
 share/help/sv/gnome-system-monitor/process-update-speed.page
 share/help/sv/gnome-system-monitor/solaris-mode.page
 share/help/sv/gnome-system-monitor/units.page
+share/icons/hicolor/scalable/apps/org.gnome.SystemMonitor.svg
+share/icons/hicolor/symbolic/apps/org.gnome.SystemMonitor-symbolic.svg
 share/locale/am/LC_MESSAGES/gnome-system-monitor.mo
 share/locale/an/LC_MESSAGES/gnome-system-monitor.mo
 share/locale/ar/LC_MESSAGES/gnome-system-monitor.mo
