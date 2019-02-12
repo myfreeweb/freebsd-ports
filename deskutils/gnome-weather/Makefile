@@ -2,16 +2,16 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-weather
-PORTVERSION=	3.26.0
+PORTVERSION=	3.32.2
 CATEGORIES=	deskutils gnome
 MASTER_SITES=	GNOME
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
-COMMENT=	Weather application for GNOME 3
+COMMENT=	Weather application for GNOME
 
 LICENSE=	GPLv2
-LICENSE_FILE=	${WRKSRC}/COPYING
+LICENSE_FILE=	${WRKSRC}/COPYING.md
 
 LIB_DEPENDS=	libgweather-3.so:net/libgweather \
 		libgeoclue-2.so:net/geoclue \
@@ -19,12 +19,13 @@ LIB_DEPENDS=	libgweather-3.so:net/libgweather \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome libtool localbase pathfix pkgconfig tar:xz
+USES=		gettext gnome localbase meson pkgconfig python:3.5+,build tar:xz
 USE_GNOME=	gtk30 intltool
 USE_LDCONFIG=	yes
-GNU_CONFIGURE=	yes
 INSTALLS_ICONS=	yes
 
-GLIB_SCHEMAS=	org.gnome.Weather.Application.gschema.xml
+BINARY_ALIAS=	python3=${PYTHON_VERSION}
+
+GLIB_SCHEMAS=	org.gnome.Weather.gschema.xml
 
 .include <bsd.port.mk>
