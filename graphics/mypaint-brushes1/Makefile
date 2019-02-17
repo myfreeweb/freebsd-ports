@@ -1,9 +1,10 @@
 # $FreeBSD$
 
 PORTNAME=	mypaint-brushes
-PORTVERSION=	2.0.1
+PORTVERSION=	1.3.0
 DISTVERSIONPREFIX=v
 CATEGORIES=	graphics
+PKGNAMESUFFIX=1
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Brushes used by MyPaint and other software using libmypaint
@@ -16,6 +17,6 @@ GNU_CONFIGURE=	yes
 
 USE_GITHUB=yes
 
-GH_ACCOUNT=	mypaint
+GH_ACCOUNT=	jehan
 
 .include <bsd.port.mk>

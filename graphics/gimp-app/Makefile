@@ -17,7 +17,7 @@ LICENSE_COMB=	multi
 
 BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes \
 		glib-networking>=0:net/glib-networking \
-		mypaint-brushes>0:graphics/mypaint-brushes
+		mypaint-brushes1>0:graphics/mypaint-brushes1
 LIB_DEPENDS=	libpng.so:graphics/png \
 		libtiff.so:graphics/tiff \
 		libasound.so:audio/alsa-lib \
@@ -29,11 +29,11 @@ LIB_DEPENDS=	libpng.so:graphics/png \
 		libpoppler-glib.so:graphics/poppler-glib \
 		libgexiv2.so:graphics/gexiv2 \
 		libjson-c.so:devel/json-c \
-		libmypaint.so:graphics/libmypaint \
+		libmypaint.so:graphics/libmypaint1 \
 		libfreetype.so:print/freetype2
 RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/iso-codes.pc:misc/iso-codes \
 		glib-networking>=0:net/glib-networking \
-		mypaint-brushes>0:graphics/mypaint-brushes
+		mypaint-brushes1>0:graphics/mypaint-brushes1
 
 LIB_DEPENDS+=	libjson-glib-1.0.so:devel/json-glib \
 		${LIB_DEPENDS_${ARCH}}
