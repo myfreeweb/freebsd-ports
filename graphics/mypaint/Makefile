@@ -2,55 +2,41 @@
 # $FreeBSD$
 
 PORTNAME=	mypaint
-PORTVERSION=	1.2.1
-PORTREVISION=	7
+DISTVERSIONPREFIX=v
+DISTVERSION=	2.0.0-alpha.8
 CATEGORIES=	graphics
-MASTER_SITES=	https://github.com/mypaint/mypaint/releases/download/${PORTVERSION:S/^/v/}/
 
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Fast painting/scribbling program
 
-LICENSE=	GPLv2+ ISCL
-LICENSE_COMB=	multi
-LICENSE_FILE_GPLv2+ =	${WRKSRC}/COPYING
-LICENSE_FILE_ISCL=	${WRKSRC}/brushlib/COPYING
+LICENSE=	GPLv2+
+LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	swig3.0:devel/swig30 \
 		${PYNUMPY}
 LIB_DEPENDS=	libjson-c.so:devel/json-c \
-		liblcms2.so:graphics/lcms2
+		liblcms2.so:graphics/lcms2 \
+		libpng16.so:graphics/png \
+		libomp.so:devel/openmp \
+		libmypaint-2.0.so:graphics/libmypaint
 RUN_DEPENDS=	${PYNUMPY}
 
 # XXX Embed RPATH via USES=fortran for py-numpy to load libgcc_s.so from ports
-USES=		desktop-file-utils fortran gettext gnome localbase \
-		pkgconfig python:2.7 scons tar:xz
+USES=		compiler:openmp desktop-file-utils fortran gettext gnome localbase \
+		pkgconfig python:3.6+ tar:xz
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	mypaint
+
 BINARY_ALIAS=	swig=swig3.0
-USE_GNOME=	gtk30 pygobject3 librsvg2:run
+USE_GNOME=	gtk30 pygobject3 cairo librsvg2:run
+USE_PYTHON=	distutils py3kplist
 CFLAGS+=	${CFLAGS_${CHOSEN_COMPILER_TYPE}}
 CFLAGS_gcc=	-std=c99
-MAKE_ARGS=	prefix=${PREFIX} \
-		enable_profiling=False \
-		use_sharedlib=True \
-		python_binary="${PYTHON_CMD}" \
-		python_config="${PYTHON_CMD}-config"
-INSTALL_TARGET=	${STAGEDIR} --install-sandbox=${STAGEDIR}
 USE_LDCONFIG=	yes
 INSTALLS_ICONS=	yes
 
-OPTIONS_DEFINE=		GEGL OPENMP
-OPTIONS_DEFAULT=	OPENMP
-OPTIONS_SUB=		yes
-
-GEGL_DESC=		Graph based image processing framework support
-GEGL_LIB_DEPENDS=	libgegl-0.4.so:graphics/gegl
-GEGL_MAKE_ARGS=		enable_gegl=True
-
-OPENMP_USES=		compiler:openmp
-OPENMP_USES_OFF=	compiler # XXX ports/199603
-OPENMP_MAKE_ARGS_OFF=	enable_openmp=False
-
 post-install:
-	${INSTALL_LIB} ${WRKSRC}/brushlib/libmypaint*.so ${STAGEDIR}${PREFIX}/lib
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/mypaint/_mypaintlib.so
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/mypaint/lib/_mypaintlib.so
 
 .include <bsd.port.mk>
