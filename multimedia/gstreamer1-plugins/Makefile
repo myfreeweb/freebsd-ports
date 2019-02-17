@@ -41,6 +41,7 @@ UGLY_DISTFILE=		${UGLY_DISTNAME}${EXTRACT_SUFX}
 DIST?=		base
 
 USES+=		gettext gmake gnome libtool pathfix pkgconfig python tar:xz
+USES+=		autoreconf # wayland xdg-shell patch
 WANT_GSTREAMER=	yes
 USE_GNOME+=	glib20 introspection:build libxml2
 GNU_CONFIGURE=	yes
@@ -170,15 +171,50 @@ post-patch:
 	  s|$$(top_builddir)/gst-libs/gst/video/libgstbadvideo-$$(GST_API_VERSION).la|-lgstbadvideo-${VERSION}|'
 .endif
 
+post-configure:
 .if ${DIST} == bad
 # Disable X11 support in librfb
-post-configure:
 	@${REINPLACE_CMD} -e 's|HAVE_X11 = yes|HAVE_X11 = no|g' \
 		-e 's|#ifdef HAVE_X11|#ifdef NO_X11|g' \
 		-e 's|$$(X11_CFLAGS) \\|\\|g' \
 		-e 's|$$(X11_LIBS) \\|\\|g' \
 		${WRKSRC}/gst/librfb/Makefile \
 		${WRKSRC}/gst/librfb/gstrfbsrc.c
+.endif
+.if ${DIST} != ugly
+	@${FIND} ${WRKSRC}/ext ${WRKSRC}/sys \
+	-name Makefile.in | ${XARGS} -n 10 ${REINPLACE_CMD} -e \
+	'/la_DEPENDENCIES/,/am__DEPENDENCIES/s,$$(top_builddir)/gst-libs/.*.la,,' -e \
+	's|$$(top_builddir)/gst-libs/gst/tag/libgsttag-@GST_API_VERSION@.la|-lgsttag-${VERSION}|; \
+	s|$$(top_builddir)/gst-libs/gst/audio/libgstaudio-@GST_API_VERSION@.la|-lgstaudio-${VERSION}|; \
+	s|$$(top_builddir)/gst-libs/gst/pbutils/libgstpbutils-@GST_API_VERSION@.la|-lgstpbutils-${VERSION}|; \
+	s|$$(top_builddir)/gst-libs/gst/riff/libgstriff-@GST_API_VERSION@.la|-lgstriff-${VERSION}|; \
+	s|$$(top_builddir)/gst-libs/gst/signalprocessor/libgstsignalprocessor-@GST_API_VERSION@.la|-lgstsignalprocessor-${VERSION}|; \
+	s|$$(top_builddir)/gst-libs/gst/video/libgstbasevideo-@GST_API_VERSION@.la|-lgstbasevideo-${VERSION}|; \
+	s|$$(top_builddir)/gst-libs/gst/video/libgstvideo-@GST_API_VERSION@.la|-lgstvideo-${VERSION}|; \
+	s|$$(top_builddir)/gst-libs/gst/base/libgstbadbase-@GST_API_VERSION@.la|-lgstbadbase-${VERSION}|; \
+	s|$$(top_builddir)/gst-libs/gst/uridownloader/libgsturidownloader-@GST_API_VERSION@.la|-lgsturidownloader-${VERSION}|; \
+	s|$$(top_builddir)/gst-libs/gst/adaptivedemux/libgstadaptivedemux-@GST_API_VERSION@.la|-lgstadaptivedemux-${VERSION}|; \
+	s|$$(top_builddir)/gst-libs/gst/codecparsers/libgstcodecparsers-@GST_API_VERSION@.la|-lgstcodecparsers-${VERSION}|; \
+	s|$$(top_builddir)/gst-libs/gst/allocators/libgstbadallocators-@GST_API_VERSION@.la|-lgstbadallocators-${VERSION}|; \
+	s|$$(top_builddir)/gst-libs/gst/video/libgstbadvideo-@GST_API_VERSION@.la|-lgstbadvideo-${VERSION}|'
+
+	 @${FIND} ${WRKSRC}/ext ${WRKSRC}/sys -name Makefile.in | \
+	 ${XARGS} -n 10 ${REINPLACE_CMD} -e \
+	'/la_DEPENDENCIES/,/am__DEPENDENCIES/s,$$(top_builddir)/gst-libs/.*.la,,' -e \
+	 's|$$(top_builddir)/gst-libs/gst/tag/libgsttag-$$(GST_API_VERSION).la|-lgsttag-${VERSION}|; \
+	  s|$$(top_builddir)/gst-libs/gst/audio/libgstaudio-$$(GST_API_VERSION).la|-lgstaudio-${VERSION}|; \
+	  s|$$(top_builddir)/gst-libs/gst/pbutils/libgstpbutils-$$(GST_API_VERSION).la|-lgstpbutils-${VERSION}|; \
+	  s|$$(top_builddir)/gst-libs/gst/riff/libgstriff-$$(GST_API_VERSION).la|-lgstriff-${VERSION}|; \
+	  s|$$(top_builddir)/gst-libs/gst/signalprocessor/libgstsignalprocessor-$$(GST_API_VERSION).la|-lgstsignalprocessor-${VERSION}|; \
+	  s|$$(top_builddir)/gst-libs/gst/video/libgstbasevideo-$$(GST_API_VERSION).la|-lgstbasevideo-${VERSION}|; \
+	  s|$$(top_builddir)/gst-libs/gst/video/libgstvideo-$$(GST_API_VERSION).la|-lgstvideo-${VERSION}|; \
+	  s|$$(top_builddir)/gst-libs/gst/base/libgstbadbase-$$(GST_API_VERSION).la|-lgstbadbase-${VERSION}|; \
+	  s|$$(top_builddir)/gst-libs/gst/uridownloader/libgsturidownloader-$$(GST_API_VERSION).la|-lgsturidownloader-${VERSION}|; \
+	  s|$$(top_builddir)/gst-libs/gst/adaptivedemux/libgstadaptivedemux-@GST_API_VERSION@.la|-lgstadaptivedemux-${VERSION}|; \
+	  s|$$(top_builddir)/gst-libs/gst/codecparsers/libgstcodecparsers-$$(GST_API_VERSION).la|-lgstcodecparsers-${VERSION}|; \
+	  s|$$(top_builddir)/gst-libs/gst/allocators/libgstbadallocators-$$(GST_API_VERSION).la|-lgstbadallocators-${VERSION}|; \
+	  s|$$(top_builddir)/gst-libs/gst/video/libgstbadvideo-$$(GST_API_VERSION).la|-lgstbadvideo-${VERSION}|'
 .endif
 
 pre-install:
