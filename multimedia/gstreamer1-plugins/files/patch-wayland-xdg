@@ -1,0 +1,449 @@
+--- gst-libs/gst/gl/meson.build.orig	2018-07-18 13:56:20 UTC
++++ gst-libs/gst/gl/meson.build
+@@ -473,12 +473,30 @@ if need_win_wayland != 'no'
+     wayland_client_dep = dependency('wayland-client', version : '>= 1.0', required : false)
+     wayland_cursor_dep = dependency('wayland-cursor', version : '>= 1.0', required : false)
+     wayland_egl_dep = dependency('wayland-egl', version : '>= 1.0', required : false)
++    wayland_protocols_dep = dependency('wayland-protocols', version : '>= 1.15', required : false)
++    wayland_scanner = find_program('wayland-scanner', required: false)
+
+-    if wayland_client_dep.found() and wayland_cursor_dep.found() and wayland_egl_dep.found()
++    if wayland_client_dep.found() and wayland_cursor_dep.found() and wayland_egl_dep.found() and wayland_protocols_dep.found() and wayland_scanner.found()
++      # Generate the XDG shell interface
++      wayland_protocols_basedir = wayland_protocols_dep.get_pkgconfig_variable('pkgdatadir')
++      xdg_shell_xml_spec = join_paths(wayland_protocols_basedir, 'stable', 'xdg-shell', 'xdg-shell.xml')
++      xdg_shell_header = custom_target('xdg-shell-client-header',
++        command: [ wayland_scanner, 'client-header', '@INPUT@', '@OUTPUT@' ],
++        input: xdg_shell_xml_spec,
++        output: 'xdg-shell-client-protocol.h',
++      )
++      xdg_shell_code = custom_target('xdg-shell-client-code',
++        command: [ wayland_scanner, 'private-code', '@INPUT@', '@OUTPUT@' ],
++        input: xdg_shell_xml_spec,
++        output: 'xdg-shell-client-protocol.c',
++      )
++
+       gl_sources += [
+         'wayland/gstgldisplay_wayland.c',
+         'wayland/gstglwindow_wayland_egl.c',
+         'wayland/wayland_event_source.c',
++        xdg_shell_header,
++        xdg_shell_code,
+       ]
+       gl_wayland_headers += [
+         'wayland/gstgldisplay_wayland.h'
+@@ -493,6 +511,7 @@ if need_win_wayland != 'no'
+       wayland_client_dep = unneeded_dep
+       wayland_cursor_dep = unneeded_dep
+       wayland_egl_dep = unneeded_dep
++      wayland_protocols_dep = unneeded_dep
+     endif
+   endif
+ endif
+--- gst-libs/gst/gl/wayland/Makefile.am.orig	2019-02-15 23:29:45 UTC
++++ gst-libs/gst/gl/wayland/Makefile.am
+@@ -2,15 +2,29 @@
+
+ noinst_LTLIBRARIES = libgstgl-wayland.la
+
++xdg_shell_protocol_spec = $(WAYLAND_PROTOCOLS_DATADIR)/stable/xdg-shell/xdg-shell.xml
++xdg-shell-client-protocol.h: $(xdg_shell_protocol_spec)
++	$(AM_V_GEN) $(WAYLAND_SCANNER) client-header < $< > $@
++xdg-shell-client-protocol.c: $(xdg_shell_protocol_spec)
++	$(AM_V_GEN) $(WAYLAND_SCANNER) private-code < $< > $@
++
++built_sources = xdg-shell-client-protocol.c
++built_headers = xdg-shell-client-protocol.h
++
++BUILT_SOURCES = $(built_sources) $(built_headers)
++CLEANFILES = $(BUILT_SOURCES)
++
+ libgstgl_wayland_la_SOURCES = \
+	gstgldisplay_wayland.c \
+	gstglwindow_wayland_egl.c \
+-	wayland_event_source.c
++	wayland_event_source.c \
++	$(built_sources)
+
+ noinst_HEADERS = \
+	gstgldisplay_wayland.h \
+	gstglwindow_wayland_egl.h \
+-	wayland_event_source.h
++	wayland_event_source.h \
++	$(built_headers)
+
+ libgstgl_waylandincludedir = $(includedir)/gstreamer-@GST_API_VERSION@/gst/gl/wayland
+ libgstgl_waylandinclude_HEADERS = \
+--- gst-libs/gst/gl/wayland/gstgldisplay_wayland.c.orig	2018-03-23 20:44:42 UTC
++++ gst-libs/gst/gl/wayland/gstgldisplay_wayland.c
+@@ -22,22 +22,42 @@
+ #include "config.h"
+ #endif
+
+-#include <gst/gl/wayland/gstgldisplay_wayland.h>
++#include "gstgldisplay_wayland.h"
++#include "gstgldisplay_wayland_private.h"
+
+ GST_DEBUG_CATEGORY_STATIC (gst_gl_display_debug);
+ #define GST_CAT_DEFAULT gst_gl_display_debug
+
+-G_DEFINE_TYPE (GstGLDisplayWayland, gst_gl_display_wayland,
++/* We can't define these in the public struct, or we'd break ABI */
++typedef struct _GstGLDisplayWaylandPrivate
++{
++  struct xdg_wm_base *xdg_wm_base;
++} GstGLDisplayWaylandPrivate;
++
++G_DEFINE_TYPE_WITH_PRIVATE (GstGLDisplayWayland, gst_gl_display_wayland,
+     GST_TYPE_GL_DISPLAY);
+
+ static void gst_gl_display_wayland_finalize (GObject * object);
+ static guintptr gst_gl_display_wayland_get_handle (GstGLDisplay * display);
+
+ static void
++handle_xdg_wm_base_ping (void *user_data, struct xdg_wm_base *xdg_wm_base,
++    uint32_t serial)
++{
++  xdg_wm_base_pong (xdg_wm_base, serial);
++}
++
++static const struct xdg_wm_base_listener xdg_wm_base_listener = {
++  handle_xdg_wm_base_ping
++};
++
++static void
+ registry_handle_global (void *data, struct wl_registry *registry,
+     uint32_t name, const char *interface, uint32_t version)
+ {
+   GstGLDisplayWayland *display = data;
++  GstGLDisplayWaylandPrivate *priv =
++      gst_gl_display_wayland_get_instance_private (display);
+
+   GST_DEBUG_CATEGORY_GET (gst_gl_display_debug, "gldisplay");
+
+@@ -50,8 +70,13 @@ registry_handle_global (void *data, struct wl_registry
+   } else if (g_strcmp0 (interface, "wl_subcompositor") == 0) {
+     display->subcompositor =
+         wl_registry_bind (registry, name, &wl_subcompositor_interface, 1);
++  } else if (g_strcmp0 (interface, "xdg_wm_base") == 0) {
++    priv->xdg_wm_base =
++        wl_registry_bind (registry, name, &xdg_wm_base_interface, 1);
++    xdg_wm_base_add_listener (priv->xdg_wm_base, &xdg_wm_base_listener,
++        display);
+   } else if (g_strcmp0 (interface, "wl_shell") == 0) {
+-    display->shell = wl_registry_bind (registry, name, &wl_shell_interface, 1);
++    display->wl_shell = wl_registry_bind (registry, name, &wl_shell_interface, 1);
+   }
+ }
+
+@@ -90,7 +115,12 @@ static void
+ gst_gl_display_wayland_finalize (GObject * object)
+ {
+   GstGLDisplayWayland *display_wayland = GST_GL_DISPLAY_WAYLAND (object);
++  GstGLDisplayWaylandPrivate *priv =
++      gst_gl_display_wayland_get_instance_private (display_wayland);
+
++  g_clear_pointer (&display_wayland->wl_shell, wl_shell_destroy);
++  g_clear_pointer (&priv->xdg_wm_base, xdg_wm_base_destroy);
++
+   /* Cause eglTerminate() to occur before wl_display_disconnect()
+    * https://bugzilla.gnome.org/show_bug.cgi?id=787293 */
+   g_object_set_data (object, "gst.gl.display.egl", NULL);
+@@ -171,4 +201,13 @@ static guintptr
+ gst_gl_display_wayland_get_handle (GstGLDisplay * display)
+ {
+   return (guintptr) GST_GL_DISPLAY_WAYLAND (display)->display;
++}
++
++struct xdg_wm_base *
++gst_gl_display_wayland_get_xdg_wm_base (GstGLDisplayWayland * display)
++{
++  GstGLDisplayWaylandPrivate *priv =
++      gst_gl_display_wayland_get_instance_private (display);
++
++  return priv->xdg_wm_base;
+ }
+--- gst-libs/gst/gl/wayland/gstgldisplay_wayland.h.orig	2018-03-23 20:44:42 UTC
++++ gst-libs/gst/gl/wayland/gstgldisplay_wayland.h
+@@ -56,7 +56,9 @@ struct _GstGLDisplayWayland
+   struct wl_registry      *registry;
+   struct wl_compositor    *compositor;
+   struct wl_subcompositor *subcompositor;
+-  struct wl_shell         *shell;
++
++  /* Basic shell, see private struct for others (e.g. XDG-shell) */
++  struct wl_shell     *wl_shell;
+
+   /* <private> */
+   gboolean foreign_display;
+--- gst-libs/gst/gl/wayland/gstgldisplay_wayland_private.h.orig	2019-02-15 23:29:45 UTC
++++ gst-libs/gst/gl/wayland/gstgldisplay_wayland_private.h
+@@ -0,0 +1,34 @@
++/* GStreamer
++ * Copyright (C) 2019 Niels De Graef <nielsdegraef@gmail.com>
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Library General Public
++ * License as published by the Free Software Foundation; either
++ * version 2 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Library General Public License for more details.
++ *
++ * You should have received a copy of the GNU Library General Public
++ * License along with this library; if not, write to the
++ * Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
++ * Boston, MA 02110-1301, USA.
++ */
++
++#ifndef __GST_GL_DISPLAY_WAYLAND_PRIVATE_H__
++#define __GST_GL_DISPLAY_WAYLAND_PRIVATE_H__
++
++#include <gst/gst.h>
++#include "xdg-shell-client-protocol.h"
++
++G_BEGIN_DECLS
++
++G_GNUC_INTERNAL
++struct xdg_wm_base *
++gst_gl_display_wayland_get_xdg_wm_base (GstGLDisplayWayland * display);
++
++G_END_DECLS
++
++#endif /* __GST_GL_DISPLAY_WAYLAND_PRIVATE_H__ */
+--- gst-libs/gst/gl/wayland/gstglwindow_wayland_egl.c.orig	2018-03-23 20:44:42 UTC
++++ gst-libs/gst/gl/wayland/gstglwindow_wayland_egl.c
+@@ -33,6 +33,7 @@
+ #include <gst/gl/gstglcontext.h>
+
+ #include "gstgldisplay_wayland.h"
++#include "gstgldisplay_wayland_private.h"
+ #include "gstglwindow_wayland_egl.h"
+
+ #include "../gstglwindow_private.h"
+@@ -222,31 +223,137 @@ handle_popup_done (void *data, struct wl_shell_surface
+ {
+ }
+
+-static const struct wl_shell_surface_listener shell_surface_listener = {
++static const struct wl_shell_surface_listener wl_shell_surface_listener = {
+   handle_ping,
+   handle_configure,
+   handle_popup_done
+ };
+
+ static void
++handle_xdg_toplevel_close (void *data, struct xdg_toplevel *xdg_toplevel)
++{
++  GstGLWindowWaylandEGL *window_egl = data;
++
++  GST_DEBUG ("XDG toplevel got a \"close\" event.");
++
++  gst_gl_window_wayland_egl_close (GST_GL_WINDOW (window_egl));
++}
++
++static void
++handle_xdg_toplevel_configure (void *data, struct xdg_toplevel *xdg_toplevel,
++    int32_t width, int32_t height, struct wl_array *states)
++{
++  GstGLWindowWaylandEGL *window_egl = data;
++  const uint32_t *state;
++
++  GST_DEBUG ("configure event on XDG toplevel %p, %ix%i", xdg_toplevel,
++      width, height);
++
++  wl_array_for_each (state, states) {
++    switch (*state) {
++      case XDG_TOPLEVEL_STATE_FULLSCREEN:
++        window_egl->window.fullscreen = TRUE;
++        break;
++      case XDG_TOPLEVEL_STATE_MAXIMIZED:
++      case XDG_TOPLEVEL_STATE_RESIZING:
++      case XDG_TOPLEVEL_STATE_ACTIVATED:
++        break;
++    }
++  }
++
++  if (width > 0 && height > 0)
++    window_resize (window_egl, width, height);
++}
++
++static const struct xdg_toplevel_listener xdg_toplevel_listener = {
++  handle_xdg_toplevel_configure,
++  handle_xdg_toplevel_close,
++};
++
++static void
++handle_xdg_surface_configure (void *data, struct xdg_surface *xdg_surface,
++    uint32_t serial)
++{
++  xdg_surface_ack_configure (xdg_surface, serial);
++}
++
++static const struct xdg_surface_listener xdg_surface_listener = {
++  handle_xdg_surface_configure,
++};
++
++static void
+ destroy_surfaces (GstGLWindowWaylandEGL * window_egl)
+ {
+-  if (window_egl->window.subsurface) {
+-    wl_subsurface_destroy (window_egl->window.subsurface);
+-    window_egl->window.subsurface = NULL;
++  g_clear_pointer (&window_egl->window.subsurface, wl_subsurface_destroy);
++  g_clear_pointer (&window_egl->window.xdg_toplevel, xdg_toplevel_destroy);
++  g_clear_pointer (&window_egl->window.xdg_surface, xdg_surface_destroy);
++  g_clear_pointer (&window_egl->window.wl_shell_surface,
++      wl_shell_surface_destroy);
++  g_clear_pointer (&window_egl->window.surface, wl_surface_destroy);
++  g_clear_pointer (&window_egl->window.native, wl_egl_window_destroy);
++}
++
++static void
++create_xdg_surface_and_toplevel (GstGLWindowWaylandEGL * window_egl)
++{
++  GstGLDisplayWayland *display =
++      GST_GL_DISPLAY_WAYLAND (GST_GL_WINDOW (window_egl)->display);
++  struct xdg_wm_base *xdg_wm_base;
++  struct xdg_surface *xdg_surface;
++  struct xdg_toplevel *xdg_toplevel;
++
++  GST_DEBUG ("Creating surfaces XDG-shell");
++
++  /* First create the XDG surface */
++  xdg_wm_base = gst_gl_display_wayland_get_xdg_wm_base (display);
++  xdg_surface = xdg_wm_base_get_xdg_surface (xdg_wm_base,
++      window_egl->window.surface);
++  if (window_egl->window.queue) {
++    wl_proxy_set_queue ((struct wl_proxy *) xdg_surface,
++        window_egl->window.queue);
+   }
+-  if (window_egl->window.shell_surface) {
+-    wl_shell_surface_destroy (window_egl->window.shell_surface);
+-    window_egl->window.shell_surface = NULL;
++  xdg_surface_add_listener (xdg_surface, &xdg_surface_listener, window_egl);
++
++  /* Then the XDG top-level */
++  xdg_toplevel = xdg_surface_get_toplevel (xdg_surface);
++  xdg_toplevel_set_title (xdg_toplevel, "OpenGL Renderer");
++  if (window_egl->window.queue) {
++    wl_proxy_set_queue ((struct wl_proxy *) xdg_toplevel,
++        window_egl->window.queue);
+   }
+-  if (window_egl->window.surface) {
+-    wl_surface_destroy (window_egl->window.surface);
+-    window_egl->window.surface = NULL;
++  xdg_toplevel_add_listener (xdg_toplevel, &xdg_toplevel_listener, window_egl);
++
++  /* Commit the xdg_surface state */
++  wl_surface_commit (window_egl->window.surface);
++
++  /* And save them into the fields */
++  window_egl->window.xdg_surface = xdg_surface;
++  window_egl->window.xdg_toplevel = xdg_toplevel;
++}
++
++static void
++create_wl_shell_surface (GstGLWindowWaylandEGL * window_egl)
++{
++  GstGLDisplayWayland *display =
++      GST_GL_DISPLAY_WAYLAND (GST_GL_WINDOW (window_egl)->display);
++  struct wl_shell_surface *wl_shell_surface;
++
++  GST_DEBUG ("Creating surfaces for wl-shell");
++
++  wl_shell_surface = wl_shell_get_shell_surface (display->wl_shell,
++      window_egl->window.surface);
++
++  if (window_egl->window.queue) {
++    wl_proxy_set_queue ((struct wl_proxy *) wl_shell_surface,
++        window_egl->window.queue);
+   }
+-  if (window_egl->window.native) {
+-    wl_egl_window_destroy (window_egl->window.native);
+-    window_egl->window.native = NULL;
+-  }
++
++  wl_shell_surface_add_listener (wl_shell_surface, &wl_shell_surface_listener,
++      window_egl);
++  wl_shell_surface_set_title (wl_shell_surface, "OpenGL Renderer");
++  wl_shell_surface_set_toplevel (wl_shell_surface);
++
++  window_egl->window.wl_shell_surface = wl_shell_surface;
+ }
+
+ static void
+@@ -287,20 +394,11 @@ create_surfaces (GstGLWindowWaylandEGL * window_egl)
+     }
+   } else {
+   shell_window:
+-    if (!window_egl->window.shell_surface) {
+-      window_egl->window.shell_surface =
+-          wl_shell_get_shell_surface (display->shell,
+-          window_egl->window.surface);
+-      if (window_egl->window.queue)
+-        wl_proxy_set_queue ((struct wl_proxy *) window_egl->
+-            window.shell_surface, window_egl->window.queue);
+-
+-      wl_shell_surface_add_listener (window_egl->window.shell_surface,
+-          &shell_surface_listener, window_egl);
+-
+-      wl_shell_surface_set_title (window_egl->window.shell_surface,
+-          "OpenGL Renderer");
+-      wl_shell_surface_set_toplevel (window_egl->window.shell_surface);
++    if (gst_gl_display_wayland_get_xdg_wm_base (display)) {
++      if (!window_egl->window.xdg_surface)
++        create_xdg_surface_and_toplevel (window_egl);
++    } else if (!window_egl->window.wl_shell_surface) {
++      create_wl_shell_surface (window_egl);
+     }
+   }
+
+--- gst-libs/gst/gl/wayland/gstglwindow_wayland_egl.h.orig	2018-03-23 20:44:42 UTC
++++ gst-libs/gst/gl/wayland/gstglwindow_wayland_egl.h
+@@ -22,6 +22,7 @@
+ #define __GST_GL_WINDOW_WAYLAND_EGL_H__
+
+ #include <wayland-client.h>
++#include "xdg-shell-client-protocol.h"
+ #include <wayland-egl.h>
+ #include <wayland-cursor.h>
+
+@@ -64,8 +65,14 @@ struct window {
+   struct display *display;
+
+   struct wl_event_queue     *queue;
++
++  /* wl_shell */
+   struct wl_surface         *surface;
+-  struct wl_shell_surface   *shell_surface;
++  struct wl_shell_surface   *wl_shell_surface;
++  /* XDG-shell */
++  struct xdg_surface        *xdg_surface;
++  struct xdg_toplevel       *xdg_toplevel;
++
+   struct wl_egl_window      *native;
+   struct wl_surface         *foreign_surface;
+   struct wl_subsurface      *subsurface;
+--- m4/gst-gl.m4.orig	2018-07-18 13:32:30 UTC
++++ m4/gst-gl.m4
+@@ -244,7 +244,16 @@ case $host in
+     LIBS=$old_LIBS
+     CFLAGS=$old_CFLAGS
+
+-    PKG_CHECK_MODULES(WAYLAND_EGL, wayland-client >= 1.0 wayland-cursor >= 1.0 wayland-egl >= 9.0, HAVE_WAYLAND_EGL=yes, HAVE_WAYLAND_EGL=no)
++    PKG_CHECK_MODULES(WAYLAND_EGL, wayland-client >= 1.0 wayland-cursor >= 1.0 wayland-egl >= 9.0 wayland-protocols >= 1.15, HAVE_WAYLAND_EGL=yes, HAVE_WAYLAND_EGL=no)
++    AC_CHECK_PROGS(WAYLAND_SCANNER, wayland-scanner)
++    if test x"$HAVE_WAYLAND_EGL" == xyes ; then
++      if test x"$WAYLAND_SCANNER" == x ; then
++        AC_MSG_ERROR([Found Wayland libraries, but couldn't find wayland-scanner binary.])
++      fi
++
++      WAYLAND_PROTOCOLS_DATADIR="`$PKG_CONFIG --variable=pkgdatadir wayland-protocols`"
++      AC_SUBST(WAYLAND_PROTOCOLS_DATADIR, $WAYLAND_PROTOCOLS_DATADIR)
++    fi
+
+     # OS X and iOS always have GL available
+     case $host in
