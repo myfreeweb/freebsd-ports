@@ -1,3 +1,3 @@
-TIMESTAMP = 1530106565
-SHA256 (gnome3/GNOME-gucharmap-061cf7c0ba4ce62d2ce5743313a71cb272a5f82e_GL0.tar.gz) = 835e58ee8702b53fb600854875286f857c4656dfafe95fd5c5c5842a51a1e52c
-SIZE (gnome3/GNOME-gucharmap-061cf7c0ba4ce62d2ce5743313a71cb272a5f82e_GL0.tar.gz) = 1978183
+TIMESTAMP = 1550525052
+SHA256 (gnome/gucharmap-11.0.3.tar.xz) = 6fe4405aa4d2edeedf412befa3cdf423211c80f8836085c4c8c56679658e37fa
+SIZE (gnome/gucharmap-11.0.3.tar.xz) = 1766884
