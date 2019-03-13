@@ -1,3 +1,3 @@
-TIMESTAMP = 1525968626
-SHA256 (template-glib-3.28.0.tar.xz) = 6c74426efd4358fd91a52c32ed030c0cad1633f900fd55ac81a8b3e4026171a1
-SIZE (template-glib-3.28.0.tar.xz) = 54320
+TIMESTAMP = 1552506384
+SHA256 (gnome/template-glib-3.32.0.tar.xz) = 39a334f5db404fa8b225224766684f2f63f5ec4cf4e971cfc513f1db35e81fbc
+SIZE (gnome/template-glib-3.32.0.tar.xz) = 55152

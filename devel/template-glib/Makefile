@@ -1,13 +1,15 @@
 # $FreeBSD$
 
 PORTNAME=	template-glib
-PORTVERSION=	3.28.0
-PORTREVISION=	2
+PORTVERSION=	3.32.0
 CATEGORIES=	devel
 MASTER_SITES=	GNOME
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Templating library for GLib
+
+LICENSE=	LGPL21
 
 BUILD_DEPENDS=	valac:lang/vala
 
