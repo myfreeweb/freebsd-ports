@@ -285,6 +285,7 @@ include/glibmm-%%VERSION%%/glibmm/enums.h
 include/glibmm-%%VERSION%%/glibmm/error.h
 include/glibmm-%%VERSION%%/glibmm/exception.h
 include/glibmm-%%VERSION%%/glibmm/exceptionhandler.h
+include/glibmm-%%VERSION%%/glibmm/extraclassinit.h
 include/glibmm-%%VERSION%%/glibmm/fileutils.h
 include/glibmm-%%VERSION%%/glibmm/helperlist.h
 include/glibmm-%%VERSION%%/glibmm/i18n-lib.h
