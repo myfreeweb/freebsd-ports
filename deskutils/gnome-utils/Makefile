@@ -19,6 +19,7 @@ RUN_DEPENDS=	baobab>=3.0:deskutils/baobab \
 		gnome-dictionary>=3.0:deskutils/gnome-dictionary \
 		gnome-system-log>=3.0:deskutils/gnome-system-log \
 		gnome-font-viewer>=3.0:deskutils/gnome-font-viewer \
+		gnome-usage>=3.32:sysutils/gnome-usage \
 		gnome-system-monitor>=3.0:sysutils/gnome-system-monitor \
 		gnome-calendar>=3.0:deskutils/gnome-calendar \
 		gnome-photos>=3.0:deskutils/gnome-photos \
