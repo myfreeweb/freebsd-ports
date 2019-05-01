@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	ldc
-PORTVERSION=	1.14.0
+PORTVERSION=	1.15.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	lang
 
@@ -10,11 +10,11 @@ COMMENT=	The LLVM-based D compiler
 
 LICENSE=	BSD3CLAUSE
 
-BUILD_DEPENDS=	llvm70>0:devel/llvm70
+BUILD_DEPENDS=	llvm70>0:devel/llvm70 \
+		ninja:devel/ninja
 RUN_DEPENDS=	llvm70>0:devel/llvm70
 LIB_DEPENDS=	libconfig.so:devel/libconfig
 
-BROKEN_aarch64=		fails to compile: Error: undefined identifier _jmp_buf, did you mean alias jmp_buf?
 BROKEN_armv6=		fails to compile: Error: undefined identifier _jmp_buf, did you mean alias jmp_buf?
 BROKEN_armv7=		fails to compile: Error: undefined identifier _jmp_buf, did you mean alias jmp_buf?
 BROKEN_i386=		function core.bitop.bsf (uint v) is not callable using argument types (ulong)
@@ -24,11 +24,11 @@ USES=		cmake:insource
 USE_GITHUB=     yes
 GH_ACCOUNT=     ldc-developers
 GH_PROJECT=     ldc
-GH_TUPLE=       ldc-developers:ldc:911589c:tree/ltsmaster \
-		ldc-developers:druntime:694089c:druntimelts/ltsmaster/runtime/druntime \
+GH_TUPLE=       ldc-developers:ldc:d442f9f:tree/ltsmaster \
+		ldc-developers:druntime:13b1ccf:druntimelts/ltsmaster/runtime/druntime \
 		ldc-developers:phobos:1d758b2:phoboslts/ltsmaster/runtime/phobos \
-		ldc-developers:druntime:54cb25c:druntime/runtime/druntime \
-		ldc-developers:phobos:71cf74f:phobos/runtime/phobos
+		ldc-developers:druntime:8a85f37:druntime/runtime/druntime \
+		ldc-developers:phobos:981412b:phobos/runtime/phobos
 
 CMAKE_ARGS+=	-DD_COMPILER:STRING="${WRKSRC}/ltsmaster/bin/ldmd2" \
 		-DBUILD_SHARED_LIBS:STRING="BOTH"
@@ -42,7 +42,7 @@ LDCVER=		${PORTVERSION}
 
 .include <bsd.port.pre.mk>
 
-.if ${ARCH} == "amd64"
+.if ${ARCH} == "amd64" || ${ARCH} == "aarch64"
 CFLAGS+=	-fPIC
 .endif
 
@@ -57,8 +57,8 @@ post-patch:
 
 pre-configure:
 	@cd ${WRKSRC}/ltsmaster && \
-	    ${SETENV} ${CONFIGURE_ENV} ${CMAKE_BIN} .
+	    ${SETENV} ${CONFIGURE_ENV} ${CMAKE_BIN} -GNinja .
 	@cd ${WRKSRC}/ltsmaster && \
-	    ${SETENV} ${MAKE_ENV} ${MAKE}
+	    ${SETENV} ${MAKE_ENV} ninja
 
 .include <bsd.port.post.mk>
