@@ -1,27 +1,31 @@
 PORTNAME=	tilix
-PORTVERSION=	1.9.3
+DISTVERSION=	1.9.3-38
+DISTVERSIONSUFFIX=	-g3617018
 CATEGORIES=	x11
 
-PATCH_DIST_STRIP=-p1
-PATCH_SITES=	https://patch-diff.githubusercontent.com/raw/gnunn1/tilix/pull/
-PATCHFILES=	1733.diff
-
-MAINTAINER=	romain@FreeBSD.org
-COMMENT=	Tiling terminal emulator using GTK+ 3
+MAINTAINER=	greg@unrelenting.technology
+COMMENT=	A tiling terminal emulator using GTK+ 3
 
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	ldc2:lang/ldc \
-		po4a-translate:textproc/po4a \
-		${LOCALBASE}/libdata/pkgconfig/vted-3.pc:x11-toolkits/gtkd
+LIB_DEPENDS+=	libgnutls.so:security/gnutls \
+		libpcre2-8.so:devel/pcre2 \
+		libphobos2-ldc-shared.so:lang/ldc \
+		libunwind.so:devel/libunwind \
+		libvted-3.so:x11-toolkits/gtkd-3
 
-USES=		autoreconf gettext gmake gnome pkgconfig
+USES=		gettext-tools gnome meson pkgconfig python:3.6+,build \
+		shebangfix
+USE_XORG=	x11
+USE_GNOME=	cairo gdkpixbuf2 gtk30 librsvg2 vte3
 USE_GITHUB=	yes
 GH_ACCOUNT=	gnunn1
-GNU_CONFIGURE=	yes
-USE_GNOME=	vte3
+SSP_UNSAFE=	yes # not understood by ldc2 and not removed by meson yet
+LDFLAGS+=	-link-defaultlib-shared -L-Wl,--as-needed
+SHEBANG_FILES=	data/scripts/tilix_int.sh
 GLIB_SCHEMAS=	com.gexperts.Tilix.gschema.xml
-INSTALLS_ICONS=	yes
+
+BINARY_ALIAS+=	python3=${PYTHON_CMD}
 
 .include <bsd.port.mk>
