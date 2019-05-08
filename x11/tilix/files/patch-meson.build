@@ -1,0 +1,43 @@
+NOTE: LTO is required to avoid linking errors
+
+--- meson.build.orig	2019-04-22 14:46:58 UTC
++++ meson.build
+@@ -1,5 +1,5 @@
+ project(
+-    'com.gexperts.Tilix', 'd',
++    'com.gexperts.Tilix', ['d', 'c'],
+     version: '1.8.5',
+     license: 'MPL2',
+     meson_version: '>= 0.48.0'
+@@ -14,8 +14,8 @@ if compiler.get_id() == 'gcc'
+ endif
+
+  if compiler.get_id() == 'llvm'
+-  extra_args = ['-vcolumns','-d-version=StdLoggerDisableTrace']
+-  d_link_args = []
++  extra_args = ['-vcolumns','-d-version=StdLoggerDisableTrace', '-relocation-model=pic', '-flto=thin']
++  d_link_args = ['-link-defaultlib-shared']
+ else
+   extra_args = []
+   d_link_args = []
+@@ -97,9 +97,10 @@ sources_dir = include_directories('source/')
+ # gtkd_dep = dependency('gtkd-3', version: '>= 3.8.5')
+ # vted_dep = dependency('vted-3', version: '>= 3.8.5')
+
+-gtkd_dep = dependency('gtk-d:gtkd', version: '>=3.8.5', method: 'dub')
+-vted_dep = dependency('gtk-d:vte', version: '>=3.8.5', method: 'dub')
+-xlib_dep = dependency('x11')
++gtkd_dep = dependency('gtkd-3', version: '>=3.8.5')
++vted_dep = dependency('vted-3', version: '>=3.8.5')
++xlib_dep = meson.get_compiler('c').find_library('X11',
++  dirs: dependency('x11').get_pkgconfig_variable('prefix') / 'lib')
+ libunwind_dep = dependency('libunwind')
+ msgfmt = find_program('msgfmt')
+
+@@ -130,4 +131,4 @@ executable('tilix',
+ #)
+ #test('tilix_test', tilix_test_exe)
+
+-meson.add_install_script('meson_post_install.py')
+\ No newline at end of file
++meson.add_install_script('meson_post_install.py')

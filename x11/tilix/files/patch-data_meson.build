@@ -1,0 +1,11 @@
+--- data/meson.build.orig	2019-04-22 14:46:58 UTC
++++ data/meson.build
+@@ -98,7 +98,7 @@ conf.set('bindir', join_paths(get_option('prefix'), ge
+
+ configure_file(
+   input: 'dbus/@0@.service.in'.format(meson.project_name()),
+-  output: 'dbus/@0@.service'.format(meson.project_name()),
++  output: '@0@.service'.format(meson.project_name()),
+   configuration: conf,
+   install_dir: join_paths(get_option('datadir'), 'dbus-1/services')
+ )
