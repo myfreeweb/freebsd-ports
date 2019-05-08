@@ -1,0 +1,22 @@
+# $FreeBSD$
+
+PORTNAME=	gtkglext
+PORTVERSION=	1.2.0
+CATEGORIES=	x11-toolkits linux
+PKGNAMESUFFIX=	-libs
+MASTER_SITES=	EPEL7/g
+LIB_DISTNAMES=	${LINUXNAME}-${DISTVERSIONFULL}
+
+MAINTAINER=	emulation@FreeBSD.org
+COMMENT=	OpenGL extension to GTK (Linux CentOS ${LINUX_DIST_VER})
+
+DESCR=		${.CURDIR}/../${PORTNAME}/pkg-descr
+ONLY_FOR_ARCHS=	amd64
+LINUXNAME=	${PORTNAME}${PKGNAMESUFFIX}
+RPMVERSION=	21.el7
+USES=		linux:c7
+USE_LDCONFIG=	yes
+USE_LINUX=	dri gtk2 pangox-compat
+USE_LINUX_RPM=	yes
+
+.include <bsd.port.mk>

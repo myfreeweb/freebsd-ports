@@ -1,0 +1,5 @@
+TIMESTAMP = 1557252373
+SHA256 (centos/polkit-0.112-18.el7.x86_64.rpm) = 7e3c34c95d06c7c0fd58040d1d64196e127b2801d26a9c2a40597a67d5da63fa
+SIZE (centos/polkit-0.112-18.el7.x86_64.rpm) = 171996
+SHA256 (centos/polkit-0.112-18.el7.src.rpm) = 2352e55d676fef3d7ee49cbaa3096da5daa25927c7c920d33127727b00d662b7
+SIZE (centos/polkit-0.112-18.el7.src.rpm) = 1464269

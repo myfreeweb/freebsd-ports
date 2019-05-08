@@ -1,0 +1,5 @@
+TIMESTAMP = 1557251578
+SHA256 (centos/pangox-compat-0.0.2-2.el7.x86_64.rpm) = d13151e784bfcb61c157b20d1f38d580f8078ab619fef2b6eeb59fbde695c908
+SIZE (centos/pangox-compat-0.0.2-2.el7.x86_64.rpm) = 57152
+SHA256 (centos/pangox-compat-0.0.2-2.el7.src.rpm) = 1841a7a9bff8fe46670fd89bd275278e2717c6d43627051eb7dec973b82840ab
+SIZE (centos/pangox-compat-0.0.2-2.el7.src.rpm) = 271992

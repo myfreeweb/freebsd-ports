@@ -1,0 +1,5 @@
+TIMESTAMP = 1557253320
+SHA256 (centos/systemd-libs-219-62.el7.x86_64.rpm) = 52adea005a36091cbaaecc3dcc3a43ee55514f00ff21cc6c1174aa4f2e936bcb
+SIZE (centos/systemd-libs-219-62.el7.x86_64.rpm) = 415140
+SHA256 (centos/systemd-219-62.el7.src.rpm) = 515b6203aa1145b0a09f4b8f333de2fa1fb2318949b2d87a6fd3aa5170842a6d
+SIZE (centos/systemd-219-62.el7.src.rpm) = 5791962

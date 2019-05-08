@@ -1,0 +1,5 @@
+TIMESTAMP = 1557251266
+SHA256 (centos/gtkglext-libs-1.2.0-21.el7.x86_64.rpm) = 0d72a0256b48c76ae55c2a6c2da59fc179183d672430d1471342d78785cefadb
+SIZE (centos/gtkglext-libs-1.2.0-21.el7.x86_64.rpm) = 113896
+SHA256 (centos/gtkglext-1.2.0-21.el7.src.rpm) = 8e0dca5e09d27c2022c69c33b319eeb50e24b9af5b93653c1245dae28d8c6f3c
+SIZE (centos/gtkglext-1.2.0-21.el7.src.rpm) = 699503
