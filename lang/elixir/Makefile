@@ -14,8 +14,10 @@ COMMENT=	Functional, meta-programming aware language built on top of Erlang VM
 
 LICENSE=	APACHE20
 
-BUILD_DEPENDS=	erlang>=21.3:lang/erlang
-RUN_DEPENDS=	erlang>=21.3:lang/erlang
+BUILD_DEPENDS=	${LOCALBASE}/lib/erlang22/bin/erlc:lang/erlang-runtime22
+RUN_DEPENDS=	${LOCALBASE}/lib/erlang22/bin/erl:lang/erlang-runtime22
+MAKE_ENV=	PATH=${LOCALBASE}/lib/erlang22/bin:${PATH}
+VARS=		ERL_PATH=${LOCALBASE}/lib/erlang22/bin/erl
 
 USES=		gmake
 
