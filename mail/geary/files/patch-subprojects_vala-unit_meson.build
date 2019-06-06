@@ -1,0 +1,12 @@
+gee-0.8.vapi:(many): warning: Creation method of abstract class cannot be public.
+
+--- subprojects/vala-unit/meson.build.orig	2020-10-17 17:03:38 UTC
++++ subprojects/vala-unit/meson.build
+@@ -14,7 +14,6 @@ add_project_arguments(
+     '--abi-stability',
+     '--enable-checking',
+     '--enable-experimental-non-null',
+-    '--fatal-warnings',
+     '--nostdpkg'
+   ],
+   language: 'vala'

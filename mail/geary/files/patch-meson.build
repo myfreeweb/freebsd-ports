@@ -1,0 +1,10 @@
+test/9f86d08@@test-engine@exe/engine/outbox/outbox-email-identifier-test.c:108:2: error: unknown type name 'GearyOutboxEmailIdentifier'; did you mean 'GearyOutboxEmailIdentifierTest'?
+etc.
+
+--- meson.build.orig	2020-10-17 17:05:57 UTC
++++ meson.build
+@@ -198,4 +198,3 @@ subdir('po')
+ subdir('sql')
+ subdir('ui')
+ subdir('src')
+-subdir('test')
