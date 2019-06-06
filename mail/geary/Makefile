@@ -2,8 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	geary
-PORTVERSION=	0.13.3
-PORTREVISION=	1
+PORTVERSION=	3.33.1
 CATEGORIES=	mail gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome
@@ -23,10 +22,12 @@ LIB_DEPENDS=	libgmime-2.6.so:mail/gmime26 \
 		libwebkit2gtk-4.0.so:www/webkit2-gtk3 \
 		libgoa-1.0.so:net/gnome-online-accounts \
 		libcanberra.so:audio/libcanberra \
-		libnotify.so:devel/libnotify \
+		libytnef.so:converters/ytnef \
 		libgee-0.8.so:devel/libgee \
 		libgcr-3.so:security/gcr \
 		libsecret-1.so:security/libsecret \
+		libfolks.so:net-im/folks \
+		libhandy-0.0.so:x11-toolkits/libhandy \
 		libenchant-2.so:textproc/enchant2
 
 USES=		compiler:c11 desktop-file-utils gettext gmake gnome meson \
