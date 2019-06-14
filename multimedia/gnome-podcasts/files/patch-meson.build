@@ -1,0 +1,10 @@
+--- meson.build.orig	2019-06-13 15:09:52 UTC
++++ meson.build
+@@ -5,7 +5,6 @@ project(
+ )
+
+ dependency('sqlite3', version: '>= 3.20')
+-dependency('openssl', version: '>= 1.0')
+ dependency('dbus-1')
+
+ dependency('glib-2.0', version: '>= 2.56')
