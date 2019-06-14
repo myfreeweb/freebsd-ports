@@ -1,0 +1,9 @@
+--- scanner/inputaudio/mpg123/CMakeLists.txt.orig	2019-06-14 18:35:59 UTC
++++ scanner/inputaudio/mpg123/CMakeLists.txt
+@@ -27,4 +27,6 @@ if(GMODULE20_FOUND AND MPG123_FOUND AND
+   set_target_properties(input_mpg123 PROPERTIES
+           COMPILE_FLAGS ${INPUT_MPG123_CFLAGS}
+              LINK_FLAGS ${INPUT_MPG123_LDFLAGS})
++
++  install(TARGETS input_mpg123 DESTINATION lib/loudness)
+ endif()

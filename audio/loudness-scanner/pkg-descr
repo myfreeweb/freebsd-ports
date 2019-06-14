@@ -1,0 +1,5 @@
+loudness-scanner is a tool that scans your music files according to
+the EBU R128 standard for loudness normalisation. It optionally adds
+ReplayGain compatible tags to the files.
+
+WWW: https://github.com/jiixyj/loudness-scanner

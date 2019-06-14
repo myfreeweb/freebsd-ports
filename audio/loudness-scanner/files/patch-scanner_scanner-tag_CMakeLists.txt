@@ -1,0 +1,8 @@
+--- scanner/scanner-tag/CMakeLists.txt.orig	2019-06-14 18:45:56 UTC
++++ scanner/scanner-tag/CMakeLists.txt
+@@ -9,4 +9,5 @@ if(TAGLIB_FOUND AND NOT DISABLE_TAGLIB)
+   add_library(scanner-tag scanner-tag rgtag)
+   include_directories(${TAGLIB_INCLUDE_DIRS})
+   target_link_libraries(scanner-tag scanner-common ${TAGLIB_LIBRARIES})
++  set_property(TARGET scanner-tag PROPERTY CXX_STANDARD 11)
+ endif()
