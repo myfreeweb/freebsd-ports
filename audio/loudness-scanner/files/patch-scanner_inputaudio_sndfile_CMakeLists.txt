@@ -1,0 +1,9 @@
+--- scanner/inputaudio/sndfile/CMakeLists.txt.orig	2019-06-14 18:37:36 UTC
++++ scanner/inputaudio/sndfile/CMakeLists.txt
+@@ -32,4 +32,6 @@ if(GMODULE20_FOUND AND SNDFILE_FOUND AND
+     set_target_properties(input_sndfile PROPERTIES
+                LINK_FLAGS ${INPUT_SNDFILE_LDFLAGS})
+   endif()
++
++  install(TARGETS input_sndfile DESTINATION lib/loudness)
+ endif()
