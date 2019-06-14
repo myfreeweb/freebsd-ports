@@ -1,0 +1,9 @@
+--- scanner/inputaudio/mpcdec/CMakeLists.txt.orig	2019-06-14 18:36:31 UTC
++++ scanner/inputaudio/mpcdec/CMakeLists.txt
+@@ -27,4 +27,6 @@ if(GMODULE20_FOUND AND MPCDEC_FOUND AND
+   set_target_properties(input_musepack PROPERTIES
+           COMPILE_FLAGS ${INPUT_MPCDEC_CFLAGS}
+              LINK_FLAGS ${INPUT_MPCDEC_LDFLAGS})
++
++  install(TARGETS input_musepack DESTINATION lib/loudness)
+ endif()
