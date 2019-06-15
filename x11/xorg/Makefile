@@ -24,7 +24,7 @@ DOCS_RUN_DEPENDS+=	${LOCALBASE}/share/doc/xorg-docs/README.xml:x11/xorg-docs
 # app, lib, font, driver
 RUN_DEPENDS+=	xorg-apps>0:x11/xorg-apps \
 		xorg-libraries>0:x11/xorg-libraries \
-		xorg-fonts>0:x11-fonts/xorg-fonts \
+		xorg-fonts-truetype>0:x11-fonts/xorg-fonts-truetype \
 		xorg-drivers>0:x11-drivers/xorg-drivers
 
 .if defined(XORG_COMPLETE)
