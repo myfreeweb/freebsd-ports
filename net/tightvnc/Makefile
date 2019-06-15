@@ -20,7 +20,7 @@ USE_XORG=	ice sm x11 xaw xext xmu xt xpm
 
 RUN_DEPENDS=	showrgb:x11/rgb \
 		xauth:x11/xauth \
-		xorg-fonts>=7.2:x11-fonts/xorg-fonts
+		xorg-fonts-truetype>=0:x11-fonts/xorg-fonts-truetype
 
 MAKE_JOBS_UNSAFE=	yes
 CONFLICTS=	tigervnc-*
