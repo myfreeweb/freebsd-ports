@@ -10,9 +10,9 @@ COMMENT=	The LLVM-based D compiler
 
 LICENSE=	BSD3CLAUSE
 
-BUILD_DEPENDS=	llvm70>0:devel/llvm70 \
+BUILD_DEPENDS=	llvm60>0:devel/llvm60 \
 		ninja:devel/ninja
-RUN_DEPENDS=	llvm70>0:devel/llvm70
+RUN_DEPENDS=	llvm60>0:devel/llvm60
 LIB_DEPENDS=	libconfig.so:devel/libconfig
 
 BROKEN_armv6=		fails to compile: Error: undefined identifier _jmp_buf, did you mean alias jmp_buf?
@@ -33,11 +33,11 @@ GH_TUPLE=       ldc-developers:ldc:d442f9f:tree/ltsmaster \
 CMAKE_ARGS+=	-DD_COMPILER:STRING="${WRKSRC}/ltsmaster/bin/ldmd2" \
 		-DBUILD_SHARED_LIBS:STRING="BOTH"
 
-CC=		clang70
-CXX=		clang++70
+CC=		clang60
+CXX=		clang++60
 
 BOOTVER=	0.17.6
-LLVM_CONFIG=	llvm-config70
+LLVM_CONFIG=	llvm-config60
 LDCVER=		${PORTVERSION}
 
 .include <bsd.port.pre.mk>

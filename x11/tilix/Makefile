@@ -15,7 +15,7 @@ LIB_DEPENDS+=	libunwind.so:devel/libunwind \
 		libgtkd-3.so:x11-toolkits/gtkd-3 \
 		libvted-3.so:x11-toolkits/gtkd-3
 
-USES=	meson gnome shebangfix
+USES=	meson gettext-tools gnome pkgconfig python:3.6+,build shebangfix
 USE_XORG=	x11
 USE_GNOME=	gtk30 vte3
 USE_GITHUB=	yes
@@ -23,6 +23,8 @@ GH_ACCOUNT=	gnunn1
 SSP_UNSAFE=	yes # not understood by ldc2
 SHEBANG_FILES=	data/scripts/tilix_int.sh
 GLIB_SCHEMAS=	com.gexperts.Tilix.gschema.xml
+
+BINARY_ALIAS+=	python3=${PYTHON_CMD}
 
 post-patch:
 	${CP} ${FILESDIR}/LINGUAS ${WRKSRC}/po
