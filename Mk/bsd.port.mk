@@ -2570,7 +2570,7 @@ VALID_CATEGORIES+= accessibility afterstep arabic archivers astro audio \
 	tcl textproc tk \
 	ukrainian vietnamese windowmaker wayland www \
 	x11 x11-clocks x11-drivers x11-fm x11-fonts x11-servers x11-themes \
-	x11-toolkits x11-wm xfce zope base
+	x11-toolkits x11-wm xfce zope base dummy
 
 check-categories:
 .for cat in ${CATEGORIES}
