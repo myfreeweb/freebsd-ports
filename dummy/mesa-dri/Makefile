@@ -2,7 +2,7 @@
 PORTNAME=	mesa-dri
 PORTVERSION=	69.420
 PORTREVISION=	2
-CATEGORIES=	graphics
+CATEGORIES=	dummy graphics
 
 COMMENT=	dummy
 
