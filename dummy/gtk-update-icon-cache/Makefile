@@ -2,7 +2,7 @@
 PORTNAME=	gtk-update-icon-cache
 PORTVERSION=	9.24.32
 PORTREVISION=	2
-CATEGORIES=	graphics
+CATEGORIES=	dummy graphics
 
 COMMENT=	dummy
 
