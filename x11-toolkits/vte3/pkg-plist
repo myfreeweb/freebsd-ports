@@ -13,7 +13,7 @@ include/vte-%%VERSION%%/vte/vteversion.h
 lib/girepository-1.0/Vte-%%VERSION%%.typelib
 lib/libvte-%%VERSION%%.so
 lib/libvte-%%VERSION%%.so.0
-lib/libvte-%%VERSION%%.so.0.5200.2
+lib/libvte-%%VERSION%%.so.0.5600.3
 libdata/pkgconfig/vte-%%VERSION%%.pc
 share/gir-1.0/Vte-%%VERSION%%.gir
 share/gtk-doc/html/vte-%%VERSION%%/VteRegex.html
@@ -25,6 +25,8 @@ share/gtk-doc/html/vte-%%VERSION%%/api-index-0-46.html
 share/gtk-doc/html/vte-%%VERSION%%/api-index-0-48.html
 share/gtk-doc/html/vte-%%VERSION%%/api-index-0-50.html
 share/gtk-doc/html/vte-%%VERSION%%/api-index-0-52.html
+share/gtk-doc/html/vte-%%VERSION%%/api-index-0-54.html
+share/gtk-doc/html/vte-%%VERSION%%/api-index-0-56.html
 share/gtk-doc/html/vte-%%VERSION%%/api-index-deprecated.html
 share/gtk-doc/html/vte-%%VERSION%%/api-index-full.html
 share/gtk-doc/html/vte-%%VERSION%%/ch01.html
