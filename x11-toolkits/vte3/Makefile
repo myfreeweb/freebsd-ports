@@ -2,12 +2,11 @@
 # $FreeBSD$
 
 PORTNAME=	vte
-PORTVERSION=	0.52.2
-PORTREVISION=	3
+PORTVERSION=	0.56.3
 CATEGORIES=	x11-toolkits gnome
 MASTER_SITES=	GNOME
 PKGNAMESUFFIX=	3
-DIST_SUBDIR=	gnome3
+DIST_SUBDIR=	gnome
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Terminal widget with improved accessibility and I18N support
@@ -22,7 +21,7 @@ LIB_DEPENDS=	libgnutls.so:security/gnutls \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		compiler:c++11-lang gettext gmake gnome gperf libtool localbase \
+USES=		compiler:c++17-lang gettext gmake gnome gperf libtool localbase \
 		pathfix pkgconfig tar:xz
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
