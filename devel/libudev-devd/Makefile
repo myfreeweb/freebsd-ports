@@ -12,8 +12,8 @@ LICENSE=	BSD2CLAUSE
 BUILD_DEPENDS=	${LOCALBASE}/include/linux/input.h:devel/evdev-proto
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	myfreeweb
-GH_TAGNAME=	33f5f3b
+GH_ACCOUNT=	FreeBSDDesktop
+GH_TAGNAME=	8efdba3cd5d
 
 USES=		autoreconf gmake libtool localbase pathfix pkgconfig
 USE_LDCONFIG=	yes
