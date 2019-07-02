@@ -1,0 +1,101 @@
+--- projects/openmp/runtime/src/kmp.h.orig	2019-07-02 23:08:41.450127000 +0000
++++ projects/openmp/runtime/src/kmp.h	2019-07-02 23:09:53.195871000 +0000
+@@ -3548,7 +3548,7 @@
+                            enum fork_context_e fork_context, kmp_int32 argc,
+                            microtask_t microtask, launch_t invoker,
+ /* TODO: revert workaround for Intel(R) 64 tracker #96 */
+-#if (KMP_ARCH_ARM || KMP_ARCH_X86_64 || KMP_ARCH_AARCH64) && KMP_OS_LINUX
++#if (KMP_ARCH_ARM || KMP_ARCH_X86_64 || KMP_ARCH_AARCH64)
+                            va_list *ap
+ #else
+                            va_list ap
+--- projects/openmp/runtime/src/kmp_runtime.cpp.orig	2019-01-15 15:36:53.000000000 +0000
++++ projects/openmp/runtime/src/kmp_runtime.cpp	2019-07-02 23:04:52.555131000 +0000
+@@ -1447,7 +1447,7 @@
+                     enum fork_context_e call_context, // Intel, GNU, ...
+                     kmp_int32 argc, microtask_t microtask, launch_t invoker,
+ /* TODO: revert workaround for Intel(R) 64 tracker #96 */
+-#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64) && KMP_OS_LINUX
++#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64)
+                     va_list *ap
+ #else
+                     va_list ap
+@@ -1563,7 +1563,7 @@
+       argv = (void **)parent_team->t.t_argv;
+       for (i = argc - 1; i >= 0; --i)
+ /* TODO: revert workaround for Intel(R) 64 tracker #96 */
+-#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64) && KMP_OS_LINUX
++#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64)
+         *argv++ = va_arg(*ap, void *);
+ #else
+         *argv++ = va_arg(ap, void *);
+@@ -1861,7 +1861,7 @@
+           if (ap) {
+             for (i = argc - 1; i >= 0; --i)
+ // TODO: revert workaround for Intel(R) 64 tracker #96
+-#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64) && KMP_OS_LINUX
++#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64)
+               *argv++ = va_arg(*ap, void *);
+ #else
+               *argv++ = va_arg(ap, void *);
+@@ -1881,7 +1881,7 @@
+           argv = args;
+           for (i = argc - 1; i >= 0; --i)
+ // TODO: revert workaround for Intel(R) 64 tracker #96
+-#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64) && KMP_OS_LINUX
++#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64)
+             *argv++ = va_arg(*ap, void *);
+ #else
+           *argv++ = va_arg(ap, void *);
+@@ -2196,7 +2196,7 @@
+ #endif /* OMP_40_ENABLED */
+       for (i = argc - 1; i >= 0; --i) {
+ // TODO: revert workaround for Intel(R) 64 tracker #96
+-#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64) && KMP_OS_LINUX
++#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64)
+         void *new_argv = va_arg(*ap, void *);
+ #else
+       void *new_argv = va_arg(ap, void *);
+@@ -8102,9 +8102,9 @@
+ #endif // KMP_OS_LINUX || KMP_OS_DRAGONFLY || KMP_OS_FREEBSD || KMP_OS_NETBSD ||
+        // KMP_OS_OPENBSD || KMP_OS_WINDOWS || KMP_OS_DARWIN || KMP_OS_HURD
+
+-#elif KMP_ARCH_X86 || KMP_ARCH_ARM || KMP_ARCH_AARCH || KMP_ARCH_MIPS
++#elif KMP_ARCH_X86 || KMP_ARCH_ARM || KMP_ARCH_AARCH64 || KMP_ARCH_MIPS
+
+-#if KMP_OS_LINUX || KMP_OS_WINDOWS || KMP_OS_HURD
++#if KMP_OS_LINUX || KMP_OS_WINDOWS || KMP_OS_HURD || KMP_OS_FREEBSD
+
+     // basic tuning
+
+--- projects/openmp/runtime/src/kmp_csupport.cpp.orig	2019-07-02 23:14:06.796922000 +0000
++++ projects/openmp/runtime/src/kmp_csupport.cpp	2019-07-02 23:14:14.481647000 +0000
+@@ -317,7 +317,7 @@
+                     VOLATILE_CAST(microtask_t) microtask, // "wrapped" task
+                     VOLATILE_CAST(launch_t) __kmp_invoke_task_func,
+ /* TODO: revert workaround for Intel(R) 64 tracker #96 */
+-#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64) && KMP_OS_LINUX
++#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64)
+                     &ap
+ #else
+                     ap
+@@ -413,7 +413,7 @@
+                   VOLATILE_CAST(microtask_t)
+                       __kmp_teams_master, // "wrapped" task
+                   VOLATILE_CAST(launch_t) __kmp_invoke_teams_master,
+-#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64) && KMP_OS_LINUX
++#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64)
+                   &ap
+ #else
+                   ap
+--- projects/openmp/runtime/src/kmp_gsupport.cpp.orig	2019-07-02 23:15:21.000238000 +0000
++++ projects/openmp/runtime/src/kmp_gsupport.cpp	2019-07-02 23:15:24.987928000 +0000
+@@ -376,7 +376,7 @@
+
+   rc = __kmp_fork_call(loc, gtid, fork_context_gnu, argc, wrapper,
+                        __kmp_invoke_task_func,
+-#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64) && KMP_OS_LINUX
++#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64)
+                        &ap
+ #else
+                        ap

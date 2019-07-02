@@ -1,0 +1,88 @@
+Based on: https://reviews.llvm.org/D32175
+Added toolchain thing that allows more sanitizers
+
+See compiler-rt/ patch for more info
+--- lib/Transforms/Instrumentation/AddressSanitizer.cpp.orig	2018-12-22 00:49:40.000000000 +0300
++++ lib/Transforms/Instrumentation/AddressSanitizer.cpp	2019-07-02 18:23:01.419376000 +0300
+@@ -107,6 +107,7 @@
+ static const uint64_t kAArch64_ShadowOffset64 = 1ULL << 36;
+ static const uint64_t kFreeBSD_ShadowOffset32 = 1ULL << 30;
+ static const uint64_t kFreeBSD_ShadowOffset64 = 1ULL << 46;
++static const uint64_t kFreeBSD_AArch64_ShadowOffset64 = 1ULL << 47;
+ static const uint64_t kNetBSD_ShadowOffset32 = 1ULL << 30;
+ static const uint64_t kNetBSD_ShadowOffset64 = 1ULL << 46;
+ static const uint64_t kNetBSDKasan_ShadowOffset64 = 0xdfff900000000000;
+@@ -546,9 +547,12 @@
+       Mapping.Offset = kPPC64_ShadowOffset64;
+     else if (IsSystemZ)
+       Mapping.Offset = kSystemZ_ShadowOffset64;
+-    else if (IsFreeBSD && !IsMIPS64)
+-      Mapping.Offset = kFreeBSD_ShadowOffset64;
+-    else if (IsNetBSD) {
++    else if (IsFreeBSD && !IsMIPS64) {
++      if (IsAArch64)
++        Mapping.Offset = kFreeBSD_AArch64_ShadowOffset64;
++      else
++        Mapping.Offset = kFreeBSD_ShadowOffset64;
++    } else if (IsNetBSD) {
+       if (IsKasan)
+         Mapping.Offset = kNetBSDKasan_ShadowOffset64;
+       else
+--- test/Instrumentation/AddressSanitizer/freebsd.ll.orig	2018-08-02 01:51:13.000000000 +0300
++++ test/Instrumentation/AddressSanitizer/freebsd.ll	2019-07-02 18:21:07.718422000 +0300
+@@ -13,6 +13,11 @@
+ ; RUN:     -data-layout="E-m:e-i64:64-n32:64-S128" | \
+ ; RUN:     FileCheck --check-prefix=CHECK-MIPS64 %s
+
++; RUN: opt < %s -asan -asan-module -S \
++; RUN:     -mtriple=aarch64-unknown-freebsd \
++; RUN:     -data-layout="e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128" | \
++; RUN:     FileCheck --check-prefix=CHECK-AARCH64 %s
++
+ define i32 @read_4_bytes(i32* %a) sanitize_address {
+ entry:
+   %tmp1 = load i32, i32* %a, align 4
+@@ -32,6 +37,13 @@
+ ; CHECK-64: lshr {{.*}} 3
+ ; CHECK-64-NEXT: {{70368744177664}}
+ ; CHECK-64: ret
++
++; CHECK-AARCH64: @read_4_bytes
++; CHECK-AARCH64-NOT: ret
++; Check for ASAN's Offset for 64-bit (2^47 or 0x800000000000)
++; CHECK-AARCH64: lshr {{.*}} 3
++; CHECK-AARCH64-NEXT: {{140737488355328}}
++; CHECK-AARCH64: ret
+
+ ; CHECK-MIPS64: @read_4_bytes
+ ; CHECK-MIPS64-NOT: ret
+--- tools/clang/lib/Driver/ToolChains/FreeBSD.cpp.orig	2019-07-02 19:56:37.904827000 +0000
++++ tools/clang/lib/Driver/ToolChains/FreeBSD.cpp	2019-07-02 19:58:04.947011000 +0000
+@@ -409,20 +409,24 @@
+   const bool IsX86 = getTriple().getArch() == llvm::Triple::x86;
+   const bool IsX86_64 = getTriple().getArch() == llvm::Triple::x86_64;
+   const bool IsMIPS64 = getTriple().isMIPS64();
++  const bool IsAArch64 = getTriple().isAArch64();
+   SanitizerMask Res = ToolChain::getSupportedSanitizers();
+   Res |= SanitizerKind::Address;
+   Res |= SanitizerKind::Vptr;
+-  if (IsX86_64 || IsMIPS64) {
++  if (IsX86_64 || IsMIPS64 || IsAArch64) {
+     Res |= SanitizerKind::Leak;
+     Res |= SanitizerKind::Thread;
+   }
+-  if (IsX86 || IsX86_64) {
++  if (IsX86 || IsX86_64 || IsAArch64) {
+     Res |= SanitizerKind::Function;
+     Res |= SanitizerKind::SafeStack;
+     Res |= SanitizerKind::Fuzzer;
+     Res |= SanitizerKind::FuzzerNoLink;
+   }
+-  if (IsX86_64)
++  if (IsX86_64 || IsAArch64) {
+     Res |= SanitizerKind::Memory;
++  }
++  if (IsAArch64)
++    Res |= SanitizerKind::HWAddress;
+   return Res;
+ }

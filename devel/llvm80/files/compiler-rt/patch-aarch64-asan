@@ -1,0 +1,199 @@
+Based on https://reviews.llvm.org/D32172
+Added esr register (https://reviews.freebsd.org/D20838), added hwasan (https://reviews.freebsd.org/D20835).
+
+TODO:
+sanitizer_linux_libcdep: actually make TLS work instead of commenting out?
+sanitizer_platform_limits_freebsd.h: would be better to remove the need for mallinfo instead of this
+sanitizer_platform_limits_freebsd.cc: remove timeb entirely everywhere instead of this?
+
+--- ../compiler-rt-8.0.1.src/cmake/config-ix.cmake.orig	2019-07-02 18:40:26.796769000 +0300
++++ ../compiler-rt-8.0.1.src/cmake/config-ix.cmake	2019-07-02 18:40:28.629137000 +0300
+@@ -580,7 +580,7 @@
+ endif()
+
+ if (COMPILER_RT_HAS_SANITIZER_COMMON AND HWASAN_SUPPORTED_ARCH AND
+-    OS_NAME MATCHES "Linux|Android")
++    OS_NAME MATCHES "Linux|FreeBSD|Android")
+   set(COMPILER_RT_HAS_HWASAN TRUE)
+ else()
+   set(COMPILER_RT_HAS_HWASAN FALSE)
+--- ../compiler-rt-8.0.1.src/lib/asan/asan_mapping.h.orig	2018-07-30 03:25:16.000000000 +0300
++++ ../compiler-rt-8.0.1.src/lib/asan/asan_mapping.h	2019-07-02 18:23:51.693189000 +0300
+@@ -165,6 +165,7 @@
+ static const u64 kSystemZ_ShadowOffset64 = 1ULL << 52;
+ static const u64 kFreeBSD_ShadowOffset32 = 1ULL << 30;  // 0x40000000
+ static const u64 kFreeBSD_ShadowOffset64 = 1ULL << 46;  // 0x400000000000
++static const u64 kFreeBSD_AArch64_ShadowOffset64 = 1ULL << 47; // 0x800000000000
+ static const u64 kNetBSD_ShadowOffset32 = 1ULL << 30;  // 0x40000000
+ static const u64 kNetBSD_ShadowOffset64 = 1ULL << 46;  // 0x400000000000
+ static const u64 kWindowsShadowOffset32 = 3ULL << 28;  // 0x30000000
+@@ -211,6 +212,8 @@
+ #    else
+ #      define SHADOW_OFFSET __asan_shadow_memory_dynamic_address
+ #    endif
++#  elif defined(__aarch64__) && SANITIZER_FREEBSD
++#    define SHADOW_OFFSET kFreeBSD_AArch64_ShadowOffset64
+ #  elif defined(__aarch64__)
+ #    define SHADOW_OFFSET kAArch64_ShadowOffset64
+ #  elif defined(__powerpc64__)
+--- ../compiler-rt-8.0.1.src/lib/sanitizer_common/sanitizer_linux.cc.orig	2019-07-02 18:44:27.546103000 +0300
++++ ../compiler-rt-8.0.1.src/lib/sanitizer_common/sanitizer_linux.cc	2019-07-02 18:54:51.384815000 +0300
+@@ -1342,7 +1342,7 @@
+                        : "memory", "$29" );
+   return res;
+ }
+-#elif defined(__aarch64__)
++#elif defined(__aarch64__) && SANITIZER_LINUX
+ uptr internal_clone(int (*fn)(void *), void *child_stack, int flags, void *arg,
+                     int *parent_tidptr, void *newtls, int *child_tidptr) {
+   long long res;
+@@ -1743,6 +1743,12 @@
+ #endif
+
+ #if defined(__aarch64__)
++# if SANITIZER_FREEBSD
++static bool Aarch64GetESR(ucontext_t *ucontext, u64 *esr) {
++  *esr = ucontext->uc_mcontext.mc_gpregs.gp_esr;
++  return true;
++}
++# else
+ // Android headers in the older NDK releases miss this definition.
+ struct __sanitizer_esr_context {
+   struct _aarch64_ctx head;
+@@ -1763,6 +1769,7 @@
+   }
+   return false;
+ }
++# endif
+ #endif
+
+ #if SANITIZER_OPENBSD
+@@ -1876,9 +1883,15 @@
+   *sp = ucontext->uc_mcontext.arm_sp;
+ #elif defined(__aarch64__)
+   ucontext_t *ucontext = (ucontext_t*)context;
++#if SANITIZER_FREEBSD
++  *pc = ucontext->uc_mcontext.mc_gpregs.gp_elr;
++  *bp = ucontext->uc_mcontext.mc_gpregs.gp_x[29];
++  *sp = ucontext->uc_mcontext.mc_gpregs.gp_sp;
++#else
+   *pc = ucontext->uc_mcontext.pc;
+   *bp = ucontext->uc_mcontext.regs[29];
+   *sp = ucontext->uc_mcontext.sp;
++#endif
+ #elif defined(__hppa__)
+   ucontext_t *ucontext = (ucontext_t*)context;
+   *pc = ucontext->uc_mcontext.sc_iaoq[0];
+--- ../compiler-rt-8.0.1.src/lib/sanitizer_common/sanitizer_linux_libcdep.cc.orig	2019-01-08 01:07:34.000000000 +0000
++++ ../compiler-rt-8.0.1.src/lib/sanitizer_common/sanitizer_linux_libcdep.cc	2019-07-02 20:03:30.391895000 +0000
+@@ -389,6 +389,8 @@
+ # elif defined(__x86_64__)
+   // sysarch(AMD64_GET_FSBASE, segbase);
+   __asm __volatile("movq %%fs:0, %0" : "=r" (segbase));
++# elif defined(__aarch64__)
++  __asm __volatile("mrs %0, tpidr_el0" : "=&r" (segbase));
+ # else
+ #  error "unsupported CPU arch"
+ # endif
+@@ -449,6 +451,7 @@
+   void** segbase = ThreadSelfSegbase();
+   *addr = 0;
+   *size = 0;
++#ifndef __aarch64__
+   if (segbase != 0) {
+     // tcbalign = 16
+     // tls_size = round(tls_static_space, tcbalign);
+@@ -458,6 +461,7 @@
+     *addr = (uptr) dtv[2];
+     *size = (*addr == 0) ? 0 : ((uptr) segbase[0] - (uptr) dtv[2]);
+   }
++#endif
+ #elif SANITIZER_NETBSD
+   struct tls_tcb * const tcb = ThreadSelfTlsTcb();
+   *addr = 0;
+--- ../compiler-rt-8.0.1.src/lib/sanitizer_common/sanitizer_syscall_generic.inc.orig	2019-07-02 18:56:57.017413000 +0300
++++ ../compiler-rt-8.0.1.src/lib/sanitizer_common/sanitizer_syscall_generic.inc	2019-07-02 18:57:09.465649000 +0300
+@@ -20,7 +20,7 @@
+ # define SYSCALL(name) __NR_ ## name
+ #endif
+
+-#if defined(__x86_64__) && (SANITIZER_FREEBSD || SANITIZER_MAC)
++#if (defined(__x86_64__) || defined(__aarch64__)) && (SANITIZER_FREEBSD || SANITIZER_MAC)
+ # define internal_syscall __syscall
+ # else
+ # define internal_syscall syscall
+--- ../compiler-rt-8.0.1.src/lib/hwasan/hwasan_linux.cc.orig	2019-07-02 18:40:06.564596000 +0300
++++ ../compiler-rt-8.0.1.src/lib/hwasan/hwasan_linux.cc	2019-07-02 19:09:00.363106000 +0300
+@@ -336,11 +336,21 @@
+
+   const bool is_store = code & 0x10;
+   const bool recover = code & 0x20;
++#if SANITIZER_FREEBSD
++  const uptr addr = uc->uc_mcontext.mc_gpregs.gp_x[0];
++#else
+   const uptr addr = uc->uc_mcontext.regs[0];
++#endif
+   const unsigned size_log = code & 0xf;
+   if (size_log > 4 && size_log != 0xf)
+     return AccessInfo{}; // Not ours.
+-  const uptr size = size_log == 0xf ? uc->uc_mcontext.regs[1] : 1U << size_log;
++  const uptr size = size_log == 0xf ?
++#if SANITIZER_FREEBSD
++    uc->uc_mcontext.mc_gpregs.gp_x[1]
++#else
++    uc->uc_mcontext.regs[1]
++#endif
++    : 1U << size_log;
+
+ #elif defined(__x86_64__)
+   // Access type is encoded in the instruction following INT3 as
+@@ -386,8 +396,10 @@
+   bool fatal = flags()->halt_on_error || !ai.recover;
+   ReportTagMismatch(stack, ai.addr, ai.size, ai.is_store, fatal);
+
+-#if defined(__aarch64__)
++#if defined(__aarch64__) && SANITIZER_LINUX
+   uc->uc_mcontext.pc += 4;
++#elif defined(__aarch64__) && SANITIZER_FREEBSD
++  uc->uc_mcontext.mc_gpregs.gp_elr += 4;
+ #elif defined(__x86_64__)
+ #else
+ # error Unsupported architecture
+--- ../compiler-rt-8.0.1.src/lib/sanitizer_common/sanitizer_platform_limits_freebsd.cc.orig	2019-07-02 22:17:38.334190000 +0300
++++ ../compiler-rt-8.0.1.src/lib/sanitizer_common/sanitizer_platform_limits_freebsd.cc	2019-07-02 22:29:16.383199000 +0300
+@@ -48,7 +48,9 @@
+ #include <sys/filio.h>
+ #include <sys/signal.h>
+ #include <sys/timespec.h>
++#undef __GNUC__
+ #include <sys/timeb.h>
++#define __GNUC__
+ #include <sys/mqueue.h>
+ #include <sys/msg.h>
+ #include <sys/ipc.h>
+--- ../compiler-rt-8.0.1.src/lib/sanitizer_common/sanitizer_platform_limits_freebsd.h.orig	2019-07-02 22:28:56.905846000 +0300
++++ ../compiler-rt-8.0.1.src/lib/sanitizer_common/sanitizer_platform_limits_freebsd.h	2019-07-02 22:30:08.038846000 +0300
+@@ -306,6 +306,10 @@
+     u32 data[4];
+   };
+
++  struct __sanitizer_struct_mallinfo {
++    uptr v[10];
++  };
++
+   extern const uptr sig_ign;
+   extern const uptr sig_dfl;
+   extern const uptr sig_err;
+--- ../compiler-rt-8.0.1.src/lib/hwasan/hwasan_interface_internal.h.orig	2019-07-02 22:30:41.549166000 +0300
++++ ../compiler-rt-8.0.1.src/lib/hwasan/hwasan_interface_internal.h	2019-07-02 22:30:56.168369000 +0300
+@@ -16,7 +16,11 @@
+ #define HWASAN_INTERFACE_INTERNAL_H
+
+ #include "sanitizer_common/sanitizer_internal_defs.h"
++#ifdef SANITIZER_FREEBSD
++#include "sanitizer_common/sanitizer_platform_limits_freebsd.h"
++#else
+ #include "sanitizer_common/sanitizer_platform_limits_posix.h"
++#endif
+
+ extern "C" {
