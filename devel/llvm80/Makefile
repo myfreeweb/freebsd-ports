@@ -56,9 +56,11 @@ CFLAGS+=	-DNDEBUG
 CXXFLAGS+=	-DNDEBUG
 
 OPTIONS_DEFINE=	BE_AMDGPU CLANG DOCS EXTRAS LIT LLD LLDB PYCLANG
+OPTIONS_DEFINE_aarch64=	COMPILER_RT OPENMP
 OPTIONS_DEFINE_amd64=	COMPILER_RT GOLD OPENMP
 OPTIONS_DEFINE_i386=	COMPILER_RT OPENMP
 OPTIONS_DEFAULT=	BE_AMDGPU BE_STANDARD CLANG EXTRAS LIT LLD LLDB PYCLANG
+OPTIONS_DEFAULT_aarch64=COMPILER_RT OPENMP
 OPTIONS_DEFAULT_amd64=	COMPILER_RT GOLD OPENMP
 OPTIONS_DEFAULT_i386=	COMPILER_RT OPENMP
 OPTIONS_SINGLE=		BACKENDS
@@ -82,6 +84,7 @@ CLANG_CMAKE_ON=		-DCLANG_DEFAULT_OPENMP_RUNTIME=libomp \
 CLANG_PORTDOCS=		clang
 CLANG_USE=		GNOME=libxml2
 COMPILER_RT_DESC=	Sanitizer libraries
+COMPILER_RT_EXTRA_PATCHES=	${PATCHDIR}/compiler-rt
 COMPILER_RT_DISTFILES=	compiler-rt-${DISTVERSION}.src${EXTRACT_SUFX}
 COMPILER_RT_PLIST_FILES=${_COMPILER_RT_LIBS:S|^|${_CRTLIBDIR}/|} \
 			${_COMPILER_RT_BLACKLISTS:S|^|${_CRTBLDIR}/|}
@@ -290,6 +293,53 @@ BE_PATTERN=${_BE_LIBS_STANDARD:O:S/$/.a/:ts|}
 _CRTLIBDIR=	${LLVM_PREFIX:S|${PREFIX}/||}/lib/clang/${LLVM_RELEASE}/lib/freebsd
 _CRTBLDIR=	${LLVM_PREFIX:S|${PREFIX}/||}/share
 _COMPILER_RT_BLACKLISTS=	cfi_blacklist.txt
+.if ${ARCH} == "aarch64"
+_COMPILER_RT_BLACKLISTS+=	asan_blacklist.txt
+_COMPILER_RT_BLACKLISTS+=	msan_blacklist.txt
+_COMPILER_RT_BLACKLISTS+=	hwasan_blacklist.txt
+_COMPILER_RT_LIBS= \
+	libclang_rt.asan-preinit-aarch64.a \
+	libclang_rt.asan-aarch64.a \
+	libclang_rt.asan-aarch64.a.syms \
+	libclang_rt.asan-aarch64.so \
+	libclang_rt.asan_cxx-aarch64.a \
+	libclang_rt.asan_cxx-aarch64.a.syms \
+	libclang_rt.builtins-aarch64.a \
+	libclang_rt.cfi-aarch64.a \
+	libclang_rt.cfi_diag-aarch64.a \
+	libclang_rt.fuzzer-aarch64.a \
+	libclang_rt.fuzzer_no_main-aarch64.a \
+	libclang_rt.hwasan-aarch64.a \
+	libclang_rt.hwasan-aarch64.a.syms \
+	libclang_rt.hwasan-aarch64.so \
+	libclang_rt.hwasan_cxx-aarch64.a \
+	libclang_rt.hwasan_cxx-aarch64.a.syms \
+	libclang_rt.lsan-aarch64.a \
+	libclang_rt.msan-aarch64.a \
+	libclang_rt.msan-aarch64.a.syms \
+	libclang_rt.msan_cxx-aarch64.a \
+	libclang_rt.msan_cxx-aarch64.a.syms \
+	libclang_rt.profile-aarch64.a \
+	libclang_rt.safestack-aarch64.a \
+	libclang_rt.stats-aarch64.a \
+	libclang_rt.stats_client-aarch64.a \
+	libclang_rt.tsan-aarch64.a \
+	libclang_rt.tsan-aarch64.a.syms \
+	libclang_rt.tsan_cxx-aarch64.a \
+	libclang_rt.tsan_cxx-aarch64.a.syms \
+	libclang_rt.ubsan_minimal-aarch64.a \
+	libclang_rt.ubsan_minimal-aarch64.a.syms \
+	libclang_rt.ubsan_minimal-aarch64.so \
+	libclang_rt.ubsan_standalone-aarch64.a \
+	libclang_rt.ubsan_standalone-aarch64.a.syms \
+	libclang_rt.ubsan_standalone-aarch64.so \
+	libclang_rt.ubsan_standalone_cxx-aarch64.a \
+	libclang_rt.ubsan_standalone_cxx-aarch64.a.syms \
+	libclang_rt.xray-basic-aarch64.a \
+	libclang_rt.xray-fdr-aarch64.a \
+	libclang_rt.xray-profiling-aarch64.a \
+	libclang_rt.xray-aarch64.a
+.endif
 .if ${ARCH} == "amd64"
 _COMPILER_RT_BLACKLISTS+=	asan_blacklist.txt
 _COMPILER_RT_BLACKLISTS+=	msan_blacklist.txt
