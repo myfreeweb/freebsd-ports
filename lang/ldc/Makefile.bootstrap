@@ -1,0 +1,56 @@
+# $FreeBSD$
+
+PORTNAME=		ldc
+DISTVERSION=		0.17.6-6
+DISTVERSIONPREFIX=	v
+DISTVERSIONSUFFIX=	-g20ef705c
+CATEGORIES=		lang
+
+PATCHDIR=       	${MASTERDIR}/files.bootstrap
+DISTINFO_FILE=  	${MASTERDIR}/distinfo.bootstrap
+
+MAINTAINER=		acm@FreeBSD.org
+COMMENT=		The LLVM-based D compiler
+LICENSE=		BSD3CLAUSE
+USES= 			ninja cmake:insource compiler
+
+BUILD_DEPENDS=		llvm${LLVM_VERSION}>0:devel/llvm${LLVM_VERSION}
+LIB_DEPENDS=		libconfig.so:devel/libconfig
+LLVM_VERSION=		70
+
+# fake flavor support in bootstrap (as it is being passed down)
+FLAVORS=		bootstrap
+FLAVOR?=		${FLAVORS[0]}
+
+BROKEN_armv6=		fails to compile: Error: undefined identifier _jmp_buf, did you mean alias jmp_buf?
+BROKEN_armv7=		fails to compile: Error: undefined identifier _jmp_buf, did you mean alias jmp_buf?
+BROKEN_i386=		function core.bitop.bsf (uint v) is not callable using argument types (ulong)
+BROKEN_powerpc64=	fails to compile: cc1plus: error: unrecognized command line option "-std=c++11"
+
+USE_GITHUB=		yes
+GH_ACCOUNT=		ldc-developers
+GH_PROJECT=		ldc
+GH_TUPLE=		ldc-developers:druntime:13b1ccf:druntimelts/runtime/druntime \
+			ldc-developers:phobos:1d758b2:phoboslts/runtime/phobos
+
+CC=			${LOCALBASE}/bin/clang${LLVM_VERSION}
+CXX=			${LOCALBASE}/bin/clang++${LLVM_VERSION}
+LLVM_CONFIG=		${LOCALBASE}/bin/llvm-config${LLVM_VERSION}
+LDCVER=			${PORTVERSION}
+
+.include <bsd.port.pre.mk>
+
+.if ${ARCH} == "amd64" || ${ARCH} == "aarch64"
+CFLAGS+=		-fPIC
+.endif
+
+CMAKE_ARGS+=		-DCMAKE_C_COMPILER:STRING="${CC}" \
+			-DCMAKE_CXX_COMPILER:STRING="${CXX}" \
+			-DLLVM_CONFIG:PATH=${LLVM_CONFIG}
+
+post-patch:
+	${LN} -sf ${WRKSRC} ${WRKDIR}/ltsmaster
+	${REINPLACE_CMD} -e 's|$${llvm_config_names}|${LLVM_CONFIG}|g' \
+		${WRKSRC}/cmake/Modules/FindLLVM.cmake
+
+.include <bsd.port.post.mk>

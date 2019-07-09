@@ -1,0 +1,81 @@
+--- runtime/druntime/src/core/sys/freebsd/sys/event.d.orig	2018-12-15 16:48:11 UTC
++++ runtime/druntime/src/core/sys/freebsd/sys/event.d
+@@ -125,6 +125,7 @@ enum
+ }
+
+ int kqueue();
++pragma(mangle, "kevent@FBSD_1.0")
+ int kevent(int kq, const kevent_t *changelist, int nchanges,
+            kevent_t *eventlist, int nevents,
+            const timespec *timeout);
+--- runtime/druntime/src/core/sys/posix/dirent.d.orig	2018-12-15 16:48:11 UTC
++++ runtime/druntime/src/core/sys/posix/dirent.d
+@@ -140,7 +140,7 @@ else version( FreeBSD )
+
+     alias void* DIR;
+
+-    dirent* readdir(DIR*);
++    pragma(mangle, "readdir@FBSD_1.0") dirent* readdir(DIR*);
+ }
+ else version( DragonFlyBSD )
+ {
+@@ -273,7 +273,7 @@ else version( OSX )
+ }
+ else version( FreeBSD )
+ {
+-    int readdir_r(DIR*, dirent*, dirent**);
++    pragma(mangle, "readdir_r@FBSD_1.0") int readdir_r(DIR*, dirent*, dirent**);
+ }
+ else version( DragonFlyBSD )
+ {
+@@ -315,12 +315,12 @@ version( CRuntime_Glibc )
+ }
+ else version( FreeBSD )
+ {
+-    void   seekdir(DIR*, c_long);
+-    c_long telldir(DIR*);
++    pragma(mangle, "seekdir@@FBSD_1.0") void   seekdir(DIR*, c_long);
++    pragma(mangle, "telldir@@FBSD_1.0") c_long telldir(DIR*);
+ }
+ else version( DragonFlyBSD )
+ {
+-    void   seekdir(DIR*, c_long);
++    void seekdir(DIR*, c_long);
+     c_long telldir(DIR*);
+ }
+ else version (OSX)
+--- runtime/druntime/src/core/sys/posix/sys/stat.d.orig	2018-12-15 16:48:11 UTC
++++ runtime/druntime/src/core/sys/posix/sys/stat.d
+@@ -1190,9 +1190,9 @@ else version( OSX )
+ }
+ else version( FreeBSD )
+ {
+-    int   fstat(int, stat_t*);
+-    int   lstat(in char*, stat_t*);
+-    int   stat(in char*, stat_t*);
++    pragma(mangle, "fstat@FBSD_1.0") int   fstat(int, stat_t*);
++    pragma(mangle, "lstat@FBSD_1.0") int   lstat(in char*, stat_t*);
++    pragma(mangle, "stat@FBSD_1.0")  int   stat(in char*, stat_t*);
+ }
+ else version( DragonFlyBSD )
+ {
+@@ -1267,7 +1267,7 @@ else version( FreeBSD )
+     enum S_IFLNK    = 0xA000; // octal 0120000
+     enum S_IFSOCK   = 0xC000; // octal 0140000
+
+-    int mknod(in char*, mode_t, dev_t);
++    pragma(mangle, "mknod@FBSD_1.0") int mknod(in char*, mode_t, dev_t);
+ }
+ else version( DragonFlyBSD )
+ {
+--- runtime/druntime/src/core/sys/posix/sys/statvfs.d.orig	2018-12-15 16:48:11 UTC
++++ runtime/druntime/src/core/sys/posix/sys/statvfs.d
+@@ -107,6 +107,6 @@ else
+         ST_NOSUID = 2
+     }
+
+-    int statvfs (const char * file, statvfs_t* buf);
+-    int fstatvfs (int fildes, statvfs_t *buf) @trusted;
++    pragma(mangle, "fstatvfs@FBSD_1.0") int statvfs (const char * file, statvfs_t* buf);
++    pragma(mangle, "statvfs@FBSD_1.0")  int fstatvfs (int fildes, statvfs_t *buf) @trusted;
+ }

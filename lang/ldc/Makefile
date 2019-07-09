@@ -1,64 +1,92 @@
 # $FreeBSD$
 
-PORTNAME=	ldc
-PORTVERSION=	1.14.0
+PORTNAME=		ldc
+PORTVERSION=		1.18.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	lang
+CATEGORIES=		lang
 
-MAINTAINER=	acm@FreeBSD.org
-COMMENT=	The LLVM-based D compiler
+# link to libexecinfo, use PIC by default
+PATCH_SITES=	https://github.com/myfreeweb/ldc/commit/
+PATCHFILES=	3df77e9bf1c8acee4b0bc0ce66766461a3318361.patch:-p1 \
+	573cb1456b1074bb4ab604a838658f30beb6a797.patch:-p1
 
-LICENSE=	BSD3CLAUSE
+MAINTAINER=		acm@FreeBSD.org
+COMMENT=		The LLVM-based D compiler
+LICENSE=		BSD3CLAUSE
+USES= 			ninja cmake:insource compiler:c++14-lang
 
-BUILD_DEPENDS=	llvm70>0:devel/llvm70
-RUN_DEPENDS=	llvm70>0:devel/llvm70
-LIB_DEPENDS=	libconfig.so:devel/libconfig
+OPTIONS_GROUP=		BOOTSTRAP
+BOOTSTRAP_DESC=		Force using ltsmaster to bootstrap
+OPTIONS_GROUP_BOOTSTRAP=LTSMASTER
 
-BROKEN_aarch64=		fails to compile: Error: undefined identifier _jmp_buf, did you mean alias jmp_buf?
+LLVM_VERSION=	90
+BUILD_DEPENDS=	llvm${LLVM_VERSION}>0:devel/llvm${LLVM_VERSION}
+RUN_DEPENDS=	llvm${LLVM_VERSION}>0:devel/llvm${LLVM_VERSION}
+
+CC=			${LOCALBASE}/bin/clang${LLVM_VERSION}
+CXX=			${LOCALBASE}/bin/clang++${LLVM_VERSION}
+LLVM_CONFIG=		${LOCALBASE}/bin/llvm-config${LLVM_VERSION}
+LDCVER=			${PORTVERSION}
+
+PLIST_SUB=		LOCALBASE=${LOCALBASE} SOVERSION=88
+
 BROKEN_armv6=		fails to compile: Error: undefined identifier _jmp_buf, did you mean alias jmp_buf?
 BROKEN_armv7=		fails to compile: Error: undefined identifier _jmp_buf, did you mean alias jmp_buf?
 BROKEN_i386=		function core.bitop.bsf (uint v) is not callable using argument types (ulong)
-BROKEN_powerpc64=	fails to compile: cc1plus: error: unrecognized command line option "-std=c++11"
 
-USES=		cmake:insource
-USE_GITHUB=     yes
-GH_ACCOUNT=     ldc-developers
-GH_PROJECT=     ldc
-GH_TUPLE=       ldc-developers:ldc:911589c:tree/ltsmaster \
-		ldc-developers:druntime:694089c:druntimelts/ltsmaster/runtime/druntime \
-		ldc-developers:phobos:1d758b2:phoboslts/ltsmaster/runtime/phobos \
-		ldc-developers:druntime:54cb25c:druntime/runtime/druntime \
-		ldc-developers:phobos:71cf74f:phobos/runtime/phobos
-
-CMAKE_ARGS+=	-DD_COMPILER:STRING="${WRKSRC}/ltsmaster/bin/ldmd2" \
-		-DBUILD_SHARED_LIBS:STRING="BOTH"
-
-CC=		clang70
-CXX=		clang++70
-
-BOOTVER=	0.17.6
-LLVM_CONFIG=	llvm-config70
-LDCVER=		${PORTVERSION}
+USE_GITHUB=		yes
+GH_ACCOUNT=		ldc-developers
+GH_PROJECT=		ldc
+GH_TUPLE=		ldc-developers:druntime:ad2324e:druntime/runtime/druntime \
+			ldc-developers:phobos:b60fda9:phobos/runtime/phobos
 
 .include <bsd.port.pre.mk>
 
-.if ${ARCH} == "amd64"
-CFLAGS+=	-fPIC
+.if ${ARCH} == "amd64" || ${ARCH} == "aarch64"
+CFLAGS+=		-fPIC
 .endif
 
-.if ${OPSYS} == FreeBSD && ${OSVERSION} > 1200029
-EXTRA_PATCHES=	${PATCHDIR}/fbsd12-*
+# Search for a usable bootstrap compiler or fall back to building ltsmaster
+DRUNTIME_MINVER=	20680
+
+DCOMPILERS=		ldmd2 gdmd dmd
+
+.if empty(PORT_OPTIONS:MLTSMASTER)
+.for DC_TRY in ${DCOMPILERS}
+.if !defined(DC_HOST)
+VERSION!=		`which ${DC_TRY}` --version | ${SED} -n 's!^.*DMD.*v\([0-9]\).\([0-9][0-9][0-9]\).\([0-9]\).*!\1\2\3!p'
+.if ${VERSION} > ${DRUNTIME_MINVER}
+DC_HOST!=		which ${DC_TRY}
+BUILD_BOOTSTRAP=	no
+.endif
+.endif
+.endfor
 .endif
 
-post-patch:
-	${REINPLACE_CMD} -e 's|$${llvm_config_names}|${LLVM_CONFIG}|g' \
-		${WRKSRC}/ltsmaster/cmake/Modules/FindLLVM.cmake \
-		${WRKSRC}/cmake/Modules/FindLLVM.cmake
+# falling back to creating bootstrap d-compiler
+.if !defined (DC_HOST)
+BUILD_BOOTSTRAP=        yes
+BOOTSTRAP_DIR=		${WRKDIRPREFIX}${.CURDIR}/work-bootstrap
+DC_HOST=		${BOOTSTRAP_DIR}/ltsmaster/bin/ldmd2
+BUILD_BOOTSTRAP=	yes
+.endif
 
+CMAKE_ARGS+=		-DLDC_INSTALL_PREFIX="${PREFIX}" \
+			-DD_COMPILER:STRING="${DC_HOST}" \
+			-DCMAKE_C_COMPILER:STRING="${CC}" \
+			-DCMAKE_CXX_COMPILER:STRING="${CXX}" \
+			-DLLVM_CONFIG:PATH=${LLVM_CONFIG} \
+			-DBUILD_SHARED_LIBS:STRING="BOTH"
+
+pre-build:
+	@echo "DEBUG: bootstrap:${BUILD_BOOTSTRAP} dmd:${DC_HOST} ver:${VERSION} options:${PORT_OPTIONS}"
+
+.if ${BUILD_BOOTSTRAP} == "yes"
 pre-configure:
-	@cd ${WRKSRC}/ltsmaster && \
-	    ${SETENV} ${CONFIGURE_ENV} ${CMAKE_BIN} .
-	@cd ${WRKSRC}/ltsmaster && \
-	    ${SETENV} ${MAKE_ENV} ${MAKE}
+	@echo "Building Bootstrap d-compiler..."
+	${MAKE} -f Makefile.bootstrap FLAVOR=bootstrap
+.else
+	@echo "Reusing pre-existing d-compiler..."
+.endif
 
 .include <bsd.port.post.mk>

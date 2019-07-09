@@ -1,0 +1,38 @@
+https://github.com/ldc-developers/ldc/issues/3108
+https://github.com/myfreeweb/druntime/commit/4cc671669d45f14cc8fd270857d5cbeae6b38be8
+
+--- runtime/druntime/src/core/sys/freebsd/execinfo.d.orig	2019-05-27 19:11:41 UTC
++++ runtime/druntime/src/core/sys/freebsd/execinfo.d
+@@ -15,6 +15,9 @@ nothrow:
+ version (GNU)
+     version = BacktraceExternal;
+
++version (LDC)
++    version = BacktraceExternal;
++
+ version (BacktraceExternal)
+ {
+     size_t backtrace(void**, size_t);
+@@ -38,11 +41,6 @@ else
+             asm nothrow @trusted { mov p[EBP], EBP; }
+         else version (D_InlineAsm_X86_64)
+             asm nothrow @trusted { mov p[RBP], RBP; }
+-        else version (AArch64) // LDC
+-        {
+-            import ldc.llvmasm;
+-            __asm("str x29, $0", "=*m", &p);
+-        }
+         else
+             static assert(false, "Architecture not supported.");
+
+--- runtime/druntime/src/core/runtime.d.orig	2019-10-15 22:07:36 UTC
++++ runtime/druntime/src/core/runtime.d
+@@ -833,7 +833,7 @@
+     {
+         version (LDC)
+         {
+-            numframes = backtrace( callstack.ptr, MAXFRAMES );
++            numframes = cast(int) backtrace( callstack.ptr, MAXFRAMES );
+         }
+         else
+         {
