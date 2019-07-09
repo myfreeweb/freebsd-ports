@@ -1,0 +1,111 @@
+https://github.com/dlang/druntime/pull/2668
+
+--- runtime/druntime/src/core/sys/freebsd/sys/event.d.orig	2019-05-27 19:11:41 UTC
++++ runtime/druntime/src/core/sys/freebsd/sys/event.d
+@@ -144,6 +144,7 @@ enum
+ }
+ 
+ int kqueue();
++pragma(mangle, "kevent@FBSD_1.0")
+ int kevent(int kq, const kevent_t *changelist, int nchanges,
+            kevent_t *eventlist, int nevents,
+            const timespec *timeout);
+--- runtime/druntime/src/core/sys/freebsd/sys/mount.d.orig	2019-05-27 19:11:41 UTC
++++ runtime/druntime/src/core/sys/freebsd/sys/mount.d
+@@ -288,17 +288,17 @@ enum uint VQ_FLAG2000 = 0x2000;
+ enum uint VQ_FLAG4000 = 0x4000;
+ enum uint VQ_FLAG8000 = 0x8000;
+ 
+-int fhopen(const fhandle_t*, int);
+-int fhstat(const fhandle_t*, stat_t*);
+-int fhstatfs(const fhandle_t*, statfs_t*);
+-int fstatfs(int, statfs_t*);
+-int getfh(const char*, fhandle_t*);
+-int getfsstat(statfs_t*, c_long, int);
+-int getmntinfo(statfs_t**, int);
+-int lgetfh(const char*, fhandle_t*);
+-int mount(const char*, const char*, int, void*);
++pragma(mangle, "fhopen@@FBSD_1.0")    int fhopen(const fhandle_t*, int);
++pragma(mangle, "fhstat@FBSD_1.0")     int fhstat(const fhandle_t*, stat_t*);
++pragma(mangle, "fhstatfs@FBSD_1.0")   int fhstatfs(const fhandle_t*, statfs_t*);
++pragma(mangle, "fstatfs@FBSD_1.0")    int fstatfs(int, statfs_t*);
++pragma(mangle, "getfh@@FBSD_1.0")     int getfh(const char*, fhandle_t*);
++pragma(mangle, "getfsstat@FBSD_1.0")  int getfsstat(statfs_t*, c_long, int);
++pragma(mangle, "getmntinfo@FBSD_1.0") int getmntinfo(statfs_t**, int);
++pragma(mangle, "lgetfh@@FBSD_1.0")    int lgetfh(const char*, fhandle_t*);
++pragma(mangle, "mount@@FBSD_1.0")     int mount(const char*, const char*, int, void*);
+ //int nmount(iovec*, uint, int);
+-int statfs(const char*, statfs_t*);
+-int unmount(const char*, int);
++pragma(mangle, "statfs@FBSD_1.0")     int statfs(const char*, statfs_t*);
++pragma(mangle, "unmount@@FBSD_1.0")   int unmount(const char*, int);
+ 
+ //int getvfsbyname(const char*, xvfsconf*);
+--- runtime/druntime/src/core/sys/posix/dirent.d.orig	2019-05-27 19:11:41 UTC
++++ runtime/druntime/src/core/sys/posix/dirent.d
+@@ -161,7 +161,7 @@ else version (FreeBSD)
+ 
+     alias void* DIR;
+ 
+-    dirent* readdir(DIR*);
++    pragma(mangle, "readdir@FBSD_1.0") dirent* readdir(DIR*);
+ }
+ else version (NetBSD)
+ {
+@@ -473,7 +473,7 @@ else version (Darwin)
+ }
+ else version (FreeBSD)
+ {
+-    int readdir_r(DIR*, dirent*, dirent**);
++    pragma(mangle, "readdir_r@FBSD_1.0") int readdir_r(DIR*, dirent*, dirent**);
+ }
+ else version (DragonFlyBSD)
+ {
+@@ -540,8 +540,8 @@ version (CRuntime_Glibc)
+ }
+ else version (FreeBSD)
+ {
+-    void   seekdir(DIR*, c_long);
+-    c_long telldir(DIR*);
++    pragma(mangle, "seekdir@@FBSD_1.0") void seekdir(DIR*, c_long);
++    pragma(mangle, "telldir@@FBSD_1.0") c_long telldir(DIR*);
+ }
+ else version (NetBSD)
+ {
+--- runtime/druntime/src/core/sys/posix/sys/stat.d.orig	2019-05-27 19:11:41 UTC
++++ runtime/druntime/src/core/sys/posix/sys/stat.d
+@@ -1859,9 +1859,9 @@ else version (Darwin)
+ }
+ else version (FreeBSD)
+ {
+-    int   fstat(int, stat_t*);
+-    int   lstat(in char*, stat_t*);
+-    int   stat(in char*, stat_t*);
++    pragma(mangle, "fstat@FBSD_1.0") int   fstat(int, stat_t*);
++    pragma(mangle, "lstat@FBSD_1.0") int   lstat(in char*, stat_t*);
++    pragma(mangle, "stat@FBSD_1.0")  int   stat(in char*, stat_t*);
+ }
+ else version (NetBSD)
+ {
+@@ -1975,7 +1975,7 @@ else version (FreeBSD)
+     enum S_IFLNK    = 0xA000; // octal 0120000
+     enum S_IFSOCK   = 0xC000; // octal 0140000
+ 
+-    int mknod(in char*, mode_t, dev_t);
++    pragma(mangle, "mknod@FBSD_1.0") int mknod(in char*, mode_t, dev_t);
+ }
+ else version (NetBSD)
+ {
+--- runtime/druntime/src/core/sys/posix/sys/statvfs.d.orig	2019-05-27 19:11:41 UTC
++++ runtime/druntime/src/core/sys/posix/sys/statvfs.d
+@@ -254,8 +254,8 @@ else version (FreeBSD)
+     enum uint ST_RDONLY = 0x1;
+     enum uint ST_NOSUID = 0x2;
+ 
+-    int fstatvfs(int, statvfs_t*);
+-    int statvfs(const char*, statvfs_t*);
++    pragma(mangle, "fstatvfs@FBSD_1.0") int fstatvfs(int, statvfs_t*);
++    pragma(mangle, "statvfs@FBSD_1.0")  int statvfs(const char*, statvfs_t*);
+ }
+ else
+ {
