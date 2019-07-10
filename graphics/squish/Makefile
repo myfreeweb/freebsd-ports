@@ -2,17 +2,18 @@
 # $FreeBSD$
 
 PORTNAME=	squish
-PORTVERSION=	1.10
-PORTREVISION=	2
+DISTNAME=	libsquish-${PORTVERSION}
+PORTVERSION=	1.15
 CATEGORIES=	graphics
-MASTER_SITES=	http://her.gr.distfiles.macports.org/squish/
+MASTER_SITES=	SOURCEFORGE/libsquish
+WRKSRC=	${WRKDIR}
 
 MAINTAINER=	rddeblois@gmail.com
 COMMENT=	Open source DXT compression library
 
 LICENSE=	MIT
 
-USES=		uidfix
+USES=		uidfix tar:tgz
 MAKE_ENV=	INSTALL_DIR=${STAGEDIR}${PREFIX}
 PLIST_FILES=	include/squish.h \
 		lib/libsquish.a lib/libsquish.so.1 lib/libsquish.so
