@@ -1,0 +1,7 @@
+bin/gtk-layer-demo
+bin/gtk-layer-example
+include/gtk-layer-shell/gtk-layer-shell.h
+lib/girepository-1.0/GtkLayerShell-0.1.typelib
+lib/libgtk-layer-shell.so
+libdata/pkgconfig/gtk-layer-shell-0.pc
+share/gir-1.0/GtkLayerShell-0.1.gir
