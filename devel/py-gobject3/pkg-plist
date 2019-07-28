@@ -1,4 +1,4 @@
-%%PYTHON_SITELIBDIR%%/PyGObject-%%VERSION%%.dev0.egg-info
+%%PYTHON_SITELIBDIR%%/PyGObject-%%VERSION%%.egg-info
 %%PYTHON_SITELIBDIR%%/gi/__init__.py
 %%PYTHON_SITELIBDIR%%/gi/_compat.py
 %%PYTHON_SITELIBDIR%%/gi/_constants.py
