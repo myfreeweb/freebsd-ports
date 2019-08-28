@@ -12,7 +12,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 PORTSCOUT=	limitw:1,even
 
-USES=		cpe perl5
+USES=		cpe perl5 autoreconf
 USE_PERL5=	build
 XORG_CAT=	lib
 CONFIGURE_ARGS=	--disable-gtk
@@ -25,7 +25,7 @@ MAKE_ARGS=      SUBDIRS=pixman
 
 .include <bsd.port.pre.mk>
 
-.if ${ARCH} == "armv6" || ${ARCH} == "armv7"
+.if ${ARCH} == "armv6" || ${ARCH} == "armv7" || ${ARCH} == "aarch64"
 BUILD_DEPENDS+=	${LOCALBASE}/bin/as:devel/binutils
 CONFIGURE_ENV+=	CCASFLAGS="${CFLAGS} -B${LOCALBASE}/bin -no-integrated-as"
 LLD_UNSAFE=	yes
