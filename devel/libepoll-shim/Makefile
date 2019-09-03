@@ -2,34 +2,23 @@
 # $FreeBSD$
 
 PORTNAME=	libepoll-shim
-PORTVERSION=	0.0.20190311
+PORTVERSION=	0.0.20190903
 CATEGORIES=	devel
 
 MAINTAINER=	x11@FreeBSD.org
 COMMENT=	epoll shim implemented using kevent
 
 LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	FreeBSDDesktop
+GH_ACCOUNT=	jiixyj
 GH_PROJECT=	epoll-shim
-GH_TAGNAME=	1d1135384395dbf38eea00680ca28ead04f8dce2
+GH_TAGNAME=	872ce7e04267049473f7b55dbd2d54b31920a1f3
 
 USE_LDCONFIG=	yes
 
-USES=		compiler uidfix
-MAKE_ARGS=	WITHOUT_PROFILE=yes
+USES=		cmake compiler:c11
+CMAKE_OFF=	BUILD_TESTING
 
-.include <bsd.port.pre.mk>
-
-post-patch:
-	@${REINPLACE_CMD} -e 's,/usr/local,${PREFIX},' ${WRKSRC}/Makefile
-.if "${CHOSEN_COMPILER_TYPE}" == "gcc"
-	@${REINPLACE_CMD} -e 's|Wno-missing-variable-declarations|Wno-missing-declarations|' \
-		-e 's|-Wno-thread-safety-analysis||' ${WRKSRC}/Makefile
-.endif
-
-pre-install:
-	@${MKDIR} ${STAGEDIR}/${PREFIX}/include/libepoll-shim/sys
-
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
