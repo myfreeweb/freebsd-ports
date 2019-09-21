@@ -193,7 +193,6 @@ share/nvim/runtime/doc/diff.txt
 share/nvim/runtime/doc/digraph.txt
 share/nvim/runtime/doc/editing.txt
 share/nvim/runtime/doc/eval.txt
-share/nvim/runtime/doc/farsi.txt
 share/nvim/runtime/doc/filetype.txt
 share/nvim/runtime/doc/fold.txt
 share/nvim/runtime/doc/ft_ada.txt
@@ -226,7 +225,6 @@ share/nvim/runtime/doc/options.txt
 share/nvim/runtime/doc/pattern.txt
 share/nvim/runtime/doc/pi_gzip.txt
 share/nvim/runtime/doc/pi_health.txt
-share/nvim/runtime/doc/pi_matchit.txt
 share/nvim/runtime/doc/pi_msgpack.txt
 share/nvim/runtime/doc/pi_netrw.txt
 share/nvim/runtime/doc/pi_paren.txt
@@ -731,6 +729,9 @@ share/nvim/runtime/optwin.vim
 share/nvim/runtime/pack/dist/opt/cfilter/plugin/cfilter.vim
 share/nvim/runtime/pack/dist/opt/justify/plugin/justify.vim
 share/nvim/runtime/pack/dist/opt/shellmenu/plugin/shellmenu.vim
+share/nvim/runtime/pack/dist/opt/matchit/autoload/matchit.vim
+share/nvim/runtime/pack/dist/opt/matchit/doc/matchit.txt
+share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
 share/nvim/runtime/pack/dist/opt/swapmouse/plugin/swapmouse.vim
 share/nvim/runtime/pack/dist/opt/termdebug/plugin/termdebug.vim
 share/nvim/runtime/pack/dist/opt/vimball/autoload/vimball.vim
