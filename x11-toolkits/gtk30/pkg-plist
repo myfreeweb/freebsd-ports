@@ -103,6 +103,7 @@ include/gtk-3.0/gtk/a11y/gtkexpanderaccessible.h
 include/gtk-3.0/gtk/a11y/gtkflowboxaccessible.h
 include/gtk-3.0/gtk/a11y/gtkflowboxchildaccessible.h
 include/gtk-3.0/gtk/a11y/gtkframeaccessible.h
+include/gtk-3.0/gtk/a11y/gtkheaderbaraccessible.h
 include/gtk-3.0/gtk/a11y/gtkiconviewaccessible.h
 include/gtk-3.0/gtk/a11y/gtkimageaccessible.h
 include/gtk-3.0/gtk/a11y/gtkimagecellaccessible.h
@@ -1011,7 +1012,6 @@ share/gir-1.0/Gtk-3.0.gir
 %%DATADIR%%-doc/html/gtk3/gtk-migrating-smclient-GtkApplication.html
 %%DATADIR%%-doc/html/gtk3/gtk-migrating-theme-GtkStyleContext-engines.html
 %%DATADIR%%-doc/html/gtk3/gtk-migrating-unique-GtkApplication.html
-%%DATADIR%%-doc/html/gtk3/gtk-mir.html
 %%DATADIR%%-doc/html/gtk3/gtk-osx.html
 %%DATADIR%%-doc/html/gtk3/gtk-query-immodules-3.0.html
 %%DATADIR%%-doc/html/gtk3/gtk-query-settings.html
