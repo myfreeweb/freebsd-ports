@@ -1,0 +1,5 @@
+--- desmume/Makefile.freebsd.orig	2016-11-09 04:30:27 UTC
++++ desmume/Makefile.freebsd
+@@ -0,0 +1,2 @@
++all:
++	cd desmume && ${MAKE} -f Makefile.libretro

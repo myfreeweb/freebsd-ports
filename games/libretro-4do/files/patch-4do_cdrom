@@ -1,0 +1,18 @@
+--- 4do-libretro/libretro-common/cdrom/cdrom.c.orig	2019-10-28 20:37:42.434804000 -0300
++++ 4do-libretro/libretro-common/cdrom/cdrom.c	2019-10-28 20:38:59.583123000 -0300
+@@ -478,6 +478,7 @@
+ #endif
+ 
+ retry:
++#if defined(__linux__) || defined(_WIN32)
+ #if defined(__linux__) && !defined(ANDROID)
+       if (cached_read || !cdrom_send_command_linux(stream, dir, xfer_buf_pos, request_len, cmd, cmd_len, sense, sizeof(sense)))
+ #else
+@@ -518,6 +519,7 @@
+          }
+       }
+       else
++#endif
+       {
+          cdrom_print_sense_data(sense, sizeof(sense));
+ 
