@@ -10,7 +10,7 @@ LICENSE=	GPLv2
 MAINTAINER=	menelkir@itroll.org
 COMMENT=	3DO core for libretro.
 
-BUILD_DEPENDS=	cmake:devel/cmake
+BUILD_DEPENDS=	cmake:devel/cmake gcc:lang/gcc
 
 ONLY_FOR_ARCHS=	i386 amd64
 

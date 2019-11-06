@@ -5,7 +5,7 @@ PORTNAME=	libretro-gambatte
 PORTVERSION=	0.20191028
 PORTREVISION=	1
 CATEGORIES=	games
-LICENSE=<------>GPLv2
+LICENSE=	GPLv2
 
 MAINTAINER=	menelkir@itroll.org
 COMMENT=	Libretro Implementation of libgambatte, a Game Boy Color emulator.

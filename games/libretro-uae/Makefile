@@ -10,6 +10,8 @@ LICENSE=	GPLv2
 MAINTAINER=	menelkir@itroll.org
 COMMENT=	Libretro port of UAE
 
+BROKEN=><------>Need some work
+
 BUILD_DEPENDS=	cmake:devel/cmake
 
 ONLY_FOR_ARCHS=	i386 amd64

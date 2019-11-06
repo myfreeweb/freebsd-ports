@@ -5,7 +5,7 @@ PORTNAME=	libretro-genesis_plus_gx
 PORTVERSION=	0.20191028
 PORTREVISION=	1
 CATEGORIES=	games
-LICENSE=<------>GPGX
+LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
 MAINTAINER=	menelkir@itroll.org
 COMMENT=	An enhanced port of Genesis Plus - accurate & portable Sega 8/16 bit emulator
