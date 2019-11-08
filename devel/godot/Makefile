@@ -38,7 +38,7 @@ CXXFLAGS_i386_gcc=	-march=i586
 
 # option MONO doesn't build (needs 5.12+) so for now leave it out as an option
 OPTIONS_DEFINE=		EXAMPLES TOOLS
-OPTIONS_DEFAULT=	ALSA
+OPTIONS_DEFAULT=	PULSEAUDIO
 # Moved to devel/godot-tools
 OPTIONS_EXCLUDE?=	EXAMPLES TOOLS
 OPTIONS_GROUP=		AUDIO
