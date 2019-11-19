@@ -1,0 +1,11 @@
+--- src/gallium/state_trackers/xvmc/meson.build.orig	2019-11-19 06:01:28 UTC
++++ src/gallium/state_trackers/xvmc/meson.build
+@@ -23,7 +23,7 @@ libxvmc_st = static_library(
+   files('attributes.c', 'block.c', 'context.c', 'surface.c', 'subpicture.c'),
+   c_args : [c_vis_args],
+   include_directories : [inc_common],
+-  dependencies : [dep_xvmc, dep_x11_xcb, dep_xcb, dep_xcb_dri2, dep_xcb_dri3],
++  dependencies : [dep_xv, dep_xvmc, dep_x11_xcb, dep_xcb, dep_xcb_dri2, dep_xcb_dri3],
+ )
+ 
+ # These tests will not work without a working xvmc configuration. 
