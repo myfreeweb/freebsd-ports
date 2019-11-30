@@ -1,0 +1,7 @@
+TIMESTAMP = 1575118854
+SHA256 (ondrejbudai-hidviz-v0.1.4-5-gfec32d6_GH0.tar.gz) = 9c824ff1f159a77ce6cf1c975a3727945a83ad3af0c525b4cbfcdf56821304e0
+SIZE (ondrejbudai-hidviz-v0.1.4-5-gfec32d6_GH0.tar.gz) = 151520
+SHA256 (ondrejbudai-libhidx-25588b0_GH0.tar.gz) = 9748f74a413ab576e1d1b13ee75733586b07a6e4a6dc594c6a178112bc8d20cb
+SIZE (ondrejbudai-libhidx-25588b0_GH0.tar.gz) = 65419
+SHA256 (chriskohlhoff-asio-asio-1-10-8_GH0.tar.gz) = fc475c6b737ad92b944babdc3e5dcf5837b663f54ba64055dc3d8fc4a3061372
+SIZE (chriskohlhoff-asio-asio-1-10-8_GH0.tar.gz) = 1030556
