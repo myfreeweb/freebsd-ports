@@ -1,0 +1,5 @@
+Hidviz is a GUI application for in-depth analysis of USB HID class devices.
+The 2 main usecases of this application are reverse-engineering existing
+devices and developing new USB HID devices.
+
+WWW: https://github.com/ondrejbudai/hidviz
