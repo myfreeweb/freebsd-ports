@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 TIMESTAMP = 1546344011
 SHA256 (mozjs-60.1.1pre3.tar.bz2) = 60c5a15c59908120af71b87a24f303b0c196c6620a6f52ef3149f4e1a377a373
 SIZE (mozjs-60.1.1pre3.tar.bz2) = 32220884
+=======
+TIMESTAMP = 1573931253
+SHA256 (firefox-60.9.0esr.source.tar.xz) = 9f453c8cc5669e46e38f977764d49a36295bf0d023619d9aac782e6bb3e8c53f
+SIZE (firefox-60.9.0esr.source.tar.xz) = 269089044
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3

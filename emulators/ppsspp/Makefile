@@ -2,7 +2,7 @@
 
 PORTNAME=	ppsspp
 DISTVERSIONPREFIX=	v
-DISTVERSION?=	1.9.3
+DISTVERSION?=	1.9.4
 PORTREVISION?=	0
 CATEGORIES=	emulators
 # XXX Get from Debian once #697821 lands
@@ -34,7 +34,7 @@ GH_TUPLE?=	hrydgard:glslang:7.11.3214-63-gf9d08a25:glslang/ext/glslang \
 
 CONFLICTS_INSTALL=	${PORTNAME}-*
 
-USES=		cmake compiler:c++11-lib localbase:ldflags pkgconfig
+USES=		cmake compiler:c++11-lib gl localbase:ldflags pkgconfig sdl
 EXCLUDE=	libzip zlib
 EXTRACT_AFTER_ARGS=${EXCLUDE:S,^,--exclude ,}
 USE_GL=		gl glew glu

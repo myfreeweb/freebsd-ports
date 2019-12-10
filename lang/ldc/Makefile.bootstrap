@@ -51,6 +51,10 @@ CMAKE_ARGS+=		-DCMAKE_C_COMPILER:STRING="${CC}" \
 post-patch:
 	${LN} -sf ${WRKSRC} ${WRKDIR}/ltsmaster
 	${REINPLACE_CMD} -e 's|$${llvm_config_names}|${LLVM_CONFIG}|g' \
+<<<<<<< HEAD
 		${WRKSRC}/cmake/Modules/FindLLVM.cmake 
+=======
+		${WRKSRC}/cmake/Modules/FindLLVM.cmake
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 
 .include <bsd.port.post.mk>

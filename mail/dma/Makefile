@@ -37,12 +37,14 @@ CONFFILES+=	dma.conf auth.conf
 # 11.x has dma imported into base and /var/spool/dma added to mtree
 PLIST_SUB+=	VARDIR="@comment "
 
+PORTSCOUT=	limit:^[0-9\.]*$$
+
 post-patch:
 	@${REINPLACE_CMD} -e 's,/etc/dma,${PREFIX}/etc/dma,g' \
 		${WRKSRC}/dma.8
 	@${REINPLACE_CMD} -e 's, /etc/dma, ${PREFIX}/etc/dma,g' \
 		${WRKSRC}/dma.conf
-	@${REINPLACE_CMD} -e '/^MK_MAN/d' -e 's/^NOMAN/NO_MAN/' \
+	@${REINPLACE_CMD} -e '/^MK_MAN/d' -e 's/^NOMAN.*/MAN=/' \
 		${WRKSRC}/bsd/dma-mbox-create/Makefile
 
 post-install:

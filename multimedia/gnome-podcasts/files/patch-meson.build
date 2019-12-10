@@ -2,9 +2,17 @@
 +++ meson.build
 @@ -5,7 +5,6 @@ project(
  )
+<<<<<<< HEAD
  
  dependency('sqlite3', version: '>= 3.20')
 -dependency('openssl', version: '>= 1.0')
  dependency('dbus-1')
  
+=======
+
+ dependency('sqlite3', version: '>= 3.20')
+-dependency('openssl', version: '>= 1.0')
+ dependency('dbus-1')
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
  dependency('glib-2.0', version: '>= 2.56')

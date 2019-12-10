@@ -201,7 +201,6 @@
     SUBDIR += mongodb40
     SUBDIR += mongodb40-tools
     SUBDIR += mroonga
-    SUBDIR += mrtg-mysql-load
     SUBDIR += mtools-mongodb
     SUBDIR += mtop
     SUBDIR += mydbf2mysql
@@ -680,7 +679,7 @@
     SUBDIR += postgis23
     SUBDIR += postgis24
     SUBDIR += postgis25
-    SUBDIR += postgres-xl
+    SUBDIR += postgis30
     SUBDIR += postgresql-cstore_fdw
     SUBDIR += postgresql-jdbc
     SUBDIR += postgresql-libpgeasy
@@ -689,6 +688,7 @@
     SUBDIR += postgresql-libpqxx4
     SUBDIR += postgresql-mysql_fdw
     SUBDIR += postgresql-odbc
+    SUBDIR += postgresql-ogr_fdw
     SUBDIR += postgresql-orafce
     SUBDIR += postgresql-plproxy
     SUBDIR += postgresql-plv8js
@@ -890,6 +890,7 @@
     SUBDIR += recutils
     SUBDIR += redis
     SUBDIR += redis-devel
+    SUBDIR += redis4
     SUBDIR += redis_exporter
     SUBDIR += redisdesktopmanager
     SUBDIR += retcl
@@ -962,7 +963,6 @@
     SUBDIR += rubygem-em-redis-unified
     SUBDIR += rubygem-familia
     SUBDIR += rubygem-flipper-active_record
-    SUBDIR += rubygem-flipper-active_record013
     SUBDIR += rubygem-gdbm
     SUBDIR += rubygem-globalid
     SUBDIR += rubygem-globalid-rails5
@@ -978,6 +978,7 @@
     SUBDIR += rubygem-memcache-client
     SUBDIR += rubygem-mysql
     SUBDIR += rubygem-mysql2
+    SUBDIR += rubygem-mysql204
     SUBDIR += rubygem-openid-redis-store
     SUBDIR += rubygem-paranoia
     SUBDIR += rubygem-peek-mysql2-rails5
@@ -1000,13 +1001,11 @@
     SUBDIR += rubygem-redis-actionpack-rails50
     SUBDIR += rubygem-redis-actionpack-rails52
     SUBDIR += rubygem-redis-namespace
-    SUBDIR += rubygem-redis3
     SUBDIR += rubygem-seed-fu
     SUBDIR += rubygem-sqlite3
     SUBDIR += rubygem-sqlite3-ruby
     SUBDIR += rubygem-state_machines-activemodel
     SUBDIR += rubygem-state_machines-activerecord
-    SUBDIR += rubygem-state_machines-activerecord05
     SUBDIR += rubygem-tarantool
     SUBDIR += sequeler
     SUBDIR += sfcgal
@@ -1062,7 +1061,6 @@
     SUBDIR += virtuoso
     SUBDIR += vsqlite
     SUBDIR += wfb2sql
-    SUBDIR += wmjsql
     SUBDIR += xapian-bindings
     SUBDIR += xapian-bindings12
     SUBDIR += xapian-core

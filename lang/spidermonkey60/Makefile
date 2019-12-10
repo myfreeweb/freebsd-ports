@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Created by: Kubilay Kocak <koobs@FreeBSD.org>
 # $FreeBSD: head/lang/spidermonkey52/Makefile 470485 2018-05-20 21:30:35Z kwm $
 
@@ -12,6 +13,23 @@ PKGNAMESUFFIX=	${SP_VER}
 MAINTAINER=	kwm@FreeBSD.org
 COMMENT=	Standalone JavaScript based from Mozilla 60-esr
 
+=======
+# $FreeBSD$
+
+PORTNAME=	spidermonkey
+DISTVERSION=	60.9.0
+CATEGORIES=	lang
+MASTER_SITES=	MOZILLA/firefox/releases/${DISTVERSION}esr/source
+PKGNAMESUFFIX=	${SP_VER}
+DISTNAME=	firefox-${DISTVERSION}esr.source
+
+MAINTAINER=	tcberner@FreeBSD.org
+COMMENT=	Standalone JavaScript based from Mozilla 60-esr
+
+LICENSE=	MPL20
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 BUILD_DEPENDS=	autoconf-2.13:devel/autoconf213
 LIB_DEPENDS=	libnspr4.so:devel/nspr \
 		libffi.so:devel/libffi \
@@ -19,6 +37,7 @@ LIB_DEPENDS=	libnspr4.so:devel/nspr \
 
 HAS_CONFIGURE=	yes
 USES=		compiler:c++14-lang gmake localbase pathfix pkgconfig \
+<<<<<<< HEAD
 		python:2.7,build tar:bz2
 #		python:2.7,build readline tar:xz
 #USES+=	perl5
@@ -40,10 +59,24 @@ INSTALL_WRKSRC=	${WRKSRC}/_build
 CONFIGURE_SCRIPT=	../js/src/configure
 
 CONFIGURE_ARGS=	--with-pthreads \
+=======
+		python:2.7,build tar:xz
+USE_LDCONFIG=	yes
+SP_VER=		60
+
+WRKSRC=		${WRKDIR}/firefox-${DISTVERSION}
+PATCH_WRKSRC=		${WRKDIR}/firefox-${DISTVERSION}/
+CONFIGURE_OUTSOURCE=	yes
+CONFIGURE_SCRIPT=	../firefox-${DISTVERSION}/js/src/configure
+
+CONFIGURE_ARGS=	--with-pthreads \
+		--prefix=${PREFIX:Q} \
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 		--target=${CONFIGURE_TARGET} \
 		--with-intl-api \
 		--with-system-zlib \
 		--disable-gold \
+<<<<<<< HEAD
 		--with-system-icu \
 		--with-system-nspr
 # There be dragons
@@ -71,6 +104,18 @@ READLINE_CONFIGURE_ENABLE=	readline
 
 UTF8_DESC=	Treat strings as UTF8 instead of ISO-8859-1
 UTF8_CFLAGS=	-DJS_C_STRINGS_ARE_UTF8
+=======
+		--disable-debug \
+		--disable-debug-symbols \
+		--disable-jemalloc \
+		--with-system-icu \
+		--with-system-nspr \
+		--enable-shared-js \
+		--enable-optimize \
+		--enable-readline
+
+CONFIGURE_ENV=	HOST_CC=${CC} HOST_CXX=${CXX}
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 
 .include <bsd.port.pre.mk>
 
@@ -78,6 +123,7 @@ UTF8_CFLAGS=	-DJS_C_STRINGS_ARE_UTF8
 CONFIGURE_TARGET=x86_64-portbld-freebsd${OSREL}
 .endif
 
+<<<<<<< HEAD
 post-patch:
 # Skip some tests because bundled icu differs from system
 	@${RM}  ${WRKSRC}/tests/test262/intl402/ch10/10.2/10.2.3_b.js \
@@ -96,5 +142,12 @@ post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/js${SP_VER}
 	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libmozjs-${SP_VER}.*
 .endif
+=======
+post-install:
+	${RM} ${STAGEDIR}${PREFIX}/lib/libjs_static.ajs
+	${LN} -fs libmozjs-${SP_VER}.so ${STAGEDIR}${PREFIX}/lib/libmozjs-${SP_VER}.so.1
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/js${SP_VER}
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/libmozjs-${SP_VER}.*
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 
 .include <bsd.port.post.mk>

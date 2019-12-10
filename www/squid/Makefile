@@ -1,8 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	squid
-PORTVERSION=	4.8
-PORTREVISION=	1
+PORTVERSION=	4.9
 CATEGORIES=	www
 MASTER_SITES=	http://www.squid-cache.org/Versions/v4/ \
 		http://www2.us.squid-cache.org/Versions/v4/ \
@@ -190,6 +189,7 @@ WCCPV2_DESC=		Web Cache Coordination Protocol v2
 WCCP_DESC=		Web Cache Coordination Protocol
 
 CFLAGS+=	${CFLAGS_${CHOSEN_COMPILER_TYPE}}
+CFLAGS+=	-Wno-error=deprecated-declarations
 CFLAGS_gcc=	-Wno-error=stringop-truncation
 
 change_files=	ChangeLog \

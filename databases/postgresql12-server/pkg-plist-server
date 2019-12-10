@@ -338,10 +338,10 @@ lib/postgresql/utf8_and_win.so
 %%LLVM%%lib/postgresql/bitcode/postgres/libpq/auth-scram.bc
 %%LLVM%%lib/postgresql/bitcode/postgres/libpq/auth.bc
 %%LLVM%%lib/postgresql/bitcode/postgres/libpq/be-fsstubs.bc
-%%LLVM%%lib/postgresql/bitcode/postgres/libpq/be-gssapi-common.bc
+%%LLVM%%%%GSSAPI%%lib/postgresql/bitcode/postgres/libpq/be-gssapi-common.bc
 %%LLVM%%lib/postgresql/bitcode/postgres/libpq/be-secure-common.bc
-%%LLVM%%lib/postgresql/bitcode/postgres/libpq/be-secure-gssapi.bc
-%%LLVM%%lib/postgresql/bitcode/postgres/libpq/be-secure-openssl.bc
+%%LLVM%%%%GSSAPI%%lib/postgresql/bitcode/postgres/libpq/be-secure-gssapi.bc
+%%LLVM%%%%SSL%%lib/postgresql/bitcode/postgres/libpq/be-secure-openssl.bc
 %%LLVM%%lib/postgresql/bitcode/postgres/libpq/be-secure.bc
 %%LLVM%%lib/postgresql/bitcode/postgres/libpq/crypt.bc
 %%LLVM%%lib/postgresql/bitcode/postgres/libpq/hba.bc
@@ -1276,6 +1276,7 @@ lib/libpgcommon.a
 %%TZDATA%%%%DATADIR%%/timezone/Etc/GMT+0
 %%TZDATA%%%%DATADIR%%/timezone/Etc/GMT+1
 %%TZDATA%%%%DATADIR%%/timezone/Etc/GMT+10
+%%TZDATA%%%%DATADIR%%/timezone/Etc/GMT+11
 %%TZDATA%%%%DATADIR%%/timezone/Etc/GMT+12
 %%TZDATA%%%%DATADIR%%/timezone/Etc/GMT+2
 %%TZDATA%%%%DATADIR%%/timezone/Etc/GMT+3
@@ -1288,6 +1289,7 @@ lib/libpgcommon.a
 %%TZDATA%%%%DATADIR%%/timezone/Etc/GMT-0
 %%TZDATA%%%%DATADIR%%/timezone/Etc/GMT-1
 %%TZDATA%%%%DATADIR%%/timezone/Etc/GMT-10
+%%TZDATA%%%%DATADIR%%/timezone/Etc/GMT-11
 %%TZDATA%%%%DATADIR%%/timezone/Etc/GMT-12
 %%TZDATA%%%%DATADIR%%/timezone/Etc/GMT-13
 %%TZDATA%%%%DATADIR%%/timezone/Etc/GMT-14
@@ -1511,6 +1513,4 @@ lib/libpgcommon.a
 %%DATADIR%%/tsearch_data/synonym_sample.syn
 %%DATADIR%%/tsearch_data/thesaurus_sample.ths
 %%DATADIR%%/tsearch_data/turkish.stop
-%%DATADIR%%/timezone/Etc/GMT+11
-%%DATADIR%%/timezone/Etc/GMT-11
 %%DATADIR%%/tsearch_data/nepali.stop

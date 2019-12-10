@@ -21,6 +21,7 @@
     SUBDIR += R-cran-diagram
     SUBDIR += R-cran-dichromat
     SUBDIR += R-cran-dygraphs
+    SUBDIR += R-cran-farver
     SUBDIR += R-cran-ggplot2
     SUBDIR += R-cran-gridBase
     SUBDIR += R-cran-gridExtra
@@ -40,8 +41,6 @@
     SUBDIR += aalib
     SUBDIR += aaphoto
     SUBDIR += acidwarp
-    SUBDIR += aeskulap
-    SUBDIR += agave
     SUBDIR += agg
     SUBDIR += alembic
     SUBDIR += alpng
@@ -84,7 +83,6 @@
     SUBDIR += cal3d
     SUBDIR += camera
     SUBDIR += camerakit
-    SUBDIR += cbview
     SUBDIR += cbviewer
     SUBDIR += cegui
     SUBDIR += cenon
@@ -103,11 +101,9 @@
     SUBDIR += commons-utilities
     SUBDIR += compupic
     SUBDIR += converseen
-    SUBDIR += copperspice
     SUBDIR += cosmoplayer
     SUBDIR += cptutils
     SUBDIR += crw
-    SUBDIR += cthumb
     SUBDIR += curator
     SUBDIR += cuttlefish
     SUBDIR += darktable
@@ -212,7 +208,6 @@
     SUBDIR += frei0r-plugins-opencv
     SUBDIR += frogr
     SUBDIR += ftgl
-    SUBDIR += fujiplay
     SUBDIR += fusefs-gphotofs
     SUBDIR += fv
     SUBDIR += fyre
@@ -246,25 +241,18 @@
     SUBDIR += gimp-app
     SUBDIR += gimp-beautify-plugin
     SUBDIR += gimp-data-extras
-    SUBDIR += gimp-ez-perspective-plugin
-    SUBDIR += gimp-focusblur-plugin
     SUBDIR += gimp-gmic-plugin
     SUBDIR += gimp-help
-    SUBDIR += gimp-jagged-border-script
     SUBDIR += gimp-lensfun-plugin
     SUBDIR += gimp-lqr-plugin
-    SUBDIR += gimp-manual-html
     SUBDIR += gimp-refocus-plugin
     SUBDIR += gimp-resynthesizer
-    SUBDIR += gimp-save-for-web
-    SUBDIR += gimp-wavelet-denoise-plugin
-    SUBDIR += gimp-wavelet-sharpen-plugin
-    SUBDIR += giram
     SUBDIR += gkrellkam2
     SUBDIR += glad
     SUBDIR += gle
     SUBDIR += glee
     SUBDIR += glew
+    SUBDIR += glew-wayland
     SUBDIR += glexcess
     SUBDIR += glfw
     SUBDIR += glfw2
@@ -371,7 +359,6 @@
     SUBDIR += instant-meshes
     SUBDIR += intel-backlight
     SUBDIR += intergif
-    SUBDIR += inventor
     SUBDIR += ipe
     SUBDIR += jalbum
     SUBDIR += jasper
@@ -390,8 +377,6 @@
     SUBDIR += jpeg-turbo
     SUBDIR += jpeginfo
     SUBDIR += jpegoptim
-    SUBDIR += jpg2pdf
-    SUBDIR += jpgraph2
     SUBDIR += jpgtn
     SUBDIR += jslice
     SUBDIR += kamera
@@ -432,7 +417,6 @@
     SUBDIR += lfview
     SUBDIR += lib3ds
     SUBDIR += libGLU
-    SUBDIR += libGLw
     SUBDIR += libQGLViewer
     SUBDIR += libafterimage
     SUBDIR += libansilove
@@ -547,7 +531,6 @@
     SUBDIR += magnum-plugins
     SUBDIR += mahotas
     SUBDIR += maim
-    SUBDIR += makehuman
     SUBDIR += mandelbulber
     SUBDIR += mapcache
     SUBDIR += mapnik
@@ -812,7 +795,6 @@
     SUBDIR += processing
     SUBDIR += proj
     SUBDIR += pstoedit
-    SUBDIR += pstoepsi
     SUBDIR += ptex
     SUBDIR += py-OWSLib
     SUBDIR += py-PyOpenGL
@@ -889,7 +871,9 @@
     SUBDIR += py-pyproj
     SUBDIR += py-pyqrcode
     SUBDIR += py-pyqtgraph
+    SUBDIR += py-pyrsgis
     SUBDIR += py-python-poppler-qt5
+    SUBDIR += py-pyvips
     SUBDIR += py-qt5-svg
     SUBDIR += py-rawkit
     SUBDIR += py-sane
@@ -906,6 +890,7 @@
     SUBDIR += py-wand
     SUBDIR += py-webcolors
     SUBDIR += py-willow
+    SUBDIR += py-willow11
     SUBDIR += py-yaswfp
     SUBDIR += pygts
     SUBDIR += pymorph
@@ -1047,6 +1032,7 @@
     SUBDIR += togl
     SUBDIR += ttygif
     SUBDIR += tumble
+    SUBDIR += tweeny
     SUBDIR += ufraw
     SUBDIR += uniconvertor
     SUBDIR += uniconvw
@@ -1088,7 +1074,6 @@
     SUBDIR += xglurbules
     SUBDIR += xgrasp
     SUBDIR += xli
-    SUBDIR += xmandel
     SUBDIR += xmedcon
     SUBDIR += xmlgraphics-commons
     SUBDIR += xmountains
@@ -1109,6 +1094,7 @@
     SUBDIR += xv-m17n
     SUBDIR += xwpick
     SUBDIR += xzgv
+    SUBDIR += yacreader
     SUBDIR += yafaray
     SUBDIR += yed
     SUBDIR += yukon

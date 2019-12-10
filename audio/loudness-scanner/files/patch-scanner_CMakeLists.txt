@@ -5,6 +5,9 @@
          scanner-lib filetree input
          ${GLIB20_LIBRARIES} ${GTHREAD20_LIBRARIES})
 +  install(TARGETS loudness DESTINATION bin)
+<<<<<<< HEAD
  
  
  
+=======
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3

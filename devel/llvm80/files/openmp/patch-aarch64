@@ -59,6 +59,7 @@
 @@ -8102,9 +8102,9 @@
  #endif // KMP_OS_LINUX || KMP_OS_DRAGONFLY || KMP_OS_FREEBSD || KMP_OS_NETBSD ||
         // KMP_OS_OPENBSD || KMP_OS_WINDOWS || KMP_OS_DARWIN || KMP_OS_HURD
+<<<<<<< HEAD
  
 -#elif KMP_ARCH_X86 || KMP_ARCH_ARM || KMP_ARCH_AARCH || KMP_ARCH_MIPS
 +#elif KMP_ARCH_X86 || KMP_ARCH_ARM || KMP_ARCH_AARCH64 || KMP_ARCH_MIPS
@@ -68,6 +69,17 @@
  
      // basic tuning
  
+=======
+
+-#elif KMP_ARCH_X86 || KMP_ARCH_ARM || KMP_ARCH_AARCH || KMP_ARCH_MIPS
++#elif KMP_ARCH_X86 || KMP_ARCH_ARM || KMP_ARCH_AARCH64 || KMP_ARCH_MIPS
+
+-#if KMP_OS_LINUX || KMP_OS_WINDOWS || KMP_OS_HURD
++#if KMP_OS_LINUX || KMP_OS_WINDOWS || KMP_OS_HURD || KMP_OS_FREEBSD
+
+     // basic tuning
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 --- projects/openmp/runtime/src/kmp_csupport.cpp.orig	2019-07-02 23:14:06.796922000 +0000
 +++ projects/openmp/runtime/src/kmp_csupport.cpp	2019-07-02 23:14:14.481647000 +0000
 @@ -317,7 +317,7 @@
@@ -91,7 +103,11 @@
 --- projects/openmp/runtime/src/kmp_gsupport.cpp.orig	2019-07-02 23:15:21.000238000 +0000
 +++ projects/openmp/runtime/src/kmp_gsupport.cpp	2019-07-02 23:15:24.987928000 +0000
 @@ -376,7 +376,7 @@
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
    rc = __kmp_fork_call(loc, gtid, fork_context_gnu, argc, wrapper,
                         __kmp_invoke_task_func,
 -#if (KMP_ARCH_X86_64 || KMP_ARCH_ARM || KMP_ARCH_AARCH64) && KMP_OS_LINUX

@@ -2,7 +2,7 @@
 
 PROG_CXX=adb
 NOMAN= # DragonFly, NetBSD, OpenBSD
-NO_MAN= # FreeBSD
+MAN= # FreeBSD
 BINDIR?=/usr/bin
 FILESDIR?=${DOCDIR}/${PROG}
 
@@ -96,6 +96,8 @@ CPPFLAGS+= -DPLATFORM_TOOLS_VERSION="\"${VERSION:U0.0.0}\""
 CPPFLAGS+= -DADB_HOST=1
 CPPFLAGS+= -Doff64_t=off_t
 CPPFLAGS+= -Dlseek64=lseek
+CPPFLAGS+= -Dpread64=pread
+CPPFLAGS+= -Dpwrite64=pwrite
 CPPFLAGS+= -I${.CURDIR}
 CPPFLAGS+= -I${.CURDIR}/client
 CPPFLAGS+= -I${.CURDIR}/../include

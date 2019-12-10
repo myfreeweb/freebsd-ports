@@ -1,8 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	sanoid
-PORTVERSION=	1.0.0.20190619
-PORTREVISION=	1
+PORTVERSION=	1.0.0.20191105
+PORTREVISION=	0
 CATEGORIES=	sysutils
 PKGNAMESUFFIX=	-devel
 
@@ -12,9 +12,9 @@ COMMENT=	Policy-driven snapshot management and replication tools
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS=	${LOCALBASE}/bin/lzop:archivers/lzop \
-		${LOCALBASE}/bin/mbuffer:misc/mbuffer \
-		${LOCALBASE}/bin/pv:sysutils/pv \
+RUN_DEPENDS=	lzop:archivers/lzop \
+		mbuffer:misc/mbuffer \
+		pv:sysutils/pv \
 		p5-Capture-Tiny>=0:devel/p5-Capture-Tiny \
 		p5-Config-IniFiles>=0:devel/p5-Config-IniFiles
 
@@ -22,7 +22,7 @@ USES=		shebangfix perl5
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	jimsalterjrs
-GH_TAGNAME=	a90eec3
+GH_TAGNAME=	45d0898
 
 USE_PERL5=	run
 SHEBANG_FILES=	findoid sanoid sleepymutex syncoid

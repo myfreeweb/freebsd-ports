@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- lib/angelscript/projects/cmake/CMakeLists.txt.orig	2019-09-19 09:41:35 UTC
+=======
+--- lib/angelscript/projects/cmake/CMakeLists.txt.orig	2019-10-12 16:56:04 UTC
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 +++ lib/angelscript/projects/cmake/CMakeLists.txt
 @@ -111,7 +111,6 @@ if(${CMAKE_SYSTEM_PROCESSOR} MATCHES "^arm")
      enable_language(ASM)

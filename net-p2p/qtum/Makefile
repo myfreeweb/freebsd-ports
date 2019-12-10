@@ -6,6 +6,9 @@ PORTVERSION=	0.18.1
 DISTVERSIONPREFIX=	mainnet-ignition-v
 CATEGORIES=	net-p2p finance
 
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+PATCHFILES+=	05564ff309be.patch:-p1
+
 MAINTAINER=	vd@FreeBSD.org
 COMMENT=	PoS cryptocurrency that can execute smart contract as part of an UTXO
 
@@ -67,7 +70,7 @@ CONFIGURE_ENV+=	CRYPTO_CFLAGS="-I${OPENSSLINC}" \
 # symbol' can not be used when making a shared object; recompile with -fPIC
 CONFIGURE_ENV+=	CPPFLAGS="-I${LOCALBASE}/include -fPIC -DPIC"
 post-patch:
-	${SED} -i '' -e 's/AC_SUBST(PIE_FLAGS)//' ${WRKSRC}/configure.ac
+	${REINPLACE_CMD} -e 's/AC_SUBST(PIE_FLAGS)//' ${WRKSRC}/configure.ac
 .else
 CONFIGURE_ENV+=	CPPFLAGS="-I${LOCALBASE}/include"
 .endif

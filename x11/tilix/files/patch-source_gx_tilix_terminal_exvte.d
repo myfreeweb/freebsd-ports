@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 --- source/gx/tilix/terminal/exvte.d.orig	2019-07-11 10:52:08 UTC
+=======
+--- source/gx/tilix/terminal/exvte.d.orig	2019-06-27 21:00:58 UTC
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 +++ source/gx/tilix/terminal/exvte.d
 @@ -188,12 +188,6 @@ class ExtendedVTE : Terminal { (public)
  		vte_terminal_set_disable_bg_draw(vteTerminal, isDisabled);

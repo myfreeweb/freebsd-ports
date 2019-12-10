@@ -19,7 +19,11 @@ LIB_DEPENDS=	libmozjs-60.so:lang/spidermonkey60 \
 		libffi.so:devel/libffi
 
 USES=		compiler:c++14-lang gettext gmake gnome libtool \
+<<<<<<< HEAD
 		localbase pathfix pkgconfig python:build readline tar:xz
+=======
+		localbase pathfix pkgconfig python:build readline tar:xz xorg
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 USE_GNOME=	cairo gdkpixbuf2 gtk30 introspection
 USE_XORG=	x11 xext
 GNU_CONFIGURE=	yes

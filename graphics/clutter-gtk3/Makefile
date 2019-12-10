@@ -20,7 +20,11 @@ LIB_DEPENDS=	libcogl.so:graphics/cogl \
 		libxkbcommon.so:x11/libxkbcommon \
 		libjson-glib-1.0.so:devel/json-glib
 
+<<<<<<< HEAD
 USES=		gettext gnome gl localbase meson pkgconfig tar:xz
+=======
+USES=		gettext gl gnome localbase meson pkgconfig tar:xz
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 USE_GNOME=	cairo gdkpixbuf2 gtk30 introspection:build
 USE_XORG=	x11 xcomposite xdamage xext xfixes xi xrandr
 USE_GL=		egl

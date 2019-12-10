@@ -67,7 +67,11 @@
 +            ulong[8]        mc_spare;
 +        }
 +    }
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
      // <ucontext.h>
      enum UCF_SWAPPED = 0x00000001;
 --- runtime/phobos/std/internal/math/gammafunction.d.orig	2019-04-20 23:21:36 UTC
@@ -77,6 +81,10 @@
      import std.numeric: findRoot;
      enum maxY = logmdigamma(real.min_normal);
 -    static assert(maxY > 0 && maxY <= real.max);
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
      if (y >= maxY)
      {

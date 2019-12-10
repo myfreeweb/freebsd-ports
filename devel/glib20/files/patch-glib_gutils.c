@@ -6,6 +6,10 @@
    if (!conf_dirs || !conf_dirs[0])
 -    conf_dirs = "/etc/xdg";
 +    conf_dirs = "/usr/local/etc/xdg:/etc/xdg";
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
    conf_dir_vector = g_strsplit (conf_dirs, G_SEARCHPATH_SEPARATOR_S, 0);
  #endif

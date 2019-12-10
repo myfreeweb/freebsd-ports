@@ -20,7 +20,11 @@ LIB_DEPENDS=	libcogl.so:graphics/cogl \
 		libjson-glib-1.0.so:devel/json-glib \
 		libsoup-2.4.so:devel/libsoup
 
+<<<<<<< HEAD
 USES=		gettext-runtime gmake gnome gl libtool localbase pathfix \
+=======
+USES=		gettext-runtime gl gmake gnome libtool localbase pathfix \
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 		pkgconfig sqlite tar:xz
 USE_GNOME=	cairo gdkpixbuf2 gtk30 introspection:build
 USE_GL=		egl

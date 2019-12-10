@@ -33,7 +33,11 @@ See compiler-rt/ patch for more info
 @@ -13,6 +13,11 @@
  ; RUN:     -data-layout="E-m:e-i64:64-n32:64-S128" | \
  ; RUN:     FileCheck --check-prefix=CHECK-MIPS64 %s
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 +; RUN: opt < %s -asan -asan-module -S \
 +; RUN:     -mtriple=aarch64-unknown-freebsd \
 +; RUN:     -data-layout="e-m:e-i8:8:32-i16:16:32-i64:64-i128:128-n32:64-S128" | \
@@ -53,7 +57,11 @@ See compiler-rt/ patch for more info
 +; CHECK-AARCH64: lshr {{.*}} 3
 +; CHECK-AARCH64-NEXT: {{140737488355328}}
 +; CHECK-AARCH64: ret
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
  ; CHECK-MIPS64: @read_4_bytes
  ; CHECK-MIPS64-NOT: ret
 --- tools/clang/lib/Driver/ToolChains/FreeBSD.cpp.orig	2019-07-02 19:56:37.904827000 +0000

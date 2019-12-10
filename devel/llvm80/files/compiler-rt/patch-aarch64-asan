@@ -10,7 +10,11 @@ sanitizer_platform_limits_freebsd.cc: remove timeb entirely everywhere instead o
 +++ ../compiler-rt-8.0.1.src/cmake/config-ix.cmake	2019-07-02 18:40:28.629137000 +0300
 @@ -580,7 +580,7 @@
  endif()
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
  if (COMPILER_RT_HAS_SANITIZER_COMMON AND HWASAN_SUPPORTED_ARCH AND
 -    OS_NAME MATCHES "Linux|Android")
 +    OS_NAME MATCHES "Linux|FreeBSD|Android")
@@ -49,7 +53,11 @@ sanitizer_platform_limits_freebsd.cc: remove timeb entirely everywhere instead o
    long long res;
 @@ -1743,6 +1743,12 @@
  #endif
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
  #if defined(__aarch64__)
 +# if SANITIZER_FREEBSD
 +static bool Aarch64GetESR(ucontext_t *ucontext, u64 *esr) {
@@ -66,7 +74,11 @@ sanitizer_platform_limits_freebsd.cc: remove timeb entirely everywhere instead o
  }
 +# endif
  #endif
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
  #if SANITIZER_OPENBSD
 @@ -1876,9 +1883,15 @@
    *sp = ucontext->uc_mcontext.arm_sp;
@@ -116,7 +128,11 @@ sanitizer_platform_limits_freebsd.cc: remove timeb entirely everywhere instead o
 @@ -20,7 +20,7 @@
  # define SYSCALL(name) __NR_ ## name
  #endif
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 -#if defined(__x86_64__) && (SANITIZER_FREEBSD || SANITIZER_MAC)
 +#if (defined(__x86_64__) || defined(__aarch64__)) && (SANITIZER_FREEBSD || SANITIZER_MAC)
  # define internal_syscall __syscall
@@ -125,7 +141,11 @@ sanitizer_platform_limits_freebsd.cc: remove timeb entirely everywhere instead o
 --- ../compiler-rt-8.0.1.src/lib/hwasan/hwasan_linux.cc.orig	2019-07-02 18:40:06.564596000 +0300
 +++ ../compiler-rt-8.0.1.src/lib/hwasan/hwasan_linux.cc	2019-07-02 19:09:00.363106000 +0300
 @@ -336,11 +336,21 @@
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
    const bool is_store = code & 0x10;
    const bool recover = code & 0x20;
 +#if SANITIZER_FREEBSD
@@ -144,13 +164,21 @@ sanitizer_platform_limits_freebsd.cc: remove timeb entirely everywhere instead o
 +    uc->uc_mcontext.regs[1]
 +#endif
 +    : 1U << size_log;
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
  #elif defined(__x86_64__)
    // Access type is encoded in the instruction following INT3 as
 @@ -386,8 +396,10 @@
    bool fatal = flags()->halt_on_error || !ai.recover;
    ReportTagMismatch(stack, ai.addr, ai.size, ai.is_store, fatal);
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 -#if defined(__aarch64__)
 +#if defined(__aarch64__) && SANITIZER_LINUX
    uc->uc_mcontext.pc += 4;
@@ -176,7 +204,11 @@ sanitizer_platform_limits_freebsd.cc: remove timeb entirely everywhere instead o
 @@ -306,6 +306,10 @@
      u32 data[4];
    };
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 +  struct __sanitizer_struct_mallinfo {
 +    uptr v[10];
 +  };
@@ -188,13 +220,22 @@ sanitizer_platform_limits_freebsd.cc: remove timeb entirely everywhere instead o
 +++ ../compiler-rt-8.0.1.src/lib/hwasan/hwasan_interface_internal.h	2019-07-02 22:30:56.168369000 +0300
 @@ -16,7 +16,11 @@
  #define HWASAN_INTERFACE_INTERNAL_H
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
  #include "sanitizer_common/sanitizer_internal_defs.h"
 +#ifdef SANITIZER_FREEBSD
 +#include "sanitizer_common/sanitizer_platform_limits_freebsd.h"
 +#else
  #include "sanitizer_common/sanitizer_platform_limits_posix.h"
 +#endif
+<<<<<<< HEAD
  
  extern "C" {
  
+=======
+
+ extern "C" {
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3

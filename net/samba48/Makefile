@@ -15,6 +15,8 @@ LICENSE=			GPLv3+
 LICENSE_FILE=			${WRKSRC}/COPYING
 
 IGNORE_NONTHREAD_PYTHON=	needs port lang/python${PYTHON_SUFFIX} to be build with THREADS support
+DEPRECATED=			not supported by the upstream
+EXPIRATION_DATE=		2019-12-15
 
 CONFLICTS_INSTALL?=		samba4-4.0.* samba4[1-79]-4.* p5-Parse-Pidl-4.*
 
@@ -328,7 +330,7 @@ QUOTAS_CONFIGURE_WITH=		quotas
 SPOTLIGHT_CONFIGURE_ENABLE=	spotlight
 SPOTLIGHT_BUILD_DEPENDS=	tracker>=1.4.1:sysutils/tracker
 SPOTLIGHT_RUN_DEPENDS=		tracker>=1.4.1:sysutils/tracker
-SPOTLIGHT_USES=			bison
+SPOTLIGHT_USES=			bison gnome
 SPOTLIGHT_USE=			gnome=glib20
 
 SYSLOG_CONFIGURE_WITH=		syslog

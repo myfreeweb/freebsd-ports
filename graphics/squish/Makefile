@@ -11,6 +11,8 @@ WRKSRC=	${WRKDIR}
 MAINTAINER=	rddeblois@gmail.com
 COMMENT=	Open source DXT compression library
 
+BROKEN=		unfetchable
+
 LICENSE=	MIT
 
 USES=		uidfix tar:tgz

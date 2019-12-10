@@ -3,7 +3,7 @@
 
 PORTNAME=	supertuxkart
 PORTVERSION=	1.0
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	games
 MASTER_SITES=	SF/supertuxkart/SuperTuxKart/${PORTVERSION}
 DISTNAME=	${PORTNAME}-${PORTVERSION}-src
@@ -21,7 +21,11 @@ LIB_DEPENDS=	libvorbisfile.so:audio/libvorbis \
 		libfreetype.so:print/freetype2 \
 		libenet.so:net/enet
 
+<<<<<<< HEAD
 BROKEN_i386=		does not build (error: this directive must appear between .cfi_startproc and .cfi_endproc directives)
+=======
+BROKEN_i386=	does not build (error: this directive must appear between .cfi_startproc and .cfi_endproc directives)
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 
 USES=		alias cmake compiler:c++11-lib gettext gl \
 		jpeg openal:al pkgconfig sdl tar:xz xorg
@@ -53,8 +57,13 @@ NETTLE_CMAKE_BOOL_OFF=	USE_CRYPTO_OPENSSL
 
 WAYLAND_CMAKE_BOOL=	ENABLE_WAYLAND_DEVICE
 WAYLAND_LIB_DEPENDS=	libwayland-egl.so:graphics/wayland \
+<<<<<<< HEAD
 		libxkbcommon.so:x11/libxkbcommon
 WAYLAND_USE=	GL=egl
+=======
+			libxkbcommon.so:x11/libxkbcommon
+WAYLAND_USE=		GL=egl
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 
 # make sure that as much bundled stuff as possible is not used
 post-extract:

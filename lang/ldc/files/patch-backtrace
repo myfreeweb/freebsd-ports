@@ -6,7 +6,11 @@ https://github.com/myfreeweb/druntime/commit/4cc671669d45f14cc8fd270857d5cbeae6b
 @@ -15,6 +15,9 @@ nothrow:
  version (GNU)
      version = BacktraceExternal;
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 +version (LDC)
 +    version = BacktraceExternal;
 +
@@ -24,6 +28,7 @@ https://github.com/myfreeweb/druntime/commit/4cc671669d45f14cc8fd270857d5cbeae6b
 -        }
          else
              static assert(false, "Architecture not supported.");
+<<<<<<< HEAD
  
 --- runtime/druntime/src/core/runtime.d.orig	2019-05-27 19:11:41 UTC
 +++ runtime/druntime/src/core/runtime.d
@@ -36,3 +41,17 @@ https://github.com/myfreeweb/druntime/commit/4cc671669d45f14cc8fd270857d5cbeae6b
                  }
                  else
                  {
+=======
+
+--- runtime/druntime/src/core/runtime.d.orig	2019-10-15 22:07:36 UTC
++++ runtime/druntime/src/core/runtime.d
+@@ -833,7 +833,7 @@
+     {
+         version (LDC)
+         {
+-            numframes = backtrace( callstack.ptr, MAXFRAMES );
++            numframes = cast(int) backtrace( callstack.ptr, MAXFRAMES );
+         }
+         else
+         {
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3

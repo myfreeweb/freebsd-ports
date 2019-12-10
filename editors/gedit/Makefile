@@ -28,7 +28,11 @@ RUN_DEPENDS=	iso-codes>=0:misc/iso-codes \
 PORTSCOUT=	limitw:1,even
 
 USES=		compiler:c11 desktop-file-utils gettext gnome \
+<<<<<<< HEAD
 		localbase meson perl5 pkgconfig python:3.4+ shebangfix tar:xz
+=======
+		localbase meson perl5 pkgconfig python:3.4+ shebangfix tar:xz xorg
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 USE_PERL5=	build
 USE_CSTD=	c11
 USE_GNOME=	cairo gdkpixbuf2 gtksourceview4 introspection \

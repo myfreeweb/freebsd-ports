@@ -31,7 +31,12 @@ RUN_DEPENDS=	geoclue>=0:net/geoclue
 
 PORTSCOUT=	limitw:1,even
 
+<<<<<<< HEAD
 USES=		desktop-file-utils gettext meson gnome gl pkgconfig tar:xz
+=======
+USES=		desktop-file-utils gettext gl gnome meson \
+		pkgconfig tar:xz
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 USE_GNOME=	cairo gtk30 intltool libxml2
 USE_GL=		egl
 USE_LDCONFIG=	yes

@@ -16,7 +16,6 @@
     SUBDIR += audacious-gtk3
     SUBDIR += audacious-plugins
     SUBDIR += audacious-plugins-gtk3
-    SUBDIR += audiopreview
     SUBDIR += avidemux
     SUBDIR += avidemux-cli
     SUBDIR += avidemux-plugins
@@ -60,7 +59,6 @@
     SUBDIR += dvdid
     SUBDIR += dvdrip
     SUBDIR += dvdstyler
-    SUBDIR += dvts
     SUBDIR += emby-server
     SUBDIR += emovix
     SUBDIR += ffaudioconverter
@@ -78,7 +76,6 @@
     SUBDIR += fxtv
     SUBDIR += gaupol
     SUBDIR += gavl
-    SUBDIR += gcfilms
     SUBDIR += gdialog
     SUBDIR += gdvrecv
     SUBDIR += gmerlin
@@ -175,11 +172,11 @@
     SUBDIR += kdemultimedia-ffmpegthumbs
     SUBDIR += kdenlive
     SUBDIR += kf5-kmediaplayer
-    SUBDIR += kissdx
     SUBDIR += kmplayer
     SUBDIR += kodi
     SUBDIR += kodi-addon-inputstream.adaptive-devel
     SUBDIR += kodi-addon-peripheral-joystick
+    SUBDIR += kodi-addon-peripheral.joystick-devel
     SUBDIR += kodi-addon-pvr-hts
     SUBDIR += kodi-addon-pvr-iptvsimple
     SUBDIR += kodi-addon-vfs.libarchive-devel
@@ -218,6 +215,7 @@
     SUBDIR += libquvi-scripts
     SUBDIR += libquvi-scripts09
     SUBDIR += libquvi09
+    SUBDIR += librav1e
     SUBDIR += librtmp
     SUBDIR += libsmacker
     SUBDIR += libtheora
@@ -318,7 +316,6 @@
     SUBDIR += photofilmstrip
     SUBDIR += php-pHash
     SUBDIR += pitivi
-    SUBDIR += playd
     SUBDIR += plexmediaserver
     SUBDIR += plexmediaserver-plexpass
     SUBDIR += plexwatch
@@ -392,7 +389,6 @@
     SUBDIR += spook
     SUBDIR += subsync
     SUBDIR += subtitlecomposer
-    SUBDIR += subtitleeditor
     SUBDIR += subtitleoffsetmodifier
     SUBDIR += subtitleripper
     SUBDIR += subtools
@@ -413,13 +409,13 @@
     SUBDIR += tstools
     SUBDIR += tvheadend
     SUBDIR += umph
-    SUBDIR += umr
     SUBDIR += ustreamer
     SUBDIR += v4l-utils
     SUBDIR += v4l_compat
     SUBDIR += vamps
     SUBDIR += vapoursynth
     SUBDIR += vapoursynth-l-smash-works
+    SUBDIR += vapoursynth-vmaf
     SUBDIR += vcdgear
     SUBDIR += vcdimager
     SUBDIR += vcdpad
@@ -458,6 +454,7 @@
     SUBDIR += wf-recorder
     SUBDIR += win32-codecs
     SUBDIR += winff
+    SUBDIR += wlrobs
     SUBDIR += x264
     SUBDIR += x265
     SUBDIR += xanim

@@ -29,15 +29,27 @@ LIB_DEPENDS=	libpopt.so:devel/popt \
 		libharfbuzz.so:print/harfbuzz \
 		libpotrace.so:graphics/libpotrace \
 		libpng.so:graphics/png \
+<<<<<<< HEAD
+=======
+		libMagick++-6.so:graphics/ImageMagick6 \
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 		libsoup-2.4.so:devel/libsoup \
 		libenchant-2.so:textproc/enchant2 \
 		libyaml.so:textproc/libyaml
 
 USES=		compiler:c++11-lib cmake cpe desktop-file-utils gnome \
+<<<<<<< HEAD
 		iconv:wchar_t jpeg pathfix pkgconfig python:2.7,build \
 		shebangfix tar:bzip2
 USE_GNOME=	gtkmm30 libxml2 libxslt gvfs
 USE_XORG=	x11 sm ice xext
+=======
+		iconv:wchar_t jpeg pathfix pkgconfig python:2.7 \
+		shebangfix tar:bzip2 xorg
+USE_GNOME=	gtkmm30 gvfs libxml2 libxslt
+USE_XORG=	x11 sm ice xext # XXX
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 INSTALLS_ICONS=	yes
 
 USE_GITLAB=	nodefault

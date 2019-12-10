@@ -25,7 +25,6 @@
     SUBDIR += bgrot
     SUBDIR += bgs
     SUBDIR += bitmap
-    SUBDIR += blast
     SUBDIR += bmpanel2
     SUBDIR += bricons
     SUBDIR += brisk-menu
@@ -54,7 +53,6 @@
     SUBDIR += docker-tray
     SUBDIR += dsbautostart
     SUBDIR += dxpc
-    SUBDIR += dynamag
     SUBDIR += dzen2
     SUBDIR += eaglemode
     SUBDIR += editres
@@ -146,12 +144,10 @@
     SUBDIR += libXcursor
     SUBDIR += libXdamage
     SUBDIR += libXdmcp
-    SUBDIR += libXevie
     SUBDIR += libXext
     SUBDIR += libXfixes
     SUBDIR += libXi
     SUBDIR += libXinerama
-    SUBDIR += libXp
     SUBDIR += libXpm
     SUBDIR += libXpresent
     SUBDIR += libXrandr
@@ -161,7 +157,6 @@
     SUBDIR += libXv
     SUBDIR += libXvMC
     SUBDIR += libXxf86dga
-    SUBDIR += libXxf86misc
     SUBDIR += libXxf86vm
     SUBDIR += libdmx
     SUBDIR += libexo
@@ -175,7 +170,6 @@
     SUBDIR += libgnomemm26
     SUBDIR += libinput
     SUBDIR += libmatekbd
-    SUBDIR += liboldX
     SUBDIR += libsx
     SUBDIR += libsynaptics
     SUBDIR += libwacom
@@ -185,7 +179,6 @@
     SUBDIR += libxfce4util
     SUBDIR += libxkbcommon
     SUBDIR += libxkbfile
-    SUBDIR += libxkbui
     SUBDIR += libxklavier
     SUBDIR += libxshmfence
     SUBDIR += lightdm
@@ -196,6 +189,10 @@
     SUBDIR += linux-c7-libxkbcommon
     SUBDIR += linux-c7-pixman
     SUBDIR += linux-c7-xorg-libs
+    SUBDIR += linux-nvidia-libs
+    SUBDIR += linux-nvidia-libs-304
+    SUBDIR += linux-nvidia-libs-340
+    SUBDIR += linux-nvidia-libs-390
     SUBDIR += listres
     SUBDIR += lsw
     SUBDIR += luit
@@ -211,6 +208,7 @@
     SUBDIR += lxqt-globalkeys
     SUBDIR += lxqt-runner
     SUBDIR += lxrandr
+    SUBDIR += ly
     SUBDIR += mate
     SUBDIR += mate-applets
     SUBDIR += mate-base
@@ -235,6 +233,7 @@
     SUBDIR += nvidia-driver
     SUBDIR += nvidia-driver-304
     SUBDIR += nvidia-driver-340
+    SUBDIR += nvidia-driver-390
     SUBDIR += nvidia-settings
     SUBDIR += nvidia-xconfig
     SUBDIR += nxcomp
@@ -252,6 +251,7 @@
     SUBDIR += perwindowlayoutd
     SUBDIR += pipeglade
     SUBDIR += pixman
+    SUBDIR += plank
     SUBDIR += plasma5-kactivitymanagerd
     SUBDIR += plasma5-kgamma5
     SUBDIR += plasma5-kscreen
@@ -265,6 +265,7 @@
     SUBDIR += printscreen
     SUBDIR += props
     SUBDIR += py-caffeine-ng
+    SUBDIR += py-i3ipc
     SUBDIR += py-pyscreenshot
     SUBDIR += py-pyvirtualdisplay
     SUBDIR += py-qt5-opengl
@@ -286,6 +287,7 @@
     SUBDIR += roxterm
     SUBDIR += rsibreak
     SUBDIR += rubygem-gnome
+    SUBDIR += run_scaled
     SUBDIR += rxvt
     SUBDIR += rxvt-unicode
     SUBDIR += sakura
@@ -395,7 +397,6 @@
     SUBDIR += xcolors
     SUBDIR += xcolorsel
     SUBDIR += xconsole
-    SUBDIR += xcurs
     SUBDIR += xcursorgen
     SUBDIR += xcut
     SUBDIR += xditview
@@ -422,10 +423,8 @@
     SUBDIR += xfce4-whiskermenu-plugin
     SUBDIR += xfce4-wmdock-plugin
     SUBDIR += xfd
-    SUBDIR += xfindproxy
     SUBDIR += xfishtank
     SUBDIR += xforward
-    SUBDIR += xfwp
     SUBDIR += xgamma
     SUBDIR += xgc
     SUBDIR += xgrab
@@ -485,16 +484,11 @@
     SUBDIR += xrootconsole
     SUBDIR += xrsh
     SUBDIR += xrsi
-    SUBDIR += xrx
     SUBDIR += xscope
     SUBDIR += xscreensaver
-    SUBDIR += xscreensaver-gnome
-    SUBDIR += xscreensaver-gnome-hacks
     SUBDIR += xscreensaver.app
     SUBDIR += xsel-conrad
     SUBDIR += xset
-    SUBDIR += xsetmode
-    SUBDIR += xsetpointer
     SUBDIR += xsetroot
     SUBDIR += xsettingsd
     SUBDIR += xskyroot

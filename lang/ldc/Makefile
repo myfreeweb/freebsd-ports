@@ -1,6 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=		ldc
+<<<<<<< HEAD
 PORTVERSION=		1.16.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=		lang
@@ -9,6 +10,15 @@ CATEGORIES=		lang
 PATCH_SITES=	https://github.com/myfreeweb/ldc/commit/
 PATCHFILES=	3616870e9acbe565ff5b59db97482eda010dc00d.patch:-p1 \
 	120ed38cef179ec3774253bb424c159f7a566aa7.patch:-p1 \
+=======
+PORTVERSION=		1.18.0
+DISTVERSIONPREFIX=	v
+CATEGORIES=		lang
+
+# link to libexecinfo, use PIC by default
+PATCH_SITES=	https://github.com/myfreeweb/ldc/commit/
+PATCHFILES=	3df77e9bf1c8acee4b0bc0ce66766461a3318361.patch:-p1 \
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 	573cb1456b1074bb4ab604a838658f30beb6a797.patch:-p1
 
 MAINTAINER=		acm@FreeBSD.org
@@ -20,7 +30,11 @@ OPTIONS_GROUP=		BOOTSTRAP
 BOOTSTRAP_DESC=		Force using ltsmaster to bootstrap
 OPTIONS_GROUP_BOOTSTRAP=LTSMASTER
 
+<<<<<<< HEAD
 LLVM_VERSION=	80
+=======
+LLVM_VERSION=	90
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 BUILD_DEPENDS=	llvm${LLVM_VERSION}>0:devel/llvm${LLVM_VERSION}
 RUN_DEPENDS=	llvm${LLVM_VERSION}>0:devel/llvm${LLVM_VERSION}
 
@@ -29,18 +43,26 @@ CXX=			${LOCALBASE}/bin/clang++${LLVM_VERSION}
 LLVM_CONFIG=		${LOCALBASE}/bin/llvm-config${LLVM_VERSION}
 LDCVER=			${PORTVERSION}
 
+<<<<<<< HEAD
 PLIST_SUB=		LOCALBASE=${LOCALBASE}
+=======
+PLIST_SUB=		LOCALBASE=${LOCALBASE} SOVERSION=88
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 
 BROKEN_armv6=		fails to compile: Error: undefined identifier _jmp_buf, did you mean alias jmp_buf?
 BROKEN_armv7=		fails to compile: Error: undefined identifier _jmp_buf, did you mean alias jmp_buf?
 BROKEN_i386=		function core.bitop.bsf (uint v) is not callable using argument types (ulong)
-BROKEN_powerpc64=	fails to compile: cc1plus: error: unrecognized command line option "-std=c++11"
 
 USE_GITHUB=		yes
 GH_ACCOUNT=		ldc-developers
 GH_PROJECT=		ldc
+<<<<<<< HEAD
 GH_TUPLE=		ldc-developers:druntime:6b36091:druntime/runtime/druntime \
 			ldc-developers:phobos:4f42e2c:phobos/runtime/phobos
+=======
+GH_TUPLE=		ldc-developers:druntime:ad2324e:druntime/runtime/druntime \
+			ldc-developers:phobos:b60fda9:phobos/runtime/phobos
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 
 .include <bsd.port.pre.mk>
 
@@ -65,7 +87,11 @@ BUILD_BOOTSTRAP=	no
 .endfor
 .endif
 
+<<<<<<< HEAD
 # falling back to creating bootstrap d-compiler 
+=======
+# falling back to creating bootstrap d-compiler
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 .if !defined (DC_HOST)
 BUILD_BOOTSTRAP=        yes
 BOOTSTRAP_DIR=		${WRKDIRPREFIX}${.CURDIR}/work-bootstrap

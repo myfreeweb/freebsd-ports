@@ -18,8 +18,13 @@ LIB_DEPENDS=	libgtop-2.0.so:devel/libgtop
 
 PORTSCOUT=	limitw:1,even
 
+<<<<<<< HEAD
 USES=		alias compiler:c++11-lang gettext gnome localbase \
 		meson pkgconfig python:3.5+,build tar:xz
+=======
+USES=		alias compiler:c++11-lang gettext gmake gnome localbase pathfix \
+		pkgconfig tar:xz
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 USE_CXXSTD=	c++11
 USE_GNOME=	gtkmm30 intlhack librsvg2 libxml2
 INSTALL_TARGET=	install-strip

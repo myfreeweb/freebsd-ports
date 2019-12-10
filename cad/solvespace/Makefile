@@ -22,7 +22,7 @@ GH_PROJECT=	libdxfrw:libdxfrw
 GH_TAGNAME=	87ff108:libdxfrw
 GH_SUBDIR=	extlib/libdxfrw:libdxfrw
 
-USES=		cmake compiler:c++11-lang gl gnome pkgconfig
+USES=		cmake compiler:c++11-lang gl gnome pkgconfig xorg
 USE_GL=		gl glu glew
 USE_GNOME=	atkmm pangomm
 USE_XORG=	x11

@@ -30,7 +30,12 @@ LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		libudev.so:devel/libudev-devd
 
 WRKSRC=		${WRKDIR}/ConsoleKit2-${PORTVERSION}
+<<<<<<< HEAD
 USES=		gettext gnome gmake libtool localbase pathfix pkgconfig tar:bzip2
+=======
+USES=		gettext gmake gnome libtool localbase pathfix pkgconfig \
+		tar:bzip2
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 USE_CSTD=	gnu99
 USE_XORG=	x11
 USE_GNOME=	glib20 libxslt introspection:build

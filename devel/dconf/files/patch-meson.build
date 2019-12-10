@@ -5,5 +5,9 @@
  subdir('bin')
  subdir('docs')
 -subdir('tests')
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
  meson.add_install_script('meson_post_install.py', gio_module_dir)

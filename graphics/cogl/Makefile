@@ -16,7 +16,12 @@ CONFLICTS=	clutter-1.6.[0-9]*
 
 LIB_DEPENDS=	libwayland-egl.so:graphics/wayland
 
+<<<<<<< HEAD
 USES=		gettext gmake gnome gl libtool localbase pathfix pkgconfig tar:xz
+=======
+USES=		gettext gl gmake gnome libtool localbase pathfix pkgconfig \
+		tar:xz
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 GNU_CONFIGURE=	yes
 USE_GNOME=	cairo gdkpixbuf2 pango introspection:build
 USE_GL=		egl

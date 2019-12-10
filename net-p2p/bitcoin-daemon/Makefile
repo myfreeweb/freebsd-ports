@@ -1,15 +1,11 @@
 # $FreeBSD$
 
 MASTERDIR=	${.CURDIR}/../bitcoin
-PORTREVISION=	7
 PKGNAMESUFFIX=	-daemon
 
 COMMENT=	Virtual Peer-to-Peer Currency (Daemon)
 
 SLAVE_PORT=	yes
-
-NOT_FOR_ARCHS=		powerpc powerpc64 sparc64
-NOT_FOR_ARCHS_REASON=	does not support big-endian architectures
 
 OPTIONS_DEFINE=		DEBUG HARDENING TESTS UPNP ZMQ
 # WALLET_BDBMODERN is a choice for WALLET, introduced via OPTIONS_RADIO=WALLET

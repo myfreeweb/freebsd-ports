@@ -2,7 +2,11 @@
 +++ runtime/druntime/src/core/sys/freebsd/sys/event.d
 @@ -125,6 +125,7 @@ enum
  }
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
  int kqueue();
 +pragma(mangle, "kevent@FBSD_1.0")
  int kevent(int kq, const kevent_t *changelist, int nchanges,
@@ -11,9 +15,15 @@
 --- runtime/druntime/src/core/sys/posix/dirent.d.orig	2018-12-15 16:48:11 UTC
 +++ runtime/druntime/src/core/sys/posix/dirent.d
 @@ -140,7 +140,7 @@ else version( FreeBSD )
+<<<<<<< HEAD
  
      alias void* DIR;
  
+=======
+
+     alias void* DIR;
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 -    dirent* readdir(DIR*);
 +    pragma(mangle, "readdir@FBSD_1.0") dirent* readdir(DIR*);
  }
@@ -62,7 +72,11 @@
 @@ -1267,7 +1267,7 @@ else version( FreeBSD )
      enum S_IFLNK    = 0xA000; // octal 0120000
      enum S_IFSOCK   = 0xC000; // octal 0140000
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 -    int mknod(in char*, mode_t, dev_t);
 +    pragma(mangle, "mknod@FBSD_1.0") int mknod(in char*, mode_t, dev_t);
  }
@@ -73,7 +87,11 @@
 @@ -107,6 +107,6 @@ else
          ST_NOSUID = 2
      }
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 -    int statvfs (const char * file, statvfs_t* buf);
 -    int fstatvfs (int fildes, statvfs_t *buf) @trusted;
 +    pragma(mangle, "fstatvfs@FBSD_1.0") int statvfs (const char * file, statvfs_t* buf);

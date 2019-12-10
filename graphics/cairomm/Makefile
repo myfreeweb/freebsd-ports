@@ -16,7 +16,11 @@ LICENSE=	LGPL20
 LIB_DEPENDS=	libfreetype.so:print/freetype2 \
 		libpng.so:graphics/png
 
+<<<<<<< HEAD
 USES=		compiler:c++11-lang gmake gnome libtool pathfix pkgconfig
+=======
+USES=		compiler:c++11-lang gmake gnome libtool pathfix pkgconfig xorg
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 USE_CXXSTD=	c++11
 USE_GNOME=	cairo libxml++26
 USE_XORG=	x11 xext xrender

@@ -1,9 +1,15 @@
 --- scanner/inputaudio/CMakeLists.txt.orig	2019-06-14 18:58:09 UTC
 +++ scanner/inputaudio/CMakeLists.txt
 @@ -20,5 +20,8 @@ if(GMODULE20_FOUND AND NOT DISABLE_GLIB20)
+<<<<<<< HEAD
  
    add_library(input input)
  
+=======
+
+   add_library(input input)
+
+>>>>>>> 92de14d576e349bacfb7270f86f8a308b0983ad3
 +  set_property(TARGET input APPEND PROPERTY
 +    COMPILE_DEFINITIONS "INPUT_PREFIX=\"${CMAKE_INSTALL_PREFIX}\"")
 +
