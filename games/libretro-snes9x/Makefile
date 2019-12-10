@@ -5,7 +5,7 @@ PORTNAME=	libretro-snes9x
 PORTVERSION=	0.1
 PORTREVISION=	1
 CATEGORIES=	games
-LICENSE_FILE=	${WRKSRC}/LICENSE
+LICENSE=	PS
 
 MAINTAINER=	menelkir@itroll.org
 COMMENT=	Snes9x - Portable Super Nintendo Entertainment System (TM) emulator

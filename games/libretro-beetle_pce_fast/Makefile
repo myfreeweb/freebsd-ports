@@ -1,7 +1,7 @@
 # Created by: Yuri Victorovich <yuri@rawbw.com>
 # Updated by: Daniel Menelkir <menelkir@itroll.org>
 
-PORTNAME=	libretro-beetle_pce_fast
+PORTNAME=	libretro-beetle_vb
 PORTVERSION=	0.20191028
 PORTREVISION=	1
 CATEGORIES=	games
