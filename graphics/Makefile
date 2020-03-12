@@ -258,6 +258,7 @@
     SUBDIR += gimp-lqr-plugin
     SUBDIR += gimp-refocus-plugin
     SUBDIR += gimp-resynthesizer
+    SUBDIR += gimp30
     SUBDIR += gkrellkam2
     SUBDIR += glad
     SUBDIR += gle

@@ -1,0 +1,11 @@
+--- libgimpbase/meson.build.orig	2020-03-12 22:44:12 UTC
++++ libgimpbase/meson.build
+@@ -105,7 +105,7 @@ libgimpbase = library('gimpbase-' + gimp_api_version,
+   libgimpbase_sources,
+   include_directories: rootInclude,
+   dependencies: [
+-    gexiv2, gio, math,
++    gexiv2, gio, math, libexecinfo
+   ],
+   c_args: [
+     '-DG_LOG_DOMAIN="LibGimpBase"',
