@@ -13,7 +13,6 @@ LICENSE=	LGPL21
 
 USES=		tar:xz
 
-.if !defined(REFERENCE_PORT)
 PORTSCOUT=	limitw:1,even
 
 USES+=		compiler:c++11-lang gmake gnome libtool localbase pathfix \
