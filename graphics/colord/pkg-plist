@@ -34,8 +34,8 @@ include/colord-1/colord/cd-sensor.h
 include/colord-1/colord/cd-spectrum.h
 include/colord-1/colord/cd-transform.h
 include/colord-1/colord/cd-version.h
-lib/colord-sensors/libcolord_sensor_argyll.a
-lib/colord-sensors/libcolord_sensor_argyll.so
+%%ARGYLLCMS%%lib/colord-sensors/libcolord_sensor_argyll.a
+%%ARGYLLCMS%%lib/colord-sensors/libcolord_sensor_argyll.so
 lib/colord-sensors/libcolord_sensor_dummy.a
 lib/colord-sensors/libcolord_sensor_dummy.so
 lib/girepository-1.0/Colord-1.0.typelib
