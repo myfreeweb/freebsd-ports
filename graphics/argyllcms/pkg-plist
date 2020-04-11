@@ -7,6 +7,7 @@ bin/chartread
 bin/collink
 bin/colprof
 bin/colverify
+bin/cxf2ti3
 bin/dispcal
 bin/dispread
 bin/dispwin
@@ -52,6 +53,8 @@ share/argyll/ref/CMP_Digital_Target-4.cht
 share/argyll/ref/CMP_Digital_Target-4.cie
 share/argyll/ref/CMP_Digital_Target-4.ti2
 share/argyll/ref/CMP_Digital_Target-7.cht
+share/argyll/ref/CMP_Digital_Target-2019.cht
+share/argyll/ref/CMP_Digital_Target_Studio.cht
 share/argyll/ref/ClayRGB1998.icm
 share/argyll/ref/ColorChecker.cht
 share/argyll/ref/ColorChecker.cie
@@ -86,6 +89,10 @@ share/argyll/ref/FograStrip3.ti1
 share/argyll/ref/FograStrip3_3.ti2
 share/argyll/ref/GTIPlus.sp
 share/argyll/ref/Hutchcolor.cht
+share/argyll/ref/ISO12641_2_1.cht
+share/argyll/ref/ISO12641_2_3_1.cht
+share/argyll/ref/ISO12641_2_3_2.cht
+share/argyll/ref/ISO12641_2_3_3.cht
 share/argyll/ref/LaserSoftDCPro.cht
 share/argyll/ref/Office.sp
 share/argyll/ref/ProPhoto.icm

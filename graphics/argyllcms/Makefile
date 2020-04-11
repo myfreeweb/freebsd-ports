@@ -1,8 +1,7 @@
 # Created by: Koop Mast <kwm@FreeBSD.org>
 
 PORTNAME=	argyllcms
-PORTVERSION=	1.9.2
-PORTREVISION=	5
+PORTVERSION=	2.1.2
 CATEGORIES=	graphics
 MASTER_SITES=	https://www.argyllcms.com/
 DISTNAME=	Argyll_V${PORTVERSION}_src
@@ -16,10 +15,11 @@ BUILD_DEPENDS=	jam:devel/jam
 LIB_DEPENDS=	libtiff.so:graphics/tiff \
 		libpng.so:graphics/png
 
-WRKSRC=		${WRKDIR}/Argyll_V${PORTVERSION}
-
 USES=		compiler:c11 cpe jpeg ssl xorg zip
 USE_XORG=	x11 xau xdmcp xext xinerama xrandr xscrnsaver xxf86vm
+
+EXTRACT_AFTER_ARGS=	-x */zlib/* -x */tiff/* -x */png/* -x */jpeg/*
+WRKSRC=		${WRKDIR}/Argyll_V${PORTVERSION}
 
 do-build:
 	@cd ${WRKSRC} && ${MAKE_ENV} jam -dx -q -fJambase -j${MAKE_JOBS_NUMBER}

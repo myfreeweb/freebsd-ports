@@ -4,17 +4,19 @@ Bug-Debian: https://bugs.debian.org/777779
 Forwarded: no
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
---- icc/icc.h
+--- icc/icc.h.orig	2019-09-13 20:11:47 UTC
 +++ icc/icc.h
-@@ -100,7 +100,11 @@
- #define CF64PREC "LL"		/* Constant precision specifier */
+@@ -131,8 +131,13 @@
+ #define CF64PREC "LL"				/* Constant precision specifier */
  
  #ifndef ATTRIBUTE_NORETURN
 +#ifdef _MSC_VER
  # define ATTRIBUTE_NORETURN __declspec(noreturn)
 +#else
 +# define ATTRIBUTE_NORETURN __attribute__((noreturn))
-+#endif
  #endif
++#endif
++
  
- #else  /* !__STDC_VERSION__ */
+ #else  /* !_MSC_VER */
+ 
