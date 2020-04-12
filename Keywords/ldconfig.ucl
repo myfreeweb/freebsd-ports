@@ -1,16 +1,34 @@
-# MAINTAINER: portmgr@FreeBSD.org
+# MAINTAINER: greg@unrelenting.technology
 
 post-install: <<EOD
-	if ! /usr/sbin/service ldconfig restart >/dev/null; then
-		if [ -z "${INSTALL_AS_USER}" ]; then
-			exit 1
+	if [ -s /etc/rc.subr ]; then
+		if ! /usr/sbin/service ldconfig restart >/dev/null; then
+			if [ -z "${INSTALL_AS_USER}" ]; then
+				exit 1
+			fi
+		fi
+	fi
+	if [ -s /sbin/ldconfigs ]; then
+		if ! /sbin/ldconfigs >/dev/null; then
+			if [ -z "${INSTALL_AS_USER}" ]; then
+				exit 1
+			fi
 		fi
 	fi
 EOD
 post-deinstall: <<EOD
-	if ! /usr/sbin/service ldconfig restart >/dev/null; then
-		if [ -z "${INSTALL_AS_USER}" ]; then
-			exit 1
+	if [ -s /etc/rc.subr ]; then
+		if ! /usr/sbin/service ldconfig restart >/dev/null; then
+			if [ -z "${INSTALL_AS_USER}" ]; then
+				exit 1
+			fi
+		fi
+	fi
+	if [ -s /sbin/ldconfigs ]; then
+		if ! /sbin/ldconfigs >/dev/null; then
+			if [ -z "${INSTALL_AS_USER}" ]; then
+				exit 1
+			fi
 		fi
 	fi
 EOD
