@@ -1,0 +1,13 @@
+--- clutter/meson.build.orig	2020-04-13 20:24:48 UTC
++++ clutter/meson.build
+@@ -382,8 +382,8 @@ backend_sources = []
+ backend_deps = []
+ backend_pc_files = []
+ 
+-if enabled_backends.contains('x11') or
+-   enabled_backends.contains('wayland') or
++if enabled_backends.contains('x11') or \
++   enabled_backends.contains('wayland') or \
+    enabled_backends.contains('gdk')
+   backend_sources += [
+     'cogl/clutter-stage-cogl.c',
