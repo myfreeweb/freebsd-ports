@@ -15,7 +15,6 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 BUILD_DEPENDS=	vapigen:lang/vala
 LIB_DEPENDS=	libgee-0.8.so:devel/libgee \
 		libgcr-base-3.so:security/gcr \
-		libzeitgeist-2.0.so:sysutils/zeitgeist \
 		libtelepathy-glib.so:net-im/telepathy-glib \
 		libnspr4.so:devel/nspr \
 		libssl3.so:security/nss \
