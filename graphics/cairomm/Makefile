@@ -15,16 +15,20 @@ LICENSE=	LGPL20
 LIB_DEPENDS=	libfreetype.so:print/freetype2 \
 		libpng.so:graphics/png
 
-USES=		compiler:c++11-lang gmake gnome libtool pathfix pkgconfig xorg
+USES=		compiler:c++11-lang gmake gnome libtool pathfix pkgconfig
 USE_CXXSTD=	c++11
 USE_GNOME=	cairo libxml++26
-USE_XORG=	x11 xext xrender
 
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 CONFIGURE_ENV=	AUTOMAKE="${TRUE}" AUTOCONF="${TRUE}" DOXYGEN="${TRUE}"
 
-OPTIONS_DEFINE=	DOCS
+OPTIONS_DEFINE=		DOCS X11
+OPTIONS_DEFAULT=	X11
+OPTIONS_SUB=		yes
+
+X11_USES=	xorg
+X11_USE=	XORG=x11,xext,xrender
 
 DOCS_CONFIGURE_OFF=	--disable-documentation
 

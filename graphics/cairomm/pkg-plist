@@ -30,8 +30,8 @@ libdata/pkgconfig/cairomm-pdf-1.0.pc
 libdata/pkgconfig/cairomm-png-1.0.pc
 libdata/pkgconfig/cairomm-ps-1.0.pc
 libdata/pkgconfig/cairomm-svg-1.0.pc
-libdata/pkgconfig/cairomm-xlib-1.0.pc
-libdata/pkgconfig/cairomm-xlib-xrender-1.0.pc
+%%X11%%libdata/pkgconfig/cairomm-xlib-1.0.pc
+%%X11%%libdata/pkgconfig/cairomm-xlib-xrender-1.0.pc
 %%PORTDOCS%%share/devhelp/books/cairomm-1.0/cairomm-1.0.devhelp2
 %%PORTDOCS%%share/doc/cairomm-1.0/reference/cairomm-1.0.tag
 %%PORTDOCS%%share/doc/cairomm-1.0/reference/html/annotated.html
