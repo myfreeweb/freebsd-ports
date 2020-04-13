@@ -21,8 +21,14 @@ LIB_DEPENDS=	libcogl.so:graphics/cogl \
 
 USES=		gettext gl gnome localbase meson pkgconfig tar:xz
 USE_GNOME=	cairo gdkpixbuf2 gtk30 introspection:build
-USE_XORG=	x11 xcomposite xdamage xext xfixes xi xrandr
 USE_GL=		egl
 USE_LDCONFIG=	yes
+
+OPTIONS_DEFINE=		X11
+OPTIONS_DEFAULT=	X11
+OPTIONS_SUB=		yes
+
+X11_USES=		xorg
+X11_USE=		XORG=x11,xcomposite,xdamage,xext,xfixes,xi,xrandr
 
 .include <bsd.port.mk>
