@@ -39,7 +39,9 @@ USE_GL=		glu
 .if !defined(_GL_${_component}_LIB_DEPENDS)
 IGNORE=		uses unknown GL component
 .else
+.if defined(_GL_${_component}_USE_XORG)
 USE_XORG+=	${_GL_${_component}_USE_XORG}
+.endif
 LIB_DEPENDS+=	${_GL_${_component}_LIB_DEPENDS}
 .endif
 .endfor
