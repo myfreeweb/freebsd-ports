@@ -26,7 +26,7 @@ SHEBANG_FILES=	bin/pitivi.in \
 		tests/__init__.py \
 		tests/validate-tests/manager.py \
 		tests/validate-tests/runtests
-USE_GNOME=	cairo intltool gdkpixbuf2 gsound gtk30 pygobject3
+USE_GNOME=	cairo intltool gdkpixbuf2 gtk30 pygobject3
 USE_GSTREAMER1=	editing-services gdkpixbuf good gtk
 INSTALLS_ICONS=	yes
 USE_LDCONFIG=	yes
