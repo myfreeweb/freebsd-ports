@@ -78,7 +78,7 @@ _MITKRB5_DEPENDS=${GSSAPILIBDIR}/libkrb5support.so:security/krb5
 _HEADERS=	sys/types.h sys/stat.h stdint.h
 
 .if empty(gssapi_ARGS)
-gssapi_ARGS=	base
+gssapi_ARGS=	heimdal
 .endif
 .for _A in ${gssapi_ARGS}
 _local:=	${_A}
