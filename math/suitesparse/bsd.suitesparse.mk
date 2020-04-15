@@ -82,7 +82,7 @@ OPTIONS_DEFAULT+=	OPENMP
 OPENMP_MAKE_ENV_OFF=	CFOPENMP=
 . if !exists(/usr/include/omp.h)
 # XXX ports/199603: LLVM openmp in base doesn't support armv6, armv7 yet
-OPENMP_VARS=		OPENMP=gcc-
+# OPENMP_VARS=		OPENMP=gcc-
 . endif
 .endif
 
