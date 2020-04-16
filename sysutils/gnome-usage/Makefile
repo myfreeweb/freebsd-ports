@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	gnome-usage
-PORTVERSION=	3.32.0
+PORTVERSION=	3.33.2
 CATEGORIES=	sysutils gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome
@@ -13,6 +13,7 @@ LICENSE=	GPLv3
 
 BUILD_DEPENDS=	valac:lang/vala
 LIB_DEPENDS=	libgtop-2.0.so:devel/libgtop \
+		libtracker-sparql-2.0.so:sysutils/tracker \
 		libdazzle-1.0.so:x11-toolkits/libdazzle
 
 USES=		gettext gnome meson pkgconfig tar:xz
