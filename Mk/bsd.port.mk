@@ -2049,6 +2049,11 @@ NONEXISTENT?=	/nonexistent
 CHECKSUM_ALGORITHMS?= sha256
 
 DISTINFO_FILE?=		${MASTERDIR}/distinfo
+_TIMESTAMP=			0
+.if exists(${DISTINFO_FILE})
+_TIMESTAMP!=	${AWK} -F= -v ts=0 '/^TIMESTAMP/ { gsub(" ", "", $$2); ts=$$2 } END { print ts}' ${DISTINFO_FILE}
+.endif
+
 
 MAKE_FLAGS?=	-f
 MAKEFILE?=		Makefile
@@ -2060,6 +2065,10 @@ MAKE_ENV+=		PREFIX=${PREFIX} \
 			LDFLAGS="${LDFLAGS}" LIBS="${LIBS}" \
 			CXX="${CXX}" CXXFLAGS="${CXXFLAGS}" \
 			MANPREFIX="${MANPREFIX}"
+
+.if ${_TIMESTAMP} != 0
+MAKE_ENV+=	SOURCE_DATE_EPOCH="${_TIMESTAMP}"
+.endif
 
 # Add -fno-strict-aliasing to CFLAGS with optimization level -O2 or higher.
 # gcc 4.x enable strict aliasing optimization with -O2 which is known to break
@@ -3476,6 +3485,9 @@ PKG_CREATE_ARGS+= -f ${PKG_OLDSUFX:S/.//}
 PKG_CREATE_ARGS+= -f ${PKG_SUFX:S/.//}
 .endif
 PKG_CREATE_ARGS+=	-r ${STAGEDIR}
+.  if ${_TIMESTAMP} != 0
+PKG_CREATE_ARGS+=	-t ${_TIMESTAMP}
+.  endif
 .  if defined(PKG_CREATE_VERBOSE)
 PKG_CREATE_ARGS+=	-v
 .  endif
