@@ -170,3 +170,5 @@ share/locale/sv/LC_MESSAGES/gegl-%%GEGL_VER%%.mo
 share/locale/tr/LC_MESSAGES/gegl-%%GEGL_VER%%.mo
 share/locale/uk/LC_MESSAGES/gegl-%%GEGL_VER%%.mo
 share/locale/zh_CN/LC_MESSAGES/gegl-%%GEGL_VER%%.mo
+%%VAPI%%share/vala/vapi/gegl-%%GEGL_VER%%.deps
+%%VAPI%%share/vala/vapi/gegl-%%GEGL_VER%%.vapi
