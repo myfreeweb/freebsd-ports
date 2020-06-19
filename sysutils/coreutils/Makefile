@@ -39,7 +39,6 @@ post-build:
 	@${TOUCH} ${WRKSRC}/doc/coreutils.info
 
 post-install:
-	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/g* \
-		${STAGEDIR}${PREFIX}/libexec/coreutils/libstdbuf.so
+	@${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/g*
 
 .include <bsd.port.mk>

@@ -78,7 +78,6 @@ bin/gshuf
 bin/gsleep
 bin/gsort
 bin/gsplit
-bin/gstdbuf
 bin/gstty
 bin/gsum
 bin/gsync
@@ -104,7 +103,6 @@ bin/gwc
 bin/gwho
 bin/gwhoami
 bin/gyes
-libexec/coreutils/libstdbuf.so
 man/man1/gb2sum.1.gz
 man/man1/gbase32.1.gz
 man/man1/gbase64.1.gz
@@ -184,7 +182,6 @@ man/man1/gshuf.1.gz
 man/man1/gsleep.1.gz
 man/man1/gsort.1.gz
 man/man1/gsplit.1.gz
-man/man1/gstdbuf.1.gz
 man/man1/gstty.1.gz
 man/man1/gsum.1.gz
 man/man1/gsync.1.gz
