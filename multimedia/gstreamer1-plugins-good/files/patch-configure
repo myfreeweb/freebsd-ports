@@ -1,0 +1,11 @@
+--- configure.orig	2020-06-19 15:17:27.581334000 +0300
++++ configure	2020-06-19 15:17:57.228064000 +0300
+@@ -37097,7 +37097,7 @@
+ fi
+ 
+ 
+-  if test "x$HAVE_CXX" != "xyes"; then
++  if false; then
+     USE_TAGLIB=false
+     { $as_echo "$as_me:${as_lineno-$LINENO}: Not building taglib plugin: no C++ compiler found" >&5
+ $as_echo "$as_me: Not building taglib plugin: no C++ compiler found" >&6;}
