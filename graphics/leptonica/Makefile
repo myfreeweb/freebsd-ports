@@ -44,7 +44,7 @@ ZLIB_CONFIGURE_WITH=	zlib
 
 TESTS?=	generate compare
 .if defined(MAINTAINER_MODE) || defined(PACKAGE_BUILDING)
-BUILD_DEPENDS+=	${LOCALBASE}/bin/gnuplot:math/gnuplot
+# BUILD_DEPENDS+=	${LOCALBASE}/bin/gnuplot:math/gnuplot
 .endif
 #the display portion of the regression tests is interactive,
 #and requires the use of xv, xli or xzgv as an image viewer
