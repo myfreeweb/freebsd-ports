@@ -28,7 +28,8 @@ DOS2UNIX_FILES=	doc/translator.py
 PLIST_FILES=	bin/doxygen
 
 OPTIONS_DEFINE=	DOCS GRAPHVIZ LATEX SEARCH QT5
-OPTIONS_DEFAULT=	GRAPHVIZ LATEX
+OPTIONS_DEFAULT=	GRAPHVIZ
+OPTIONS_EXCLUDE=	DOCS # latex required
 QT5_DESC=	Install Doxywizard GUI with Qt5
 SEARCH_DESC=	Build external search tools (doxysearch and doxyindexer)
 
