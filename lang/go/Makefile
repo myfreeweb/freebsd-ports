@@ -88,6 +88,7 @@ do-build:
 		GOARCH=${GOARCH_${ARCH}} \
 		GO386=${GO386} \
 		GOARM=${GOARM_${ARCH}} \
+		CC=${CC} \
 		${SH} make.bash -v
 
 do-install:
