@@ -7,6 +7,9 @@ PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
 PATCHFILES+=	7c0e2a271a4c.patch:-p1 # https://github.com/swaywm/wlroots/pull/2064
 PATCHFILES+=	55a8d225cf8c.patch:-p1 # https://github.com/swaywm/wlroots/pull/2064
 
+# setting HiDPI Xwayland scale via env
+PATCHFILES+=	6d0df1ee94af8e5d0b91c2677540ad9120153fd0.patch:-p1
+
 MAINTAINER=	jbeich@FreeBSD.org
 COMMENT=	Modular Wayland compositor library
 
