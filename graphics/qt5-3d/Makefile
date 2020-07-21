@@ -15,4 +15,8 @@ USE_QT=		concurrent core declarative gui network buildtools_build
 
 QT_BINARIES=	yes
 
+.if ${ARCH:tl} == "amd64"
+CPUTYPE=nehalem
+.endif
+
 .include <bsd.port.mk>
