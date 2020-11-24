@@ -2253,7 +2253,7 @@ PKG_OLDSUFX?=	.txz
 .if defined(PKG_NOCOMPRESS)
 PKG_SUFX?=		.tar
 .else
-PKG_SUFX?=		.txz
+PKG_SUFX?=		.tzst
 .endif
 .endif
 # where pkg(8) stores its data
@@ -3493,6 +3493,7 @@ PKG_CREATE_ARGS+=	-t ${_TIMESTAMP}
 .  if defined(PKG_CREATE_VERBOSE)
 PKG_CREATE_ARGS+=	-v
 .  endif
+PKG_CREATE_ARGS+=	-l 2
 do-package: ${_EXTRA_PACKAGE_TARGET_DEP} ${WRKDIR}/pkg
 .endif
 
