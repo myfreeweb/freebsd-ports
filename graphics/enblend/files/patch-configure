@@ -1,0 +1,10 @@
+--- configure.orig	2020-12-01 13:48:53 UTC
++++ configure
+@@ -5839,7 +5839,6 @@ rm -f core conftest.err conftest.$ac_objext \
+        fi
+ fi
+ if test "$have_on_demand_dynamic_linking" = yes; then
+-  LDFLAGS="-Wl,--as-needed -Wl,--no-copy-dt-needed-entries ${LDFLAGS}"
+ fi
+ 
+ 
