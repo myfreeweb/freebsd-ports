@@ -47,7 +47,7 @@ NVIDIA_IMPLIES=		OPENGL
 .MAKEFLAGS:		WITH+=NVIDIA
 .endif
 
-OPENGL_RUN_DEPENDS=	mesa-dri>0:graphics/mesa-dri
+OPENGL_RUN_DEPENDS=	mesa-devel>0:graphics/mesa-devel
 OPENGL_USE=		GL=egl,glesv2
 OPENGL_VARS=		RENDERERS+=gles2
 
@@ -85,7 +85,7 @@ VULKAN_PATCHFILES+=	dd039c56d93a.patch:-p1 # https://github.com/swaywm/wlroots/p
 VULKAN_BUILD_DEPENDS=	glslangValidator:graphics/glslang \
 			vulkan-headers>0:graphics/vulkan-headers
 VULKAN_LIB_DEPENDS=	libvulkan.so:graphics/vulkan-loader
-VULKAN_RUN_DEPENDS=	mesa-dri>0:graphics/mesa-dri
+VULKAN_RUN_DEPENDS=	mesa-devel>0:graphics/mesa-devel
 VULKAN_USES=		localbase # Silence -Werror=undef in <vulkan/vulkan_core.h>
 VULKAN_VARS=		RENDERERS+=vulkan
 VULKAN_PLIST_FILES=	include/wlr/types/wlr_drm.h \

@@ -18,7 +18,7 @@ LICENSE_FILE_LGPL21+ =	${WRKSRC:H}/data/distr/LICENSE.LGPL
 
 LIB_DEPENDS=	libdrm.so:graphics/libdrm \
 		libfreetype.so:print/freetype2
-RUN_DEPENDS=	mesa-dri>0:graphics/mesa-dri
+RUN_DEPENDS=	mesa-devel>0:graphics/mesa-devel
 
 USES=		cmake compiler:c11 gl iconv openal pkgconfig sqlite
 USE_GITHUB=	yes

@@ -3,7 +3,7 @@
 # Use the wine port to do most of the heavy lifting
 MASTERDIR=	${.CURDIR}/../wine-devel
 
-RUN_DEPENDS=	mesa-dri>0:graphics/mesa-dri
+RUN_DEPENDS=	mesa-devel>0:graphics/mesa-devel
 
 ACTUAL-PACKAGE-DEPENDS=	${DO_NADA}
 WINELIBDIR=	${PREFIX}/lib32

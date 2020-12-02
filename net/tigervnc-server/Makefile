@@ -4,7 +4,7 @@ PKGNAMESUFFIX=	-server
 COMMENT=	TigerVNC Server
 
 PATCH_DEPENDS+=	${NONEXISTENT}:x11-servers/xorg-server:patch
-BUILD_DEPENDS+=	${LOCALBASE}/include/GL/internal/dri_interface.h:graphics/mesa-dri \
+BUILD_DEPENDS+=	${LOCALBASE}/include/GL/internal/dri_interface.h:graphics/mesa-devel \
 		${LOCALBASE}/libdata/pkgconfig/fontutil.pc:x11-fonts/font-util \
 		bash:shells/bash
 LIB_DEPENDS=	libxshmfence.so:x11/libxshmfence
