@@ -39,7 +39,7 @@ install_depends()
 			${dp_WRKDIR}/pkg-static add ${pkgfile}
 			rm -f ${dp_WRKDIR}/pkg-static
 		else
-			${dp_PKG_ADD} -A ${pkgfile}
+			${dp_PKG_ADD} --ignore-dep-versions -A ${pkgfile}
 		fi
 	elif [ -n "${dp_USE_PACKAGE_DEPENDS_ONLY}" -a "${target}" = "${dp_DEPENDS_TARGET}" ]; then
 		echo "===>   ${dp_PKGNAME} depends on package: ${pkgfile} - not found" >&2

@@ -7,6 +7,9 @@ CATEGORIES=	ports-mgmt
 #		LOCAL/portmgr \
 #		http://mirror.shatow.net/freebsd/${PORTNAME}/ \
 
+PATCH_SITES=	https://github.com/myfreeweb/${GH_PROJECT}/commit/
+PATCHFILES+=	884c2e365e2cea7903b4e5fcf11f75cbd42a6834.patch:-p1
+
 MAINTAINER=	pkg@FreeBSD.org
 COMMENT=	Package manager
 
