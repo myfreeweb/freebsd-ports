@@ -1,6 +1,6 @@
---- Makefile.orig	2016-11-18 13:04:45 UTC
+--- Makefile.orig	2019-07-29 12:06:34 UTC
 +++ Makefile
-@@ -17,14 +17,14 @@ opt:
+@@ -17,14 +17,14 @@
  	for p in $(PARTS); do ( cd src/$$p; $(MAKE) opt ) || exit; done
  
  install:
@@ -11,23 +11,23 @@
  	$(MAKE) install-config
  	for p in $(PARTS); do ( cd src/$$p; $(MAKE) install ); done
  	$(MAKE) install-meta
- 	cd src/findlib; $(MAKE) install-num-top
+ 	test -z "$(NUMTOP)" || { cd src/findlib; $(MAKE) install-num-top; }
  	if [ $(INSTALL_CAMLP4) -eq 1 ]; then \
 -		cp tools/safe_camlp4 "$(prefix)$(OCAMLFIND_BIN)"; \
 +		${BSD_INSTALL_SCRIPT}  tools/safe_camlp4 "$(DESTDIR)$(prefix)$(OCAMLFIND_BIN)"; \
  	fi
  	$(MAKE) install-doc
  
-@@ -55,7 +55,7 @@ findlib.conf: findlib.conf.in
+@@ -55,7 +55,7 @@
  	USE_CYGPATH="$(USE_CYGPATH)"; \
  	export USE_CYGPATH; \
  	cat findlib.conf.in | \
--		tools/patch '@SITELIB@' '$(OCAML_SITELIB)' >findlib.conf
-+		tools/patch '@SITELIB@' '$(OCAML_SITELIB):$(OCAML_LIBDIR)' >findlib.conf
+-	    $(SH) tools/patch '@SITELIB@' '$(OCAML_SITELIB)' >findlib.conf
++	    $(SH) tools/patch '@SITELIB@' '$(OCAML_SITELIB):$(OCAML_LIBDIR)' >findlib.conf
  	if ./tools/cmd_from_same_dir ocamlc; then \
  		echo 'ocamlc="ocamlc.opt"' >>findlib.conf; \
  	fi
-@@ -71,9 +71,9 @@ findlib.conf: findlib.conf.in
+@@ -71,9 +71,9 @@
  
  .PHONY: install-doc
  install-doc:
@@ -40,7 +40,7 @@
  
  .PHONY: uninstall-doc
  uninstall-doc:
-@@ -86,7 +86,7 @@ uninstall-doc:
+@@ -86,7 +86,7 @@
  
  .PHONY: install-meta
  install-meta:
@@ -49,7 +49,7 @@
  
  .PHONY: uninstall-meta
  uninstall-meta:
-@@ -94,9 +94,9 @@ uninstall-meta:
+@@ -94,9 +94,9 @@
  
  .PHONY: install-config
  install-config:

@@ -1,7 +1,7 @@
 # Created by: Hirohisa Yamaguchi <umq@ueo.co.jp>
 
 PORTNAME=	camlp5
-PORTVERSION=	7.07
+PORTVERSION=	8.00+alpha06
 CATEGORIES=	devel
 PKGNAMEPREFIX=	ocaml-
 DIST_SUBDIR=	${PKGBASE}
@@ -14,9 +14,9 @@ LICENSE_NAME=	INRIA permissive license with copyright notice requirements
 LICENSE_FILE=	${WRKSRC}/LICENSE
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-USES=		tar:tgz
+USES=		gmake tar:tgz
 USE_GITHUB=	yes
-GH_TAGNAME=	rel${PORTVERSION:S/.//}
+GH_TAGNAME=	rel${PORTVERSION}
 USE_OCAML=	yes
 HAS_CONFIGURE=	yes
 CONFIGURE_ARGS=	--prefix ${PREFIX}
@@ -32,7 +32,7 @@ STRICT_DESC=		New syntax tree quotations kit
 OPTIONS_DEFINE=	DOCS
 
 DOCSDIR=	${OCAML_DOCSDIR}/${PORTNAME}
-PORTDOCS=	CHANGES DEVEL ICHANGES INSTALL MODE README UPGRADING
+PORTDOCS=	CHANGES DEVEL ICHANGES MODE UPGRADING
 
 STRICT_CONFIGURE_ON=	--strict
 TRANSITIONAL_CONFIGURE_ON=	--transitional

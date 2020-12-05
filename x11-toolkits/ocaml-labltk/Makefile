@@ -1,9 +1,8 @@
 # Created by: Michael Grünewald <michipili@gmail.com>
 
 PORTNAME=	labltk
-PORTVERSION=	8.06.3
+DISTVERSION=	8.06.9
 CATEGORIES=	x11-toolkits
-MASTER_SITES=	https://download.ocamlcore.org/${PORTNAME}/${PORTNAME}/${PORTVERSION}/
 PKGNAMEPREFIX=	ocaml-
 
 MAINTAINER=	ports@FreeBSD.org
@@ -16,6 +15,10 @@ HAS_CONFIGURE=	yes
 MAKE_JOBS_UNSAFE=yes
 MAKE_ENV+=	STAGEDIR="${STAGEDIR}"
 USE_OCAML=	yes
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	garrigue
+GH_PROJECT=	labltk
 
 ALL_TARGET=	all opt
 

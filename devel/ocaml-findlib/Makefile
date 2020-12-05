@@ -1,7 +1,7 @@
 # Created by: ijliao
 
 PORTNAME=	findlib
-PORTVERSION=	1.7.1
+PORTVERSION=	1.8.1
 CATEGORIES=	devel
 MASTER_SITES=	http://download.camlcity.org/download/
 PKGNAMEPREFIX=	ocaml-
@@ -11,6 +11,8 @@ COMMENT=	OCaml package manager
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BUILD_DEPENDS=	ocamlbuild:devel/ocaml-ocamlbuild
 
 USES=		gmake
 USE_OCAML=	yes
@@ -43,10 +45,6 @@ post-install:
 	    ${OCAML_SITELIBDIR}/findlib/findlib.cmxs \
 	    ${OCAML_SITELIBDIR}/findlib/findlib_dynload.cmxs \
 	    ${OCAML_SITELIBDIR}/findlib/findlib_top.cmxs
-# Spacetime profiling is only available for native code on 64-bit targets
-.if ${ARCH} == i386 || ${ARCH} == powerpc || ${ARCH} == powerpcspe
-	@${REINPLACE_CMD} -e '/raw_spacetime/d' ${TMPPLIST}
-.endif
 
 post-install-TOOLBOX-on:
 	${CHMOD} 755 ${STAGEDIR}${PREFIX}/bin/ocamlfind \
