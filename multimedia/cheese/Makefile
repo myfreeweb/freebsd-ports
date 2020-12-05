@@ -17,9 +17,7 @@ BUILD_DEPENDS=	v4l_compat>=0:multimedia/v4l_compat \
 		gnome-video-effects>=0:graphics/gnome-video-effects \
 		vala>=0.14.0:lang/vala \
 		itstool:textproc/itstool
-LIB_DEPENDS=	libcanberra-gtk3.so:audio/libcanberra-gtk3 \
-		libcanberra.so:audio/libcanberra \
-		libclutter-1.0.so:graphics/clutter \
+LIB_DEPENDS=	libclutter-1.0.so:graphics/clutter \
 		libcogl.so:graphics/cogl \
 		libjson-glib-1.0.so:devel/json-glib \
 		libclutter-gtk-1.0.so:graphics/clutter-gtk3 \
@@ -28,7 +26,7 @@ RUN_DEPENDS=	gnome-video-effects>=0:graphics/gnome-video-effects
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gl gnome localbase:ldflags pkgconfig meson tar:xz xorg
+USES=		canberra:gtk3 gettext gl gnome localbase:ldflags pkgconfig meson tar:xz xorg
 USE_GNOME=	cairo librsvg2 gnomedesktop3 libxml2:build introspection:build
 USE_GL=		egl
 USE_XORG=	xi xext xdamage xfixes xcomposite xrandr xxf86vm x11

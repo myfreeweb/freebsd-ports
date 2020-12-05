@@ -52,7 +52,7 @@ SYSINFO_DESC=		Sysinfo plugin
 CA_BUNDLE_RUN_DEPENDS=	${LOCALBASE}/share/certs/ca-root-nss.crt:security/ca_root_nss
 CA_BUNDLE_VARS=	CA_BUNDLE="${LOCALBASE}/share/certs/ca-root-nss.crt"
 CA_BUNDLE_VARS_OFF=	CA_BUNDLE=NULL
-CANBERRA_LIB_DEPENDS=	libcanberra.so:audio/libcanberra
+CANBERRA_USES=		canberra:gtk2
 CANBERRA_MESON_TRUE=	with-libcanberra
 DBUS_LIB_DEPENDS=	libdbus-glib-1.so:devel/dbus-glib
 DBUS_MESON_TRUE=	with-dbus

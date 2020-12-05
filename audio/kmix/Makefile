@@ -26,9 +26,8 @@ OPTIONS_DEFINE=	PULSEAUDIO DOCS
 # ALSA_LIB_DEPENDS=	libasound.so:audio/alsa-lib
 # ALSA_EXTRA_PATCHES_OFF=	${FILESDIR}/extrapatch-no_alsa
 
-PULSEAUDIO_LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
-			libpulse.so:audio/pulseaudio
-PULSEAUDIO_USES=	gnome
+PULSEAUDIO_LIB_DEPENDS=	libpulse.so:audio/pulseaudio
+PULSEAUDIO_USES=	canberra gnome
 PULSEAUDIO_USE=		GNOME=glib20
 PULSEAUDIO_CMAKE_BOOL_OFF=	CMAKE_DISABLE_FIND_PACKAGE_Canberra \
 				CMAKE_DISABLE_FIND_PACKAGE_PulseAudio

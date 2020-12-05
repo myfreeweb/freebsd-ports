@@ -15,13 +15,11 @@ LICENSE_FILE_GPLv2+ =	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		libdbus-glib-1.so:devel/dbus-glib \
-		libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
 		libnotify.so:devel/libnotify
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome libtool localbase pathfix \
+USES=		canberra:gtk3 gettext gmake gnome libtool localbase pathfix \
 		pkgconfig tar:xz xorg
 USE_XORG=	x11
 USE_GNOME=	cairo glib20 gtk30 librsvg2 libwnck3 intlhack

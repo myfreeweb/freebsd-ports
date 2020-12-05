@@ -1,9 +1,9 @@
 gtk: Don't assume all GdkDisplays are GdkX11Displays: broadway/wayland
 
 Obtained from: upstream (c0620e432650e81062c1967cc669829dbd29b310)
---- src/canberra-gtk-module.c.orig
+--- src/canberra-gtk-module.c.orig	2012-05-15 10:23:57 UTC
 +++ src/canberra-gtk-module.c
-@@ -307,6 +307,11 @@ static gint window_get_desktop(GdkDisplay *d, GdkWindow *w) {
+@@ -307,6 +307,11 @@ static gint window_get_desktop(GdkDisplay *d, GdkWindo
          guchar *data = NULL;
          gint ret = -1;
  
@@ -27,21 +27,21 @@ Obtained from: upstream (c0620e432650e81062c1967cc669829dbd29b310)
          if (XGetWindowProperty(GDK_DISPLAY_XDISPLAY(d), DefaultRootWindow(GDK_DISPLAY_XDISPLAY(d)),
                                 gdk_x11_get_xatom_by_name_for_display(d, "_NET_CURRENT_DESKTOP"),
                                 0, G_MAXLONG, False, XA_CARDINAL, &type_return,
-@@ -365,6 +375,11 @@ static gboolean window_is_xembed(GdkDisplay *d, GdkWindow *w) {
+@@ -364,6 +374,11 @@ static gboolean window_is_xembed(GdkDisplay *d, GdkWin
+         guchar *data = NULL;
          gboolean ret = FALSE;
          Atom xembed;
- 
++
 +#ifdef GDK_IS_X11_DISPLAY
 +        if (!GDK_IS_X11_DISPLAY(d))
 +                return FALSE;
 +#endif
-+
+ 
          /* Gnome Panel applets are XEMBED windows. We need to make sure we
           * ignore them */
- 
---- src/canberra-gtk.c.orig
+--- src/canberra-gtk.c.orig	2010-09-28 13:55:03 UTC
 +++ src/canberra-gtk.c
-@@ -185,6 +185,11 @@ static gint window_get_desktop(GdkDisplay *d, GdkWindow *w) {
+@@ -185,6 +185,11 @@ static gint window_get_desktop(GdkDisplay *d, GdkWindo
          guchar *data = NULL;
          gint ret = -1;
  

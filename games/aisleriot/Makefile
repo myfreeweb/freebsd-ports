@@ -14,14 +14,12 @@ LICENSE=	GPLv3
 BUILD_DEPENDS=	itstool:textproc/itstool \
 		bash:shells/bash
 LIB_DEPENDS=	libguile-2.2.so:lang/guile2 \
-		libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
 		libgc-threaded.so:devel/boehm-gc-threaded
 
 CONFLICTS_INSTALL=	sol-[0-9]*
 PORTSCOUT=	limitw:1,even
 
-USES=		desktop-file-utils gettext meson gnome pkgconfig \
+USES=		canberra:gtk3 desktop-file-utils gettext meson gnome pkgconfig \
 		python:build,3.6+ shebangfix xorg
 USE_GNOME=	cairo gtk30 intlhack librsvg2 libxml2:build
 USE_XORG=	x11

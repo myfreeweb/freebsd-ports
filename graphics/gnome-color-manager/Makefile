@@ -2,9 +2,14 @@
 
 PORTNAME=	gnome-color-manager
 PORTVERSION=	3.36.0
+PORTREVISION=	1
 CATEGORIES=	graphics gnome
 MASTER_SITES=	GNOME
 DIST_SUBDIR=	gnome
+
+# https://gitlab.gnome.org/GNOME/gnome-color-manager/-/issues/10
+PATCH_SITES=	https://gitlab.gnome.org/GNOME/${PORTNAME}/commit/
+PATCHFILES=	66aea36411477f284fa8a379b3bde282385d281c.patch:-p1
 
 MAINTAINER=	gnome@FreeBSD.org
 COMMENT=	Session framework for the GNOME desktop to manage color profiles
@@ -18,8 +23,6 @@ BUILD_DEPENDS=	docbook2man:textproc/docbook-utils \
 LIB_DEPENDS=	liblcms2.so:graphics/lcms2 \
 		libcolord.so:graphics/colord \
 		libcolord-gtk.so:graphics/colord-gtk \
-		libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
 		libtiff.so:graphics/tiff \
 		libexif.so:graphics/libexif
 

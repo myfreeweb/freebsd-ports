@@ -2,8 +2,8 @@
 #   $MCom: ports/trunk/audio/libcanberra/Makefile 20031 2014-11-02 21:47:55Z kwm $
 
 PORTNAME=	libcanberra
-PORTVERSION=	0.30
-PORTREVISION=	5
+DISTVERSION=	${CANBERRA_VERSION}
+PORTREVISION?=	6
 CATEGORIES=	audio devel
 MASTER_SITES=	http://0pointer.de/lennart/projects/libcanberra/ \
 		http://pkgs.fedoraproject.org/repo/pkgs/libcanberra/libcanberra-0.30.tar.xz/34cb7e4430afaf6f447c4ebdb9b42072/
@@ -17,47 +17,52 @@ LICENSE_FILE=	${WRKSRC}/LGPL
 LIB_DEPENDS=	libvorbisfile.so:audio/libvorbis \
 		libltdl.so:devel/libltdl
 
-USES=		gmake gnome libtool pathfix pkgconfig tar:xz
-USE_GNOME=	gnomeprefix gtk20
+USES=		gmake gnome libtool localbase:ldflags pathfix pkgconfig tar:xz
+USE_GNOME=	gnomeprefix
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--disable-lynx --disable-tdb --disable-alsa
-CPPFLAGS+=	-I${LOCALBASE}/include
-LDFLAGS+=	-L${LOCALBASE}/lib
+CONFIGURE_ARGS=	--disable-lynx --disable-tdb --disable-alsa --disable-udev
 INSTALL_TARGET=	install-strip
-
-.if defined(SLAVEPORT)
-OPTIONS_DEFINE=	PULSEAUDIO GSTREAMER
-.endif
 
 PLIST_SUB=	VERSION=${PORTVERSION}
 
-.include <bsd.port.options.mk>
+.if defined(PKGNAMESUFFIX) # Backends and toolkit integrations
+USES+=			canberra:lib
+CONFIGURE_ARGS+=	--disable-null --disable-oss
 
-.if defined(SLAVEPORT)
-USE_GNOME+=	gtk30
-LIB_DEPENDS+=	libcanberra.so:audio/libcanberra
-CONFIGURE_ARGS+=--enable-gtk3
-.else
-CONFIGURE_ARGS+=--disable-gtk3
+.  if ${PKGNAMESUFFIX:M-gtk2}
+USE_GNOME+=		cairo gdkpixbuf2 gtk20
+USE_XORG+=		x11
+CONFIGURE_ARGS+=	--enable-gtk \
+			--disable-gtk3 --disable-pulse --disable-gstreamer --enable-null
+.  endif
 
-.if ${PORT_OPTIONS:MPULSEAUDIO}
-LIB_DEPENDS+=	libpulse.so:audio/pulseaudio
-PLIST_SUB+=	PULSE=""
-.else
-CONFIGURE_ARGS+=--disable-pulse
-PLIST_SUB+=	PULSE="@comment "
-.endif
+.  if ${PKGNAMESUFFIX:M-gtk3}
+USE_GNOME+=		cairo gdkpixbuf2 gtk30
+USE_XORG+=		x11
+CONFIGURE_ARGS+=	--enable-gtk3 \
+			--disable-gtk --disable-pulse --disable-gstreamer --enable-null
+.  endif
 
-.if ${PORT_OPTIONS:MGSTREAMER}
+.  if ${PKGNAMESUFFIX:M-pulse}
+LIB_DEPENDS+=		libpulse.so:audio/pulseaudio
+CONFIGURE_ARGS+=	--enable-pulse \
+			--disable-gtk --disable-gtk3 --disable-gstreamer
+.  endif
+
+.  if ${PKGNAMESUFFIX:M-gstreamer}
 USE_GSTREAMER1=	yes
-PLIST_SUB+=	GSTREAMER=""
-.else
-CONFIGURE_ARGS+=--disable-gstreamer
-PLIST_SUB+=	GSTREAMER="@comment "
-.endif
+CONFIGURE_ARGS+=	--enable-gstreamer \
+			--disable-gtk --disable-gtk3 --disable-pulse
+.  endif
 
-.endif # end slaveport
+.else # Main port
+USES+=			canberra:selfbuild
+USE_GNOME+=		cairo gdkpixbuf2 gtk30
+USE_XORG+=		x11
+CONFIGURE_ARGS+=	--enable-gtk3 \
+			--disable-gtk --disable-pulse --disable-gstreamer
+.endif
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|-Wmissing-include-dirs||g' \

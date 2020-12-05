@@ -13,11 +13,10 @@ LICENSE=	GPLv2
 
 LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		libdbus-glib-1.so:devel/dbus-glib \
-		libxapp.so:x11/xapp \
-		libcanberra.so:audio/libcanberra
+		libxapp.so:x11/xapp
 RUN_DEPENDS=	console-kit-daemon:sysutils/consolekit2
 
-USES=		gl gnome meson pkgconfig python:3.5+,build shebangfix xorg
+USES=		canberra gl gnome meson pkgconfig python:3.5+,build shebangfix xorg
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	linuxmint

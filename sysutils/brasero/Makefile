@@ -12,12 +12,11 @@ COMMENT=	CD/DVD mastering tool for the GNOME desktop
 
 BUILD_DEPENDS=	itstool:textproc/itstool
 LIB_DEPENDS=	libnotify.so:devel/libnotify \
-		libtotem-plparser.so:multimedia/totem-pl-parser \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3
+		libtotem-plparser.so:multimedia/totem-pl-parser
 RUN_DEPENDS=	growisofs:sysutils/dvd+rw-tools \
 		cdrdao:sysutils/cdrdao
 
-USES=		desktop-file-utils gettext gmake gnome libtool pathfix \
+USES=		canberra:gtk3 desktop-file-utils gettext gmake gnome libtool pathfix \
 		pkgconfig shared-mime-info tar:xz xorg
 USE_GNOME=	gnomeprefix gtk30 intlhack libxml2
 GNU_CONFIGURE=	yes

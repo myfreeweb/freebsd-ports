@@ -16,9 +16,7 @@ LICENSE_FILE_LGPL21=	${WRKSRC}/COPYING.LIB
 BUILD_DEPENDS=	cinnamon-session:x11/cinnamon-session \
 		xf86-input-wacom>0:x11-drivers/xf86-input-wacom \
 		gln:sysutils/coreutils
-LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
-		libpolkit-gobject-1.so:sysutils/polkit \
+LIB_DEPENDS=	libpolkit-gobject-1.so:sysutils/polkit \
 		libgudev-1.0.so:devel/libgudev \
 		libdbus-1.so:devel/dbus \
 		libdbus-glib-1.so:devel/dbus-glib \
@@ -35,7 +33,7 @@ LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
 		libharfbuzz.so:print/harfbuzz
 RUN_DEPENDS=	cinnamon-session:x11/cinnamon-session
 
-USES=		compiler:c11 gettext-tools gnome localbase meson pkgconfig \
+USES=		canberra:gtk3 compiler:c11 gettext-tools gnome localbase meson pkgconfig \
 		python:3.5+,build shebangfix xorg
 USE_GNOME=	cairo gdkpixbuf2 gtk30 intltool libgnomekbd librsvg2
 USE_XORG=	x11 xext xfixes xi xtst

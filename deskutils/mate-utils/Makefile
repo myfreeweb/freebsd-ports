@@ -17,13 +17,11 @@ LICENSE_FILE_LGPL20+ =	${WRKSRC}/COPYING.libs
 
 BUILD_DEPENDS=	itstool:textproc/itstool
 
-LIB_DEPENDS=	libgtop-2.0.so:devel/libgtop \
-		libcanberra-gtk.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3
+LIB_DEPENDS=	libgtop-2.0.so:devel/libgtop
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome libtool localbase mate pathfix \
+USES=		canberra:gtk3 gettext gmake gnome libtool localbase mate pathfix \
 		pkgconfig tar:xz xorg
 USE_MATE=	panel
 USE_XORG=	ice sm x11 xext

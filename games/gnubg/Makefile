@@ -15,13 +15,12 @@ LICENSE=	GPLv3
 RUN_DEPENDS=	sqlite3:databases/sqlite3
 LIB_DEPENDS=	libpng.so:graphics/png \
 		libgtkglext-x11-1.0.so:x11-toolkits/gtkglext \
-		libcanberra-gtk.so:audio/libcanberra \
 		libgmp.so:math/gmp \
 		libcurl.so:ftp/curl \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2
 
-USES=		bison gl gmake gnome libtool pathfix shebangfix python \
+USES=		bison canberra:gtk2 gl gmake gnome libtool pathfix shebangfix python \
 		pkgconfig compiler:c++11-lang readline xorg
 USE_GNOME=	glib20 gtk20 cairo pangox-compat
 USE_XORG+=	xmu xt sm ice x11

@@ -13,15 +13,13 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	appstream-builder:devel/appstream-glib
-LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
-		libhandy-1.so:x11-toolkits/libhandy
+LIB_DEPENDS=	libhandy-1.so:x11-toolkits/libhandy
 
 CONFLICTS=	gnome-utils-2.[0-9]*
 PORTSCOUT=	limitw:1,even
 
-USES=		compiler:c11 gettext gnome meson pkgconfig python:3.4+,build \
-		shebangfix tar:xz xorg
+USES=		canberra:gtk3 compiler:c11 gettext gnome meson pkgconfig \
+		python:3.4+,build shebangfix tar:xz xorg
 USE_GNOME=	cairo gdkpixbuf2 gtk30
 USE_XORG=	x11 xext
 SHEBANG_FILES=	build-aux/postinstall.py

@@ -15,14 +15,12 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 BUILD_DEPENDS=	itstool:textproc/itstool \
 		zenity>=3.0.0:x11/zenity
 LIB_DEPENDS=	libstartup-notification-1.so:x11/startup-notification \
-		libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
 		libgtop-2.0.so:devel/libgtop
 RUN_DEPENDS=	zenity>=3.0.0:x11/zenity
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome libtool localbase pathfix pkgconfig \
+USES=		canberra:gtk3 gettext gmake gnome libtool localbase pathfix pkgconfig \
 		tar:xz xorg
 USE_XORG=	ice sm x11 xcomposite xcursor xdamage xext xfixes \
 		xinerama xrandr xrender

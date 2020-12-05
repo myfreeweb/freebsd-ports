@@ -18,14 +18,12 @@ BUILD_DEPENDS=	vala:lang/vala \
 		appstream-util:devel/appstream-glib
 LIB_DEPENDS=	libclutter-1.0.so:graphics/clutter \
 		libclutter-gtk-1.0.so:graphics/clutter-gtk3 \
-		libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
 		libcogl.so:graphics/cogl \
 		libjson-glib-1.0.so:devel/json-glib
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gl gmake gnome localbase pathfix \
+USES=		canberra:gtk3 gettext gl gmake gnome localbase pathfix \
 		pkgconfig tar:xz xorg
 USE_GNOME=	cairo gtk30 intlhack librsvg2 libxml2:build
 INSTALLS_ICONS=	yes

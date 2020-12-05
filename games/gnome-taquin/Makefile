@@ -15,8 +15,6 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	vala:lang/vala \
 		itstool:textproc/itstool
-LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3
 
 PORTSCOUT=	limitw:1,even
 

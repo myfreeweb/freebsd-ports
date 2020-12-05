@@ -14,11 +14,10 @@ LICENSE_NAME=	Tcl/Tk License
 LICENSE_FILE=	${WRKSRC}/license.terms
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
-LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
-		libnotify.so:devel/libnotify \
+LIB_DEPENDS=	libnotify.so:devel/libnotify \
 		libgtkimageview.so:x11-toolkits/gtkimageview
 
-USES=		gmake gnome pkgconfig tar:bzip2 tcl
+USES=		canberra gmake gnome pkgconfig tar:bzip2 tcl
 USE_GNOME=	gtk20 libglade2
 USE_LDCONFIG=	yes
 CFLAGS+=	-I${TCL_INCLUDEDIR} -L${TCL_LIBDIR}

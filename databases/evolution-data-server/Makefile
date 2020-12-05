@@ -25,13 +25,11 @@ LIB_DEPENDS=	libsoup-2.4.so:devel/libsoup \
 		libjson-glib-1.0.so:devel/json-glib \
 		libp11-kit.so:security/p11-kit \
 		libnspr4.so:devel/nspr \
-		libsecret-1.so:security/libsecret \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
-		libcanberra.so:audio/libcanberra
+		libsecret-1.so:security/libsecret
 
 PORTSCOUT=	limitw:1,even
 
-USES=		bdb:5 cmake compiler:c++11-lib gettext gnome gperf \
+USES=		bdb:5 canberra:gtk3 cmake compiler:c++11-lib gettext gnome gperf \
 		iconv localbase pathfix pkgconfig python:3.6+,build\
 		sqlite tar:xz
 USE_CXXSTD=	gnu++11

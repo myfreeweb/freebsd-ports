@@ -18,9 +18,7 @@ BUILD_DEPENDS=	zenity>=3.0.0:x11/zenity \
 		iso-codes>=0:misc/iso-codes
 LIB_DEPENDS=	libck-connector.so:sysutils/consolekit2 \
 		libaccountsservice.so:sysutils/accountsservice \
-		libfribidi.so:converters/fribidi \
-		libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3
+		libfribidi.so:converters/fribidi
 RUN_DEPENDS=	zenity>=3.0.0:x11/zenity \
 		gnome-settings-daemon>=3.0.0:sysutils/gnome-settings-daemon \
 		gnome-keyring-3:security/gnome-keyring \
@@ -42,7 +40,8 @@ GROUPS=		gdm video
 
 PORTSCOUT=	limitw:1,even
 
-USES=		cpe gettext gmake gnome libtool localbase:ldflags pathfix pkgconfig tar:xz xorg
+USES=		canberra:gtk3 cpe gettext gmake gnome libtool localbase:ldflags \
+		pathfix pkgconfig tar:xz xorg
 CPE_VENDOR=	gnome
 CPE_PRODUCT=	gnome_display_manager
 USE_GNOME=	cairo dconf gtk30 intltool introspection

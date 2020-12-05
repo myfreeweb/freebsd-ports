@@ -15,9 +15,7 @@ BROKEN_i386=	ld: error: undefined symbol: __atomic_load
 
 EXTRACT_DEPENDS=	gtar:archivers/gtar # bsdtar(1) complains about hard links to itself
 BUILD_DEPENDS=	${LOCALBASE}/include/fftw3.h:math/fftw3
-LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
-		libexiv2.so:graphics/exiv2 \
+LIB_DEPENDS=	libexiv2.so:graphics/exiv2 \
 		libexpat.so:textproc/expat2 \
 		libfftw3f.so:math/fftw3-float \
 		liblensfun.so:graphics/lensfun \
@@ -25,7 +23,7 @@ LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
 		libpng.so:graphics/png \
 		libtiff.so:graphics/tiff
 
-USES=		cmake compiler:c++11-lang desktop-file-utils gnome jpeg pkgconfig tar:xz xorg
+USES=		canberra:gtk3 cmake compiler:c++11-lang desktop-file-utils gnome jpeg pkgconfig tar:xz xorg
 USE_GNOME=	atk atkmm cairo cairomm glibmm gtkmm30 librsvg2
 USE_XORG=	x11
 

@@ -14,9 +14,7 @@ LICENSE_COMB=	multi
 LICENSE_FILE_GPLv2+ =	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	itstool:textproc/itstool
-LIB_DEPENDS=	libcanberra-gtk.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
-		libdbus-1.so:devel/dbus \
+LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		libdbus-glib-1.so:devel/dbus-glib \
 		libxklavier.so:x11/libxklavier \
 		libfontconfig.so:x11-fonts/fontconfig \
@@ -28,7 +26,7 @@ LIB_DEPENDS=	libcanberra-gtk.so:audio/libcanberra \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		desktop-file-utils gettext gmake gnome libtool localbase mate \
+USES=		canberra:gtk3 desktop-file-utils gettext gmake gnome libtool localbase mate \
 		pathfix pkgconfig shared-mime-info tar:xz xorg
 USE_CSTD=	c99
 USE_MATE=	desktop libmatekbd marco menus settingsdaemon

@@ -16,12 +16,11 @@ LIB_DEPENDS=	libmusicbrainz5.so:audio/libmusicbrainz5 \
 		libdiscid.so:audio/libdiscid \
 		libtag.so:audio/taglib \
 		libdbus-glib-1.so:devel/dbus-glib \
-		libbrasero-media3.so:sysutils/brasero \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3
+		libbrasero-media3.so:sysutils/brasero
 
 PORTSCOUT=	limitw:1,even
 
-USES=		compiler:c11 desktop-file-utils gettext gnome meson \
+USES=		canberra:gtk3 compiler:c11 desktop-file-utils gettext gnome meson \
 		pkgconfig tar:xz
 USE_GSTREAMER1=	cdparanoia flac good vorbis
 USE_GNOME=	gtk30

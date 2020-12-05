@@ -21,8 +21,6 @@ BUILD_DEPENDS=	zenity>=3.0.0:x11/zenity \
 LIB_DEPENDS=	libstartup-notification-1.so:x11/startup-notification \
 		libfribidi.so:converters/fribidi \
 		libxkbcommon.so:x11/libxkbcommon \
-		libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
 		libupower-glib.so:sysutils/upower \
 		libjson-glib-1.0.so:devel/json-glib \
 		libxkbfile.so:x11/libxkbfile \
@@ -38,7 +36,7 @@ RUN_DEPENDS=	zenity>=3.0.0:x11/zenity \
 
 PORTSCOUT=	limitw:1,even
 
-USES=		compiler:c++0x gettext gl gnome localbase meson \
+USES=		canberra compiler:c++0x gettext gl gnome localbase meson \
 		pkgconfig tar:xz xorg
 USE_GL=		egl gbm
 USE_GNOME=	cairo gdkpixbuf2 gnomedesktop3 introspection

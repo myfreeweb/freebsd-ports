@@ -1,0 +1,5 @@
+lib/gtk-2.0/modules/libcanberra-gtk-module.so
+lib/libcanberra-gtk.so
+lib/libcanberra-gtk.so.0
+lib/libcanberra-gtk.so.0.1.9
+libdata/pkgconfig/libcanberra-gtk.pc

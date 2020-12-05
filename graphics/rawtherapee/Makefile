@@ -14,8 +14,6 @@ LICENSE=	GPLv3
 
 LIB_DEPENDS=	\
 		liblensfun.so:graphics/lensfun \
-		libcanberra-gtk.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
 		libexpat.so:textproc/expat2 \
 		libfftw3.so:math/fftw3 \
 		libfftw3f.so:math/fftw3-float \
@@ -27,7 +25,7 @@ LIB_DEPENDS=	\
 		libsigc-2.0.so:devel/libsigc++20 \
 		libtiff.so:graphics/tiff
 
-USES=		cmake desktop-file-utils compiler:gcc-c++11-lib gnome \
+USES=		canberra:gtk3 cmake desktop-file-utils compiler:gcc-c++11-lib gnome \
 		jpeg localbase:ldflags pkgconfig tar:xz
 
 # Binutils required for LTO (base ar/nm/ld/ranlib don't work)

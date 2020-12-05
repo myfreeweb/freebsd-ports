@@ -15,9 +15,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 BUILD_DEPENDS=	gnome-settings-daemon>=3.4.0:sysutils/gnome-settings-daemon \
 		gsettings-desktop-schemas>=3.2.2:devel/gsettings-desktop-schemas #\
 #		docbook-xsl>=0:textproc/docbook-xsl
-LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
-		libcups.so:print/cups \
+LIB_DEPENDS=	libcups.so:print/cups \
 		libpulse.so:audio/pulseaudio \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libclutter-gtk-1.0.so:graphics/clutter-gtk3 \

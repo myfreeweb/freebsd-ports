@@ -15,9 +15,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 BUILD_DEPENDS=	appstream-util:devel/appstream-glib \
 		itstool:textproc/itstool \
 		vala>0:lang/vala
-LIB_DEPENDS=	libcanberra-gtk3.so:audio/libcanberra-gtk3 \
-		libcanberra.so:audio/libcanberra \
-		libgee-0.8.so:devel/libgee \
+LIB_DEPENDS=	libgee-0.8.so:devel/libgee \
 		libgnome-games-support-1.so:games/libgnome-games-support
 
 PORTSCOUT=	limitw:1,even

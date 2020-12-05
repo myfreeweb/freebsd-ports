@@ -17,9 +17,7 @@ BUILD_DEPENDS=	zenity>=3.0.0:x11/zenity \
 		gsettings-desktop-schemas>=3.4.0:devel/gsettings-desktop-schemas \
 		gtkdocize:textproc/gtk-doc \
 		xkeyboard-config>0:x11/xkeyboard-config
-LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
-		libcinnamon-desktop.so:x11/cinnamon-desktop \
+LIB_DEPENDS=	libcinnamon-desktop.so:x11/cinnamon-desktop \
 		libdrm.so:graphics/libdrm \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
@@ -31,7 +29,7 @@ LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
 RUN_DEPENDS=	zenity>=3.0.0:x11/zenity \
 		xkeyboard-config>0:x11/xkeyboard-config
 
-USES=		autoreconf:build compiler:c11 gettext-tools gl gmake gnome \
+USES=		autoreconf:build canberra:gtk3 compiler:c11 gettext-tools gl gmake gnome \
 		libtool localbase pathfix pkgconfig xorg
 
 USE_GITHUB=	yes

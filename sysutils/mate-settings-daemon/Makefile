@@ -20,15 +20,13 @@ LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libpolkit-gobject-1.so:sysutils/polkit \
 		libstartup-notification-1.so:x11/startup-notification \
-		libcanberra-gtk.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
 		libnspr4.so:devel/nspr \
 		libnotify.so:devel/libnotify
 RUN_DEPENDS=	xrdb:x11/xrdb
 
 PORTSCOUT=	limitw:1,even
 
-USES=		gettext gmake gnome libtool localbase mate pathfix \
+USES=		canberra:gtk3 gettext gmake gnome libtool localbase mate pathfix \
 		pkgconfig tar:xz xorg
 USE_MATE=	desktop libmatekbd mixer
 USE_XORG=	ice sm x11 xext xi

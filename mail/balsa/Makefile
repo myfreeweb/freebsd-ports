@@ -3,7 +3,6 @@
 
 PORTNAME=	balsa
 PORTVERSION=	2.5.1
-PORTREVISION=	4
 CATEGORIES=	mail gnome
 MASTER_SITES=	http://pawsa.fedorapeople.org/balsa/
 
@@ -15,14 +14,13 @@ BUILD_DEPENDS=	gnome-keyring:security/gnome-keyring \
 		yelp-tools>=0:textproc/yelp-tools
 LIB_DEPENDS=	libpcre.so:devel/pcre \
 		libesmtp.so:mail/libesmtp \
-		libgmime-2.6.so:mail/gmime26 \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3
+		libgmime-2.6.so:mail/gmime26
 RUN_DEPENDS=	gnome-keyring:security/gnome-keyring
 
 # Depends on gtkhtml4 (which is being abandonend). When our webkitgtk3
 # in ports gets updated to > 1.10.x, balsa should depend on it.
-USES=		desktop-file-utils gettext gmake gnome iconv pathfix perl5 \
-		pkgconfig ssl tar:bzip2
+USES=		canberra:gtk3 desktop-file-utils gettext gmake gnome iconv pathfix \
+		perl5 pkgconfig ssl tar:bzip2
 USE_GNOME=	gnomeprefix gtkhtml4 intlhack libxslt
 INSTALLS_ICONS=	yes
 GNU_CONFIGURE=	yes

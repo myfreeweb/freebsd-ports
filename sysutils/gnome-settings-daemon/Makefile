@@ -12,9 +12,7 @@ COMMENT=	GNOME 3 settings daemon
 LICENSE=	GPLv2+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-LIB_DEPENDS=	libcanberra.so:audio/libcanberra \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
-		libpolkit-gobject-1.so:sysutils/polkit \
+LIB_DEPENDS=	libpolkit-gobject-1.so:sysutils/polkit \
 		libfontconfig.so:x11-fonts/fontconfig \
 		libcolord.so:graphics/colord \
 		liblcms2.so:graphics/lcms2 \
@@ -32,7 +30,7 @@ PORTSCOUT=	limitw:1,even
 
 USE_XORG=	x11 xext xi xtst
 USE_GNOME=	cairo gnomedesktop3 gtk30
-USES=		gettext gnome localbase:ldflags meson perl5 \
+USES=		canberra:gtk3 gettext gnome localbase:ldflags meson perl5 \
 		pkgconfig python:3.6+,build tar:xz xorg
 USE_PERL5=	build
 INSTALLS_ICONS=	yes

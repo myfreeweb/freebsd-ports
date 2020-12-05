@@ -11,12 +11,10 @@ LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 LIB_DEPENDS=	liblightdm-gobject-1.so:x11/lightdm \
-		libcanberra-gtk3.so:audio/libcanberra-gtk3 \
-		libcanberra.so:audio/libcanberra \
 		libfreetype.so:print/freetype2
 BUILD_DEPENDS=	valac:lang/vala
 
-USES=		autoreconf gettext gmake gnome localbase pkgconfig xorg
+USES=		autoreconf canberra:gtk3 gettext gmake gnome localbase pkgconfig xorg
 USE_GNOME=	cairo gdkpixbuf2 gtk30 intltool
 
 USE_XORG=	pixman x11 xext

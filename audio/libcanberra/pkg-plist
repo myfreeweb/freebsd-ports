@@ -1,20 +1,19 @@
-bin/canberra-gtk-play
-include/canberra-gtk.h
+@comment bin/canberra-gtk-play
 include/canberra.h
-lib/gnome-settings-daemon-3.0/gtk-modules/canberra-gtk-module.desktop
-lib/gtk-2.0/modules/libcanberra-gtk-module.so
-lib/libcanberra-gtk.so
-lib/libcanberra-gtk.so.0
-lib/libcanberra-gtk.so.0.1.9
+include/canberra-gtk.h
+%%CANBERRA_MODULE_DIR%%/libcanberra-multi.so
+%%CANBERRA_MODULE_DIR%%/libcanberra-null.so
+%%CANBERRA_MODULE_DIR%%/libcanberra-oss.so
+@comment lib/gnome-settings-daemon-3.0/gtk-modules/canberra-gtk-module.desktop
+@comment lib/gtk-3.0/modules/libcanberra-gtk-module.so
+@comment lib/gtk-3.0/modules/libcanberra-gtk3-module.so
+@comment lib/libcanberra-gtk3.so
+@comment lib/libcanberra-gtk3.so.0
+@comment lib/libcanberra-gtk3.so.0.1.9
 lib/libcanberra.so
 lib/libcanberra.so.0
 lib/libcanberra.so.0.2.5
-%%GSTREAMER%%lib/libcanberra-%%VERSION%%/libcanberra-gstreamer.so
-lib/libcanberra-%%VERSION%%/libcanberra-multi.so
-lib/libcanberra-%%VERSION%%/libcanberra-null.so
-lib/libcanberra-%%VERSION%%/libcanberra-oss.so
-%%PULSE%%lib/libcanberra-%%VERSION%%/libcanberra-pulse.so
-libdata/pkgconfig/libcanberra-gtk.pc
+@comment libdata/pkgconfig/libcanberra-gtk3.pc
 libdata/pkgconfig/libcanberra.pc
 %%DOCSDIR%%/README
 %%DOCSDIR%%/ch01.html
@@ -28,8 +27,8 @@ libdata/pkgconfig/libcanberra.pc
 %%DOCSDIR%%/right.png
 %%DOCSDIR%%/style.css
 %%DOCSDIR%%/up.png
-share/gdm/autostart/LoginWindow/libcanberra-ready-sound.desktop
-share/gnome/autostart/libcanberra-login-sound.desktop
-share/gnome/shutdown/libcanberra-logout-sound.sh
-share/vala/vapi/libcanberra-gtk.vapi
+@comment share/gdm/autostart/LoginWindow/libcanberra-ready-sound.desktop
+@comment share/gnome/autostart/libcanberra-login-sound.desktop
+@comment share/gnome/shutdown/libcanberra-logout-sound.sh
 share/vala/vapi/libcanberra.vapi
+share/vala/vapi/libcanberra-gtk.vapi
