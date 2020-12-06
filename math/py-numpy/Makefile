@@ -1,16 +1,15 @@
 # Created by: Tony Maher
 
 PORTNAME=	numpy
-PORTVERSION=	1.16.6
-PORTREVISION=	1
+PORTVERSION=	1.20.2
 PORTEPOCH=	1
 CATEGORIES=	math python
 MASTER_SITES=	CHEESESHOP \
-		https://docs.scipy.org/doc/${PORTNAME}-${PORTVERSION}/:doc
+		https://numpy.org/doc/${PORTVERSION:R}/:doc
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX} \
-		${PORTNAME}-ref-${PORTVERSION:R}.1.pdf:doc \
-		${PORTNAME}-user-${PORTVERSION:R}.1.pdf:doc
+		${PORTNAME}-ref.pdf:doc \
+		${PORTNAME}-user.pdf:doc
 EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
 
 MAINTAINER=	python@FreeBSD.org
@@ -19,7 +18,8 @@ COMMENT=	The New Numeric Extension to Python
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pytest>=0:devel/py-pytest@${PY_FLAVOR}
+TEST_DEPENDS=	${PYTHON_PKGNAMEPREFIX}pytest>=0:devel/py-pytest@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}hypothesis>=0:devel/py-hypothesis@${PY_FLAVOR}
 
 USES=		compiler:c11 fortran python:3.6+ zip
 USE_PYTHON=	allflavors autoplist concurrent cython distutils
@@ -65,11 +65,12 @@ pre-configure:
 
 post-install:
 	${FIND} ${STAGEDIR}${PYTHON_SITELIBDIR} -name '*.so' | ${XARGS} ${STRIP_CMD}
+	${REINPLACE_CMD} -e '\|_examples/$$|d' ${_PYTHONPKGLIST}
 
 post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
-	${INSTALL_DATA} ${DISTDIR}/${PORTNAME}-ref-${PORTVERSION:R}.1.pdf ${STAGEDIR}${DOCSDIR}
-	${INSTALL_DATA} ${DISTDIR}/${PORTNAME}-user-${PORTVERSION:R}.1.pdf ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${DISTDIR}/${PORTNAME}-ref.pdf ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${DISTDIR}/${PORTNAME}-user.pdf ${STAGEDIR}${DOCSDIR}
 
 do-test:
 	@cd ${WRKSRC} && ${PYTHON_CMD} runtests.py
