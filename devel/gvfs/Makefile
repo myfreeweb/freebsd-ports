@@ -12,7 +12,8 @@ COMMENT=	GNOME virtual file system
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-BUILD_DEPENDS=	docbook-xsl>=0:textproc/docbook-xsl
+BUILD_DEPENDS=	docbook-xsl>=0:textproc/docbook-xsl \
+		ssh:security/openssh-portable
 LIB_DEPENDS=	libgcrypt.so:security/libgcrypt \
 		libdbus-1.so:devel/dbus \
 		libgcr-base-3.so:security/gcr \
@@ -21,7 +22,8 @@ LIB_DEPENDS=	libgcrypt.so:security/libgcrypt \
 		libudisks2.so:sysutils/libudisks \
 		libsecret-1.so:security/libsecret
 
-RUN_DEPENDS=	bsdisks>0:sysutils/bsdisks
+RUN_DEPENDS=	bsdisks>0:sysutils/bsdisks \
+		ssh:security/openssh-portable
 PORTSCOUT=	limitw:1,even
 
 USES=		gettext gnome libarchive localbase meson \

@@ -13,6 +13,7 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	gnupg>=2.1.4:security/gnupg \
+		ssh:security/openssh-portable \
 		itstool:textproc/itstool \
 		valac:lang/vala
 LIB_DEPENDS=	libgcr-base-3.so:security/gcr \
@@ -21,7 +22,8 @@ LIB_DEPENDS=	libgcr-base-3.so:security/gcr \
 		libpwquality.so:security/libpwquality \
 		libsecret-1.so:security/libsecret \
 		libsoup-2.4.so:devel/libsoup
-RUN_DEPENDS=	gnupg>=2.1.4:security/gnupg
+RUN_DEPENDS=	gnupg>=2.1.4:security/gnupg \
+		ssh:security/openssh-portable
 
 USES=		gettext gnome localbase:ldflags meson pkgconfig \
 		python:3.5+,build tar:xz xorg

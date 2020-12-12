@@ -14,6 +14,7 @@ LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=	ca_root_nss>=0:security/ca_root_nss \
+		ssh:security/openssh-portable \
 		docbook-xsl>=0:textproc/docbook-xsl \
 		gcr>=3.5.3:security/gcr
 LIB_DEPENDS=	libdbus-1.so:devel/dbus \
@@ -23,6 +24,7 @@ LIB_DEPENDS=	libdbus-1.so:devel/dbus \
 		libp11-kit.so:security/p11-kit \
 		libgcrypt.so:security/libgcrypt
 RUN_DEPENDS=	ca_root_nss>=0:security/ca_root_nss \
+		ssh:security/openssh-portable \
 		pinentry-gnome3:security/pinentry-gnome3
 
 PORTSCOUT=	limitw:1,even
