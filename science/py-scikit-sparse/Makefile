@@ -23,6 +23,10 @@ USE_PYTHON=	distutils cython autoplist
 CFLAGS+=	-I${LOCALBASE}/include/suitesparse
 LDFLAGS+=	-shared
 
+# force cython regeneration to use new cython, compatible with py3.9
+post-extract:
+	${RM} ${WRKSRC}/sksparse/cholmod.c
+
 post-install:
 	@${STRIP_CMD} ${STAGEDIR}${PYTHONPREFIX_SITELIBDIR}/sksparse/cholmod*.so
 
