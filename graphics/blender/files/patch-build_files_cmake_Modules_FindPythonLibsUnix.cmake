@@ -5,7 +5,7 @@
  ENDIF()
 
 -SET(PYTHON_VERSION 3.7 CACHE STRING "Python Version (major and minor only)")
-+SET(PYTHON_VERSION 3.8 CACHE STRING "Python Version (major and minor only)")
++SET(PYTHON_VERSION 3.9 CACHE STRING "Python Version (major and minor only)")
  MARK_AS_ADVANCED(PYTHON_VERSION)
 
 
