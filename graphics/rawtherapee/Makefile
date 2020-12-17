@@ -25,24 +25,13 @@ LIB_DEPENDS=	\
 		libsigc-2.0.so:devel/libsigc++20 \
 		libtiff.so:graphics/tiff
 
-USES=		canberra:gtk3 cmake desktop-file-utils compiler:gcc-c++11-lib gnome \
+USES=		canberra:gtk3 cmake desktop-file-utils gnome \
 		jpeg localbase:ldflags pkgconfig tar:xz
-
-# Binutils required for LTO (base ar/nm/ld/ranlib don't work)
-USE_BINUTILS=	yes
-
-# As of 2019-09-29, this port is known to be miscompiled by clang90
-# (SIGSEGV or SIBGUS).
-# So we shall stick to a modern GCC for now,
-# XXX FIXME note that rawtherapee is somewhat sensitive 
-# versus compiler details so we may need to pin GCC 9.x
-# or a version range.
-USE_GCC=	yes
 
 USE_GNOME=	gtkmm30 librsvg2
 INSTALLS_ICONS=	yes
 
-_LTO_FLAGS=	-flto=${MAKE_JOBS_NUMBER}
+_LTO_FLAGS=	-flto=thin
 # gcc needs -flto=${MAKE_JOBS_NUMBER} for parallel link (fixed in GCC 10?)
 #     and does not understand -flto=thin
 #
@@ -56,8 +45,8 @@ _LTO_FLAGS=	-flto=${MAKE_JOBS_NUMBER}
 # (For some reason, poudriere does not trigger this.)
 BINARY_ALIAS+=	ar=${AR} ranlib=${RANLIB}
 #
-_AR=		${CC:S/gcc/gcc-ar/}
-_RANLIB=	${CC:S/gcc/gcc-ranlib/}
+_AR=		${AR}
+_RANLIB=	${RANLIB}
 CMAKE_ARGS+=	-DDOCDIR="${DOCSDIR}" \
 		-DCREDITSDIR="${DOCSDIR}" \
 		-DLICENCEDIR="${DOCSDIR}" \
@@ -120,8 +109,8 @@ ONLY_FOR_ARCHS_REASON=On i386, rawtherapee malfunctions under FreeBSD 11.x - upg
 # don't waste everybody's time with Tier-2 and moving targets.
 # might add ARM64 later on if they are established by the
 # time FreeBSD 13 is out.
-ONLY_FOR_ARCHS=	amd64
-ONLY_FOR_ARCHS_REASON=Only amd64 is supported on non-released FreeBSD versions.
+ONLY_FOR_ARCHS=	aarch64 amd64
+ONLY_FOR_ARCHS_REASON=Only aarch64/amd64 is supported on non-released FreeBSD versions.
 .endif
 
 .if ${PORT_OPTIONS:MNATIVE}
@@ -129,14 +118,14 @@ CMAKE_ARGS+=	-DPROC_TARGET_NUMBER="2"
 .endif
 
 .if !empty(PORT_OPTIONS:MOPENMP) && !empty(OPTIONS_DEFINE:MOPENMP)
-OPENMP_FLAGS=	-lm -lomp
+OPENMP_FLAGS=	-lm -L${LOCALBASE}/llvm11/lib -lomp
 LDFLAGS+=	${OPENMP_FLAGS}
 .endif
 
 .if defined(WITH_DEBUG)
 STRIP=
 CMAKE_BUILD_TYPE=	None	# Arch Linux packaging trick to avoid cmake overriding our flags
-_OPT_FLAGS=	-ggdb3 -Og	# -Og is GCC-specific, use -O1 for clang
+_OPT_FLAGS=	-g -O1	# -Og is GCC-specific, use -O1 for clang
 .else
 _OPT_FLAGS=	-O3 -funroll-loops
 .endif
