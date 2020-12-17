@@ -75,4 +75,7 @@ _DESTDIR_VIA_ENV=	yes
 RUN_DEPENDS+=	${NINJA_CMD}:${_NINJA_PORT}
 .endif
 
+# Limit starting jobs by load average
+MAKE_ARGS+=	-l${MAKE_JOBS_NUMBER}
+
 .endif

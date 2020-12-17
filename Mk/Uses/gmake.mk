@@ -16,4 +16,7 @@ BUILD_DEPENDS+=		gmake>=4.3:devel/gmake
 CONFIGURE_ENV+=		MAKE=gmake
 MAKE_CMD=		gmake
 
+# Limit starting jobs by load average
+MAKE_ARGS+=	-l${MAKE_JOBS_NUMBER}
+
 .endif
