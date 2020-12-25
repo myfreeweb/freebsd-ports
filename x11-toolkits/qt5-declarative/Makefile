@@ -15,7 +15,7 @@ USE_QT=		core gui network sql testlib \
 
 CONFLICTS=	qt5-declarative-render2d-* qt5-qml qt5-quick
 
-BINARY_ALIAS=	python=${PYTHON_CMD}
+BINARY_ALIAS+=	python=${PYTHON_CMD}
 
 QT_BINARIES=	yes
 QT_DEFINES=	ACCESSIBILITY
