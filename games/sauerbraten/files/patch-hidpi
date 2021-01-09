@@ -1,0 +1,53 @@
+--- src/engine/main.cpp.orig	2021-01-09 23:23:29 UTC
++++ src/engine/main.cpp
+@@ -534,7 +534,10 @@ void setfullscreen(bool enable)
+     SDL_SetWindowFullscreen(screen, enable ? (fullscreendesktop ? SDL_WINDOW_FULLSCREEN_DESKTOP : SDL_WINDOW_FULLSCREEN) : 0);
+     if(!enable)
+     {
+-        SDL_SetWindowSize(screen, scr_w, scr_h);
++        int w,h,sw,sh;
++        SDL_GetWindowSize(screen, &w, &h);
++        SDL_GL_GetDrawableSize(screen, &sw, &sh);
++        SDL_SetWindowSize(screen, scr_w / (sw / w), scr_h / (sh / h));
+         if(initwindowpos)
+         {
+             int winx = SDL_WINDOWPOS_CENTERED, winy = SDL_WINDOWPOS_CENTERED;
+@@ -577,7 +580,10 @@ void screenres(int w, int h)
+         } 
+         else
+         {
+-            SDL_SetWindowSize(screen, scr_w, scr_h);
++            int w,h,sw,sh;
++            SDL_GetWindowSize(screen, &w, &h);
++            SDL_GL_GetDrawableSize(screen, &sw, &sh);
++            SDL_SetWindowSize(screen, scr_w / (sw / w), scr_h / (sh / h));
+             SDL_SetWindowPosition(screen, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+             initwindowpos = false;
+         }
+@@ -656,7 +662,7 @@ void setupscreen()
+         scr_h = min(scr_h, desktoph);
+     }
+ 
+-    int winx = SDL_WINDOWPOS_UNDEFINED, winy = SDL_WINDOWPOS_UNDEFINED, winw = scr_w, winh = scr_h, flags = SDL_WINDOW_RESIZABLE;
++    int winx = SDL_WINDOWPOS_UNDEFINED, winy = SDL_WINDOWPOS_UNDEFINED, winw = scr_w, winh = scr_h, flags = SDL_WINDOW_RESIZABLE|SDL_WINDOW_ALLOW_HIGHDPI;
+     if(fullscreen)
+     {
+         if(fullscreendesktop)
+@@ -730,7 +736,7 @@ void setupscreen()
+     SDL_SetWindowMinimumSize(screen, SCR_MINW, SCR_MINH);
+     SDL_SetWindowMaximumSize(screen, SCR_MAXW, SCR_MAXH);
+ 
+-    SDL_GetWindowSize(screen, &screenw, &screenh);
++    SDL_GL_GetDrawableSize(screen, &screenw, &screenh);
+ }
+ 
+ void resetgl()
+@@ -977,7 +983,7 @@ void checkinput()
+ 
+                     case SDL_WINDOWEVENT_SIZE_CHANGED:
+                     {
+-                        SDL_GetWindowSize(screen, &screenw, &screenh);
++                        SDL_GL_GetDrawableSize(screen, &screenw, &screenh);
+                         if(!fullscreendesktop || !(SDL_GetWindowFlags(screen) & SDL_WINDOW_FULLSCREEN))
+                         {
+                             scr_w = clamp(screenw, SCR_MINW, SCR_MAXW);
