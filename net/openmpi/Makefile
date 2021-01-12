@@ -18,6 +18,8 @@ LIB_DEPENDS=	libhwloc.so.15:devel/hwloc2 \
 		libevent.so:devel/libevent \
 		libmunge.so:security/munge
 
+_CPUCFLAGS:=
+
 # :keepla because port uses lt_dlopen
 USES=		fortran gmake libtool:keepla localbase perl5 \
 		pkgconfig shebangfix tar:bzip2
