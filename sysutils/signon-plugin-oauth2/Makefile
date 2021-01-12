@@ -15,7 +15,7 @@ USE_QT=		core network testlib \
 		buildtools_build qmake_build
 USE_LDCONFIG=	${PREFIX}/lib/signon
 
-QMAKE_ENV=	PREFIX=${PREFIX}
+CONFIGURE_ENV+=	PREFIX=${PREFIX}
 
 # gitlab variables
 USE_GITLAB=	yes
