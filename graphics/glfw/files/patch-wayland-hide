@@ -1,0 +1,106 @@
+Backport of https://github.com/glfw/glfw/pull/1731
+
+--- src/context.c.orig	2021-01-19 13:24:45 UTC
++++ src/context.c
+@@ -566,7 +566,7 @@ GLFWbool _glfwRefreshContextAttribs(_GLFWwindow* windo
+ 
+     // Clearing the front buffer to black to avoid garbage pixels left over from
+     // previous uses of our bit of VRAM
+-    {
++    if (_glfwPlatformWindowVisible(window)) {
+         PFNGLCLEARPROC glClear = (PFNGLCLEARPROC)
+             window->context.getProcAddress("glClear");
+         glClear(GL_COLOR_BUFFER_BIT);
+--- src/egl_context.c.orig	2021-01-19 13:24:56 UTC
++++ src/egl_context.c
+@@ -221,7 +221,7 @@ static void makeContextCurrentEGL(_GLFWwindow* window)
+     _glfwPlatformSetTls(&_glfw.contextSlot, window);
+ }
+ 
+-static void swapBuffersEGL(_GLFWwindow* window)
++void swapBuffersEGL(_GLFWwindow* window)
+ {
+     if (window != _glfwPlatformGetTls(&_glfw.contextSlot))
+     {
+--- src/wl_window.c.orig	2021-01-19 13:25:12 UTC
++++ src/wl_window.c
+@@ -913,6 +913,14 @@ static char *translateCursorShape(int shape)
+     return NULL;
+ }
+ 
++void swapBuffersEGL(_GLFWwindow* window);
++
++static void swapBuffersWL(_GLFWwindow* window)
++{
++    if (window->wl.visible)
++        swapBuffersEGL(window);
++}
++
+ //////////////////////////////////////////////////////////////////////////
+ //////                       GLFW platform API                      //////
+ //////////////////////////////////////////////////////////////////////////
+@@ -936,6 +944,7 @@ int _glfwPlatformCreateWindow(_GLFWwindow* window,
+                 return GLFW_FALSE;
+             if (!_glfwCreateContextEGL(window, ctxconfig, fbconfig))
+                 return GLFW_FALSE;
++            window->context.swapBuffers = swapBuffersWL;
+         }
+         else if (ctxconfig->source == GLFW_OSMESA_CONTEXT_API)
+         {
+@@ -949,19 +958,11 @@ int _glfwPlatformCreateWindow(_GLFWwindow* window,
+     if (wndconfig->title)
+         window->wl.title = _glfw_strdup(wndconfig->title);
+ 
++    if (!createXdgSurface(window))
++        return GLFW_FALSE;
++
+     if (wndconfig->visible)
+     {
+-        if (_glfw.wl.wmBase)
+-        {
+-            if (!createXdgSurface(window))
+-                return GLFW_FALSE;
+-        }
+-        else
+-        {
+-            if (!createShellSurface(window))
+-                return GLFW_FALSE;
+-        }
+-
+         window->wl.visible = GLFW_TRUE;
+     }
+     else
+@@ -1193,29 +1194,17 @@ void _glfwPlatformShowWindow(_GLFWwindow* window)
+ {
+     if (!window->wl.visible)
+     {
+-        if (_glfw.wl.wmBase)
+-            createXdgSurface(window);
+-        else if (!window->wl.shellSurface)
+-            createShellSurface(window);
+         window->wl.visible = GLFW_TRUE;
+     }
+ }
+ 
+ void _glfwPlatformHideWindow(_GLFWwindow* window)
+ {
+-    if (window->wl.xdg.toplevel)
+-    {
+-        xdg_toplevel_destroy(window->wl.xdg.toplevel);
+-        xdg_surface_destroy(window->wl.xdg.surface);
+-        window->wl.xdg.toplevel = NULL;
+-        window->wl.xdg.surface = NULL;
++    if (window->wl.visible) {
++        wl_surface_attach(window->wl.surface, NULL, 0, 0);
++        wl_surface_commit(window->wl.surface);
++        window->wl.visible = GLFW_FALSE;
+     }
+-    else if (window->wl.shellSurface)
+-    {
+-        wl_shell_surface_destroy(window->wl.shellSurface);
+-        window->wl.shellSurface = NULL;
+-    }
+-    window->wl.visible = GLFW_FALSE;
+ }
+ 
+ void _glfwPlatformRequestWindowAttention(_GLFWwindow* window)
