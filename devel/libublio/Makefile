@@ -13,6 +13,9 @@ LICENSE=	BSD2CLAUSE
 
 USE_LDCONFIG=	yes
 
+# DankBSD: hmmmmm??
+NO_PROFILE= yes
+
 .if defined(NO_PROFILE) || defined(NOPROFILE) || defined(WITHOUT_PROFILE) || "${MK_PROFILE}" == "no"
 PLIST_SUB+=	PROFLIB="@comment "
 .else
