@@ -1,0 +1,10 @@
+--- Makefile.orig	2021-02-25 14:56:36 UTC
++++ Makefile
+@@ -1,6 +1,6 @@
+ .POSIX:
+ CC	= cc
+-CFLAGS	= -Wall -pedantic
++CFLAGS	?= -Wall -pedantic
+ LDLIBS	= $(shell pkg-config --libs ncurses panel)
+ PREFIX	= /usr/local
+ 
