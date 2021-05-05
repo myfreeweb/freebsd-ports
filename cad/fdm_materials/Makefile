@@ -1,6 +1,6 @@
 PORTNAME=	fdm_materials
 PORTEPOCH=	1
-DISTVERSION=	4.7.1
+DISTVERSION=	4.9.0
 CATEGORIES=	cad
 DIST_SUBDIR=	Ultimaker
 
@@ -14,7 +14,6 @@ USES=		cmake
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	Ultimaker
-GH_TAGNAME=	c7331d5ea
 NO_ARCH=	yes
 STRIP=
 

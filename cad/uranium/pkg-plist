@@ -16,6 +16,7 @@
 %%PYTHON_SITELIBDIR%%/UM/FileHandler/ReadFileJob.py
 %%PYTHON_SITELIBDIR%%/UM/FileHandler/WriteFileJob.py
 %%PYTHON_SITELIBDIR%%/UM/FileHandler/__init__.py
+%%PYTHON_SITELIBDIR%%/UM/FileProvider.py
 %%PYTHON_SITELIBDIR%%/UM/FlameProfiler.py
 %%PYTHON_SITELIBDIR%%/UM/InputDevice.py
 %%PYTHON_SITELIBDIR%%/UM/Job.py
@@ -44,6 +45,7 @@
 %%PYTHON_SITELIBDIR%%/UM/Message.py
 %%PYTHON_SITELIBDIR%%/UM/MimeTypeDatabase.py
 %%PYTHON_SITELIBDIR%%/UM/Operations/AddSceneNodeOperation.py
+%%PYTHON_SITELIBDIR%%/UM/Operations/GravityOperation.py
 %%PYTHON_SITELIBDIR%%/UM/Operations/GroupedOperation.py
 %%PYTHON_SITELIBDIR%%/UM/Operations/LayFlatOperation.py
 %%PYTHON_SITELIBDIR%%/UM/Operations/MirrorOperation.py
@@ -59,6 +61,7 @@
 %%PYTHON_SITELIBDIR%%/UM/OutputDevice/OutputDeviceError.py
 %%PYTHON_SITELIBDIR%%/UM/OutputDevice/OutputDeviceManager.py
 %%PYTHON_SITELIBDIR%%/UM/OutputDevice/OutputDevicePlugin.py
+%%PYTHON_SITELIBDIR%%/UM/OutputDevice/ProjectOutputDevice.py
 %%PYTHON_SITELIBDIR%%/UM/OutputDevice/__init__.py
 %%PYTHON_SITELIBDIR%%/UM/PackageManager.py
 %%PYTHON_SITELIBDIR%%/UM/Platform.py
@@ -73,6 +76,7 @@
 %%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/ContainerProxy.py
 %%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/ControllerProxy.py
 %%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/ExtensionModel.py
+%%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/FileProviderModel.py
 %%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/MainWindow.py
 %%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/OpenGLContextProxy.py
 %%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/OperationStackProxy.py
@@ -80,6 +84,7 @@
 %%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/OutputDevicesModel.py
 %%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/PointingRectangle.py
 %%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/PreferencesProxy.py
+%%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/ProjectOutputDevicesModel.py
 %%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/ResourcesProxy.py
 %%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/SelectionProxy.py
 %%PYTHON_SITELIBDIR%%/UM/Qt/Bindings/StageModel.py
@@ -201,7 +206,14 @@ lib/uranium/plugins/FileHandlers/OBJReader/OBJReader.py
 lib/uranium/plugins/FileHandlers/OBJReader/__init__.py
 lib/uranium/plugins/FileHandlers/OBJReader/plugin.json
 lib/uranium/plugins/FileHandlers/OBJReader/tests/TestOBJReader.py
+lib/uranium/plugins/FileHandlers/OBJReader/tests/negative_indexed.obj
+lib/uranium/plugins/FileHandlers/OBJReader/tests/negative_interweaved.obj
 lib/uranium/plugins/FileHandlers/OBJReader/tests/sphere.obj
+lib/uranium/plugins/FileHandlers/OBJReader/tests/vertex_duplicated.obj
+lib/uranium/plugins/FileHandlers/OBJReader/tests/vertex_indexed.obj
+lib/uranium/plugins/FileHandlers/OBJReader/tests/vertex_normal_indexed.obj
+lib/uranium/plugins/FileHandlers/OBJReader/tests/vertex_texture_indexed.obj
+lib/uranium/plugins/FileHandlers/OBJReader/tests/vertex_texture_normal_indexed.obj
 lib/uranium/plugins/FileHandlers/OBJWriter/OBJWriter.py
 lib/uranium/plugins/FileHandlers/OBJWriter/__init__.py
 lib/uranium/plugins/FileHandlers/OBJWriter/plugin.json

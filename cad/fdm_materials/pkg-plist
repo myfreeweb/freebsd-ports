@@ -1,3 +1,5 @@
+share/cura/resources/materials/3D-Fuel_PLA_PRO_Black.xml.fdm_material
+share/cura/resources/materials/3D-Fuel_PLA_SnapSupport.xml.fdm_material
 share/cura/resources/materials/Vertex_Delta_ABS.xml.fdm_material
 share/cura/resources/materials/Vertex_Delta_PET.xml.fdm_material
 share/cura/resources/materials/Vertex_Delta_PLA.xml.fdm_material
@@ -6,6 +8,9 @@ share/cura/resources/materials/Vertex_Delta_PLA_Mat.xml.fdm_material
 share/cura/resources/materials/Vertex_Delta_PLA_Satin.xml.fdm_material
 share/cura/resources/materials/Vertex_Delta_PLA_Wood.xml.fdm_material
 share/cura/resources/materials/Vertex_Delta_TPU.xml.fdm_material
+share/cura/resources/materials/bestfilament_abs_skyblue.xml.fdm_material
+share/cura/resources/materials/bestfilament_petg_orange.xml.fdm_material
+share/cura/resources/materials/bestfilament_pla_green.xml.fdm_material
 share/cura/resources/materials/chromatik_pla.xml.fdm_material
 share/cura/resources/materials/dsm_arnitel2045_175.xml.fdm_material
 share/cura/resources/materials/dsm_novamid1070_175.xml.fdm_material
@@ -18,6 +23,7 @@ share/cura/resources/materials/eSUN_PLA_PRO_Purple.xml.fdm_material
 share/cura/resources/materials/eSUN_PLA_PRO_White.xml.fdm_material
 share/cura/resources/materials/emotiontech_abs.xml.fdm_material
 share/cura/resources/materials/emotiontech_absx.xml.fdm_material
+share/cura/resources/materials/emotiontech_acetate.xml.fdm_material
 share/cura/resources/materials/emotiontech_asax.xml.fdm_material
 share/cura/resources/materials/emotiontech_bvoh.xml.fdm_material
 share/cura/resources/materials/emotiontech_hips.xml.fdm_material
@@ -30,6 +36,9 @@ share/cura/resources/materials/fabtotum_abs.xml.fdm_material
 share/cura/resources/materials/fabtotum_nylon.xml.fdm_material
 share/cura/resources/materials/fabtotum_pla.xml.fdm_material
 share/cura/resources/materials/fabtotum_tpu.xml.fdm_material
+share/cura/resources/materials/fdplast_abs_tomato.xml.fdm_material
+share/cura/resources/materials/fdplast_petg_gray.xml.fdm_material
+share/cura/resources/materials/fdplast_pla_olive.xml.fdm_material
 share/cura/resources/materials/fiberlogy_hd_pla.xml.fdm_material
 share/cura/resources/materials/filo3d_pla.xml.fdm_material
 share/cura/resources/materials/filo3d_pla_green.xml.fdm_material

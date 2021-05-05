@@ -1,6 +1,5 @@
 PORTNAME=	pynest2d
-DISTVERSION=	4.8.0
-PORTREVISION=	3
+DISTVERSION=	4.9.0
 CATEGORIES=	devel python
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
@@ -20,7 +19,7 @@ USES=		python:3.6+ cmake compiler:c++11-lang pyqt:5 pkgconfig
 USE_PYTHON=	flavors
 
 USE_GITHUB=	yes
-GH_TUPLE=	Ultimaker:pynest2d:d31a381
+GH_TUPLE=	Ultimaker:pynest2d:1548790408
 USE_PYQT=	sip pysip
 CMAKE_ARGS=	-DSIP_EXECUTABLE=${SIP} \
 			-DLIBNEST2D_INCLUDE_DIRS=${PREFIX}/include/libnest2d

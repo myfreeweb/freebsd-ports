@@ -18,5 +18,5 @@
 %%PYTHON_SITELIBDIR%%/Charon/filetypes/OpenPackagingConvention.py
 %%PYTHON_SITELIBDIR%%/Charon/filetypes/UltimakerFormatPackage.py
 %%PYTHON_SITELIBDIR%%/Charon/filetypes/__init__.py
-lib/systemd/system/charon.service
+@comment lib/systemd/system/charon.service
 share/dbus-1/system.d/nl.ultimaker.charon.conf
